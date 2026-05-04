@@ -18,6 +18,7 @@ const state = {
   drawCurrent: null,
   pendingBox: null,
   selectedComponent: null,
+  selectedNet: null,   // net.name (only one of selectedComponent/selectedNet active)
   pinDrag: null,
   bboxResize: null,
   bboxTranslate: null,
@@ -244,9 +245,10 @@ function drawNets() {
     }
     if (points.length < 2) continue;
     const color = edgeTypeColor(points[0].ep.edge_type);
-    // Dark halo for contrast against white paper.
-    ctx.strokeStyle = "rgba(0,0,0,0.6)";
-    ctx.lineWidth = 5;
+    const isSelected = state.selectedNet === net.name;
+    // Dark halo for contrast against white paper. Wider when selected.
+    ctx.strokeStyle = isSelected ? "rgba(255,204,51,0.85)" : "rgba(0,0,0,0.6)";
+    ctx.lineWidth = isSelected ? 8 : 5;
     ctx.beginPath();
     const first = imgToCanvas(points[0].pos[0], points[0].pos[1]);
     ctx.moveTo(first.x, first.y);
@@ -257,7 +259,7 @@ function drawNets() {
     ctx.stroke();
     // Bright color line on top.
     ctx.strokeStyle = color;
-    ctx.lineWidth = 2.5;
+    ctx.lineWidth = isSelected ? 3.5 : 2.5;
     ctx.beginPath();
     ctx.moveTo(first.x, first.y);
     for (let i = 1; i < points.length; i++) {
@@ -269,10 +271,40 @@ function drawNets() {
       const a = imgToCanvas(points[0].pos[0], points[0].pos[1]);
       const b = imgToCanvas(points[1].pos[0], points[1].pos[1]);
       ctx.fillStyle = color;
-      ctx.font = "10px ui-monospace, monospace";
+      ctx.font = isSelected ? "bold 12px ui-monospace, monospace" : "10px ui-monospace, monospace";
       ctx.fillText(net.name, (a.x + b.x) / 2 + 4, (a.y + b.y) / 2 - 4);
     }
   }
+}
+
+// Distance from point (px,py) to line segment (ax,ay)-(bx,by).
+function pointToSegmentDist(px, py, ax, ay, bx, by) {
+  const dx = bx - ax, dy = by - ay;
+  const lenSq = dx * dx + dy * dy;
+  if (lenSq === 0) return Math.hypot(px - ax, py - ay);
+  let t = ((px - ax) * dx + (py - ay) * dy) / lenSq;
+  t = Math.max(0, Math.min(1, t));
+  return Math.hypot(px - (ax + t * dx), py - (ay + t * dy));
+}
+
+function hitTestNet(cx, cy) {
+  const nets = state.graph?.nets || [];
+  let best = null;
+  let bestDist = 6; // pixel tolerance
+  for (const net of nets) {
+    if (!net.endpoints || net.endpoints.length < 2) continue;
+    const pts = [];
+    for (const ep of net.endpoints) {
+      if (ep.sheet !== undefined && ep.sheet !== state.sheetIndex) continue;
+      const pos = getPinSourcePos(ep.refdes, ep.pin);
+      if (pos) pts.push(imgToCanvas(pos[0], pos[1]));
+    }
+    for (let i = 0; i < pts.length - 1; i++) {
+      const d = pointToSegmentDist(cx, cy, pts[i].x, pts[i].y, pts[i+1].x, pts[i+1].y);
+      if (d < bestDist) { bestDist = d; best = net.name; }
+    }
+  }
+  return best;
 }
 
 async function api(path, opts = {}) {
@@ -410,10 +442,25 @@ function refreshNetsList() {
     const eps = net.endpoints.map(e => `${e.refdes}.${e.pin}`).join(" ⟷ ");
     const et = net.endpoints[0]?.edge_type || "?";
     li.innerHTML = `<span style="color:${edgeTypeColor(et)}">●</span> <strong>${net.name}</strong> <small>${eps}</small>`;
+    if (state.selectedNet === net.name) li.classList.add("selected-net");
+    li.style.cursor = "pointer";
+    li.addEventListener("click", () => selectNet(net.name));
     ul.appendChild(li);
   }
   const c = $("#net-count");
   if (c) c.textContent = `(${nets.length})`;
+}
+
+function deleteSelectedNet() {
+  const name = state.selectedNet;
+  if (!name) return;
+  if (!confirm(`Delete net ${name}?`)) return;
+  state.graph.nets = (state.graph.nets || []).filter(n => n.name !== name);
+  state.selectedNet = null;
+  refreshNetsList();
+  refreshSelection();
+  render();
+  setStatus(`deleted net ${name} — ⌘S to save`);
 }
 
 function refreshComponents() {
@@ -443,8 +490,20 @@ function refreshComponents() {
 
 function refreshSelection() {
   const el = $("#selection-info");
+  if (state.selectedNet) {
+    const net = (state.graph?.nets || []).find(n => n.name === state.selectedNet);
+    if (!net) { state.selectedNet = null; el.textContent = "(click a chip or net)"; return; }
+    const eps = net.endpoints.map(e => `${e.refdes}.${e.pin}`).join(" ⟷ ");
+    const et = net.endpoints[0]?.edge_type || "?";
+    let html = `<div class="header"><strong style="color:${edgeTypeColor(et)}">${net.name}</strong> <small>${net.kind}/${et}</small><br>`;
+    html += `<small>${eps}</small><br>`;
+    if (net.endpoints[0]?.sheet_zone_ref) html += `<small>sheet zone: ${net.endpoints[0].sheet_zone_ref}</small><br>`;
+    html += `<small>D to delete · Esc to deselect</small></div>`;
+    el.innerHTML = html;
+    return;
+  }
   if (!state.selectedComponent) {
-    el.textContent = "(click a chip to select)";
+    el.textContent = "(click a chip or net)";
     return;
   }
   const comp = getComponent(state.selectedComponent);
@@ -489,7 +548,16 @@ function refreshSelection() {
 
 function selectComponent(refdes) {
   state.selectedComponent = refdes;
+  if (refdes) state.selectedNet = null;
   refreshSelection();
+  render();
+}
+
+function selectNet(name) {
+  state.selectedNet = name;
+  if (name) state.selectedComponent = null;
+  refreshSelection();
+  refreshNetsList();
   render();
 }
 
@@ -771,7 +839,15 @@ window.addEventListener("mouseup", (e) => {
       const rect = canvas.getBoundingClientRect();
       const cx = e.clientX - rect.left;
       const cy = e.clientY - rect.top;
-      selectComponent(hitTestBbox(cx, cy));
+      // Component takes priority; if no component hit, try net.
+      const refdesHit = hitTestBbox(cx, cy);
+      if (refdesHit) {
+        selectComponent(refdesHit);
+      } else {
+        const netHit = hitTestNet(cx, cy);
+        if (netHit) selectNet(netHit);
+        else { selectComponent(null); selectNet(null); }
+      }
     }
     state.pan = null;
     canvas.style.cursor = state.mode === "drawing" ? "crosshair" : "grab";
@@ -818,6 +894,9 @@ window.addEventListener("keydown", (e) => {
   } else if (e.key.toLowerCase() === "d" && state.selectedComponent) {
     e.preventDefault();
     deleteSelected();
+  } else if (e.key.toLowerCase() === "d" && state.selectedNet) {
+    e.preventDefault();
+    deleteSelectedNet();
   } else if (e.key.toLowerCase() === "e" && state.selectedComponent) {
     e.preventDefault();
     openEditDialog();
@@ -847,6 +926,7 @@ window.addEventListener("keydown", (e) => {
     if (state.pinPlace) { exitPinPlace(); return; }
     if (state.mode === "drawing") setMode("view");
     if (state.selectedComponent) selectComponent(null);
+    if (state.selectedNet) selectNet(null);
     render();
   } else if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "s") {
     e.preventDefault();
