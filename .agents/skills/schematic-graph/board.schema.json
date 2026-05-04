@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schematics.local/schema/board.schema.json",
+  "title": "Board metadata",
+  "description": "Top-level config for a single arcade board. Lives at boards/<id>/board.json. Identifies the drawing, lists the source-image sheets, and declares the off-page-connector convention so the graph + tracer pipelines can interpret cross-sheet linkage.",
+  "type": "object",
+  "required": ["id", "drawing_number", "sheets"],
+  "additionalProperties": true,
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Board id, also the directory name under boards/. Must match the folder name.",
+      "pattern": "^[a-z][a-z0-9_]*$"
+    },
+    "drawing_number": {
+      "type": "string",
+      "description": "Manufacturer's drawing number, e.g. '77-0019' for Exidy 440 logic board"
+    },
+    "title": { "type": "string" },
+    "manufacturer": { "type": "string" },
+    "year": { "type": "integer", "minimum": 1970, "maximum": 2100 },
+    "shared_titles": {
+      "type": "array",
+      "description": "Other arcade titles that share this same logic PCB (e.g. Crossbow/Cheyenne/Combat all share Exidy 77-0019).",
+      "items": { "type": "string" }
+    },
+    "preferred_scan_source": {
+      "type": "object",
+      "description": "Where the highest-resolution scans live, with a reason. Multiple manuals often contain the same drawing at different resolutions; the preferred source is documented here.",
+      "properties": {
+        "manual": { "type": "string" },
+        "reason": { "type": "string" },
+        "manual_path": { "type": "string" },
+        "jp2_path": { "type": "string" }
+      }
+    },
+    "sheets": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["index", "title", "scan_path"],
+        "additionalProperties": true,
+        "properties": {
+          "index": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "1-based sheet number"
+          },
+          "title": {
+            "type": "string",
+            "description": "Sheet title, e.g. 'Video RAM & MPX'"
+          },
+          "scan_path": {
+            "type": "string",
+            "description": "Path to the cleaned PNG, relative to the board folder. e.g. ../../exidy/scans/pages/logic_sheet1_video_ram_mpx.png"
+          },
+          "scan_pixel_size": {
+            "type": "array",
+            "items": { "type": "integer", "minimum": 1 },
+            "minItems": 2,
+            "maxItems": 2,
+            "description": "[width, height] of the scan in pixels"
+          }
+        }
+      }
+    },
+    "off_page_convention": {
+      "type": "object",
+      "description": "How the schematic represents nets that cross sheets.",
+      "required": ["edge_type"],
+      "properties": {
+        "edge_type": {
+          "type": "string",
+          "enum": ["sheet_zone", "off_page", "label"]
+        },
+        "notation": { "type": "string" },
+        "example": { "type": "string" },
+        "rendering": { "type": "string" }
+      }
+    },
+    "phase1_target": {
+      "type": "object",
+      "description": "First milestone scope for this board — useful as a cap on early transcription work."
+    },
+    "external_oracles": {
+      "type": "array",
+      "description": "External sources of truth (e.g. MAME driver) used to cross-check inferred memory maps and net assignments.",
+      "items": {
+        "type": "object",
+        "required": ["kind", "name"],
+        "properties": {
+          "kind": { "type": "string" },
+          "name": { "type": "string" },
+          "use": { "type": "string" }
+        }
+      }
+    }
+  }
+}

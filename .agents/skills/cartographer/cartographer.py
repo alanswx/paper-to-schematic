@@ -331,6 +331,143 @@ def cmd_snap_board(args):
     print(f"summary: snapped={summary['snapped']} unchanged={summary['unchanged']} skipped={summary['skipped']}")
 
 
+def cmd_decode_jp2(args):
+    """Decode a single JP2 page from an archive.org-style zip to PNG via opj_decompress."""
+    import re
+    import shutil
+    import subprocess
+    import tempfile
+    import zipfile
+
+    if not shutil.which("opj_decompress"):
+        print("opj_decompress not on PATH. Install: brew install openjpeg", file=sys.stderr)
+        sys.exit(2)
+
+    zip_path = Path(args.zip).resolve()
+    if not zip_path.exists():
+        print(f"zip not found: {zip_path}", file=sys.stderr)
+        sys.exit(1)
+
+    page = args.page
+    page_str = f"{int(page):04d}" if str(page).isdigit() else str(page)
+
+    # Find the prefix used inside the zip: usually <name>_jp2/<name>_<NNNN>.jp2.
+    with zipfile.ZipFile(zip_path) as z:
+        names = z.namelist()
+    candidates = [n for n in names if n.endswith(".jp2") and "_jp2/" in n]
+    if not candidates:
+        print(f"no JP2 entries found in {zip_path}", file=sys.stderr)
+        sys.exit(1)
+    # Strip the trailing digits + .jp2 to get the common prefix.
+    sample = candidates[0]
+    m = re.match(r"^(.*?)(\d+)\.jp2$", sample)
+    if not m:
+        print(f"could not detect JP2 prefix from {sample}", file=sys.stderr)
+        sys.exit(1)
+    prefix = m.group(1)
+    entry = f"{prefix}{page_str}.jp2"
+    if entry not in candidates:
+        # Try without zero-padding.
+        alt = f"{prefix}{int(page)}.jp2"
+        if alt in candidates:
+            entry = alt
+        else:
+            print(f"page {page!r} ({page_str!r}) not in zip; first few entries:\n  " +
+                  "\n  ".join(candidates[:5]), file=sys.stderr)
+            sys.exit(1)
+
+    out_path = Path(args.out).resolve()
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+
+    with tempfile.TemporaryDirectory() as td:
+        with zipfile.ZipFile(zip_path) as z:
+            z.extract(entry, td)
+        extracted = Path(td) / entry
+        r = subprocess.run(
+            ["opj_decompress", "-i", str(extracted), "-o", str(out_path)],
+            capture_output=True, text=True
+        )
+        if r.returncode != 0:
+            print(f"opj_decompress failed: {r.stderr.strip()}", file=sys.stderr)
+            sys.exit(r.returncode)
+
+    size = out_path.stat().st_size
+    print(f"wrote {out_path} ({size:,} bytes) from {entry}")
+
+
+def cmd_decode_pdf(args):
+    """Render a single page of a PDF to PNG. Uses kicad-cli if available, else pdftocairo."""
+    import shutil
+    import subprocess
+
+    src = Path(args.pdf).resolve()
+    if not src.exists():
+        print(f"pdf not found: {src}", file=sys.stderr); sys.exit(1)
+    out = Path(args.out).resolve()
+    out.parent.mkdir(parents=True, exist_ok=True)
+
+    if shutil.which("pdftocairo"):
+        # pdftocairo writes <stem>-<page>.png; we'll render to a temp + rename.
+        import tempfile
+        with tempfile.TemporaryDirectory() as td:
+            stem = Path(td) / "page"
+            r = subprocess.run(
+                ["pdftocairo", "-png", "-r", str(args.dpi),
+                 "-f", str(args.page), "-l", str(args.page),
+                 "-singlefile", str(src), str(stem)],
+                capture_output=True, text=True
+            )
+            if r.returncode != 0:
+                print(f"pdftocairo failed: {r.stderr.strip()}", file=sys.stderr); sys.exit(1)
+            produced = Path(td) / "page.png"
+            if not produced.exists():
+                print("pdftocairo produced no output", file=sys.stderr); sys.exit(1)
+            produced.replace(out)
+        print(f"wrote {out} (pdftocairo, page {args.page}, {args.dpi} dpi)")
+    else:
+        print("pdftocairo not on PATH (brew install poppler)", file=sys.stderr); sys.exit(2)
+
+
+def cmd_clean(args):
+    """Light cleanup pass: contrast stretch + optional grayscale invert.
+
+    For schematic scans this is usually enough to make line/text stand out
+    against yellowed paper backgrounds. More elaborate denoise/deskew are
+    deferred to a later iteration.
+    """
+    try:
+        import cv2
+        import numpy as np
+    except ImportError:
+        print("opencv-python required.", file=sys.stderr); sys.exit(2)
+
+    src = Path(args.input).resolve()
+    if not src.exists():
+        print(f"input not found: {src}", file=sys.stderr); sys.exit(1)
+    out = Path(args.out).resolve()
+    out.parent.mkdir(parents=True, exist_ok=True)
+
+    img = cv2.imread(str(src), cv2.IMREAD_GRAYSCALE)
+    if img is None:
+        print(f"failed to load: {src}", file=sys.stderr); sys.exit(1)
+
+    # Percentile-based contrast stretch — robust to outliers.
+    lo = np.percentile(img, args.lo_pct)
+    hi = np.percentile(img, args.hi_pct)
+    if hi <= lo:
+        print(f"contrast stretch degenerate (lo={lo}, hi={hi}); writing input unchanged", file=sys.stderr)
+        cv2.imwrite(str(out), img); return
+    stretched = np.clip((img.astype(np.float32) - lo) * 255.0 / (hi - lo), 0, 255).astype(np.uint8)
+
+    if args.threshold:
+        # Optional binarization for downstream CV.
+        _, stretched = cv2.threshold(stretched, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+
+    cv2.imwrite(str(out), stretched)
+    print(f"wrote {out} ({src.stat().st_size:,}→{out.stat().st_size:,} bytes; "
+          f"contrast {lo:.1f}..{hi:.1f}{'  +otsu' if args.threshold else ''})")
+
+
 def main():
     ap = argparse.ArgumentParser(prog="cartographer", description=__doc__.splitlines()[0])
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -370,6 +507,33 @@ def main():
                     help="also re-snap components flagged verified (default skips them)")
     sp.add_argument("--dry-run", action="store_true")
     sp.set_defaults(fn=cmd_snap_board)
+
+    sp = sub.add_parser("decode-jp2",
+                        help="decode one JP2 page from an archive.org-style zip → PNG (needs opj_decompress)")
+    sp.add_argument("zip", help="archive.org JP2 zip")
+    sp.add_argument("page", help="page number (1-based, integer or 0-padded string)")
+    sp.add_argument("--out", required=True, help="output PNG path")
+    sp.set_defaults(fn=cmd_decode_jp2)
+
+    sp = sub.add_parser("decode-pdf",
+                        help="render one page of a PDF → PNG (needs pdftocairo from poppler)")
+    sp.add_argument("pdf")
+    sp.add_argument("--page", type=int, default=1)
+    sp.add_argument("--dpi", type=int, default=300)
+    sp.add_argument("--out", required=True)
+    sp.set_defaults(fn=cmd_decode_pdf)
+
+    sp = sub.add_parser("clean",
+                        help="contrast-stretch + optional Otsu binarize a scan")
+    sp.add_argument("input")
+    sp.add_argument("--out", required=True)
+    sp.add_argument("--lo-pct", type=float, default=2.0,
+                    help="lower percentile for contrast stretch (default 2.0)")
+    sp.add_argument("--hi-pct", type=float, default=98.0,
+                    help="upper percentile for contrast stretch (default 98.0)")
+    sp.add_argument("--threshold", action="store_true",
+                    help="also Otsu-threshold to binary")
+    sp.set_defaults(fn=cmd_clean)
 
     args = ap.parse_args()
     args.fn(args)

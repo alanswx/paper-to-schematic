@@ -543,6 +543,109 @@ def cmd_export_kicad(args):
             print("\n(kicad-cli not found on PATH or at /Applications/KiCad/...; skipping ERC check)")
 
 
+def _validate_board_against_schema(board: dict, schema: dict, path_hint: str = ""):
+    """Hand-rolled minimal JSON-schema validator. Returns list of error strings.
+
+    Supports the subset of JSON Schema actually used in board.schema.json:
+    type, required, properties, additionalProperties, enum, pattern, minimum,
+    maximum, minItems, maxItems, items.
+    """
+    import re
+    errs = []
+
+    def visit(value, sch, where):
+        if not isinstance(sch, dict):
+            return
+        # type
+        t = sch.get("type")
+        if t:
+            type_map = {
+                "object": dict,
+                "array": list,
+                "string": str,
+                "integer": int,
+                "number": (int, float),
+                "boolean": bool,
+                "null": type(None),
+            }
+            expected = type_map.get(t, object)
+            if expected is int and isinstance(value, bool):
+                errs.append(f"{where}: expected {t}, got bool"); return
+            if not isinstance(value, expected):
+                errs.append(f"{where}: expected {t}, got {type(value).__name__}")
+                return
+        # enum
+        if "enum" in sch and value not in sch["enum"]:
+            errs.append(f"{where}: value {value!r} not in {sch['enum']}")
+        # pattern
+        if "pattern" in sch and isinstance(value, str):
+            if not re.search(sch["pattern"], value):
+                errs.append(f"{where}: {value!r} does not match {sch['pattern']!r}")
+        # numeric bounds
+        if isinstance(value, (int, float)) and not isinstance(value, bool):
+            if "minimum" in sch and value < sch["minimum"]:
+                errs.append(f"{where}: {value} < minimum {sch['minimum']}")
+            if "maximum" in sch and value > sch["maximum"]:
+                errs.append(f"{where}: {value} > maximum {sch['maximum']}")
+        # array
+        if isinstance(value, list):
+            if "minItems" in sch and len(value) < sch["minItems"]:
+                errs.append(f"{where}: {len(value)} < minItems {sch['minItems']}")
+            if "maxItems" in sch and len(value) > sch["maxItems"]:
+                errs.append(f"{where}: {len(value)} > maxItems {sch['maxItems']}")
+            if "items" in sch:
+                for i, item in enumerate(value):
+                    visit(item, sch["items"], f"{where}[{i}]")
+        # object
+        if isinstance(value, dict):
+            for r in sch.get("required", []):
+                if r not in value:
+                    errs.append(f"{where}: missing required field {r!r}")
+            for k, v in value.items():
+                pdef = (sch.get("properties") or {}).get(k)
+                if pdef is not None:
+                    visit(v, pdef, f"{where}.{k}")
+                elif sch.get("additionalProperties") is False:
+                    errs.append(f"{where}.{k}: unexpected field")
+
+    visit(board, schema, path_hint or "$")
+    return errs
+
+
+def cmd_validate_board(args):
+    bdir = board_dir(args.board)
+    bfile = bdir / "board.json"
+    if not bfile.exists():
+        print(f"no board.json: {bfile}", file=sys.stderr); sys.exit(1)
+    board = json.loads(bfile.read_text())
+    schema = json.loads((SKILL_DIR / "board.schema.json").read_text())
+
+    errs = _validate_board_against_schema(board, schema, "board")
+
+    # Cross-checks beyond pure schema:
+    if board.get("id") != args.board:
+        errs.append(f"board.id={board.get('id')!r} doesn't match folder name {args.board!r}")
+
+    seen_indices = set()
+    for i, sheet in enumerate(board.get("sheets", [])):
+        idx = sheet.get("index")
+        if idx in seen_indices:
+            errs.append(f"sheets[{i}]: duplicate index {idx}")
+        seen_indices.add(idx)
+        scan_path = sheet.get("scan_path")
+        if scan_path:
+            resolved = (bdir / scan_path).resolve()
+            if not resolved.exists():
+                errs.append(f"sheets[{i}]: scan_path does not exist: {resolved}")
+
+    if errs:
+        print(f"FAIL — {len(errs)} issues:")
+        for e in errs:
+            print(f"  {e}")
+        sys.exit(1)
+    print(f"ok — {bfile}: schema valid, {len(board.get('sheets', []))} sheet(s) on disk")
+
+
 def cmd_validate(args):
     graph = load_graph(args.board)
     chips = load_chips()
@@ -640,6 +743,11 @@ def main():
     sp = sub.add_parser("validate")
     sp.add_argument("--board", required=True)
     sp.set_defaults(fn=cmd_validate)
+
+    sp = sub.add_parser("validate-board",
+                        help="check boards/<id>/board.json against board.schema.json + on-disk sanity")
+    sp.add_argument("--board", required=True)
+    sp.set_defaults(fn=cmd_validate_board)
 
     sp = sub.add_parser("add-net", help="add a net with 2+ endpoints sharing one edge_type")
     sp.add_argument("--board", required=True)

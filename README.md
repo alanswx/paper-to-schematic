@@ -39,15 +39,19 @@ Drop originals into a manufacturer-named folder at the repo root, e.g.
 
 ### 2. Decode and clean to PNG
 
-If the scan is a JP2 archive (typical for archive.org):
-
 ```bash
-exidy/tools/decode_jp2.sh <jp2-zip> <page-index> <out.png>
-```
+# JP2 zips from archive.org (uses opj_decompress; brew install openjpeg)
+.venv/bin/python .agents/skills/cartographer/cartographer.py decode-jp2 \
+  <jp2-zip> <page> --out <out.png>
 
-> **Not yet built** as a cartographer subcommand — the existing shell script
-> in `exidy/tools/` is what the future `cartographer decode` will replace.
-> Image cleaning (contrast, denoise, deskew) is also not yet built.
+# PDF pages (uses pdftocairo from poppler; brew install poppler)
+.venv/bin/python .agents/skills/cartographer/cartographer.py decode-pdf \
+  <pdf> --page <N> --dpi 300 --out <out.png>
+
+# Optional contrast pass for yellowed scans
+.venv/bin/python .agents/skills/cartographer/cartographer.py clean \
+  <raw.png> --out <cleaned.png>
+```
 
 ### 3. Create `board.json`
 
@@ -57,7 +61,11 @@ the schematic uses. See `boards/exidy_440/board.json` as a complete example.
 Required fields: `id`, `drawing_number`, `sheets[]` with each sheet's
 `scan_path` (relative to the board folder).
 
-> A `board.schema.json` validator is **not yet built**.
+```bash
+# Validate against board.schema.json + check that scan_paths exist on disk
+python3 .agents/skills/schematic-graph/graph_cli.py validate-board \
+  --board <id>
+```
 
 ### 4. Annotate chips
 
@@ -212,7 +220,7 @@ companion log for paper-vs-board diffs you find during probing.
 | **librarian**       | built       | Chip pinouts. CLI: `list`, `show`, `validate`, `coverage`, `add`. |
 | **schematic-graph** | built       | Graph storage + components + nets + probe list + KiCad export. CLI: `add-component`, `remove-component`, `list-components`, `verify-component`, `unverify-component`, `add-net`, `remove-net`, `list-nets`, `validate`, `probe-list`, `export-kicad`. |
 | **explorer**        | built       | HITL viewer. Pan/zoom, draw box, edit / delete / verify components, drag/resize/move bbox, click-to-place pin numbers (`N`), draw nets (`W` click pin → click pin), select+delete nets. |
-| **cartographer**    | partial     | `tile` (overlapping tiles for AI annotation), `snap-bbox` / `snap-board` (CV refinement of AI-estimated bboxes), `to-source` built. JP2 decode and image cleaning not built (`exidy/tools/decode_jp2.sh` covers JP2 manually). |
+| **cartographer**    | built       | `decode-jp2` / `decode-pdf` (input acquisition), `clean` (contrast + Otsu), `tile` (overlapping tiles for AI annotation), `snap-bbox` / `snap-board` (CV refinement of AI-estimated bboxes), `to-source`. |
 | **identifier**      | workflow    | Per-tile chip identification by Claude. SKILL.md describes the workflow; Claude executes. |
 | **tracer**          | built (v1)  | CV-assisted wire detection. CLI: `trace` emits proposed nets JSON; `graph_cli import-traced-nets` applies them. v1 known limits: no junction-vs-crossing detection, accuracy depends on pin-position quality. |
 
@@ -233,13 +241,10 @@ companion log for paper-vs-board diffs you find during probing.
 
 **Missing for pipeline polish:**
 
-- Tracer dot-detection (distinguish junctions from crossings; v1 over-connects).
-- Multi-pin nets in the explorer UI (CLI and tracer-import already support them).
 - Discrepancy-log → ERC suppression integration.
-- Cartographer JP2-decode CLI (shell script exists in `exidy/tools/`).
-- Cartographer image cleaning (contrast / denoise / deskew).
-- `board.schema.json` validator.
+- Cartographer denoise + deskew (basic contrast stretch + Otsu binarize already built).
 - Hierarchical-sheet rendering in the Explorer for sheet-zone refs.
+- Component verification probes (probe-list currently emits net rows only).
 
 ## Milestone
 
