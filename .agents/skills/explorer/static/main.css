@@ -21,6 +21,7 @@ header button:hover { background: #444; }
 .mode { padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: bold; letter-spacing: 0.5px; }
 .mode-view    { background: #345; }
 .mode-drawing { background: #c83; color: #fff; }
+.mode-netting { background: #5a3; color: #fff; }
 
 #status { margin-left: auto; font-family: ui-monospace, monospace; font-size: 12px; color: #aaa; }
 
@@ -48,6 +49,8 @@ aside ul { padding-left: 18px; margin: 4px 0; }
 aside li { margin: 2px 0; font-family: ui-monospace, monospace; font-size: 12px; }
 aside ul.hints li { font-family: inherit; font-size: 12px; color: #aaa; }
 aside li.verified { color: #5d5; }
+.net-list li { font-family: ui-monospace, monospace; font-size: 11px; }
+.net-list li small { color: #888; }
 .badge-verified { background: #2a4; color: #fff; padding: 1px 6px; border-radius: 3px; font-size: 10px; font-weight: bold; letter-spacing: 0.5px; }
 .badge-unverified { background: #444; color: #aaa; padding: 1px 6px; border-radius: 3px; font-size: 10px; letter-spacing: 0.5px; }
 

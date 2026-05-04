@@ -22,6 +22,10 @@ const state = {
   bboxResize: null,
   bboxTranslate: null,
   pinPlace: null, // { refdes, pins:[ordered], currentIdx }
+  netMode: false,
+  netDrawStart: null, // { refdes, pin }
+  netDrawCursor: null, // {x, y} in image coords for preview line
+  pendingNet: null,    // { startEp, endEp } awaiting dialog confirm
   pan: null,
 };
 
@@ -87,6 +91,24 @@ function pinTypeColor(type) {
   }
 }
 
+function edgeTypeColor(t) {
+  switch (t) {
+    case "wire":           return "#0bf";   // bright cyan
+    case "label":          return "#5f5";   // green
+    case "sheet_zone":     return "#f5b";   // pink
+    case "off_page":       return "#fa3";   // orange
+    case "bus":            return "#5af";   // blue
+    case "implicit_power": return "#f5a";   // magenta
+    default:               return "#aaa";
+  }
+}
+
+function getPinSourcePos(refdes, pin) {
+  const comp = state.graph.components.find(c => c.refdes === refdes);
+  if (!comp || !comp.pin_positions) return null;
+  return comp.pin_positions[String(pin)] || null;
+}
+
 function render() {
   const w = canvas.clientWidth, h = canvas.clientHeight;
   ctx.fillStyle = "#111";
@@ -99,6 +121,35 @@ function render() {
 
   const comps = state.graph?.components?.filter(c => c.sheet === state.sheetIndex) ?? [];
   for (const c of comps) drawComponent(c, state.selectedComponent === c.refdes);
+
+  // Render nets that have endpoints on this sheet.
+  drawNets();
+
+  // Net-mode: highlight the start pin and draw a preview line to the cursor.
+  if (state.netMode && state.netDrawStart) {
+    const startPos = getPinSourcePos(state.netDrawStart.refdes, state.netDrawStart.pin);
+    if (startPos) {
+      const sp = imgToCanvas(startPos[0], startPos[1]);
+      ctx.beginPath();
+      ctx.arc(sp.x, sp.y, PIN_RADIUS_PX + 4, 0, Math.PI * 2);
+      ctx.strokeStyle = "#fc3";
+      ctx.lineWidth = 2;
+      ctx.setLineDash([3, 3]);
+      ctx.stroke();
+      ctx.setLineDash([]);
+      if (state.netDrawCursor) {
+        const cp = imgToCanvas(state.netDrawCursor.x, state.netDrawCursor.y);
+        ctx.beginPath();
+        ctx.moveTo(sp.x, sp.y);
+        ctx.lineTo(cp.x, cp.y);
+        ctx.strokeStyle = "#fc3";
+        ctx.lineWidth = 2;
+        ctx.setLineDash([5, 5]);
+        ctx.stroke();
+        ctx.setLineDash([]);
+      }
+    }
+  }
 
   if (state.mode === "drawing" && state.drawStart && state.drawCurrent) {
     const a = imgToCanvas(state.drawStart.x, state.drawStart.y);
@@ -133,8 +184,10 @@ function drawComponent(comp, selected) {
 
   // (A) Pin dots only render for the selected component — for unselected
   // bboxes the auto-DIP pin positions don't match the schematic symbol's
-  // actual pin locations, so they're visual noise.
-  if (selected && part && comp.pin_positions) {
+  // actual pin locations, so they're visual noise. Exception: in net-draw
+  // mode, render every pin so they're targetable.
+  const showPins = selected || state.netMode;
+  if (showPins && part && comp.pin_positions) {
     const r = PIN_RADIUS_PX + 1;
     const xMid = (comp.bbox[0] + comp.bbox[2]) / 2;
     for (const [pinNum, [ix, iy]] of Object.entries(comp.pin_positions)) {
@@ -149,7 +202,9 @@ function drawComponent(comp, selected) {
       ctx.lineWidth = 1;
       ctx.stroke();
 
-      if (pinDef) {
+      // Pin labels only show for the SELECTED component (in net mode we just
+      // want clickable dots, no clutter).
+      if (selected && pinDef) {
         const isLeft = ix <= xMid;
         ctx.fillStyle = "#fff";
         ctx.font = "10px ui-monospace, monospace";
@@ -164,7 +219,7 @@ function drawComponent(comp, selected) {
 
   // (B) Resize handles at the four corners of the selected bbox — hidden in
   // pin-place mode so clicks at corners place a pin instead of starting a resize.
-  if (selected && !state.pinPlace) {
+  if (selected && !state.pinPlace && !state.netMode) {
     const corners = [[a.x, a.y], [b.x, a.y], [a.x, b.y], [b.x, b.y]];
     ctx.fillStyle = "#fc3";
     ctx.strokeStyle = "#000";
@@ -173,6 +228,49 @@ function drawComponent(comp, selected) {
     for (const [hx, hy] of corners) {
       ctx.fillRect(hx - s / 2, hy - s / 2, s, s);
       ctx.strokeRect(hx - s / 2, hy - s / 2, s, s);
+    }
+  }
+}
+
+function drawNets() {
+  const nets = state.graph?.nets || [];
+  for (const net of nets) {
+    if (!net.endpoints || net.endpoints.length < 2) continue;
+    const points = [];
+    for (const ep of net.endpoints) {
+      if (ep.sheet !== undefined && ep.sheet !== state.sheetIndex) continue;
+      const pos = getPinSourcePos(ep.refdes, ep.pin);
+      if (pos) points.push({ pos, ep });
+    }
+    if (points.length < 2) continue;
+    const color = edgeTypeColor(points[0].ep.edge_type);
+    // Dark halo for contrast against white paper.
+    ctx.strokeStyle = "rgba(0,0,0,0.6)";
+    ctx.lineWidth = 5;
+    ctx.beginPath();
+    const first = imgToCanvas(points[0].pos[0], points[0].pos[1]);
+    ctx.moveTo(first.x, first.y);
+    for (let i = 1; i < points.length; i++) {
+      const p = imgToCanvas(points[i].pos[0], points[i].pos[1]);
+      ctx.lineTo(p.x, p.y);
+    }
+    ctx.stroke();
+    // Bright color line on top.
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 2.5;
+    ctx.beginPath();
+    ctx.moveTo(first.x, first.y);
+    for (let i = 1; i < points.length; i++) {
+      const p = imgToCanvas(points[i].pos[0], points[i].pos[1]);
+      ctx.lineTo(p.x, p.y);
+    }
+    ctx.stroke();
+    if (net.name && points.length >= 2) {
+      const a = imgToCanvas(points[0].pos[0], points[0].pos[1]);
+      const b = imgToCanvas(points[1].pos[0], points[1].pos[1]);
+      ctx.fillStyle = color;
+      ctx.font = "10px ui-monospace, monospace";
+      ctx.fillText(net.name, (a.x + b.x) / 2 + 4, (a.y + b.y) / 2 - 4);
     }
   }
 }
@@ -193,6 +291,53 @@ function normalizeGraph() {
     const pos = defaultPinPositions(part, comp.bbox);
     if (pos) comp.pin_positions = pos;
   }
+  if (!state.graph.nets) state.graph.nets = [];
+}
+
+function suggestNetName() {
+  const used = new Set((state.graph.nets || []).map(n => n.name));
+  for (let i = 1; i <= 10000; i++) {
+    const candidate = `N${i}`;
+    if (!used.has(candidate)) return candidate;
+  }
+  return `N${Date.now()}`;
+}
+
+function hitTestPinAnyComponent(cx, cy) {
+  const comps = state.graph.components.filter(c => c.sheet === state.sheetIndex);
+  for (const comp of comps) {
+    if (!comp.pin_positions) continue;
+    for (const [pinNum, [ix, iy]] of Object.entries(comp.pin_positions)) {
+      const cp = imgToCanvas(ix, iy);
+      if (Math.hypot(cp.x - cx, cp.y - cy) <= PIN_RADIUS_PX + PIN_HIT_PAD_PX + 2) {
+        return { refdes: comp.refdes, pin: pinNum, sheet: state.sheetIndex };
+      }
+    }
+  }
+  return null;
+}
+
+function toggleNetMode() {
+  if (state.netMode) {
+    exitNetMode();
+  } else {
+    state.netMode = true;
+    state.netDrawStart = null;
+    state.netDrawCursor = null;
+    canvas.style.cursor = "crosshair";
+    setMode("netting");
+    setStatus("net mode — click pin A then pin B; Esc to exit");
+    render();
+  }
+}
+
+function exitNetMode() {
+  state.netMode = false;
+  state.netDrawStart = null;
+  state.netDrawCursor = null;
+  setMode("view");
+  setStatus("");
+  render();
 }
 
 async function loadAll() {
@@ -229,6 +374,7 @@ async function loadAll() {
 
   await loadSheet();
   refreshComponents();
+  refreshNetsList();
   refreshSelection();
 }
 
@@ -252,6 +398,22 @@ function loadSheet() {
     img.onerror = () => reject(new Error(`failed to load sheet ${state.sheetIndex}`));
     img.src = `/api/sheet/${state.sheetIndex}.png`;
   });
+}
+
+function refreshNetsList() {
+  const ul = $("#net-list");
+  if (!ul) return;
+  ul.innerHTML = "";
+  const nets = state.graph?.nets || [];
+  for (const net of nets) {
+    const li = document.createElement("li");
+    const eps = net.endpoints.map(e => `${e.refdes}.${e.pin}`).join(" ⟷ ");
+    const et = net.endpoints[0]?.edge_type || "?";
+    li.innerHTML = `<span style="color:${edgeTypeColor(et)}">●</span> <strong>${net.name}</strong> <small>${eps}</small>`;
+    ul.appendChild(li);
+  }
+  const c = $("#net-count");
+  if (c) c.textContent = `(${nets.length})`;
 }
 
 function refreshComponents() {
@@ -452,6 +614,27 @@ canvas.addEventListener("mousedown", (e) => {
     return;
   }
 
+  if (state.netMode) {
+    const pinHit = hitTestPinAnyComponent(cx, cy);
+    if (!pinHit) return; // click empty space — ignore in net mode
+    if (!state.netDrawStart) {
+      state.netDrawStart = pinHit;
+      setStatus(`net mode — start ${pinHit.refdes}.${pinHit.pin}; click second pin`);
+      render();
+    } else {
+      // Same pin twice → cancel
+      if (state.netDrawStart.refdes === pinHit.refdes && String(state.netDrawStart.pin) === String(pinHit.pin)) {
+        state.netDrawStart = null;
+        setStatus("net mode — click pin A then pin B; Esc to exit");
+        render();
+        return;
+      }
+      state.pendingNet = { startEp: state.netDrawStart, endEp: pinHit };
+      openNetDialog();
+    }
+    return;
+  }
+
   // (B) Bbox resize handles take priority over pins (they're at the corners).
   const handleHit = hitTestResizeHandle(cx, cy);
   if (handleHit) {
@@ -495,6 +678,12 @@ canvas.addEventListener("mousemove", (e) => {
   const cx = e.clientX - rect.left;
   const cy = e.clientY - rect.top;
   const ip = canvasToImg(cx, cy);
+
+  if (state.netMode && state.netDrawStart) {
+    state.netDrawCursor = ip;
+    render();
+    return;
+  }
 
   if (!state.pan && !state.pinDrag && state.mode !== "drawing") {
     setStatus(`x=${Math.round(ip.x)} y=${Math.round(ip.y)} zoom=${state.view.scale.toFixed(3)}×`);
@@ -638,9 +827,23 @@ window.addEventListener("keydown", (e) => {
   } else if (e.key.toLowerCase() === "n" && state.selectedComponent) {
     e.preventDefault();
     togglePinPlace();
+  } else if (e.key.toLowerCase() === "w") {
+    e.preventDefault();
+    toggleNetMode();
   } else if (e.key === "Escape") {
     e.preventDefault();
     state.drawStart = null; state.drawCurrent = null;
+    if (state.netMode) {
+      if (state.netDrawStart) {
+        state.netDrawStart = null;
+        state.netDrawCursor = null;
+        setStatus("net mode — click pin A then pin B; Esc to exit");
+        render();
+      } else {
+        exitNetMode();
+      }
+      return;
+    }
     if (state.pinPlace) { exitPinPlace(); return; }
     if (state.mode === "drawing") setMode("view");
     if (state.selectedComponent) selectComponent(null);
@@ -845,6 +1048,72 @@ editDlg.addEventListener("close", () => {
   refreshSelection();
   render();
   setStatus(`edited → ${newRefdes} (${newPartName}) — ⌘S to save`);
+});
+
+const netDlg = $("#net-dialog");
+const netNameInput = $("#net-name-input");
+const netKindSelect = $("#net-kind-select");
+const netEdgeTypeSelect = $("#net-edge-type-select");
+const netZoneLabel = $("#net-zone-label");
+const netZoneInput = $("#net-zone-input");
+const netEndpointsBox = $("#net-endpoints");
+
+function openNetDialog() {
+  if (!state.pendingNet) return;
+  const { startEp, endEp } = state.pendingNet;
+  netEndpointsBox.textContent = `${startEp.refdes}.${startEp.pin} ⟷ ${endEp.refdes}.${endEp.pin}`;
+  netNameInput.value = suggestNetName();
+  netKindSelect.value = "signal";
+  netEdgeTypeSelect.value = "wire";
+  netZoneInput.value = "";
+  netZoneLabel.style.display = "none";
+  netDlg.showModal();
+  netNameInput.focus();
+  netNameInput.select();
+}
+
+netEdgeTypeSelect.addEventListener("change", () => {
+  netZoneLabel.style.display = netEdgeTypeSelect.value === "sheet_zone" ? "block" : "none";
+});
+
+netDlg.addEventListener("close", () => {
+  netNameInput.blur();
+  netZoneInput.blur();
+  const pending = state.pendingNet;
+  state.pendingNet = null;
+  if (netDlg.returnValue !== "confirm" || !pending) return;
+
+  const name = netNameInput.value.trim();
+  if (!name) { setStatus("net discarded — empty name"); return; }
+  if ((state.graph.nets || []).some(n => n.name === name)) {
+    setStatus(`net discarded — name "${name}" already exists`);
+    return;
+  }
+
+  const kind = netKindSelect.value;
+  const edgeType = netEdgeTypeSelect.value;
+  const sheetZoneRef = edgeType === "sheet_zone" ? netZoneInput.value.trim() : null;
+
+  const buildEp = (ep) => {
+    const out = { refdes: ep.refdes, pin: ep.pin, sheet: ep.sheet, edge_type: edgeType };
+    if (sheetZoneRef) out.sheet_zone_ref = sheetZoneRef;
+    out.evidence = { source: "human" };
+    return out;
+  };
+
+  const net = {
+    name,
+    kind,
+    endpoints: [buildEp(pending.startEp), buildEp(pending.endEp)],
+  };
+  state.graph.nets.push(net);
+
+  // Reset draw start so user can immediately start the next net.
+  state.netDrawStart = null;
+  state.netDrawCursor = null;
+  refreshNetsList?.();
+  setStatus(`net ${name} added (${pending.startEp.refdes}.${pending.startEp.pin}→${pending.endEp.refdes}.${pending.endEp.pin}) — ⌘S to save`);
+  render();
 });
 
 window.addEventListener("resize", fitCanvas);

@@ -20,6 +20,9 @@
       <h3>Components <span id="component-count">(0)</span></h3>
       <ul id="component-list"></ul>
       <hr>
+      <h3>Nets <span id="net-count">(0)</span></h3>
+      <ul id="net-list" class="net-list"></ul>
+      <hr>
       <h3>Selected</h3>
       <div id="selection-info" class="selection-info">(click a chip to select)</div>
       <hr>
@@ -27,6 +30,7 @@
       <ul class="hints">
         <li><kbd>B</kbd> toggle box-draw</li>
         <li><kbd>E</kbd> edit · <kbd>D</kbd> delete · <kbd>V</kbd> verified · <kbd>N</kbd> renumber pins</li>
+        <li><kbd>W</kbd> wire (net mode) — click pin → pin</li>
         <li><kbd>Esc</kbd> cancel / deselect</li>
         <li><kbd>⌘S</kbd> / <kbd>^S</kbd> save</li>
         <li>click chip = select</li>
@@ -68,6 +72,42 @@
       <menu>
         <button value="cancel" formnovalidate>Cancel</button>
         <button value="confirm">Save</button>
+      </menu>
+    </form>
+  </dialog>
+
+  <dialog id="net-dialog">
+    <form method="dialog">
+      <h3>New net</h3>
+      <div id="net-endpoints" class="part-info"></div>
+      <label>Name
+        <input id="net-name-input" required autocomplete="off">
+      </label>
+      <label>Kind
+        <select id="net-kind-select">
+          <option value="signal">signal</option>
+          <option value="power">power</option>
+          <option value="ground">ground</option>
+          <option value="clock">clock</option>
+          <option value="bus_member">bus_member</option>
+        </select>
+      </label>
+      <label>Edge type
+        <select id="net-edge-type-select">
+          <option value="wire">wire</option>
+          <option value="label">label (named net)</option>
+          <option value="sheet_zone">sheet_zone (e.g. 4C6)</option>
+          <option value="off_page">off_page connector</option>
+          <option value="bus">bus member</option>
+          <option value="implicit_power">implicit_power (auto-VCC/GND)</option>
+        </select>
+      </label>
+      <label id="net-zone-label" style="display:none">Sheet-zone ref
+        <input id="net-zone-input" placeholder="e.g. 4C6" autocomplete="off">
+      </label>
+      <menu>
+        <button value="cancel" formnovalidate>Cancel</button>
+        <button value="confirm">Add net</button>
       </menu>
     </form>
   </dialog>
