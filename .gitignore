@@ -19,3 +19,6 @@ __pycache__/
 # Defensive: tile outputs and other temp artifacts
 boards/*/_tiles/
 *.tmp
+
+# VS Code local-history extension
+**/.history/
