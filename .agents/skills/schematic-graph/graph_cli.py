@@ -398,13 +398,57 @@ def _net_suggested_test(net):
     return f"Power-off DMM continuity: {'; '.join(pairs)} should all beep."
 
 
+def _component_priority(comp):
+    """Verify-on-bench priority for a single component. Verified or
+    high-confidence human entries → LOW; uncertain AI entries → HIGH/MED."""
+    ev = comp.get("evidence", {}) or {}
+    if comp.get("verified"):
+        return None  # already verified, skip
+    src = ev.get("source")
+    conf = ev.get("confidence")
+    if src == "human":
+        return ("LOW", "human-added but not verified")
+    if src == "datasheet":
+        return ("LOW", "datasheet-derived, awaiting board confirmation")
+    # AI source (default)
+    if conf is None:
+        return ("MED", "AI-added, no confidence recorded")
+    if conf < 0.5:
+        return ("HIGH", f"AI-added, low confidence {conf:.2f}")
+    if conf < 0.8:
+        return ("MED", f"AI-added, moderate confidence {conf:.2f}")
+    return ("LOW", f"AI-added, high confidence {conf:.2f}")
+
+
 def cmd_probe_list(args):
     graph = load_graph(args.board)
     components_by_refdes = {c["refdes"]: c for c in graph["components"]}
     nets = graph.get("nets", [])
 
-    # Build probe rows.
     rows = []
+
+    # Component verification probes — every unverified component gets a row
+    # asking the human to confirm the part number visually on the PCB.
+    for comp in graph["components"]:
+        prio = _component_priority(comp)
+        if prio is None:
+            continue
+        priority, reason = prio
+        bbox = comp.get("bbox", [])
+        loc = (f"sheet {comp['sheet']} @ ({bbox[0]:.0f},{bbox[1]:.0f})"
+               if len(bbox) == 4 else f"sheet {comp['sheet']}")
+        rows.append({
+            "priority": priority,
+            "net": f"verify:{comp['refdes']}",
+            "endpoints": comp["refdes"],
+            "reason": reason + f"; {loc}",
+            "suggested_test": (f"Locate chip {comp['refdes']} on the PCB and read the printed "
+                                f"part number. Expect {comp['part']!r}; if different, edit in "
+                                "the explorer (E) or via librarian if the part is not in the library."),
+            "status": "open",
+        })
+
+    # Net probes.
     for net in nets:
         priority, reason = _net_priority(net, components_by_refdes)
         eps = net.get("endpoints", [])
@@ -418,7 +462,7 @@ def cmd_probe_list(args):
             "status": "open",
         })
 
-    # Sort: HIGH first, then MED, then LOW; ties by net name.
+    # Sort: HIGH first, then MED, then LOW; ties by net/refdes name.
     order = {"HIGH": 0, "MED": 1, "LOW": 2}
     rows.sort(key=lambda r: (order.get(r["priority"], 9), r["net"]))
 
