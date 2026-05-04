@@ -446,15 +446,21 @@ canvas.addEventListener("wheel", (e) => {
 
 window.addEventListener("keydown", (e) => {
   if (e.target.matches("input, textarea")) return;
+  if (document.querySelector("dialog[open]")) return;
   if (e.key.toLowerCase() === "b") {
+    e.preventDefault();
     setMode(state.mode === "drawing" ? "view" : "drawing");
   } else if (e.key.toLowerCase() === "d" && state.selectedComponent) {
+    e.preventDefault();
     deleteSelected();
   } else if (e.key.toLowerCase() === "e" && state.selectedComponent) {
+    e.preventDefault();
     openEditDialog();
   } else if (e.key.toLowerCase() === "v" && state.selectedComponent) {
+    e.preventDefault();
     toggleVerified();
   } else if (e.key === "Escape") {
+    e.preventDefault();
     state.drawStart = null; state.drawCurrent = null;
     if (state.mode === "drawing") setMode("view");
     if (state.selectedComponent) selectComponent(null);
@@ -518,6 +524,8 @@ partInput.addEventListener("input", () => {
 });
 
 dlg.addEventListener("close", () => {
+  refdesInput.blur();
+  partInput.blur();
   const box = state.pendingBox;
   state.pendingBox = null;
   if (dlg.returnValue !== "confirm" || !box) {
@@ -587,6 +595,9 @@ editPartInput.addEventListener("input", () => {
 });
 
 editDlg.addEventListener("close", () => {
+  // Blur inputs so subsequent hotkeys reach the window handler.
+  editRefdesInput.blur();
+  editPartInput.blur();
   if (editDlg.returnValue !== "confirm") return;
   const oldRefdes = state.selectedComponent;
   const comp = getComponent(oldRefdes);
