@@ -31,8 +31,25 @@ python3 .agents/skills/schematic-graph/graph_cli.py remove-component \
 python3 .agents/skills/schematic-graph/graph_cli.py list-components --board exidy_440
 python3 .agents/skills/schematic-graph/graph_cli.py list-components --board exidy_440 --sheet 1
 
-# Validate the graph: refdes uniqueness, parts in the librarian, bbox sanity
+# Validate the graph: refdes uniqueness, parts in the librarian, bbox sanity,
+# net endpoint refdes coverage, edge_type uniformity per net, sheet_zone refs.
 python3 .agents/skills/schematic-graph/graph_cli.py validate --board exidy_440
+
+# Add a net: 2+ endpoints sharing one edge_type. Auto-fills sheet from each
+# component. --kind: signal/power/ground/clock/bus_member.
+# --edge-type: wire/label/sheet_zone/off_page/bus/implicit_power.
+python3 .agents/skills/schematic-graph/graph_cli.py add-net \
+  --board exidy_440 --name CSC --kind signal --edge-type wire \
+  --endpoints "U14C.6,U13C.4,U12C.6" --source ai
+
+# sheet_zone edges require --zone-ref (the original 4C6-style notation):
+python3 .agents/skills/schematic-graph/graph_cli.py add-net \
+  --board exidy_440 --name A0 --kind signal --edge-type sheet_zone \
+  --endpoints "U7A.10,U4F.5" --zone-ref 4C6
+
+# Remove or list nets:
+python3 .agents/skills/schematic-graph/graph_cli.py remove-net --board exidy_440 --name CSC
+python3 .agents/skills/schematic-graph/graph_cli.py list-nets --board exidy_440 [--sheet 1]
 ```
 
 The CLI is the only sanctioned way to add components programmatically. The

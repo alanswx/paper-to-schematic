@@ -169,6 +169,93 @@ def cmd_list_components(args):
               f"{bbox_str}  [{src}{conf}]")
 
 
+EDGE_TYPES = ("wire", "label", "sheet_zone", "off_page", "bus", "implicit_power")
+NET_KINDS = ("signal", "power", "ground", "clock", "bus_member")
+
+
+def parse_endpoints(spec: str):
+    """Parse 'refdes.pin,refdes.pin,...' → list of (refdes, pin)."""
+    out = []
+    for tok in spec.split(","):
+        tok = tok.strip()
+        if not tok:
+            continue
+        if "." not in tok:
+            raise SystemExit(f"endpoint malformed (no '.'): {tok!r}")
+        refdes, pin = tok.rsplit(".", 1)
+        out.append((refdes.strip(), pin.strip()))
+    if len(out) < 2:
+        raise SystemExit(f"need at least 2 endpoints, got {len(out)}")
+    return out
+
+
+def cmd_add_net(args):
+    graph = load_graph(args.board)
+    if "nets" not in graph:
+        graph["nets"] = []
+    if any(n["name"] == args.name for n in graph["nets"]):
+        print(f"net name already exists: {args.name}", file=sys.stderr)
+        sys.exit(1)
+    if args.kind not in NET_KINDS:
+        print(f"--kind must be one of {NET_KINDS}", file=sys.stderr); sys.exit(1)
+    if args.edge_type not in EDGE_TYPES:
+        print(f"--edge-type must be one of {EDGE_TYPES}", file=sys.stderr); sys.exit(1)
+
+    eps = parse_endpoints(args.endpoints)
+    refdes_index = {c["refdes"]: c for c in graph["components"]}
+    out_eps = []
+    for refdes, pin in eps:
+        comp = refdes_index.get(refdes)
+        if not comp:
+            print(f"endpoint {refdes}.{pin}: refdes not in graph", file=sys.stderr); sys.exit(1)
+        ep = {
+            "refdes": refdes,
+            "pin": int(pin) if pin.isdigit() else pin,
+            "sheet": comp.get("sheet"),
+            "edge_type": args.edge_type,
+        }
+        if args.edge_type == "sheet_zone":
+            if not args.zone_ref:
+                print("sheet_zone edges require --zone-ref (e.g. 4C6)", file=sys.stderr); sys.exit(1)
+            ep["sheet_zone_ref"] = args.zone_ref
+        ep["evidence"] = {"source": args.source}
+        if args.note:
+            ep["evidence"]["note"] = args.note
+        out_eps.append(ep)
+
+    net = {"name": args.name, "kind": args.kind, "endpoints": out_eps}
+    graph["nets"].append(net)
+    save_graph(args.board, graph)
+    print(f"added net {args.name} ({args.kind}, {args.edge_type}) "
+          f"with {len(out_eps)} endpoints: " +
+          ", ".join(f"{e['refdes']}.{e['pin']}" for e in out_eps))
+
+
+def cmd_remove_net(args):
+    graph = load_graph(args.board)
+    nets = graph.get("nets", [])
+    n_before = len(nets)
+    graph["nets"] = [n for n in nets if n["name"] != args.name]
+    if len(graph["nets"]) == n_before:
+        print(f"no such net: {args.name}", file=sys.stderr); sys.exit(1)
+    save_graph(args.board, graph)
+    print(f"removed net {args.name}")
+
+
+def cmd_list_nets(args):
+    graph = load_graph(args.board)
+    nets = graph.get("nets", [])
+    if args.sheet is not None:
+        nets = [n for n in nets if any(e.get("sheet") == args.sheet for e in n["endpoints"])]
+    label = f" touching sheet {args.sheet}" if args.sheet is not None else ""
+    print(f"{len(nets)} nets{label}:\n")
+    for net in sorted(nets, key=lambda n: n["name"]):
+        eps = " ⟷ ".join(f"{e['refdes']}.{e['pin']}" for e in net["endpoints"])
+        et = net["endpoints"][0].get("edge_type", "?") if net["endpoints"] else "?"
+        kind = net.get("kind", "?")
+        print(f"  {net['name']:10s}  [{kind}/{et}]  {eps}")
+
+
 def cmd_validate(args):
     graph = load_graph(args.board)
     chips = load_chips()
@@ -191,13 +278,38 @@ def cmd_validate(args):
             errs.append(f"{rd}: degenerate bbox: {bbox}")
         if "sheet" not in c:
             errs.append(f"{rd}: missing sheet")
+
+    refdes_index = {c["refdes"]: c for c in graph["components"]}
+    net_names = set()
+    for net in graph.get("nets", []):
+        name = net.get("name")
+        if not name:
+            errs.append(f"net missing name: {net}"); continue
+        if name in net_names:
+            errs.append(f"duplicate net name: {name}")
+        net_names.add(name)
+        eps = net.get("endpoints", [])
+        if len(eps) < 2:
+            errs.append(f"net {name}: needs ≥2 endpoints, has {len(eps)}")
+        edge_types = {ep.get("edge_type") for ep in eps}
+        if len(edge_types) > 1:
+            errs.append(f"net {name}: mixed edge_types {edge_types} (one net should use one type)")
+        for ep in eps:
+            if ep.get("refdes") not in refdes_index:
+                errs.append(f"net {name}: endpoint refdes {ep.get('refdes')!r} not in graph")
+            et = ep.get("edge_type")
+            if et not in EDGE_TYPES:
+                errs.append(f"net {name}: bad edge_type {et!r}")
+            if et == "sheet_zone" and not ep.get("sheet_zone_ref"):
+                errs.append(f"net {name}: sheet_zone endpoint missing sheet_zone_ref")
+
     if errs:
         print(f"FAIL — {len(errs)} issues:")
         for e in errs:
             print(f"  {e}")
         sys.exit(1)
     print(f"ok — {len(graph['components'])} components, "
-          f"{len(graph['nets'])} nets, all parts in librarian")
+          f"{len(graph.get('nets', []))} nets, all parts in librarian")
 
 
 def main():
@@ -241,6 +353,31 @@ def main():
     sp = sub.add_parser("validate")
     sp.add_argument("--board", required=True)
     sp.set_defaults(fn=cmd_validate)
+
+    sp = sub.add_parser("add-net", help="add a net with 2+ endpoints sharing one edge_type")
+    sp.add_argument("--board", required=True)
+    sp.add_argument("--name", required=True, help="unique net name, e.g. /CSC, A0, GND")
+    sp.add_argument("--kind", default="signal",
+                    choices=NET_KINDS)
+    sp.add_argument("--edge-type", required=True,
+                    choices=EDGE_TYPES,
+                    help="all endpoints share this edge_type")
+    sp.add_argument("--endpoints", required=True,
+                    help="comma-separated refdes.pin list, e.g. 'U14C.1,U13C.5,U12B.7'")
+    sp.add_argument("--zone-ref", help="sheet-zone reference (required when edge-type=sheet_zone), e.g. 4C6")
+    sp.add_argument("--source", choices=["ai", "human", "datasheet", "probe"], default="ai")
+    sp.add_argument("--note")
+    sp.set_defaults(fn=cmd_add_net)
+
+    sp = sub.add_parser("remove-net")
+    sp.add_argument("--board", required=True)
+    sp.add_argument("--name", required=True)
+    sp.set_defaults(fn=cmd_remove_net)
+
+    sp = sub.add_parser("list-nets")
+    sp.add_argument("--board", required=True)
+    sp.add_argument("--sheet", type=int, help="restrict to nets with at least one endpoint on this sheet")
+    sp.set_defaults(fn=cmd_list_nets)
 
     args = ap.parse_args()
     args.fn(args)
