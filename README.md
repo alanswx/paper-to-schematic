@@ -127,47 +127,73 @@ you can track progress.
 
 ### 7. Trace nets
 
-> **Not yet built.** Planned: per-pin net drawing in the Explorer (click pin
-> → click pin), six edge types selectable per net (`wire`, `label`,
-> `sheet_zone`, `off_page`, `bus`, `implicit_power`), automatic resolution
-> of sheet-zone refs across sheets, plus a `tracer` skill for CV-assisted
-> wire detection on the full image.
+In the Explorer: press `W` to enter net mode. Click pin A, click pin B, fill
+in name + edge_type (`wire`, `label`, `sheet_zone`, `off_page`, `bus`,
+`implicit_power`) in the modal, confirm. Net renders as a colored line.
+Click any net (canvas or sidebar) to select; `D` deletes; `Esc` deselects.
 
-### 8. Run ERC
+CLI parity (multi-pin and scripted batch):
 
-> **Not yet built.** Planned: export `.kicad_sch`, invoke
-> `kicad-cli sch erc`, parse the output. ERC catches floating outputs,
-> multi-driver nets, unconnected power, and bus-tap arity mismatches.
+```bash
+python3 .agents/skills/schematic-graph/graph_cli.py add-net \
+  --board <id> --name VCC --kind power --edge-type implicit_power \
+  --endpoints "U14C.16,U13C.16,U12C.16" --source ai
+
+python3 .agents/skills/schematic-graph/graph_cli.py list-nets --board <id>
+python3 .agents/skills/schematic-graph/graph_cli.py remove-net --board <id> --name VCC
+```
+
+`validate` enforces invariants: unique net names, ≥2 endpoints, single
+`edge_type` per net, all endpoint refdes present, `sheet_zone_ref` set.
+
+> **Not yet built:** CV-assisted wire tracing (`tracer` skill).
+
+### 8. Export to KiCad and run ERC
+
+```bash
+python3 .agents/skills/schematic-graph/graph_cli.py export-kicad \
+  --board <id> --validate
+```
+
+Per-sheet `.kicad_sch` files land in `boards/<id>/kicad/`. `--validate`
+re-parses the output as S-expression (own stdlib parser, no deps), reports
+lib-symbol / component / wire counts, and — if `kicad-cli` is on PATH or at
+`/Applications/KiCad/KiCad.app/...` — runs `sch erc` to confirm KiCad can
+load the file. ERC report lands next to the `.kicad_sch`.
+
+`kicad-cli sch export pdf <file>` will render a quick preview.
 
 ### 9. Probe the physical board
 
-The `discrepancies.md` template lives at
-`.agents/skills/schematic-graph/discrepancies.md`. Copy it to
-`boards/<board>/discrepancies.md` and log each paper-vs-board diff you find
-during physical probing (DMM continuity, scope on clock pins, etc.).
+```bash
+python3 .agents/skills/schematic-graph/graph_cli.py probe-list \
+  --board <id> [--verbose]
+```
 
-> The **probe list** (`probes.csv`) — automatically ranked physical
-> verification targets sorted by power/ground first, then multi-sheet
-> nets via `sheet_zone`, then AI low-confidence components, then ERC
-> borderline cases — is **not yet built**.
+Generates `boards/<id>/probes.csv` ranking every net by physical-verification
+priority:
 
-### 10. Export to KiCad
+- **HIGH:** power / ground nets (catastrophic if shorted), nets crossing
+  multiple sheets, nets using `sheet_zone` / `off_page` linkage
+- **MED:** clock nets (timing-critical), nets touching AI low-confidence
+  components
+- **LOW:** spot-check
 
-> **Not yet built.** Planned: `graph_cli export-kicad --board <id>`. From
-> there KiCad's own tools handle ERC, BOM, and (optionally) PCB layout.
+Each row includes formulaic DMM-continuity instructions per endpoint pair.
+
+The `discrepancies.md` template at `.agents/skills/schematic-graph/` is the
+companion log for paper-vs-board diffs you find during probing.
 
 ## Skills quick reference
 
 | Skill | Status | Purpose |
 |---|---|---|
 | **librarian**       | built       | Chip pinouts. CLI: `list`, `show`, `validate`, `coverage`, `add`. |
-| **schematic-graph** | partial     | Graph storage + components. CLI: `add-component`, `remove-component`, `list-components`, `verify-component`, `unverify-component`, `validate`. Net + KiCad export not built. |
-| **explorer**        | built       | HITL viewer. Pan/zoom, draw box, edit / delete / verify, drag pins. Net drawing not built. |
-| **cartographer**    | partial     | `tile`, `to-source` built. JP2 decode and image cleaning not built (`exidy/tools/decode_jp2.sh` covers JP2 manually). |
+| **schematic-graph** | built       | Graph storage + components + nets + probe list + KiCad export. CLI: `add-component`, `remove-component`, `list-components`, `verify-component`, `unverify-component`, `add-net`, `remove-net`, `list-nets`, `validate`, `probe-list`, `export-kicad`. |
+| **explorer**        | built       | HITL viewer. Pan/zoom, draw box, edit / delete / verify components, drag/resize/move bbox, click-to-place pin numbers (`N`), draw nets (`W` click pin → click pin), select+delete nets. |
+| **cartographer**    | partial     | `tile` (overlapping tiles for AI annotation), `snap-bbox` / `snap-board` (CV refinement of AI-estimated bboxes), `to-source` built. JP2 decode and image cleaning not built (`exidy/tools/decode_jp2.sh` covers JP2 manually). |
 | **identifier**      | workflow    | Per-tile chip identification by Claude. SKILL.md describes the workflow; Claude executes. |
-| **tracer**          | not built   | Wire/junction/label detection across the full sheet. |
-| **erc**             | not built   | KiCad ERC integration. |
-| **probe-list**      | not built   | Generate ranked `probes.csv` from the graph. |
+| **tracer**          | not built   | CV-assisted wire/junction/label detection across the full sheet. |
 
 ## What's there, what's missing
 
@@ -176,20 +202,19 @@ during physical probing (DMM continuity, scope on clock pins, etc.).
 - New chip → librarian `add` (datasheet citation enforced; pin / package /
   power-typing validated).
 - Tile a sheet → AI identifies → append with provenance (`--source ai`,
-  confidence).
-- HITL component review (verify / edit / delete / redraw, pin refinement).
-
-**Missing for ERC-clean KiCad output:**
-
-- Net drawing UI + storage.
-- Tracer skill (CV-assisted wire detection).
-- ERC runner.
-- KiCad export.
-- Probe list generator.
-- Discrepancy-log → ERC suppression integration.
+  confidence) → `cartographer snap-board` tightens bboxes via CV.
+- HITL component review: verify / edit / delete / redraw, drag-to-move,
+  drag-corner-to-resize (pins follow), pin-numbering mode (`N`).
+- Net drawing: explorer `W` mode and CLI `add-net` with all six edge types.
+- KiCad export: `graph_cli export-kicad` emits per-sheet `.kicad_sch`,
+  validates via `kicad-cli sch erc` if available.
+- Probe list: ranked `probes.csv` with concrete DMM instructions.
 
 **Missing for pipeline polish:**
 
+- Tracer skill (CV-assisted wire detection on the full sheet image).
+- Multi-pin nets in the explorer UI (CLI already supports them).
+- Discrepancy-log → ERC suppression integration.
 - Cartographer JP2-decode CLI (shell script exists in `exidy/tools/`).
 - Cartographer image cleaning (contrast / denoise / deskew).
 - `board.schema.json` validator.

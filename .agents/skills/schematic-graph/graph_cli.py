@@ -256,6 +256,116 @@ def cmd_list_nets(args):
         print(f"  {net['name']:10s}  [{kind}/{et}]  {eps}")
 
 
+def _net_priority(net, components_by_refdes):
+    """Rank a net for the physical-probe list. HIGH > MED > LOW.
+
+    HIGH:
+      - kind in {power, ground}
+      - net touches >1 sheet (any chance to mistrace at the boundary)
+      - any endpoint is sheet_zone / off_page (cross-sheet linkage)
+    MED:
+      - any endpoint touches an ai-source component with confidence <0.7
+      - kind=clock (timing critical)
+    LOW: otherwise.
+    """
+    kind = net.get("kind", "signal")
+    eps = net.get("endpoints", [])
+    if kind in ("power", "ground"):
+        return "HIGH", f"{kind} net — short or open is catastrophic"
+
+    sheets = {ep.get("sheet") for ep in eps if ep.get("sheet") is not None}
+    if len(sheets) > 1:
+        return "HIGH", f"crosses {len(sheets)} sheets — easy to mistrace at boundary"
+
+    edge_types = {ep.get("edge_type") for ep in eps}
+    if edge_types & {"sheet_zone", "off_page"}:
+        return "HIGH", "uses sheet-zone / off-page connector — cross-sheet inference"
+
+    low_conf_ais = []
+    for ep in eps:
+        comp = components_by_refdes.get(ep.get("refdes"))
+        if not comp:
+            continue
+        ev = comp.get("evidence", {}) or {}
+        if ev.get("source") == "ai" and (ev.get("confidence") or 1.0) < 0.7:
+            low_conf_ais.append(ep["refdes"])
+    if low_conf_ais:
+        return "MED", f"touches AI low-confidence component(s): {', '.join(sorted(set(low_conf_ais)))}"
+
+    if kind == "clock":
+        return "MED", "clock net — timing-critical"
+
+    return "LOW", "spot-check"
+
+
+def _net_suggested_test(net):
+    """Concrete physical-probe instructions."""
+    eps = net.get("endpoints", [])
+    if len(eps) < 2:
+        return "(net has <2 endpoints; nothing to probe)"
+    edge = eps[0].get("edge_type", "wire")
+    pairs = []
+    anchor = eps[0]
+    for other in eps[1:]:
+        pairs.append(f"{anchor['refdes']}.{anchor['pin']} ↔ {other['refdes']}.{other['pin']}")
+    if edge == "implicit_power":
+        return f"Power-off DMM continuity, expect short: {'; '.join(pairs)}"
+    if edge in ("sheet_zone", "off_page"):
+        return (f"Power-off DMM continuity across the off-page link: "
+                f"{'; '.join(pairs)}; verify the cross-sheet net name matches.")
+    if edge == "bus":
+        return (f"Power-off DMM continuity for each bus member: {'; '.join(pairs)}; "
+                f"verify no shorts to the adjacent bus members.")
+    return f"Power-off DMM continuity: {'; '.join(pairs)} should all beep."
+
+
+def cmd_probe_list(args):
+    graph = load_graph(args.board)
+    components_by_refdes = {c["refdes"]: c for c in graph["components"]}
+    nets = graph.get("nets", [])
+
+    # Build probe rows.
+    rows = []
+    for net in nets:
+        priority, reason = _net_priority(net, components_by_refdes)
+        eps = net.get("endpoints", [])
+        endpoints_str = ";".join(f"{e['refdes']}.{e['pin']}" for e in eps)
+        rows.append({
+            "priority": priority,
+            "net": net["name"],
+            "endpoints": endpoints_str,
+            "reason": reason,
+            "suggested_test": _net_suggested_test(net),
+            "status": "open",
+        })
+
+    # Sort: HIGH first, then MED, then LOW; ties by net name.
+    order = {"HIGH": 0, "MED": 1, "LOW": 2}
+    rows.sort(key=lambda r: (order.get(r["priority"], 9), r["net"]))
+
+    # Write CSV.
+    out_path = Path(args.out) if args.out else (board_dir(args.board) / "probes.csv")
+    import csv
+    with open(out_path, "w", newline="") as fp:
+        w = csv.DictWriter(fp, fieldnames=["priority", "net", "endpoints", "reason", "suggested_test", "status"])
+        w.writeheader()
+        for r in rows:
+            w.writerow(r)
+
+    # Summary table to stdout.
+    counts = {"HIGH": 0, "MED": 0, "LOW": 0}
+    for r in rows:
+        counts[r["priority"]] = counts.get(r["priority"], 0) + 1
+    print(f"wrote {out_path} — {len(rows)} probe(s):  "
+          f"HIGH={counts['HIGH']}  MED={counts['MED']}  LOW={counts['LOW']}")
+    if args.verbose:
+        print()
+        for r in rows:
+            print(f"  [{r['priority']}] {r['net']:12s}  {r['endpoints']}")
+            print(f"        reason: {r['reason']}")
+            print(f"        test:   {r['suggested_test']}")
+
+
 def _find_kicad_cli():
     """Return path to kicad-cli, or None."""
     import shutil
@@ -476,6 +586,12 @@ def main():
     sp.add_argument("--board", required=True)
     sp.add_argument("--sheet", type=int, help="restrict to nets with at least one endpoint on this sheet")
     sp.set_defaults(fn=cmd_list_nets)
+
+    sp = sub.add_parser("probe-list", help="generate ranked physical-board verification list (probes.csv)")
+    sp.add_argument("--board", required=True)
+    sp.add_argument("--out", help="output CSV path (default: boards/<id>/probes.csv)")
+    sp.add_argument("--verbose", action="store_true", help="print every row to stdout")
+    sp.set_defaults(fn=cmd_probe_list)
 
     sp = sub.add_parser("export-kicad", help="emit a .kicad_sch file per sheet")
     sp.add_argument("--board", required=True)
