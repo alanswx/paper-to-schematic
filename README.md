@@ -146,7 +146,28 @@ python3 .agents/skills/schematic-graph/graph_cli.py remove-net --board <id> --na
 `validate` enforces invariants: unique net names, ≥2 endpoints, single
 `edge_type` per net, all endpoint refdes present, `sheet_zone_ref` set.
 
-> **Not yet built:** CV-assisted wire tracing (`tracer` skill).
+**CV-assisted wire tracing:**
+
+```bash
+# Extract proposed nets from the source PNG (line-skeleton + connected
+# components, masking chip bodies). Optional --debug writes a PNG showing
+# the skeleton + per-pin assignment.
+.venv/bin/python .agents/skills/tracer/tracer.py trace \
+  --board exidy_440 --sheet 1 \
+  --out /tmp/exidy_s1_traces.json \
+  --debug /tmp/exidy_s1_skeleton.png
+
+# Import proposed nets, optionally filtering large groups (likely buses
+# or pin-position errors causing over-connection).
+python3 .agents/skills/schematic-graph/graph_cli.py import-traced-nets \
+  --board exidy_440 --from /tmp/exidy_s1_traces.json \
+  --max-endpoints 10 --prefix T_
+```
+
+The tracer produces *proposals*; HITL still verifies (and the `T_` prefix
+makes them easy to spot in the explorer's nets list). Accuracy scales with
+how correctly `pin_positions` reflect the schematic — run pin-numbering
+mode (`N`) on each chip first for best results.
 
 ### 8. Export to KiCad and run ERC
 
@@ -193,7 +214,7 @@ companion log for paper-vs-board diffs you find during probing.
 | **explorer**        | built       | HITL viewer. Pan/zoom, draw box, edit / delete / verify components, drag/resize/move bbox, click-to-place pin numbers (`N`), draw nets (`W` click pin → click pin), select+delete nets. |
 | **cartographer**    | partial     | `tile` (overlapping tiles for AI annotation), `snap-bbox` / `snap-board` (CV refinement of AI-estimated bboxes), `to-source` built. JP2 decode and image cleaning not built (`exidy/tools/decode_jp2.sh` covers JP2 manually). |
 | **identifier**      | workflow    | Per-tile chip identification by Claude. SKILL.md describes the workflow; Claude executes. |
-| **tracer**          | not built   | CV-assisted wire/junction/label detection across the full sheet. |
+| **tracer**          | built (v1)  | CV-assisted wire detection. CLI: `trace` emits proposed nets JSON; `graph_cli import-traced-nets` applies them. v1 known limits: no junction-vs-crossing detection, accuracy depends on pin-position quality. |
 
 ## What's there, what's missing
 
@@ -212,8 +233,8 @@ companion log for paper-vs-board diffs you find during probing.
 
 **Missing for pipeline polish:**
 
-- Tracer skill (CV-assisted wire detection on the full sheet image).
-- Multi-pin nets in the explorer UI (CLI already supports them).
+- Tracer dot-detection (distinguish junctions from crossings; v1 over-connects).
+- Multi-pin nets in the explorer UI (CLI and tracer-import already support them).
 - Discrepancy-log → ERC suppression integration.
 - Cartographer JP2-decode CLI (shell script exists in `exidy/tools/`).
 - Cartographer image cleaning (contrast / denoise / deskew).

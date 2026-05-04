@@ -256,6 +256,85 @@ def cmd_list_nets(args):
         print(f"  {net['name']:10s}  [{kind}/{et}]  {eps}")
 
 
+def cmd_import_traced_nets(args):
+    """Apply tracer JSON output to a board's graph."""
+    src = json.loads(Path(args.from_file).read_text())
+    if src.get("board") and src["board"] != args.board:
+        print(f"warning: tracer file is for board {src['board']!r}, importing into {args.board!r}",
+              file=sys.stderr)
+
+    proposed = src.get("proposed_nets", [])
+    if not proposed:
+        print("no proposed nets in input"); return
+
+    graph = load_graph(args.board)
+    if "nets" not in graph:
+        graph["nets"] = []
+
+    refdes_index = {c["refdes"]: c for c in graph["components"]}
+    existing_names = {n["name"] for n in graph["nets"]}
+
+    added = 0
+    skipped_size = 0
+    skipped_existing = 0
+    skipped_unknown = 0
+
+    for prop in proposed:
+        eps = prop.get("endpoints", [])
+        if len(eps) < 2:
+            continue
+        if len(eps) > args.max_endpoints:
+            skipped_size += 1
+            continue
+
+        # Build endpoint records
+        out_eps = []
+        bad = False
+        for ep in eps:
+            comp = refdes_index.get(ep["refdes"])
+            if not comp:
+                bad = True
+                break
+            out_eps.append({
+                "refdes": ep["refdes"],
+                "pin": ep["pin"],
+                "sheet": comp.get("sheet"),
+                "edge_type": "wire",
+                "evidence": {
+                    "source": "ai",
+                    "confidence": prop.get("confidence", 0.5),
+                    "note": f"tracer: skeleton component {prop.get('label','?')}",
+                },
+            })
+        if bad:
+            skipped_unknown += 1
+            continue
+
+        # Pick a unique name. Refdes-based naming would be nicer but we don't
+        # know the schematic-side label yet; use a prefixed counter.
+        i = 1
+        while True:
+            name = f"{args.prefix}{i}"
+            if name not in existing_names:
+                break
+            i += 1
+        existing_names.add(name)
+
+        graph["nets"].append({
+            "name": name,
+            "kind": "signal",
+            "endpoints": out_eps,
+        })
+        added += 1
+
+    save_graph(args.board, graph)
+    print(f"added {added} traced net(s)")
+    if skipped_size:
+        print(f"  skipped {skipped_size} (>{args.max_endpoints} endpoints)")
+    if skipped_unknown:
+        print(f"  skipped {skipped_unknown} (unknown refdes)")
+
+
 def _net_priority(net, components_by_refdes):
     """Rank a net for the physical-probe list. HIGH > MED > LOW.
 
@@ -586,6 +665,18 @@ def main():
     sp.add_argument("--board", required=True)
     sp.add_argument("--sheet", type=int, help="restrict to nets with at least one endpoint on this sheet")
     sp.set_defaults(fn=cmd_list_nets)
+
+    sp = sub.add_parser("import-traced-nets",
+                        help="import proposed nets from tracer JSON output")
+    sp.add_argument("--board", required=True)
+    sp.add_argument("--from", dest="from_file", required=True,
+                    help="JSON file from tracer.py trace")
+    sp.add_argument("--prefix", default="T_",
+                    help="prepend this to each generated net name (default: T_)")
+    sp.add_argument("--max-endpoints", type=int, default=20,
+                    help="skip proposed nets with more than this many endpoints "
+                         "(usually buses or over-connected; default 20)")
+    sp.set_defaults(fn=cmd_import_traced_nets)
 
     sp = sub.add_parser("probe-list", help="generate ranked physical-board verification list (probes.csv)")
     sp.add_argument("--board", required=True)

@@ -1,1 +1,18 @@
 priority,net,endpoints,reason,suggested_test,status
+LOW,T_1,21F.14;21F.15;21F.16,spot-check,Power-off DMM continuity: 21F.14 ↔ 21F.15; 21F.14 ↔ 21F.16 should all beep.,open
+LOW,T_10,21F.10;21F.11,spot-check,Power-off DMM continuity: 21F.10 ↔ 21F.11 should all beep.,open
+LOW,T_11,20B.17;21B.17,spot-check,Power-off DMM continuity: 20B.17 ↔ 21B.17 should all beep.,open
+LOW,T_12,20H.3;20H.4;20H.5;20H.6,spot-check,Power-off DMM continuity: 20H.3 ↔ 20H.4; 20H.3 ↔ 20H.5; 20H.3 ↔ 20H.6 should all beep.,open
+LOW,T_13,20F.1;20F.2;20F.3;20F.4,spot-check,Power-off DMM continuity: 20F.1 ↔ 20F.2; 20F.1 ↔ 20F.3; 20F.1 ↔ 20F.4 should all beep.,open
+LOW,T_14,20B.15;20B.16;21B.15;21B.16,spot-check,Power-off DMM continuity: 20B.15 ↔ 20B.16; 20B.15 ↔ 21B.15; 20B.15 ↔ 21B.16 should all beep.,open
+LOW,T_15,14B.16;14B.17,spot-check,Power-off DMM continuity: 14B.16 ↔ 14B.17 should all beep.,open
+LOW,T_16,14B.14;14B.15,spot-check,Power-off DMM continuity: 14B.14 ↔ 14B.15 should all beep.,open
+LOW,T_17,20H.10;20H.11,spot-check,Power-off DMM continuity: 20H.10 ↔ 20H.11 should all beep.,open
+LOW,T_2,21F.1;21F.2;21F.3;21F.4;21F.5;21F.6;21F.7;21F.8;21F.9,spot-check,Power-off DMM continuity: 21F.1 ↔ 21F.2; 21F.1 ↔ 21F.3; 21F.1 ↔ 21F.4; 21F.1 ↔ 21F.5; 21F.1 ↔ 21F.6; 21F.1 ↔ 21F.7; 21F.1 ↔ 21F.8; 21F.1 ↔ 21F.9 should all beep.,open
+LOW,T_3,21H.1;21H.2;21H.3;21H.4,spot-check,Power-off DMM continuity: 21H.1 ↔ 21H.2; 21H.1 ↔ 21H.3; 21H.1 ↔ 21H.4 should all beep.,open
+LOW,T_4,21H.9;21H.10;21H.11;21H.12;21H.13;21H.14;21H.15,spot-check,Power-off DMM continuity: 21H.9 ↔ 21H.10; 21H.9 ↔ 21H.11; 21H.9 ↔ 21H.12; 21H.9 ↔ 21H.13; 21H.9 ↔ 21H.14; 21H.9 ↔ 21H.15 should all beep.,open
+LOW,T_5,20B.23;20B.24;21B.23;21B.24,spot-check,Power-off DMM continuity: 20B.23 ↔ 20B.24; 20B.23 ↔ 21B.23; 20B.23 ↔ 21B.24 should all beep.,open
+LOW,T_6,20B.22;21B.22,spot-check,Power-off DMM continuity: 20B.22 ↔ 21B.22 should all beep.,open
+LOW,T_7,14B.20;14B.21,spot-check,Power-off DMM continuity: 14B.20 ↔ 14B.21 should all beep.,open
+LOW,T_8,20B.20;20B.21;21B.20;21B.21,spot-check,Power-off DMM continuity: 20B.20 ↔ 20B.21; 20B.20 ↔ 21B.20; 20B.20 ↔ 21B.21 should all beep.,open
+LOW,T_9,20B.18;20B.19;21B.18;21B.19,spot-check,Power-off DMM continuity: 20B.18 ↔ 20B.19; 20B.18 ↔ 21B.18; 20B.18 ↔ 21B.19 should all beep.,open

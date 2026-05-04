@@ -1,4 +1,4 @@
-ERC report (2026-05-04T19:17:39, Encoding UTF8)
+ERC report (2026-05-04T19:32:42, Encoding UTF8)
 Report includes: Errors, Warnings, Exclusions
 
 ***** Sheet /
@@ -44,6 +44,10 @@ Report includes: Errors, Warnings, Exclusions
 [power_pin_not_driven]: Input Power pin not driven by any Output Power pins
     ; error
     @(91.466 mm, 84.376 mm): Symbol 21H Pin 8 [GND, Power input, Line]
+[wire_dangling]: Wires not connected to anything
+    ; error
+    @(91.466 mm, 86.916 mm): Vertical Wire, length 2.54 mm
+    @(91.466 mm, 86.916 mm): Vertical Wire, length 5.08 mm
 [pin_not_connected]: Pin not connected
     ; error
     @(91.70 mm, 86.923 mm): Symbol 20H Pin 1 [D3, Input, Line]
@@ -64,67 +68,32 @@ Report includes: Errors, Warnings, Exclusions
     @(91.70 mm, 89.463 mm): Symbol 20H Pin 2 [D2, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(109.246 mm, 69.136 mm): Symbol 21H Pin 15 [D4, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(109.246 mm, 69.136 mm): Symbol 21H Pin 15 [D4, Input, Line]
-[pin_not_connected]: Pin not connected
-    ; error
     @(91.70 mm, 92.003 mm): Symbol 20H Pin 3 [D1, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(91.70 mm, 92.003 mm): Symbol 20H Pin 3 [D1, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(109.246 mm, 71.676 mm): Symbol 21H Pin 14 [D5, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(109.246 mm, 71.676 mm): Symbol 21H Pin 14 [D5, Input, Line]
-[pin_not_connected]: Pin not connected
-    ; error
     @(91.70 mm, 94.543 mm): Symbol 20H Pin 4 [D0, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(91.70 mm, 94.543 mm): Symbol 20H Pin 4 [D0, Input, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(109.246 mm, 74.216 mm): Symbol 21H Pin 13 [D6, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(109.246 mm, 74.216 mm): Symbol 21H Pin 13 [D6, Input, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(109.246 mm, 76.756 mm): Symbol 21H Pin 12 [D7, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(109.246 mm, 76.756 mm): Symbol 21H Pin 12 [D7, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(91.70 mm, 97.083 mm): Symbol 20H Pin 5 [Y, Output, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(109.246 mm, 79.296 mm): Symbol 21H Pin 11 [A, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(109.246 mm, 79.296 mm): Symbol 21H Pin 11 [A, Input, Line]
-[pin_not_connected]: Pin not connected
-    ; error
     @(91.70 mm, 99.623 mm): Symbol 20H Pin 6 [W, Output, Line]
-[pin_not_connected]: Pin not connected
+[wire_dangling]: Wires not connected to anything
     ; error
-    @(109.246 mm, 81.836 mm): Symbol 21H Pin 10 [B, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(109.246 mm, 81.836 mm): Symbol 21H Pin 10 [B, Input, Line]
+    @(91.70 mm, 102.163 mm): Vertical Wire, length 2.54 mm
+    @(91.70 mm, 102.163 mm): Vertical Wire, length 5.08 mm
 [pin_not_connected]: Pin not connected
     ; error
     @(91.70 mm, 102.163 mm): Symbol 20H Pin 7 [~{G}, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(91.70 mm, 102.163 mm): Symbol 20H Pin 7 [~{G}, Input, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(109.246 mm, 84.376 mm): Symbol 21H Pin 9 [C, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(109.246 mm, 84.376 mm): Symbol 21H Pin 9 [C, Input, Line]
@@ -148,34 +117,16 @@ Report includes: Errors, Warnings, Exclusions
     @(109.48 mm, 89.463 mm): Symbol 20H Pin 15 [D4, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(109.48 mm, 92.003 mm): Symbol 20H Pin 14 [D5, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(109.48 mm, 92.003 mm): Symbol 20H Pin 14 [D5, Input, Line]
-[pin_not_connected]: Pin not connected
-    ; error
     @(127.00 mm, 66.537 mm): Symbol 21F Pin 1 [D3, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(127.00 mm, 66.537 mm): Symbol 21F Pin 1 [D3, Input, Line]
-[pin_not_connected]: Pin not connected
+[power_pin_not_driven]: Input Power pin not driven by any Output Power pins
     ; error
     @(127.00 mm, 69.077 mm): Symbol 21F Pin 2 [D2, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(127.00 mm, 69.077 mm): Symbol 21F Pin 2 [D2, Input, Line]
-[pin_not_connected]: Pin not connected
-    ; error
     @(109.48 mm, 94.543 mm): Symbol 20H Pin 13 [D6, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(109.48 mm, 94.543 mm): Symbol 20H Pin 13 [D6, Input, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(127.00 mm, 71.617 mm): Symbol 21F Pin 3 [D1, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(127.00 mm, 71.617 mm): Symbol 21F Pin 3 [D1, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(109.48 mm, 97.083 mm): Symbol 20H Pin 12 [D7, Input, Line]
@@ -184,21 +135,13 @@ Report includes: Errors, Warnings, Exclusions
     @(109.48 mm, 97.083 mm): Symbol 20H Pin 12 [D7, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(127.00 mm, 74.157 mm): Symbol 21F Pin 4 [D0, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(127.00 mm, 74.157 mm): Symbol 21F Pin 4 [D0, Input, Line]
-[pin_not_connected]: Pin not connected
-    ; error
     @(109.48 mm, 99.623 mm): Symbol 20H Pin 11 [A, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(109.48 mm, 99.623 mm): Symbol 20H Pin 11 [A, Input, Line]
-[pin_not_connected]: Pin not connected
+[pin_to_pin]: Pins of type Output and Output are connected
     ; error
     @(127.00 mm, 76.697 mm): Symbol 21F Pin 5 [Y, Output, Line]
-[pin_not_connected]: Pin not connected
-    ; error
     @(127.00 mm, 79.237 mm): Symbol 21F Pin 6 [W, Output, Line]
 [pin_not_connected]: Pin not connected
     ; error
@@ -208,22 +151,10 @@ Report includes: Errors, Warnings, Exclusions
     @(109.48 mm, 102.163 mm): Symbol 20H Pin 10 [B, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(127.00 mm, 81.777 mm): Symbol 21F Pin 7 [~{G}, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(127.00 mm, 81.777 mm): Symbol 21F Pin 7 [~{G}, Input, Line]
-[pin_not_connected]: Pin not connected
-    ; error
     @(109.48 mm, 104.703 mm): Symbol 20H Pin 9 [C, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(109.48 mm, 104.703 mm): Symbol 20H Pin 9 [C, Input, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(127.00 mm, 84.317 mm): Symbol 21F Pin 8 [GND, Power input, Line]
-[power_pin_not_driven]: Input Power pin not driven by any Output Power pins
-    ; error
-    @(127.00 mm, 84.317 mm): Symbol 21F Pin 8 [GND, Power input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(126.474 mm, 87.704 mm): Symbol 20F Pin 1 [D3, Input, Line]
@@ -257,60 +188,24 @@ Report includes: Errors, Warnings, Exclusions
 [pin_not_connected]: Pin not connected
     ; error
     @(126.474 mm, 97.864 mm): Symbol 20F Pin 5 [Y, Output, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(144.78 mm, 69.077 mm): Symbol 21F Pin 15 [D4, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(144.78 mm, 69.077 mm): Symbol 21F Pin 15 [D4, Input, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(126.474 mm, 100.404 mm): Symbol 20F Pin 6 [W, Output, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(144.78 mm, 71.617 mm): Symbol 21F Pin 14 [D5, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(144.78 mm, 71.617 mm): Symbol 21F Pin 14 [D5, Input, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(144.78 mm, 74.157 mm): Symbol 21F Pin 13 [D6, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(144.78 mm, 74.157 mm): Symbol 21F Pin 13 [D6, Input, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(126.474 mm, 102.944 mm): Symbol 20F Pin 7 [~{G}, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(126.474 mm, 102.944 mm): Symbol 20F Pin 7 [~{G}, Input, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(144.78 mm, 76.697 mm): Symbol 21F Pin 12 [D7, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(144.78 mm, 76.697 mm): Symbol 21F Pin 12 [D7, Input, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(126.474 mm, 105.484 mm): Symbol 20F Pin 8 [GND, Power input, Line]
 [power_pin_not_driven]: Input Power pin not driven by any Output Power pins
     ; error
-    @(126.474 mm, 105.484 mm): Symbol 20F Pin 8 [GND, Power input, Line]
+    @(126.474 mm, 102.944 mm): Symbol 20F Pin 7 [~{G}, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(144.78 mm, 76.697 mm): Symbol 21F Pin 12 [D7, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(144.78 mm, 76.697 mm): Symbol 21F Pin 12 [D7, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(144.78 mm, 79.237 mm): Symbol 21F Pin 11 [A, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(144.78 mm, 79.237 mm): Symbol 21F Pin 11 [A, Input, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(144.78 mm, 81.777 mm): Symbol 21F Pin 10 [B, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(144.78 mm, 81.777 mm): Symbol 21F Pin 10 [B, Input, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(144.78 mm, 84.317 mm): Symbol 21F Pin 9 [C, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(144.78 mm, 84.317 mm): Symbol 21F Pin 9 [C, Input, Line]
@@ -499,12 +394,6 @@ Report includes: Errors, Warnings, Exclusions
     @(188.697 mm, 67.114 mm): Symbol 17B Pin 1 [A7, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(187.03 mm, 72.253 mm): Symbol 14B Pin 22 [A9, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(187.03 mm, 72.253 mm): Symbol 14B Pin 22 [A9, Input, Line]
-[pin_not_connected]: Pin not connected
-    ; error
     @(177.147 mm, 95.113 mm): Symbol 16B Pin 12 [GND, Power input, Line]
 [power_pin_not_driven]: Input Power pin not driven by any Output Power pins
     ; error
@@ -512,27 +401,15 @@ Report includes: Errors, Warnings, Exclusions
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(188.697 mm, 69.654 mm): Symbol 17B Pin 2 [A6, Input, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(187.03 mm, 74.793 mm): Symbol 14B Pin 21 [~{WE}, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(187.03 mm, 74.793 mm): Symbol 14B Pin 21 [~{WE}, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(188.697 mm, 72.194 mm): Symbol 17B Pin 3 [A5, Input, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(187.03 mm, 77.333 mm): Symbol 14B Pin 20 [~{OE}, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(187.03 mm, 77.333 mm): Symbol 14B Pin 20 [~{OE}, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(188.697 mm, 74.734 mm): Symbol 17B Pin 4 [A4, Input, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(187.03 mm, 79.873 mm): Symbol 14B Pin 19 [A10, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(187.03 mm, 79.873 mm): Symbol 14B Pin 19 [A10, Input, Line]
@@ -560,9 +437,6 @@ Report includes: Errors, Warnings, Exclusions
 [power_pin_not_driven]: Input Power pin not driven by any Output Power pins
     ; error
     @(194.927 mm, 67.173 mm): Symbol 16B Pin 24 [VCC, Power input, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(187.03 mm, 87.493 mm): Symbol 14B Pin 16 [I/O6, Bidirectional, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(188.697 mm, 84.894 mm): Symbol 17B Pin 8 [A0, Input, Line]
@@ -572,9 +446,6 @@ Report includes: Errors, Warnings, Exclusions
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(194.927 mm, 69.713 mm): Symbol 16B Pin 23 [A8, Input, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(187.03 mm, 90.033 mm): Symbol 14B Pin 15 [I/O5, Bidirectional, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(194.927 mm, 72.253 mm): Symbol 16B Pin 22 [A9, Input, Line]
@@ -688,16 +559,10 @@ Report includes: Errors, Warnings, Exclusions
     @(233.613 mm, 70.161 mm): Symbol 20B Pin 22 [A9, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(233.613 mm, 72.701 mm): Symbol 20B Pin 21 [~{WE}, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
     @(233.613 mm, 75.241 mm): Symbol 20B Pin 20 [~{OE}, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(233.613 mm, 77.781 mm): Symbol 20B Pin 19 [A10, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(233.613 mm, 80.321 mm): Symbol 20B Pin 18 [~{CS}, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(262.709 mm, 72.40 mm): Symbol 14A Pin 1 [SER, Input, Line]
@@ -794,33 +659,129 @@ Report includes: Errors, Warnings, Exclusions
 [endpoint_off_grid]: Symbol pin or wire end off connection grid
     ; warning
     @(91.466 mm, 66.596 mm): Symbol 21H Pin 1 [D3, Input, Line]
-[endpoint_off_grid]: Symbol pin or wire end off connection grid
-    ; warning
-    @(91.466 mm, 76.756 mm): Wire, length 35.62 mm
 [unconnected_wire_endpoint]: Unconnected wire endpoint
     ; warning
-    @(91.466 mm, 76.756 mm): Wire, length 35.62 mm
+    @(91.466 mm, 86.916 mm): Vertical Wire, length 7.62 mm
+[unconnected_wire_endpoint]: Unconnected wire endpoint
+    ; warning
+    @(91.466 mm, 86.916 mm): Vertical Wire, length 5.08 mm
+[unconnected_wire_endpoint]: Unconnected wire endpoint
+    ; warning
+    @(91.466 mm, 86.916 mm): Vertical Wire, length 2.54 mm
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(91.466 mm, 86.916 mm): Vertical Wire, length 7.62 mm
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(91.466 mm, 86.916 mm): Vertical Wire, length 5.08 mm
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(91.466 mm, 86.916 mm): Vertical Wire, length 2.54 mm
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(100.356 mm, 76.756 mm): Symbol 21H [74LS151]
 [endpoint_off_grid]: Symbol pin or wire end off connection grid
     ; warning
     @(91.70 mm, 86.923 mm): Symbol 20H Pin 1 [D3, Input, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(109.246 mm, 69.136 mm): Vertical Wire, length 12.70 mm
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(109.246 mm, 69.136 mm): Vertical Wire, length 2.54 mm
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(109.246 mm, 69.136 mm): Vertical Wire, length 5.08 mm
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(109.246 mm, 69.136 mm): Vertical Wire, length 15.24 mm
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(109.246 mm, 69.136 mm): Vertical Wire, length 10.16 mm
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(109.246 mm, 69.136 mm): Vertical Wire, length 7.62 mm
+[unconnected_wire_endpoint]: Unconnected wire endpoint
+    ; warning
+    @(91.70 mm, 102.163 mm): Vertical Wire, length 7.62 mm
+[unconnected_wire_endpoint]: Unconnected wire endpoint
+    ; warning
+    @(91.70 mm, 102.163 mm): Vertical Wire, length 5.08 mm
+[unconnected_wire_endpoint]: Unconnected wire endpoint
+    ; warning
+    @(91.70 mm, 102.163 mm): Vertical Wire, length 2.54 mm
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(91.70 mm, 102.163 mm): Vertical Wire, length 5.08 mm
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(91.70 mm, 102.163 mm): Vertical Wire, length 7.62 mm
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(91.70 mm, 102.163 mm): Vertical Wire, length 2.54 mm
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(100.59 mm, 97.083 mm): Symbol 20H [74LS151]
 [endpoint_off_grid]: Symbol pin or wire end off connection grid
     ; warning
+    @(109.48 mm, 92.003 mm): Vertical Wire, length 2.54 mm
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
     @(127.00 mm, 66.537 mm): Symbol 21F Pin 1 [D3, Input, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(127.00 mm, 86.857 mm): Vertical Wire, length 5.08 mm
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(127.00 mm, 86.857 mm): Vertical Wire, length 7.62 mm
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(127.00 mm, 86.857 mm): Wire, length 25.145 mm
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(127.00 mm, 86.857 mm): Vertical Wire, length 15.24 mm
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(127.00 mm, 86.857 mm): Vertical Wire, length 10.16 mm
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(127.00 mm, 86.857 mm): Vertical Wire, length 17.78 mm
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(127.00 mm, 86.857 mm): Vertical Wire, length 12.70 mm
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(127.00 mm, 86.857 mm): Vertical Wire, length 2.54 mm
 [endpoint_off_grid]: Symbol pin or wire end off connection grid
     ; warning
     @(126.474 mm, 87.704 mm): Symbol 20F Pin 1 [D3, Input, Line]
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(135.89 mm, 76.697 mm): Symbol 21F [74LS151]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(144.78 mm, 71.617 mm): Vertical Wire, length 2.54 mm
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(144.78 mm, 81.777 mm): Vertical Wire, length 5.08 mm
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(144.78 mm, 81.777 mm): Vertical Wire, length 2.54 mm
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(126.474 mm, 108.024 mm): Vertical Wire, length 2.54 mm
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(126.474 mm, 108.024 mm): Vertical Wire, length 7.62 mm
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(126.474 mm, 108.024 mm): Vertical Wire, length 5.08 mm
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(135.364 mm, 97.864 mm): Symbol 20F [74LS151]
+[unconnected_wire_endpoint]: Unconnected wire endpoint
+    ; warning
+    @(144.78 mm, 81.777 mm): Vertical Wire, length 5.08 mm
 [endpoint_off_grid]: Symbol pin or wire end off connection grid
     ; warning
     @(169.25 mm, 67.173 mm): Symbol 14B Pin 1 [A7, Input, Line]
@@ -836,9 +797,18 @@ Report includes: Errors, Warnings, Exclusions
 [endpoint_off_grid]: Symbol pin or wire end off connection grid
     ; warning
     @(188.697 mm, 67.114 mm): Symbol 17B Pin 1 [A7, Input, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(187.03 mm, 72.253 mm): Vertical Wire, length 2.54 mm
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(187.03 mm, 77.333 mm): Vertical Wire, length 2.54 mm
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(186.037 mm, 82.413 mm): Symbol 16B [HM6116]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(187.03 mm, 87.493 mm): Vertical Wire, length 2.54 mm
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(197.587 mm, 82.354 mm): Symbol 17B [HM6116]
@@ -859,12 +829,54 @@ Report includes: Errors, Warnings, Exclusions
     @(224.723 mm, 80.321 mm): Symbol 20B [HM6116]
 [endpoint_off_grid]: Symbol pin or wire end off connection grid
     ; warning
+    @(233.613 mm, 72.701 mm): Vertical Wire, length 2.54 mm
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(233.613 mm, 72.701 mm): Vertical Wire, length 2.54 mm
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(233.613 mm, 72.701 mm): Vertical Wire, length 0.00 mm
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(233.613 mm, 77.781 mm): Vertical Wire, length 0.00 mm
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(233.613 mm, 80.321 mm): Vertical Wire, length 0.00 mm
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(233.613 mm, 80.321 mm): Vertical Wire, length 2.54 mm
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(233.613 mm, 80.321 mm): Vertical Wire, length 2.54 mm
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(233.613 mm, 85.401 mm): Vertical Wire, length 2.54 mm
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(233.613 mm, 85.401 mm): Vertical Wire, length 2.54 mm
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(233.613 mm, 85.401 mm): Vertical Wire, length 0.00 mm
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(233.613 mm, 90.481 mm): Vertical Wire, length 0.00 mm
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(233.613 mm, 93.021 mm): Vertical Wire, length 2.54 mm
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(233.613 mm, 93.021 mm): Vertical Wire, length 2.54 mm
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(233.613 mm, 93.021 mm): Vertical Wire, length 0.00 mm
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
     @(262.709 mm, 72.40 mm): Symbol 14A Pin 1 [SER, Input, Line]
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(271.599 mm, 82.56 mm): Symbol 14A [74LS166]
 
- ** ERC messages: 287  Errors 263  Warnings 24
+ ** ERC messages: 290  Errors 217  Warnings 73
 
  ** Ignored checks:
     - Global label only appears once in the schematic
