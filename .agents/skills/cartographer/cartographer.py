@@ -110,6 +110,227 @@ def cmd_to_source(args):
     print(",".join(f"{v:.0f}" for v in out))
 
 
+def _snap_one(img_gray, bbox, search_pad: int, line_min_len: int, min_size: int,
+              max_size: int = 500):
+    """Find the chip-outline rectangle near `bbox` via contour search on the
+    line-skeleton (long horizontal + long vertical edges only).
+
+    Returns (x1, y1, x2, y2) snapped, or None if nothing plausible was found.
+
+    The AI's bbox center may not even fall inside the chip (we observed it
+    landing on pin labels several chip-widths to the side). So we don't scan
+    from center — we look for ANY chip-sized rectangle in the ROI and pick the
+    closest match.
+
+    Algorithm:
+      1. Threshold the ROI (Otsu, inverted — outlines = white).
+      2. Open horizontally → only long horizontal segments survive (chip
+         top/bottom edges + long pin lines).
+         Open vertically → only long vertical segments survive (chip
+         left/right edges).
+      3. Bridge corner gaps with a small dilation so each chip outline is one
+         connected component, but not enough to merge with adjacent chips.
+      4. Find contours, filter by size [min_size, max_size], pick the one
+         whose center is closest to the AI bbox center.
+    """
+    import cv2
+
+    H, W = img_gray.shape
+    x1, y1, x2, y2 = bbox
+    cx_t = (x1 + x2) / 2
+    cy_t = (y1 + y2) / 2
+
+    rx1 = max(0, int(min(x1, x2) - search_pad))
+    ry1 = max(0, int(min(y1, y2) - search_pad))
+    rx2 = min(W, int(max(x1, x2) + search_pad))
+    ry2 = min(H, int(max(y1, y2) + search_pad))
+    if rx2 - rx1 < 4 or ry2 - ry1 < 4:
+        return None
+
+    roi = img_gray[ry1:ry2, rx1:rx2]
+    _, binary = cv2.threshold(roi, 0, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)
+
+    horiz = cv2.morphologyEx(
+        binary, cv2.MORPH_OPEN,
+        cv2.getStructuringElement(cv2.MORPH_RECT, (line_min_len, 1)))
+    vert = cv2.morphologyEx(
+        binary, cv2.MORPH_OPEN,
+        cv2.getStructuringElement(cv2.MORPH_RECT, (1, line_min_len)))
+
+    skeleton = cv2.bitwise_or(horiz, vert)
+    # Tiny close to bridge corner gaps so closed loops register, but small
+    # enough that adjacent chips don't merge.
+    skeleton = cv2.morphologyEx(skeleton, cv2.MORPH_CLOSE,
+                                cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3)),
+                                iterations=1)
+
+    # RETR_CCOMP gives a 2-level hierarchy: top-level outer contours, and holes
+    # inside them. The chip outline forms a closed loop, so the chip's INTERIOR
+    # is a hole. We score holes (not outer contours) so the result naturally
+    # excludes the merged-with-pin-lines outer blob.
+    contours, hierarchy = cv2.findContours(skeleton, cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE)
+
+    target_cx = cx_t - rx1
+    target_cy = cy_t - ry1
+
+    best = None
+    best_score = float("inf")
+    if hierarchy is not None:
+        for i, c in enumerate(contours):
+            # hierarchy[0][i] = [next, prev, first_child, parent]
+            is_hole = hierarchy[0][i][3] != -1
+            if not is_hole:
+                continue
+            bx, by, bw, bh = cv2.boundingRect(c)
+            if bw < min_size or bh < min_size:
+                continue
+            if bw > max_size or bh > max_size:
+                continue
+            ccx = bx + bw / 2
+            ccy = by + bh / 2
+            dist = ((ccx - target_cx) ** 2 + (ccy - target_cy) ** 2) ** 0.5
+            score = dist
+            if score < best_score:
+                best_score = score
+                best = (bx, by, bw, bh)
+
+    if best is None:
+        return None
+
+    bx, by, bw, bh = best
+    # Pad by a few pixels to include the outline itself (the hole is the interior).
+    pad = 4
+    return (max(0, bx - pad) + rx1,
+            max(0, by - pad) + ry1,
+            min(rx2 - rx1, bx + bw + pad) + rx1,
+            min(ry2 - ry1, by + bh + pad) + ry1)
+
+
+def cmd_snap_bbox(args):
+    try:
+        import cv2
+    except ImportError:
+        print("opencv-python required. Install: .venv/bin/pip install -r "
+              ".agents/skills/cartographer/requirements.txt", file=sys.stderr)
+        sys.exit(2)
+
+    img = cv2.imread(args.image, cv2.IMREAD_GRAYSCALE)
+    if img is None:
+        print(f"failed to load image: {args.image}", file=sys.stderr)
+        sys.exit(1)
+
+    try:
+        bbox = tuple(float(v) for v in args.bbox.split(","))
+    except ValueError:
+        print(f"--bbox malformed: {args.bbox}", file=sys.stderr)
+        sys.exit(1)
+    if len(bbox) != 4:
+        print(f"--bbox needs 4 values: {args.bbox}", file=sys.stderr)
+        sys.exit(1)
+
+    snapped = _snap_one(img, bbox, args.search_pad, args.line_min_len, args.min_size,
+                        max_size=args.max_size)
+
+    if snapped is None:
+        # Fall back to the input bbox so callers can chain safely.
+        out = tuple(int(v) for v in bbox)
+        print(",".join(str(v) for v in out))
+        if not args.quiet:
+            print("(no rectangle found; returned input bbox unchanged)", file=sys.stderr)
+    else:
+        out = tuple(int(v) for v in snapped)
+        print(",".join(str(v) for v in out))
+
+    if args.debug:
+        import numpy as np
+        x1, y1, x2, y2 = (int(v) for v in bbox)
+        H, W = img.shape
+        rx1 = max(0, x1 - args.search_pad - 20)
+        ry1 = max(0, y1 - args.search_pad - 20)
+        rx2 = min(W, x2 + args.search_pad + 20)
+        ry2 = min(H, y2 + args.search_pad + 20)
+
+        # Composite: original (left) + horiz layer (mid) + vert layer (right)
+        roi_inner = img[
+            max(0, y1 - args.search_pad):min(H, y2 + args.search_pad),
+            max(0, x1 - args.search_pad):min(W, x2 + args.search_pad)
+        ]
+        _, bin_dbg = cv2.threshold(roi_inner, 0, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)
+        h_dbg = cv2.morphologyEx(bin_dbg, cv2.MORPH_OPEN,
+                                  cv2.getStructuringElement(cv2.MORPH_RECT, (args.line_min_len, 1)))
+        v_dbg = cv2.morphologyEx(bin_dbg, cv2.MORPH_OPEN,
+                                  cv2.getStructuringElement(cv2.MORPH_RECT, (1, args.line_min_len)))
+
+        debug = cv2.cvtColor(img, cv2.COLOR_GRAY2BGR)
+        cv2.rectangle(debug, (x1, y1), (x2, y2), (0, 0, 255), 3)
+        if snapped is not None:
+            sx1, sy1, sx2, sy2 = (int(v) for v in snapped)
+            cv2.rectangle(debug, (sx1, sy1), (sx2, sy2), (0, 255, 0), 3)
+        cv2.imwrite(args.debug, debug[ry1:ry2, rx1:rx2])
+        cv2.imwrite(args.debug.replace(".png", "_horiz.png"), h_dbg)
+        cv2.imwrite(args.debug.replace(".png", "_vert.png"), v_dbg)
+        cv2.imwrite(args.debug.replace(".png", "_binary.png"), bin_dbg)
+        print(f"debug image: {args.debug} (+ _horiz, _vert, _binary)", file=sys.stderr)
+
+
+def cmd_snap_board(args):
+    """Run snap-bbox on every component on a board (or one sheet) and rewrite graph.json."""
+    try:
+        import cv2
+    except ImportError:
+        print("opencv-python required.", file=sys.stderr)
+        sys.exit(2)
+
+    project_root = Path(__file__).resolve().parent.parent.parent.parent
+    board_dir = project_root / "boards" / args.board
+    graph_path = board_dir / "graph.json"
+    if not graph_path.exists():
+        print(f"no graph: {graph_path}", file=sys.stderr)
+        sys.exit(1)
+
+    graph = json.loads(graph_path.read_text())
+    sheets = {s["index"]: s for s in graph["sheets"]}
+
+    # Cache decoded sheet images by sheet index.
+    sheet_imgs = {}
+    def get_sheet_img(idx):
+        if idx not in sheet_imgs:
+            scan_path = (board_dir / sheets[idx]["scan_path"]).resolve()
+            img = cv2.imread(str(scan_path), cv2.IMREAD_GRAYSCALE)
+            if img is None:
+                raise RuntimeError(f"failed to load sheet {idx} at {scan_path}")
+            sheet_imgs[idx] = img
+        return sheet_imgs[idx]
+
+    summary = {"snapped": 0, "unchanged": 0, "skipped": 0}
+    for comp in graph["components"]:
+        if args.sheet is not None and comp["sheet"] != args.sheet:
+            continue
+        if comp.get("verified") and not args.include_verified:
+            summary["skipped"] += 1
+            continue
+        img = get_sheet_img(comp["sheet"])
+        old = comp["bbox"]
+        new = _snap_one(img, tuple(old), args.search_pad, args.line_min_len,
+                         args.min_size, max_size=args.max_size)
+        if new is None:
+            summary["unchanged"] += 1
+            print(f"  - {comp['refdes']:6s} no rectangle found, kept {old}")
+            continue
+        summary["snapped"] += 1
+        print(f"  + {comp['refdes']:6s} {[int(v) for v in old]} → {[int(v) for v in new]}")
+        comp["bbox"] = list(new)
+        # Pin positions were derived from the old bbox; regenerate.
+        comp.pop("pin_positions", None)
+
+    if not args.dry_run:
+        graph_path.write_text(json.dumps(graph, indent=2) + "\n")
+        print(f"\nwrote {graph_path}")
+    else:
+        print("\n(dry-run; graph.json not written)")
+    print(f"summary: snapped={summary['snapped']} unchanged={summary['unchanged']} skipped={summary['skipped']}")
+
+
 def main():
     ap = argparse.ArgumentParser(prog="cartographer", description=__doc__.splitlines()[0])
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -126,6 +347,29 @@ def main():
     sp.add_argument("--tile", required=True)
     sp.add_argument("--bbox", required=True)
     sp.set_defaults(fn=cmd_to_source)
+
+    sp = sub.add_parser("snap-bbox", help="snap a tentative bbox to the nearest chip-outline rectangle")
+    sp.add_argument("--image", required=True, help="source PNG path")
+    sp.add_argument("--bbox", required=True, help="x1,y1,x2,y2 in source pixels")
+    sp.add_argument("--search-pad", type=int, default=120, help="pixels of search margin around bbox")
+    sp.add_argument("--line-min-len", type=int, default=30, help="min straight-line length to count as outline")
+    sp.add_argument("--min-size", type=int, default=50, help="min width/height of the chip-interior hole")
+    sp.add_argument("--max-size", type=int, default=500, help="max width/height of the chip-interior hole")
+    sp.add_argument("--debug", help="path to write a debug PNG (red=original, green=snapped)")
+    sp.add_argument("--quiet", action="store_true")
+    sp.set_defaults(fn=cmd_snap_bbox)
+
+    sp = sub.add_parser("snap-board", help="snap every component on a board's graph.json")
+    sp.add_argument("--board", required=True)
+    sp.add_argument("--sheet", type=int, help="restrict to one sheet index")
+    sp.add_argument("--search-pad", type=int, default=120)
+    sp.add_argument("--line-min-len", type=int, default=30)
+    sp.add_argument("--min-size", type=int, default=50)
+    sp.add_argument("--max-size", type=int, default=500)
+    sp.add_argument("--include-verified", action="store_true",
+                    help="also re-snap components flagged verified (default skips them)")
+    sp.add_argument("--dry-run", action="store_true")
+    sp.set_defaults(fn=cmd_snap_board)
 
     args = ap.parse_args()
     args.fn(args)
