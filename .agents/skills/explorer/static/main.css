@@ -50,6 +50,20 @@ aside ul.hints li { font-family: inherit; font-size: 12px; color: #aaa; }
 aside li.verified { color: #5d5; }
 .badge-verified { background: #2a4; color: #fff; padding: 1px 6px; border-radius: 3px; font-size: 10px; font-weight: bold; letter-spacing: 0.5px; }
 .badge-unverified { background: #444; color: #aaa; padding: 1px 6px; border-radius: 3px; font-size: 10px; letter-spacing: 0.5px; }
+
+.pin-place-indicator {
+  background: #345;
+  border: 1px solid #58a;
+  padding: 6px 10px;
+  border-radius: 4px;
+  margin: 8px 0;
+  font-size: 12px;
+  color: #def;
+}
+.pin-place-indicator strong { color: #fc3; }
+.pin-table tr.pin-current { background: #345; }
+.pin-table tr.pin-current td { color: #fc3; font-weight: bold; }
+.pin-table tr.pin-placed td { color: #5d5; }
 aside hr { border: none; border-top: 1px solid #444; margin: 12px 0; }
 
 .selection-info { font-size: 12px; line-height: 1.4; color: #ccc; }

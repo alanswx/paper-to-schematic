@@ -21,6 +21,7 @@ const state = {
   pinDrag: null,
   bboxResize: null,
   bboxTranslate: null,
+  pinPlace: null, // { refdes, pins:[ordered], currentIdx }
   pan: null,
 };
 
@@ -161,8 +162,9 @@ function drawComponent(comp, selected) {
     }
   }
 
-  // (B) Resize handles at the four corners of the selected bbox.
-  if (selected) {
+  // (B) Resize handles at the four corners of the selected bbox — hidden in
+  // pin-place mode so clicks at corners place a pin instead of starting a resize.
+  if (selected && !state.pinPlace) {
     const corners = [[a.x, a.y], [b.x, a.y], [a.x, b.y], [b.x, b.y]];
     ctx.fillStyle = "#fc3";
     ctx.strokeStyle = "#000";
@@ -298,10 +300,26 @@ function refreshSelection() {
   let html = `<div class="header"><strong>${comp.refdes}</strong> · ${comp.part} ${tag}<br>`;
   html += `<small>${part.description} · ${part.package}</small><br>`;
   if (comp.verified_at) html += `<small>verified ${comp.verified_at}</small><br>`;
-  html += `<small>drag pins on canvas to refine positions</small></div>`;
+
+  const pp = state.pinPlace && state.pinPlace.refdes === comp.refdes ? state.pinPlace : null;
+  if (pp) {
+    const cur = pp.pins[pp.currentIdx];
+    if (cur) {
+      html += `<div class="pin-place-indicator"><strong>Placing pin ${cur.n}</strong> · ${cur.name} <small>(${cur.type})</small><br><small>click on the schematic; Esc to exit</small></div>`;
+    } else {
+      html += `<div class="pin-place-indicator">all pins placed</div>`;
+    }
+  } else {
+    html += `<small>drag pins to refine · drag corner = resize · drag inside = move · <kbd>N</kbd> renumber</small></div>`;
+  }
+  if (pp) html += `</div>`;
+
   html += `<table class="pin-table"><tbody>`;
   for (const p of part.pins) {
-    html += `<tr><td>${p.n}</td><td>${p.name}</td><td class="pt-${p.type}">${p.type}</td></tr>`;
+    const isCurrent = pp && pp.pins[pp.currentIdx] && pp.pins[pp.currentIdx].n === p.n;
+    const placed = comp.pin_positions && comp.pin_positions[String(p.n)];
+    const cls = isCurrent ? "pin-current" : (pp && placed ? "pin-placed" : "");
+    html += `<tr class="${cls}"><td>${p.n}</td><td>${p.name}</td><td class="pt-${p.type}">${p.type}</td></tr>`;
   }
   html += `</tbody></table>`;
   el.innerHTML = html;
@@ -415,6 +433,22 @@ canvas.addEventListener("mousedown", (e) => {
     const p = canvasToImg(cx, cy);
     state.drawStart = p;
     state.drawCurrent = p;
+    return;
+  }
+
+  if (state.pinPlace) {
+    const ip = canvasToImg(cx, cy);
+    const comp = getComponent(state.pinPlace.refdes);
+    if (comp) {
+      const p = state.pinPlace.pins[state.pinPlace.currentIdx];
+      if (p) {
+        comp.pin_positions[String(p.n)] = [ip.x, ip.y];
+        state.pinPlace.currentIdx++;
+        updatePinPlaceStatus();
+        refreshSelection();
+        render();
+      }
+    }
     return;
   }
 
@@ -601,9 +635,13 @@ window.addEventListener("keydown", (e) => {
   } else if (e.key.toLowerCase() === "v" && state.selectedComponent) {
     e.preventDefault();
     toggleVerified();
+  } else if (e.key.toLowerCase() === "n" && state.selectedComponent) {
+    e.preventDefault();
+    togglePinPlace();
   } else if (e.key === "Escape") {
     e.preventDefault();
     state.drawStart = null; state.drawCurrent = null;
+    if (state.pinPlace) { exitPinPlace(); return; }
     if (state.mode === "drawing") setMode("view");
     if (state.selectedComponent) selectComponent(null);
     render();
@@ -629,6 +667,48 @@ function toggleVerified() {
   refreshComponents();
   refreshSelection();
   render();
+}
+
+function togglePinPlace() {
+  if (state.pinPlace) {
+    exitPinPlace();
+    return;
+  }
+  const comp = getComponent(state.selectedComponent);
+  if (!comp) return;
+  const part = state.chips.parts[comp.part];
+  if (!part) { setStatus("can't renumber — unknown part"); return; }
+  if (!comp.pin_positions) comp.pin_positions = {};
+  state.pinPlace = {
+    refdes: comp.refdes,
+    pins: [...part.pins].sort((a, b) => a.n - b.n),
+    currentIdx: 0,
+  };
+  canvas.style.cursor = "crosshair";
+  updatePinPlaceStatus();
+  refreshSelection();
+  render();
+}
+
+function exitPinPlace() {
+  const placed = state.pinPlace ? state.pinPlace.currentIdx : 0;
+  state.pinPlace = null;
+  canvas.style.cursor = state.mode === "drawing" ? "crosshair" : "grab";
+  setStatus(placed > 0 ? `placed ${placed} pin(s) — ⌘S to save` : "");
+  refreshSelection();
+  render();
+}
+
+function updatePinPlaceStatus() {
+  if (!state.pinPlace) return;
+  const pp = state.pinPlace;
+  if (pp.currentIdx >= pp.pins.length) {
+    setStatus(`all ${pp.pins.length} pins placed on ${pp.refdes} — ⌘S to save`);
+    exitPinPlace();
+    return;
+  }
+  const p = pp.pins[pp.currentIdx];
+  setStatus(`place pin ${p.n} (${p.name}) of ${pp.pins.length} — Esc to exit`);
 }
 
 function deleteSelected() {
