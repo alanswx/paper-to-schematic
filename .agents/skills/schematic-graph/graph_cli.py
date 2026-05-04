@@ -256,6 +256,104 @@ def cmd_list_nets(args):
         print(f"  {net['name']:10s}  [{kind}/{et}]  {eps}")
 
 
+def _find_kicad_cli():
+    """Return path to kicad-cli, or None."""
+    import shutil
+    p = shutil.which("kicad-cli")
+    if p:
+        return p
+    mac = "/Applications/KiCad/KiCad.app/Contents/MacOS/kicad-cli"
+    if Path(mac).exists():
+        return mac
+    return None
+
+
+def cmd_export_kicad(args):
+    import sys
+    sys.path.insert(0, str(SKILL_DIR))
+    import kicad_export
+
+    graph = load_graph(args.board)
+    chips = load_chips()
+    out_dir = Path(args.out_dir) if args.out_dir else (board_dir(args.board) / "kicad")
+    out_dir.mkdir(parents=True, exist_ok=True)
+
+    sheets = ([s["index"] for s in graph["sheets"] if s["index"] == args.sheet]
+              if args.sheet is not None
+              else [s["index"] for s in graph["sheets"]])
+    if not sheets:
+        print(f"no matching sheet(s)", file=sys.stderr)
+        sys.exit(1)
+
+    written = []
+    for idx in sheets:
+        sheet_meta = next(s for s in graph["sheets"] if s["index"] == idx)
+        # Filename: <board>_sheet<N>_<title>.kicad_sch (slugified title)
+        title = sheet_meta.get("title", f"sheet{idx}").lower()
+        slug = "".join(c if c.isalnum() else "_" for c in title).strip("_")
+        fname = f"{args.board}_s{idx}_{slug}.kicad_sch"
+        fpath = out_dir / fname
+        text = kicad_export.gen_sch(graph, chips, idx, project_name=args.board)
+        fpath.write_text(text)
+        written.append(fpath)
+        print(f"  wrote {fpath} ({len(text):,} bytes)")
+
+    if args.validate:
+        print("\n--- validation ---")
+        for fp in written:
+            try:
+                tree = kicad_export.parse_sexp(fp.read_text())
+                # Check root is (kicad_sch ...).
+                if tree[0] != "kicad_sch":
+                    print(f"  FAIL {fp.name}: root is {tree[0]!r}")
+                    continue
+                # Count interesting children.
+                n_libs = 0
+                n_syms = 0
+                n_wires = 0
+                for child in tree[1:]:
+                    if isinstance(child, list) and child:
+                        if child[0] == "lib_symbols":
+                            n_libs = sum(1 for c in child[1:] if isinstance(c, list) and c and c[0] == "symbol")
+                        elif child[0] == "symbol":
+                            n_syms += 1
+                        elif child[0] == "wire":
+                            n_wires += 1
+                print(f"  ok   {fp.name} — sexp valid, {n_libs} lib symbols, {n_syms} components, {n_wires} wires")
+            except Exception as e:
+                print(f"  FAIL {fp.name}: {e}")
+
+        cli = _find_kicad_cli()
+        if cli:
+            import subprocess
+            print(f"\n--- kicad-cli sch erc ({cli}) ---")
+            for fp in written:
+                rep = fp.with_suffix(".erc.txt")
+                r = subprocess.run(
+                    [cli, "sch", "erc", "--severity-all", "--output", str(rep), str(fp)],
+                    capture_output=True, text=True, timeout=120
+                )
+                # ERC may exit non-zero if violations exist (without --exit-code-violations
+                # it should be zero unless the file fails to load).
+                if r.returncode != 0:
+                    print(f"  WARN {fp.name}: kicad-cli rc={r.returncode}")
+                    if r.stderr.strip():
+                        print(f"        stderr: {r.stderr.strip()[:300]}")
+                else:
+                    print(f"  ok   {fp.name}: kicad-cli loaded the file (rc=0)")
+                if rep.exists():
+                    rep_text = rep.read_text()
+                    # Count violations from the ERC report header
+                    import re
+                    m = re.search(r'(\d+)\s+ERC violation', rep_text)
+                    if m:
+                        print(f"        ERC report: {m.group(1)} violation(s) → {rep.name}")
+                    else:
+                        print(f"        ERC report → {rep.name}")
+        else:
+            print("\n(kicad-cli not found on PATH or at /Applications/KiCad/...; skipping ERC check)")
+
+
 def cmd_validate(args):
     graph = load_graph(args.board)
     chips = load_chips()
@@ -378,6 +476,14 @@ def main():
     sp.add_argument("--board", required=True)
     sp.add_argument("--sheet", type=int, help="restrict to nets with at least one endpoint on this sheet")
     sp.set_defaults(fn=cmd_list_nets)
+
+    sp = sub.add_parser("export-kicad", help="emit a .kicad_sch file per sheet")
+    sp.add_argument("--board", required=True)
+    sp.add_argument("--sheet", type=int, help="single sheet (default: all sheets)")
+    sp.add_argument("--out-dir", help="output directory (default: boards/<id>/kicad/)")
+    sp.add_argument("--validate", action="store_true",
+                    help="parse output as s-expression after writing; if KiCad CLI is on PATH or at the standard macOS location, also run sch erc")
+    sp.set_defaults(fn=cmd_export_kicad)
 
     args = ap.parse_args()
     args.fn(args)
