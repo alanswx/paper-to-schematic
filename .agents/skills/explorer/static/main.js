@@ -24,9 +24,9 @@ const state = {
   bboxTranslate: null,
   pinPlace: null, // { refdes, pins:[ordered], currentIdx }
   netMode: false,
-  netDrawStart: null, // { refdes, pin }
+  netDrawPins: [],     // accumulated endpoints in click order: [{refdes, pin, sheet}]
   netDrawCursor: null, // {x, y} in image coords for preview line
-  pendingNet: null,    // { startEp, endEp } awaiting dialog confirm
+  pendingNet: null,    // { endpoints: [{refdes, pin, sheet}, ...] } awaiting dialog confirm
   pan: null,
 };
 
@@ -126,29 +126,41 @@ function render() {
   // Render nets that have endpoints on this sheet.
   drawNets();
 
-  // Net-mode: highlight the start pin and draw a preview line to the cursor.
-  if (state.netMode && state.netDrawStart) {
-    const startPos = getPinSourcePos(state.netDrawStart.refdes, state.netDrawStart.pin);
-    if (startPos) {
-      const sp = imgToCanvas(startPos[0], startPos[1]);
+  // Net-mode preview: dashed gold rings around each accumulated pin and a
+  // dashed line through them in click order, plus a cursor-tracking segment
+  // from the most-recent pin.
+  if (state.netMode && state.netDrawPins.length > 0) {
+    const pts = [];
+    for (const ep of state.netDrawPins) {
+      const pos = getPinSourcePos(ep.refdes, ep.pin);
+      if (pos) pts.push(imgToCanvas(pos[0], pos[1]));
+    }
+    ctx.strokeStyle = "#fc3";
+    ctx.lineWidth = 2;
+    for (const cp of pts) {
       ctx.beginPath();
-      ctx.arc(sp.x, sp.y, PIN_RADIUS_PX + 4, 0, Math.PI * 2);
-      ctx.strokeStyle = "#fc3";
-      ctx.lineWidth = 2;
+      ctx.arc(cp.x, cp.y, PIN_RADIUS_PX + 5, 0, Math.PI * 2);
       ctx.setLineDash([3, 3]);
       ctx.stroke();
       ctx.setLineDash([]);
-      if (state.netDrawCursor) {
-        const cp = imgToCanvas(state.netDrawCursor.x, state.netDrawCursor.y);
-        ctx.beginPath();
-        ctx.moveTo(sp.x, sp.y);
-        ctx.lineTo(cp.x, cp.y);
-        ctx.strokeStyle = "#fc3";
-        ctx.lineWidth = 2;
-        ctx.setLineDash([5, 5]);
-        ctx.stroke();
-        ctx.setLineDash([]);
-      }
+    }
+    if (pts.length >= 2) {
+      ctx.setLineDash([5, 5]);
+      ctx.beginPath();
+      ctx.moveTo(pts[0].x, pts[0].y);
+      for (let i = 1; i < pts.length; i++) ctx.lineTo(pts[i].x, pts[i].y);
+      ctx.stroke();
+      ctx.setLineDash([]);
+    }
+    if (state.netDrawCursor && pts.length > 0) {
+      const last = pts[pts.length - 1];
+      const cp = imgToCanvas(state.netDrawCursor.x, state.netDrawCursor.y);
+      ctx.setLineDash([5, 5]);
+      ctx.beginPath();
+      ctx.moveTo(last.x, last.y);
+      ctx.lineTo(cp.x, cp.y);
+      ctx.stroke();
+      ctx.setLineDash([]);
     }
   }
 
@@ -374,22 +386,29 @@ function toggleNetMode() {
     exitNetMode();
   } else {
     state.netMode = true;
-    state.netDrawStart = null;
+    state.netDrawPins = [];
     state.netDrawCursor = null;
     canvas.style.cursor = "crosshair";
     setMode("netting");
-    setStatus("net mode — click pin A then pin B; Esc to exit");
+    setStatus("net mode — click pins; Enter to finalize, Esc to exit");
     render();
   }
 }
 
 function exitNetMode() {
   state.netMode = false;
-  state.netDrawStart = null;
+  state.netDrawPins = [];
   state.netDrawCursor = null;
   setMode("view");
   setStatus("");
   render();
+}
+
+function netModeStatus() {
+  const n = state.netDrawPins.length;
+  if (n === 0) return "net mode — click pins; Esc to exit";
+  if (n === 1) return `net mode — 1 pin selected; click more, Esc to cancel`;
+  return `net mode — ${n} pins selected; Enter to finalize, Esc to cancel`;
 }
 
 async function loadAll() {
@@ -705,21 +724,16 @@ canvas.addEventListener("mousedown", (e) => {
   if (state.netMode) {
     const pinHit = hitTestPinAnyComponent(cx, cy);
     if (!pinHit) return; // click empty space — ignore in net mode
-    if (!state.netDrawStart) {
-      state.netDrawStart = pinHit;
-      setStatus(`net mode — start ${pinHit.refdes}.${pinHit.pin}; click second pin`);
-      render();
+    // Toggle: clicking an already-selected pin removes it from the set.
+    const idx = state.netDrawPins.findIndex(p =>
+      p.refdes === pinHit.refdes && String(p.pin) === String(pinHit.pin));
+    if (idx >= 0) {
+      state.netDrawPins.splice(idx, 1);
     } else {
-      // Same pin twice → cancel
-      if (state.netDrawStart.refdes === pinHit.refdes && String(state.netDrawStart.pin) === String(pinHit.pin)) {
-        state.netDrawStart = null;
-        setStatus("net mode — click pin A then pin B; Esc to exit");
-        render();
-        return;
-      }
-      state.pendingNet = { startEp: state.netDrawStart, endEp: pinHit };
-      openNetDialog();
+      state.netDrawPins.push(pinHit);
     }
+    setStatus(netModeStatus());
+    render();
     return;
   }
 
@@ -767,7 +781,7 @@ canvas.addEventListener("mousemove", (e) => {
   const cy = e.clientY - rect.top;
   const ip = canvasToImg(cx, cy);
 
-  if (state.netMode && state.netDrawStart) {
+  if (state.netMode && state.netDrawPins.length > 0) {
     state.netDrawCursor = ip;
     render();
     return;
@@ -929,14 +943,18 @@ window.addEventListener("keydown", (e) => {
   } else if (e.key.toLowerCase() === "w") {
     e.preventDefault();
     toggleNetMode();
+  } else if (e.key === "Enter" && state.netMode && state.netDrawPins.length >= 2) {
+    e.preventDefault();
+    state.pendingNet = { endpoints: [...state.netDrawPins] };
+    openNetDialog();
   } else if (e.key === "Escape") {
     e.preventDefault();
     state.drawStart = null; state.drawCurrent = null;
     if (state.netMode) {
-      if (state.netDrawStart) {
-        state.netDrawStart = null;
+      if (state.netDrawPins.length > 0) {
+        state.netDrawPins = [];
         state.netDrawCursor = null;
-        setStatus("net mode — click pin A then pin B; Esc to exit");
+        setStatus(netModeStatus());
         render();
       } else {
         exitNetMode();
@@ -1160,8 +1178,8 @@ const netEndpointsBox = $("#net-endpoints");
 
 function openNetDialog() {
   if (!state.pendingNet) return;
-  const { startEp, endEp } = state.pendingNet;
-  netEndpointsBox.textContent = `${startEp.refdes}.${startEp.pin} ⟷ ${endEp.refdes}.${endEp.pin}`;
+  const eps = state.pendingNet.endpoints;
+  netEndpointsBox.textContent = eps.map(e => `${e.refdes}.${e.pin}`).join(" ⟷ ");
   netNameInput.value = suggestNetName();
   netKindSelect.value = "signal";
   netEdgeTypeSelect.value = "wire";
@@ -1204,15 +1222,16 @@ netDlg.addEventListener("close", () => {
   const net = {
     name,
     kind,
-    endpoints: [buildEp(pending.startEp), buildEp(pending.endEp)],
+    endpoints: pending.endpoints.map(buildEp),
   };
   state.graph.nets.push(net);
 
-  // Reset draw start so user can immediately start the next net.
-  state.netDrawStart = null;
+  // Reset accumulator so user can immediately start the next net.
+  state.netDrawPins = [];
   state.netDrawCursor = null;
   refreshNetsList?.();
-  setStatus(`net ${name} added (${pending.startEp.refdes}.${pending.startEp.pin}→${pending.endEp.refdes}.${pending.endEp.pin}) — ⌘S to save`);
+  const epsLabel = pending.endpoints.map(e => `${e.refdes}.${e.pin}`).join("→");
+  setStatus(`net ${name} added (${epsLabel}) — ⌘S to save`);
   render();
 });
 
