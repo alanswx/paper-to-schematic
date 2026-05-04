@@ -20,6 +20,7 @@ const state = {
   selectedComponent: null,
   pinDrag: null,
   bboxResize: null,
+  bboxTranslate: null,
   pan: null,
 };
 
@@ -348,6 +349,24 @@ function hitTestPin(cx, cy) {
   return null;
 }
 
+function clonePinPositions(comp) {
+  if (!comp.pin_positions) return null;
+  const out = {};
+  for (const [k, v] of Object.entries(comp.pin_positions)) out[k] = [...v];
+  return out;
+}
+
+function isInsideSelectedBbox(cx, cy) {
+  if (!state.selectedComponent) return false;
+  const comp = getComponent(state.selectedComponent);
+  if (!comp || comp.sheet !== state.sheetIndex) return false;
+  const a = imgToCanvas(comp.bbox[0], comp.bbox[1]);
+  const b = imgToCanvas(comp.bbox[2], comp.bbox[3]);
+  const lx = Math.min(a.x, b.x), hx = Math.max(a.x, b.x);
+  const ly = Math.min(a.y, b.y), hy = Math.max(a.y, b.y);
+  return cx >= lx && cx <= hx && cy >= ly && cy <= hy;
+}
+
 function hitTestResizeHandle(cx, cy) {
   if (!state.selectedComponent) return null;
   const comp = getComponent(state.selectedComponent);
@@ -402,7 +421,13 @@ canvas.addEventListener("mousedown", (e) => {
   // (B) Bbox resize handles take priority over pins (they're at the corners).
   const handleHit = hitTestResizeHandle(cx, cy);
   if (handleHit) {
-    state.bboxResize = handleHit;
+    const comp = getComponent(handleHit.refdes);
+    state.bboxResize = {
+      refdes: handleHit.refdes,
+      corner: handleHit.corner,
+      originalBbox: [...comp.bbox],
+      originalPins: clonePinPositions(comp),
+    };
     canvas.style.cursor = cursorForCorner(handleHit.corner);
     return;
   }
@@ -411,6 +436,19 @@ canvas.addEventListener("mousedown", (e) => {
   if (pinHit) {
     state.pinDrag = pinHit;
     canvas.style.cursor = "grabbing";
+    return;
+  }
+
+  // Drag inside the selected component's bbox to translate the whole component.
+  if (isInsideSelectedBbox(cx, cy)) {
+    const comp = getComponent(state.selectedComponent);
+    state.bboxTranslate = {
+      refdes: comp.refdes,
+      originalBbox: [...comp.bbox],
+      originalPins: clonePinPositions(comp),
+      mouseStart: canvasToImg(cx, cy),
+    };
+    canvas.style.cursor = "move";
     return;
   }
 
@@ -431,20 +469,41 @@ canvas.addEventListener("mousemove", (e) => {
   if (state.bboxResize) {
     const comp = getComponent(state.bboxResize.refdes);
     if (comp) {
-      const MIN = 8; // pixels in source coords
-      const corner = state.bboxResize.corner;
-      if (corner === "tl") {
-        comp.bbox[0] = Math.min(ip.x, comp.bbox[2] - MIN);
-        comp.bbox[1] = Math.min(ip.y, comp.bbox[3] - MIN);
-      } else if (corner === "tr") {
-        comp.bbox[2] = Math.max(ip.x, comp.bbox[0] + MIN);
-        comp.bbox[1] = Math.min(ip.y, comp.bbox[3] - MIN);
-      } else if (corner === "bl") {
-        comp.bbox[0] = Math.min(ip.x, comp.bbox[2] - MIN);
-        comp.bbox[3] = Math.max(ip.y, comp.bbox[1] + MIN);
-      } else if (corner === "br") {
-        comp.bbox[2] = Math.max(ip.x, comp.bbox[0] + MIN);
-        comp.bbox[3] = Math.max(ip.y, comp.bbox[1] + MIN);
+      const MIN = 8;
+      const orig = state.bboxResize.originalBbox;
+      let nx1 = orig[0], ny1 = orig[1], nx2 = orig[2], ny2 = orig[3];
+      switch (state.bboxResize.corner) {
+        case "tl": nx1 = Math.min(ip.x, orig[2] - MIN); ny1 = Math.min(ip.y, orig[3] - MIN); break;
+        case "tr": nx2 = Math.max(ip.x, orig[0] + MIN); ny1 = Math.min(ip.y, orig[3] - MIN); break;
+        case "bl": nx1 = Math.min(ip.x, orig[2] - MIN); ny2 = Math.max(ip.y, orig[1] + MIN); break;
+        case "br": nx2 = Math.max(ip.x, orig[0] + MIN); ny2 = Math.max(ip.y, orig[1] + MIN); break;
+      }
+      comp.bbox = [nx1, ny1, nx2, ny2];
+
+      // Pins are anchored to the bbox: transform each pin's position from the
+      // original bbox to the new bbox by its proportional location.
+      if (state.bboxResize.originalPins) {
+        const ow = orig[2] - orig[0], oh = orig[3] - orig[1];
+        const nw = nx2 - nx1, nh = ny2 - ny1;
+        for (const [num, [ox, oy]] of Object.entries(state.bboxResize.originalPins)) {
+          const fx = ow > 0 ? (ox - orig[0]) / ow : 0.5;
+          const fy = oh > 0 ? (oy - orig[1]) / oh : 0.5;
+          comp.pin_positions[num] = [nx1 + fx * nw, ny1 + fy * nh];
+        }
+      }
+      render();
+    }
+  } else if (state.bboxTranslate) {
+    const comp = getComponent(state.bboxTranslate.refdes);
+    if (comp) {
+      const dx = ip.x - state.bboxTranslate.mouseStart.x;
+      const dy = ip.y - state.bboxTranslate.mouseStart.y;
+      const orig = state.bboxTranslate.originalBbox;
+      comp.bbox = [orig[0] + dx, orig[1] + dy, orig[2] + dx, orig[3] + dy];
+      if (state.bboxTranslate.originalPins) {
+        for (const [num, [ox, oy]] of Object.entries(state.bboxTranslate.originalPins)) {
+          comp.pin_positions[num] = [ox + dx, oy + dy];
+        }
       }
       render();
     }
@@ -471,6 +530,12 @@ window.addEventListener("mouseup", (e) => {
     state.bboxResize = null;
     canvas.style.cursor = state.mode === "drawing" ? "crosshair" : "grab";
     setStatus(`resized — ⌘S to save`);
+    return;
+  }
+  if (state.bboxTranslate) {
+    state.bboxTranslate = null;
+    canvas.style.cursor = state.mode === "drawing" ? "crosshair" : "grab";
+    setStatus(`moved — ⌘S to save`);
     return;
   }
   if (state.pinDrag) {
