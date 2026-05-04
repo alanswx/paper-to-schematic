@@ -3,6 +3,8 @@ const $ = (sel) => document.querySelector(sel);
 const PIN_RADIUS_PX = 4;
 const PIN_HIT_PAD_PX = 3;
 const CLICK_THRESHOLD_PX = 3;
+const HANDLE_SIZE_PX = 9;
+const HANDLE_HIT_PAD_PX = 3;
 
 const state = {
   board: null,
@@ -17,6 +19,7 @@ const state = {
   pendingBox: null,
   selectedComponent: null,
   pinDrag: null,
+  bboxResize: null,
   pan: null,
 };
 
@@ -126,31 +129,47 @@ function drawComponent(comp, selected) {
   const tag = verified ? "✓ " : "";
   ctx.fillText(`${tag}${comp.refdes} ${comp.part}`, a.x, a.y - 4);
 
-  if (!part || !comp.pin_positions) return;
+  // (A) Pin dots only render for the selected component — for unselected
+  // bboxes the auto-DIP pin positions don't match the schematic symbol's
+  // actual pin locations, so they're visual noise.
+  if (selected && part && comp.pin_positions) {
+    const r = PIN_RADIUS_PX + 1;
+    const xMid = (comp.bbox[0] + comp.bbox[2]) / 2;
+    for (const [pinNum, [ix, iy]] of Object.entries(comp.pin_positions)) {
+      const cp = imgToCanvas(ix, iy);
+      const pinDef = part.pins.find(p => String(p.n) === pinNum);
 
-  const r = selected ? PIN_RADIUS_PX + 1 : PIN_RADIUS_PX - 1;
-  const xMid = (comp.bbox[0] + comp.bbox[2]) / 2;
-  for (const [pinNum, [ix, iy]] of Object.entries(comp.pin_positions)) {
-    const cp = imgToCanvas(ix, iy);
-    const pinDef = part.pins.find(p => String(p.n) === pinNum);
+      ctx.beginPath();
+      ctx.arc(cp.x, cp.y, r, 0, Math.PI * 2);
+      ctx.fillStyle = pinDef ? pinTypeColor(pinDef.type) : "#888";
+      ctx.fill();
+      ctx.strokeStyle = "#000";
+      ctx.lineWidth = 1;
+      ctx.stroke();
 
-    ctx.beginPath();
-    ctx.arc(cp.x, cp.y, r, 0, Math.PI * 2);
-    ctx.fillStyle = pinDef ? pinTypeColor(pinDef.type) : "#888";
-    ctx.fill();
+      if (pinDef) {
+        const isLeft = ix <= xMid;
+        ctx.fillStyle = "#fff";
+        ctx.font = "10px ui-monospace, monospace";
+        ctx.textAlign = isLeft ? "right" : "left";
+        ctx.textBaseline = "middle";
+        ctx.fillText(`${pinDef.n} ${pinDef.name}`, cp.x + (isLeft ? -8 : 8), cp.y);
+        ctx.textAlign = "start";
+        ctx.textBaseline = "alphabetic";
+      }
+    }
+  }
+
+  // (B) Resize handles at the four corners of the selected bbox.
+  if (selected) {
+    const corners = [[a.x, a.y], [b.x, a.y], [a.x, b.y], [b.x, b.y]];
+    ctx.fillStyle = "#fc3";
     ctx.strokeStyle = "#000";
     ctx.lineWidth = 1;
-    ctx.stroke();
-
-    if (selected && pinDef) {
-      const isLeft = ix <= xMid;
-      ctx.fillStyle = "#fff";
-      ctx.font = "10px ui-monospace, monospace";
-      ctx.textAlign = isLeft ? "right" : "left";
-      ctx.textBaseline = "middle";
-      ctx.fillText(`${pinDef.n} ${pinDef.name}`, cp.x + (isLeft ? -8 : 8), cp.y);
-      ctx.textAlign = "start";
-      ctx.textBaseline = "alphabetic";
+    const s = HANDLE_SIZE_PX;
+    for (const [hx, hy] of corners) {
+      ctx.fillRect(hx - s / 2, hy - s / 2, s, s);
+      ctx.strokeRect(hx - s / 2, hy - s / 2, s, s);
     }
   }
 }
@@ -329,6 +348,30 @@ function hitTestPin(cx, cy) {
   return null;
 }
 
+function hitTestResizeHandle(cx, cy) {
+  if (!state.selectedComponent) return null;
+  const comp = getComponent(state.selectedComponent);
+  if (!comp || comp.sheet !== state.sheetIndex) return null;
+  const corners = [
+    ["tl", comp.bbox[0], comp.bbox[1]],
+    ["tr", comp.bbox[2], comp.bbox[1]],
+    ["bl", comp.bbox[0], comp.bbox[3]],
+    ["br", comp.bbox[2], comp.bbox[3]],
+  ];
+  const reach = HANDLE_SIZE_PX / 2 + HANDLE_HIT_PAD_PX;
+  for (const [corner, ix, iy] of corners) {
+    const cp = imgToCanvas(ix, iy);
+    if (Math.abs(cp.x - cx) <= reach && Math.abs(cp.y - cy) <= reach) {
+      return { refdes: comp.refdes, corner };
+    }
+  }
+  return null;
+}
+
+function cursorForCorner(corner) {
+  return (corner === "tl" || corner === "br") ? "nwse-resize" : "nesw-resize";
+}
+
 function hitTestBbox(cx, cy) {
   const comps = state.graph.components;
   for (let i = comps.length - 1; i >= 0; i--) {
@@ -356,6 +399,14 @@ canvas.addEventListener("mousedown", (e) => {
     return;
   }
 
+  // (B) Bbox resize handles take priority over pins (they're at the corners).
+  const handleHit = hitTestResizeHandle(cx, cy);
+  if (handleHit) {
+    state.bboxResize = handleHit;
+    canvas.style.cursor = cursorForCorner(handleHit.corner);
+    return;
+  }
+
   const pinHit = hitTestPin(cx, cy);
   if (pinHit) {
     state.pinDrag = pinHit;
@@ -377,7 +428,27 @@ canvas.addEventListener("mousemove", (e) => {
     setStatus(`x=${Math.round(ip.x)} y=${Math.round(ip.y)} zoom=${state.view.scale.toFixed(3)}×`);
   }
 
-  if (state.pinDrag) {
+  if (state.bboxResize) {
+    const comp = getComponent(state.bboxResize.refdes);
+    if (comp) {
+      const MIN = 8; // pixels in source coords
+      const corner = state.bboxResize.corner;
+      if (corner === "tl") {
+        comp.bbox[0] = Math.min(ip.x, comp.bbox[2] - MIN);
+        comp.bbox[1] = Math.min(ip.y, comp.bbox[3] - MIN);
+      } else if (corner === "tr") {
+        comp.bbox[2] = Math.max(ip.x, comp.bbox[0] + MIN);
+        comp.bbox[1] = Math.min(ip.y, comp.bbox[3] - MIN);
+      } else if (corner === "bl") {
+        comp.bbox[0] = Math.min(ip.x, comp.bbox[2] - MIN);
+        comp.bbox[3] = Math.max(ip.y, comp.bbox[1] + MIN);
+      } else if (corner === "br") {
+        comp.bbox[2] = Math.max(ip.x, comp.bbox[0] + MIN);
+        comp.bbox[3] = Math.max(ip.y, comp.bbox[1] + MIN);
+      }
+      render();
+    }
+  } else if (state.pinDrag) {
     const comp = getComponent(state.pinDrag.refdes);
     if (comp && comp.pin_positions) {
       comp.pin_positions[state.pinDrag.pin] = [ip.x, ip.y];
@@ -396,6 +467,12 @@ canvas.addEventListener("mousemove", (e) => {
 });
 
 window.addEventListener("mouseup", (e) => {
+  if (state.bboxResize) {
+    state.bboxResize = null;
+    canvas.style.cursor = state.mode === "drawing" ? "crosshair" : "grab";
+    setStatus(`resized — ⌘S to save`);
+    return;
+  }
   if (state.pinDrag) {
     state.pinDrag = null;
     canvas.style.cursor = state.mode === "drawing" ? "crosshair" : "grab";
