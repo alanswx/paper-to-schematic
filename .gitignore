@@ -22,3 +22,7 @@ boards/*/_tiles/
 
 # VS Code local-history extension
 **/.history/
+
+# KiCad lock files
+**/*.lck
+**/~*
