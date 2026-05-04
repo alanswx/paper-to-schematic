@@ -235,6 +235,9 @@ function drawComponent(comp, selected) {
 
 function drawNets() {
   const nets = state.graph?.nets || [];
+  // At low zoom, scale line widths up so even short wires are visible.
+  const widthScale = Math.max(1, 0.3 / Math.max(state.view.scale, 0.001));
+
   for (const net of nets) {
     if (!net.endpoints || net.endpoints.length < 2) continue;
     const points = [];
@@ -246,9 +249,12 @@ function drawNets() {
     if (points.length < 2) continue;
     const color = edgeTypeColor(points[0].ep.edge_type);
     const isSelected = state.selectedNet === net.name;
-    // Dark halo for contrast against white paper. Wider when selected.
+    const baseLine = isSelected ? 3.5 : 2.5;
+    const baseHalo = isSelected ? 8 : 5;
+
+    // Dark halo for contrast against white paper.
     ctx.strokeStyle = isSelected ? "rgba(255,204,51,0.85)" : "rgba(0,0,0,0.6)";
-    ctx.lineWidth = isSelected ? 8 : 5;
+    ctx.lineWidth = baseHalo * widthScale;
     ctx.beginPath();
     const first = imgToCanvas(points[0].pos[0], points[0].pos[1]);
     ctx.moveTo(first.x, first.y);
@@ -259,7 +265,7 @@ function drawNets() {
     ctx.stroke();
     // Bright color line on top.
     ctx.strokeStyle = color;
-    ctx.lineWidth = isSelected ? 3.5 : 2.5;
+    ctx.lineWidth = baseLine * widthScale;
     ctx.beginPath();
     ctx.moveTo(first.x, first.y);
     for (let i = 1; i < points.length; i++) {
@@ -267,6 +273,20 @@ function drawNets() {
       ctx.lineTo(p.x, p.y);
     }
     ctx.stroke();
+
+    // Endpoint rings — visible regardless of wire length, so a "wire" hugging
+    // a chip bbox still shows as colored markers on each connected pin.
+    const ringR = (PIN_RADIUS_PX + 3) * Math.min(widthScale, 1.6);
+    ctx.lineWidth = Math.max(1.5, 2 * Math.min(widthScale, 1.4));
+    ctx.strokeStyle = color;
+    for (const { pos } of points) {
+      const cp = imgToCanvas(pos[0], pos[1]);
+      ctx.beginPath();
+      ctx.arc(cp.x, cp.y, ringR, 0, Math.PI * 2);
+      ctx.stroke();
+    }
+
+    // Net name label at midpoint of first segment.
     if (net.name && points.length >= 2) {
       const a = imgToCanvas(points[0].pos[0], points[0].pos[1]);
       const b = imgToCanvas(points[1].pos[0], points[1].pos[1]);
