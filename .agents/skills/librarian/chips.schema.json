@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schematics.local/schema/chips.schema.json",
+  "title": "Chip pinout library",
+  "description": "Hand-curated, deterministic pinout database for arcade-era parts. Not RAG, not generated. Every entry must come from a primary datasheet and cite it.",
+  "type": "object",
+  "required": ["schema_version", "parts"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": { "type": "integer", "const": 1 },
+    "parts": {
+      "type": "object",
+      "patternProperties": {
+        "^[A-Z0-9_/+-]+$": { "$ref": "#/$defs/part" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "$defs": {
+    "part": {
+      "type": "object",
+      "required": ["description", "package", "pins"],
+      "additionalProperties": false,
+      "properties": {
+        "description": { "type": "string" },
+        "package": {
+          "type": "string",
+          "description": "e.g. DIP-14, DIP-20, DIP-40"
+        },
+        "vcc_pin": { "type": "integer" },
+        "gnd_pin": { "type": "integer" },
+        "datasheet": {
+          "type": "string",
+          "description": "Citation: vendor, year, page. Free text — this is provenance not a URL."
+        },
+        "aliases": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Equivalent part numbers (e.g. SN74LS245N, MC74F245)"
+        },
+        "pins": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["n", "name", "type"],
+            "additionalProperties": false,
+            "properties": {
+              "n": { "type": "integer", "minimum": 1 },
+              "name": {
+                "type": "string",
+                "description": "Functional name. Tilde prefix for active-low (~OE, ~WE)."
+              },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "input",
+                  "output",
+                  "bidir",
+                  "power",
+                  "ground",
+                  "passive",
+                  "open_collector",
+                  "tri_state",
+                  "clock",
+                  "nc"
+                ]
+              },
+              "group": {
+                "type": "string",
+                "description": "Optional grouping for buses, e.g. 'A' for the A side of a transceiver"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Schematic viewer</title>
+  <link rel="stylesheet" href="/static/main.css">
+</head>
+<body>
+  <header>
+    <strong id="board-title">…</strong>
+    <select id="sheet-select"></select>
+    <span id="mode" class="mode mode-view">view</span>
+    <button id="save">Save</button>
+    <span id="status"></span>
+  </header>
+  <main>
+    <canvas id="canvas"></canvas>
+    <aside>
+      <h3>Components <span id="component-count">(0)</span></h3>
+      <ul id="component-list"></ul>
+      <hr>
+      <h3>Selected</h3>
+      <div id="selection-info" class="selection-info">(click a chip to select)</div>
+      <hr>
+      <h3>Shortcuts</h3>
+      <ul class="hints">
+        <li><kbd>B</kbd> toggle box-draw</li>
+        <li><kbd>E</kbd> edit · <kbd>D</kbd> delete · <kbd>V</kbd> toggle verified</li>
+        <li><kbd>Esc</kbd> cancel / deselect</li>
+        <li><kbd>⌘S</kbd> / <kbd>^S</kbd> save</li>
+        <li>click chip = select · drag pin = refine</li>
+        <li>scroll = zoom · drag empty = pan</li>
+      </ul>
+    </aside>
+  </main>
+
+  <dialog id="component-dialog">
+    <form method="dialog">
+      <h3>New component</h3>
+      <label>Refdes
+        <input id="refdes-input" placeholder="e.g. U14C" required autocomplete="off">
+      </label>
+      <label>Part
+        <input id="part-input" placeholder="e.g. 74LS245" list="parts-list" required autocomplete="off">
+      </label>
+      <datalist id="parts-list"></datalist>
+      <div id="part-info" class="part-info"></div>
+      <menu>
+        <button value="cancel" formnovalidate>Cancel</button>
+        <button id="confirm" value="confirm">Add</button>
+      </menu>
+    </form>
+  </dialog>
+
+  <dialog id="edit-dialog">
+    <form method="dialog">
+      <h3>Edit component</h3>
+      <label>Refdes
+        <input id="edit-refdes-input" required autocomplete="off">
+      </label>
+      <label>Part
+        <input id="edit-part-input" list="parts-list" required autocomplete="off">
+      </label>
+      <div id="edit-part-info" class="part-info"></div>
+      <menu>
+        <button value="cancel" formnovalidate>Cancel</button>
+        <button value="confirm">Save</button>
+      </menu>
+    </form>
+  </dialog>
+
+  <script type="module" src="/static/main.js"></script>
+</body>
+</html>

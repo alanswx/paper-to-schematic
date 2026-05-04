@@ -1,0 +1,244 @@
+{
+  "board": {
+    "id": "exidy_440",
+    "drawing_number": "77-0019",
+    "title": "Exidy 440 logic board",
+    "manufacturer": "Exidy, Inc.",
+    "year": 1984
+  },
+  "sheets": [
+    {
+      "index": 1,
+      "title": "Video RAM & MPX",
+      "scan_path": "../../exidy/scans/pages/logic_sheet1_video_ram_mpx.png",
+      "scan_pixel_size": [
+        5863,
+        4531
+      ]
+    },
+    {
+      "index": 2,
+      "title": "Line Buffer & Control",
+      "scan_path": "../../exidy/scans/pages/logic_sheet2_line_buffer_control.png",
+      "scan_pixel_size": [
+        5863,
+        4531
+      ]
+    },
+    {
+      "index": 3,
+      "title": "Master Control",
+      "scan_path": "../../exidy/scans/pages/logic_sheet3_master_control.png",
+      "scan_pixel_size": [
+        5863,
+        4531
+      ]
+    },
+    {
+      "index": 4,
+      "title": "CPU & Memory",
+      "scan_path": "../../exidy/scans/pages/logic_sheet4_cpu_memory.png",
+      "scan_pixel_size": [
+        5863,
+        4531
+      ]
+    },
+    {
+      "index": 5,
+      "title": "Video Output",
+      "scan_path": "../../exidy/scans/pages/logic_sheet5_video_output.png",
+      "scan_pixel_size": [
+        5863,
+        4531
+      ]
+    },
+    {
+      "index": 6,
+      "title": "ROM Bank",
+      "scan_path": "../../exidy/scans/pages/logic_sheet6_rom_bank.png",
+      "scan_pixel_size": [
+        5863,
+        4531
+      ]
+    }
+  ],
+  "components": [
+    {
+      "refdes": "21H",
+      "part": "74LS151",
+      "sheet": 1,
+      "bbox": [
+        1273.0,
+        941.0,
+        1509.0,
+        1156.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.75,
+        "note": "tile r0c0; part text 'LS151' partially obscured"
+      }
+    },
+    {
+      "refdes": "21F",
+      "part": "74LS151",
+      "sheet": 1,
+      "bbox": [
+        1819.0,
+        941.0,
+        2065.0,
+        1156.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.75,
+        "note": "tile r0c0; bbox extends slightly into r0c1 overlap"
+      }
+    },
+    {
+      "refdes": "20H",
+      "part": "74LS151",
+      "sheet": 1,
+      "bbox": [
+        1273.0,
+        1359.0,
+        1509.0,
+        1551.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.75,
+        "note": "tile r0c0; bbox extends slightly into r1c0 overlap"
+      }
+    },
+    {
+      "refdes": "20F",
+      "part": "74LS151",
+      "sheet": 1,
+      "bbox": [
+        1819.0,
+        1359.0,
+        2065.0,
+        1551.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.75,
+        "note": "tile r0c0; corner of overlap region"
+      }
+    },
+    {
+      "refdes": "14B",
+      "part": "HM6116",
+      "sheet": 1,
+      "bbox": [
+        2661.0,
+        1033.0,
+        2827.0,
+        1502.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.7,
+        "note": "tile r0c1; schematic shows '6116'; assigned HM6116 as canonical 6116-compatible 2K\u00d78 SRAM"
+      }
+    },
+    {
+      "refdes": "16B",
+      "part": "HM6116",
+      "sheet": 1,
+      "bbox": [
+        2827.0,
+        1033.0,
+        2993.0,
+        1502.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.7,
+        "note": "tile r0c1; schematic shows '6116'; assigned HM6116 as canonical 6116-compatible 2K\u00d78 SRAM"
+      }
+    },
+    {
+      "refdes": "17B",
+      "part": "HM6116",
+      "sheet": 1,
+      "bbox": [
+        2993.0,
+        1033.0,
+        3159.0,
+        1502.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.7,
+        "note": "tile r0c1; schematic shows '6116'; assigned HM6116 as canonical 6116-compatible 2K\u00d78 SRAM"
+      }
+    },
+    {
+      "refdes": "18B",
+      "part": "HM6116",
+      "sheet": 1,
+      "bbox": [
+        3159.0,
+        1033.0,
+        3325.0,
+        1502.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.7,
+        "note": "tile r0c1; schematic shows '6116'; assigned HM6116 as canonical 6116-compatible 2K\u00d78 SRAM"
+      }
+    },
+    {
+      "refdes": "20B",
+      "part": "HM6116",
+      "sheet": 1,
+      "bbox": [
+        3325.0,
+        1033.0,
+        3491.0,
+        1502.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.7,
+        "note": "tile r0c1; schematic shows '6116'; assigned HM6116 as canonical 6116-compatible 2K\u00d78 SRAM"
+      }
+    },
+    {
+      "refdes": "21B",
+      "part": "HM6116",
+      "sheet": 1,
+      "bbox": [
+        3491.0,
+        1033.0,
+        3658.0,
+        1502.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.7,
+        "note": "tile r0c1; schematic shows '6116'; assigned HM6116 as canonical 6116-compatible 2K\u00d78 SRAM"
+      }
+    },
+    {
+      "refdes": "14A",
+      "part": "74LS166",
+      "sheet": 1,
+      "bbox": [
+        4323.0,
+        984.0,
+        4483.0,
+        1316.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.7,
+        "note": "tile r0c2; chip text 'L4 166'; refdes '14A' clear"
+      }
+    }
+  ],
+  "nets": []
+}

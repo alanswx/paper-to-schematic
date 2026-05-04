@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schematics.local/schema/probes.schema.json",
+  "title": "Probe list row",
+  "description": "One row of probes.csv. The probe list is the HITL artifact a human takes to the workbench to verify the pipeline's claims against the real PCB. CSV column order matches the 'required' order below.",
+  "type": "object",
+  "required": ["priority", "net", "endpoints", "reason", "suggested_test", "status"],
+  "additionalProperties": false,
+  "properties": {
+    "priority": {
+      "type": "string",
+      "enum": ["HIGH", "MED", "LOW"],
+      "description": "HIGH: power/ground or multi-sheet net. MED: AI low-confidence or ERC borderline. LOW: spot-checks."
+    },
+    "net": {
+      "type": "string",
+      "description": "Net name from graph, e.g. ~CSC"
+    },
+    "endpoints": {
+      "type": "string",
+      "description": "Semicolon-joined refdes.pin list, e.g. U14C.6;U13C.4;U12C.6"
+    },
+    "reason": {
+      "type": "string",
+      "description": "Why this net is on the list. e.g. 'junction dot in smudged region sheet 1 zone C5'"
+    },
+    "suggested_test": {
+      "type": "string",
+      "description": "Concrete instrument procedure. e.g. 'DMM continuity U14C.6 to U13C.4 with board powered off'"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["open", "verified", "contradicted", "skipped"],
+      "default": "open",
+      "description": "Updated by the human during probing. 'contradicted' triggers a discrepancies.md entry."
+    }
+  }
+}

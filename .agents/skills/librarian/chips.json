@@ -1,0 +1,1644 @@
+{
+  "schema_version": 1,
+  "parts": {
+    "74LS00": {
+      "description": "Quad 2-input NAND gate",
+      "package": "DIP-14",
+      "vcc_pin": 14,
+      "gnd_pin": 7,
+      "datasheet": "TI SDLS025, 1988, p.2",
+      "pins": [
+        {
+          "n": 1,
+          "name": "1A",
+          "type": "input",
+          "group": "g1"
+        },
+        {
+          "n": 2,
+          "name": "1B",
+          "type": "input",
+          "group": "g1"
+        },
+        {
+          "n": 3,
+          "name": "1Y",
+          "type": "output",
+          "group": "g1"
+        },
+        {
+          "n": 4,
+          "name": "2A",
+          "type": "input",
+          "group": "g2"
+        },
+        {
+          "n": 5,
+          "name": "2B",
+          "type": "input",
+          "group": "g2"
+        },
+        {
+          "n": 6,
+          "name": "2Y",
+          "type": "output",
+          "group": "g2"
+        },
+        {
+          "n": 7,
+          "name": "GND",
+          "type": "ground"
+        },
+        {
+          "n": 8,
+          "name": "3Y",
+          "type": "output",
+          "group": "g3"
+        },
+        {
+          "n": 9,
+          "name": "3A",
+          "type": "input",
+          "group": "g3"
+        },
+        {
+          "n": 10,
+          "name": "3B",
+          "type": "input",
+          "group": "g3"
+        },
+        {
+          "n": 11,
+          "name": "4Y",
+          "type": "output",
+          "group": "g4"
+        },
+        {
+          "n": 12,
+          "name": "4A",
+          "type": "input",
+          "group": "g4"
+        },
+        {
+          "n": 13,
+          "name": "4B",
+          "type": "input",
+          "group": "g4"
+        },
+        {
+          "n": 14,
+          "name": "VCC",
+          "type": "power"
+        }
+      ]
+    },
+    "74LS04": {
+      "description": "Hex inverter",
+      "package": "DIP-14",
+      "vcc_pin": 14,
+      "gnd_pin": 7,
+      "datasheet": "TI SDLS029, 1988",
+      "pins": [
+        {
+          "n": 1,
+          "name": "1A",
+          "type": "input",
+          "group": "g1"
+        },
+        {
+          "n": 2,
+          "name": "1Y",
+          "type": "output",
+          "group": "g1"
+        },
+        {
+          "n": 3,
+          "name": "2A",
+          "type": "input",
+          "group": "g2"
+        },
+        {
+          "n": 4,
+          "name": "2Y",
+          "type": "output",
+          "group": "g2"
+        },
+        {
+          "n": 5,
+          "name": "3A",
+          "type": "input",
+          "group": "g3"
+        },
+        {
+          "n": 6,
+          "name": "3Y",
+          "type": "output",
+          "group": "g3"
+        },
+        {
+          "n": 7,
+          "name": "GND",
+          "type": "ground"
+        },
+        {
+          "n": 8,
+          "name": "4Y",
+          "type": "output",
+          "group": "g4"
+        },
+        {
+          "n": 9,
+          "name": "4A",
+          "type": "input",
+          "group": "g4"
+        },
+        {
+          "n": 10,
+          "name": "5Y",
+          "type": "output",
+          "group": "g5"
+        },
+        {
+          "n": 11,
+          "name": "5A",
+          "type": "input",
+          "group": "g5"
+        },
+        {
+          "n": 12,
+          "name": "6Y",
+          "type": "output",
+          "group": "g6"
+        },
+        {
+          "n": 13,
+          "name": "6A",
+          "type": "input",
+          "group": "g6"
+        },
+        {
+          "n": 14,
+          "name": "VCC",
+          "type": "power"
+        }
+      ]
+    },
+    "74LS08": {
+      "description": "Quad 2-input AND gate",
+      "package": "DIP-14",
+      "vcc_pin": 14,
+      "gnd_pin": 7,
+      "datasheet": "TI SDLS033, 1988",
+      "pins": [
+        {
+          "n": 1,
+          "name": "1A",
+          "type": "input",
+          "group": "g1"
+        },
+        {
+          "n": 2,
+          "name": "1B",
+          "type": "input",
+          "group": "g1"
+        },
+        {
+          "n": 3,
+          "name": "1Y",
+          "type": "output",
+          "group": "g1"
+        },
+        {
+          "n": 4,
+          "name": "2A",
+          "type": "input",
+          "group": "g2"
+        },
+        {
+          "n": 5,
+          "name": "2B",
+          "type": "input",
+          "group": "g2"
+        },
+        {
+          "n": 6,
+          "name": "2Y",
+          "type": "output",
+          "group": "g2"
+        },
+        {
+          "n": 7,
+          "name": "GND",
+          "type": "ground"
+        },
+        {
+          "n": 8,
+          "name": "3Y",
+          "type": "output",
+          "group": "g3"
+        },
+        {
+          "n": 9,
+          "name": "3A",
+          "type": "input",
+          "group": "g3"
+        },
+        {
+          "n": 10,
+          "name": "3B",
+          "type": "input",
+          "group": "g3"
+        },
+        {
+          "n": 11,
+          "name": "4Y",
+          "type": "output",
+          "group": "g4"
+        },
+        {
+          "n": 12,
+          "name": "4A",
+          "type": "input",
+          "group": "g4"
+        },
+        {
+          "n": 13,
+          "name": "4B",
+          "type": "input",
+          "group": "g4"
+        },
+        {
+          "n": 14,
+          "name": "VCC",
+          "type": "power"
+        }
+      ]
+    },
+    "74LS32": {
+      "description": "Quad 2-input OR gate",
+      "package": "DIP-14",
+      "vcc_pin": 14,
+      "gnd_pin": 7,
+      "datasheet": "TI SDLS074, 1988",
+      "pins": [
+        {
+          "n": 1,
+          "name": "1A",
+          "type": "input",
+          "group": "g1"
+        },
+        {
+          "n": 2,
+          "name": "1B",
+          "type": "input",
+          "group": "g1"
+        },
+        {
+          "n": 3,
+          "name": "1Y",
+          "type": "output",
+          "group": "g1"
+        },
+        {
+          "n": 4,
+          "name": "2A",
+          "type": "input",
+          "group": "g2"
+        },
+        {
+          "n": 5,
+          "name": "2B",
+          "type": "input",
+          "group": "g2"
+        },
+        {
+          "n": 6,
+          "name": "2Y",
+          "type": "output",
+          "group": "g2"
+        },
+        {
+          "n": 7,
+          "name": "GND",
+          "type": "ground"
+        },
+        {
+          "n": 8,
+          "name": "3Y",
+          "type": "output",
+          "group": "g3"
+        },
+        {
+          "n": 9,
+          "name": "3A",
+          "type": "input",
+          "group": "g3"
+        },
+        {
+          "n": 10,
+          "name": "3B",
+          "type": "input",
+          "group": "g3"
+        },
+        {
+          "n": 11,
+          "name": "4Y",
+          "type": "output",
+          "group": "g4"
+        },
+        {
+          "n": 12,
+          "name": "4A",
+          "type": "input",
+          "group": "g4"
+        },
+        {
+          "n": 13,
+          "name": "4B",
+          "type": "input",
+          "group": "g4"
+        },
+        {
+          "n": 14,
+          "name": "VCC",
+          "type": "power"
+        }
+      ]
+    },
+    "74LS74": {
+      "description": "Dual D-type positive-edge-triggered flip-flop with preset and clear",
+      "package": "DIP-14",
+      "vcc_pin": 14,
+      "gnd_pin": 7,
+      "datasheet": "TI SDLS118, 1988",
+      "pins": [
+        {
+          "n": 1,
+          "name": "~1CLR",
+          "type": "input",
+          "group": "ff1"
+        },
+        {
+          "n": 2,
+          "name": "1D",
+          "type": "input",
+          "group": "ff1"
+        },
+        {
+          "n": 3,
+          "name": "1CLK",
+          "type": "clock",
+          "group": "ff1"
+        },
+        {
+          "n": 4,
+          "name": "~1PRE",
+          "type": "input",
+          "group": "ff1"
+        },
+        {
+          "n": 5,
+          "name": "1Q",
+          "type": "output",
+          "group": "ff1"
+        },
+        {
+          "n": 6,
+          "name": "~1Q",
+          "type": "output",
+          "group": "ff1"
+        },
+        {
+          "n": 7,
+          "name": "GND",
+          "type": "ground"
+        },
+        {
+          "n": 8,
+          "name": "~2Q",
+          "type": "output",
+          "group": "ff2"
+        },
+        {
+          "n": 9,
+          "name": "2Q",
+          "type": "output",
+          "group": "ff2"
+        },
+        {
+          "n": 10,
+          "name": "~2PRE",
+          "type": "input",
+          "group": "ff2"
+        },
+        {
+          "n": 11,
+          "name": "2CLK",
+          "type": "clock",
+          "group": "ff2"
+        },
+        {
+          "n": 12,
+          "name": "2D",
+          "type": "input",
+          "group": "ff2"
+        },
+        {
+          "n": 13,
+          "name": "~2CLR",
+          "type": "input",
+          "group": "ff2"
+        },
+        {
+          "n": 14,
+          "name": "VCC",
+          "type": "power"
+        }
+      ]
+    },
+    "74LS138": {
+      "description": "3-line to 8-line decoder/demultiplexer (active-low outputs)",
+      "package": "DIP-16",
+      "vcc_pin": 16,
+      "gnd_pin": 8,
+      "datasheet": "TI SDLS147, 1988",
+      "pins": [
+        {
+          "n": 1,
+          "name": "A",
+          "type": "input",
+          "group": "select"
+        },
+        {
+          "n": 2,
+          "name": "B",
+          "type": "input",
+          "group": "select"
+        },
+        {
+          "n": 3,
+          "name": "C",
+          "type": "input",
+          "group": "select"
+        },
+        {
+          "n": 4,
+          "name": "~G2A",
+          "type": "input",
+          "group": "enable"
+        },
+        {
+          "n": 5,
+          "name": "~G2B",
+          "type": "input",
+          "group": "enable"
+        },
+        {
+          "n": 6,
+          "name": "G1",
+          "type": "input",
+          "group": "enable"
+        },
+        {
+          "n": 7,
+          "name": "~Y7",
+          "type": "output",
+          "group": "y"
+        },
+        {
+          "n": 8,
+          "name": "GND",
+          "type": "ground"
+        },
+        {
+          "n": 9,
+          "name": "~Y6",
+          "type": "output",
+          "group": "y"
+        },
+        {
+          "n": 10,
+          "name": "~Y5",
+          "type": "output",
+          "group": "y"
+        },
+        {
+          "n": 11,
+          "name": "~Y4",
+          "type": "output",
+          "group": "y"
+        },
+        {
+          "n": 12,
+          "name": "~Y3",
+          "type": "output",
+          "group": "y"
+        },
+        {
+          "n": 13,
+          "name": "~Y2",
+          "type": "output",
+          "group": "y"
+        },
+        {
+          "n": 14,
+          "name": "~Y1",
+          "type": "output",
+          "group": "y"
+        },
+        {
+          "n": 15,
+          "name": "~Y0",
+          "type": "output",
+          "group": "y"
+        },
+        {
+          "n": 16,
+          "name": "VCC",
+          "type": "power"
+        }
+      ]
+    },
+    "74LS157": {
+      "description": "Quad 2-line to 1-line data selector/multiplexer (non-inverting)",
+      "package": "DIP-16",
+      "vcc_pin": 16,
+      "gnd_pin": 8,
+      "datasheet": "TI SDLS151, 1988",
+      "pins": [
+        {
+          "n": 1,
+          "name": "S",
+          "type": "input",
+          "group": "ctrl"
+        },
+        {
+          "n": 2,
+          "name": "1A",
+          "type": "input",
+          "group": "m1"
+        },
+        {
+          "n": 3,
+          "name": "1B",
+          "type": "input",
+          "group": "m1"
+        },
+        {
+          "n": 4,
+          "name": "1Y",
+          "type": "output",
+          "group": "m1"
+        },
+        {
+          "n": 5,
+          "name": "2A",
+          "type": "input",
+          "group": "m2"
+        },
+        {
+          "n": 6,
+          "name": "2B",
+          "type": "input",
+          "group": "m2"
+        },
+        {
+          "n": 7,
+          "name": "2Y",
+          "type": "output",
+          "group": "m2"
+        },
+        {
+          "n": 8,
+          "name": "GND",
+          "type": "ground"
+        },
+        {
+          "n": 9,
+          "name": "3Y",
+          "type": "output",
+          "group": "m3"
+        },
+        {
+          "n": 10,
+          "name": "3B",
+          "type": "input",
+          "group": "m3"
+        },
+        {
+          "n": 11,
+          "name": "3A",
+          "type": "input",
+          "group": "m3"
+        },
+        {
+          "n": 12,
+          "name": "4Y",
+          "type": "output",
+          "group": "m4"
+        },
+        {
+          "n": 13,
+          "name": "4B",
+          "type": "input",
+          "group": "m4"
+        },
+        {
+          "n": 14,
+          "name": "4A",
+          "type": "input",
+          "group": "m4"
+        },
+        {
+          "n": 15,
+          "name": "~G",
+          "type": "input",
+          "group": "ctrl"
+        },
+        {
+          "n": 16,
+          "name": "VCC",
+          "type": "power"
+        }
+      ]
+    },
+    "74LS244": {
+      "description": "Octal buffer/line driver, 3-state, non-inverting",
+      "package": "DIP-20",
+      "vcc_pin": 20,
+      "gnd_pin": 10,
+      "datasheet": "TI SDLS180, 1988",
+      "pins": [
+        {
+          "n": 1,
+          "name": "~OE1",
+          "type": "input",
+          "group": "ctrl1"
+        },
+        {
+          "n": 2,
+          "name": "1A1",
+          "type": "input",
+          "group": "buf1"
+        },
+        {
+          "n": 3,
+          "name": "2Y4",
+          "type": "tri_state",
+          "group": "buf2"
+        },
+        {
+          "n": 4,
+          "name": "1A2",
+          "type": "input",
+          "group": "buf1"
+        },
+        {
+          "n": 5,
+          "name": "2Y3",
+          "type": "tri_state",
+          "group": "buf2"
+        },
+        {
+          "n": 6,
+          "name": "1A3",
+          "type": "input",
+          "group": "buf1"
+        },
+        {
+          "n": 7,
+          "name": "2Y2",
+          "type": "tri_state",
+          "group": "buf2"
+        },
+        {
+          "n": 8,
+          "name": "1A4",
+          "type": "input",
+          "group": "buf1"
+        },
+        {
+          "n": 9,
+          "name": "2Y1",
+          "type": "tri_state",
+          "group": "buf2"
+        },
+        {
+          "n": 10,
+          "name": "GND",
+          "type": "ground"
+        },
+        {
+          "n": 11,
+          "name": "2A1",
+          "type": "input",
+          "group": "buf2"
+        },
+        {
+          "n": 12,
+          "name": "1Y4",
+          "type": "tri_state",
+          "group": "buf1"
+        },
+        {
+          "n": 13,
+          "name": "2A2",
+          "type": "input",
+          "group": "buf2"
+        },
+        {
+          "n": 14,
+          "name": "1Y3",
+          "type": "tri_state",
+          "group": "buf1"
+        },
+        {
+          "n": 15,
+          "name": "2A3",
+          "type": "input",
+          "group": "buf2"
+        },
+        {
+          "n": 16,
+          "name": "1Y2",
+          "type": "tri_state",
+          "group": "buf1"
+        },
+        {
+          "n": 17,
+          "name": "2A4",
+          "type": "input",
+          "group": "buf2"
+        },
+        {
+          "n": 18,
+          "name": "1Y1",
+          "type": "tri_state",
+          "group": "buf1"
+        },
+        {
+          "n": 19,
+          "name": "~OE2",
+          "type": "input",
+          "group": "ctrl2"
+        },
+        {
+          "n": 20,
+          "name": "VCC",
+          "type": "power"
+        }
+      ]
+    },
+    "74LS245": {
+      "description": "Octal bus transceiver, 3-state",
+      "package": "DIP-20",
+      "vcc_pin": 20,
+      "gnd_pin": 10,
+      "datasheet": "TI SDLS181, 1988",
+      "aliases": [
+        "SN74LS245N"
+      ],
+      "pins": [
+        {
+          "n": 1,
+          "name": "DIR",
+          "type": "input"
+        },
+        {
+          "n": 2,
+          "name": "A1",
+          "type": "bidir",
+          "group": "A"
+        },
+        {
+          "n": 3,
+          "name": "A2",
+          "type": "bidir",
+          "group": "A"
+        },
+        {
+          "n": 4,
+          "name": "A3",
+          "type": "bidir",
+          "group": "A"
+        },
+        {
+          "n": 5,
+          "name": "A4",
+          "type": "bidir",
+          "group": "A"
+        },
+        {
+          "n": 6,
+          "name": "A5",
+          "type": "bidir",
+          "group": "A"
+        },
+        {
+          "n": 7,
+          "name": "A6",
+          "type": "bidir",
+          "group": "A"
+        },
+        {
+          "n": 8,
+          "name": "A7",
+          "type": "bidir",
+          "group": "A"
+        },
+        {
+          "n": 9,
+          "name": "A8",
+          "type": "bidir",
+          "group": "A"
+        },
+        {
+          "n": 10,
+          "name": "GND",
+          "type": "ground"
+        },
+        {
+          "n": 11,
+          "name": "B8",
+          "type": "bidir",
+          "group": "B"
+        },
+        {
+          "n": 12,
+          "name": "B7",
+          "type": "bidir",
+          "group": "B"
+        },
+        {
+          "n": 13,
+          "name": "B6",
+          "type": "bidir",
+          "group": "B"
+        },
+        {
+          "n": 14,
+          "name": "B5",
+          "type": "bidir",
+          "group": "B"
+        },
+        {
+          "n": 15,
+          "name": "B4",
+          "type": "bidir",
+          "group": "B"
+        },
+        {
+          "n": 16,
+          "name": "B3",
+          "type": "bidir",
+          "group": "B"
+        },
+        {
+          "n": 17,
+          "name": "B2",
+          "type": "bidir",
+          "group": "B"
+        },
+        {
+          "n": 18,
+          "name": "B1",
+          "type": "bidir",
+          "group": "B"
+        },
+        {
+          "n": 19,
+          "name": "~OE",
+          "type": "input"
+        },
+        {
+          "n": 20,
+          "name": "VCC",
+          "type": "power"
+        }
+      ]
+    },
+    "74LS373": {
+      "description": "Octal D-type transparent latch, 3-state",
+      "package": "DIP-20",
+      "vcc_pin": 20,
+      "gnd_pin": 10,
+      "datasheet": "TI SDLS194, 1988",
+      "pins": [
+        {
+          "n": 1,
+          "name": "~OE",
+          "type": "input"
+        },
+        {
+          "n": 2,
+          "name": "1Q",
+          "type": "tri_state",
+          "group": "ch1"
+        },
+        {
+          "n": 3,
+          "name": "1D",
+          "type": "input",
+          "group": "ch1"
+        },
+        {
+          "n": 4,
+          "name": "2D",
+          "type": "input",
+          "group": "ch2"
+        },
+        {
+          "n": 5,
+          "name": "2Q",
+          "type": "tri_state",
+          "group": "ch2"
+        },
+        {
+          "n": 6,
+          "name": "3Q",
+          "type": "tri_state",
+          "group": "ch3"
+        },
+        {
+          "n": 7,
+          "name": "3D",
+          "type": "input",
+          "group": "ch3"
+        },
+        {
+          "n": 8,
+          "name": "4D",
+          "type": "input",
+          "group": "ch4"
+        },
+        {
+          "n": 9,
+          "name": "4Q",
+          "type": "tri_state",
+          "group": "ch4"
+        },
+        {
+          "n": 10,
+          "name": "GND",
+          "type": "ground"
+        },
+        {
+          "n": 11,
+          "name": "LE",
+          "type": "input"
+        },
+        {
+          "n": 12,
+          "name": "5Q",
+          "type": "tri_state",
+          "group": "ch5"
+        },
+        {
+          "n": 13,
+          "name": "5D",
+          "type": "input",
+          "group": "ch5"
+        },
+        {
+          "n": 14,
+          "name": "6D",
+          "type": "input",
+          "group": "ch6"
+        },
+        {
+          "n": 15,
+          "name": "6Q",
+          "type": "tri_state",
+          "group": "ch6"
+        },
+        {
+          "n": 16,
+          "name": "7Q",
+          "type": "tri_state",
+          "group": "ch7"
+        },
+        {
+          "n": 17,
+          "name": "7D",
+          "type": "input",
+          "group": "ch7"
+        },
+        {
+          "n": 18,
+          "name": "8D",
+          "type": "input",
+          "group": "ch8"
+        },
+        {
+          "n": 19,
+          "name": "8Q",
+          "type": "tri_state",
+          "group": "ch8"
+        },
+        {
+          "n": 20,
+          "name": "VCC",
+          "type": "power"
+        }
+      ]
+    },
+    "HM6116": {
+      "description": "2K x 8 static CMOS RAM",
+      "package": "DIP-24",
+      "vcc_pin": 24,
+      "gnd_pin": 12,
+      "datasheet": "Hitachi HM6116 datasheet, 1983",
+      "aliases": [
+        "HM6116P",
+        "HM6116LP"
+      ],
+      "pins": [
+        {
+          "n": 1,
+          "name": "A7",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 2,
+          "name": "A6",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 3,
+          "name": "A5",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 4,
+          "name": "A4",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 5,
+          "name": "A3",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 6,
+          "name": "A2",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 7,
+          "name": "A1",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 8,
+          "name": "A0",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 9,
+          "name": "I/O0",
+          "type": "bidir",
+          "group": "data"
+        },
+        {
+          "n": 10,
+          "name": "I/O1",
+          "type": "bidir",
+          "group": "data"
+        },
+        {
+          "n": 11,
+          "name": "I/O2",
+          "type": "bidir",
+          "group": "data"
+        },
+        {
+          "n": 12,
+          "name": "GND",
+          "type": "ground"
+        },
+        {
+          "n": 13,
+          "name": "I/O3",
+          "type": "bidir",
+          "group": "data"
+        },
+        {
+          "n": 14,
+          "name": "I/O4",
+          "type": "bidir",
+          "group": "data"
+        },
+        {
+          "n": 15,
+          "name": "I/O5",
+          "type": "bidir",
+          "group": "data"
+        },
+        {
+          "n": 16,
+          "name": "I/O6",
+          "type": "bidir",
+          "group": "data"
+        },
+        {
+          "n": 17,
+          "name": "I/O7",
+          "type": "bidir",
+          "group": "data"
+        },
+        {
+          "n": 18,
+          "name": "~CS",
+          "type": "input"
+        },
+        {
+          "n": 19,
+          "name": "A10",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 20,
+          "name": "~OE",
+          "type": "input"
+        },
+        {
+          "n": 21,
+          "name": "~WE",
+          "type": "input"
+        },
+        {
+          "n": 22,
+          "name": "A9",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 23,
+          "name": "A8",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 24,
+          "name": "VCC",
+          "type": "power"
+        }
+      ]
+    },
+    "6809E": {
+      "description": "8-bit microprocessor (HMOS), external E and Q clock inputs",
+      "package": "DIP-40",
+      "vcc_pin": 7,
+      "gnd_pin": 1,
+      "datasheet": "Motorola MC6809E HMOS 8-Bit Microprocessing Unit, pin-assignment diagram p.1 (bitsavers scan)",
+      "aliases": [
+        "MC6809E",
+        "MC68A09E",
+        "MC68B09E"
+      ],
+      "pins": [
+        {
+          "n": 1,
+          "name": "VSS",
+          "type": "ground"
+        },
+        {
+          "n": 2,
+          "name": "~NMI",
+          "type": "input"
+        },
+        {
+          "n": 3,
+          "name": "~IRQ",
+          "type": "input"
+        },
+        {
+          "n": 4,
+          "name": "~FIRQ",
+          "type": "input"
+        },
+        {
+          "n": 5,
+          "name": "BS",
+          "type": "output"
+        },
+        {
+          "n": 6,
+          "name": "BA",
+          "type": "output"
+        },
+        {
+          "n": 7,
+          "name": "VCC",
+          "type": "power"
+        },
+        {
+          "n": 8,
+          "name": "A0",
+          "type": "tri_state",
+          "group": "addr"
+        },
+        {
+          "n": 9,
+          "name": "A1",
+          "type": "tri_state",
+          "group": "addr"
+        },
+        {
+          "n": 10,
+          "name": "A2",
+          "type": "tri_state",
+          "group": "addr"
+        },
+        {
+          "n": 11,
+          "name": "A3",
+          "type": "tri_state",
+          "group": "addr"
+        },
+        {
+          "n": 12,
+          "name": "A4",
+          "type": "tri_state",
+          "group": "addr"
+        },
+        {
+          "n": 13,
+          "name": "A5",
+          "type": "tri_state",
+          "group": "addr"
+        },
+        {
+          "n": 14,
+          "name": "A6",
+          "type": "tri_state",
+          "group": "addr"
+        },
+        {
+          "n": 15,
+          "name": "A7",
+          "type": "tri_state",
+          "group": "addr"
+        },
+        {
+          "n": 16,
+          "name": "A8",
+          "type": "tri_state",
+          "group": "addr"
+        },
+        {
+          "n": 17,
+          "name": "A9",
+          "type": "tri_state",
+          "group": "addr"
+        },
+        {
+          "n": 18,
+          "name": "A10",
+          "type": "tri_state",
+          "group": "addr"
+        },
+        {
+          "n": 19,
+          "name": "A11",
+          "type": "tri_state",
+          "group": "addr"
+        },
+        {
+          "n": 20,
+          "name": "A12",
+          "type": "tri_state",
+          "group": "addr"
+        },
+        {
+          "n": 21,
+          "name": "A13",
+          "type": "tri_state",
+          "group": "addr"
+        },
+        {
+          "n": 22,
+          "name": "A14",
+          "type": "tri_state",
+          "group": "addr"
+        },
+        {
+          "n": 23,
+          "name": "A15",
+          "type": "tri_state",
+          "group": "addr"
+        },
+        {
+          "n": 24,
+          "name": "D7",
+          "type": "bidir",
+          "group": "data"
+        },
+        {
+          "n": 25,
+          "name": "D6",
+          "type": "bidir",
+          "group": "data"
+        },
+        {
+          "n": 26,
+          "name": "D5",
+          "type": "bidir",
+          "group": "data"
+        },
+        {
+          "n": 27,
+          "name": "D4",
+          "type": "bidir",
+          "group": "data"
+        },
+        {
+          "n": 28,
+          "name": "D3",
+          "type": "bidir",
+          "group": "data"
+        },
+        {
+          "n": 29,
+          "name": "D2",
+          "type": "bidir",
+          "group": "data"
+        },
+        {
+          "n": 30,
+          "name": "D1",
+          "type": "bidir",
+          "group": "data"
+        },
+        {
+          "n": 31,
+          "name": "D0",
+          "type": "bidir",
+          "group": "data"
+        },
+        {
+          "n": 32,
+          "name": "R/~W",
+          "type": "tri_state"
+        },
+        {
+          "n": 33,
+          "name": "BUSY",
+          "type": "output"
+        },
+        {
+          "n": 34,
+          "name": "E",
+          "type": "clock"
+        },
+        {
+          "n": 35,
+          "name": "Q",
+          "type": "clock"
+        },
+        {
+          "n": 36,
+          "name": "AVMA",
+          "type": "output"
+        },
+        {
+          "n": 37,
+          "name": "~RESET",
+          "type": "input"
+        },
+        {
+          "n": 38,
+          "name": "LIC",
+          "type": "output"
+        },
+        {
+          "n": 39,
+          "name": "TSC",
+          "type": "input"
+        },
+        {
+          "n": 40,
+          "name": "~HALT",
+          "type": "input"
+        }
+      ]
+    },
+    "74LS151": {
+      "description": "8-line to 1-line data selector/multiplexer with complementary outputs (Y, W) and active-low strobe enable",
+      "package": "DIP-16",
+      "vcc_pin": 16,
+      "gnd_pin": 8,
+      "datasheet": "TI SDLS054, December 1972 / Revised March 1988 (SN74LS151)",
+      "aliases": [
+        "SN74LS151",
+        "SN74LS151N",
+        "SN54LS151"
+      ],
+      "pins": [
+        {
+          "n": 1,
+          "name": "D3",
+          "type": "input",
+          "group": "data"
+        },
+        {
+          "n": 2,
+          "name": "D2",
+          "type": "input",
+          "group": "data"
+        },
+        {
+          "n": 3,
+          "name": "D1",
+          "type": "input",
+          "group": "data"
+        },
+        {
+          "n": 4,
+          "name": "D0",
+          "type": "input",
+          "group": "data"
+        },
+        {
+          "n": 5,
+          "name": "Y",
+          "type": "output"
+        },
+        {
+          "n": 6,
+          "name": "W",
+          "type": "output"
+        },
+        {
+          "n": 7,
+          "name": "~G",
+          "type": "input"
+        },
+        {
+          "n": 8,
+          "name": "GND",
+          "type": "ground"
+        },
+        {
+          "n": 9,
+          "name": "C",
+          "type": "input",
+          "group": "select"
+        },
+        {
+          "n": 10,
+          "name": "B",
+          "type": "input",
+          "group": "select"
+        },
+        {
+          "n": 11,
+          "name": "A",
+          "type": "input",
+          "group": "select"
+        },
+        {
+          "n": 12,
+          "name": "D7",
+          "type": "input",
+          "group": "data"
+        },
+        {
+          "n": 13,
+          "name": "D6",
+          "type": "input",
+          "group": "data"
+        },
+        {
+          "n": 14,
+          "name": "D5",
+          "type": "input",
+          "group": "data"
+        },
+        {
+          "n": 15,
+          "name": "D4",
+          "type": "input",
+          "group": "data"
+        },
+        {
+          "n": 16,
+          "name": "VCC",
+          "type": "power"
+        }
+      ]
+    },
+    "74LS166": {
+      "description": "Parallel-load 8-bit shift register (parallel-in or serial-in, serial-out)",
+      "package": "DIP-16",
+      "vcc_pin": 16,
+      "gnd_pin": 8,
+      "datasheet": "TI SDLS137, October 1976 / Revised March 1988 (SN74LS166A)",
+      "aliases": [
+        "74LS166A",
+        "SN74LS166",
+        "SN74LS166A",
+        "SN74LS166AN"
+      ],
+      "pins": [
+        {
+          "n": 1,
+          "name": "SER",
+          "type": "input"
+        },
+        {
+          "n": 2,
+          "name": "A",
+          "type": "input",
+          "group": "parallel"
+        },
+        {
+          "n": 3,
+          "name": "B",
+          "type": "input",
+          "group": "parallel"
+        },
+        {
+          "n": 4,
+          "name": "C",
+          "type": "input",
+          "group": "parallel"
+        },
+        {
+          "n": 5,
+          "name": "D",
+          "type": "input",
+          "group": "parallel"
+        },
+        {
+          "n": 6,
+          "name": "CLK_INH",
+          "type": "input"
+        },
+        {
+          "n": 7,
+          "name": "CLK",
+          "type": "clock"
+        },
+        {
+          "n": 8,
+          "name": "GND",
+          "type": "ground"
+        },
+        {
+          "n": 9,
+          "name": "~CLR",
+          "type": "input"
+        },
+        {
+          "n": 10,
+          "name": "E",
+          "type": "input",
+          "group": "parallel"
+        },
+        {
+          "n": 11,
+          "name": "F",
+          "type": "input",
+          "group": "parallel"
+        },
+        {
+          "n": 12,
+          "name": "G",
+          "type": "input",
+          "group": "parallel"
+        },
+        {
+          "n": 13,
+          "name": "QH",
+          "type": "output"
+        },
+        {
+          "n": 14,
+          "name": "H",
+          "type": "input",
+          "group": "parallel"
+        },
+        {
+          "n": 15,
+          "name": "SH/~LD",
+          "type": "input"
+        },
+        {
+          "n": 16,
+          "name": "VCC",
+          "type": "power"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,155 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schematics.local/schema/graph.schema.json",
+  "title": "Schematic graph",
+  "description": "In-memory representation of a transcribed schematic. Source of truth on disk is the .kicad_sch file; this schema describes the intermediate graph the pipeline operates on.",
+  "type": "object",
+  "required": ["board", "sheets", "components", "nets"],
+  "additionalProperties": false,
+  "properties": {
+    "board": {
+      "type": "object",
+      "required": ["id", "drawing_number"],
+      "properties": {
+        "id": { "type": "string" },
+        "drawing_number": { "type": "string" },
+        "title": { "type": "string" },
+        "manufacturer": { "type": "string" },
+        "year": { "type": "integer" }
+      }
+    },
+    "sheets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["index", "title"],
+        "properties": {
+          "index": { "type": "integer", "minimum": 1 },
+          "title": { "type": "string" },
+          "scan_path": { "type": "string", "description": "relative path to the source PNG" },
+          "scan_pixel_size": {
+            "type": "array",
+            "items": { "type": "integer" },
+            "minItems": 2,
+            "maxItems": 2,
+            "description": "[width, height] of the source image"
+          }
+        }
+      }
+    },
+    "components": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["refdes", "part", "sheet", "bbox"],
+        "properties": {
+          "refdes": {
+            "type": "string",
+            "description": "Manufacturer's reference designator preserved as written, e.g. U14C"
+          },
+          "part": {
+            "type": "string",
+            "description": "Key into librarian/chips.json, e.g. 74LS245"
+          },
+          "sheet": { "type": "integer" },
+          "bbox": {
+            "type": "array",
+            "items": { "type": "number" },
+            "minItems": 4,
+            "maxItems": 4,
+            "description": "[x1,y1,x2,y2] in source-image pixels"
+          },
+          "verified": {
+            "type": "boolean",
+            "description": "Human has visually confirmed this component (refdes, part, bbox approximately right). AI-added components default to absent/false; humans toggle via the explorer or graph_cli verify-component."
+          },
+          "verified_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "ISO 8601 timestamp the verification was set (optional)."
+          },
+          "verified_by": {
+            "type": "string",
+            "description": "Free-form attribution, e.g. 'alan@workbench'. Optional."
+          },
+          "pin_positions": {
+            "type": "object",
+            "description": "Per-pin coordinates [x,y] in source-image pixels. Keys are pin numbers as strings. Auto-seeded by the viewer using a default DIP layout; user-refined by dragging.",
+            "patternProperties": {
+              "^[A-Za-z0-9_/]+$": {
+                "type": "array",
+                "items": { "type": "number" },
+                "minItems": 2,
+                "maxItems": 2
+              }
+            },
+            "additionalProperties": false
+          },
+          "evidence": { "$ref": "#/$defs/evidence" }
+        }
+      }
+    },
+    "nets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "endpoints"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Mnemonic name, e.g. A0, ~CSC, GND. Tilde prefix denotes active-low."
+          },
+          "kind": {
+            "type": "string",
+            "enum": ["signal", "power", "ground", "clock", "bus_member"],
+            "default": "signal"
+          },
+          "endpoints": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["refdes", "pin", "edge_type"],
+              "properties": {
+                "refdes": { "type": "string" },
+                "pin": {
+                  "oneOf": [{ "type": "integer" }, { "type": "string" }],
+                  "description": "Pin number or name as defined in chips.json"
+                },
+                "sheet": { "type": "integer" },
+                "edge_type": {
+                  "type": "string",
+                  "enum": ["wire", "label", "sheet_zone", "off_page", "bus", "implicit_power"],
+                  "description": "How the connection is expressed on paper. Mixing types in one net is an error."
+                },
+                "sheet_zone_ref": {
+                  "type": "string",
+                  "description": "For edge_type=sheet_zone: original notation as drawn, e.g. 4C6"
+                },
+                "evidence": { "$ref": "#/$defs/evidence" }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "evidence": {
+      "type": "object",
+      "description": "Provenance of an assertion in the graph.",
+      "properties": {
+        "source": {
+          "type": "string",
+          "enum": ["ai", "human", "datasheet", "probe"]
+        },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "probe_log_ref": {
+          "type": "string",
+          "description": "Anchor in discrepancies.md if verified or contradicted by a board probe"
+        },
+        "note": { "type": "string" }
+      }
+    }
+  }
+}

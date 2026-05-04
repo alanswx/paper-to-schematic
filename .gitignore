@@ -1,0 +1,21 @@
+# Inputs (large, copyright-unclear) — fetch separately per README step 1
+exidy/
+
+# Vendored reference project (its own repo)
+text-to-cad/
+
+# Python environment
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# OS / editor cruft
+.DS_Store
+*.swp
+.idea/
+.vscode/
+
+# Defensive: tile outputs and other temp artifacts
+boards/*/_tiles/
+*.tmp

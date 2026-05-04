@@ -1,0 +1,40 @@
+{
+  "id": "exidy_440",
+  "drawing_number": "77-0019",
+  "title": "Exidy 440 logic board",
+  "manufacturer": "Exidy, Inc.",
+  "year": 1984,
+  "shared_titles": ["Crossbow", "Cheyenne", "Combat"],
+  "preferred_scan_source": {
+    "manual": "Cheyenne service manual",
+    "reason": "Drawing 77-0019 appears unrotated at native landscape size, ~3x more pixels per element than Crossbow's letter-rotated scan.",
+    "manual_path": "../../exidy/manuals/Cheyenne_archive_org.pdf",
+    "jp2_path": "../../exidy/scans/jp2/Cheyenne_archive_jp2.zip"
+  },
+  "sheets": [
+    { "index": 1, "title": "Video RAM & MPX",       "scan_path": "../../exidy/scans/pages/logic_sheet1_video_ram_mpx.png",       "scan_pixel_size": [5863, 4531] },
+    { "index": 2, "title": "Line Buffer & Control", "scan_path": "../../exidy/scans/pages/logic_sheet2_line_buffer_control.png", "scan_pixel_size": [5863, 4531] },
+    { "index": 3, "title": "Master Control",        "scan_path": "../../exidy/scans/pages/logic_sheet3_master_control.png",      "scan_pixel_size": [5863, 4531] },
+    { "index": 4, "title": "CPU & Memory",          "scan_path": "../../exidy/scans/pages/logic_sheet4_cpu_memory.png",          "scan_pixel_size": [5863, 4531] },
+    { "index": 5, "title": "Video Output",          "scan_path": "../../exidy/scans/pages/logic_sheet5_video_output.png",        "scan_pixel_size": [5863, 4531] },
+    { "index": 6, "title": "ROM Bank",              "scan_path": "../../exidy/scans/pages/logic_sheet6_rom_bank.png",            "scan_pixel_size": [5863, 4531] }
+  ],
+  "off_page_convention": {
+    "edge_type": "sheet_zone",
+    "notation": "<sheet><col><row>",
+    "example": "4C6 means sheet 4, zone column C, row 6",
+    "rendering": "small oval next to wire end"
+  },
+  "phase1_target": {
+    "sheet": 1,
+    "scope": "single bank of the video RAM array (~7 components, ~120 nets)",
+    "exit_criteria": "round-trips into KiCad with zero ERC errors after manual entry through the viewer"
+  },
+  "external_oracles": [
+    {
+      "kind": "mame_driver",
+      "name": "exidy440",
+      "use": "cross-check inferred memory map against the C++ driver in MAME"
+    }
+  ]
+}
