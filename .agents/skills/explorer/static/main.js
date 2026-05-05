@@ -53,27 +53,83 @@ const canvasToImg = (cx, cy) => ({
   y: (cy - state.view.y) / state.view.scale,
 });
 
-// Default DIP-style pin layout: pins 1..N/2 down the left edge top-to-bottom,
-// pins N/2+1..N up the right edge bottom-to-top. Returns null for odd-pin chips.
+// Function-based pin layout: classify each pin by group/type/name pattern and
+// place it on the appropriate side of the bbox.
+//   left:   address pins (group=addr, name~=A0..)
+//   right:  data/output pins (group=data, name=D/Q/O/I/O*)
+//   top:    power (VCC/VDD/VPP)
+//   bottom: ground (GND/VSS) plus other control inputs (~CE/~OE/etc.)
+// This matches schematic-symbol convention better than physical-DIP order
+// for the common case of memories/CPUs/PLDs. Falls back to physical-DIP-style
+// for chips where the heuristic doesn't classify pins (gates, latches, etc.).
 function defaultPinPositions(part, bbox) {
-  const n = part.pins.length;
-  if (n % 2 !== 0) return null;
-  const half = n / 2;
+  const pins = part.pins || [];
+  if (!pins.length) return null;
   const [x1, y1, x2, y2] = bbox;
-  const h = y2 - y1;
+  const w = x2 - x1, h = y2 - y1;
   const out = {};
-  for (let i = 1; i <= n; i++) {
-    let x, y;
-    if (i <= half) {
-      x = x1;
-      y = y1 + (i - 0.5) * (h / half);
+
+  const left = [], right = [], top = [], bottom = [];
+  for (const p of pins) {
+    const grp = (p.group || "").toLowerCase();
+    const t = p.type;
+    const nm = (p.name || "").trim();
+    if (t === "power" || /^(VCC|VDD|VPP|\+5V|EVCC|TVCC)$/i.test(nm)) {
+      top.push(p);
+    } else if (t === "ground" || /^(GND|VSS|VEE)$/i.test(nm)) {
+      bottom.push(p);
+    } else if (grp === "addr" || /^(A|MCA[._])\d/i.test(nm)) {
+      left.push(p);
+    } else if (grp === "data" || /^(D|Q|O|I\/O|MCD[._])\d/i.test(nm) || /^(D|Q)\d/i.test(nm)) {
+      right.push(p);
+    } else if (t === "input" || t === "clock") {
+      bottom.push(p);
+    } else if (t === "output" || t === "tri_state" || t === "bidir") {
+      right.push(p);
     } else {
-      const slot = n - i;
-      x = x2;
-      y = y1 + (slot + 0.5) * (h / half);
+      // Fallback: distribute across whichever side has room.
+      (left.length <= right.length ? left : right).push(p);
     }
-    out[String(i)] = [x, y];
   }
+
+  // If both left and right are empty (rare — quad-gate chips with grouped
+  // pins like 'g1','g2'..), fall back to physical DIP layout.
+  if (left.length === 0 && right.length === 0 && pins.length % 2 === 0) {
+    const half = pins.length / 2;
+    for (const p of pins) {
+      let x, y;
+      if (p.n <= half) {
+        x = x1;
+        y = y1 + (p.n - 0.5) * (h / half);
+      } else {
+        const slot = pins.length - p.n;
+        x = x2;
+        y = y1 + (slot + 0.5) * (h / half);
+      }
+      out[String(p.n)] = [x, y];
+    }
+    return out;
+  }
+
+  // Sort each side by pin number for stable, intuitive ordering.
+  for (const arr of [left, right, top, bottom]) arr.sort((a, b) => a.n - b.n);
+
+  const place = (arr, axis) => {
+    const denom = arr.length || 1;
+    for (let i = 0; i < arr.length; i++) {
+      const f = (i + 0.5) / denom;
+      let x, y;
+      if (axis === "left")   { x = x1;        y = y1 + f * h; }
+      else if (axis === "right")  { x = x2;        y = y1 + f * h; }
+      else if (axis === "top")    { x = x1 + f * w; y = y1; }
+      else /* bottom */           { x = x1 + f * w; y = y2; }
+      out[String(arr[i].n)] = [x, y];
+    }
+  };
+  place(left, "left");
+  place(right, "right");
+  place(top, "top");
+  place(bottom, "bottom");
   return out;
 }
 

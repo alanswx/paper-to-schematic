@@ -205,7 +205,16 @@ def _snap_one(img_gray, bbox, search_pad: int, line_min_len: int, min_size: int,
                 best = (bx, by, bw, bh)
 
     if best is None:
-        return None
+        # Fallback: when the line-skeleton hole-detection fails (typically
+        # because the chip outline doesn't form a closed loop in the
+        # extracted skeleton), try Hough lines. Find pairs of long
+        # horizontal + long vertical line segments that frame a rectangle
+        # near the target center.
+        ai_w = abs(x2 - x1)
+        ai_h = abs(y2 - y1)
+        return _snap_via_hough(roi, binary, target_cx, target_cy,
+                                rx1, ry1, min_size, max_size, line_min_len,
+                                ai_w, ai_h)
 
     bx, by, bw, bh = best
     # Pad by a few pixels to include the outline itself (the hole is the interior).
@@ -214,6 +223,112 @@ def _snap_one(img_gray, bbox, search_pad: int, line_min_len: int, min_size: int,
             max(0, by - pad) + ry1,
             min(rx2 - rx1, bx + bw + pad) + rx1,
             min(ry2 - ry1, by + bh + pad) + ry1)
+
+
+def _snap_via_hough(roi, binary, target_cx, target_cy, rx1, ry1,
+                    min_size, max_size, line_min_len,
+                    ai_w=0, ai_h=0):
+    """Hough-line fallback: find pairs of (top, bottom) horizontal lines and
+    (left, right) vertical lines that frame the chip body near (target_cx,
+    target_cy). The skeleton-hole approach assumes a closed loop; this one
+    just needs four straight edges anywhere in the ROI."""
+    import cv2
+    import numpy as np
+
+    h, w = binary.shape
+    lines = cv2.HoughLinesP(
+        binary, rho=1, theta=np.pi / 180,
+        threshold=80,
+        minLineLength=max(line_min_len, 30),
+        maxLineGap=10,
+    )
+    if lines is None:
+        return None
+
+    horiz, vert = [], []
+    for line in lines:
+        x1, y1, x2, y2 = line[0]
+        dx, dy = abs(x2 - x1), abs(y2 - y1)
+        if dy <= 2 and dx >= line_min_len:
+            horiz.append((min(y1, y2), min(x1, x2), max(x1, x2)))  # (y, x_lo, x_hi)
+        elif dx <= 2 and dy >= line_min_len:
+            vert.append((min(x1, x2), min(y1, y2), max(y1, y2)))   # (x, y_lo, y_hi)
+
+    if len(horiz) < 2 or len(vert) < 2:
+        return None
+
+    # Cluster lines by position so duplicates from Hough's segment-splitting
+    # don't re-detect the same edge.
+    def cluster(items, axis_key, tol=4):
+        items = sorted(items, key=lambda v: v[axis_key])
+        groups = []
+        for it in items:
+            if groups and abs(it[axis_key] - groups[-1][-1][axis_key]) <= tol:
+                groups[-1].append(it)
+            else:
+                groups.append([it])
+        # collapse each group: position = mean, span = union
+        out = []
+        for g in groups:
+            pos = sum(v[axis_key] for v in g) / len(g)
+            lo = min(v[1] for v in g)
+            hi = max(v[2] for v in g)
+            out.append((pos, lo, hi))
+        return out
+
+    horiz = cluster(horiz, 0)
+    vert = cluster(vert, 0)
+
+    # For each (left, right, top, bottom) quadruple, score by proximity to
+    # target + size sanity.
+    best = None
+    best_score = float("inf")
+    for vi, (vlx, vly0, vly1) in enumerate(vert):
+        for vrx, vry0, vry1 in vert[vi + 1:]:
+            if vrx - vlx < min_size or vrx - vlx > max_size:
+                continue
+            if not (vlx <= target_cx <= vrx):
+                continue
+            for hi, (hty, htx0, htx1) in enumerate(horiz):
+                for hby, hbx0, hbx1 in horiz[hi + 1:]:
+                    if hby - hty < min_size or hby - hty > max_size:
+                        continue
+                    if not (hty <= target_cy <= hby):
+                        continue
+                    # Each horizontal line must span a substantial portion
+                    # of (vlx..vrx); otherwise it's not really part of this
+                    # rectangle.
+                    span_required = (vrx - vlx) * 0.4
+                    if (htx1 - htx0) < span_required: continue
+                    if (hbx1 - hbx0) < span_required: continue
+                    # And each vertical similarly for hty..hby.
+                    vspan = (hby - hty) * 0.4
+                    if (vly1 - vly0) < vspan: continue
+                    if (vry1 - vry0) < vspan: continue
+                    cx = (vlx + vrx) / 2
+                    cy = (hty + hby) / 2
+                    rw = vrx - vlx
+                    rh = hby - hty
+                    dist = ((cx - target_cx) ** 2 + (cy - target_cy) ** 2) ** 0.5
+                    # Penalize size mismatch vs the AI's bbox so we prefer the
+                    # FULL chip rectangle over an inner text-bbox sub-rectangle.
+                    size_pen = 0.0
+                    if ai_w > 0 and ai_h > 0:
+                        size_pen = (abs(1 - rw / ai_w) + abs(1 - rh / ai_h)) * max(ai_w, ai_h) * 0.5
+                    # Bonus for larger area (when AI sizing is unknown).
+                    score = dist + size_pen - rw * rh * 0.001
+                    if score < best_score:
+                        best_score = score
+                        best = (vlx, hty, vrx, hby)
+
+    if best is None:
+        return None
+    bx1, by1, bx2, by2 = best
+    pad = 2
+    return (max(0, bx1 - pad) + rx1,
+            max(0, by1 - pad) + ry1,
+            bx2 + pad + rx1,
+            by2 + pad + ry1)
 
 
 def cmd_snap_bbox(args):
