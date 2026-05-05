@@ -253,19 +253,83 @@
   ],
   "components": [
     {
-      "refdes": "h61",
-      "part": "2716",
+      "refdes": "d08",
+      "part": "MC12061",
       "sheet": 5,
       "bbox": [
-        2000,
-        505,
-        2245,
-        970
+        510.0,
+        525.0,
+        870.0,
+        1080.0
       ],
       "evidence": {
         "source": "ai",
         "confidence": 0.7,
-        "note": "Dorado page 5; EPROM stack on right side"
+        "note": "10 MHz oscillator, top-left of page (tile r0c0)"
+      }
+    },
+    {
+      "refdes": "e07",
+      "part": "74LS163",
+      "sheet": 5,
+      "bbox": [
+        1090.0,
+        385.0,
+        1360.0,
+        810.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.8,
+        "note": "synchronous counter, mid-upper (tile r0c1)"
+      }
+    },
+    {
+      "refdes": "g08",
+      "part": "74LS74",
+      "sheet": 5,
+      "bbox": [
+        1480.0,
+        230.0,
+        1645.0,
+        450.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.7,
+        "note": "D flip-flop, section g08a drawn here (tile r0c1)"
+      }
+    },
+    {
+      "refdes": "c08",
+      "part": "74LS04",
+      "sheet": 5,
+      "bbox": [
+        1070.0,
+        880.0,
+        1215.0,
+        1005.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.5,
+        "note": "LS04 inverter, section c08a; b/c on row 2"
+      }
+    },
+    {
+      "refdes": "h61",
+      "part": "2716",
+      "sheet": 5,
+      "bbox": [
+        2000.0,
+        505.0,
+        2245.0,
+        970.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.8,
+        "note": "EPROM (top of stack of 4)"
       },
       "pin_positions": {
         "1": [
@@ -367,117 +431,19 @@
       }
     },
     {
-      "refdes": "b61",
-      "part": "2716",
+      "refdes": "c07",
+      "part": "JUMPER_PLUG_16",
       "sheet": 5,
       "bbox": [
-        1999,
-        2505,
-        2244,
-        2976
+        1050.0,
+        1330.0,
+        1275.0,
+        1595.0
       ],
       "evidence": {
         "source": "ai",
         "confidence": 0.7,
-        "note": "Dorado page 5; EPROM stack on right side"
-      },
-      "pin_positions": {
-        "1": [
-          1999,
-          2653
-        ],
-        "2": [
-          1999,
-          2695
-        ],
-        "3": [
-          1999,
-          2737
-        ],
-        "4": [
-          1999,
-          2780
-        ],
-        "5": [
-          1999,
-          2822
-        ],
-        "6": [
-          1999,
-          2864
-        ],
-        "7": [
-          1999,
-          2906
-        ],
-        "8": [
-          1999,
-          2949
-        ],
-        "9": [
-          2244,
-          2534
-        ],
-        "10": [
-          2244,
-          2592
-        ],
-        "11": [
-          2244,
-          2650
-        ],
-        "13": [
-          2244,
-          2708
-        ],
-        "14": [
-          2244,
-          2766
-        ],
-        "15": [
-          2244,
-          2824
-        ],
-        "16": [
-          2244,
-          2882
-        ],
-        "17": [
-          2244,
-          2941
-        ],
-        "18": [
-          2183,
-          2970
-        ],
-        "19": [
-          1999,
-          2526
-        ],
-        "20": [
-          2121,
-          2970
-        ],
-        "21": [
-          2060,
-          2970
-        ],
-        "22": [
-          1999,
-          2568
-        ],
-        "23": [
-          1999,
-          2610
-        ],
-        "24": [
-          2121,
-          2505
-        ],
-        "12": [
-          2244,
-          2970
-        ]
+        "note": "EPROM JUMPERS \u2014 passive 16-pin routing"
       }
     },
     {
@@ -485,14 +451,15 @@
       "part": "2716",
       "sheet": 5,
       "bbox": [
-        1999,
-        1165,
-        2246,
-        1624
+        1999.0,
+        1165.0,
+        2246.0,
+        1624.0
       ],
       "evidence": {
         "source": "ai",
-        "confidence": 0.7
+        "confidence": 0.8,
+        "note": "EPROM (2nd of 4)"
       },
       "pin_positions": {
         "1": [
@@ -594,18 +561,165 @@
       }
     },
     {
+      "refdes": "f61",
+      "part": "MCS6502",
+      "sheet": 5,
+      "bbox": [
+        470.0,
+        1780.0,
+        890.0,
+        2640.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.8,
+        "note": "MCS6502 CPU spans tiles r1c0/r2c0"
+      }
+    },
+    {
+      "refdes": "g11",
+      "part": "74LS138",
+      "sheet": 5,
+      "bbox": [
+        1335.0,
+        2255.0,
+        1560.0,
+        2535.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.7,
+        "note": "3-to-8 decoder, ROM CS"
+      }
+    },
+    {
+      "refdes": "b61",
+      "part": "2716",
+      "sheet": 5,
+      "bbox": [
+        1999.0,
+        2505.0,
+        2244.0,
+        2976.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.8,
+        "note": "EPROM (4th, bottom)"
+      },
+      "pin_positions": {
+        "1": [
+          1999,
+          2653
+        ],
+        "2": [
+          1999,
+          2695
+        ],
+        "3": [
+          1999,
+          2737
+        ],
+        "4": [
+          1999,
+          2780
+        ],
+        "5": [
+          1999,
+          2822
+        ],
+        "6": [
+          1999,
+          2864
+        ],
+        "7": [
+          1999,
+          2906
+        ],
+        "8": [
+          1999,
+          2949
+        ],
+        "9": [
+          2244,
+          2534
+        ],
+        "10": [
+          2244,
+          2592
+        ],
+        "11": [
+          2244,
+          2650
+        ],
+        "13": [
+          2244,
+          2708
+        ],
+        "14": [
+          2244,
+          2766
+        ],
+        "15": [
+          2244,
+          2824
+        ],
+        "16": [
+          2244,
+          2882
+        ],
+        "17": [
+          2244,
+          2941
+        ],
+        "18": [
+          2183,
+          2970
+        ],
+        "19": [
+          1999,
+          2526
+        ],
+        "20": [
+          2121,
+          2970
+        ],
+        "21": [
+          2060,
+          2970
+        ],
+        "22": [
+          1999,
+          2568
+        ],
+        "23": [
+          1999,
+          2610
+        ],
+        "24": [
+          2121,
+          2505
+        ],
+        "12": [
+          2244,
+          2970
+        ]
+      }
+    },
+    {
       "refdes": "c61",
       "part": "2716",
       "sheet": 5,
       "bbox": [
         2002.0,
         1917.0,
-        2266.5,
+        2247.0,
         2407.0
       ],
       "evidence": {
         "source": "ai",
-        "confidence": 0.7
+        "confidence": 0.8,
+        "note": "EPROM 3rd of 4; right edge tightened from snap-board artifact (was 2266)"
       },
       "pin_positions": {
         "1": [
@@ -704,125 +818,6 @@
           2247,
           2382
         ]
-      }
-    },
-    {
-      "refdes": "g08",
-      "part": "74LS74",
-      "sheet": 5,
-      "bbox": [
-        1480,
-        230,
-        1645,
-        450
-      ],
-      "evidence": {
-        "source": "ai",
-        "confidence": 0.7,
-        "note": "Dorado p5 top-right of middle (g08a section visible)"
-      },
-      "source": "ai",
-      "note": "vision-placed bbox"
-    },
-    {
-      "refdes": "c08",
-      "part": "74LS04",
-      "sheet": 5,
-      "bbox": [
-        1070,
-        880,
-        1215,
-        1005
-      ],
-      "evidence": {
-        "source": "ai",
-        "confidence": 0.5,
-        "note": "Dorado p5: LS04 hex-inverter, sections c08a/b/c drawn separately on the page; bbox covers c08a representative section"
-      },
-      "source": "ai",
-      "note": "vision-placed bbox"
-    },
-    {
-      "refdes": "e07",
-      "part": "74LS163",
-      "sheet": 5,
-      "bbox": [
-        1090,
-        385,
-        1360,
-        810
-      ],
-      "evidence": {
-        "source": "ai",
-        "confidence": 0.6
-      },
-      "source": "ai",
-      "note": "vision-placed bbox"
-    },
-    {
-      "refdes": "f61",
-      "part": "MCS6502",
-      "sheet": 5,
-      "bbox": [
-        470,
-        1780,
-        890,
-        2640
-      ],
-      "evidence": {
-        "source": "ai",
-        "confidence": 0.6
-      },
-      "source": "ai",
-      "note": "vision-placed bbox"
-    },
-    {
-      "refdes": "g11",
-      "part": "74LS138",
-      "sheet": 5,
-      "bbox": [
-        1335,
-        2255,
-        1560,
-        2535
-      ],
-      "evidence": {
-        "source": "ai",
-        "confidence": 0.6
-      },
-      "source": "ai",
-      "note": "vision-placed bbox"
-    },
-    {
-      "refdes": "d08",
-      "part": "MC12061",
-      "sheet": 5,
-      "bbox": [
-        510.0,
-        525.0,
-        870.0,
-        1080.0
-      ],
-      "evidence": {
-        "source": "ai",
-        "confidence": 0.7,
-        "note": "10 MHz crystal oscillator"
-      }
-    },
-    {
-      "refdes": "c07",
-      "part": "JUMPER_PLUG_16",
-      "sheet": 5,
-      "bbox": [
-        1050.0,
-        1330.0,
-        1275.0,
-        1595.0
-      ],
-      "evidence": {
-        "source": "ai",
-        "confidence": 0.7,
-        "note": "EPROM JUMPERS \u2014 passive routing"
       }
     }
   ],
@@ -1444,6 +1439,86 @@
       ]
     },
     {
+      "name": "MCA.11",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "f61",
+          "pin": 20,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address bus high bit (off-sheet)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MCA.12",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "f61",
+          "pin": 22,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address bus high bit (off-sheet)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MCA.13",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "f61",
+          "pin": 23,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address bus high bit (off-sheet)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MCA.14",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "f61",
+          "pin": 24,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address bus high bit (off-sheet)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MCA.15",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "f61",
+          "pin": 25,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address bus high bit (off-sheet)"
+          }
+        }
+      ]
+    },
+    {
       "name": "MCD.0",
       "kind": "signal",
       "endpoints": [
@@ -1902,7 +1977,7 @@
           "edge_type": "label",
           "evidence": {
             "source": "ai",
-            "note": "6502 R/W bar \u2014 endpoints elsewhere on this sheet (g11 enable, c08b output) and other sheets"
+            "note": "6502 R/W (off-sheet)"
           }
         }
       ]
@@ -1934,7 +2009,7 @@
           "edge_type": "label",
           "evidence": {
             "source": "ai",
-            "note": "inverted clock to LS138 active-high enable"
+            "note": "inverted clock to LS138 enable"
           }
         }
       ]
@@ -1950,7 +2025,7 @@
           "edge_type": "label",
           "evidence": {
             "source": "ai",
-            "note": "input clock from divider g08a"
+            "note": "input clock from g08a"
           }
         }
       ]
@@ -1966,7 +2041,7 @@
           "edge_type": "label",
           "evidence": {
             "source": "ai",
-            "note": "non-maskable interrupt"
+            "note": "NMI"
           }
         }
       ]
@@ -1982,7 +2057,7 @@
           "edge_type": "label",
           "evidence": {
             "source": "ai",
-            "note": "interrupt request"
+            "note": "IRQ"
           }
         }
       ]
@@ -1998,7 +2073,7 @@
           "edge_type": "label",
           "evidence": {
             "source": "ai",
-            "note": "reset"
+            "note": "Reset"
           }
         }
       ]
@@ -2014,7 +2089,7 @@
           "edge_type": "label",
           "evidence": {
             "source": "ai",
-            "note": "row-select address bit 0 from EPROM jumpers (c07)"
+            "note": "row-select bit 0"
           }
         }
       ]
@@ -2030,7 +2105,7 @@
           "edge_type": "label",
           "evidence": {
             "source": "ai",
-            "note": "row-select address bit 1"
+            "note": "row-select bit 1"
           }
         }
       ]
@@ -2046,7 +2121,7 @@
           "edge_type": "label",
           "evidence": {
             "source": "ai",
-            "note": "row-select address bit 2"
+            "note": "row-select bit 2"
           }
         }
       ]
@@ -2062,7 +2137,7 @@
           "edge_type": "label",
           "evidence": {
             "source": "ai",
-            "note": "EPROM select C000-C7FF (off-sheet)"
+            "note": "EPROM select (off-sheet)"
           }
         }
       ]
@@ -2078,7 +2153,7 @@
           "edge_type": "label",
           "evidence": {
             "source": "ai",
-            "note": "EPROM select (off-sheet)"
+            "note": "EPROM select"
           }
         }
       ]
@@ -2094,7 +2169,7 @@
           "edge_type": "label",
           "evidence": {
             "source": "ai",
-            "note": "EPROM select (off-sheet)"
+            "note": "EPROM select"
           }
         }
       ]
@@ -2110,7 +2185,7 @@
           "edge_type": "label",
           "evidence": {
             "source": "ai",
-            "note": "EPROM select (off-sheet)"
+            "note": "EPROM select"
           }
         }
       ]
@@ -2175,86 +2250,6 @@
           "evidence": {
             "source": "ai",
             "note": "EPROM select"
-          }
-        }
-      ]
-    },
-    {
-      "name": "MCA.11",
-      "kind": "signal",
-      "endpoints": [
-        {
-          "refdes": "f61",
-          "pin": 20,
-          "sheet": 5,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai",
-            "note": "address high bit"
-          }
-        }
-      ]
-    },
-    {
-      "name": "MCA.12",
-      "kind": "signal",
-      "endpoints": [
-        {
-          "refdes": "f61",
-          "pin": 22,
-          "sheet": 5,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai",
-            "note": "address high bit"
-          }
-        }
-      ]
-    },
-    {
-      "name": "MCA.13",
-      "kind": "signal",
-      "endpoints": [
-        {
-          "refdes": "f61",
-          "pin": 23,
-          "sheet": 5,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai",
-            "note": "address high bit"
-          }
-        }
-      ]
-    },
-    {
-      "name": "MCA.14",
-      "kind": "signal",
-      "endpoints": [
-        {
-          "refdes": "f61",
-          "pin": 24,
-          "sheet": 5,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai",
-            "note": "address high bit"
-          }
-        }
-      ]
-    },
-    {
-      "name": "MCA.15",
-      "kind": "signal",
-      "endpoints": [
-        {
-          "refdes": "f61",
-          "pin": 25,
-          "sheet": 5,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai",
-            "note": "address high bit"
           }
         }
       ]

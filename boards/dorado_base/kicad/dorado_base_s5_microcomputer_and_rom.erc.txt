@@ -1,4 +1,4 @@
-ERC report (2026-05-05T08:49:17, Encoding UTF8)
+ERC report (2026-05-05T08:57:15, Encoding UTF8)
 Report includes: Errors, Warnings, Exclusions
 
 ***** Sheet /
@@ -505,37 +505,37 @@ Report includes: Errors, Warnings, Exclusions
     @(123.368 mm, 216.632 mm): Symbol g11 Pin 8 [GND, Power input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(179.00 mm, 174.898 mm): Symbol c61 Pin 1 [A7, Input, Line]
+    @(178.21 mm, 174.898 mm): Symbol c61 Pin 1 [A7, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(179.00 mm, 174.898 mm): Symbol c61 Pin 1 [A7, Input, Line]
+    @(178.21 mm, 174.898 mm): Symbol c61 Pin 1 [A7, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(179.00 mm, 177.438 mm): Symbol c61 Pin 2 [A6, Input, Line]
+    @(178.21 mm, 177.438 mm): Symbol c61 Pin 2 [A6, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(179.00 mm, 177.438 mm): Symbol c61 Pin 2 [A6, Input, Line]
+    @(178.21 mm, 177.438 mm): Symbol c61 Pin 2 [A6, Input, Line]
 [label_dangling]: Label not connected
     ; error
     @(125.908 mm, 219.172 mm): Label 'RSA.0'
 [pin_not_connected]: Pin not connected
     ; error
-    @(196.78 mm, 174.898 mm): Symbol c61 Pin 24 [VCC, Power input, Line]
+    @(195.99 mm, 174.898 mm): Symbol c61 Pin 24 [VCC, Power input, Line]
 [power_pin_not_driven]: Input Power pin not driven by any Output Power pins
     ; error
-    @(196.78 mm, 174.898 mm): Symbol c61 Pin 24 [VCC, Power input, Line]
+    @(195.99 mm, 174.898 mm): Symbol c61 Pin 24 [VCC, Power input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(196.78 mm, 190.138 mm): Symbol c61 Pin 18 [~{CE}, Input, Line]
+    @(195.99 mm, 190.138 mm): Symbol c61 Pin 18 [~{CE}, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(196.78 mm, 190.138 mm): Symbol c61 Pin 18 [~{CE}, Input, Line]
+    @(195.99 mm, 190.138 mm): Symbol c61 Pin 18 [~{CE}, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(196.78 mm, 195.218 mm): Symbol c61 Pin 16 [O6, Tri-state, Line]
+    @(195.99 mm, 195.218 mm): Symbol c61 Pin 16 [O6, Tri-state, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(196.78 mm, 197.758 mm): Symbol c61 Pin 15 [O5, Tri-state, Line]
+    @(195.99 mm, 197.758 mm): Symbol c61 Pin 15 [O5, Tri-state, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(177.967 mm, 221.76 mm): Symbol b61 Pin 1 [A7, Input, Line]
@@ -635,7 +635,7 @@ Report includes: Errors, Warnings, Exclusions
 [pin_to_pin]: Pins of type Unspecified and Input are connected
     ; warning
     @(61.195 mm, 178.786 mm): Symbol f61 Pin 5 [NC, Unspecified, Line]
-    @(179.00 mm, 192.678 mm): Symbol c61 Pin 8 [A0, Input, Line]
+    @(178.21 mm, 192.678 mm): Symbol c61 Pin 8 [A0, Input, Line]
 [endpoint_off_grid]: Symbol pin or wire end off connection grid
     ; warning
     @(178.048 mm, 64.583 mm): Horizontal Wire, length 2.54 mm
@@ -710,7 +710,7 @@ Report includes: Errors, Warnings, Exclusions
 [pin_to_pin]: Pins of type Tri-state and Power input are connected
     ; warning
     @(61.195 mm, 188.946 mm): Symbol f61 Pin 9 [A0, Tri-state, Line]
-    @(179.00 mm, 202.838 mm): Symbol c61 Pin 12 [GND, Power input, Line]
+    @(178.21 mm, 202.838 mm): Symbol c61 Pin 12 [GND, Power input, Line]
 [isolated_pin_label]: Label connected to only one pin
     ; warning
     @(81.515 mm, 181.326 mm): Label 'MCA.15'
@@ -946,10 +946,10 @@ Report includes: Errors, Warnings, Exclusions
     @(143.688 mm, 203.932 mm): Label '~{Rom5}'
 [endpoint_off_grid]: Symbol pin or wire end off connection grid
     ; warning
-    @(141.148 mm, 206.472 mm): Horizontal Wire, length 2.54 mm
+    @(178.21 mm, 174.898 mm): Symbol c61 Pin 1 [A7, Input, Line]
 [endpoint_off_grid]: Symbol pin or wire end off connection grid
     ; warning
-    @(179.00 mm, 174.898 mm): Symbol c61 Pin 1 [A7, Input, Line]
+    @(141.148 mm, 206.472 mm): Horizontal Wire, length 2.54 mm
 [isolated_pin_label]: Label connected to only one pin
     ; warning
     @(125.908 mm, 216.632 mm): Label 'RSA.1'
@@ -965,18 +965,18 @@ Report includes: Errors, Warnings, Exclusions
 [endpoint_off_grid]: Symbol pin or wire end off connection grid
     ; warning
     @(141.148 mm, 209.012 mm): Horizontal Wire, length 2.54 mm
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(178.21 mm, 179.978 mm): Horizontal Wire, length 2.54 mm
 [isolated_pin_label]: Label connected to only one pin
     ; warning
     @(143.688 mm, 209.012 mm): Label '~{Rom3}'
 [endpoint_off_grid]: Symbol pin or wire end off connection grid
     ; warning
-    @(179.00 mm, 179.978 mm): Horizontal Wire, length 2.54 mm
-[endpoint_off_grid]: Symbol pin or wire end off connection grid
-    ; warning
     @(141.148 mm, 211.552 mm): Horizontal Wire, length 2.54 mm
 [endpoint_off_grid]: Symbol pin or wire end off connection grid
     ; warning
-    @(179.00 mm, 182.518 mm): Horizontal Wire, length 2.54 mm
+    @(178.21 mm, 182.518 mm): Horizontal Wire, length 2.54 mm
 [isolated_pin_label]: Label connected to only one pin
     ; warning
     @(143.688 mm, 211.552 mm): Label '~{Rom2}'
@@ -985,7 +985,7 @@ Report includes: Errors, Warnings, Exclusions
     @(141.148 mm, 214.092 mm): Horizontal Wire, length 2.54 mm
 [endpoint_off_grid]: Symbol pin or wire end off connection grid
     ; warning
-    @(179.00 mm, 185.058 mm): Horizontal Wire, length 2.54 mm
+    @(178.21 mm, 185.058 mm): Horizontal Wire, length 2.54 mm
 [isolated_pin_label]: Label connected to only one pin
     ; warning
     @(143.688 mm, 214.092 mm): Label '~{Rom1}'
@@ -994,72 +994,72 @@ Report includes: Errors, Warnings, Exclusions
     @(141.148 mm, 216.632 mm): Horizontal Wire, length 2.54 mm
 [endpoint_off_grid]: Symbol pin or wire end off connection grid
     ; warning
-    @(179.00 mm, 187.598 mm): Horizontal Wire, length 2.54 mm
+    @(178.21 mm, 187.598 mm): Horizontal Wire, length 2.54 mm
 [isolated_pin_label]: Label connected to only one pin
     ; warning
     @(143.688 mm, 216.632 mm): Label '~{Rom0}'
 [endpoint_off_grid]: Symbol pin or wire end off connection grid
     ; warning
-    @(179.00 mm, 190.138 mm): Horizontal Wire, length 2.54 mm
+    @(178.21 mm, 190.138 mm): Horizontal Wire, length 2.54 mm
 [endpoint_off_grid]: Symbol pin or wire end off connection grid
     ; warning
-    @(179.00 mm, 192.678 mm): Horizontal Wire, length 2.54 mm
+    @(178.21 mm, 192.678 mm): Horizontal Wire, length 2.54 mm
 [endpoint_off_grid]: Symbol pin or wire end off connection grid
     ; warning
-    @(179.00 mm, 195.218 mm): Horizontal Wire, length 2.54 mm
+    @(178.21 mm, 195.218 mm): Horizontal Wire, length 2.54 mm
 [endpoint_off_grid]: Symbol pin or wire end off connection grid
     ; warning
-    @(196.78 mm, 177.438 mm): Horizontal Wire, length 2.54 mm
+    @(195.99 mm, 177.438 mm): Horizontal Wire, length 2.54 mm
 [endpoint_off_grid]: Symbol pin or wire end off connection grid
     ; warning
-    @(196.78 mm, 179.978 mm): Horizontal Wire, length 2.54 mm
+    @(195.99 mm, 179.978 mm): Horizontal Wire, length 2.54 mm
 [endpoint_off_grid]: Symbol pin or wire end off connection grid
     ; warning
-    @(179.00 mm, 197.758 mm): Horizontal Wire, length 2.54 mm
+    @(178.21 mm, 197.758 mm): Horizontal Wire, length 2.54 mm
 [pin_to_pin]: Pins of type Tri-state and Output are connected
     ; warning
-    @(179.00 mm, 197.758 mm): Symbol c61 Pin 10 [O1, Tri-state, Line]
+    @(178.21 mm, 197.758 mm): Symbol c61 Pin 10 [O1, Tri-state, Line]
     @(61.195 mm, 183.866 mm): Symbol f61 Pin 7 [SYNC, Output, Line]
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
-    @(187.89 mm, 190.138 mm): Symbol c61 [2716]
+    @(187.10 mm, 190.138 mm): Symbol c61 [2716]
 [endpoint_off_grid]: Symbol pin or wire end off connection grid
     ; warning
-    @(196.78 mm, 182.518 mm): Horizontal Wire, length 2.54 mm
+    @(195.99 mm, 182.518 mm): Horizontal Wire, length 2.54 mm
 [endpoint_off_grid]: Symbol pin or wire end off connection grid
     ; warning
-    @(179.00 mm, 200.298 mm): Horizontal Wire, length 2.54 mm
+    @(178.21 mm, 200.298 mm): Horizontal Wire, length 2.54 mm
 [pin_to_pin]: Pins of type Tri-state and Power input are connected
     ; warning
-    @(179.00 mm, 200.298 mm): Symbol c61 Pin 11 [O2, Tri-state, Line]
+    @(178.21 mm, 200.298 mm): Symbol c61 Pin 11 [O2, Tri-state, Line]
     @(61.195 mm, 186.406 mm): Symbol f61 Pin 8 [VCC, Power input, Line]
 [endpoint_off_grid]: Symbol pin or wire end off connection grid
     ; warning
-    @(196.78 mm, 185.058 mm): Horizontal Wire, length 2.54 mm
+    @(195.99 mm, 185.058 mm): Horizontal Wire, length 2.54 mm
 [endpoint_off_grid]: Symbol pin or wire end off connection grid
     ; warning
-    @(179.00 mm, 202.838 mm): Horizontal Wire, length 2.54 mm
+    @(178.21 mm, 202.838 mm): Horizontal Wire, length 2.54 mm
 [endpoint_off_grid]: Symbol pin or wire end off connection grid
     ; warning
-    @(196.78 mm, 187.598 mm): Horizontal Wire, length 2.54 mm
+    @(195.99 mm, 187.598 mm): Horizontal Wire, length 2.54 mm
 [endpoint_off_grid]: Symbol pin or wire end off connection grid
     ; warning
-    @(179.00 mm, 205.378 mm): Horizontal Wire, length 2.54 mm
+    @(178.21 mm, 205.378 mm): Horizontal Wire, length 2.54 mm
 [unconnected_wire_endpoint]: Unconnected wire endpoint
     ; warning
-    @(179.00 mm, 205.378 mm): Horizontal Wire, length 2.54 mm
+    @(178.21 mm, 205.378 mm): Horizontal Wire, length 2.54 mm
 [isolated_pin_label]: Label connected to only one pin
     ; warning
-    @(181.54 mm, 205.378 mm): Label 'MCA.03'
+    @(180.75 mm, 205.378 mm): Label 'MCA.03'
 [endpoint_off_grid]: Symbol pin or wire end off connection grid
     ; warning
-    @(196.78 mm, 192.678 mm): Horizontal Wire, length 2.54 mm
+    @(195.99 mm, 192.678 mm): Horizontal Wire, length 2.54 mm
 [endpoint_off_grid]: Symbol pin or wire end off connection grid
     ; warning
-    @(196.78 mm, 200.298 mm): Horizontal Wire, length 2.54 mm
+    @(195.99 mm, 200.298 mm): Horizontal Wire, length 2.54 mm
 [endpoint_off_grid]: Symbol pin or wire end off connection grid
     ; warning
-    @(196.78 mm, 202.838 mm): Horizontal Wire, length 2.54 mm
+    @(195.99 mm, 202.838 mm): Horizontal Wire, length 2.54 mm
 [endpoint_off_grid]: Symbol pin or wire end off connection grid
     ; warning
     @(177.967 mm, 221.76 mm): Symbol b61 Pin 1 [A7, Input, Line]
