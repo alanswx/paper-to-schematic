@@ -561,22 +561,6 @@
       }
     },
     {
-      "refdes": "g11",
-      "part": "74LS138",
-      "sheet": 5,
-      "bbox": [
-        1335.0,
-        2255.0,
-        1560.0,
-        2535.0
-      ],
-      "evidence": {
-        "source": "ai",
-        "confidence": 0.7,
-        "note": "3-to-8 decoder, ROM CS"
-      }
-    },
-    {
       "refdes": "b61",
       "part": "2716",
       "sheet": 5,
@@ -877,6 +861,81 @@
           775
         ]
       }
+    },
+    {
+      "refdes": "g11",
+      "part": "74LS138",
+      "sheet": 5,
+      "bbox": [
+        1383,
+        2380.0,
+        1518.0,
+        2655.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.85,
+        "note": "vision-tightened: chip body is narrow DIP-16, was previously 225px wide"
+      },
+      "pin_positions": {
+        "3": [
+          1383,
+          2440
+        ],
+        "2": [
+          1383,
+          2503
+        ],
+        "1": [
+          1383,
+          2563
+        ],
+        "15": [
+          1518,
+          2390
+        ],
+        "14": [
+          1518,
+          2410
+        ],
+        "13": [
+          1518,
+          2432
+        ],
+        "12": [
+          1518,
+          2453
+        ],
+        "11": [
+          1518,
+          2475
+        ],
+        "10": [
+          1518,
+          2497
+        ],
+        "9": [
+          1518,
+          2520
+        ],
+        "7": [
+          1518,
+          2620
+        ],
+        "4": [
+          1490,
+          2655
+        ],
+        "5": [
+          1455,
+          2655
+        ],
+        "6": [
+          1473,
+          2655
+        ]
+      },
+      "note": "vision-tightened DIP-16 LS138; bbox covers full body including S/Q labels"
     }
   ],
   "nets": [
