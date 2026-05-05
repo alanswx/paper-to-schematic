@@ -211,7 +211,20 @@ priority:
 Each row includes formulaic DMM-continuity instructions per endpoint pair.
 
 The `discrepancies.md` template at `.agents/skills/schematic-graph/` is the
-companion log for paper-vs-board diffs you find during probing.
+companion log for paper-vs-board diffs you find during probing. Once you've
+populated entries:
+
+```bash
+python3 .agents/skills/schematic-graph/graph_cli.py discrepancies \
+  --board <id> [--verbose] [--emit-exclusions]
+```
+
+Reports counts by resolution (`board_wins` / `paper_wins` / `unresolved`),
+flags stale references (entries pointing at nets/refdes no longer in
+`graph.json` — typical after renames), and with `--emit-exclusions`
+writes `erc_exclusions.txt` stubs for `board_wins` entries that downstream
+KiCad-project-file generation can wire into `kicad-cli sch erc
+--severity-exclusions`.
 
 ## Skills quick reference
 
@@ -241,10 +254,10 @@ companion log for paper-vs-board diffs you find during probing.
 
 **Missing for pipeline polish:**
 
-- Discrepancy-log → ERC suppression integration.
-- Cartographer denoise + deskew (basic contrast stretch + Otsu binarize already built).
-- Hierarchical-sheet rendering in the Explorer for sheet-zone refs.
-- Component verification probes (probe-list currently emits net rows only).
+- KiCad project-file generation that emits `kicad-cli sch erc` exclusion
+  entries from `erc_exclusions.txt` (data layer is built; need format-
+  specific wiring into `.kicad_pro`).
+- Annotation pass on Exidy 440 sheets 2–6 (transcription work, not tooling).
 
 ## Milestone
 

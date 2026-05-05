@@ -656,6 +656,144 @@ def _validate_board_against_schema(board: dict, schema: dict, path_hint: str = "
     return errs
 
 
+def parse_discrepancies(text: str):
+    """Parse a board's discrepancies.md into structured entries.
+
+    Recognized format (matches .agents/skills/schematic-graph/discrepancies.md
+    template):
+
+      ### <id> — <one-line summary>
+      - **Date:**       YYYY-MM-DD
+      - **Prober:**     <name>
+      - **Instrument:** <DMM / scope / logic analyzer>
+      - **Sheet:**      <sheet#> zone <zone>
+      - **Net:**        <net name>
+      - **Endpoints (paper):**  refdes.pin; refdes.pin
+      - **Endpoints (board):**  refdes.pin; refdes.pin
+      - **Resolution:** board_wins | paper_wins | unresolved
+      - **Notes:**      free text
+
+    Lines that don't match are tolerated. Returns a list of dicts.
+    """
+    import re
+    entries = []
+    current = None
+
+    def commit(cur):
+        if cur is not None:
+            entries.append(cur)
+
+    for line in text.splitlines():
+        # Header: ### <id> — <summary>  (em-dash required, since IDs often
+        # contain hyphens themselves, e.g. EXIDY-001).
+        m = re.match(r"^###\s+(.+?)\s*—\s*(.+)$", line)
+        if m:
+            commit(current)
+            current = {"id": m.group(1).strip(),
+                       "summary": m.group(2).strip(),
+                       "fields": {},
+                       "notes_lines": []}
+            continue
+        if current is None:
+            continue
+        # Field: - **Name:** value  (Name may contain spaces / parentheses)
+        m = re.match(r"^-\s+\*\*([^:*]+?):\*\*\s*(.*)$", line)
+        if m:
+            key = m.group(1).strip().lower().replace(" ", "_").replace("(", "").replace(")", "")
+            current["fields"][key] = m.group(2).strip()
+            continue
+
+    commit(current)
+    # Filter out noise (e.g. the template's literal placeholder header).
+    real = []
+    for e in entries:
+        if "fields" not in e or not e["fields"]:
+            continue
+        # Heuristic: real entries have at least Date OR Resolution OR Net.
+        if e["fields"].get("date") or e["fields"].get("resolution") or e["fields"].get("net"):
+            real.append(e)
+    return real
+
+
+def cmd_discrepancies(args):
+    bdir = board_dir(args.board)
+    path = bdir / "discrepancies.md"
+    if not path.exists():
+        template = SKILL_DIR / "discrepancies.md"
+        print(f"no discrepancies log: {path}")
+        if template.exists():
+            print(f"start one by copying the template:")
+            print(f"  cp {template} {path}")
+        return
+
+    entries = parse_discrepancies(path.read_text())
+    if not entries:
+        print(f"{path}: no discrepancy entries (only template scaffolding)")
+        return
+
+    from collections import defaultdict
+    by_res = defaultdict(list)
+    for e in entries:
+        by_res[e["fields"].get("resolution", "unresolved")].append(e)
+
+    print(f"{path.name}: {len(entries)} discrepancy entries")
+    for res in ("board_wins", "paper_wins", "unresolved"):
+        n = len(by_res.get(res, []))
+        if n:
+            print(f"  {res:<12s} {n}")
+    other = [r for r in by_res if r not in ("board_wins", "paper_wins", "unresolved")]
+    for r in other:
+        print(f"  {r:<12s} {len(by_res[r])}")
+
+    # Cross-reference with the graph: every entry should refer to a net or
+    # component currently in graph.json. Flag entries pointing at nets/refdes
+    # that no longer exist (renamed, removed) so they can be reconciled.
+    graph = load_graph(args.board)
+    net_names = {n["name"] for n in graph.get("nets", [])}
+    refdes_set = {c["refdes"] for c in graph.get("components", [])}
+    stale_refs = []
+    for e in entries:
+        net = e["fields"].get("net")
+        if net and net not in net_names:
+            stale_refs.append(f"  {e['id']}: references net {net!r} (not in graph)")
+        for which in ("endpoints_paper", "endpoints_board"):
+            for tok in (e["fields"].get(which, "")).split(";"):
+                tok = tok.strip()
+                if not tok:
+                    continue
+                if "." in tok:
+                    refdes = tok.split(".", 1)[0].strip()
+                    if refdes and refdes not in refdes_set:
+                        stale_refs.append(f"  {e['id']}: refdes {refdes!r} not in graph")
+    if stale_refs:
+        print(f"\n{len(stale_refs)} stale reference(s):")
+        for s in stale_refs:
+            print(s)
+
+    if args.verbose:
+        print()
+        for e in entries:
+            print(f"## {e['id']} — {e['summary']}")
+            for k, v in e["fields"].items():
+                print(f"  {k}: {v}")
+            print()
+
+    # Emit ERC-exclusion stubs for board_wins entries — placeholders that
+    # downstream tooling can wire into kicad-cli's exclusion list once the
+    # exact violation IDs are known.
+    if args.emit_exclusions:
+        out = bdir / "erc_exclusions.txt"
+        with open(out, "w") as f:
+            f.write("# ERC exclusions sourced from discrepancies.md\n")
+            f.write("# Format: one entry per line, '<discrepancy-id>: <net>: <reason>'\n")
+            f.write("# Wire these into kicad-cli sch erc --severity-exclusions when the\n")
+            f.write("# exact violation IDs are known.\n\n")
+            for e in by_res.get("board_wins", []):
+                fld = e["fields"]
+                f.write(f"{e['id']}: {fld.get('net','?')}: {e['summary']}\n")
+        print(f"\nwrote {out} ({len(by_res.get('board_wins',[]))} board_wins exclusion stubs)")
+
+
 def cmd_validate_board(args):
     bdir = board_dir(args.board)
     bfile = bdir / "board.json"
@@ -792,6 +930,15 @@ def main():
                         help="check boards/<id>/board.json against board.schema.json + on-disk sanity")
     sp.add_argument("--board", required=True)
     sp.set_defaults(fn=cmd_validate_board)
+
+    sp = sub.add_parser("discrepancies",
+                        help="parse boards/<id>/discrepancies.md and report by resolution")
+    sp.add_argument("--board", required=True)
+    sp.add_argument("--verbose", action="store_true",
+                    help="print every entry with its fields")
+    sp.add_argument("--emit-exclusions", action="store_true",
+                    help="write erc_exclusions.txt stubs for board_wins entries")
+    sp.set_defaults(fn=cmd_discrepancies)
 
     sp = sub.add_parser("add-net", help="add a net with 2+ endpoints sharing one edge_type")
     sp.add_argument("--board", required=True)
