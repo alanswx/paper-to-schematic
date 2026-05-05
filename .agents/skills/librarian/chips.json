@@ -2138,6 +2138,186 @@
           "type": "input"
         }
       ]
+    },
+    "MC12061": {
+      "description": "Crystal-controlled MECL oscillator (10 MHz on this board)",
+      "package": "DIP-16",
+      "vcc_pin": 1,
+      "gnd_pin": 8,
+      "datasheet": "Motorola MC12061 (MECL crystal oscillator) \u2014 pinout transcribed from Xerox Dorado baseboard p5",
+      "aliases": [
+        "MC12061P"
+      ],
+      "pins": [
+        {
+          "n": 1,
+          "name": "VCC1",
+          "type": "power"
+        },
+        {
+          "n": 2,
+          "name": "SINo",
+          "type": "output"
+        },
+        {
+          "n": 3,
+          "name": "SINo'",
+          "type": "output"
+        },
+        {
+          "n": 4,
+          "name": "AGC",
+          "type": "input"
+        },
+        {
+          "n": 5,
+          "name": "Xtal1",
+          "type": "bidir"
+        },
+        {
+          "n": 6,
+          "name": "Xtal2",
+          "type": "bidir"
+        },
+        {
+          "n": 7,
+          "name": "BIAS",
+          "type": "input"
+        },
+        {
+          "n": 8,
+          "name": "VEE1",
+          "type": "ground"
+        },
+        {
+          "n": 9,
+          "name": "TVEE",
+          "type": "ground"
+        },
+        {
+          "n": 10,
+          "name": "TTtlQ",
+          "type": "output"
+        },
+        {
+          "n": 11,
+          "name": "TVCC",
+          "type": "power"
+        },
+        {
+          "n": 12,
+          "name": "EclQ'",
+          "type": "output"
+        },
+        {
+          "n": 13,
+          "name": "EclQ",
+          "type": "output"
+        },
+        {
+          "n": 14,
+          "name": "SINi'",
+          "type": "input"
+        },
+        {
+          "n": 15,
+          "name": "SINi",
+          "type": "input"
+        },
+        {
+          "n": 16,
+          "name": "EVCC",
+          "type": "power"
+        }
+      ]
+    },
+    "JUMPER_PLUG_16": {
+      "description": "Generic 16-pin DIP-style jumper / strap plug \u2014 wires P1..P16",
+      "package": "DIP-16",
+      "datasheet": "no chip \u2014 physical jumper socket; pins are routing only",
+      "aliases": [],
+      "pins": [
+        {
+          "n": 1,
+          "name": "P1",
+          "type": "passive"
+        },
+        {
+          "n": 2,
+          "name": "P2",
+          "type": "passive"
+        },
+        {
+          "n": 3,
+          "name": "P3",
+          "type": "passive"
+        },
+        {
+          "n": 4,
+          "name": "P4",
+          "type": "passive"
+        },
+        {
+          "n": 5,
+          "name": "P5",
+          "type": "passive"
+        },
+        {
+          "n": 6,
+          "name": "P6",
+          "type": "passive"
+        },
+        {
+          "n": 7,
+          "name": "P7",
+          "type": "passive"
+        },
+        {
+          "n": 8,
+          "name": "P8",
+          "type": "passive"
+        },
+        {
+          "n": 9,
+          "name": "P9",
+          "type": "passive"
+        },
+        {
+          "n": 10,
+          "name": "P10",
+          "type": "passive"
+        },
+        {
+          "n": 11,
+          "name": "P11",
+          "type": "passive"
+        },
+        {
+          "n": 12,
+          "name": "P12",
+          "type": "passive"
+        },
+        {
+          "n": 13,
+          "name": "P13",
+          "type": "passive"
+        },
+        {
+          "n": 14,
+          "name": "P14",
+          "type": "passive"
+        },
+        {
+          "n": 15,
+          "name": "P15",
+          "type": "passive"
+        },
+        {
+          "n": 16,
+          "name": "P16",
+          "type": "passive"
+        }
+      ]
     }
   }
 }

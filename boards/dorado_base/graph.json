@@ -792,6 +792,38 @@
       },
       "source": "ai",
       "note": "vision-placed bbox"
+    },
+    {
+      "refdes": "d08",
+      "part": "MC12061",
+      "sheet": 5,
+      "bbox": [
+        510.0,
+        525.0,
+        870.0,
+        1080.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.7,
+        "note": "10 MHz crystal oscillator"
+      }
+    },
+    {
+      "refdes": "c07",
+      "part": "JUMPER_PLUG_16",
+      "sheet": 5,
+      "bbox": [
+        1050.0,
+        1330.0,
+        1275.0,
+        1595.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.7,
+        "note": "EPROM JUMPERS \u2014 passive routing"
+      }
     }
   ],
   "nets": [
@@ -1855,6 +1887,374 @@
           "evidence": {
             "source": "ai",
             "note": "data bus, 6502 + 4 EPROMs"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MCR/W'",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "f61",
+          "pin": 34,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "6502 R/W bar \u2014 endpoints elsewhere on this sheet (g11 enable, c08b output) and other sheets"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MCClk",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "f61",
+          "pin": 39,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "phi-2 clock from 6502 CK2o"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MCClk'",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "g11",
+          "pin": 5,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "inverted clock to LS138 active-high enable"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MCPreClk",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "f61",
+          "pin": 37,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "input clock from divider g08a"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MCNMI'",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "f61",
+          "pin": 6,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "non-maskable interrupt"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MCIRQ'",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "f61",
+          "pin": 4,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "interrupt request"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MCReset'",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "f61",
+          "pin": 40,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "reset"
+          }
+        }
+      ]
+    },
+    {
+      "name": "RSA.0",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "g11",
+          "pin": 1,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "row-select address bit 0 from EPROM jumpers (c07)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "RSA.1",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "g11",
+          "pin": 2,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "row-select address bit 1"
+          }
+        }
+      ]
+    },
+    {
+      "name": "RSA.2",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "g11",
+          "pin": 3,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "row-select address bit 2"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Rom0'",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "g11",
+          "pin": 15,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "EPROM select C000-C7FF (off-sheet)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Rom1'",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "g11",
+          "pin": 14,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "EPROM select (off-sheet)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Rom2'",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "g11",
+          "pin": 13,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "EPROM select (off-sheet)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Rom3'",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "g11",
+          "pin": 12,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "EPROM select (off-sheet)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Rom4'",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "g11",
+          "pin": 11,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "EPROM select"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Rom5'",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "g11",
+          "pin": 10,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "EPROM select"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Rom6'",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "g11",
+          "pin": 9,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "EPROM select"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Rom7'",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "g11",
+          "pin": 7,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "EPROM select"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MCA.11",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "f61",
+          "pin": 20,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address high bit"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MCA.12",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "f61",
+          "pin": 22,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address high bit"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MCA.13",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "f61",
+          "pin": 23,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address high bit"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MCA.14",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "f61",
+          "pin": 24,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address high bit"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MCA.15",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "f61",
+          "pin": 25,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address high bit"
           }
         }
       ]

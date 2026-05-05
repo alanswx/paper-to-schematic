@@ -223,8 +223,8 @@ def parse_endpoints(spec: str):
             raise SystemExit(f"endpoint malformed (no '.'): {tok!r}")
         refdes, pin = tok.rsplit(".", 1)
         out.append((refdes.strip(), pin.strip()))
-    if len(out) < 2:
-        raise SystemExit(f"need at least 2 endpoints, got {len(out)}")
+    if len(out) < 1:
+        raise SystemExit(f"need at least 1 endpoint, got {len(out)}")
     return out
 
 
@@ -900,8 +900,18 @@ def cmd_validate(args):
             errs.append(f"duplicate net name: {name}")
         net_names.add(name)
         eps = net.get("endpoints", [])
-        if len(eps) < 2:
-            errs.append(f"net {name}: needs ≥2 endpoints, has {len(eps)}")
+        if not eps:
+            errs.append(f"net {name}: has no endpoints")
+        # Single-endpoint nets are valid for label / sheet_zone / off_page —
+        # those represent named signals whose other end is on a different
+        # sheet that hasn't been transcribed yet. For wire / bus /
+        # implicit_power, single endpoints are an error.
+        if len(eps) == 1:
+            et = eps[0].get("edge_type")
+            if et in ("wire", "bus", "implicit_power"):
+                errs.append(
+                    f"net {name}: single endpoint with edge_type {et!r} — "
+                    f"only label/sheet_zone/off_page may have one endpoint")
         edge_types = {ep.get("edge_type") for ep in eps}
         if len(edge_types) > 1:
             errs.append(f"net {name}: mixed edge_types {edge_types} (one net should use one type)")

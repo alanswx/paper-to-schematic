@@ -46,6 +46,16 @@ def _esc(s: str) -> str:
     return f'"{s}"'
 
 
+def _kicad_label(name: str) -> str:
+    """KiCad doesn't accept '/' or "'" in label/global_label names — they
+    break the parser even when properly quoted. Map them to KiCad-friendly
+    equivalents: '/' → '_' and trailing "'" → '~' overbar prefix (active-
+    low convention). The graph.json keeps the human-readable name."""
+    if name.endswith("'"):
+        name = "~{" + name[:-1] + "}"
+    return name.replace("/", "_")
+
+
 def _f(v) -> str:
     """Format a float without trailing zeros, KiCad-friendly."""
     return f"{float(v):g}"
@@ -250,29 +260,61 @@ def gen_sch(graph: dict, chips: dict, sheet_index: int, project_name: str = "sch
   )'''
         inst_blocks.append(inst)
 
-    # Wires for nets — connect each pair of endpoints with a straight line.
+    # Wires (edge_type=wire) connect each pair of endpoints with a straight
+    # line. Labels (edge_type=label / sheet_zone / off_page) emit a KiCad
+    # (label ...) at each endpoint's pin position so the netlist groups by
+    # name even when the schematic was drawn with named nets instead of
+    # explicit wires (Dorado-style).
     wire_blocks = []
+    label_blocks = []
     for net in nets:
         eps_on_sheet = [e for e in net["endpoints"] if e.get("sheet") == sheet_index]
-        if len(eps_on_sheet) < 2:
+        if not eps_on_sheet:
             continue
         edge = eps_on_sheet[0].get("edge_type", "wire")
-        # Only emit literal wires for edge_type=wire. Other types (label,
-        # sheet_zone, ...) deserve labels — TODO.
-        if edge != "wire":
-            continue
-        anchor = eps_on_sheet[0]
-        anchor_pos = pin_endpoint_mm.get((anchor["refdes"], str(anchor["pin"])))
-        if not anchor_pos:
-            continue
-        for other in eps_on_sheet[1:]:
-            other_pos = pin_endpoint_mm.get((other["refdes"], str(other["pin"])))
-            if not other_pos:
+
+        if edge == "wire":
+            if len(eps_on_sheet) < 2:
                 continue
-            wuuid = stable_uuid(f"{net['name']}/{anchor['refdes']}.{anchor['pin']}/{other['refdes']}.{other['pin']}")
-            wire_blocks.append(f'''  (wire (pts (xy {_f(anchor_pos[0])} {_f(anchor_pos[1])}) (xy {_f(other_pos[0])} {_f(other_pos[1])}))
+            anchor = eps_on_sheet[0]
+            anchor_pos = pin_endpoint_mm.get((anchor["refdes"], str(anchor["pin"])))
+            if not anchor_pos:
+                continue
+            for other in eps_on_sheet[1:]:
+                other_pos = pin_endpoint_mm.get((other["refdes"], str(other["pin"])))
+                if not other_pos:
+                    continue
+                wuuid = stable_uuid(f"{net['name']}/{anchor['refdes']}.{anchor['pin']}/{other['refdes']}.{other['pin']}")
+                wire_blocks.append(f'''  (wire (pts (xy {_f(anchor_pos[0])} {_f(anchor_pos[1])}) (xy {_f(other_pos[0])} {_f(other_pos[1])}))
     (stroke (width 0) (type default))
     (uuid "{wuuid}")
+  )''')
+        elif edge in ("label", "sheet_zone", "off_page"):
+            # Use (global_label ...) for sheet-spanning links (sheet_zone /
+            # off_page) so KiCad's netlist matches by name across sheets;
+            # plain (label ...) for in-sheet labelled nets.
+            kw = "global_label" if edge in ("sheet_zone", "off_page") else "label"
+            for ep in eps_on_sheet:
+                pos = pin_endpoint_mm.get((ep["refdes"], str(ep["pin"])))
+                if not pos:
+                    continue
+                # Tiny lead from pin into the label so the label is visibly
+                # attached without overlapping the pin name.
+                lead = 2.54
+                lx, ly = pos[0] + lead, pos[1]
+                luuid = stable_uuid(f"label/{net['name']}/{ep['refdes']}.{ep['pin']}")
+                wuuid = stable_uuid(f"label-lead/{net['name']}/{ep['refdes']}.{ep['pin']}")
+                wire_blocks.append(f'''  (wire (pts (xy {_f(pos[0])} {_f(pos[1])}) (xy {_f(lx)} {_f(ly)}))
+    (stroke (width 0) (type default))
+    (uuid "{wuuid}")
+  )''')
+                # (label ...) takes no (shape ...); only (global_label ...)
+                # and (hierarchical_label ...) do — KiCad refuses to load
+                # a plain label with a shape attribute.
+                shape_attr = ' (shape input)' if kw == "global_label" else ""
+                label_blocks.append(f'''  ({kw} {_esc(_kicad_label(net["name"]))}{shape_attr} (at {_f(lx)} {_f(ly)} 0)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid "{luuid}")
   )''')
 
     title = f"{graph['board'].get('title', graph['board']['id'])} sheet {sheet_index}: {sheet_meta.get('title', '')}"
@@ -295,6 +337,7 @@ def gen_sch(graph: dict, chips: dict, sheet_index: int, project_name: str = "sch
         '  )',
         *inst_blocks,
         *wire_blocks,
+        *label_blocks,
         '  (sheet_instances',
         '    (path "/"',
         '      (page "1")',
