@@ -1795,6 +1795,349 @@
           "type": "power"
         }
       ]
+    },
+    "74LS163": {
+      "description": "Synchronous 4-bit binary counter with synchronous clear",
+      "package": "DIP-16",
+      "vcc_pin": 16,
+      "gnd_pin": 8,
+      "datasheet": "TI SN74LS163A datasheet (synchronous 4-bit binary counter, synchronous clear)",
+      "aliases": [
+        "74LS163A",
+        "SN74LS163",
+        "SN74LS163A",
+        "SN74LS163AN"
+      ],
+      "pins": [
+        {
+          "n": 1,
+          "name": "~CLR",
+          "type": "input"
+        },
+        {
+          "n": 2,
+          "name": "CLK",
+          "type": "clock"
+        },
+        {
+          "n": 3,
+          "name": "A",
+          "type": "input",
+          "group": "data"
+        },
+        {
+          "n": 4,
+          "name": "B",
+          "type": "input",
+          "group": "data"
+        },
+        {
+          "n": 5,
+          "name": "C",
+          "type": "input",
+          "group": "data"
+        },
+        {
+          "n": 6,
+          "name": "D",
+          "type": "input",
+          "group": "data"
+        },
+        {
+          "n": 7,
+          "name": "ENP",
+          "type": "input"
+        },
+        {
+          "n": 8,
+          "name": "GND",
+          "type": "ground"
+        },
+        {
+          "n": 9,
+          "name": "~LOAD",
+          "type": "input"
+        },
+        {
+          "n": 10,
+          "name": "ENT",
+          "type": "input"
+        },
+        {
+          "n": 11,
+          "name": "QD",
+          "type": "output",
+          "group": "out"
+        },
+        {
+          "n": 12,
+          "name": "QC",
+          "type": "output",
+          "group": "out"
+        },
+        {
+          "n": 13,
+          "name": "QB",
+          "type": "output",
+          "group": "out"
+        },
+        {
+          "n": 14,
+          "name": "QA",
+          "type": "output",
+          "group": "out"
+        },
+        {
+          "n": 15,
+          "name": "RCO",
+          "type": "output"
+        },
+        {
+          "n": 16,
+          "name": "VCC",
+          "type": "power"
+        }
+      ]
+    },
+    "MCS6502": {
+      "description": "8-bit microprocessor (NMOS), 40-pin DIP",
+      "package": "DIP-40",
+      "vcc_pin": 8,
+      "gnd_pin": 1,
+      "datasheet": "MOS Technology MCS6502 datasheet, 1976 (also Rockwell R6502, Synertek 6502)",
+      "aliases": [
+        "6502",
+        "MOS6502",
+        "R6502",
+        "SY6502",
+        "UM6502"
+      ],
+      "pins": [
+        {
+          "n": 1,
+          "name": "VSS",
+          "type": "ground"
+        },
+        {
+          "n": 2,
+          "name": "RDY",
+          "type": "input"
+        },
+        {
+          "n": 3,
+          "name": "PHI1O",
+          "type": "clock"
+        },
+        {
+          "n": 4,
+          "name": "~IRQ",
+          "type": "input"
+        },
+        {
+          "n": 5,
+          "name": "NC",
+          "type": "nc"
+        },
+        {
+          "n": 6,
+          "name": "~NMI",
+          "type": "input"
+        },
+        {
+          "n": 7,
+          "name": "SYNC",
+          "type": "output"
+        },
+        {
+          "n": 8,
+          "name": "VCC",
+          "type": "power"
+        },
+        {
+          "n": 9,
+          "name": "A0",
+          "type": "tri_state",
+          "group": "addr"
+        },
+        {
+          "n": 10,
+          "name": "A1",
+          "type": "tri_state",
+          "group": "addr"
+        },
+        {
+          "n": 11,
+          "name": "A2",
+          "type": "tri_state",
+          "group": "addr"
+        },
+        {
+          "n": 12,
+          "name": "A3",
+          "type": "tri_state",
+          "group": "addr"
+        },
+        {
+          "n": 13,
+          "name": "A4",
+          "type": "tri_state",
+          "group": "addr"
+        },
+        {
+          "n": 14,
+          "name": "A5",
+          "type": "tri_state",
+          "group": "addr"
+        },
+        {
+          "n": 15,
+          "name": "A6",
+          "type": "tri_state",
+          "group": "addr"
+        },
+        {
+          "n": 16,
+          "name": "A7",
+          "type": "tri_state",
+          "group": "addr"
+        },
+        {
+          "n": 17,
+          "name": "A8",
+          "type": "tri_state",
+          "group": "addr"
+        },
+        {
+          "n": 18,
+          "name": "A9",
+          "type": "tri_state",
+          "group": "addr"
+        },
+        {
+          "n": 19,
+          "name": "A10",
+          "type": "tri_state",
+          "group": "addr"
+        },
+        {
+          "n": 20,
+          "name": "A11",
+          "type": "tri_state",
+          "group": "addr"
+        },
+        {
+          "n": 21,
+          "name": "VSS2",
+          "type": "ground"
+        },
+        {
+          "n": 22,
+          "name": "A12",
+          "type": "tri_state",
+          "group": "addr"
+        },
+        {
+          "n": 23,
+          "name": "A13",
+          "type": "tri_state",
+          "group": "addr"
+        },
+        {
+          "n": 24,
+          "name": "A14",
+          "type": "tri_state",
+          "group": "addr"
+        },
+        {
+          "n": 25,
+          "name": "A15",
+          "type": "tri_state",
+          "group": "addr"
+        },
+        {
+          "n": 26,
+          "name": "D7",
+          "type": "bidir",
+          "group": "data"
+        },
+        {
+          "n": 27,
+          "name": "D6",
+          "type": "bidir",
+          "group": "data"
+        },
+        {
+          "n": 28,
+          "name": "D5",
+          "type": "bidir",
+          "group": "data"
+        },
+        {
+          "n": 29,
+          "name": "D4",
+          "type": "bidir",
+          "group": "data"
+        },
+        {
+          "n": 30,
+          "name": "D3",
+          "type": "bidir",
+          "group": "data"
+        },
+        {
+          "n": 31,
+          "name": "D2",
+          "type": "bidir",
+          "group": "data"
+        },
+        {
+          "n": 32,
+          "name": "D1",
+          "type": "bidir",
+          "group": "data"
+        },
+        {
+          "n": 33,
+          "name": "D0",
+          "type": "bidir",
+          "group": "data"
+        },
+        {
+          "n": 34,
+          "name": "R/~W",
+          "type": "tri_state"
+        },
+        {
+          "n": 35,
+          "name": "NC2",
+          "type": "nc"
+        },
+        {
+          "n": 36,
+          "name": "NC3",
+          "type": "nc"
+        },
+        {
+          "n": 37,
+          "name": "PHI0I",
+          "type": "clock"
+        },
+        {
+          "n": 38,
+          "name": "SO",
+          "type": "input"
+        },
+        {
+          "n": 39,
+          "name": "PHI2O",
+          "type": "clock"
+        },
+        {
+          "n": 40,
+          "name": "~RES",
+          "type": "input"
+        }
+      ]
     }
   }
 }

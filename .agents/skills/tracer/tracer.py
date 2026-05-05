@@ -19,13 +19,17 @@ def board_dir(board_id: str) -> Path:
 
 
 def _detect_dot_layer(masked, dot_kernel: int):
-    """Return a binary mask of 'dot-like' features: anything thicker than a
-    1-2 pixel line. Done by morphological OPEN with a small square kernel —
-    line pixels (<dot_kernel wide) get erased, thicker blobs survive."""
+    """Return a binary mask of 'dot-like' features: filled blobs clearly
+    wider than a wire stroke. Done by morphological OPEN with an ELLIPSE
+    kernel — wire strokes (typically 2-3 px on a 300 DPI scan) get erased,
+    only thicker filled regions (junction dots, text characters, chip
+    bodies) survive. Default `dot_kernel=5` is tuned for 300 DPI scans;
+    bump higher if line strokes are leaking through, lower if junction
+    dots are being erased."""
     import cv2
     return cv2.morphologyEx(
         masked, cv2.MORPH_OPEN,
-        cv2.getStructuringElement(cv2.MORPH_RECT, (dot_kernel, dot_kernel)))
+        cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (dot_kernel, dot_kernel)))
 
 
 def _break_non_dot_junctions(skeleton, dots, *, junction_window: int = 5):
@@ -268,10 +272,20 @@ def main():
     sp.add_argument("--pin-search-radius", type=int, default=25,
                     help="how far from each pin to search for a connected skeleton component")
     sp.add_argument("--no-junction-detect", action="store_true",
-                    help="disable dot-based junction detection (v1 behavior — over-connects at line crossings)")
-    sp.add_argument("--dot-kernel", type=int, default=3,
-                    help="size of the morphological-open kernel used to detect dots (default: 3 px)")
-    sp.add_argument("--junction-window", type=int, default=3,
+                    help="disable dot-based junction detection. "
+                         "NOTE on Dorado scans: enabling junction detection currently "
+                         "over-breaks the skeleton (every wire-stroke interior pixel "
+                         "registers as a junction because morph-open lines are thick, "
+                         "not 1-px thin). Until the skeleton is properly thinned, leave "
+                         "junction detection OFF; rely on labelled nets for crossings.")
+    sp.add_argument("--dot-kernel", type=int, default=7,
+                    help="ellipse kernel diameter for dot detection (default: 7 px). "
+                         "Must exceed the wire stroke width so lines get erased; tuned for "
+                         "300 DPI scans where wire strokes are 4-5 px wide. Bump higher for "
+                         "thicker scans, lower if real dots are being lost. Run trace with "
+                         "--debug and inspect the magenta overlay — it should mark only "
+                         "junction dots and text characters, not wire pixels.")
+    sp.add_argument("--junction-window", type=int, default=5,
                     help="window size (px) around each skeleton junction to look for a dot")
     sp.add_argument("--debug", help="write a debug PNG showing skeleton + pin assignments + dots")
     sp.set_defaults(fn=cmd_trace)

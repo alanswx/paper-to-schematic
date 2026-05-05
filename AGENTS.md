@@ -79,6 +79,46 @@ also derived artifacts and should not be hand-edited.
 8. **Claude:** runs ERC, generates `probes.csv`, reports findings.
 9. Iterate until ERC clean and the probe list is humanly walkthrough-able.
 
+## Deterministic vs LLM — division of labour
+
+Every step of the pipeline is one of these two flavours, and getting the split
+right is what makes the harness work. The rule:
+
+> **CV / file I/O / schemas are deterministic. Recognition is the LLM.**
+
+Recognition means anything that involves reading text, identifying a chip,
+deciding where a bbox should be, or interpreting a labelled signal name. CV
+gets the deterministic geometry: tile, crop, mask, threshold, line skeleton,
+connected components.
+
+| Step                                | Deterministic side                              | LLM side                                                            |
+|-------------------------------------|-------------------------------------------------|---------------------------------------------------------------------|
+| Tile a sheet                        | `cartographer tile` (grid + overlap)            | —                                                                   |
+| Identify chips on a tile            | —                                               | Claude reads tile PNGs and reports refdes/part/bbox                 |
+| Place a chip's bbox                 | `graph_cli add-component` (file write + schema) | Claude estimates bbox edges from the tile                            |
+| Refine bbox to chip outline         | `cartographer snap-board` *if* it's correct     | If snap is wrong, replace with vision-placed bbox (don't tune CV)   |
+| Crop one chip at high resolution    | `cartographer crop-chip`                        | —                                                                   |
+| Number the pins                     | —                                               | Claude reads the crop, emits `{"<pin>": [x,y], ...}`                |
+| Set pin positions                   | `graph_cli set-pin-positions`                   | —                                                                   |
+| Translate identical chips           | bbox-delta translation (deterministic)          | —                                                                   |
+| Read net labels (MCD.0, etc.)       | —                                               | Claude reads chip crops and lists per-pin label text                |
+| Add a labelled net                  | `graph_cli add-net`                             | —                                                                   |
+| Trace direct wires (no labels)      | `tracer trace` (skeleton + CC + pin matching)   | —                                                                   |
+| Decide junction-vs-crossing         | dot-detector morphology                         | If the schematic uses labels, skip CV junction detection altogether |
+| Validate the schematic              | `graph_cli validate`, `kicad-cli sch erc`       | —                                                                   |
+| Generate the probe list             | `graph_cli probe-list`                          | —                                                                   |
+
+Anti-pattern signal: when CV recognition gives a wrong answer, the fix is
+**not** to tune the CV harder (kernel sizes, fallbacks, size penalties).
+Drop the step and have Claude read the image. We learned this twice — once
+when pytesseract OCR for pin numbers was replaced with `crop-chip` + Claude
+vision, and again when `snap-board` mis-snapped Dorado chips and we placed
+the bboxes by visual reading instead.
+
+Snap-bbox can stay as an *opportunistic* refinement: if it produces a chip-
+sized rectangle near the vision bbox, accept it; if it shrinks or distorts,
+keep the vision bbox. CV should never overrule recognition.
+
 ## Constraints
 
 - **Never invent pinouts.** Hallucinated pin assignments propagate as wrong

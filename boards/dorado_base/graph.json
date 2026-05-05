@@ -382,41 +382,101 @@
         "note": "Dorado page 5; EPROM stack on right side"
       },
       "pin_positions": {
-        "19": [
+        "1": [
           1999,
-          2542.5
+          2653
         ],
-        "22": [
+        "2": [
           1999,
-          2576.5
+          2695
         ],
-        "23": [
+        "3": [
           1999,
-          2610.5
+          2737
+        ],
+        "4": [
+          1999,
+          2780
+        ],
+        "5": [
+          1999,
+          2822
+        ],
+        "6": [
+          1999,
+          2864
+        ],
+        "7": [
+          1999,
+          2906
+        ],
+        "8": [
+          1999,
+          2949
+        ],
+        "9": [
+          2244,
+          2534
         ],
         "10": [
           2244,
-          2627.5
+          2592
+        ],
+        "11": [
+          2244,
+          2650
         ],
         "13": [
           2244,
-          2696.5
+          2708
         ],
         "14": [
           2244,
-          2731.5
+          2766
+        ],
+        "15": [
+          2244,
+          2824
         ],
         "16": [
           2244,
-          2799.0
+          2882
         ],
-        "7": [
+        "17": [
           2244,
-          2834.0
+          2941
         ],
         "18": [
-          2153.5,
-          2976
+          2183,
+          2970
+        ],
+        "19": [
+          1999,
+          2526
+        ],
+        "20": [
+          2121,
+          2970
+        ],
+        "21": [
+          2060,
+          2970
+        ],
+        "22": [
+          1999,
+          2568
+        ],
+        "23": [
+          1999,
+          2610
+        ],
+        "24": [
+          2121,
+          2505
+        ],
+        "12": [
+          2244,
+          2970
         ]
       }
     },
@@ -435,49 +495,101 @@
         "confidence": 0.7
       },
       "pin_positions": {
+        "1": [
+          1999,
+          1313
+        ],
+        "2": [
+          1999,
+          1355
+        ],
+        "3": [
+          1999,
+          1397
+        ],
+        "4": [
+          1999,
+          1440
+        ],
+        "5": [
+          1999,
+          1482
+        ],
+        "6": [
+          1999,
+          1524
+        ],
+        "7": [
+          1999,
+          1566
+        ],
+        "8": [
+          1999,
+          1609
+        ],
+        "9": [
+          2244,
+          1194
+        ],
+        "10": [
+          2244,
+          1252
+        ],
+        "11": [
+          2244,
+          1310
+        ],
+        "13": [
+          2244,
+          1368
+        ],
+        "14": [
+          2244,
+          1426
+        ],
+        "15": [
+          2244,
+          1484
+        ],
+        "16": [
+          2244,
+          1542
+        ],
+        "17": [
+          2244,
+          1601
+        ],
+        "18": [
+          2183,
+          1630
+        ],
         "19": [
           1999,
-          1202.0
+          1186
+        ],
+        "20": [
+          2121,
+          1630
+        ],
+        "21": [
+          2060,
+          1630
         ],
         "22": [
           1999,
-          1235.0
+          1228
         ],
         "23": [
           1999,
-          1269.0
+          1270
         ],
-        "10": [
-          2246,
-          1285.0
+        "24": [
+          2121,
+          1165
         ],
-        "13": [
-          2246,
-          1352.0
-        ],
-        "14": [
-          2246,
-          1386.0
-        ],
-        "15": [
-          2246,
-          1418.5
-        ],
-        "16": [
-          2246,
-          1451.5
-        ],
-        "17": [
-          2246,
-          1485.5
-        ],
-        "21": [
-          1999,
-          1644.0
-        ],
-        "18": [
-          2156.0,
-          1624
+        "12": [
+          2244,
+          1630
         ]
       }
     },
@@ -487,7 +599,7 @@
       "sheet": 5,
       "bbox": [
         2002.0,
-        1916.6666666666667,
+        1917.0,
         2266.5,
         2407.0
       ],
@@ -496,52 +608,1256 @@
         "confidence": 0.7
       },
       "pin_positions": {
+        "1": [
+          2002,
+          2065
+        ],
+        "2": [
+          2002,
+          2107
+        ],
+        "3": [
+          2002,
+          2149
+        ],
+        "4": [
+          2002,
+          2192
+        ],
+        "5": [
+          2002,
+          2234
+        ],
+        "6": [
+          2002,
+          2276
+        ],
+        "7": [
+          2002,
+          2318
+        ],
+        "8": [
+          2002,
+          2361
+        ],
+        "9": [
+          2247,
+          1946
+        ],
+        "10": [
+          2247,
+          2004
+        ],
+        "11": [
+          2247,
+          2062
+        ],
+        "13": [
+          2247,
+          2120
+        ],
+        "14": [
+          2247,
+          2178
+        ],
+        "15": [
+          2247,
+          2236
+        ],
+        "16": [
+          2247,
+          2294
+        ],
+        "17": [
+          2247,
+          2353
+        ],
+        "18": [
+          2186,
+          2382
+        ],
         "19": [
-          1965.0,
-          1916
+          2002,
+          1938
+        ],
+        "20": [
+          2124,
+          2382
+        ],
+        "21": [
+          2063,
+          2382
         ],
         "22": [
-          1964.5,
-          1916
+          2002,
+          1980
         ],
         "23": [
           2002,
-          1970.0
+          2022
         ],
-        "10": [
-          2266,
-          1987.0
+        "24": [
+          2124,
+          1917
         ],
-        "13": [
-          2266,
-          2054.5
-        ],
-        "14": [
-          2266,
-          2088.5
-        ],
-        "15": [
-          2266,
-          2121.0
-        ],
-        "16": [
-          2266,
-          2154.5
-        ],
-        "17": [
-          2266,
-          2188.5
-        ],
-        "21": [
-          2002,
-          2348.0
-        ],
-        "18": [
-          2155.0,
-          2407
+        "12": [
+          2247,
+          2382
         ]
       }
+    },
+    {
+      "refdes": "g08",
+      "part": "74LS74",
+      "sheet": 5,
+      "bbox": [
+        1480,
+        230,
+        1645,
+        450
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.7,
+        "note": "Dorado p5 top-right of middle (g08a section visible)"
+      },
+      "source": "ai",
+      "note": "vision-placed bbox"
+    },
+    {
+      "refdes": "c08",
+      "part": "74LS04",
+      "sheet": 5,
+      "bbox": [
+        1070,
+        880,
+        1215,
+        1005
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.5,
+        "note": "Dorado p5: LS04 hex-inverter, sections c08a/b/c drawn separately on the page; bbox covers c08a representative section"
+      },
+      "source": "ai",
+      "note": "vision-placed bbox"
+    },
+    {
+      "refdes": "e07",
+      "part": "74LS163",
+      "sheet": 5,
+      "bbox": [
+        1090,
+        385,
+        1360,
+        810
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.6
+      },
+      "source": "ai",
+      "note": "vision-placed bbox"
+    },
+    {
+      "refdes": "f61",
+      "part": "MCS6502",
+      "sheet": 5,
+      "bbox": [
+        470,
+        1780,
+        890,
+        2640
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.6
+      },
+      "source": "ai",
+      "note": "vision-placed bbox"
+    },
+    {
+      "refdes": "g11",
+      "part": "74LS138",
+      "sheet": 5,
+      "bbox": [
+        1335,
+        2255,
+        1560,
+        2535
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.6
+      },
+      "source": "ai",
+      "note": "vision-placed bbox"
     }
   ],
-  "nets": []
+  "nets": [
+    {
+      "name": "MCA.00",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "f61",
+          "pin": 9,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "h61",
+          "pin": 19,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "i61",
+          "pin": 19,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "c61",
+          "pin": 19,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "b61",
+          "pin": 19,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address bus, 6502 + 4 EPROMs"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MCA.01",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "f61",
+          "pin": 10,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "h61",
+          "pin": 22,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "i61",
+          "pin": 22,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "c61",
+          "pin": 22,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "b61",
+          "pin": 22,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address bus, 6502 + 4 EPROMs"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MCA.02",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "f61",
+          "pin": 11,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "h61",
+          "pin": 23,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "i61",
+          "pin": 23,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "c61",
+          "pin": 23,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "b61",
+          "pin": 23,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address bus, 6502 + 4 EPROMs"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MCA.03",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "f61",
+          "pin": 12,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "h61",
+          "pin": 1,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "i61",
+          "pin": 1,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "c61",
+          "pin": 1,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "b61",
+          "pin": 1,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address bus, 6502 + 4 EPROMs"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MCA.04",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "f61",
+          "pin": 13,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "h61",
+          "pin": 2,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "i61",
+          "pin": 2,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "c61",
+          "pin": 2,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "b61",
+          "pin": 2,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address bus, 6502 + 4 EPROMs"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MCA.05",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "f61",
+          "pin": 14,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "h61",
+          "pin": 3,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "i61",
+          "pin": 3,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "c61",
+          "pin": 3,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "b61",
+          "pin": 3,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address bus, 6502 + 4 EPROMs"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MCA.06",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "f61",
+          "pin": 15,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "h61",
+          "pin": 4,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "i61",
+          "pin": 4,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "c61",
+          "pin": 4,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "b61",
+          "pin": 4,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address bus, 6502 + 4 EPROMs"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MCA.07",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "f61",
+          "pin": 16,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "h61",
+          "pin": 5,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "i61",
+          "pin": 5,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "c61",
+          "pin": 5,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "b61",
+          "pin": 5,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address bus, 6502 + 4 EPROMs"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MCA.08",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "f61",
+          "pin": 17,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "h61",
+          "pin": 6,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "i61",
+          "pin": 6,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "c61",
+          "pin": 6,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "b61",
+          "pin": 6,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address bus, 6502 + 4 EPROMs"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MCA.09",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "f61",
+          "pin": 18,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "h61",
+          "pin": 7,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "i61",
+          "pin": 7,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "c61",
+          "pin": 7,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "b61",
+          "pin": 7,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address bus, 6502 + 4 EPROMs"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MCA.10",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "f61",
+          "pin": 19,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "h61",
+          "pin": 8,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "i61",
+          "pin": 8,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "c61",
+          "pin": 8,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "b61",
+          "pin": 8,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "address bus, 6502 + 4 EPROMs"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MCD.0",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "f61",
+          "pin": 33,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "data bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "h61",
+          "pin": 9,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "data bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "i61",
+          "pin": 9,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "data bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "c61",
+          "pin": 9,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "data bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "b61",
+          "pin": 9,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "data bus, 6502 + 4 EPROMs"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MCD.1",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "f61",
+          "pin": 32,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "data bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "h61",
+          "pin": 10,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "data bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "i61",
+          "pin": 10,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "data bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "c61",
+          "pin": 10,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "data bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "b61",
+          "pin": 10,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "data bus, 6502 + 4 EPROMs"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MCD.2",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "f61",
+          "pin": 31,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "data bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "h61",
+          "pin": 11,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "data bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "i61",
+          "pin": 11,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "data bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "c61",
+          "pin": 11,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "data bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "b61",
+          "pin": 11,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "data bus, 6502 + 4 EPROMs"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MCD.3",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "f61",
+          "pin": 30,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "data bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "h61",
+          "pin": 13,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "data bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "i61",
+          "pin": 13,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "data bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "c61",
+          "pin": 13,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "data bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "b61",
+          "pin": 13,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "data bus, 6502 + 4 EPROMs"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MCD.4",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "f61",
+          "pin": 29,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "data bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "h61",
+          "pin": 14,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "data bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "i61",
+          "pin": 14,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "data bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "c61",
+          "pin": 14,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "data bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "b61",
+          "pin": 14,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "data bus, 6502 + 4 EPROMs"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MCD.5",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "f61",
+          "pin": 28,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "data bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "h61",
+          "pin": 15,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "data bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "i61",
+          "pin": 15,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "data bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "c61",
+          "pin": 15,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "data bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "b61",
+          "pin": 15,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "data bus, 6502 + 4 EPROMs"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MCD.6",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "f61",
+          "pin": 27,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "data bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "h61",
+          "pin": 16,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "data bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "i61",
+          "pin": 16,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "data bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "c61",
+          "pin": 16,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "data bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "b61",
+          "pin": 16,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "data bus, 6502 + 4 EPROMs"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MCD.7",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "f61",
+          "pin": 26,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "data bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "h61",
+          "pin": 17,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "data bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "i61",
+          "pin": 17,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "data bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "c61",
+          "pin": 17,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "data bus, 6502 + 4 EPROMs"
+          }
+        },
+        {
+          "refdes": "b61",
+          "pin": 17,
+          "sheet": 5,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "data bus, 6502 + 4 EPROMs"
+          }
+        }
+      ]
+    }
+  ]
 }

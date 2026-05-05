@@ -1,19 +1,277 @@
-ERC report (2026-05-05T07:51:03, Encoding UTF8)
+ERC report (2026-05-05T08:28:19, Encoding UTF8)
 Report includes: Errors, Warnings, Exclusions
 
 ***** Sheet /
 [pin_not_connected]: Pin not connected
     ; error
+    @(105.344 mm, 53.242 mm): Symbol e07 Pin 1 [~{CLR}, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(105.344 mm, 53.242 mm): Symbol e07 Pin 1 [~{CLR}, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(105.344 mm, 55.782 mm): Symbol e07 Pin 2 [CLK, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(105.344 mm, 55.782 mm): Symbol e07 Pin 2 [CLK, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(105.344 mm, 58.322 mm): Symbol e07 Pin 3 [A, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(105.344 mm, 58.322 mm): Symbol e07 Pin 3 [A, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(105.344 mm, 60.862 mm): Symbol e07 Pin 4 [B, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(105.344 mm, 60.862 mm): Symbol e07 Pin 4 [B, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(105.344 mm, 63.402 mm): Symbol e07 Pin 5 [C, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(105.344 mm, 63.402 mm): Symbol e07 Pin 5 [C, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(105.344 mm, 65.942 mm): Symbol e07 Pin 6 [D, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(105.344 mm, 65.942 mm): Symbol e07 Pin 6 [D, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(105.344 mm, 68.482 mm): Symbol e07 Pin 7 [ENP, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(105.344 mm, 68.482 mm): Symbol e07 Pin 7 [ENP, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(105.344 mm, 71.022 mm): Symbol e07 Pin 8 [GND, Power input, Line]
+[power_pin_not_driven]: Input Power pin not driven by any Output Power pins
+    ; error
+    @(105.344 mm, 71.022 mm): Symbol e07 Pin 8 [GND, Power input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(98.661 mm, 82.459 mm): Symbol c08 Pin 1 [1A, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(98.661 mm, 82.459 mm): Symbol c08 Pin 1 [1A, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(98.661 mm, 84.999 mm): Symbol c08 Pin 2 [1Y, Output, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(98.661 mm, 87.539 mm): Symbol c08 Pin 3 [2A, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(98.661 mm, 87.539 mm): Symbol c08 Pin 3 [2A, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(98.661 mm, 90.079 mm): Symbol c08 Pin 4 [2Y, Output, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(123.124 mm, 53.242 mm): Symbol e07 Pin 16 [VCC, Power input, Line]
+[power_pin_not_driven]: Input Power pin not driven by any Output Power pins
+    ; error
+    @(123.124 mm, 53.242 mm): Symbol e07 Pin 16 [VCC, Power input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(123.124 mm, 55.782 mm): Symbol e07 Pin 15 [RCO, Output, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(98.661 mm, 92.619 mm): Symbol c08 Pin 5 [3A, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(98.661 mm, 92.619 mm): Symbol c08 Pin 5 [3A, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(123.124 mm, 58.322 mm): Symbol e07 Pin 14 [QA, Output, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(132.684 mm, 33.653 mm): Symbol g08 Pin 1 [~{1CLR}, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(132.684 mm, 33.653 mm): Symbol g08 Pin 1 [~{1CLR}, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(98.661 mm, 95.159 mm): Symbol c08 Pin 6 [3Y, Output, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(123.124 mm, 60.862 mm): Symbol e07 Pin 13 [QB, Output, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(132.684 mm, 36.193 mm): Symbol g08 Pin 2 [1D, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(132.684 mm, 36.193 mm): Symbol g08 Pin 2 [1D, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(132.684 mm, 38.733 mm): Symbol g08 Pin 3 [1CLK, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(132.684 mm, 38.733 mm): Symbol g08 Pin 3 [1CLK, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(123.124 mm, 63.402 mm): Symbol e07 Pin 12 [QC, Output, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(98.661 mm, 97.699 mm): Symbol c08 Pin 7 [GND, Power input, Line]
+[power_pin_not_driven]: Input Power pin not driven by any Output Power pins
+    ; error
+    @(98.661 mm, 97.699 mm): Symbol c08 Pin 7 [GND, Power input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(132.684 mm, 41.273 mm): Symbol g08 Pin 4 [~{1PRE}, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(132.684 mm, 41.273 mm): Symbol g08 Pin 4 [~{1PRE}, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(123.124 mm, 65.942 mm): Symbol e07 Pin 11 [QD, Output, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(132.684 mm, 43.812 mm): Symbol g08 Pin 5 [1Q, Output, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(132.684 mm, 46.352 mm): Symbol g08 Pin 6 [~{1Q}, Output, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(123.124 mm, 68.482 mm): Symbol e07 Pin 10 [ENT, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(123.124 mm, 68.482 mm): Symbol e07 Pin 10 [ENT, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(132.684 mm, 48.892 mm): Symbol g08 Pin 7 [GND, Power input, Line]
+[power_pin_not_driven]: Input Power pin not driven by any Output Power pins
+    ; error
+    @(132.684 mm, 48.892 mm): Symbol g08 Pin 7 [GND, Power input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(123.124 mm, 71.022 mm): Symbol e07 Pin 9 [~{LOAD}, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(123.124 mm, 71.022 mm): Symbol e07 Pin 9 [~{LOAD}, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(116.441 mm, 82.459 mm): Symbol c08 Pin 14 [VCC, Power input, Line]
+[power_pin_not_driven]: Input Power pin not driven by any Output Power pins
+    ; error
+    @(116.441 mm, 82.459 mm): Symbol c08 Pin 14 [VCC, Power input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(116.441 mm, 84.999 mm): Symbol c08 Pin 13 [6A, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(116.441 mm, 84.999 mm): Symbol c08 Pin 13 [6A, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(116.441 mm, 87.539 mm): Symbol c08 Pin 12 [6Y, Output, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(116.441 mm, 90.079 mm): Symbol c08 Pin 11 [5A, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(116.441 mm, 90.079 mm): Symbol c08 Pin 11 [5A, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(116.441 mm, 92.619 mm): Symbol c08 Pin 10 [5Y, Output, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(116.441 mm, 95.159 mm): Symbol c08 Pin 9 [4A, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(116.441 mm, 95.159 mm): Symbol c08 Pin 9 [4A, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(116.441 mm, 97.699 mm): Symbol c08 Pin 8 [4Y, Output, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(150.464 mm, 33.653 mm): Symbol g08 Pin 14 [VCC, Power input, Line]
+[power_pin_not_driven]: Input Power pin not driven by any Output Power pins
+    ; error
+    @(150.464 mm, 33.653 mm): Symbol g08 Pin 14 [VCC, Power input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(150.464 mm, 36.193 mm): Symbol g08 Pin 13 [~{2CLR}, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(150.464 mm, 36.193 mm): Symbol g08 Pin 13 [~{2CLR}, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(150.464 mm, 38.733 mm): Symbol g08 Pin 12 [2D, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(150.464 mm, 38.733 mm): Symbol g08 Pin 12 [2D, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(150.464 mm, 41.273 mm): Symbol g08 Pin 11 [2CLK, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(150.464 mm, 41.273 mm): Symbol g08 Pin 11 [2CLK, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(150.464 mm, 43.812 mm): Symbol g08 Pin 10 [~{2PRE}, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(150.464 mm, 43.812 mm): Symbol g08 Pin 10 [~{2PRE}, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(150.464 mm, 46.352 mm): Symbol g08 Pin 9 [2Q, Output, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(150.464 mm, 48.892 mm): Symbol g08 Pin 8 [~{2Q}, Output, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(61.195 mm, 168.626 mm): Symbol f61 Pin 1 [VSS, Power input, Line]
+[power_pin_not_driven]: Input Power pin not driven by any Output Power pins
+    ; error
+    @(61.195 mm, 168.626 mm): Symbol f61 Pin 1 [VSS, Power input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(61.195 mm, 171.166 mm): Symbol f61 Pin 2 [RDY, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(61.195 mm, 171.166 mm): Symbol f61 Pin 2 [RDY, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(61.195 mm, 173.706 mm): Symbol f61 Pin 3 [PHI1O, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(61.195 mm, 173.706 mm): Symbol f61 Pin 3 [PHI1O, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(78.975 mm, 168.626 mm): Symbol f61 Pin 40 [~{RES}, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(78.975 mm, 168.626 mm): Symbol f61 Pin 40 [~{RES}, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(61.195 mm, 176.246 mm): Symbol f61 Pin 4 [~{IRQ}, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(61.195 mm, 176.246 mm): Symbol f61 Pin 4 [~{IRQ}, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
     @(178.048 mm, 59.503 mm): Symbol h61 Pin 1 [A7, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(178.048 mm, 59.503 mm): Symbol h61 Pin 1 [A7, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
+    @(78.975 mm, 171.166 mm): Symbol f61 Pin 39 [PHI2O, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(78.975 mm, 171.166 mm): Symbol f61 Pin 39 [PHI2O, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
     @(178.048 mm, 62.043 mm): Symbol h61 Pin 2 [A6, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(178.048 mm, 62.043 mm): Symbol h61 Pin 2 [A6, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(61.195 mm, 178.786 mm): Symbol f61 Pin 5 [NC, Unspecified, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(178.048 mm, 64.583 mm): Symbol h61 Pin 3 [A5, Input, Line]
@@ -28,10 +286,22 @@ Report includes: Errors, Warnings, Exclusions
     @(178.048 mm, 67.123 mm): Symbol h61 Pin 4 [A4, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
+    @(78.975 mm, 173.706 mm): Symbol f61 Pin 38 [SO, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(78.975 mm, 173.706 mm): Symbol f61 Pin 38 [SO, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
     @(178.048 mm, 69.663 mm): Symbol h61 Pin 5 [A3, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(178.048 mm, 69.663 mm): Symbol h61 Pin 5 [A3, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(61.195 mm, 181.326 mm): Symbol f61 Pin 6 [~{NMI}, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(61.195 mm, 181.326 mm): Symbol f61 Pin 6 [~{NMI}, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(178.048 mm, 72.203 mm): Symbol h61 Pin 6 [A2, Input, Line]
@@ -44,6 +314,15 @@ Report includes: Errors, Warnings, Exclusions
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(178.048 mm, 74.743 mm): Symbol h61 Pin 7 [A1, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(78.975 mm, 176.246 mm): Symbol f61 Pin 37 [PHI0I, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(78.975 mm, 176.246 mm): Symbol f61 Pin 37 [PHI0I, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(61.195 mm, 183.866 mm): Symbol f61 Pin 7 [SYNC, Output, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(178.048 mm, 77.283 mm): Symbol h61 Pin 8 [A0, Input, Line]
@@ -55,28 +334,61 @@ Report includes: Errors, Warnings, Exclusions
     @(178.048 mm, 79.823 mm): Symbol h61 Pin 9 [O0, Tri-state, Line]
 [pin_not_connected]: Pin not connected
     ; error
+    @(78.975 mm, 178.786 mm): Symbol f61 Pin 36 [NC3, Unspecified, Line]
+[pin_not_connected]: Pin not connected
+    ; error
     @(178.048 mm, 82.363 mm): Symbol h61 Pin 10 [O1, Tri-state, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(61.195 mm, 186.406 mm): Symbol f61 Pin 8 [VCC, Power input, Line]
+[power_pin_not_driven]: Input Power pin not driven by any Output Power pins
+    ; error
+    @(61.195 mm, 186.406 mm): Symbol f61 Pin 8 [VCC, Power input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(178.048 mm, 84.903 mm): Symbol h61 Pin 11 [O2, Tri-state, Line]
 [pin_not_connected]: Pin not connected
     ; error
+    @(78.975 mm, 181.326 mm): Symbol f61 Pin 35 [NC2, Unspecified, Line]
+[pin_not_connected]: Pin not connected
+    ; error
     @(178.048 mm, 87.443 mm): Symbol h61 Pin 12 [GND, Power input, Line]
 [power_pin_not_driven]: Input Power pin not driven by any Output Power pins
     ; error
     @(178.048 mm, 87.443 mm): Symbol h61 Pin 12 [GND, Power input, Line]
 [pin_not_connected]: Pin not connected
     ; error
+    @(61.195 mm, 188.946 mm): Symbol f61 Pin 9 [A0, Tri-state, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(78.975 mm, 183.866 mm): Symbol f61 Pin 34 [R/~W, Tri-state, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(61.195 mm, 191.486 mm): Symbol f61 Pin 10 [A1, Tri-state, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(78.975 mm, 186.406 mm): Symbol f61 Pin 33 [D0, Bidirectional, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(61.195 mm, 194.026 mm): Symbol f61 Pin 11 [A2, Tri-state, Line]
+[pin_not_connected]: Pin not connected
+    ; error
     @(195.828 mm, 59.503 mm): Symbol h61 Pin 24 [VCC, Power input, Line]
 [power_pin_not_driven]: Input Power pin not driven by any Output Power pins
     ; error
     @(195.828 mm, 59.503 mm): Symbol h61 Pin 24 [VCC, Power input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(78.975 mm, 188.946 mm): Symbol f61 Pin 32 [D1, Bidirectional, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(195.828 mm, 62.043 mm): Symbol h61 Pin 23 [A8, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(195.828 mm, 62.043 mm): Symbol h61 Pin 23 [A8, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(61.195 mm, 196.566 mm): Symbol f61 Pin 12 [A3, Tri-state, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(195.828 mm, 64.583 mm): Symbol h61 Pin 22 [A9, Input, Line]
@@ -91,16 +403,25 @@ Report includes: Errors, Warnings, Exclusions
     @(195.828 mm, 67.123 mm): Symbol h61 Pin 21 [VPP, Power input, Line]
 [pin_not_connected]: Pin not connected
     ; error
+    @(78.975 mm, 191.486 mm): Symbol f61 Pin 31 [D2, Bidirectional, Line]
+[pin_not_connected]: Pin not connected
+    ; error
     @(195.828 mm, 69.663 mm): Symbol h61 Pin 20 [~{OE}, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(195.828 mm, 69.663 mm): Symbol h61 Pin 20 [~{OE}, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
+    @(61.195 mm, 199.106 mm): Symbol f61 Pin 13 [A4, Tri-state, Line]
+[pin_not_connected]: Pin not connected
+    ; error
     @(195.828 mm, 72.203 mm): Symbol h61 Pin 19 [A10, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(195.828 mm, 72.203 mm): Symbol h61 Pin 19 [A10, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(78.975 mm, 194.026 mm): Symbol f61 Pin 30 [D3, Bidirectional, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(195.828 mm, 74.743 mm): Symbol h61 Pin 18 [~{CE}, Input, Line]
@@ -112,6 +433,9 @@ Report includes: Errors, Warnings, Exclusions
     @(195.828 mm, 77.283 mm): Symbol h61 Pin 17 [O7, Tri-state, Line]
 [pin_not_connected]: Pin not connected
     ; error
+    @(61.195 mm, 201.646 mm): Symbol f61 Pin 14 [A5, Tri-state, Line]
+[pin_not_connected]: Pin not connected
+    ; error
     @(178.048 mm, 112.725 mm): Symbol i61 Pin 1 [A7, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
@@ -119,6 +443,9 @@ Report includes: Errors, Warnings, Exclusions
 [pin_not_connected]: Pin not connected
     ; error
     @(195.828 mm, 79.823 mm): Symbol h61 Pin 16 [O6, Tri-state, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(78.975 mm, 196.566 mm): Symbol f61 Pin 29 [D4, Bidirectional, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(178.048 mm, 115.265 mm): Symbol i61 Pin 2 [A6, Input, Line]
@@ -130,6 +457,9 @@ Report includes: Errors, Warnings, Exclusions
     @(195.828 mm, 82.363 mm): Symbol h61 Pin 15 [O5, Tri-state, Line]
 [pin_not_connected]: Pin not connected
     ; error
+    @(61.195 mm, 204.186 mm): Symbol f61 Pin 15 [A6, Tri-state, Line]
+[pin_not_connected]: Pin not connected
+    ; error
     @(195.828 mm, 84.903 mm): Symbol h61 Pin 14 [O4, Tri-state, Line]
 [pin_not_connected]: Pin not connected
     ; error
@@ -137,6 +467,9 @@ Report includes: Errors, Warnings, Exclusions
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(178.048 mm, 117.805 mm): Symbol i61 Pin 3 [A5, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(78.975 mm, 199.106 mm): Symbol f61 Pin 28 [D5, Bidirectional, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(195.828 mm, 87.443 mm): Symbol h61 Pin 13 [O3, Tri-state, Line]
@@ -148,10 +481,16 @@ Report includes: Errors, Warnings, Exclusions
     @(178.048 mm, 120.345 mm): Symbol i61 Pin 4 [A4, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
+    @(61.195 mm, 206.726 mm): Symbol f61 Pin 16 [A7, Tri-state, Line]
+[pin_not_connected]: Pin not connected
+    ; error
     @(178.048 mm, 122.885 mm): Symbol i61 Pin 5 [A3, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(178.048 mm, 122.885 mm): Symbol i61 Pin 5 [A3, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(78.975 mm, 201.646 mm): Symbol f61 Pin 27 [D6, Bidirectional, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(178.048 mm, 125.425 mm): Symbol i61 Pin 6 [A2, Input, Line]
@@ -160,19 +499,37 @@ Report includes: Errors, Warnings, Exclusions
     @(178.048 mm, 125.425 mm): Symbol i61 Pin 6 [A2, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
+    @(61.195 mm, 209.266 mm): Symbol f61 Pin 17 [A8, Tri-state, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(78.975 mm, 204.186 mm): Symbol f61 Pin 26 [D7, Bidirectional, Line]
+[pin_not_connected]: Pin not connected
+    ; error
     @(178.048 mm, 127.965 mm): Symbol i61 Pin 7 [A1, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(178.048 mm, 127.965 mm): Symbol i61 Pin 7 [A1, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
+    @(61.195 mm, 211.806 mm): Symbol f61 Pin 18 [A9, Tri-state, Line]
+[pin_not_connected]: Pin not connected
+    ; error
     @(178.048 mm, 130.505 mm): Symbol i61 Pin 8 [A0, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(178.048 mm, 130.505 mm): Symbol i61 Pin 8 [A0, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(78.975 mm, 206.726 mm): Symbol f61 Pin 25 [A15, Tri-state, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(178.048 mm, 133.045 mm): Symbol i61 Pin 9 [O0, Tri-state, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(61.195 mm, 214.346 mm): Symbol f61 Pin 19 [A10, Tri-state, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(78.975 mm, 209.266 mm): Symbol f61 Pin 24 [A14, Tri-state, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(178.048 mm, 135.585 mm): Symbol i61 Pin 10 [O1, Tri-state, Line]
@@ -181,10 +538,16 @@ Report includes: Errors, Warnings, Exclusions
     @(178.048 mm, 138.125 mm): Symbol i61 Pin 11 [O2, Tri-state, Line]
 [pin_not_connected]: Pin not connected
     ; error
+    @(61.195 mm, 216.886 mm): Symbol f61 Pin 20 [A11, Tri-state, Line]
+[pin_not_connected]: Pin not connected
+    ; error
     @(195.828 mm, 112.725 mm): Symbol i61 Pin 24 [VCC, Power input, Line]
 [power_pin_not_driven]: Input Power pin not driven by any Output Power pins
     ; error
     @(195.828 mm, 112.725 mm): Symbol i61 Pin 24 [VCC, Power input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(78.975 mm, 211.806 mm): Symbol f61 Pin 23 [A13, Tri-state, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(178.048 mm, 140.665 mm): Symbol i61 Pin 12 [GND, Power input, Line]
@@ -199,6 +562,9 @@ Report includes: Errors, Warnings, Exclusions
     @(195.828 mm, 115.265 mm): Symbol i61 Pin 23 [A8, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
+    @(78.975 mm, 214.346 mm): Symbol f61 Pin 22 [A12, Tri-state, Line]
+[pin_not_connected]: Pin not connected
+    ; error
     @(195.828 mm, 117.805 mm): Symbol i61 Pin 22 [A9, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
@@ -209,6 +575,12 @@ Report includes: Errors, Warnings, Exclusions
 [power_pin_not_driven]: Input Power pin not driven by any Output Power pins
     ; error
     @(195.828 mm, 120.345 mm): Symbol i61 Pin 21 [VPP, Power input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(78.975 mm, 216.886 mm): Symbol f61 Pin 21 [VSS2, Power input, Line]
+[power_pin_not_driven]: Input Power pin not driven by any Output Power pins
+    ; error
+    @(78.975 mm, 216.886 mm): Symbol f61 Pin 21 [VSS2, Power input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(195.828 mm, 122.885 mm): Symbol i61 Pin 20 [~{OE}, Input, Line]
@@ -227,9 +599,21 @@ Report includes: Errors, Warnings, Exclusions
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(195.828 mm, 127.965 mm): Symbol i61 Pin 18 [~{CE}, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(123.368 mm, 198.852 mm): Symbol g11 Pin 1 [A, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(123.368 mm, 198.852 mm): Symbol g11 Pin 1 [A, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(195.828 mm, 130.505 mm): Symbol i61 Pin 17 [O7, Tri-state, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(123.368 mm, 201.392 mm): Symbol g11 Pin 2 [B, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(123.368 mm, 201.392 mm): Symbol g11 Pin 2 [B, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(195.828 mm, 133.045 mm): Symbol i61 Pin 16 [O6, Tri-state, Line]
@@ -238,130 +622,190 @@ Report includes: Errors, Warnings, Exclusions
     @(195.828 mm, 135.585 mm): Symbol i61 Pin 15 [O5, Tri-state, Line]
 [pin_not_connected]: Pin not connected
     ; error
+    @(123.368 mm, 203.932 mm): Symbol g11 Pin 3 [C, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(123.368 mm, 203.932 mm): Symbol g11 Pin 3 [C, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
     @(195.828 mm, 138.125 mm): Symbol i61 Pin 14 [O4, Tri-state, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(123.368 mm, 206.472 mm): Symbol g11 Pin 4 [~{G2A}, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(123.368 mm, 206.472 mm): Symbol g11 Pin 4 [~{G2A}, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(195.828 mm, 140.665 mm): Symbol i61 Pin 13 [O3, Tri-state, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(178.048 mm, 171.90 mm): Symbol c61 Pin 1 [A7, Input, Line]
+    @(123.368 mm, 209.012 mm): Symbol g11 Pin 5 [~{G2B}, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(178.048 mm, 171.90 mm): Symbol c61 Pin 1 [A7, Input, Line]
+    @(123.368 mm, 209.012 mm): Symbol g11 Pin 5 [~{G2B}, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(178.048 mm, 174.44 mm): Symbol c61 Pin 2 [A6, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(178.048 mm, 174.44 mm): Symbol c61 Pin 2 [A6, Input, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(178.048 mm, 176.98 mm): Symbol c61 Pin 3 [A5, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(178.048 mm, 176.98 mm): Symbol c61 Pin 3 [A5, Input, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(178.048 mm, 179.52 mm): Symbol c61 Pin 4 [A4, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(178.048 mm, 179.52 mm): Symbol c61 Pin 4 [A4, Input, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(178.048 mm, 182.06 mm): Symbol c61 Pin 5 [A3, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(178.048 mm, 182.06 mm): Symbol c61 Pin 5 [A3, Input, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(178.048 mm, 184.60 mm): Symbol c61 Pin 6 [A2, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(178.048 mm, 184.60 mm): Symbol c61 Pin 6 [A2, Input, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(178.048 mm, 187.14 mm): Symbol c61 Pin 7 [A1, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(178.048 mm, 187.14 mm): Symbol c61 Pin 7 [A1, Input, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(178.048 mm, 189.68 mm): Symbol c61 Pin 8 [A0, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(178.048 mm, 189.68 mm): Symbol c61 Pin 8 [A0, Input, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(195.828 mm, 171.90 mm): Symbol c61 Pin 24 [VCC, Power input, Line]
+    @(141.148 mm, 198.852 mm): Symbol g11 Pin 16 [VCC, Power input, Line]
 [power_pin_not_driven]: Input Power pin not driven by any Output Power pins
     ; error
-    @(195.828 mm, 171.90 mm): Symbol c61 Pin 24 [VCC, Power input, Line]
+    @(141.148 mm, 198.852 mm): Symbol g11 Pin 16 [VCC, Power input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(178.048 mm, 192.22 mm): Symbol c61 Pin 9 [O0, Tri-state, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(195.828 mm, 174.44 mm): Symbol c61 Pin 23 [A8, Input, Line]
+    @(123.368 mm, 211.552 mm): Symbol g11 Pin 6 [G1, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(195.828 mm, 174.44 mm): Symbol c61 Pin 23 [A8, Input, Line]
+    @(123.368 mm, 211.552 mm): Symbol g11 Pin 6 [G1, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(178.048 mm, 194.76 mm): Symbol c61 Pin 10 [O1, Tri-state, Line]
+    @(141.148 mm, 201.392 mm): Symbol g11 Pin 15 [~{Y0}, Output, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(195.828 mm, 176.98 mm): Symbol c61 Pin 22 [A9, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(195.828 mm, 176.98 mm): Symbol c61 Pin 22 [A9, Input, Line]
+    @(123.368 mm, 214.092 mm): Symbol g11 Pin 7 [~{Y7}, Output, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(195.828 mm, 179.52 mm): Symbol c61 Pin 21 [VPP, Power input, Line]
+    @(141.148 mm, 203.932 mm): Symbol g11 Pin 14 [~{Y1}, Output, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(123.368 mm, 216.632 mm): Symbol g11 Pin 8 [GND, Power input, Line]
 [power_pin_not_driven]: Input Power pin not driven by any Output Power pins
     ; error
-    @(195.828 mm, 179.52 mm): Symbol c61 Pin 21 [VPP, Power input, Line]
+    @(123.368 mm, 216.632 mm): Symbol g11 Pin 8 [GND, Power input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(178.048 mm, 197.30 mm): Symbol c61 Pin 11 [O2, Tri-state, Line]
+    @(141.148 mm, 206.472 mm): Symbol g11 Pin 13 [~{Y2}, Output, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(195.828 mm, 182.06 mm): Symbol c61 Pin 20 [~{OE}, Input, Line]
+    @(179.00 mm, 174.898 mm): Symbol c61 Pin 1 [A7, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(195.828 mm, 182.06 mm): Symbol c61 Pin 20 [~{OE}, Input, Line]
+    @(179.00 mm, 174.898 mm): Symbol c61 Pin 1 [A7, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(178.048 mm, 199.84 mm): Symbol c61 Pin 12 [GND, Power input, Line]
+    @(179.00 mm, 177.438 mm): Symbol c61 Pin 2 [A6, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(179.00 mm, 177.438 mm): Symbol c61 Pin 2 [A6, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(141.148 mm, 209.012 mm): Symbol g11 Pin 12 [~{Y3}, Output, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(179.00 mm, 179.978 mm): Symbol c61 Pin 3 [A5, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(179.00 mm, 179.978 mm): Symbol c61 Pin 3 [A5, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(141.148 mm, 211.552 mm): Symbol g11 Pin 11 [~{Y4}, Output, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(179.00 mm, 182.518 mm): Symbol c61 Pin 4 [A4, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(179.00 mm, 182.518 mm): Symbol c61 Pin 4 [A4, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(141.148 mm, 214.092 mm): Symbol g11 Pin 10 [~{Y5}, Output, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(179.00 mm, 185.058 mm): Symbol c61 Pin 5 [A3, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(179.00 mm, 185.058 mm): Symbol c61 Pin 5 [A3, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(141.148 mm, 216.632 mm): Symbol g11 Pin 9 [~{Y6}, Output, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(179.00 mm, 187.598 mm): Symbol c61 Pin 6 [A2, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(179.00 mm, 187.598 mm): Symbol c61 Pin 6 [A2, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(179.00 mm, 190.138 mm): Symbol c61 Pin 7 [A1, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(179.00 mm, 190.138 mm): Symbol c61 Pin 7 [A1, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(179.00 mm, 192.678 mm): Symbol c61 Pin 8 [A0, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(179.00 mm, 192.678 mm): Symbol c61 Pin 8 [A0, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(196.78 mm, 174.898 mm): Symbol c61 Pin 24 [VCC, Power input, Line]
 [power_pin_not_driven]: Input Power pin not driven by any Output Power pins
     ; error
-    @(178.048 mm, 199.84 mm): Symbol c61 Pin 12 [GND, Power input, Line]
+    @(196.78 mm, 174.898 mm): Symbol c61 Pin 24 [VCC, Power input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(195.828 mm, 184.60 mm): Symbol c61 Pin 19 [A10, Input, Line]
+    @(179.00 mm, 195.218 mm): Symbol c61 Pin 9 [O0, Tri-state, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(196.78 mm, 177.438 mm): Symbol c61 Pin 23 [A8, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(195.828 mm, 184.60 mm): Symbol c61 Pin 19 [A10, Input, Line]
+    @(196.78 mm, 177.438 mm): Symbol c61 Pin 23 [A8, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(195.828 mm, 187.14 mm): Symbol c61 Pin 18 [~{CE}, Input, Line]
+    @(196.78 mm, 179.978 mm): Symbol c61 Pin 22 [A9, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(195.828 mm, 187.14 mm): Symbol c61 Pin 18 [~{CE}, Input, Line]
+    @(196.78 mm, 179.978 mm): Symbol c61 Pin 22 [A9, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(195.828 mm, 189.68 mm): Symbol c61 Pin 17 [O7, Tri-state, Line]
+    @(179.00 mm, 197.758 mm): Symbol c61 Pin 10 [O1, Tri-state, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(195.828 mm, 192.22 mm): Symbol c61 Pin 16 [O6, Tri-state, Line]
+    @(196.78 mm, 182.518 mm): Symbol c61 Pin 21 [VPP, Power input, Line]
+[power_pin_not_driven]: Input Power pin not driven by any Output Power pins
+    ; error
+    @(196.78 mm, 182.518 mm): Symbol c61 Pin 21 [VPP, Power input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(195.828 mm, 194.76 mm): Symbol c61 Pin 15 [O5, Tri-state, Line]
+    @(179.00 mm, 200.298 mm): Symbol c61 Pin 11 [O2, Tri-state, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(195.828 mm, 197.30 mm): Symbol c61 Pin 14 [O4, Tri-state, Line]
+    @(196.78 mm, 185.058 mm): Symbol c61 Pin 20 [~{OE}, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(196.78 mm, 185.058 mm): Symbol c61 Pin 20 [~{OE}, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(195.828 mm, 199.84 mm): Symbol c61 Pin 13 [O3, Tri-state, Line]
+    @(179.00 mm, 202.838 mm): Symbol c61 Pin 12 [GND, Power input, Line]
+[power_pin_not_driven]: Input Power pin not driven by any Output Power pins
+    ; error
+    @(179.00 mm, 202.838 mm): Symbol c61 Pin 12 [GND, Power input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(196.78 mm, 187.598 mm): Symbol c61 Pin 19 [A10, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(196.78 mm, 187.598 mm): Symbol c61 Pin 19 [A10, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(196.78 mm, 190.138 mm): Symbol c61 Pin 18 [~{CE}, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(196.78 mm, 190.138 mm): Symbol c61 Pin 18 [~{CE}, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(196.78 mm, 192.678 mm): Symbol c61 Pin 17 [O7, Tri-state, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(196.78 mm, 195.218 mm): Symbol c61 Pin 16 [O6, Tri-state, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(196.78 mm, 197.758 mm): Symbol c61 Pin 15 [O5, Tri-state, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(196.78 mm, 200.298 mm): Symbol c61 Pin 14 [O4, Tri-state, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(196.78 mm, 202.838 mm): Symbol c61 Pin 13 [O3, Tri-state, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(177.967 mm, 221.76 mm): Symbol b61 Pin 1 [A7, Input, Line]
@@ -484,10 +928,34 @@ Report includes: Errors, Warnings, Exclusions
     @(195.747 mm, 249.70 mm): Symbol b61 Pin 13 [O3, Tri-state, Line]
 [endpoint_off_grid]: Symbol pin or wire end off connection grid
     ; warning
+    @(105.344 mm, 53.242 mm): Symbol e07 Pin 1 [~{CLR}, Input, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(98.661 mm, 82.459 mm): Symbol c08 Pin 1 [1A, Input, Line]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'user'
+    ; warning
+    @(114.234 mm, 63.402 mm): Symbol e07 [74LS163]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(132.684 mm, 33.653 mm): Symbol g08 Pin 1 [~{1CLR}, Input, Line]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'user'
+    ; warning
+    @(107.551 mm, 91.349 mm): Symbol c08 [74LS04]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'user'
+    ; warning
+    @(141.574 mm, 42.542 mm): Symbol g08 [74LS74]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(61.195 mm, 168.626 mm): Symbol f61 Pin 1 [VSS, Power input, Line]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
     @(178.048 mm, 59.503 mm): Symbol h61 Pin 1 [A7, Input, Line]
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(186.938 mm, 74.743 mm): Symbol h61 [2716]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'user'
+    ; warning
+    @(70.085 mm, 194.026 mm): Symbol f61 [MCS6502]
 [endpoint_off_grid]: Symbol pin or wire end off connection grid
     ; warning
     @(178.048 mm, 112.725 mm): Symbol i61 Pin 1 [A7, Input, Line]
@@ -496,10 +964,16 @@ Report includes: Errors, Warnings, Exclusions
     @(186.938 mm, 127.965 mm): Symbol i61 [2716]
 [endpoint_off_grid]: Symbol pin or wire end off connection grid
     ; warning
-    @(178.048 mm, 171.90 mm): Symbol c61 Pin 1 [A7, Input, Line]
+    @(123.368 mm, 198.852 mm): Symbol g11 Pin 1 [A, Input, Line]
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
-    @(186.938 mm, 187.14 mm): Symbol c61 [2716]
+    @(132.258 mm, 209.012 mm): Symbol g11 [74LS138]
+[endpoint_off_grid]: Symbol pin or wire end off connection grid
+    ; warning
+    @(179.00 mm, 174.898 mm): Symbol c61 Pin 1 [A7, Input, Line]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'user'
+    ; warning
+    @(187.89 mm, 190.138 mm): Symbol c61 [2716]
 [endpoint_off_grid]: Symbol pin or wire end off connection grid
     ; warning
     @(177.967 mm, 221.76 mm): Symbol b61 Pin 1 [A7, Input, Line]
@@ -507,7 +981,7 @@ Report includes: Errors, Warnings, Exclusions
     ; warning
     @(186.857 mm, 237.00 mm): Symbol b61 [2716]
 
- ** ERC messages: 168  Errors 160  Warnings 8
+ ** ERC messages: 326  Errors 308  Warnings 18
 
  ** Ignored checks:
     - Global label only appears once in the schematic
