@@ -428,12 +428,66 @@ def cmd_decode_pdf(args):
         print("pdftocairo not on PATH (brew install poppler)", file=sys.stderr); sys.exit(2)
 
 
-def cmd_clean(args):
-    """Light cleanup pass: contrast stretch + optional grayscale invert.
+def _detect_skew_angle(img_gray, max_angle_deg: float = 10.0):
+    """Estimate the rotation needed to make horizontal lines truly horizontal.
 
-    For schematic scans this is usually enough to make line/text stand out
-    against yellowed paper backgrounds. More elaborate denoise/deskew are
-    deferred to a later iteration.
+    Returns angle in degrees (positive = counter-clockwise correction needed),
+    or 0 if no dominant orientation found within ±max_angle_deg.
+
+    Uses HoughLinesP on a thresholded copy: collects line segments, takes
+    those near horizontal (within max_angle_deg of 0°), returns the median
+    angle. Schematic line-art has plenty of long horizontals so this is
+    robust without needing text orientation detection.
+    """
+    import cv2
+    import numpy as np
+
+    _, binary = cv2.threshold(img_gray, 0, 255,
+                               cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)
+    H, W = binary.shape
+    min_len = max(80, W // 50)  # only count long-ish lines
+    lines = cv2.HoughLinesP(
+        binary, rho=1, theta=np.pi / 720, threshold=120,
+        minLineLength=min_len, maxLineGap=10
+    )
+    if lines is None:
+        return 0.0
+    angles = []
+    for line in lines:
+        x1, y1, x2, y2 = line[0]
+        ang = np.degrees(np.arctan2(y2 - y1, x2 - x1))
+        # Wrap to (-90, 90].
+        if ang > 90: ang -= 180
+        if ang <= -90: ang += 180
+        # Keep near-horizontal lines only.
+        if abs(ang) <= max_angle_deg:
+            angles.append(ang)
+    if len(angles) < 5:
+        return 0.0
+    return float(np.median(angles))
+
+
+def _rotate_image(img, angle_deg: float):
+    """Rotate `img` counter-clockwise by `angle_deg`. White (255) padding."""
+    import cv2
+    H, W = img.shape[:2]
+    center = (W / 2, H / 2)
+    M = cv2.getRotationMatrix2D(center, angle_deg, 1.0)
+    return cv2.warpAffine(img, M, (W, H),
+                           flags=cv2.INTER_CUBIC,
+                           borderValue=255)
+
+
+def cmd_clean(args):
+    """Cleanup pass: contrast stretch, optional median denoise, optional
+    deskew, optional Otsu binarize. Operations apply in this order:
+
+      1. denoise (median blur)
+      2. deskew (Hough-based rotation correction)
+      3. contrast stretch
+      4. threshold
+
+    All four are independent flags.
     """
     try:
         import cv2
@@ -451,21 +505,43 @@ def cmd_clean(args):
     if img is None:
         print(f"failed to load: {src}", file=sys.stderr); sys.exit(1)
 
-    # Percentile-based contrast stretch — robust to outliers.
+    ops = []
+
+    # 1. Denoise (median preserves edges; non-local means is heavier).
+    if args.denoise:
+        img = cv2.medianBlur(img, args.denoise_size)
+        ops.append(f"median{args.denoise_size}")
+
+    # 2. Deskew.
+    skew_angle = 0.0
+    if args.deskew:
+        skew_angle = _detect_skew_angle(img, max_angle_deg=args.deskew_max_deg)
+        if abs(skew_angle) > 0.05:
+            img = _rotate_image(img, skew_angle)
+            ops.append(f"deskew{skew_angle:+.2f}°")
+        else:
+            ops.append("deskew=0°")
+
+    # 3. Percentile-based contrast stretch — robust to outliers.
     lo = np.percentile(img, args.lo_pct)
     hi = np.percentile(img, args.hi_pct)
     if hi <= lo:
-        print(f"contrast stretch degenerate (lo={lo}, hi={hi}); writing input unchanged", file=sys.stderr)
-        cv2.imwrite(str(out), img); return
-    stretched = np.clip((img.astype(np.float32) - lo) * 255.0 / (hi - lo), 0, 255).astype(np.uint8)
+        print(f"contrast stretch degenerate (lo={lo}, hi={hi}); skipping stretch",
+              file=sys.stderr)
+    else:
+        img = np.clip(
+            (img.astype(np.float32) - lo) * 255.0 / (hi - lo),
+            0, 255).astype(np.uint8)
+        ops.append(f"contrast{lo:.1f}..{hi:.1f}")
 
+    # 4. Optional binarization for downstream CV.
     if args.threshold:
-        # Optional binarization for downstream CV.
-        _, stretched = cv2.threshold(stretched, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+        _, img = cv2.threshold(img, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+        ops.append("otsu")
 
-    cv2.imwrite(str(out), stretched)
+    cv2.imwrite(str(out), img)
     print(f"wrote {out} ({src.stat().st_size:,}→{out.stat().st_size:,} bytes; "
-          f"contrast {lo:.1f}..{hi:.1f}{'  +otsu' if args.threshold else ''})")
+          f"ops: {', '.join(ops) if ops else 'none'})")
 
 
 def main():
@@ -524,13 +600,21 @@ def main():
     sp.set_defaults(fn=cmd_decode_pdf)
 
     sp = sub.add_parser("clean",
-                        help="contrast-stretch + optional Otsu binarize a scan")
+                        help="contrast/denoise/deskew/threshold a scan")
     sp.add_argument("input")
     sp.add_argument("--out", required=True)
     sp.add_argument("--lo-pct", type=float, default=2.0,
                     help="lower percentile for contrast stretch (default 2.0)")
     sp.add_argument("--hi-pct", type=float, default=98.0,
                     help="upper percentile for contrast stretch (default 98.0)")
+    sp.add_argument("--denoise", action="store_true",
+                    help="apply a median-blur denoise pass before contrast stretch")
+    sp.add_argument("--denoise-size", type=int, default=3,
+                    help="median blur kernel size (must be odd, default 3)")
+    sp.add_argument("--deskew", action="store_true",
+                    help="rotate to make horizontal Hough lines truly horizontal")
+    sp.add_argument("--deskew-max-deg", type=float, default=10.0,
+                    help="ignore detected angles beyond ±this many degrees (default 10)")
     sp.add_argument("--threshold", action="store_true",
                     help="also Otsu-threshold to binary")
     sp.set_defaults(fn=cmd_clean)
