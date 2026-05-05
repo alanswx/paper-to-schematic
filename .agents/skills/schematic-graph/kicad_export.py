@@ -12,14 +12,120 @@ fit-to-A3 factor so the output fits on a 420×297 mm sheet.
 import hashlib
 import json
 import math
+import re
 from pathlib import Path
+
+# A chip drawn one-gate-per-symbol (e.g. quad-gate 74LSxx, MC10124) is modeled
+# in the graph as N components with refdes <chipid><letter> (g01a, g01b, …)
+# all referencing the same librarian part. The librarian carries the full
+# pinout with a per-pin `group` tag; we use the tag to filter pin emission so
+# only the active gate's pins land on each sub-component.
+_REFDES_SUBUNIT = re.compile(r"^([a-z]+\d+)([a-z])$")
+_UNIT_GROUP_PATTERNS = (
+    re.compile(r"^g\d+$", re.IGNORECASE),     # 74LS00/04/08/32/175 quad-gate
+    re.compile(r"^ff\d+$", re.IGNORECASE),    # 74LS74/174 multi-flip-flop
+    re.compile(r"^[A-Z]$"),                   # MC10124 A/B/C/D
+)
+
+
+def _unit_groups(part: dict) -> list[str]:
+    """Return the chip's sub-unit group names sorted into unit order, or [] if
+    the part has no unit-shaped groups. The result is structurally valid (all
+    groups match the unit name pattern) but does NOT prove the part is used
+    as multi-unit on a given board — that requires graph evidence.
+    """
+    groups: set[str] = set()
+    for pin in part.get("pins", []):
+        if pin.get("type") in ("power", "ground"):
+            continue
+        g = pin.get("group")
+        if g and g != "common":
+            groups.add(g)
+    if len(groups) < 2:
+        return []
+    if not all(any(p.match(g) for p in _UNIT_GROUP_PATTERNS) for g in groups):
+        return []
+    return sorted(groups, key=lambda s: (s.lower(), s))
+
+
+def _multi_unit_parts(components: list[dict], chips: dict) -> set[str]:
+    """Identify part keys that this board genuinely uses as multi-unit, based
+    on the presence of letter-suffix refdes in the graph. A part with
+    unit-shaped groups (e.g. 74LS245's A/B) but only single-unit refdes is
+    treated as a regular chip — its A/B groups are functional clusters, not
+    sub-units."""
+    out: set[str] = set()
+    for comp in components:
+        if not _REFDES_SUBUNIT.match(comp["refdes"]):
+            continue
+        part = chips["parts"].get(comp["part"])
+        if part and _unit_groups(part):
+            out.add(comp["part"])
+    return out
+
+
+def _comp_unit_letter(refdes: str, part_key: str, multi_unit_parts: set[str]) -> str | None:
+    """Return the sub-unit letter (e.g. 'a','b','c','d') for a sub-unit
+    component, or None for a regular full-chip component."""
+    if part_key not in multi_unit_parts:
+        return None
+    m = _REFDES_SUBUNIT.match(refdes)
+    return m.group(2) if m else None
+
+
+def _comp_lib_id(part_key: str, unit_letter: str | None) -> str:
+    """Lib-symbol id used in the schematic for this component."""
+    return f"{part_key}_{unit_letter}" if unit_letter else part_key
+
+
+def _comp_active_pins(part: dict, unit_letter: str | None) -> list[dict]:
+    """Pins that are visible on this component's symbol. For full-chip
+    components: every pin. For sub-units: that gate's group + common +
+    power/ground, in the same order synth_symbol's compact layout uses."""
+    if unit_letter is None:
+        return list(part["pins"])
+    units = _unit_groups(part)
+    idx = ord(unit_letter) - ord("a")
+    if not units or not (0 <= idx < len(units)):
+        return list(part["pins"])
+    unit_group = units[idx]
+    active = []
+    for p in part["pins"]:
+        if p.get("type") in ("power", "ground"):
+            active.append(p)
+            continue
+        g = p.get("group")
+        if g == unit_group or g == "common":
+            active.append(p)
+    if not active:
+        return list(part["pins"])
+
+    def _order_key(pin):
+        t = pin.get("type", "")
+        g = pin.get("group", "")
+        return (
+            0 if g == unit_group else (1 if g == "common" else 2),
+            0 if t in ("input", "clock") else
+            1 if t in ("output", "tri_state", "open_collector", "bidir") else
+            2 if t == "passive" else 3,
+            pin["n"],
+        )
+    return sorted(active, key=_order_key)
 
 # A3 - small margin for legibility.
 PAPER_W_MM = 420.0
 PAPER_H_MM = 297.0
-PAPER_MARGIN_MM = 15.0
+PAPER_MARGIN_MM = 12.7  # multiple of grid so margin doesn't put placements off-grid
 PIN_LENGTH_MM = 2.54  # KiCad standard 0.1"
 PIN_PITCH_MM = 2.54
+KICAD_GRID_MM = 1.27   # 50 mil — KiCad's default connection grid; ERC fails endpoints off this
+
+
+def _snap(v: float) -> float:
+    """Round v to KiCad's 50-mil connection grid. Pin offsets relative to a
+    component center are already grid-multiples by construction; snapping the
+    component center is enough to put every emitted endpoint on-grid."""
+    return round(v / KICAD_GRID_MM) * KICAD_GRID_MM
 
 PIN_TYPE_MAP = {
     "input":           "input",
@@ -61,63 +167,137 @@ def _f(v) -> str:
     return f"{float(v):g}"
 
 
-def synth_symbol(part_key: str, part: dict, lib: str = "user") -> str:
-    """Generate a (symbol ...) lib entry for a part. Standard DIP layout."""
+def _pin_lib_line(n_pos: int, total_visible: int, p: dict,
+                  body_left: float, body_right: float, body_top: float) -> str:
+    """Emit one (pin ...) line in a DIP-style layout. n_pos is the 1-based
+    visible-slot index used to compute pin position; total_visible is the
+    overall pin count we're laying out. Pins go down the left then up the
+    right, half-and-half. The pin's own number/name/type come from `p`."""
+    half = max(1, total_visible // 2)
+    if n_pos <= half:
+        slot = n_pos - 1
+        x = body_left - PIN_LENGTH_MM
+        y = body_top - (slot + 0.5) * PIN_PITCH_MM
+        angle = 180
+    else:
+        slot = total_visible - n_pos
+        x = body_right + PIN_LENGTH_MM
+        y = body_top - (slot + 0.5) * PIN_PITCH_MM
+        angle = 0
+    ktype = PIN_TYPE_MAP.get(p.get("type", "passive"), "passive")
+    name = p["name"]
+    if name.startswith("~"):
+        name = "~{" + name[1:] + "}"
+    return (
+        f'      (pin {ktype} line (at {_f(x)} {_f(y)} {angle}) (length {_f(PIN_LENGTH_MM)})\n'
+        f'        (name {_esc(name)} (effects (font (size 1.27 1.27))))\n'
+        f'        (number {_esc(str(p["n"]))} (effects (font (size 1.27 1.27))))\n'
+        f'      )'
+    )
+
+
+def _full_dip_pin_line(p: dict, body_left: float, body_right: float,
+                       body_top: float, half: int, pin_count: int) -> str:
+    """DIP layout where each pin sits at its own pin number's slot."""
+    n = p["n"]
+    if n <= half:
+        n_pos = n
+        total = pin_count
+    else:
+        n_pos = n
+        total = pin_count
+    return _pin_lib_line(n_pos, total, p, body_left, body_right, body_top)
+
+
+def synth_symbol(part_key: str, part: dict, lib: str = "user", *,
+                 unit_letter: str | None = None) -> str:
+    """Generate a (symbol ...) lib entry.
+
+    If unit_letter is None: emit the full DIP layout for the chip.
+
+    If unit_letter is set (e.g. 'a'): emit a compact symbol containing only
+    that gate's pins (per librarian `group` tag) plus power/ground/common.
+    The lib_id is `{part_key}_{letter}`. Each sub-unit refdes gets its own
+    such symbol so KiCad sees each gate as a self-contained component with
+    full power, sized to its own pin count.
+    """
     pin_count = len(part["pins"])
     if pin_count == 0 or pin_count % 2:
-        # Odd-pin chips not supported in v0; emit a placeholder symbol.
         return _placeholder_symbol(part_key, part, lib)
 
-    half = pin_count // 2
-    body_height = (half - 1) * PIN_PITCH_MM + 2 * PIN_PITCH_MM
-    body_top = body_height / 2
-    body_bot = -body_height / 2
-    body_w = 12.7  # 0.5 inch wide body
-    body_left = -body_w / 2
-    body_right = body_w / 2
-
-    # Pin positions: pins 1..half down the left, half+1..n up the right.
-    pin_lines = []
-    for p in part["pins"]:
-        n = p["n"]
-        if n <= half:
-            slot = n - 1                    # 0 at top
-            x = body_left - PIN_LENGTH_MM
-            y = body_top - (slot + 0.5) * PIN_PITCH_MM
-            angle = 0  # extends to the right toward body? let's see
-            # KiCad convention: pin AT is the far end of the pin line. Angle is
-            # the direction the pin LINE points outward (away from the body).
-            # For a left-side pin pointing left, angle = 180.
-            angle = 180
-        else:
-            slot = pin_count - n             # 0 at top-right (pin = pin_count)
-            x = body_right + PIN_LENGTH_MM
-            y = body_top - (slot + 0.5) * PIN_PITCH_MM
-            angle = 0  # extends to the right (away from body)
-
-        ktype = PIN_TYPE_MAP.get(p.get("type", "passive"), "passive")
-        # KiCad pin name rules: ~XX for active-low becomes ~{XX} in sch v6+.
-        name = p["name"]
-        if name.startswith("~"):
-            name = "~{" + name[1:] + "}"
-
-        pin_lines.append(
-            f'      (pin {ktype} line (at {_f(x)} {_f(y)} {angle}) (length {_f(PIN_LENGTH_MM)})\n'
-            f'        (name {_esc(name)} (effects (font (size 1.27 1.27))))\n'
-            f'        (number {_esc(str(n))} (effects (font (size 1.27 1.27))))\n'
-            f'      )'
-        )
+    if unit_letter is None:
+        # Full-chip DIP layout (existing behavior).
+        half = pin_count // 2
+        body_height = (half - 1) * PIN_PITCH_MM + 2 * PIN_PITCH_MM
+        body_top = body_height / 2
+        body_bot = -body_height / 2
+        body_w = 12.7
+        body_left = -body_w / 2
+        body_right = body_w / 2
+        pin_lines = [
+            _full_dip_pin_line(p, body_left, body_right, body_top, half, pin_count)
+            for p in part["pins"]
+        ]
+        sym_id = part_key
+    else:
+        units = _unit_groups(part)
+        idx = ord(unit_letter) - ord("a")
+        if not units or not (0 <= idx < len(units)):
+            # Fall back to full-chip if the part doesn't actually have
+            # unit-shaped groups for this letter.
+            return synth_symbol(part_key, part, lib, unit_letter=None)
+        unit_group = units[idx]
+        # Pins on this sub-unit: own gate's pins + common-group pins +
+        # power/ground (so each sub-component looks like a complete chip
+        # to KiCad's ERC and shows VCC/GND visually).
+        active = []
+        for p in part["pins"]:
+            if p.get("type") in ("power", "ground"):
+                active.append(p)
+                continue
+            g = p.get("group")
+            if g == unit_group or g == "common":
+                active.append(p)
+        if not active:
+            return synth_symbol(part_key, part, lib, unit_letter=None)
+        # Lay out the active pins in a compact DIP: split roughly in half,
+        # left/right. Sort so I/O comes first, then common, then power.
+        def _order_key(pin):
+            t = pin.get("type", "")
+            g = pin.get("group", "")
+            return (
+                0 if g == unit_group else (1 if g == "common" else 2),
+                0 if t in ("input", "clock") else
+                1 if t in ("output", "tri_state", "open_collector", "bidir") else
+                2 if t == "passive" else 3,
+                pin["n"],
+            )
+        active_sorted = sorted(active, key=_order_key)
+        total = len(active_sorted)
+        # Compact body: enough rows for half the active pins plus a top/bot pad.
+        rows = max(1, (total + 1) // 2)
+        body_height = (rows - 1) * PIN_PITCH_MM + 2 * PIN_PITCH_MM
+        body_top = body_height / 2
+        body_bot = -body_height / 2
+        body_w = 12.7
+        body_left = -body_w / 2
+        body_right = body_w / 2
+        half = (total + 1) // 2
+        pin_lines = [
+            _pin_lib_line(i + 1, total, p, body_left, body_right, body_top)
+            for i, p in enumerate(active_sorted)
+        ]
+        sym_id = f"{part_key}_{unit_letter}"
 
     pins_block = "\n".join(pin_lines)
-
-    sym = f'''  (symbol "{lib}:{part_key}"
+    sym = f'''  (symbol "{lib}:{sym_id}"
     (pin_names (offset 0.508))
     (exclude_from_sim no)
     (in_bom yes)
     (on_board yes)
     (property "Reference" "U" (at 0 {_f(body_top + 2)} 0)
       (effects (font (size 1.27 1.27))))
-    (property "Value" "{part_key}" (at 0 {_f(body_bot - 2)} 0)
+    (property "Value" "{sym_id}" (at 0 {_f(body_bot - 2)} 0)
       (effects (font (size 1.27 1.27))))
     (property "Footprint" "" (at 0 0 0)
       (effects (font (size 1.27 1.27)) (hide yes)))
@@ -125,17 +305,43 @@ def synth_symbol(part_key: str, part: dict, lib: str = "user") -> str:
       (effects (font (size 1.27 1.27)) (hide yes)))
     (property "Description" "{part.get('description', '')}" (at 0 0 0)
       (effects (font (size 1.27 1.27)) (hide yes)))
-    (symbol "{part_key}_0_1"
+    (symbol "{sym_id}_0_1"
       (rectangle (start {_f(body_left)} {_f(body_top)}) (end {_f(body_right)} {_f(body_bot)})
         (stroke (width 0.254) (type default))
         (fill (type background))
       )
     )
-    (symbol "{part_key}_1_1"
+    (symbol "{sym_id}_1_1"
 {pins_block}
     )
   )'''
     return sym
+
+
+def synth_power_symbol(power_name: str, lib: str = "user") -> str:
+    """A 1-pin power-source symbol whose single pin is power_out, named after
+    the supplied net name (VCC, GND, +5V, …). Used to drive the chips'
+    power_in pins so KiCad's ERC stops flagging power_pin_not_driven."""
+    safe = "".join(c if c.isalnum() else "_" for c in power_name) or "PWR"
+    return f'''  (symbol "{lib}:PWR_{safe}"
+    (power) (pin_names (offset 0)) (exclude_from_sim no) (in_bom no) (on_board no)
+    (property "Reference" "#PWR" (at 0 -3.81 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Value" "{power_name}" (at 0 3.81 0)
+      (effects (font (size 1.27 1.27))))
+    (property "Footprint" "" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (symbol "PWR_{safe}_0_1"
+      (polyline (pts (xy -1.27 1.27) (xy 0 0) (xy 1.27 1.27))
+        (stroke (width 0) (type default)) (fill (type none)))
+    )
+    (symbol "PWR_{safe}_1_1"
+      (pin power_out line (at 0 0 90) (length 0)
+        (name "{power_name}" (effects (font (size 1.27 1.27))))
+        (number "1" (effects (font (size 1.27 1.27))))
+      )
+    )
+  )'''
 
 
 def _placeholder_symbol(part_key: str, part: dict, lib: str) -> str:
@@ -232,14 +438,44 @@ def gen_sch(graph: dict, chips: dict, sheet_index: int, project_name: str = "sch
     nets = [n for n in graph.get("nets", [])
             if any(ep.get("sheet") == sheet_index for ep in n.get("endpoints", []))]
 
-    # Build lib_symbols for unique parts present.
-    parts_used = sorted({c["part"] for c in components})
-    sym_defs = []
-    for pk in parts_used:
-        part = chips["parts"].get(pk)
+    # Build lib_symbols. For multi-unit parts that the board uses as
+    # split gates (g01a/b/c/d), emit one lib_symbol per sub-unit letter so
+    # each gate-instance is a self-contained component with only its own
+    # pins. Other parts get the standard full-chip symbol.
+    multi_unit_parts = _multi_unit_parts(components, chips)
+    needed_lib_ids: dict[tuple[str, str | None], dict] = {}
+    for c in components:
+        part = chips["parts"].get(c["part"])
         if not part:
             continue
-        sym_defs.append(synth_symbol(pk, part))
+        letter = _comp_unit_letter(c["refdes"], c["part"], multi_unit_parts)
+        needed_lib_ids[(c["part"], letter)] = part
+    sym_defs = []
+    for (pk, letter), part in sorted(needed_lib_ids.items(), key=lambda x: (x[0][0], x[0][1] or "")):
+        sym_defs.append(synth_symbol(pk, part, unit_letter=letter))
+
+    # Collect power/ground pins on this sheet, grouped by their library pin
+    # name (typically "VCC" / "GND"). Each unique name gets one synthesized
+    # power-source symbol + one instance + one global_label per chip pin.
+    # Driving chips' power_in pins from a power_out source clears KiCad's
+    # power_pin_not_driven errors automatically — the alternative is asking
+    # the LLM to remember to add power flags every time, which it won't.
+    # Each sub-unit instance carries its own copy of the chip's power pins
+    # (since KiCad sees g01a/b/c/d as four separate components by refdes).
+    # Each gets a global_label so they all join the same VCC/GND net.
+    power_pin_groups: dict[str, list[tuple[str, int, str]]] = {}
+    for comp in components:
+        part = chips["parts"].get(comp["part"])
+        if not part:
+            continue
+        for p in part["pins"]:
+            if p.get("type") in ("power", "ground"):
+                pname = p.get("name", "").lstrip("~") or ("VCC" if p["type"] == "power" else "GND")
+                power_pin_groups.setdefault(pname, []).append(
+                    (comp["refdes"], p["n"], p["type"]))
+
+    for pname in sorted(power_pin_groups):
+        sym_defs.append(synth_power_symbol(pname))
 
     # Build symbol instances.
     inst_blocks = []
@@ -253,41 +489,69 @@ def gen_sch(graph: dict, chips: dict, sheet_index: int, project_name: str = "sch
         # Place at the center of the bbox (KiCad symbols are centered around (0,0)).
         cx_px = (bbox[0] + bbox[2]) / 2
         cy_px = (bbox[1] + bbox[3]) / 2
-        x_mm = PAPER_MARGIN_MM + cx_px * scale
-        y_mm = PAPER_MARGIN_MM + cy_px * scale
+        x_mm = _snap(PAPER_MARGIN_MM + cx_px * scale)
+        y_mm = _snap(PAPER_MARGIN_MM + cy_px * scale)
 
         comp_uuid = stable_uuid(f"{graph['board']['id']}/sheet/{sheet_index}/{comp['refdes']}")
 
-        # Compute mm position of each pin for wire endpoints, using the same DIP
-        # layout the synthesized symbol uses.
+        unit_letter = _comp_unit_letter(comp["refdes"], comp["part"], multi_unit_parts)
+        lib_id = _comp_lib_id(comp["part"], unit_letter)
+        active_pins = _comp_active_pins(part, unit_letter)
+
+        # Compute mm position of each active pin, mirroring synth_symbol's
+        # layout (full-chip DIP for regular components, compact left/right
+        # split for sub-units).
         pin_count = len(part["pins"])
-        if pin_count and pin_count % 2 == 0:
-            half = pin_count // 2
-            body_height = (half - 1) * PIN_PITCH_MM + 2 * PIN_PITCH_MM
+        if unit_letter is None:
+            if pin_count and pin_count % 2 == 0:
+                half = pin_count // 2
+                body_height = (half - 1) * PIN_PITCH_MM + 2 * PIN_PITCH_MM
+                body_top = body_height / 2
+                body_w = 12.7
+                body_left = -body_w / 2
+                body_right = body_w / 2
+                for p in active_pins:
+                    n = p["n"]
+                    if n <= half:
+                        slot = n - 1
+                        px = body_left - PIN_LENGTH_MM
+                        py = body_top - (slot + 0.5) * PIN_PITCH_MM
+                    else:
+                        slot = pin_count - n
+                        px = body_right + PIN_LENGTH_MM
+                        py = body_top - (slot + 0.5) * PIN_PITCH_MM
+                    pin_endpoint_mm[(comp["refdes"], str(n))] = (x_mm + px, y_mm - py)
+        else:
+            # Compact sub-unit layout: pins listed in active_pins order, half
+            # on the left, half on the right.
+            total = len(active_pins)
+            rows = max(1, (total + 1) // 2)
+            body_height = (rows - 1) * PIN_PITCH_MM + 2 * PIN_PITCH_MM
             body_top = body_height / 2
             body_w = 12.7
             body_left = -body_w / 2
             body_right = body_w / 2
-            for p in part["pins"]:
-                n = p["n"]
-                if n <= half:
-                    slot = n - 1
+            half = (total + 1) // 2
+            for i, p in enumerate(active_pins):
+                n_pos = i + 1
+                if n_pos <= half:
+                    slot = n_pos - 1
                     px = body_left - PIN_LENGTH_MM
                     py = body_top - (slot + 0.5) * PIN_PITCH_MM
                 else:
-                    slot = pin_count - n
+                    slot = total - n_pos
                     px = body_right + PIN_LENGTH_MM
                     py = body_top - (slot + 0.5) * PIN_PITCH_MM
-                pin_endpoint_mm[(comp["refdes"], str(n))] = (x_mm + px, y_mm + py)
+                pin_endpoint_mm[(comp["refdes"], str(p["n"]))] = (x_mm + px, y_mm - py)
 
         ref_uuid_pins = []
-        for p in part["pins"]:
+        for p in active_pins:
             pu = stable_uuid(f"{comp_uuid}/pin/{p['n']}")
             ref_uuid_pins.append(f'    (pin "{p["n"]}" (uuid "{pu}"))')
         pins_block = "\n".join(ref_uuid_pins)
 
         inst = f'''  (symbol
-    (lib_id "user:{comp['part']}")
+    (lib_id "user:{lib_id}")
     (at {_f(x_mm)} {_f(y_mm)} 0)
     (unit 1)
     (exclude_from_sim no)
@@ -313,6 +577,39 @@ def gen_sch(graph: dict, chips: dict, sheet_index: int, project_name: str = "sch
     )
   )'''
         inst_blocks.append(inst)
+
+    # Power-source pseudo-components: one (symbol ...) instance per unique
+    # power-net name, placed in a column at the right margin. A global_label
+    # at the source's pin position pairs with global_labels emitted at each
+    # chip's power pin; KiCad's netlist groups them by name.
+    pwr_x_mm = _snap(PAPER_W_MM - PAPER_MARGIN_MM - 6 * KICAD_GRID_MM)
+    pwr_y0_mm = _snap(PAPER_MARGIN_MM + 4 * KICAD_GRID_MM)
+    for i, pname in enumerate(sorted(power_pin_groups)):
+        safe = "".join(c if c.isalnum() else "_" for c in pname) or "PWR"
+        srefdes = f"#PWR_{safe}"
+        sx = pwr_x_mm
+        sy = _snap(pwr_y0_mm + i * 8 * KICAD_GRID_MM)
+        suuid = stable_uuid(f"{graph['board']['id']}/sheet/{sheet_index}/{srefdes}")
+        inst_blocks.append(f'''  (symbol
+    (lib_id "user:PWR_{safe}")
+    (at {_f(sx)} {_f(sy)} 0)
+    (unit 1) (exclude_from_sim no) (in_bom no) (on_board no) (dnp no)
+    (uuid "{suuid}")
+    (property "Reference" "{srefdes}" (at {_f(sx)} {_f(sy - 5)} 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Value" "{pname}" (at {_f(sx)} {_f(sy + 3)} 0)
+      (effects (font (size 1.27 1.27))))
+    (property "Footprint" "" (at {_f(sx)} {_f(sy)} 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at {_f(sx)} {_f(sy)} 0) (effects (font (size 1.27 1.27)) (hide yes)))
+    (pin "1" (uuid "{stable_uuid(suuid + '/pin/1')}"))
+    (instances
+      (project {_esc(project_name)}
+        (path "/{sheet_uuid}"
+          (reference "{srefdes}") (unit 1)
+        )
+      )
+    )
+  )''')
 
     # Wires (edge_type=wire) connect each pair of endpoints with a straight
     # line. Labels (edge_type=label / sheet_zone / off_page) emit a KiCad
@@ -370,6 +667,32 @@ def gen_sch(graph: dict, chips: dict, sheet_index: int, project_name: str = "sch
     (effects (font (size 1.27 1.27)) (justify left))
     (uuid "{luuid}")
   )''')
+
+    # Global labels for every power/ground pin (chip side AND source side)
+    # so KiCad's netlist groups them by name, which clears
+    # power_pin_not_driven and power_pin_not_connected for free.
+    for pname, members in power_pin_groups.items():
+        # Chip-side label at each power pin position.
+        for refdes, pin_n, _ptype in members:
+            pos = pin_endpoint_mm.get((refdes, str(pin_n)))
+            if not pos:
+                continue
+            luuid = stable_uuid(f"pwrlbl/{pname}/{refdes}.{pin_n}")
+            label_blocks.append(
+                f'  (global_label {_esc(_kicad_label(pname))} (shape input) '
+                f'(at {_f(pos[0])} {_f(pos[1])} 0)\n'
+                f'    (effects (font (size 1.27 1.27)) (justify left))\n'
+                f'    (uuid "{luuid}")\n  )')
+    # Source-side label per power-source instance.
+    for i, pname in enumerate(sorted(power_pin_groups)):
+        sx = pwr_x_mm
+        sy = _snap(pwr_y0_mm + i * 8 * KICAD_GRID_MM)
+        luuid = stable_uuid(f"pwrlbl/{pname}/source")
+        label_blocks.append(
+            f'  (global_label {_esc(_kicad_label(pname))} (shape output) '
+            f'(at {_f(sx)} {_f(sy)} 0)\n'
+            f'    (effects (font (size 1.27 1.27)) (justify left))\n'
+            f'    (uuid "{luuid}")\n  )')
 
     title = f"{graph['board'].get('title', graph['board']['id'])} sheet {sheet_index}: {sheet_meta.get('title', '')}"
     drawing_no = graph['board'].get('drawing_number', '')

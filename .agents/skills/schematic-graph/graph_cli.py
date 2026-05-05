@@ -270,6 +270,64 @@ def cmd_add_net(args):
           ", ".join(f"{e['refdes']}.{e['pin']}" for e in out_eps))
 
 
+def cmd_extend_net(args):
+    """Append endpoints to an existing net. Cross-sheet labels (MCD.0, RCPR0',
+    TTLTrue.D, …) naturally accumulate endpoints as more sheets are
+    transcribed; this is the first-class verb for that. The new endpoints
+    must share the existing net's edge_type; duplicates are skipped; if the
+    net doesn't exist, error (use add-net to create)."""
+    graph = load_graph(args.board)
+    net = next((n for n in graph.get("nets", []) if n["name"] == args.name), None)
+    if not net:
+        print(f"no such net: {args.name} (use add-net to create)", file=sys.stderr)
+        sys.exit(1)
+    existing_et = net["endpoints"][0].get("edge_type") if net["endpoints"] else None
+    edge_type = args.edge_type or existing_et
+    if not edge_type:
+        print(f"net {args.name} has no endpoints with edge_type and --edge-type wasn't given",
+              file=sys.stderr); sys.exit(1)
+    if existing_et and edge_type != existing_et:
+        print(f"--edge-type {edge_type!r} disagrees with existing endpoints' {existing_et!r}",
+              file=sys.stderr); sys.exit(1)
+    if edge_type not in EDGE_TYPES:
+        print(f"--edge-type must be one of {EDGE_TYPES}", file=sys.stderr); sys.exit(1)
+
+    eps = parse_endpoints(args.add_endpoints)
+    refdes_index = {c["refdes"]: c for c in graph["components"]}
+    existing_keys = {(e["refdes"], str(e["pin"])) for e in net["endpoints"]}
+    added, skipped = [], []
+    for refdes, pin in eps:
+        comp = refdes_index.get(refdes)
+        if not comp:
+            print(f"endpoint {refdes}.{pin}: refdes not in graph", file=sys.stderr); sys.exit(1)
+        pin_val = int(pin) if pin.isdigit() else pin
+        key = (refdes, str(pin_val))
+        if key in existing_keys:
+            skipped.append(f"{refdes}.{pin}")
+            continue
+        ep = {
+            "refdes": refdes,
+            "pin": pin_val,
+            "sheet": comp.get("sheet"),
+            "edge_type": edge_type,
+        }
+        if edge_type == "sheet_zone":
+            if not args.zone_ref:
+                print("sheet_zone edges require --zone-ref (e.g. 4C6)", file=sys.stderr); sys.exit(1)
+            ep["sheet_zone_ref"] = args.zone_ref
+        ep["evidence"] = {"source": args.source}
+        if args.note:
+            ep["evidence"]["note"] = args.note
+        net["endpoints"].append(ep)
+        existing_keys.add(key)
+        added.append(f"{refdes}.{pin}")
+    save_graph(args.board, graph)
+    msg = f"extended net {args.name}: +{len(added)} endpoint(s)"
+    if added: msg += f" ({', '.join(added)})"
+    if skipped: msg += f"; skipped {len(skipped)} duplicate(s) ({', '.join(skipped)})"
+    print(msg)
+
+
 def cmd_remove_net(args):
     graph = load_graph(args.board)
     nets = graph.get("nets", [])
@@ -635,6 +693,24 @@ def cmd_export_kicad(args):
 
     graph = load_graph(args.board)
     chips = load_chips()
+
+    # Gate: refuse to export an invalid graph. The next agent should not be
+    # able to commit a kicad_sch derived from a graph with null edge_types,
+    # missing pin positions, or unknown parts. Use --allow-invalid only when
+    # consciously inspecting a partial state.
+    if not args.allow_invalid:
+        errs = _collect_validation_errors(graph, chips)
+        if errs:
+            print(f"export aborted: graph.json has {len(errs)} validation error(s).",
+                  file=sys.stderr)
+            for e in errs[:30]:
+                print(f"  {e}", file=sys.stderr)
+            if len(errs) > 30:
+                print(f"  ... and {len(errs) - 30} more (run validate to see all)",
+                      file=sys.stderr)
+            print("\nfix the graph or pass --allow-invalid to export anyway.",
+                  file=sys.stderr)
+            sys.exit(2)
     out_dir = Path(args.out_dir) if args.out_dir else (board_dir(args.board) / "kicad")
     out_dir.mkdir(parents=True, exist_ok=True)
 
@@ -644,6 +720,36 @@ def cmd_export_kicad(args):
     if not sheets:
         print(f"no matching sheet(s)", file=sys.stderr)
         sys.exit(1)
+
+    # Emit a minimal .kicad_pro so kicad-cli treats this directory as a
+    # KiCad project and reads the sym-lib-table from it (instead of falling
+    # back to the global config, which doesn't know about 'user').
+    pro_path = out_dir / f"{args.board}.kicad_pro"
+    if not pro_path.exists():
+        pro_path.write_text(
+            '{\n  "meta": {"filename": "' + args.board + '.kicad_pro", "version": 1},\n'
+            '  "libraries": {"pinned_symbol_libs": [], "pinned_footprint_libs": []}\n}\n'
+        )
+
+    # Emit a sym-lib-table that registers the 'user' library used by the
+    # exporter's lib_id refs. The synthesized symbols are embedded under
+    # lib_symbols inside each .kicad_sch, so the URI can be empty — the
+    # table just acknowledges the lib name to KiCad and silences the
+    # "library 'user' is not in the configuration" warning.
+    sym_lib_table = out_dir / "sym-lib-table"
+    if not sym_lib_table.exists():
+        sym_lib_table.write_text(
+            '(sym_lib_table\n'
+            '  (lib (name "user")(type "KiCad")(uri "${KIPRJMOD}/user.kicad_sym")(options "")(descr "embedded user symbols (cached in each .kicad_sch lib_symbols block)"))\n'
+            ')\n'
+        )
+        # KiCad refuses to recognise the lib unless the .kicad_sym file
+        # exists, even if empty. Write a minimal placeholder.
+        user_sym = out_dir / "user.kicad_sym"
+        if not user_sym.exists():
+            user_sym.write_text(
+                '(kicad_symbol_lib (version 20231120) (generator "paper-to-schematic") (generator_version "0.1"))\n'
+            )
 
     written = []
     for idx in sheets:
@@ -957,9 +1063,7 @@ def cmd_validate_board(args):
     print(f"ok — {bfile}: schema valid, {len(board.get('sheets', []))} sheet(s) on disk")
 
 
-def cmd_validate(args):
-    graph = load_graph(args.board)
-    chips = load_chips()
+def _collect_validation_errors(graph: dict, chips: dict) -> list[str]:
     errs = []
     seen = set()
     for c in graph["components"]:
@@ -1009,11 +1113,28 @@ def cmd_validate(args):
             if ep.get("refdes") not in refdes_index:
                 errs.append(f"net {name}: endpoint refdes {ep.get('refdes')!r} not in graph")
             et = ep.get("edge_type")
-            if et not in EDGE_TYPES:
+            if et is None:
+                errs.append(
+                    f"net {name}: endpoint {ep.get('refdes')}.{ep.get('pin')} has "
+                    f"edge_type=null. Every endpoint must declare its connection "
+                    f"kind (one of {EDGE_TYPES}). Use list-nets and untyped-nets "
+                    f"to find these; classify with add-net (after remove-net) or "
+                    f"by editing graph.json directly.")
+            elif et not in EDGE_TYPES:
                 errs.append(f"net {name}: bad edge_type {et!r}")
             if et == "sheet_zone" and not ep.get("sheet_zone_ref"):
                 errs.append(f"net {name}: sheet_zone endpoint missing sheet_zone_ref")
+            # Labels and off-page connectors are KEYED BY NAME — a null name
+            # means there's nothing for KiCad to match against on other sheets.
+            if et in ("label", "sheet_zone", "off_page") and not name:
+                errs.append(f"net {name!r}: edge_type={et} requires a non-empty name")
+    return errs
 
+
+def cmd_validate(args):
+    graph = load_graph(args.board)
+    chips = load_chips()
+    errs = _collect_validation_errors(graph, chips)
     if errs:
         print(f"FAIL — {len(errs)} issues:")
         for e in errs:
@@ -1021,6 +1142,376 @@ def cmd_validate(args):
         sys.exit(1)
     print(f"ok — {len(graph['components'])} components, "
           f"{len(graph.get('nets', []))} nets, all parts in librarian")
+
+
+def cmd_untyped_nets(args):
+    """List nets touching --sheet that have null edge_type (or null label
+    where one is required). The Stage-3 acceptance gate: this command must
+    return zero rows before the LLM moves on. Easier to read than `validate`
+    for this single class of error."""
+    graph = load_graph(args.board)
+    refdes_sheets = {c["refdes"]: c.get("sheet") for c in graph["components"]}
+    rows = []
+    for net in graph.get("nets", []):
+        eps = net.get("endpoints", [])
+        touches = (args.sheet is None) or any(
+            refdes_sheets.get(ep.get("refdes")) == args.sheet for ep in eps)
+        if not touches:
+            continue
+        bad = [ep for ep in eps if ep.get("edge_type") is None]
+        if bad:
+            rows.append((net.get("name") or "<no-name>", len(eps), len(bad)))
+        elif not net.get("name") and any(
+                ep.get("edge_type") in ("label", "sheet_zone", "off_page") for ep in eps):
+            rows.append((net.get("name") or "<no-name>", len(eps), 0))
+    label = f" on sheet {args.sheet}" if args.sheet is not None else ""
+    if not rows:
+        print(f"PASS — no untyped nets{label}")
+        return
+    print(f"FAIL — {len(rows)} untyped/unnamed net(s){label}:")
+    for name, n_eps, n_null in rows:
+        print(f"  {name:18s}  endpoints={n_eps}  null_edge_types={n_null}")
+    sys.exit(1)
+
+
+# Categories we *can* and *should* eliminate by construction. If any of these
+# show up in the ERC report after the export-side fixes (grid snap, power
+# flags, library mapping), it's a process bug — not a transcription artifact.
+ERC_BLOCKING = {
+    "endpoint_off_grid",
+    "power_pin_not_driven",
+}
+# Categories that are EXPECTED while the rest of the board hasn't been
+# transcribed. Cross-sheet labels look isolated until their other ends land.
+ERC_EXPECTED_CROSS_SHEET = {
+    "isolated_pin_label",
+    "label_dangling",
+    "pin_not_connected",
+    "pin_not_driven",
+    "unconnected_wire_endpoint",
+}
+# Warnings the export emits as a known cosmetic side-effect: stacked
+# global_labels at power pins and KiCad nagging that the inlined 'user'
+# library isn't in its global config. Both produce a working netlist.
+ERC_BENIGN_WARNINGS = {
+    "label_multiple_wires",
+    "lib_symbol_issues",
+}
+
+
+def _parse_erc_counts(rep_path: Path):
+    """Return ({cat: count}, {cat: error_count}) for one .erc.txt file."""
+    text = rep_path.read_text()
+    import re
+    counts = {}
+    error_counts = {}
+    lines = text.splitlines()
+    for i, line in enumerate(lines):
+        m = re.match(r"\[([a-z_]+)\]:", line.strip())
+        if m:
+            cat = m.group(1)
+            counts[cat] = counts.get(cat, 0) + 1
+            sev = "warning"
+            if i + 1 < len(lines) and "; error" in lines[i + 1]:
+                sev = "error"
+            if sev == "error":
+                error_counts[cat] = error_counts.get(cat, 0) + 1
+    return counts, error_counts
+
+
+def _board_single_endpoint_labels(graph: dict) -> list[tuple[str, str]]:
+    """Return [(net_name, "refdes.pin@sheet")] for named label-style nets that
+    have only one endpoint across the whole board. After every sheet is
+    transcribed, any name surfaced here is a real off-page connection that
+    didn't land on its other side."""
+    out = []
+    for net in graph.get("nets", []):
+        eps = net.get("endpoints", [])
+        if len(eps) != 1:
+            continue
+        et = eps[0].get("edge_type")
+        if et not in ("label", "sheet_zone", "off_page"):
+            continue
+        if not net.get("name"):
+            continue
+        ep = eps[0]
+        out.append((net["name"], f"{ep.get('refdes')}.{ep.get('pin')}@sheet{ep.get('sheet')}"))
+    out.sort()
+    return out
+
+
+def cmd_erc_summary(args):
+    """Read the .erc.txt produced by the last export-kicad run, categorise
+    violations, and print a single PASS/FAIL verdict the LLM can act on.
+
+    With --sheet, looks at one sheet's report. Without --sheet (board-level
+    mode), aggregates every sheet's report and additionally surfaces named
+    labels that have only one endpoint across the whole board — those are
+    the real off-page connections that didn't land on their other side."""
+    bdir = board_dir(args.board)
+    kicad_dir = bdir / "kicad"
+
+    if args.report:
+        rep = Path(args.report)
+        counts, error_counts = _parse_erc_counts(rep)
+        report_label = rep.name
+        board_mode = False
+    elif args.sheet is None:
+        matches = sorted(kicad_dir.glob("*_s*_*.erc.txt"))
+        if not matches:
+            print(f"no ERC reports found at {kicad_dir}/*_s*_*.erc.txt — "
+                  f"run export-kicad --validate first.", file=sys.stderr)
+            sys.exit(2)
+        counts, error_counts = {}, {}
+        for m in matches:
+            c, e = _parse_erc_counts(m)
+            for k, v in c.items(): counts[k] = counts.get(k, 0) + v
+            for k, v in e.items(): error_counts[k] = error_counts.get(k, 0) + v
+        report_label = f"board {args.board} ({len(matches)} sheet report(s))"
+        board_mode = True
+    else:
+        matches = sorted(kicad_dir.glob(f"*_s{args.sheet}_*.erc.txt"))
+        if not matches:
+            print(f"no ERC report found at {kicad_dir}/*_s{args.sheet}_*.erc.txt — "
+                  f"run export-kicad --validate first.", file=sys.stderr)
+            sys.exit(2)
+        rep = matches[-1]
+        counts, error_counts = _parse_erc_counts(rep)
+        report_label = rep.name
+        board_mode = False
+
+    print(f"ERC report: {report_label}")
+    if not counts and not board_mode:
+        print("PASS — zero violations")
+        return
+
+    blocking = {k: v for k, v in counts.items() if k in ERC_BLOCKING}
+    expected = {k: v for k, v in counts.items() if k in ERC_EXPECTED_CROSS_SHEET}
+    benign = {k: v for k, v in counts.items() if k in ERC_BENIGN_WARNINGS}
+    other = {k: v for k, v in counts.items()
+             if k not in ERC_BLOCKING
+             and k not in ERC_EXPECTED_CROSS_SHEET
+             and k not in ERC_BENIGN_WARNINGS}
+
+    def fmt(d):
+        return ", ".join(f"{k}={v}" for k, v in sorted(d.items())) if d else "(none)"
+
+    total_errors = sum(error_counts.values())
+    total_warnings = sum(counts.values()) - total_errors
+    print(f"  blocking ({sum(blocking.values())}): {fmt(blocking)}")
+    print(f"  cross-sheet expected ({sum(expected.values())}): {fmt(expected)}")
+    print(f"  benign ({sum(benign.values())}): {fmt(benign)}")
+    print(f"  other ({sum(other.values())}): {fmt(other)}")
+    print(f"  severity: {total_errors} error(s), {total_warnings} warning(s)")
+
+    if board_mode:
+        graph = load_graph(args.board)
+        loners = _board_single_endpoint_labels(graph)
+        print(f"\nsingle-endpoint named labels ({len(loners)}): "
+              f"once every sheet is transcribed, these are real off-page "
+              f"connections missing their other side.")
+        for name, where in loners[:30]:
+            print(f"  {name:20s}  {where}")
+        if len(loners) > 30:
+            print(f"  … and {len(loners) - 30} more")
+
+    # The gate: blocking categories fail unconditionally; `other` fails when
+    # there's at least one error (warnings in `other` get surfaced but don't
+    # block). `expected` and `benign` are noise.
+    other_errors = {k: error_counts.get(k, 0) for k in other if error_counts.get(k, 0) > 0}
+    if blocking or other_errors:
+        fail_count = sum(blocking.values()) + sum(other_errors.values())
+        print(f"\nFAIL — {fail_count} blocking issue(s). Construction bugs in "
+              f"`blocking` come from the graph or the export and should be 0; "
+              f"errors in `other` (typically pin_to_pin) are real wiring mistakes "
+              f"in the graph the LLM must fix.")
+        sys.exit(1)
+    print(f"\nPASS — only cross-sheet noise + benign library warnings remain "
+          f"({total_warnings} warning(s) total). These resolve as the rest of "
+          f"the board is transcribed.")
+
+
+def cmd_render_kicad(args):
+    """Wrap kicad-cli sch export svg + sips so the LLM doesn't need to
+    remember the kicad-cli flags. Outputs a PNG the agent should Read back
+    and visually compare to the source overlay."""
+    cli = _find_kicad_cli()
+    if not cli:
+        print("kicad-cli not found", file=sys.stderr); sys.exit(2)
+    bdir = board_dir(args.board)
+    kicad_dir = bdir / "kicad"
+    matches = sorted(kicad_dir.glob(f"*_s{args.sheet}_*.kicad_sch"))
+    if not matches:
+        print(f"no kicad_sch for sheet {args.sheet}; run export-kicad first.",
+              file=sys.stderr); sys.exit(2)
+    sch = matches[-1]
+    out_dir = Path(args.out_dir) if args.out_dir else Path(f"/tmp/{args.board}_s{args.sheet}_kicad")
+    out_dir.mkdir(parents=True, exist_ok=True)
+    import subprocess
+    subprocess.run([cli, "sch", "export", "svg", "--output", str(out_dir), str(sch)],
+                   check=True, capture_output=True)
+    svg = out_dir / f"{sch.stem}.svg"
+    png = Path(args.out) if args.out else out_dir / f"{sch.stem}.png"
+    r = subprocess.run(["sips", "-s", "format", "png", str(svg), "--out", str(png)],
+                       capture_output=True, text=True)
+    if r.returncode != 0:
+        print(f"sips failed: {r.stderr}", file=sys.stderr); sys.exit(2)
+    print(f"wrote {png}")
+
+
+def cmd_lint(args):
+    """Run a battery of cheap correctness checks on a sheet. Each check fails
+    independently; the LLM is expected to fix every FAIL before declaring the
+    sheet done. This is a separate pass from `validate` (which checks the
+    graph schema) and `erc-summary` (which categorises KiCad's view) — `lint`
+    inspects the graph against the source PNG and the librarian, catching
+    transcription mistakes that schemas can't see."""
+    graph = load_graph(args.board)
+    chips = load_chips()
+    sheet_meta = next((s for s in graph["sheets"] if s["index"] == args.sheet), None)
+    if not sheet_meta:
+        print(f"sheet {args.sheet} not in board {args.board}", file=sys.stderr); sys.exit(1)
+
+    components = [c for c in graph["components"] if c["sheet"] == args.sheet]
+    nets = [n for n in graph.get("nets", [])
+            if any(ep.get("sheet") == args.sheet for ep in n.get("endpoints", []))]
+    refdes_index = {c["refdes"]: c for c in components}
+
+    fails = []   # blocking
+    warns = []   # advisory
+
+    # --- Bbox sanity ---
+    img = None
+    try:
+        import cv2
+        img_path = (board_dir(args.board) / sheet_meta["scan_path"]).resolve()
+        img = cv2.imread(str(img_path), cv2.IMREAD_GRAYSCALE)
+    except Exception:
+        pass
+
+    for c in components:
+        bbox = c.get("bbox") or []
+        if len(bbox) != 4:
+            fails.append(f"bbox/{c['refdes']}: malformed bbox {bbox}")
+            continue
+        w = bbox[2] - bbox[0]
+        h = bbox[3] - bbox[1]
+        if w <= 0 or h <= 0:
+            fails.append(f"bbox/{c['refdes']}: degenerate {bbox}")
+            continue
+        # Plausible chip bbox: a DIP-16 at ~300 DPI is ~150–500 px wide,
+        # ~250–800 px tall. Anything 10× off is almost certainly wrong.
+        part = chips["parts"].get(c["part"], {})
+        n_pins = len(part.get("pins") or [])
+        if n_pins:
+            min_dim = min(w, h); max_dim = max(w, h)
+            if max_dim < 80:
+                fails.append(f"bbox/{c['refdes']}: too small ({w:.0f}×{h:.0f}px) for a "
+                             f"{n_pins}-pin chip; chip body likely missed")
+            elif max_dim > 1200:
+                warns.append(f"bbox/{c['refdes']}: very large ({w:.0f}×{h:.0f}px) — "
+                             f"likely includes adjacent text or wires")
+            elif min_dim / max_dim < 0.15:
+                warns.append(f"bbox/{c['refdes']}: very elongated aspect "
+                             f"{min_dim:.0f}:{max_dim:.0f} — verify it's a chip and not a label/wire region")
+        # Inside the page.
+        if img is not None:
+            H, W = img.shape[:2]
+            if bbox[0] < 0 or bbox[1] < 0 or bbox[2] > W or bbox[3] > H:
+                fails.append(f"bbox/{c['refdes']}: extends outside page bounds ({W}×{H})")
+            else:
+                # If the bbox interior is blank (mean intensity > 248 on a uint8
+                # grayscale page that has black ink on white), the bbox almost
+                # certainly does not cover any chip body.
+                x1, y1, x2, y2 = (int(v) for v in bbox)
+                crop = img[y1:y2, x1:x2]
+                if crop.size:
+                    mean = crop.mean()
+                    if mean > 248:
+                        fails.append(f"bbox/{c['refdes']}: interior is blank "
+                                     f"(mean px={mean:.1f}); bbox covers empty page")
+
+    # --- Pin position sanity ---
+    for c in components:
+        bbox = c.get("bbox") or []
+        if len(bbox) != 4:
+            continue
+        part = chips["parts"].get(c["part"], {})
+        valid_pins = {str(p["n"]) for p in part.get("pins", [])}
+        pp = c.get("pin_positions") or {}
+        for pin, pos in pp.items():
+            if pin not in valid_pins:
+                fails.append(f"pin/{c['refdes']}.{pin}: pin number not in librarian for {c['part']}")
+                continue
+            if not (isinstance(pos, list) and len(pos) == 2):
+                fails.append(f"pin/{c['refdes']}.{pin}: malformed position {pos}")
+                continue
+            x, y = pos
+            # Pin should be on or just outside the bbox edge — give a 30px tolerance.
+            tol = 30
+            inside_x = (bbox[0] - tol) <= x <= (bbox[2] + tol)
+            inside_y = (bbox[1] - tol) <= y <= (bbox[3] + tol)
+            if not (inside_x and inside_y):
+                fails.append(f"pin/{c['refdes']}.{pin}: position {pos} is far from "
+                             f"bbox {bbox} — pin floating in space")
+        # Coverage: components whose pins carry signals must have pin_positions
+        # populated. Unknown pin positions cascade into wrong wire endpoints.
+        if pp:
+            missing = valid_pins - set(pp.keys())
+            if missing:
+                warns.append(f"pin/{c['refdes']}: {len(missing)} pin(s) without positions: "
+                             f"{','.join(sorted(missing, key=lambda s: int(s) if s.isdigit() else 0))[:80]}")
+
+    # --- Net coverage ---
+    refs_with_nets = set()
+    for net in nets:
+        for ep in net.get("endpoints", []):
+            refs_with_nets.add(ep.get("refdes"))
+    for c in components:
+        if c["refdes"] not in refs_with_nets:
+            warns.append(f"coverage/{c['refdes']}: zero nets touch this chip — "
+                         f"every chip should have at least power+ground+signal nets")
+
+    # --- Net degree sanity ---
+    for net in nets:
+        eps = net.get("endpoints", [])
+        if len(eps) > 25:
+            warns.append(f"degree/{net.get('name')}: {len(eps)} endpoints — "
+                         f"likely a CV crossing-detection failure or an unsplit bus")
+        # A wire net with 1 endpoint is invalid — already caught by validate,
+        # but show it here for completeness.
+        if len(eps) < 2 and (eps and eps[0].get("edge_type") == "wire"):
+            fails.append(f"degree/{net.get('name')}: single-endpoint wire net (illegal)")
+
+    # --- Bus consistency: members like FOO.0..FOO.N should be contiguous ---
+    import re
+    bus_groups: dict[str, set[int]] = {}
+    for net in nets:
+        m = re.match(r"^([A-Za-z_]+)\.(\d+)$", net.get("name") or "")
+        if m:
+            bus_groups.setdefault(m.group(1), set()).add(int(m.group(2)))
+    for bus, idxs in bus_groups.items():
+        lo, hi = min(idxs), max(idxs)
+        if (hi - lo + 1) != len(idxs):
+            missing = sorted(set(range(lo, hi + 1)) - idxs)
+            warns.append(f"bus/{bus}: members {sorted(idxs)} have gaps; "
+                         f"missing {missing[:8]}{'...' if len(missing) > 8 else ''}")
+
+    # --- Verdict ---
+    print(f"lint --board {args.board} --sheet {args.sheet}: "
+          f"{len(components)} component(s), {len(nets)} net(s)")
+    for w in warns:
+        print(f"  WARN  {w}")
+    for f in fails:
+        print(f"  FAIL  {f}")
+    if fails:
+        print(f"\nFAIL — {len(fails)} blocking issue(s); fix before moving on. "
+              f"({len(warns)} warning(s) are advisory.)")
+        sys.exit(1)
+    if warns:
+        print(f"\nPASS with {len(warns)} warning(s) — review and decide.")
+        return
+    print("\nPASS — no issues.")
 
 
 def main():
@@ -1104,6 +1595,19 @@ def main():
     sp.add_argument("--note")
     sp.set_defaults(fn=cmd_add_net)
 
+    sp = sub.add_parser("extend-net",
+                        help="append endpoints to an existing net (for cross-sheet labels accumulating endpoints across sheets)")
+    sp.add_argument("--board", required=True)
+    sp.add_argument("--name", required=True, help="existing net name")
+    sp.add_argument("--add-endpoints", required=True,
+                    help="comma-separated refdes.pin list to append")
+    sp.add_argument("--edge-type", choices=EDGE_TYPES,
+                    help="must match the existing net's edge_type (defaults to it)")
+    sp.add_argument("--zone-ref", help="required when edge-type is sheet_zone")
+    sp.add_argument("--source", choices=["ai", "human", "datasheet", "probe"], default="ai")
+    sp.add_argument("--note")
+    sp.set_defaults(fn=cmd_extend_net)
+
     sp = sub.add_parser("remove-net")
     sp.add_argument("--board", required=True)
     sp.add_argument("--name", required=True)
@@ -1151,6 +1655,11 @@ def main():
     sp.add_argument("--out-dir", help="output directory (default: boards/<id>/kicad/)")
     sp.add_argument("--validate", action="store_true",
                     help="parse output as s-expression after writing; if KiCad CLI is on PATH or at the standard macOS location, also run sch erc")
+    sp.add_argument("--allow-invalid", action="store_true",
+                    help="export even when graph_cli validate finds errors. "
+                         "Use sparingly — the default refuses to write a "
+                         ".kicad_sch from a graph with null edge_types, "
+                         "missing pin_positions, or unknown parts.")
     sp.add_argument("--bg-image", action="store_true",
                     help="embed the source scan PNG (downsampled) as a background image "
                          "behind the chip symbols, for visual diff in the rendered PDF. "
@@ -1158,6 +1667,39 @@ def main():
                          "image position may need manual adjustment in eeschema. File "
                          "size grows by a few MB per sheet.")
     sp.set_defaults(fn=cmd_export_kicad)
+
+    sp = sub.add_parser("untyped-nets",
+                        help="list nets with null edge_type or missing label — "
+                             "Stage-3 acceptance gate")
+    sp.add_argument("--board", required=True)
+    sp.add_argument("--sheet", type=int, help="restrict to nets touching this sheet")
+    sp.set_defaults(fn=cmd_untyped_nets)
+
+    sp = sub.add_parser("erc-summary",
+                        help="categorise the last KiCad ERC report into "
+                             "blocking / cross-sheet-expected / other and "
+                             "emit a one-line PASS/FAIL verdict")
+    sp.add_argument("--board", required=True)
+    sp.add_argument("--sheet", type=int,
+                    help="restrict to one sheet; omit to roll up every sheet's report")
+    sp.add_argument("--report", help="path to the .erc.txt (default: auto-discover)")
+    sp.set_defaults(fn=cmd_erc_summary)
+
+    sp = sub.add_parser("render-kicad",
+                        help="rasterise the last exported .kicad_sch via "
+                             "kicad-cli + sips so it can be Read back")
+    sp.add_argument("--board", required=True)
+    sp.add_argument("--sheet", type=int, required=True)
+    sp.add_argument("--out", help="output PNG path")
+    sp.add_argument("--out-dir", help="intermediate dir for the SVG")
+    sp.set_defaults(fn=cmd_render_kicad)
+
+    sp = sub.add_parser("lint",
+                        help="cross-check the graph against the source PNG, "
+                             "the librarian, and bus/coverage heuristics")
+    sp.add_argument("--board", required=True)
+    sp.add_argument("--sheet", type=int, required=True)
+    sp.set_defaults(fn=cmd_lint)
 
     args = ap.parse_args()
     args.fn(args)

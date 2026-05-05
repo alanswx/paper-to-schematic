@@ -1,0 +1,668 @@
+ERC report (2026-05-05T17:18:15, Encoding UTF8)
+Report includes: Errors, Warnings, Exclusions
+
+***** Sheet /
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(53.34 mm, 35.56 mm): Symbol g06 Pin 2 [1A, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(53.34 mm, 43.18 mm): Symbol g06 Pin 5 [2A, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(71.12 mm, 38.10 mm): Symbol g06 Pin 14 [4A, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(71.12 mm, 45.72 mm): Symbol g06 Pin 11 [3A, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(92.71 mm, 34.29 mm): Symbol g01d Pin 13 [~{DOUT}, Output, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(54.61 mm, 87.63 mm): Symbol f06 Pin 1 [S, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(92.71 mm, 45.72 mm): Symbol g01c Pin 12 [~{COUT}, Output, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(54.61 mm, 90.17 mm): Symbol f06 Pin 2 [1A, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(92.71 mm, 59.69 mm): Symbol g01b Pin 3 [~{BOUT}, Output, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(54.61 mm, 97.79 mm): Symbol f06 Pin 5 [2A, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(54.61 mm, 100.33 mm): Symbol f06 Pin 6 [2B, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(110.49 mm, 39.37 mm): Symbol g01d Pin 6 [STROBE, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(110.49 mm, 39.37 mm): Symbol g01d Pin 6 [STROBE, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(72.39 mm, 92.71 mm): Symbol f06 Pin 14 [4A, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(93.98 mm, 72.39 mm): Symbol g01a Pin 4 [~{AOUT}, Output, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(72.39 mm, 95.25 mm): Symbol f06 Pin 13 [4B, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(110.49 mm, 50.80 mm): Symbol g01c Pin 6 [STROBE, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(110.49 mm, 50.80 mm): Symbol g01c Pin 6 [STROBE, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(72.39 mm, 100.33 mm): Symbol f06 Pin 11 [3A, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(72.39 mm, 102.87 mm): Symbol f06 Pin 10 [3B, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(110.49 mm, 62.23 mm): Symbol g01b Pin 6 [STROBE, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(110.49 mm, 62.23 mm): Symbol g01b Pin 6 [STROBE, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(93.98 mm, 88.90 mm): Symbol g02d Pin 13 [~{DOUT}, Output, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(111.76 mm, 74.93 mm): Symbol g01a Pin 6 [STROBE, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(111.76 mm, 74.93 mm): Symbol g01a Pin 6 [STROBE, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(93.98 mm, 100.33 mm): Symbol g02c Pin 12 [~{COUT}, Output, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(111.76 mm, 93.98 mm): Symbol g02d Pin 6 [STROBE, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(111.76 mm, 93.98 mm): Symbol g02d Pin 6 [STROBE, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(93.98 mm, 114.30 mm): Symbol g02b Pin 3 [~{BOUT}, Output, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(111.76 mm, 105.41 mm): Symbol g02c Pin 6 [STROBE, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(111.76 mm, 105.41 mm): Symbol g02c Pin 6 [STROBE, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(53.34 mm, 144.78 mm): Symbol e06 Pin 2 [1A, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(53.34 mm, 147.32 mm): Symbol e06 Pin 3 [1B, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(93.98 mm, 125.73 mm): Symbol g02a Pin 4 [~{AOUT}, Output, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(53.34 mm, 152.40 mm): Symbol e06 Pin 5 [2A, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(111.76 mm, 116.84 mm): Symbol g02b Pin 6 [STROBE, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(111.76 mm, 116.84 mm): Symbol g02b Pin 6 [STROBE, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(71.12 mm, 147.32 mm): Symbol e06 Pin 14 [4A, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(53.34 mm, 154.94 mm): Symbol e06 Pin 6 [2B, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(71.12 mm, 149.86 mm): Symbol e06 Pin 13 [4B, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(111.76 mm, 128.27 mm): Symbol g02a Pin 6 [STROBE, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(111.76 mm, 128.27 mm): Symbol g02a Pin 6 [STROBE, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(71.12 mm, 154.94 mm): Symbol e06 Pin 11 [3A, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(92.71 mm, 143.51 mm): Symbol f01d Pin 13 [~{DOUT}, Output, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(168.91 mm, 31.75 mm): Symbol f19 Pin 1 [~{MR}, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(71.12 mm, 157.48 mm): Symbol e06 Pin 10 [3B, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(168.91 mm, 36.83 mm): Symbol f19 Pin 3 [1D, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(168.91 mm, 39.37 mm): Symbol f19 Pin 4 [2D, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(168.91 mm, 44.45 mm): Symbol f19 Pin 6 [3D, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(92.71 mm, 157.48 mm): Symbol f01c Pin 15 [COUT, Output, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(110.49 mm, 148.59 mm): Symbol f01d Pin 6 [STROBE, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(110.49 mm, 148.59 mm): Symbol f01d Pin 6 [STROBE, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(168.91 mm, 81.28 mm): Symbol f20 Pin 7 [3Q, Output, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(92.71 mm, 166.37 mm): Symbol f01b Pin 1 [BOUT, Output, Line]
+[pin_to_pin]: Pins of type Output and Output are connected
+    ; error
+    @(186.69 mm, 39.37 mm): Symbol f19 Pin 13 [5Q, Output, Line]
+    @(186.69 mm, 106.68 mm): Symbol g20 Pin 13 [5Q, Output, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(186.69 mm, 41.91 mm): Symbol f19 Pin 12 [5D, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(186.69 mm, 44.45 mm): Symbol f19 Pin 11 [4D, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(110.49 mm, 160.02 mm): Symbol f01c Pin 6 [STROBE, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(110.49 mm, 160.02 mm): Symbol f01c Pin 6 [STROBE, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(168.91 mm, 99.06 mm): Symbol g20 Pin 1 [~{MR}, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(186.69 mm, 68.58 mm): Symbol f20 Pin 15 [6Q, Output, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(186.69 mm, 71.12 mm): Symbol f20 Pin 14 [6D, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(186.69 mm, 71.12 mm): Symbol f20 Pin 14 [6D, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(186.69 mm, 73.66 mm): Symbol f20 Pin 13 [5Q, Output, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(186.69 mm, 76.20 mm): Symbol f20 Pin 12 [5D, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(186.69 mm, 76.20 mm): Symbol f20 Pin 12 [5D, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(92.71 mm, 179.07 mm): Symbol f01a Pin 2 [AOUT, Output, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(186.69 mm, 78.74 mm): Symbol f20 Pin 11 [4D, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(186.69 mm, 78.74 mm): Symbol f20 Pin 11 [4D, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(186.69 mm, 81.28 mm): Symbol f20 Pin 10 [4Q, Output, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(110.49 mm, 171.45 mm): Symbol f01b Pin 6 [STROBE, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(110.49 mm, 171.45 mm): Symbol f01b Pin 6 [STROBE, Input, Line]
+[label_dangling]: Label not connected
+    ; error
+    @(95.25 mm, 184.15 mm): Label 'TTLTrue.A'
+[pin_not_connected]: Pin not connected
+    ; error
+    @(110.49 mm, 184.15 mm): Symbol f01a Pin 6 [STROBE, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(110.49 mm, 184.15 mm): Symbol f01a Pin 6 [STROBE, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(186.69 mm, 109.22 mm): Symbol g20 Pin 12 [5D, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(45.72 mm, 215.90 mm): Symbol d07a Pin 1 [1A, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(45.72 mm, 218.44 mm): Symbol d07a Pin 2 [1B, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(170.18 mm, 147.32 mm): Symbol h20 Pin 7 [3Q, Output, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(78.74 mm, 214.63 mm): Symbol d06 Pin 1 [S, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(63.50 mm, 220.98 mm): Symbol d07a Pin 3 [1Y, Output, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(78.74 mm, 217.17 mm): Symbol d06 Pin 2 [1A, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(187.96 mm, 134.62 mm): Symbol h20 Pin 15 [6Q, Output, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(187.96 mm, 137.16 mm): Symbol h20 Pin 14 [6D, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(187.96 mm, 137.16 mm): Symbol h20 Pin 14 [6D, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(78.74 mm, 219.71 mm): Symbol d06 Pin 3 [1B, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(187.96 mm, 139.70 mm): Symbol h20 Pin 13 [5Q, Output, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(187.96 mm, 142.24 mm): Symbol h20 Pin 12 [5D, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(187.96 mm, 142.24 mm): Symbol h20 Pin 12 [5D, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(187.96 mm, 144.78 mm): Symbol h20 Pin 11 [4D, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(187.96 mm, 144.78 mm): Symbol h20 Pin 11 [4D, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(78.74 mm, 224.79 mm): Symbol d06 Pin 5 [2A, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(78.74 mm, 224.79 mm): Symbol d06 Pin 5 [2A, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(187.96 mm, 147.32 mm): Symbol h20 Pin 10 [4Q, Output, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(96.52 mm, 219.71 mm): Symbol d06 Pin 14 [4A, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(96.52 mm, 219.71 mm): Symbol d06 Pin 14 [4A, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(78.74 mm, 227.33 mm): Symbol d06 Pin 6 [2B, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(78.74 mm, 227.33 mm): Symbol d06 Pin 6 [2B, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(96.52 mm, 222.25 mm): Symbol d06 Pin 13 [4B, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(96.52 mm, 222.25 mm): Symbol d06 Pin 13 [4B, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(78.74 mm, 229.87 mm): Symbol d06 Pin 7 [2Y, Output, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(96.52 mm, 224.79 mm): Symbol d06 Pin 12 [4Y, Output, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(96.52 mm, 227.33 mm): Symbol d06 Pin 11 [3A, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(96.52 mm, 227.33 mm): Symbol d06 Pin 11 [3A, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(96.52 mm, 229.87 mm): Symbol d06 Pin 10 [3B, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(96.52 mm, 229.87 mm): Symbol d06 Pin 10 [3B, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(168.91 mm, 185.42 mm): Symbol h19 Pin 7 [~{Y7}, Output, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(96.52 mm, 232.41 mm): Symbol d06 Pin 9 [3Y, Output, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(186.69 mm, 172.72 mm): Symbol h19 Pin 15 [~{Y0}, Output, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(186.69 mm, 182.88 mm): Symbol h19 Pin 11 [~{Y4}, Output, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(186.69 mm, 185.42 mm): Symbol h19 Pin 10 [~{Y5}, Output, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(186.69 mm, 187.96 mm): Symbol h19 Pin 9 [~{Y6}, Output, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(132.08 mm, 233.68 mm): Symbol g07 Pin 1 [~{CLR}, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(132.08 mm, 238.76 mm): Symbol g07 Pin 3 [~{1Q}, Output, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(172.72 mm, 219.71 mm): Symbol f02c Pin 15 [COUT, Output, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(132.08 mm, 246.38 mm): Symbol g07 Pin 6 [~{2Q}, Output, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(149.86 mm, 236.22 mm): Symbol g07 Pin 15 [4Q, Output, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(149.86 mm, 238.76 mm): Symbol g07 Pin 14 [~{4Q}, Output, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(149.86 mm, 241.30 mm): Symbol g07 Pin 13 [4D, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(149.86 mm, 241.30 mm): Symbol g07 Pin 13 [4D, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(149.86 mm, 243.84 mm): Symbol g07 Pin 12 [3D, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(149.86 mm, 243.84 mm): Symbol g07 Pin 12 [3D, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(149.86 mm, 246.38 mm): Symbol g07 Pin 11 [~{3Q}, Output, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(149.86 mm, 248.92 mm): Symbol g07 Pin 10 [3Q, Output, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(190.50 mm, 222.25 mm): Symbol f02c Pin 6 [STROBE, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(190.50 mm, 222.25 mm): Symbol f02c Pin 6 [STROBE, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(149.86 mm, 251.46 mm): Symbol g07 Pin 9 [CLK, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(171.45 mm, 238.76 mm): Symbol f02b Pin 3 [~{BOUT}, Output, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(171.45 mm, 248.92 mm): Symbol f02a Pin 2 [AOUT, Output, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(189.23 mm, 241.30 mm): Symbol f02b Pin 6 [STROBE, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(189.23 mm, 241.30 mm): Symbol f02b Pin 6 [STROBE, Input, Line]
+[label_dangling]: Label not connected
+    ; error
+    @(173.99 mm, 254.00 mm): Label 'TTLTrue.A'
+[pin_not_connected]: Pin not connected
+    ; error
+    @(189.23 mm, 254.00 mm): Symbol f02a Pin 6 [STROBE, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(189.23 mm, 254.00 mm): Symbol f02a Pin 6 [STROBE, Input, Line]
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(55.88 mm, 35.56 mm): Label 'MCPBus.00'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(55.88 mm, 43.18 mm): Label 'MCPBus.01'
+[lib_symbol_issues]: The current configuration does not include the symbol library 'user'
+    ; warning
+    @(62.23 mm, 43.18 mm): Symbol g06 [74LS157]
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(73.66 mm, 38.10 mm): Label 'MCPBus.03'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(73.66 mm, 45.72 mm): Label 'MCPBus.02'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(95.25 mm, 36.83 mm): Label 'CPOut.0'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(57.15 mm, 90.17 mm): Label 'MCPBus.04'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(95.25 mm, 48.26 mm): Label 'CPOut.1'
+[lib_symbol_issues]: The current configuration does not include the symbol library 'user'
+    ; warning
+    @(101.60 mm, 36.83 mm): Symbol g01d [MC10124_d]
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(95.25 mm, 57.15 mm): Label 'CPOut.2'
+[lib_symbol_issues]: The current configuration does not include the symbol library 'user'
+    ; warning
+    @(101.60 mm, 48.26 mm): Symbol g01c [MC10124_c]
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(57.15 mm, 97.79 mm): Label 'MCPBus.05'
+[lib_symbol_issues]: The current configuration does not include the symbol library 'user'
+    ; warning
+    @(63.50 mm, 97.79 mm): Symbol f06 [74LS157]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'user'
+    ; warning
+    @(101.60 mm, 59.69 mm): Symbol g01b [MC10124_b]
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(96.52 mm, 69.85 mm): Label 'CPOut.3'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(74.93 mm, 92.71 mm): Label 'MCPBus.07'
+[unconnected_wire_endpoint]: Unconnected wire endpoint
+    ; warning
+    @(93.98 mm, 74.93 mm): Horizontal Wire, length 2.54 mm
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(74.93 mm, 100.33 mm): Label 'MCPBus.06'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(96.52 mm, 91.44 mm): Label 'CPOut.4'
+[lib_symbol_issues]: The current configuration does not include the symbol library 'user'
+    ; warning
+    @(102.87 mm, 91.44 mm): Symbol g02d [MC10124_d]
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(96.52 mm, 102.87 mm): Label 'CPOut.5'
+[lib_symbol_issues]: The current configuration does not include the symbol library 'user'
+    ; warning
+    @(102.87 mm, 102.87 mm): Symbol g02c [MC10124_c]
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(96.52 mm, 111.76 mm): Label 'CPOut.6'
+[lib_symbol_issues]: The current configuration does not include the symbol library 'user'
+    ; warning
+    @(102.87 mm, 114.30 mm): Symbol g02b [MC10124_b]
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(55.88 mm, 144.78 mm): Label 'MCPBus.08'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(96.52 mm, 123.19 mm): Label 'CPOut.7'
+[unconnected_wire_endpoint]: Unconnected wire endpoint
+    ; warning
+    @(93.98 mm, 128.27 mm): Horizontal Wire, length 2.54 mm
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(55.88 mm, 152.40 mm): Label 'MCPABus.0'
+[lib_symbol_issues]: The current configuration does not include the symbol library 'user'
+    ; warning
+    @(102.87 mm, 125.73 mm): Symbol g02a [MC10124_a]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'user'
+    ; warning
+    @(62.23 mm, 152.40 mm): Symbol e06 [74LS157]
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(73.66 mm, 147.32 mm): Label 'MCPABus.2'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(73.66 mm, 154.94 mm): Label 'MCPABus.1'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(95.25 mm, 146.05 mm): Label 'CPOut.8'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(171.45 mm, 34.29 mm): Label 'RCPReg.00'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(171.45 mm, 41.91 mm): Label 'RCPReg.01'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(171.45 mm, 46.99 mm): Label 'RCPReg.02'
+[lib_symbol_issues]: The current configuration does not include the symbol library 'user'
+    ; warning
+    @(101.60 mm, 146.05 mm): Symbol f01d [MC10124_d]
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(95.25 mm, 154.94 mm): Label '~{CPAddr.0}'
+[lib_symbol_issues]: The current configuration does not include the symbol library 'user'
+    ; warning
+    @(177.80 mm, 41.91 mm): Symbol f19 [74LS174]
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(171.45 mm, 68.58 mm): Label 'RCPReg.06'
+[lib_symbol_issues]: The current configuration does not include the symbol library 'user'
+    ; warning
+    @(101.60 mm, 157.48 mm): Symbol f01c [MC10124_c]
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(171.45 mm, 76.20 mm): Label 'RCPReg.07'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(189.23 mm, 34.29 mm): Label 'RCPReg.05'
+[lib_symbol_issues]: The current configuration does not include the symbol library 'user'
+    ; warning
+    @(177.80 mm, 76.20 mm): Symbol f20 [74LS174]
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(189.23 mm, 41.91 mm): Label 'RCPReg.04'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(95.25 mm, 168.91 mm): Label '~{CPAddr.1}'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(189.23 mm, 46.99 mm): Label 'RCPReg.03'
+[lib_symbol_issues]: The current configuration does not include the symbol library 'user'
+    ; warning
+    @(101.60 mm, 168.91 mm): Symbol f01b [MC10124_b]
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(171.45 mm, 101.60 mm): Label 'RCPReg.08'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(171.45 mm, 109.22 mm): Label 'RCPReg.09'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(95.25 mm, 181.61 mm): Label '~{CPAddr.2}'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(171.45 mm, 114.30 mm): Label 'RCPReg.10'
+[unconnected_wire_endpoint]: Unconnected wire endpoint
+    ; warning
+    @(92.71 mm, 184.15 mm): Horizontal Wire, length 2.54 mm
+[lib_symbol_issues]: The current configuration does not include the symbol library 'user'
+    ; warning
+    @(101.60 mm, 181.61 mm): Symbol f01a [MC10124_a]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'user'
+    ; warning
+    @(177.80 mm, 109.22 mm): Symbol g20 [74LS174]
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(189.23 mm, 101.60 mm): Label 'RCPReg.13'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(189.23 mm, 109.22 mm): Label 'RCPReg.12'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(172.72 mm, 134.62 mm): Label 'RCPReg.14'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(189.23 mm, 114.30 mm): Label 'RCPReg.11'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(48.26 mm, 215.90 mm): Label 'DoradoSel'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(172.72 mm, 142.24 mm): Label 'RCPReg.15'
+[unconnected_wire_endpoint]: Unconnected wire endpoint
+    ; warning
+    @(45.72 mm, 220.98 mm): Horizontal Wire, length 2.54 mm
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(48.26 mm, 220.98 mm): Label 'SelStrb'
+[lib_symbol_issues]: The current configuration does not include the symbol library 'user'
+    ; warning
+    @(54.61 mm, 219.71 mm): Symbol d07a [74LS08_a]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'user'
+    ; warning
+    @(179.07 mm, 142.24 mm): Symbol h20 [74LS174]
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(81.28 mm, 217.17 mm): Label 'MCPStrb'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(81.28 mm, 219.71 mm): Label 'SelStrb'
+[lib_symbol_issues]: The current configuration does not include the symbol library 'user'
+    ; warning
+    @(87.63 mm, 224.79 mm): Symbol d06 [74LS157]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'user'
+    ; warning
+    @(177.80 mm, 180.34 mm): Symbol h19 [74LS138]
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(189.23 mm, 175.26 mm): Label '~{RCPClock}'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(134.62 mm, 233.68 mm): Label '~{MCReset}'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(175.26 mm, 217.17 mm): Label '~{CPStrb}'
+[lib_symbol_issues]: The current configuration does not include the symbol library 'user'
+    ; warning
+    @(140.97 mm, 243.84 mm): Symbol g07 [74LS175]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'user'
+    ; warning
+    @(181.61 mm, 219.71 mm): Symbol f02c [MC10124_c]
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(173.99 mm, 236.22 mm): Label 'SetRun'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(152.40 mm, 251.46 mm): Label '~{TControlStrb}'
+[lib_symbol_issues]: The current configuration does not include the symbol library 'user'
+    ; warning
+    @(180.34 mm, 238.76 mm): Symbol f02b [MC10124_b]
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(173.99 mm, 251.46 mm): Label '~{SetSS}'
+[unconnected_wire_endpoint]: Unconnected wire endpoint
+    ; warning
+    @(171.45 mm, 254.00 mm): Horizontal Wire, length 2.54 mm
+[lib_symbol_issues]: The current configuration does not include the symbol library 'user'
+    ; warning
+    @(180.34 mm, 251.46 mm): Symbol f02a [MC10124_a]
+[same_local_global_label]: Local and global labels have same name
+    ; warning
+    @(189.23 mm, 246.38 mm): Global Label 'GND'
+    @(73.66 mm, 35.56 mm): Label 'GND'
+[lib_symbol_issues]: The current configuration does not include the symbol library 'user'
+    ; warning
+    @(400.05 mm, 17.78 mm): Symbol #PWR_GND [PWR_GND]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'user'
+    ; warning
+    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC [PWR_VCC]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'user'
+    ; warning
+    @(400.05 mm, 38.10 mm): Symbol #PWR_VEE [PWR_VEE]
+
+ ** ERC messages: 218  Errors 134  Warnings 84
+
+ ** Ignored checks:
+    - Global label only appears once in the schematic
+    - Four connection points are joined together
+    - SPICE model issue
+    - Assigned footprint doesn't match footprint filters

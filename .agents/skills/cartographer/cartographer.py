@@ -10,6 +10,32 @@ import sys
 from pathlib import Path
 
 
+def _render_pdf_to_temp(pdf_path: Path, page: int, dpi: int) -> Path:
+    """Render one PDF page to a tempfile PNG at the requested DPI; returns
+    the PNG path. Uses pdftocairo (poppler) — same dependency as decode-pdf.
+    Caller is responsible for cleanup (the file is in the system temp dir,
+    so it'll be reaped eventually if not deleted)."""
+    import shutil, subprocess, tempfile
+    if not shutil.which("pdftocairo"):
+        print("pdftocairo not on PATH (brew install poppler)", file=sys.stderr); sys.exit(2)
+    if not pdf_path.exists():
+        print(f"pdf not found: {pdf_path}", file=sys.stderr); sys.exit(1)
+    td = tempfile.mkdtemp(prefix="carto_pdf_")
+    stem = Path(td) / "page"
+    r = subprocess.run(
+        ["pdftocairo", "-png", "-r", str(dpi),
+         "-f", str(page), "-l", str(page),
+         "-singlefile", str(pdf_path), str(stem)],
+        capture_output=True, text=True
+    )
+    if r.returncode != 0:
+        print(f"pdftocairo failed: {r.stderr.strip()}", file=sys.stderr); sys.exit(1)
+    produced = Path(td) / "page.png"
+    if not produced.exists():
+        print("pdftocairo produced no output", file=sys.stderr); sys.exit(1)
+    return produced
+
+
 def cmd_tile(args):
     try:
         from PIL import Image
@@ -18,7 +44,12 @@ def cmd_tile(args):
               ".agents/skills/cartographer/requirements.txt", file=sys.stderr)
         sys.exit(2)
 
-    src = Path(args.input).resolve()
+    if args.pdf:
+        src = _render_pdf_to_temp(Path(args.pdf).resolve(), args.page, args.dpi)
+    elif args.input:
+        src = Path(args.input).resolve()
+    else:
+        print("provide either input PNG or --pdf <path>", file=sys.stderr); sys.exit(1)
     if not src.exists():
         print(f"input not found: {src}", file=sys.stderr)
         sys.exit(1)
@@ -632,15 +663,32 @@ def cmd_crop_chip(args):
     sheet = next((s for s in graph["sheets"] if s["index"] == comp["sheet"]), None)
     if not sheet:
         print(f"sheet {comp['sheet']} not in graph", file=sys.stderr); sys.exit(1)
-    img_path = (bdir / sheet["scan_path"]).resolve()
-    img = cv2.imread(str(img_path), cv2.IMREAD_GRAYSCALE)
-    if img is None:
-        print(f"failed to load: {img_path}", file=sys.stderr); sys.exit(1)
-    H, W = img.shape
+
+    # Bbox is in scan-pixel coords. If we render fresh from PDF at a higher
+    # DPI, scale the bbox by render_size / scan_size so the crop still frames
+    # the chip. Padding (in scan px) gets scaled the same way.
+    if args.pdf:
+        page = args.page if args.page is not None else sheet["index"]
+        render_path = _render_pdf_to_temp(Path(args.pdf).resolve(), page, args.dpi)
+        img = cv2.imread(str(render_path), cv2.IMREAD_GRAYSCALE)
+        if img is None:
+            print(f"failed to load rendered PDF page: {render_path}", file=sys.stderr); sys.exit(1)
+        H, W = img.shape
+        scan_w, scan_h = sheet.get("scan_pixel_size") or (W, H)
+        scale = W / scan_w if scan_w else 1.0
+        source_label = f"PDF {args.pdf} p{page}@{args.dpi}dpi"
+    else:
+        img_path = (bdir / sheet["scan_path"]).resolve()
+        img = cv2.imread(str(img_path), cv2.IMREAD_GRAYSCALE)
+        if img is None:
+            print(f"failed to load: {img_path}", file=sys.stderr); sys.exit(1)
+        H, W = img.shape
+        scale = 1.0
+        source_label = str(img_path)
 
     bbox = comp["bbox"]
-    x1, y1, x2, y2 = (int(v) for v in bbox)
-    pad = args.pad
+    x1, y1, x2, y2 = (int(v * scale) for v in bbox)
+    pad = int(args.pad * scale)
     rx1 = max(0, x1 - pad)
     ry1 = max(0, y1 - pad)
     rx2 = min(W, x2 + pad)
@@ -650,12 +698,16 @@ def cmd_crop_chip(args):
     out = Path(args.out).resolve()
     out.parent.mkdir(parents=True, exist_ok=True)
     cv2.imwrite(str(out), crop)
-    print(f"wrote {out} ({crop.shape[1]}x{crop.shape[0]} px)")
-    # Print the source-coord origin so Claude can translate crop-local
-    # positions back to source-image coords.
-    print(f"crop origin in source image: ({rx1}, {ry1})")
-    print(f"chip bbox in source: ({x1}, {y1}) → ({x2}, {y2})")
-    print(f"to convert crop-local (cx, cy) → source: (cx + {rx1}, cy + {ry1})")
+    print(f"wrote {out} ({crop.shape[1]}x{crop.shape[0]} px) from {source_label}")
+    if scale != 1.0:
+        print(f"render scale vs scan: {scale:.3f}× (graph bbox in scan px multiplied to fit render)")
+    print(f"crop origin in render: ({rx1}, {ry1})")
+    print(f"chip bbox in render: ({x1}, {y1}) → ({x2}, {y2})")
+    if scale != 1.0:
+        print(f"to translate render (cx, cy) → graph/scan coords: "
+              f"((cx + {rx1}) / {scale:.6f}, (cy + {ry1}) / {scale:.6f})")
+    else:
+        print(f"to convert crop-local (cx, cy) → source: (cx + {rx1}, cy + {ry1})")
 
 
 def cmd_clean(args):
@@ -729,10 +781,13 @@ def main():
     sub = ap.add_subparsers(dest="cmd", required=True)
 
     sp = sub.add_parser("tile", help="cut a sheet PNG into overlapping tiles")
-    sp.add_argument("input")
+    sp.add_argument("input", nargs="?", help="source PNG (or use --pdf to render on demand)")
     sp.add_argument("--out", required=True)
     sp.add_argument("--grid", default="3x3", help="ROWSxCOLS, default 3x3")
     sp.add_argument("--overlap", type=float, default=0.1, help="fractional overlap, default 0.1")
+    sp.add_argument("--pdf", help="render this PDF page on the fly (alternative to a PNG input)")
+    sp.add_argument("--page", type=int, default=1, help="PDF page (1-based, used with --pdf)")
+    sp.add_argument("--dpi", type=int, default=600, help="DPI for --pdf rendering (default 600)")
     sp.set_defaults(fn=cmd_tile)
 
     sp = sub.add_parser("to-source", help="translate a tile-local bbox to source coords")
@@ -770,8 +825,12 @@ def main():
     sp.add_argument("--board", required=True)
     sp.add_argument("--refdes", required=True)
     sp.add_argument("--pad", type=int, default=80,
-                    help="padding (px) around the bbox (default 80)")
+                    help="padding (in scan-px) around the bbox (default 80)")
     sp.add_argument("--out", required=True, help="output PNG path")
+    sp.add_argument("--pdf", help="render the chip from this PDF page instead of the canonical scan "
+                                  "(use when scan text is too small; bbox is auto-rescaled)")
+    sp.add_argument("--page", type=int, help="PDF page (1-based, used with --pdf)")
+    sp.add_argument("--dpi", type=int, default=600, help="DPI for --pdf rendering (default 600)")
     sp.set_defaults(fn=cmd_crop_chip)
 
     sp = sub.add_parser("decode-jp2",

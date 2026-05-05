@@ -62,8 +62,46 @@ const canvasToImg = (cx, cy) => ({
 // This matches schematic-symbol convention better than physical-DIP order
 // for the common case of memories/CPUs/PLDs. Falls back to physical-DIP-style
 // for chips where the heuristic doesn't classify pins (gates, latches, etc.).
-function defaultPinPositions(part, bbox) {
-  const pins = part.pins || [];
+// Mirrors kicad_export.py's _unit_groups: returns the chip's sub-unit group
+// names (e.g. ['g1','g2','g3','g4'] or ['A','B','C','D']) sorted into unit
+// order, or [] if the part isn't multi-unit shaped. Used to filter the auto-
+// fill DIP layout for sub-gate components.
+const UNIT_GROUP_RE = [/^g\d+$/i, /^ff\d+$/i, /^[A-Z]$/];
+function partUnitGroups(part) {
+  const seen = new Set();
+  for (const p of (part.pins || [])) {
+    if (p.type === "power" || p.type === "ground") continue;
+    const g = p.group;
+    if (g && g !== "common") seen.add(g);
+  }
+  if (seen.size < 2) return [];
+  for (const g of seen) {
+    if (!UNIT_GROUP_RE.some(re => re.test(g))) return [];
+  }
+  return [...seen].sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()) || a.localeCompare(b));
+}
+
+// Returns the pins active on this refdes — for a sub-unit refdes, that's the
+// matching gate's pins + common + power; for everything else, every pin.
+function activePinsForRefdes(refdes, part) {
+  const m = /^([a-z]+\d+)([a-z])$/.exec(refdes || "");
+  if (!m) return part.pins || [];
+  const units = partUnitGroups(part);
+  if (!units.length) return part.pins || [];
+  const idx = m[2].charCodeAt(0) - "a".charCodeAt(0);
+  if (idx < 0 || idx >= units.length) return part.pins || [];
+  const unit = units[idx];
+  const out = [];
+  for (const p of (part.pins || [])) {
+    if (p.type === "power" || p.type === "ground") { out.push(p); continue; }
+    const g = p.group;
+    if (g === unit || g === "common") out.push(p);
+  }
+  return out.length ? out : (part.pins || []);
+}
+
+function defaultPinPositions(part, bbox, refdes) {
+  const pins = activePinsForRefdes(refdes, part);
   if (!pins.length) return null;
   const [x1, y1, x2, y2] = bbox;
   const w = x2 - x1, h = y2 - y1;
@@ -165,6 +203,10 @@ function edgeTypeColor(t) {
 function getPinSourcePos(refdes, pin) {
   const comp = state.graph.components.find(c => c.refdes === refdes);
   if (!comp || !comp.pin_positions) return null;
+  // Only return a position when the component lives on the current sheet —
+  // otherwise an endpoint with a missing/wrong `sheet` field would render
+  // a stray wire/marker on whichever sheet is currently visible.
+  if (comp.sheet !== state.sheetIndex) return null;
   return comp.pin_positions[String(pin)] || null;
 }
 
@@ -482,7 +524,7 @@ function normalizeGraph() {
     if (comp.pin_positions) continue;
     const part = state.chips.parts[comp.part];
     if (!part) continue;
-    const pos = defaultPinPositions(part, comp.bbox);
+    const pos = defaultPinPositions(part, comp.bbox, comp.refdes);
     if (pos) comp.pin_positions = pos;
   }
   if (!state.graph.nets) state.graph.nets = [];
@@ -1287,7 +1329,7 @@ dlg.addEventListener("close", () => {
     return;
   }
   const bbox = [box.x1, box.y1, box.x2, box.y2];
-  const pin_positions = defaultPinPositions(part, bbox) || {};
+  const pin_positions = defaultPinPositions(part, bbox, refdes) || {};
   state.graph.components.push({
     refdes,
     part: partName,
@@ -1350,7 +1392,7 @@ editDlg.addEventListener("close", () => {
   comp.refdes = newRefdes;
   comp.part = newPartName;
   if (partChanged) {
-    const pos = defaultPinPositions(newPart, comp.bbox);
+    const pos = defaultPinPositions(newPart, comp.bbox, newRefdes);
     if (pos) comp.pin_positions = pos;
   }
   state.selectedComponent = newRefdes;
