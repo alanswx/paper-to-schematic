@@ -161,7 +161,61 @@ def compute_scale(sheet_pixel_size, max_w_mm, max_h_mm):
     return min(sx, sy)
 
 
-def gen_sch(graph: dict, chips: dict, sheet_index: int, project_name: str = "schematic") -> str:
+def _bg_image_block(scan_path: Path, scale: float, max_px: int = 2000) -> str | None:
+    """EXPERIMENTAL — KiCad refuses the resulting schematic ("Failed to
+    load schematic") in current testing. The (image ...) format is not
+    yet right; needs investigation against a known-good hand-authored
+    KiCad sch with an embedded image. Left here as a starting point for
+    the next iteration on visual round-trip with KiCad rendering.
+
+    Build a (image ...) block that places the (downsampled) source PNG
+    at the same coordinate origin as the synthesized chip symbols.
+    Returns None if cv2 isn't available or the file can't be read."""
+    try:
+        import cv2, base64, io
+    except ImportError:
+        return None
+    img = cv2.imread(str(scan_path), cv2.IMREAD_COLOR)
+    if img is None:
+        return None
+    H, W = img.shape[:2]
+    if max(W, H) > max_px:
+        f = max_px / max(W, H)
+        new_w = int(W * f); new_h = int(H * f)
+        img = cv2.resize(img, (new_w, new_h))
+        downsample_factor = f
+    else:
+        downsample_factor = 1.0
+    ok, buf = cv2.imencode(".png", img, [cv2.IMWRITE_PNG_COMPRESSION, 6])
+    if not ok:
+        return None
+    b64 = base64.b64encode(bytes(buf)).decode("ascii")
+    # Wrap base64 to 76-char lines for s-expression friendliness.
+    lines = "\n      ".join(b64[i:i+76] for i in range(0, len(b64), 76))
+
+    # KiCad places the image's CENTRE at (at x y). Native image scale 1.0
+    # means render at the embedded PNG's native pixel size where 1 px is
+    # (effectively) 25.4/300 mm if the PNG carried 300 DPI metadata, or
+    # whatever the file claims. To get our target mm-per-source-pixel, we
+    # use the ratio: target_mm_per_px / (downsampled_image's_native_mm_per_px).
+    # In practice we assume cv2-encoded PNG = 100 DPI default, but KiCad
+    # actually treats `scale 1.0` as "1 image pixel == 1 internal unit
+    # roughly" — so we tune empirically: image_scale ≈ source_scale_factor /
+    # downsample_factor * a constant. Treat this as a rough first cut and
+    # adjust visually.
+    image_scale = scale / max(downsample_factor, 1e-6) * 3.78  # 3.78 ≈ 96 DPI px-per-mm reciprocal
+    cx_mm = PAPER_MARGIN_MM + (W / downsample_factor) * scale / 2 if downsample_factor else PAPER_MARGIN_MM
+    cy_mm = PAPER_MARGIN_MM + (H / downsample_factor) * scale / 2 if downsample_factor else PAPER_MARGIN_MM
+    image_uuid = stable_uuid(f"bg/{scan_path.name}")
+    return (f'  (image (at {_f(cx_mm)} {_f(cy_mm)}) (scale {_f(image_scale)})\n'
+            f'    (uuid "{image_uuid}")\n'
+            f'    (data\n'
+            f'      "{lines}"\n'
+            f'    )\n'
+            f'  )')
+
+
+def gen_sch(graph: dict, chips: dict, sheet_index: int, project_name: str = "schematic", *, bg_image: bool = False, scan_path: Path | None = None) -> str:
     """Produce a KiCad sch file for one sheet of a board."""
     sheet_meta = next((s for s in graph["sheets"] if s["index"] == sheet_index), None)
     if not sheet_meta:
@@ -335,6 +389,7 @@ def gen_sch(graph: dict, chips: dict, sheet_index: int, project_name: str = "sch
         '  (lib_symbols',
         *sym_defs,
         '  )',
+        *([b for b in [_bg_image_block(scan_path, scale) if bg_image and scan_path else None] if b]),
         *inst_blocks,
         *wire_blocks,
         *label_blocks,

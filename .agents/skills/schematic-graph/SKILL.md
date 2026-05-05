@@ -11,12 +11,41 @@ artifacts `probes.csv` (physical-board verification list) and `discrepancies.md`
 - Adding wires / labels / sheet-zone refs / off-page connectors / buses /
   implicit-power edges between component pins.
 - Validating a graph against the schema and ERC-style sanity checks.
+- **Rendering an overlay of the current graph onto the source PNG —
+  the primary visual checkpoint after every graphical edit.**
 - Generating the ranked `probes.csv` from the current graph.
-- Exporting a `.kicad_sch` (planned).
+- Exporting a `.kicad_sch`.
+
+## The render-overlay loop
+
+After every graphical edit (add-component, set-pin-positions, add-net),
+re-render the overlay and read it back. This is the cheapest possible
+correctness check and the user has explicitly asked for it to gate every
+stage:
+
+```bash
+python3 .agents/skills/schematic-graph/graph_cli.py render-overlay \
+  --board <id> --sheet <n> --out /tmp/<board>_s<n>_overlay.png
+```
+
+The overlay shows component bboxes (orange), pin positions (pink dots),
+and net-label texts (green) drawn on top of the source scan. Use
+`--no-pins` while bboxes are still being placed and `--no-nets` while
+pin positions are still being verified — staged overlays are easier to
+read than a fully populated one.
+
+Don't batch six edits and render once. Render after each step. The user
+will explicitly ask "did you re-render and check?" — answering that with
+"the schema validates" is not the right answer.
 
 ## CLI
 
 ```bash
+# Render the current graph as an overlay on the source PNG. Run this after
+# every graphical edit and read it back to verify.
+python3 .agents/skills/schematic-graph/graph_cli.py render-overlay \
+  --board exidy_440 --sheet 1 [--no-pins] [--no-nets] [--out /tmp/o.png]
+
 # Append a component (validates part against the librarian, rejects duplicates,
 # requires a non-degenerate bbox). --source is one of ai|human|datasheet|probe.
 python3 .agents/skills/schematic-graph/graph_cli.py add-component \
@@ -71,6 +100,11 @@ both paths must produce schema-valid output.
 
 - One net's endpoints **may not mix edge types** — a wire and a label resolving
   to the "same" net is two nets that should be merged explicitly with provenance.
+- **Single-endpoint nets are valid** for `edge_type` ∈ {`label`, `sheet_zone`,
+  `off_page`} — they represent named signals whose other ends live on sheets
+  that haven't been transcribed yet. `wire`, `bus`, and `implicit_power`
+  still require ≥2 endpoints (a one-endpoint physical wire is a floating
+  pin and an error).
 - `component.part` **must exist in the librarian** (run `librarian.py coverage`
   before saving). The schema does not enforce this; validation does.
 - `pin_positions` keys must be valid pin numbers from the part's `chips.json`
@@ -88,3 +122,33 @@ both paths must produce schema-valid output.
   graph and regenerate.
 - `discrepancies.md` is the one file in this skill that humans **do** hand-edit
   — it logs physical-board probing results.
+
+## KiCad-export gotchas
+
+- `/` and `'` in net names break KiCad's schematic loader; the export
+  rewrites them: `'` → `~{...}` overbar, `/` → `_`. The graph.json keeps
+  the original human-readable name.
+- Plain `(label ...)` cannot carry `(shape ...)` — only `(global_label
+  ...)` and `(hierarchical_label ...)` accept it. The export uses
+  `global_label` for `sheet_zone` / `off_page` (cross-sheet) and plain
+  `label` for `label` (in-sheet).
+- ERC will report many "Pin not connected" errors during transcription —
+  this is expected when most nets are cross-sheet labels and the other
+  sheets haven't been done yet. The error count drops as more sheets
+  come online; treat it as noise until the full board is in.
+- `kicad-cli`'s "Failed to load schematic" message has no detail. If
+  this happens, run `validate` (sexp parse) to confirm the file is at
+  least syntactically valid, then check label/global_label syntax — the
+  most common cause is an attribute KiCad rejects.
+
+## Visual round-trip beyond the overlay (KiCad PDF)
+
+The KiCad export uses 1:1 source-pixel→mm scaling, so chips land at
+roughly the same RELATIVE positions in the exported PDF as in the source
+scan. A side-by-side of the source overlay and the KiCad PDF is a useful
+final check — labels and components in obviously different positions
+indicate either a missing chip in the export or a transcription error.
+
+(Future: `--bg-image` flag to embed the source PNG directly behind the
+KiCad symbols, so a single PDF carries both the original drawing and
+the transcribed graph for visual diff.)

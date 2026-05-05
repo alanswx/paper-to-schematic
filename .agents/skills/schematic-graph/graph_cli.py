@@ -528,6 +528,94 @@ def cmd_probe_list(args):
             print(f"        test:   {r['suggested_test']}")
 
 
+def cmd_render_overlay(args):
+    """Draw the current graph (bboxes + pin positions + net labels) over the
+    source PNG so the LLM can read it back and flag mis-placed elements.
+
+    This is the primary visual checkpoint of the transcription loop: after
+    each graphical edit (component bboxes, pin positions, named-net labels),
+    render the overlay and inspect it. If anything is off, fix it before
+    moving on. The overlay is the cheapest way to spot 'this chip is
+    nowhere near the chip body on the source' or 'pin 7 is floating in
+    open space'."""
+    try:
+        import cv2  # noqa: F401
+    except ImportError:
+        print("opencv-python required. Install via .venv:\n"
+              "  .venv/bin/pip install -r .agents/skills/cartographer/requirements.txt",
+              file=sys.stderr)
+        sys.exit(2)
+    import cv2
+
+    graph = load_graph(args.board)
+    sheet_meta = next((s for s in graph["sheets"] if s["index"] == args.sheet), None)
+    if not sheet_meta:
+        print(f"sheet {args.sheet} not in board {args.board}", file=sys.stderr)
+        sys.exit(1)
+    image_path = (board_dir(args.board) / sheet_meta["scan_path"]).resolve()
+    img = cv2.imread(str(image_path), cv2.IMREAD_COLOR)
+    if img is None:
+        print(f"failed to read {image_path}", file=sys.stderr); sys.exit(1)
+
+    out = img.copy()
+    H, W = img.shape[:2]
+
+    # Component bboxes — orange thick rectangle, refdes + part labelled above.
+    components = [c for c in graph["components"] if c["sheet"] == args.sheet]
+    for c in components:
+        if "bbox" not in c:
+            continue
+        x1, y1, x2, y2 = (int(v) for v in c["bbox"])
+        cv2.rectangle(out, (x1, y1), (x2, y2), (0, 140, 255), 4)
+        label = f"{c['refdes']} {c['part']}"
+        ts = cv2.getTextSize(label, cv2.FONT_HERSHEY_SIMPLEX, 0.8, 2)[0]
+        ty = max(y1 - 8, ts[1] + 4)
+        cv2.rectangle(out, (x1, ty - ts[1] - 4), (x1 + ts[0] + 8, ty + 4), (0, 140, 255), -1)
+        cv2.putText(out, label, (x1 + 4, ty), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 255, 255), 2)
+
+    # Pin positions — pink filled dot with pin number.
+    if not args.no_pins:
+        for c in components:
+            for pin, pos in (c.get("pin_positions") or {}).items():
+                px, py = int(pos[0]), int(pos[1])
+                cv2.circle(out, (px, py), 7, (200, 80, 200), -1)
+                cv2.putText(out, str(pin), (px + 8, py - 8),
+                            cv2.FONT_HERSHEY_SIMPLEX, 0.55, (180, 0, 180), 2)
+
+    # Net labels — for each label/sheet_zone/off_page net, draw the net name
+    # at every endpoint pin position. Skips pure-wire nets so the overlay
+    # doesn't get cluttered (those will get drawn lines if/when wire mode
+    # is wired up).
+    if not args.no_nets:
+        comp_by_ref = {c["refdes"]: c for c in components}
+        for net in graph.get("nets", []):
+            for ep in net.get("endpoints", []):
+                if ep.get("sheet") != args.sheet:
+                    continue
+                if ep.get("edge_type") not in ("label", "sheet_zone", "off_page"):
+                    continue
+                comp = comp_by_ref.get(ep.get("refdes"))
+                if not comp:
+                    continue
+                pos = (comp.get("pin_positions") or {}).get(str(ep.get("pin")))
+                if not pos:
+                    continue
+                px, py = int(pos[0]), int(pos[1])
+                cv2.putText(out, net["name"], (px + 12, py + 6),
+                            cv2.FONT_HERSHEY_SIMPLEX, 0.55, (0, 120, 0), 2)
+
+    # Optional resize so a 9k×6k overlay doesn't gobble RAM when read back.
+    if args.max_width and W > args.max_width:
+        scale = args.max_width / W
+        out = cv2.resize(out, (args.max_width, int(H * scale)))
+
+    out_path = Path(args.out) if args.out else (board_dir(args.board) / f"sheet{args.sheet}_overlay.png")
+    cv2.imwrite(str(out_path), out)
+    print(f"wrote {out_path}  ({len(components)} bbox(es), "
+          f"{sum(len(c.get('pin_positions') or {}) for c in components)} pin position(s), "
+          f"{sum(1 for n in graph.get('nets', []) if any(e.get('sheet')==args.sheet for e in n.get('endpoints', [])))} net(s) on this sheet)")
+
+
 def _find_kicad_cli():
     """Return path to kicad-cli, or None."""
     import shutil
@@ -565,7 +653,9 @@ def cmd_export_kicad(args):
         slug = "".join(c if c.isalnum() else "_" for c in title).strip("_")
         fname = f"{args.board}_s{idx}_{slug}.kicad_sch"
         fpath = out_dir / fname
-        text = kicad_export.gen_sch(graph, chips, idx, project_name=args.board)
+        scan_path = (board_dir(args.board) / sheet_meta["scan_path"]).resolve() if sheet_meta.get("scan_path") else None
+        text = kicad_export.gen_sch(graph, chips, idx, project_name=args.board,
+                                     bg_image=args.bg_image, scan_path=scan_path)
         fpath.write_text(text)
         written.append(fpath)
         print(f"  wrote {fpath} ({len(text):,} bytes)")
@@ -1042,12 +1132,31 @@ def main():
     sp.add_argument("--verbose", action="store_true", help="print every row to stdout")
     sp.set_defaults(fn=cmd_probe_list)
 
+    sp = sub.add_parser("render-overlay",
+                        help="draw the current graph over the source PNG — primary visual "
+                             "checkpoint after each graphical edit")
+    sp.add_argument("--board", required=True)
+    sp.add_argument("--sheet", type=int, required=True)
+    sp.add_argument("--out", help="output PNG path (default: boards/<id>/sheet<N>_overlay.png)")
+    sp.add_argument("--no-pins", action="store_true", help="skip pin-position dots")
+    sp.add_argument("--no-nets", action="store_true", help="skip net-label texts")
+    sp.add_argument("--max-width", type=int, default=2400,
+                    help="resize wider sources down to this width so the overlay reads "
+                         "back at near-native legibility (default: 2400; 0 disables)")
+    sp.set_defaults(fn=cmd_render_overlay)
+
     sp = sub.add_parser("export-kicad", help="emit a .kicad_sch file per sheet")
     sp.add_argument("--board", required=True)
     sp.add_argument("--sheet", type=int, help="single sheet (default: all sheets)")
     sp.add_argument("--out-dir", help="output directory (default: boards/<id>/kicad/)")
     sp.add_argument("--validate", action="store_true",
                     help="parse output as s-expression after writing; if KiCad CLI is on PATH or at the standard macOS location, also run sch erc")
+    sp.add_argument("--bg-image", action="store_true",
+                    help="embed the source scan PNG (downsampled) as a background image "
+                         "behind the chip symbols, for visual diff in the rendered PDF. "
+                         "EXPERIMENTAL — KiCad's image scaling is finicky; the embedded "
+                         "image position may need manual adjustment in eeschema. File "
+                         "size grows by a few MB per sheet.")
     sp.set_defaults(fn=cmd_export_kicad)
 
     args = ap.parse_args()
