@@ -567,7 +567,8 @@ function loadSheet() {
       resolve();
     };
     img.onerror = () => reject(new Error(`failed to load sheet ${state.sheetIndex}`));
-    img.src = `/api/sheet/${state.sheetIndex}.png`;
+    // Cache-bust + per-board to avoid stale exidy_440 image on board switches.
+    img.src = withBoard(`/api/sheet/${state.sheetIndex}.png`) + (state.boardId ? `&_=${Date.now()}` : `?_=${Date.now()}`);
   });
 }
 
