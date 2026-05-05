@@ -42,7 +42,37 @@ snap-bbox --image <png> --bbox x1,y1,x2,y2 [--search-pad 120] [--debug out.png]
 # unless --include-verified. Drops pin_positions so the explorer regenerates
 # defaults against the new bbox.
 snap-board --board <id> [--sheet N] [--dry-run] [--include-verified]
+
+# Crop one chip + margin so the LLM can read pin numbers / labels at high
+# resolution. Source-aware: on vector_pdf boards the harness re-renders the
+# source PDF at 600 DPI on the fly and rescales the bbox; on raster_scan
+# boards it crops the canonical scan. The first stdout line is `[source]
+# vector_pdf board → rendering …` (PDF path) or absent (scan path) — paste
+# it into your reasoning. The printed `to translate (cx, cy) → graph/scan
+# coords` formula converts crop-local coords back to graph-coord pin
+# positions.
+crop-chip --board <id> --refdes <r> --out <png> [--pad 80] [--no-pdf]
+          [--pdf <path>] [--page N] [--dpi 600]
 ```
+
+## Source routing
+
+Each board declares its source kind in `board.json`:
+
+```json
+"source": {
+  "kind": "vector_pdf",                            // or "raster_scan"
+  "pdf_path": "../../<mfr>/<board>.pdf",          // vector_pdf only
+  "default_render_dpi": 600,                       // vector_pdf only
+  "scan_dpi": 300                                  // optional
+}
+```
+
+Tools branch on this so a less-thinking LLM can call `crop-chip` without
+deciding whether to use the PDF — the harness picks. `vector_pdf` boards
+get crisp text from on-demand 600 DPI re-renders; `raster_scan` boards
+fall back to the canonical scan because high-DPI on a raster source just
+upscales noise. Use `--no-pdf` to override on a vector_pdf board.
 
 ## Workflow for a brand-new board
 

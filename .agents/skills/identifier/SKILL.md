@@ -127,6 +127,17 @@ defaults are wrong. Read the pin numbers from a high-res crop:
    Then re-render and verify each clone's pins land on the right spots.
 ```
 
+**Source routing**: `crop-chip` reads `board.json`'s `source` block and
+auto-picks the input. On `vector_pdf` boards (Dorado family), the harness
+re-renders the source PDF at 600 DPI on the fly and rescales the bbox; the
+LLM doesn't need to pass `--pdf`. On `raster_scan` boards (Exidy), the
+canonical scan is the source of truth — high-DPI is unavailable. The first
+line of `crop-chip`'s output is `[source] vector_pdf board → rendering …`
+or absent (scan path); paste that into your reasoning so the next step
+knows what coordinate space the crop came from. Translate render-coord pin
+positions back to graph/scan coords using the printed `to translate …`
+formula before calling `set-pin-positions`.
+
 For Exidy-style hand-drawn schematics without printed pin numbers, skip
 this stage; the function-based default layout is correct enough.
 
@@ -148,6 +159,24 @@ wires are very common. Read the labels:
    pin-to-label assignments.
 ```
 
+**Stage 3 acceptance gate** (paste before moving on):
+
+```
+$ python3 .agents/skills/schematic-graph/graph_cli.py validate --board <id>
+ok — ...
+
+$ python3 .agents/skills/schematic-graph/graph_cli.py untyped-nets --board <id> --sheet <n>
+PASS — no untyped nets on sheet <n>
+
+$ python3 .agents/skills/schematic-graph/graph_cli.py lint --board <id> --sheet <n>
+PASS ...
+```
+
+If `untyped-nets` returns FAIL, walk every listed net: read the source
+crop again, decide whether it's `label` (named off-page net), `wire`
+(local), or `sheet_zone` (zoned cross-sheet ref), and add-net with the
+right --edge-type. **Stage 3 is not done until untyped-nets is PASS.**
+
 ### Stage 4 — direct-wire nets (Exidy-style only)
 
 For schematics that use direct wires rather than labels:
@@ -168,12 +197,43 @@ go back to Stage 2 before retrying the tracer.
 
 ```
 1. graph_cli export-kicad --board <id> --sheet <n> --validate
-2. kicad-cli sch export pdf — render to PDF
-3. Open the PDF. Compare to the source overlay. Components and labels
-   should be in roughly the same RELATIVE positions because KiCad export
-   uses 1:1 source-pixel→mm scaling.
-4. Flag missing labels, mis-named pins, missing chips. Fix and re-export.
+   (refuses to write if validate finds issues; the LLM should never
+   pass --allow-invalid without an explicit reason)
+2. graph_cli erc-summary --board <id> --sheet <n>
+3. graph_cli render-kicad --board <id> --sheet <n> --out /tmp/<id>_s<n>_kicad.png
+4. Read the rendered PNG. Compare to the source overlay. Components and
+   labels should be in roughly the same RELATIVE positions because KiCad
+   export uses 1:1 source-pixel→mm scaling.
 ```
+
+**Stage 5 acceptance gate** (paste before declaring the sheet done):
+
+```
+$ graph_cli erc-summary --board <id> --sheet <n>
+  blocking (0): (none)
+  cross-sheet expected (...): ...    # noise, ignore
+  benign (...): ...                  # cosmetic, ignore
+  other (0): (none)
+  PASS — ...
+```
+
+The four numeric assertions are non-negotiable:
+
+| Category               | Required | If non-zero, do this                             |
+|------------------------|----------|--------------------------------------------------|
+| `blocking`             | **0**    | construction bug; re-export should clear it     |
+| `other` errors         | **0**    | real wiring mistakes (pin_to_pin Output-Output) — open the .erc.txt, find the offending pins, fix the graph |
+| cross-sheet expected   | any      | resolves when other sheets land                  |
+| benign                 | any      | cosmetic; ignore                                  |
+
+If `blocking` is non-zero, `export-kicad`'s built-in fixes (grid-snap,
+power flags, sym-lib-table) didn't run — most likely you bypassed
+validate with `--allow-invalid` or the export tool is broken. Don't
+paper over it; fix the cause.
+
+If `other` has any errors (typically `pin_to_pin`), open the .erc.txt,
+read the two refdes/pin pairs, and reconcile in `graph.json`. These are
+real wiring mistakes the LLM made and only the LLM can fix.
 
 ## CLI summary
 

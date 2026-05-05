@@ -11,6 +11,9 @@
     "manual_path": "../../exidy/manuals/Cheyenne_archive_org.pdf",
     "jp2_path": "../../exidy/scans/jp2/Cheyenne_archive_jp2.zip"
   },
+  "source": {
+    "kind": "raster_scan"
+  },
   "sheets": [
     { "index": 1, "title": "Video RAM & MPX",       "scan_path": "../../exidy/scans/pages/logic_sheet1_video_ram_mpx.png",       "scan_pixel_size": [5863, 4531] },
     { "index": 2, "title": "Line Buffer & Control", "scan_path": "../../exidy/scans/pages/logic_sheet2_line_buffer_control.png", "scan_pixel_size": [5863, 4531] },

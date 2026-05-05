@@ -34,6 +34,31 @@
         "jp2_path": { "type": "string" }
       }
     },
+    "source": {
+      "type": "object",
+      "description": "Structured declaration of the source-image kind. Tools (cartographer, identifier) branch on this so an LLM with limited reasoning can call e.g. crop-chip without deciding whether to use --pdf — the harness picks. `vector_pdf` means the canonical PDF carries crisp vector lines and chip-text crops should re-render from PDF on demand at a higher DPI; `raster_scan` means the scan IS the source of truth and high-DPI PDF rendering would just upscale noise.",
+      "required": ["kind"],
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": ["vector_pdf", "raster_scan"]
+        },
+        "pdf_path": {
+          "type": "string",
+          "description": "Path (relative to the board folder) of the source PDF. Required when kind is vector_pdf."
+        },
+        "default_render_dpi": {
+          "type": "integer",
+          "minimum": 72,
+          "description": "DPI at which crop-chip / tile re-render the PDF on demand (vector_pdf only). Default 600."
+        },
+        "scan_dpi": {
+          "type": "integer",
+          "minimum": 72,
+          "description": "DPI of the canonical scans in sheets[].scan_path. Used to compute the bbox-rescale factor when rendering the PDF at a different DPI."
+        }
+      }
+    },
     "sheets": {
       "type": "array",
       "minItems": 1,

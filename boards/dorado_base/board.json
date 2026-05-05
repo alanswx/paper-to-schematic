@@ -9,6 +9,12 @@
     "manual": "Xerox Dorado schematics, Baseboard.pdf",
     "reason": "Native PDF rendering at 300 DPI; clean vector-quality lines"
   },
+  "source": {
+    "kind": "vector_pdf",
+    "pdf_path": "../../doradoschematics/Baseboard.pdf",
+    "default_render_dpi": 600,
+    "scan_dpi": 300
+  },
   "sheets": [
     {
       "index": 1,

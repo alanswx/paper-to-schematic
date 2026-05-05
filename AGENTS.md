@@ -50,6 +50,22 @@ Source scans (`exidy/scans/...`, `exidy/manuals/...`) are treated as read-only
 inputs. Never edit them. Cartographer outputs derived PNGs alongside; those are
 also derived artifacts and should not be hand-edited.
 
+## Source routing — vector PDF vs raster scan
+
+Each `board.json` declares its source kind:
+
+```json
+"source": { "kind": "vector_pdf" | "raster_scan", "pdf_path": "...", "default_render_dpi": 600 }
+```
+
+Tools branch on this so an LLM doesn't have to decide whether the source carries
+crisp vector text. On `vector_pdf` boards (Dorado family), `cartographer
+crop-chip` re-renders the PDF on the fly at 600 DPI and rescales the bbox; on
+`raster_scan` boards (Exidy), it crops the canonical scan because there's no
+finer source available. The first stdout line of `crop-chip` reports `[source]
+…` — paste it into your reasoning so the next step knows what coordinate space
+the crop came from.
+
 ## Source of truth
 
 - The chip library: `.agents/skills/librarian/chips.json` (managed by the
@@ -118,6 +134,44 @@ the bboxes by visual reading instead.
 Snap-bbox can stay as an *opportunistic* refinement: if it produces a chip-
 sized rectangle near the vision bbox, accept it; if it shrinks or distorts,
 keep the vision bbox. CV should never overrule recognition.
+
+## Acceptance gates — the LLM-facing tools that fail loudly
+
+Each stage in the per-sheet workflow has a numeric pass/fail gate exposed
+as a `graph_cli` subcommand. The agent is expected to run the gate, paste
+its output, and only move on when it returns `PASS`. These exist
+specifically because prose like "render the overlay and check it" turned
+out not to be enforceable — the next agent reads it, feels done, and
+commits an obviously-broken sheet. Numbers don't drift.
+
+| Stage                              | Gate                                                                 |
+|------------------------------------|----------------------------------------------------------------------|
+| 1 — bbox round-trip                | `graph_cli lint --board <id> --sheet <n>` (FAIL on bbox out-of-page or covering blank space) |
+| 2 — pin positions                  | `graph_cli lint ...` (FAIL on pin floating outside bbox)             |
+| 3 — named nets / wires             | `graph_cli untyped-nets --board <id> --sheet <n>` (must return PASS) |
+|                                    | `graph_cli validate --board <id>` (rejects null edge_types)          |
+| 4 — direct-wire nets (Exidy-only)  | same as Stage 3                                                      |
+| 5 — KiCad export                   | `graph_cli export-kicad --validate` (refuses on validate failure)    |
+|                                    | `graph_cli erc-summary --board <id> --sheet <n>` (blocking=0, other-errors=0) |
+|                                    | `graph_cli render-kicad ... --out <png>` + Read the PNG              |
+
+If a gate fails, FIX THE CAUSE — don't pass `--allow-invalid` and don't
+silence the failure. The LLM-only tools that exist for self-checking:
+
+- `validate` — schema + ref-integrity. Rejects null edge_types.
+- `untyped-nets` — every endpoint must declare its edge_type before Stage 3 ends.
+- `lint` — cross-checks the graph against the source PNG, the librarian, and
+  bus/coverage heuristics. Catches: blank-bbox chips, pins floating outside
+  the bbox, chips with zero nets, gappy bus members, over-connected nets,
+  unknown pin numbers.
+- `erc-summary` — collapses 1000+ ERC lines into a four-line verdict.
+- `render-kicad` — rasterises the export so the agent can Read it back.
+
+Things the export tool does deterministically (so the LLM doesn't have
+to remember): grid-snap to 50 mil, auto-emit power-source flags for VCC
+and GND pins, write a project sym-lib-table, refuse to run when
+validate fails. If you find yourself fixing one of these manually, the
+right move is to push the fix into the tool.
 
 ## Constraints
 

@@ -634,6 +634,19 @@ def _rotate_image(img, angle_deg: float):
                            borderValue=255)
 
 
+def _load_board_source(bdir: Path) -> dict:
+    """Read board.json's `source` block (or {} if absent). The harness uses
+    this to auto-pick PDF rendering on vector_pdf boards so the LLM doesn't
+    have to remember which boards have crisp source PDFs."""
+    bjson = bdir / "board.json"
+    if not bjson.exists():
+        return {}
+    try:
+        return json.loads(bjson.read_text()).get("source", {}) or {}
+    except Exception:
+        return {}
+
+
 def cmd_crop_chip(args):
     """Crop a high-resolution image of a chip + surrounding margin.
 
@@ -643,6 +656,11 @@ def cmd_crop_chip(args):
     set-pin-positions to commit them. This pattern keeps the OCR / vision
     work on the LLM side, with the skill just producing well-framed
     images of the regions to read.
+
+    Source routing: when board.json declares `source.kind = "vector_pdf"`,
+    --pdf and --dpi default from `source.pdf_path` / `source.default_render_dpi`
+    so the LLM gets crisp text for free. Pass --no-pdf to force the canonical
+    scan path. For raster_scan boards, --pdf is honored if given but warned.
     """
     try:
         import cv2
@@ -663,6 +681,22 @@ def cmd_crop_chip(args):
     sheet = next((s for s in graph["sheets"] if s["index"] == comp["sheet"]), None)
     if not sheet:
         print(f"sheet {comp['sheet']} not in graph", file=sys.stderr); sys.exit(1)
+
+    # Auto-route to PDF rendering on vector_pdf boards unless caller opts out.
+    source = _load_board_source(bdir)
+    if not args.no_pdf and not args.pdf and source.get("kind") == "vector_pdf":
+        pdf_rel = source.get("pdf_path")
+        if pdf_rel:
+            args.pdf = str((bdir / pdf_rel).resolve())
+            if args.dpi is None:
+                args.dpi = source.get("default_render_dpi") or 600
+            print(f"[source] vector_pdf board → rendering from {pdf_rel} @ {args.dpi}dpi "
+                  f"(pass --no-pdf to use the canonical scan instead)")
+    if args.pdf and source.get("kind") == "raster_scan":
+        print(f"[source] warning: this board's source is raster_scan; --pdf will "
+              f"upscale a raster page rather than render vectors", file=sys.stderr)
+    if args.dpi is None:
+        args.dpi = 600
 
     # Bbox is in scan-pixel coords. If we render fresh from PDF at a higher
     # DPI, scale the bbox by render_size / scan_size so the crop still frames
@@ -828,9 +862,12 @@ def main():
                     help="padding (in scan-px) around the bbox (default 80)")
     sp.add_argument("--out", required=True, help="output PNG path")
     sp.add_argument("--pdf", help="render the chip from this PDF page instead of the canonical scan "
-                                  "(use when scan text is too small; bbox is auto-rescaled)")
+                                  "(auto-set on vector_pdf boards; bbox is auto-rescaled)")
     sp.add_argument("--page", type=int, help="PDF page (1-based, used with --pdf)")
-    sp.add_argument("--dpi", type=int, default=600, help="DPI for --pdf rendering (default 600)")
+    sp.add_argument("--dpi", type=int,
+                    help="DPI for --pdf rendering (defaults from board.source.default_render_dpi or 600)")
+    sp.add_argument("--no-pdf", action="store_true",
+                    help="force the canonical scan path even when board.source.kind is vector_pdf")
     sp.set_defaults(fn=cmd_crop_chip)
 
     sp = sub.add_parser("decode-jp2",
