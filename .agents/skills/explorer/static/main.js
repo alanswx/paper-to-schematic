@@ -1231,7 +1231,7 @@ $("#reload").addEventListener("click", async () => {
     refreshComponents();
     refreshNetsList();
     refreshSelection();
-    requestAnimationFrame(draw);
+    requestAnimationFrame(render);
     setStatus("reloaded — graph.json re-read from disk");
   } catch (e) {
     setStatus("reload failed: " + e.message);
