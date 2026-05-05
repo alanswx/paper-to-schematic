@@ -1221,6 +1221,23 @@ function deleteSelected() {
 
 $("#save").addEventListener("click", save);
 
+$("#reload").addEventListener("click", async () => {
+  setStatus("reloading…");
+  try {
+    state.graph = await api("/api/graph");
+    normalizeGraph();
+    state.selectedComponent = null;
+    state.selectedNet = null;
+    refreshComponents();
+    refreshNetsList();
+    refreshSelection();
+    requestAnimationFrame(draw);
+    setStatus("reloaded — graph.json re-read from disk");
+  } catch (e) {
+    setStatus("reload failed: " + e.message);
+  }
+});
+
 const dlg = $("#component-dialog");
 const refdesInput = $("#refdes-input");
 const partInput = $("#part-input");
