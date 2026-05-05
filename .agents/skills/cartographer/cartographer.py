@@ -157,9 +157,19 @@ def _snap_one(img_gray, bbox, search_pad: int, line_min_len: int, min_size: int,
         binary, cv2.MORPH_OPEN,
         cv2.getStructuringElement(cv2.MORPH_RECT, (1, line_min_len)))
 
+    # Bridge pin-tick gaps in the chip's left/right vertical edges using a
+    # vertical close, and any small gaps in horizontal edges using a horizontal
+    # close. Done on each layer separately so we don't smear lines across
+    # orientations (which could connect adjacent chips).
+    vert = cv2.morphologyEx(vert, cv2.MORPH_CLOSE,
+                             cv2.getStructuringElement(cv2.MORPH_RECT, (1, 15)),
+                             iterations=1)
+    horiz = cv2.morphologyEx(horiz, cv2.MORPH_CLOSE,
+                              cv2.getStructuringElement(cv2.MORPH_RECT, (15, 1)),
+                              iterations=1)
+
     skeleton = cv2.bitwise_or(horiz, vert)
-    # Tiny close to bridge corner gaps so closed loops register, but small
-    # enough that adjacent chips don't merge.
+    # Final small close at corners (where horizontal meets vertical).
     skeleton = cv2.morphologyEx(skeleton, cv2.MORPH_CLOSE,
                                 cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3)),
                                 iterations=1)
