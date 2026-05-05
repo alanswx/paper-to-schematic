@@ -62,7 +62,37 @@ python3 .agents/skills/schematic-graph/graph_cli.py list-components --board exid
 
 # Validate the graph: refdes uniqueness, parts in the librarian, bbox sanity,
 # net endpoint refdes coverage, edge_type uniformity per net, sheet_zone refs.
+# REJECTS null edge_types — every endpoint must declare its connection kind.
 python3 .agents/skills/schematic-graph/graph_cli.py validate --board exidy_440
+
+# Per-sheet pickup signal — run on session start to see where to resume.
+# Reports component count, pin-position coverage, named net count, ERC
+# state, and the inferred Stage (0=not started, 1=bboxes, 2=pins done,
+# 3=nets, 5=ERC clean) for every sheet.
+python3 .agents/skills/schematic-graph/graph_cli.py pipeline-status --board exidy_440
+
+# Stage-3 gate — list nets touching a sheet whose endpoints have null
+# edge_type or labels with empty names. Must return PASS before Stage 3 ends.
+python3 .agents/skills/schematic-graph/graph_cli.py untyped-nets \
+  --board exidy_440 --sheet 1
+
+# Cross-checks the graph against the source PNG, the librarian, and net
+# topology heuristics. FAIL on blank-bbox chips, pins floating outside the
+# bbox, malformed pin numbers; WARN on chips with zero nets, gappy bus members,
+# over-connected nets.
+python3 .agents/skills/schematic-graph/graph_cli.py lint \
+  --board exidy_440 --sheet 1
+
+# Stage-5 gate — categorises the most-recent ERC report into blocking
+# (construction bugs) / cross-sheet expected (resolves later) / benign
+# (cosmetic) / other (real wiring mistakes), with one PASS/FAIL line.
+python3 .agents/skills/schematic-graph/graph_cli.py erc-summary \
+  --board exidy_440 --sheet 1
+
+# Rasterise the most-recent export to PNG so the agent can Read it back
+# and visually compare to the source overlay.
+python3 .agents/skills/schematic-graph/graph_cli.py render-kicad \
+  --board exidy_440 --sheet 1 --out /tmp/exidy_s1_kicad.png
 
 # Add a net: 2+ endpoints sharing one edge_type. Auto-fills sheet from each
 # component. --kind: signal/power/ground/clock/bus_member.
@@ -134,12 +164,33 @@ both paths must produce schema-valid output.
   `label` for `label` (in-sheet).
 - ERC will report many "Pin not connected" errors during transcription —
   this is expected when most nets are cross-sheet labels and the other
-  sheets haven't been done yet. The error count drops as more sheets
-  come online; treat it as noise until the full board is in.
+  sheets haven't been done yet. **Use `erc-summary` for the verdict
+  rather than reading the full ERC text:** it splits cross-sheet
+  expected counts (noise) from blocking categories and real wiring
+  errors so the gate is one line, not a thousand.
 - `kicad-cli`'s "Failed to load schematic" message has no detail. If
   this happens, run `validate` (sexp parse) to confirm the file is at
   least syntactically valid, then check label/global_label syntax — the
   most common cause is an attribute KiCad rejects.
+- Symbol-local +Y is UP, schematic-page +Y is DOWN. The exporter flips
+  py when computing wire endpoints; if you add new pin emission code,
+  use `pin_endpoint_mm[(refdes, str(n))] = (x_mm + px, y_mm - py)`.
+
+## What the export tool does deterministically (don't re-implement these)
+
+- Snaps every emitted coordinate to KiCad's 50-mil (1.27 mm) connection
+  grid. Eliminates `endpoint_off_grid` violations by construction.
+- Auto-emits a `power_out` flag and global_label per unique power pin
+  name (VCC, GND, …) on the sheet, so chips' `power_in` pins are driven.
+  Eliminates `power_pin_not_driven` by construction.
+- Writes a `sym-lib-table` and a `<board>.kicad_pro` next to the .kicad_sch
+  so KiCad treats the directory as a project and recognises the inlined
+  `user` library (the `lib_symbol_issues` warning still appears in the
+  ERC output but is benign — the symbols are embedded under lib_symbols
+  inside each .kicad_sch and load fine).
+- Refuses to write a .kicad_sch when `validate` finds errors. Override
+  with `--allow-invalid` only when consciously inspecting a partial
+  state — never as a way to silence a real failure.
 
 ## Visual round-trip beyond the overlay (KiCad PDF)
 

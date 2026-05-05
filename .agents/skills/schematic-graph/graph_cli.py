@@ -1144,6 +1144,82 @@ def cmd_validate(args):
           f"{len(graph.get('nets', []))} nets, all parts in librarian")
 
 
+def cmd_pipeline_status(args):
+    """Per-sheet pickup signal for a less-thinking LLM session: 'where am I?'.
+
+    Reports each sheet's stage by inspecting graph state (component count,
+    pin-position coverage, named net count) and ERC artifact presence
+    (boards/<id>/kicad/*_s<n>_*.erc.txt). All numbers are derived — no
+    state file to keep in sync.
+    """
+    graph = load_graph(args.board)
+    chips = load_chips()
+    bdir = board_dir(args.board)
+    kicad_dir = bdir / "kicad"
+
+    # Use the kicad_export predicates so pinned-% counts only the active
+    # gate's pins on split-gate sub-units (otherwise g01a would never reach
+    # 100% because pins 8-16 belong to gate B/C/D's refdes).
+    import importlib.util
+    spec = importlib.util.spec_from_file_location(
+        "kicad_export",
+        Path(__file__).resolve().parent / "kicad_export.py")
+    kicad_export = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(kicad_export)
+
+    sheets = sorted(graph.get("sheets", []), key=lambda s: s["index"])
+    print(f"board: {args.board}  sheets: {len(sheets)}")
+    print(f"{'sheet':>5}  {'comps':>5}  {'pinned%':>7}  {'nets':>5}  {'erc':>10}  stage")
+    for s in sheets:
+        idx = s["index"]
+        comps = [c for c in graph["components"] if c.get("sheet") == idx]
+        n_comps = len(comps)
+        multi_unit = kicad_export._multi_unit_parts(comps, chips)
+        pinned = 0
+        total_pins = 0
+        for c in comps:
+            part = chips["parts"].get(c.get("part"))
+            if not part: continue
+            letter = kicad_export._comp_unit_letter(c["refdes"], c["part"], multi_unit)
+            active = kicad_export._comp_active_pins(part, letter)
+            total_pins += len(active)
+            placed = c.get("pin_positions") or {}
+            pinned += sum(1 for p in active if str(p["n"]) in placed)
+        pin_pct = (100.0 * pinned / total_pins) if total_pins else 0.0
+        nets = [n for n in graph.get("nets", [])
+                if any(ep.get("sheet") == idx for ep in n.get("endpoints", []))]
+        n_nets = len(nets)
+
+        # ERC artifact + blocking count.
+        erc_status = "—"
+        erc_blocking = 0
+        matches = sorted(kicad_dir.glob(f"*_s{idx}_*.erc.txt")) if kicad_dir.exists() else []
+        if matches:
+            counts, error_counts = _parse_erc_counts(matches[-1])
+            erc_blocking = sum(error_counts.get(k, 0) for k in ERC_BLOCKING)
+            other_errors = sum(error_counts.get(k, 0) for k in counts
+                               if k not in ERC_BLOCKING and k not in ERC_EXPECTED_CROSS_SHEET
+                               and k not in ERC_BENIGN_WARNINGS)
+            erc_blocking += other_errors
+            erc_status = "PASS" if erc_blocking == 0 else f"FAIL({erc_blocking})"
+
+        # Infer stage. The acceptance-gate progression:
+        if n_comps == 0:
+            stage = "0 — not started"
+        elif pin_pct < 95.0:
+            stage = f"1 — bboxes ({pin_pct:.0f}% pinned, finish Stage 2)"
+        elif n_nets == 0:
+            stage = "2 — pins done, no nets yet (Stage 3)"
+        elif not matches:
+            stage = "3 — nets present, no ERC run (Stage 5: export-kicad)"
+        elif erc_blocking > 0:
+            stage = f"5 — {erc_blocking} blocking ERC error(s) to fix"
+        else:
+            stage = "5 — ready (ERC clean)"
+
+        print(f"{idx:>5}  {n_comps:>5}  {pin_pct:>6.0f}%  {n_nets:>5}  {erc_status:>10}  {stage}")
+
+
 def cmd_untyped_nets(args):
     """List nets touching --sheet that have null edge_type (or null label
     where one is required). The Stage-3 acceptance gate: this command must
@@ -1674,6 +1750,13 @@ def main():
     sp.add_argument("--board", required=True)
     sp.add_argument("--sheet", type=int, help="restrict to nets touching this sheet")
     sp.set_defaults(fn=cmd_untyped_nets)
+
+    sp = sub.add_parser("pipeline-status",
+                        help="per-sheet pickup signal: components, pinned-pct, "
+                             "nets, ERC, and the inferred Stage. Run on session "
+                             "start to see where to resume.")
+    sp.add_argument("--board", required=True)
+    sp.set_defaults(fn=cmd_pipeline_status)
 
     sp = sub.add_parser("erc-summary",
                         help="categorise the last KiCad ERC report into "
