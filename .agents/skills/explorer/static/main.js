@@ -249,42 +249,46 @@ function drawNets() {
   const nets = state.graph?.nets || [];
   // At low zoom, scale line widths up so even short wires are visible.
   const widthScale = Math.max(1, 0.3 / Math.max(state.view.scale, 0.001));
+  state.netZoneBadges = []; // updated per render; used by hit-test for click-to-navigate
 
   for (const net of nets) {
-    if (!net.endpoints || net.endpoints.length < 2) continue;
+    if (!net.endpoints || net.endpoints.length < 1) continue;
     const points = [];
     for (const ep of net.endpoints) {
       if (ep.sheet !== undefined && ep.sheet !== state.sheetIndex) continue;
       const pos = getPinSourcePos(ep.refdes, ep.pin);
       if (pos) points.push({ pos, ep });
     }
-    if (points.length < 2) continue;
-    const color = edgeTypeColor(points[0].ep.edge_type);
+    if (points.length === 0) continue;
+    const color = edgeTypeColor((points[0] || {ep:{edge_type:'wire'}}).ep.edge_type);
     const isSelected = state.selectedNet === net.name;
     const baseLine = isSelected ? 3.5 : 2.5;
     const baseHalo = isSelected ? 8 : 5;
 
-    // Dark halo for contrast against white paper.
-    ctx.strokeStyle = isSelected ? "rgba(255,204,51,0.85)" : "rgba(0,0,0,0.6)";
-    ctx.lineWidth = baseHalo * widthScale;
-    ctx.beginPath();
-    const first = imgToCanvas(points[0].pos[0], points[0].pos[1]);
-    ctx.moveTo(first.x, first.y);
-    for (let i = 1; i < points.length; i++) {
-      const p = imgToCanvas(points[i].pos[0], points[i].pos[1]);
-      ctx.lineTo(p.x, p.y);
+    // Connecting line — only if there are 2+ on-sheet endpoints to connect.
+    if (points.length >= 2) {
+      // Dark halo for contrast against white paper.
+      ctx.strokeStyle = isSelected ? "rgba(255,204,51,0.85)" : "rgba(0,0,0,0.6)";
+      ctx.lineWidth = baseHalo * widthScale;
+      ctx.beginPath();
+      const first = imgToCanvas(points[0].pos[0], points[0].pos[1]);
+      ctx.moveTo(first.x, first.y);
+      for (let i = 1; i < points.length; i++) {
+        const p = imgToCanvas(points[i].pos[0], points[i].pos[1]);
+        ctx.lineTo(p.x, p.y);
+      }
+      ctx.stroke();
+      // Bright color line on top.
+      ctx.strokeStyle = color;
+      ctx.lineWidth = baseLine * widthScale;
+      ctx.beginPath();
+      ctx.moveTo(first.x, first.y);
+      for (let i = 1; i < points.length; i++) {
+        const p = imgToCanvas(points[i].pos[0], points[i].pos[1]);
+        ctx.lineTo(p.x, p.y);
+      }
+      ctx.stroke();
     }
-    ctx.stroke();
-    // Bright color line on top.
-    ctx.strokeStyle = color;
-    ctx.lineWidth = baseLine * widthScale;
-    ctx.beginPath();
-    ctx.moveTo(first.x, first.y);
-    for (let i = 1; i < points.length; i++) {
-      const p = imgToCanvas(points[i].pos[0], points[i].pos[1]);
-      ctx.lineTo(p.x, p.y);
-    }
-    ctx.stroke();
 
     // Endpoint rings — visible regardless of wire length, so a "wire" hugging
     // a chip bbox still shows as colored markers on each connected pin.
@@ -306,7 +310,68 @@ function drawNets() {
       ctx.font = isSelected ? "bold 12px ui-monospace, monospace" : "10px ui-monospace, monospace";
       ctx.fillText(net.name, (a.x + b.x) / 2 + 4, (a.y + b.y) / 2 - 4);
     }
+
+    // Sheet-zone badges — render an arrow + label at each on-sheet endpoint
+    // whose edge_type is sheet_zone or off_page. Captures the cross-sheet
+    // linkage so the human can see "this net continues to <ref> on another
+    // sheet" without leaving this view. Click navigates to that sheet.
+    for (const { pos, ep } of points) {
+      const isCrossSheet = (ep.edge_type === "sheet_zone" || ep.edge_type === "off_page");
+      if (!isCrossSheet) continue;
+      const refLabel = ep.sheet_zone_ref || (net.name);
+      const cp = imgToCanvas(pos[0], pos[1]);
+      const text = `→ ${refLabel}`;
+      ctx.font = "bold 11px ui-monospace, monospace";
+      const m = ctx.measureText(text);
+      const padX = 5, padY = 3;
+      const w = m.width + 2 * padX;
+      const h = 14 + 2 * padY;
+      const bx = cp.x + 8;
+      const by = cp.y - h - 4;
+      // Background pill
+      ctx.fillStyle = color;
+      ctx.strokeStyle = "rgba(0,0,0,0.7)";
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      // Rounded corners — fall back to plain rect if roundRect missing.
+      if (typeof ctx.roundRect === "function") {
+        ctx.roundRect(bx, by, w, h, 4);
+      } else {
+        ctx.rect(bx, by, w, h);
+      }
+      ctx.fill();
+      ctx.stroke();
+      // White text
+      ctx.fillStyle = "#000";
+      ctx.textBaseline = "middle";
+      ctx.fillText(text, bx + padX, by + h / 2);
+      ctx.textBaseline = "alphabetic";
+      // Stash for hit testing.
+      state.netZoneBadges.push({
+        netName: net.name,
+        refLabel,
+        rect: [bx, by, bx + w, by + h],
+      });
+    }
   }
+}
+
+// Parse a sheet-zone ref like "4C6" → 4 (the sheet number prefix).
+function parseSheetFromRef(ref) {
+  if (!ref) return null;
+  const m = String(ref).match(/^(\d+)/);
+  if (!m) return null;
+  return parseInt(m[1], 10);
+}
+
+function hitTestZoneBadge(cx, cy) {
+  for (const b of (state.netZoneBadges || [])) {
+    const [x1, y1, x2, y2] = b.rect;
+    if (cx >= x1 && cx <= x2 && cy >= y1 && cy <= y2) {
+      return b;
+    }
+  }
+  return null;
 }
 
 // Distance from point (px,py) to line segment (ax,ay)-(bx,by).
@@ -873,6 +938,24 @@ window.addEventListener("mouseup", (e) => {
       const rect = canvas.getBoundingClientRect();
       const cx = e.clientX - rect.left;
       const cy = e.clientY - rect.top;
+      // Sheet-zone badge takes priority — clicking jumps to the linked sheet.
+      const badgeHit = hitTestZoneBadge(cx, cy);
+      if (badgeHit) {
+        const targetSheet = parseSheetFromRef(badgeHit.refLabel);
+        if (targetSheet && state.board?.sheets?.some(s => s.index === targetSheet)) {
+          state.sheetIndex = targetSheet;
+          $("#sheet-select").value = String(targetSheet);
+          state.selectedComponent = null;
+          state.selectedNet = badgeHit.netName;
+          refreshSelection();
+          loadSheet().then(() => render()).catch(err => setStatus("error: " + err.message));
+        } else {
+          selectNet(badgeHit.netName);
+        }
+        state.pan = null;
+        canvas.style.cursor = state.mode === "drawing" ? "crosshair" : "grab";
+        return;
+      }
       // Component takes priority; if no component hit, try net.
       const refdesHit = hitTestBbox(cx, cy);
       if (refdesHit) {
