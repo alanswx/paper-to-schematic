@@ -110,6 +110,45 @@ def cmd_add_component(args):
           f"source={args.source}")
 
 
+def cmd_set_pin_positions(args):
+    """Replace a component's pin_positions from a JSON map of pin→[x,y].
+
+    Used by the Claude-driven pin-numbering workflow: cartographer crop-chip
+    produces a high-res image of the chip; Claude reads each pin number and
+    its position in source coordinates; this command commits them.
+
+    --json accepts either inline JSON ('{\"1\":[100,200],...}') or @file.
+    """
+    graph = load_graph(args.board)
+    comp = next((c for c in graph["components"] if c["refdes"] == args.refdes), None)
+    if not comp:
+        print(f"refdes not in graph: {args.refdes}", file=sys.stderr); sys.exit(1)
+
+    raw = args.json
+    if raw.startswith("@"):
+        raw = Path(raw[1:]).read_text()
+    data = json.loads(raw)
+
+    if not isinstance(data, dict):
+        print("--json must be an object: {pin_number: [x,y], ...}", file=sys.stderr)
+        sys.exit(1)
+    out = {}
+    for k, v in data.items():
+        if not isinstance(v, list) or len(v) != 2:
+            print(f"pin {k}: expected [x,y], got {v}", file=sys.stderr); sys.exit(1)
+        out[str(k)] = [float(v[0]), float(v[1])]
+
+    if args.merge:
+        existing = comp.get("pin_positions") or {}
+        existing.update(out)
+        comp["pin_positions"] = existing
+    else:
+        comp["pin_positions"] = out
+    save_graph(args.board, graph)
+    mode = "merged" if args.merge else "replaced"
+    print(f"{mode} {len(out)} pin position(s) on {args.refdes}")
+
+
 def _set_verified(args, value: bool):
     graph = load_graph(args.board)
     comp = next((c for c in graph["components"] if c["refdes"] == args.refdes), None)
@@ -904,6 +943,16 @@ def main():
     sp.add_argument("--board", required=True)
     sp.add_argument("--refdes", required=True)
     sp.set_defaults(fn=cmd_remove_component)
+
+    sp = sub.add_parser("set-pin-positions",
+                        help="set pin_positions for a component from a JSON map")
+    sp.add_argument("--board", required=True)
+    sp.add_argument("--refdes", required=True)
+    sp.add_argument("--json", required=True,
+                    help='JSON object {pin: [x,y], ...} (inline or @file.json)')
+    sp.add_argument("--merge", action="store_true",
+                    help="merge with existing pin_positions instead of replacing")
+    sp.set_defaults(fn=cmd_set_pin_positions)
 
     sp = sub.add_parser("verify-component", help="mark component as human-verified")
     sp.add_argument("--board", required=True)

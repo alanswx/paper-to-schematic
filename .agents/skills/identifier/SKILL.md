@@ -1,9 +1,11 @@
 # Identifier skill
 
-Visual identification of components on a schematic. The identifier is **Claude
-itself**, not a separate vision model. The skill provides the workflow contract
-and the tile-based image access pattern; the actual recognition happens by
-reading tile PNGs in the conversation.
+Visual identification of components AND of fine details (pin numbers, net
+labels) on a schematic. The identifier is **Claude itself**, not a separate
+vision model — no OCR libraries. The skill provides the workflow contract and
+the image-access patterns; the actual recognition happens by reading PNGs in
+conversation. Tooling stays deterministic (CV / morphology / file I/O); LLM
+does anything that involves reading text or making semantic judgements.
 
 ## When to use
 
@@ -64,7 +66,7 @@ in half. To prevent the same chip being annotated twice, each tile has an
 ## CLI summary
 
 ```bash
-# Tile a sheet
+# Tile a sheet for chip-recognition
 .venv/bin/python .agents/skills/cartographer/cartographer.py tile \
   exidy/scans/pages/logic_sheet1_video_ram_mpx.png \
   --out /tmp/exidy_440_s1_tiles --grid 3x3 --overlap 0.1
@@ -78,7 +80,60 @@ in half. To prevent the same chip being annotated twice, each tile has an
 python3 .agents/skills/schematic-graph/graph_cli.py add-component \
   --board exidy_440 --refdes U14C --part 74LS245 --sheet 1 \
   --bbox 1820,2240,2080,2660 --source ai --confidence 0.92
+
+# Refine bboxes via CV
+.venv/bin/python .agents/skills/cartographer/cartographer.py snap-board \
+  --board exidy_440 [--sheet N]
+
+# === Pin numbering (Claude-vision workflow) ===
+# Crop a high-res image of one chip + margin so Claude can read pin numbers.
+.venv/bin/python .agents/skills/cartographer/cartographer.py crop-chip \
+  --board dorado_base --refdes h61 --out /tmp/h61_crop.png
+
+# After Claude reads the crop and identifies each pin's source-coord position,
+# commit the positions in one shot (replaces or merges existing).
+python3 .agents/skills/schematic-graph/graph_cli.py set-pin-positions \
+  --board dorado_base --refdes h61 \
+  --json '@/tmp/h61_pins.json'   # {"1":[x,y], "2":[x,y], ...}
 ```
+
+## Pin numbering workflow (clean schematics with printed pin numbers)
+
+For schematics like Dorado where every pin number is printed next to its
+endpoint, the auto-DIP / function-based defaults are wrong (pins are
+arranged by function, e.g. A0..A10 in numerical address order, not
+physical-DIP). Auto-correct by reading the printed numbers:
+
+```
+1. Run cartographer crop-chip for the target component → high-res PNG
+2. Read the PNG: identify each pin number's text and its position
+3. For each pin, decide which BBOX EDGE it sits on (left / right / top /
+   bottom) based on where the pin number text is relative to the chip body
+4. Compute source-coord position: snap to that bbox edge's coordinate, use
+   the text's perpendicular coord
+5. Build a JSON object {"<pin>": [x, y], ...} with all pins from chips.json
+6. Run graph_cli set-pin-positions to commit
+```
+
+For chips without printed pin numbers (Exidy hand-drawn), skip this step;
+the function-based default layout is the right answer.
+
+## Net-label workflow (named nets — MCD0, MCA01, etc.)
+
+When a schematic uses *named nets* (label text adjacent to wires, same name
+appearing on multiple sheets/pins) rather than direct wire connections,
+identify them by reading the labels:
+
+```
+1. crop-chip on a target component (or use the existing tile manifest)
+2. Read the crop: list each pin's adjacent net-label text
+   (e.g. "h61.19 → MCA.10", "h61.9 → MCD.7")
+3. graph_cli add-net for each unique label, with all pins that share it
+   as endpoints. Use edge_type=label.
+```
+
+For per-pin labels that recur across sheets (cross-sheet nets), use
+edge_type=sheet_zone with the cross-sheet ref.
 
 ## Constraints
 

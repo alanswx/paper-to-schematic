@@ -603,6 +603,61 @@ def _rotate_image(img, angle_deg: float):
                            borderValue=255)
 
 
+def cmd_crop_chip(args):
+    """Crop a high-resolution image of a chip + surrounding margin.
+
+    Output goes to a path Claude can read. Used in the pin-numbering
+    workflow: Claude reads the crop, identifies each pin's number and its
+    position in the source image, then calls schematic-graph
+    set-pin-positions to commit them. This pattern keeps the OCR / vision
+    work on the LLM side, with the skill just producing well-framed
+    images of the regions to read.
+    """
+    try:
+        import cv2
+    except ImportError:
+        print("opencv-python required.", file=sys.stderr); sys.exit(2)
+
+    project_root = Path(__file__).resolve().parent.parent.parent.parent
+    bdir = project_root / "boards" / args.board
+    graph_path = bdir / "graph.json"
+    if not graph_path.exists():
+        print(f"no graph: {graph_path}", file=sys.stderr); sys.exit(1)
+    graph = json.loads(graph_path.read_text())
+
+    comp = next((c for c in graph["components"] if c["refdes"] == args.refdes), None)
+    if not comp:
+        print(f"refdes not in graph: {args.refdes}", file=sys.stderr); sys.exit(1)
+
+    sheet = next((s for s in graph["sheets"] if s["index"] == comp["sheet"]), None)
+    if not sheet:
+        print(f"sheet {comp['sheet']} not in graph", file=sys.stderr); sys.exit(1)
+    img_path = (bdir / sheet["scan_path"]).resolve()
+    img = cv2.imread(str(img_path), cv2.IMREAD_GRAYSCALE)
+    if img is None:
+        print(f"failed to load: {img_path}", file=sys.stderr); sys.exit(1)
+    H, W = img.shape
+
+    bbox = comp["bbox"]
+    x1, y1, x2, y2 = (int(v) for v in bbox)
+    pad = args.pad
+    rx1 = max(0, x1 - pad)
+    ry1 = max(0, y1 - pad)
+    rx2 = min(W, x2 + pad)
+    ry2 = min(H, y2 + pad)
+
+    crop = img[ry1:ry2, rx1:rx2]
+    out = Path(args.out).resolve()
+    out.parent.mkdir(parents=True, exist_ok=True)
+    cv2.imwrite(str(out), crop)
+    print(f"wrote {out} ({crop.shape[1]}x{crop.shape[0]} px)")
+    # Print the source-coord origin so Claude can translate crop-local
+    # positions back to source-image coords.
+    print(f"crop origin in source image: ({rx1}, {ry1})")
+    print(f"chip bbox in source: ({x1}, {y1}) → ({x2}, {y2})")
+    print(f"to convert crop-local (cx, cy) → source: (cx + {rx1}, cy + {ry1})")
+
+
 def cmd_clean(args):
     """Cleanup pass: contrast stretch, optional median denoise, optional
     deskew, optional Otsu binarize. Operations apply in this order:
@@ -708,6 +763,16 @@ def main():
                     help="also re-snap components flagged verified (default skips them)")
     sp.add_argument("--dry-run", action="store_true")
     sp.set_defaults(fn=cmd_snap_board)
+
+    sp = sub.add_parser("crop-chip",
+                        help="crop a high-res image of one chip + margin "
+                             "for Claude to read pin numbers / labels from")
+    sp.add_argument("--board", required=True)
+    sp.add_argument("--refdes", required=True)
+    sp.add_argument("--pad", type=int, default=80,
+                    help="padding (px) around the bbox (default 80)")
+    sp.add_argument("--out", required=True, help="output PNG path")
+    sp.set_defaults(fn=cmd_crop_chip)
 
     sp = sub.add_parser("decode-jp2",
                         help="decode one JP2 page from an archive.org-style zip → PNG (needs opj_decompress)")
