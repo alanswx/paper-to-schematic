@@ -11,6 +11,7 @@ header {
   border-bottom: 1px solid #444;
 }
 header strong { font-size: 14px; }
+header #board-select { max-width: 220px; font-size: 12px; }
 header select, header button {
   background: #333; color: #eee; border: 1px solid #555;
   padding: 4px 8px; border-radius: 4px; font: inherit;

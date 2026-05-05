@@ -7,6 +7,8 @@ const HANDLE_SIZE_PX = 9;
 const HANDLE_HIT_PAD_PX = 3;
 
 const state = {
+  boardId: null,
+  boardsList: [],
   board: null,
   chips: null,
   graph: null,
@@ -404,9 +406,16 @@ function hitTestNet(cx, cy) {
   return best;
 }
 
+function withBoard(path) {
+  if (!state.boardId) return path;
+  return path + (path.includes("?") ? "&" : "?") + "board=" + encodeURIComponent(state.boardId);
+}
+
 async function api(path, opts = {}) {
-  const res = await fetch(path, opts);
-  if (!res.ok) throw new Error(`${path}: ${res.status} ${res.statusText}`);
+  const url = (path.startsWith("/api/") && !path.startsWith("/api/boards") && !path.startsWith("/api/chips"))
+    ? withBoard(path) : path;
+  const res = await fetch(url, opts);
+  if (!res.ok) throw new Error(`${url}: ${res.status} ${res.statusText}`);
   const ct = res.headers.get("Content-Type") || "";
   return ct.includes("json") ? res.json() : res.blob();
 }
@@ -477,6 +486,30 @@ function netModeStatus() {
 }
 
 async function loadAll() {
+  // 1) populate board picker
+  state.boardsList = await api("/api/boards");
+  if (!state.boardId && state.boardsList.length) state.boardId = state.boardsList[0].id;
+  const boardSel = $("#board-select");
+  boardSel.innerHTML = "";
+  for (const b of state.boardsList) {
+    const o = document.createElement("option");
+    o.value = b.id;
+    o.textContent = `${b.title} [${b.id}]`;
+    boardSel.appendChild(o);
+  }
+  if (state.boardId) boardSel.value = state.boardId;
+  boardSel.onchange = async () => {
+    state.boardId = boardSel.value;
+    state.sheetIndex = 1;
+    state.selectedComponent = null;
+    state.selectedNet = null;
+    await loadBoardData();
+  };
+
+  await loadBoardData();
+}
+
+async function loadBoardData() {
   state.board = await api("/api/board");
   state.chips = await api("/api/chips");
   state.graph = await api("/api/graph");
@@ -513,6 +546,8 @@ async function loadAll() {
   refreshNetsList();
   refreshSelection();
 }
+
+
 
 function loadSheet() {
   return new Promise((resolve, reject) => {

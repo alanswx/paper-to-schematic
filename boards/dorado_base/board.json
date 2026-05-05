@@ -1,0 +1,263 @@
+{
+  "id": "dorado_base",
+  "drawing_number": "Dorado-Baseboard",
+  "title": "Xerox Dorado Base Board",
+  "manufacturer": "Xerox PARC",
+  "year": 1979,
+  "shared_titles": [],
+  "preferred_scan_source": {
+    "manual": "Xerox Dorado schematics, Baseboard.pdf",
+    "reason": "Native PDF rendering at 300 DPI; clean vector-quality lines"
+  },
+  "sheets": [
+    {
+      "index": 1,
+      "title": "Alto-to-Baseboard cabling (wire list)",
+      "scan_path": "../../doradoschematics/scans/pages/baseboard_p01.png",
+      "scan_pixel_size": [
+        2563,
+        3306
+      ]
+    },
+    {
+      "index": 2,
+      "title": "page 2",
+      "scan_path": "../../doradoschematics/scans/pages/baseboard_p02.png",
+      "scan_pixel_size": [
+        2576,
+        3316
+      ]
+    },
+    {
+      "index": 3,
+      "title": "page 3",
+      "scan_path": "../../doradoschematics/scans/pages/baseboard_p03.png",
+      "scan_pixel_size": [
+        2556,
+        3301
+      ]
+    },
+    {
+      "index": 4,
+      "title": "page 4",
+      "scan_path": "../../doradoschematics/scans/pages/baseboard_p04.png",
+      "scan_pixel_size": [
+        2556,
+        3301
+      ]
+    },
+    {
+      "index": 5,
+      "title": "Microcomputer and ROM",
+      "scan_path": "../../doradoschematics/scans/pages/baseboard_p05.png",
+      "scan_pixel_size": [
+        2550,
+        3296
+      ]
+    },
+    {
+      "index": 6,
+      "title": "page 6",
+      "scan_path": "../../doradoschematics/scans/pages/baseboard_p06.png",
+      "scan_pixel_size": [
+        2563,
+        3306
+      ]
+    },
+    {
+      "index": 7,
+      "title": "page 7",
+      "scan_path": "../../doradoschematics/scans/pages/baseboard_p07.png",
+      "scan_pixel_size": [
+        2556,
+        3301
+      ]
+    },
+    {
+      "index": 8,
+      "title": "page 8",
+      "scan_path": "../../doradoschematics/scans/pages/baseboard_p08.png",
+      "scan_pixel_size": [
+        2563,
+        3306
+      ]
+    },
+    {
+      "index": 9,
+      "title": "page 9",
+      "scan_path": "../../doradoschematics/scans/pages/baseboard_p09.png",
+      "scan_pixel_size": [
+        2563,
+        3306
+      ]
+    },
+    {
+      "index": 10,
+      "title": "page 10",
+      "scan_path": "../../doradoschematics/scans/pages/baseboard_p10.png",
+      "scan_pixel_size": [
+        2563,
+        3306
+      ]
+    },
+    {
+      "index": 11,
+      "title": "page 11",
+      "scan_path": "../../doradoschematics/scans/pages/baseboard_p11.png",
+      "scan_pixel_size": [
+        2569,
+        3311
+      ]
+    },
+    {
+      "index": 12,
+      "title": "page 12",
+      "scan_path": "../../doradoschematics/scans/pages/baseboard_p12.png",
+      "scan_pixel_size": [
+        2563,
+        3306
+      ]
+    },
+    {
+      "index": 13,
+      "title": "page 13",
+      "scan_path": "../../doradoschematics/scans/pages/baseboard_p13.png",
+      "scan_pixel_size": [
+        2563,
+        3306
+      ]
+    },
+    {
+      "index": 14,
+      "title": "page 14",
+      "scan_path": "../../doradoschematics/scans/pages/baseboard_p14.png",
+      "scan_pixel_size": [
+        2563,
+        3306
+      ]
+    },
+    {
+      "index": 15,
+      "title": "page 15",
+      "scan_path": "../../doradoschematics/scans/pages/baseboard_p15.png",
+      "scan_pixel_size": [
+        2569,
+        3311
+      ]
+    },
+    {
+      "index": 16,
+      "title": "page 16",
+      "scan_path": "../../doradoschematics/scans/pages/baseboard_p16.png",
+      "scan_pixel_size": [
+        2563,
+        3306
+      ]
+    },
+    {
+      "index": 17,
+      "title": "page 17",
+      "scan_path": "../../doradoschematics/scans/pages/baseboard_p17.png",
+      "scan_pixel_size": [
+        2576,
+        3316
+      ]
+    },
+    {
+      "index": 18,
+      "title": "page 18",
+      "scan_path": "../../doradoschematics/scans/pages/baseboard_p18.png",
+      "scan_pixel_size": [
+        2563,
+        3306
+      ]
+    },
+    {
+      "index": 19,
+      "title": "page 19",
+      "scan_path": "../../doradoschematics/scans/pages/baseboard_p19.png",
+      "scan_pixel_size": [
+        2569,
+        3311
+      ]
+    },
+    {
+      "index": 20,
+      "title": "page 20",
+      "scan_path": "../../doradoschematics/scans/pages/baseboard_p20.png",
+      "scan_pixel_size": [
+        2563,
+        3306
+      ]
+    },
+    {
+      "index": 21,
+      "title": "page 21",
+      "scan_path": "../../doradoschematics/scans/pages/baseboard_p21.png",
+      "scan_pixel_size": [
+        2569,
+        3311
+      ]
+    },
+    {
+      "index": 22,
+      "title": "page 22",
+      "scan_path": "../../doradoschematics/scans/pages/baseboard_p22.png",
+      "scan_pixel_size": [
+        2556,
+        3301
+      ]
+    },
+    {
+      "index": 23,
+      "title": "page 23",
+      "scan_path": "../../doradoschematics/scans/pages/baseboard_p23.png",
+      "scan_pixel_size": [
+        2569,
+        3311
+      ]
+    },
+    {
+      "index": 24,
+      "title": "page 24",
+      "scan_path": "../../doradoschematics/scans/pages/baseboard_p24.png",
+      "scan_pixel_size": [
+        2556,
+        3301
+      ]
+    },
+    {
+      "index": 25,
+      "title": "page 25",
+      "scan_path": "../../doradoschematics/scans/pages/baseboard_p25.png",
+      "scan_pixel_size": [
+        2550,
+        3296
+      ]
+    },
+    {
+      "index": 26,
+      "title": "page 26",
+      "scan_path": "../../doradoschematics/scans/pages/baseboard_p26.png",
+      "scan_pixel_size": [
+        2556,
+        3301
+      ]
+    },
+    {
+      "index": 27,
+      "title": "page 27",
+      "scan_path": "../../doradoschematics/scans/pages/baseboard_p27.png",
+      "scan_pixel_size": [
+        2550,
+        3296
+      ]
+    }
+  ],
+  "off_page_convention": {
+    "edge_type": "label",
+    "notation": "named net (e.g. MCD0..MCD7, MCA9..MCA14)",
+    "example": "MCD0 reused on multiple sheets means the same net",
+    "rendering": "text label adjacent to wire endpoint"
+  }
+}

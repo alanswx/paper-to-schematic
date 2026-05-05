@@ -1639,6 +1639,162 @@
           "type": "power"
         }
       ]
+    },
+    "2716": {
+      "description": "16K (2K x 8) UV erasable PROM",
+      "package": "DIP-24",
+      "vcc_pin": 24,
+      "gnd_pin": 12,
+      "datasheet": "Intel 2716, 16K (2K x 8) UV Erasable PROM datasheet, 1980 (Intel Memory Components Handbook)",
+      "aliases": [
+        "i2716",
+        "TMS2716",
+        "MCM2716",
+        "MK2716",
+        "MBM2716",
+        "27C16"
+      ],
+      "pins": [
+        {
+          "n": 1,
+          "name": "A7",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 2,
+          "name": "A6",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 3,
+          "name": "A5",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 4,
+          "name": "A4",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 5,
+          "name": "A3",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 6,
+          "name": "A2",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 7,
+          "name": "A1",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 8,
+          "name": "A0",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 9,
+          "name": "O0",
+          "type": "tri_state",
+          "group": "data"
+        },
+        {
+          "n": 10,
+          "name": "O1",
+          "type": "tri_state",
+          "group": "data"
+        },
+        {
+          "n": 11,
+          "name": "O2",
+          "type": "tri_state",
+          "group": "data"
+        },
+        {
+          "n": 12,
+          "name": "GND",
+          "type": "ground"
+        },
+        {
+          "n": 13,
+          "name": "O3",
+          "type": "tri_state",
+          "group": "data"
+        },
+        {
+          "n": 14,
+          "name": "O4",
+          "type": "tri_state",
+          "group": "data"
+        },
+        {
+          "n": 15,
+          "name": "O5",
+          "type": "tri_state",
+          "group": "data"
+        },
+        {
+          "n": 16,
+          "name": "O6",
+          "type": "tri_state",
+          "group": "data"
+        },
+        {
+          "n": 17,
+          "name": "O7",
+          "type": "tri_state",
+          "group": "data"
+        },
+        {
+          "n": 18,
+          "name": "~CE",
+          "type": "input"
+        },
+        {
+          "n": 19,
+          "name": "A10",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 20,
+          "name": "~OE",
+          "type": "input"
+        },
+        {
+          "n": 21,
+          "name": "VPP",
+          "type": "power"
+        },
+        {
+          "n": 22,
+          "name": "A9",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 23,
+          "name": "A8",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 24,
+          "name": "VCC",
+          "type": "power"
+        }
+      ]
     }
   }
 }

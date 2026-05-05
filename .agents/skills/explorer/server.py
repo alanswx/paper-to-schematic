@@ -73,6 +73,31 @@ def save_graph(board_id: str, graph: dict) -> None:
     graph_path(board_id).write_text(json.dumps(graph, indent=2))
 
 
+def list_boards() -> list:
+    """Enumerate boards/<id>/board.json — small subset for the picker."""
+    out = []
+    boards_root = PROJECT_ROOT / "boards"
+    if not boards_root.exists():
+        return out
+    for entry in sorted(boards_root.iterdir()):
+        if not entry.is_dir():
+            continue
+        bf = entry / "board.json"
+        if not bf.exists():
+            continue
+        try:
+            b = json.loads(bf.read_text())
+        except Exception:
+            continue
+        out.append({
+            "id": b.get("id", entry.name),
+            "title": b.get("title", entry.name),
+            "drawing_number": b.get("drawing_number", ""),
+            "n_sheets": len(b.get("sheets", [])),
+        })
+    return out
+
+
 def resolve_scan(board_id: str, sheet_index: int) -> Path:
     board = load_board(board_id)
     for s in board["sheets"]:
@@ -107,6 +132,15 @@ class Handler(http.server.BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(data)
 
+    def _board_id(self, url) -> str:
+        """Extract ?board=<id> query, falling back to DEFAULT_BOARD."""
+        q = urllib.parse.parse_qs(url.query)
+        bid = (q.get("board") or [DEFAULT_BOARD])[0]
+        # Sanity: id must match a directory name pattern.
+        if not bid.replace("_", "").replace("-", "").isalnum():
+            raise ValueError(f"invalid board id: {bid!r}")
+        return bid
+
     def do_GET(self):
         url = urllib.parse.urlparse(self.path)
         path = url.path
@@ -120,16 +154,18 @@ class Handler(http.server.BaseHTTPRequestHandler):
                     self.send_error(403)
                     return
                 return self._serve_file(f)
+            if path == "/api/boards":
+                return self._json(200, list_boards())
             if path == "/api/board":
-                return self._json(200, load_board(DEFAULT_BOARD))
+                return self._json(200, load_board(self._board_id(url)))
             if path == "/api/chips":
                 return self._json(200, load_chips())
             if path == "/api/graph":
-                return self._json(200, load_graph(DEFAULT_BOARD))
+                return self._json(200, load_graph(self._board_id(url)))
             if path.startswith("/api/sheet/"):
                 rest = path[len("/api/sheet/"):]
                 idx = int(rest.split(".")[0])
-                return self._serve_file(resolve_scan(DEFAULT_BOARD, idx))
+                return self._serve_file(resolve_scan(self._board_id(url), idx))
             self.send_error(404)
         except Exception as e:
             self._json(500, {"error": str(e)})
@@ -141,8 +177,9 @@ class Handler(http.server.BaseHTTPRequestHandler):
             body = self.rfile.read(length)
             data = json.loads(body)
             if url.path == "/api/graph":
-                save_graph(DEFAULT_BOARD, data)
-                return self._json(200, {"saved": True, "path": str(graph_path(DEFAULT_BOARD))})
+                bid = self._board_id(url)
+                save_graph(bid, data)
+                return self._json(200, {"saved": True, "path": str(graph_path(bid))})
             self.send_error(404)
         except Exception as e:
             self._json(500, {"error": str(e)})
