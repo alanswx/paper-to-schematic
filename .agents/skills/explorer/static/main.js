@@ -769,7 +769,9 @@ function refreshSelection() {
       html += `<div class="pin-place-indicator">all pins placed</div>`;
     }
   } else {
-    html += `<small>drag pins to refine · drag corner = resize · drag inside = move · <kbd>N</kbd> renumber</small></div>`;
+    html += `<small>drag pins to refine · drag corner = resize · drag inside = move · <kbd>N</kbd> renumber</small><br>`;
+    html += `<button id="snap-bbox-btn" type="button">snap bbox to outline</button>`;
+    html += ` <small id="snap-bbox-status"></small></div>`;
   }
   if (pp) html += `</div>`;
 
@@ -782,6 +784,51 @@ function refreshSelection() {
   }
   html += `</tbody></table>`;
   el.innerHTML = html;
+
+  const snapBtn = document.getElementById("snap-bbox-btn");
+  if (snapBtn) snapBtn.addEventListener("click", () => snapBboxForSelected());
+}
+
+async function snapBboxForSelected() {
+  if (!state.selectedComponent) return;
+  const refdes = state.selectedComponent;
+  const status = document.getElementById("snap-bbox-status");
+  if (status) status.textContent = "snapping…";
+  try {
+    const r = await fetch(`/api/snap-bbox?board=${encodeURIComponent(state.boardId || "")}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ refdes }),
+    });
+    const data = await r.json();
+    if (!data.snapped) {
+      if (status) status.textContent = `no snap (${data.reason || "unknown"})`;
+      return;
+    }
+    const comp = getComponent(refdes);
+    if (!comp) return;
+    const [nx1, ny1, nx2, ny2] = data.snapped;
+    const [ox1, oy1, ox2, oy2] = data.original;
+    // Sanity check: refuse a snap that shrinks one dimension by more than 30%
+    // — that's the AGENTS.md "don't tune CV harder, keep vision bbox" guard.
+    const oldW = ox2 - ox1, oldH = oy2 - oy1;
+    const newW = nx2 - nx1, newH = ny2 - ny1;
+    const shrunkW = newW < oldW * 0.7;
+    const shrunkH = newH < oldH * 0.7;
+    if (shrunkW || shrunkH) {
+      if (status) status.textContent = `rejected — snap shrinks bbox >30% (${oldW}×${oldH} → ${newW}×${newH})`;
+      return;
+    }
+    comp.bbox = data.snapped;
+    // Drop pin_positions so the next render regenerates them against the new bbox.
+    delete comp.pin_positions;
+    if (status) status.textContent = `snapped (${data.delta.x1>=0?"+":""}${data.delta.x1}, ${data.delta.y1>=0?"+":""}${data.delta.y1}, ${data.delta.x2>=0?"+":""}${data.delta.x2}, ${data.delta.y2>=0?"+":""}${data.delta.y2})`;
+    save();
+    render();
+    refreshSelection();
+  } catch (e) {
+    if (status) status.textContent = `error: ${e.message}`;
+  }
 }
 
 function selectComponent(refdes) {

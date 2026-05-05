@@ -73,6 +73,60 @@ def save_graph(board_id: str, graph: dict) -> None:
     graph_path(board_id).write_text(json.dumps(graph, indent=2))
 
 
+def snap_bbox(board_id: str, payload: dict) -> dict:
+    """Run cartographer's _snap_one on one component's current bbox and return
+    the snapped rectangle (or {snapped: null, reason: ...} on miss). Does NOT
+    mutate graph.json — the frontend applies the result if the user accepts."""
+    refdes = payload.get("refdes")
+    if not refdes:
+        return {"snapped": None, "reason": "missing refdes"}
+    graph = load_graph(board_id)
+    comp = next((c for c in graph.get("components", []) if c["refdes"] == refdes), None)
+    if not comp:
+        return {"snapped": None, "reason": f"refdes not in graph: {refdes}"}
+    bbox = comp.get("bbox")
+    if not bbox:
+        return {"snapped": None, "reason": "component has no bbox"}
+    sheet_idx = comp.get("sheet")
+    try:
+        scan_path = resolve_scan(board_id, sheet_idx)
+    except Exception as e:
+        return {"snapped": None, "reason": f"resolve_scan: {e}"}
+
+    try:
+        import cv2
+    except ImportError:
+        return {"snapped": None, "reason": "opencv not installed"}
+    sys.path.insert(0, str(PROJECT_ROOT / ".agents" / "skills" / "cartographer"))
+    try:
+        from cartographer import _snap_one  # type: ignore
+    except Exception as e:
+        return {"snapped": None, "reason": f"cartographer import: {e}"}
+
+    img = cv2.imread(str(scan_path), cv2.IMREAD_GRAYSCALE)
+    if img is None:
+        return {"snapped": None, "reason": f"failed to load: {scan_path}"}
+
+    snapped = _snap_one(
+        img, tuple(bbox),
+        search_pad=int(payload.get("search_pad", 120)),
+        line_min_len=int(payload.get("line_min_len", 30)),
+        min_size=int(payload.get("min_size", 50)),
+        max_size=int(payload.get("max_size", 500)),
+    )
+    if snapped is None:
+        return {"snapped": None, "reason": "no chip-sized rectangle near current bbox"}
+    sx1, sy1, sx2, sy2 = (int(v) for v in snapped)
+    return {
+        "snapped": [sx1, sy1, sx2, sy2],
+        "original": list(bbox),
+        "delta": {
+            "x1": sx1 - bbox[0], "y1": sy1 - bbox[1],
+            "x2": sx2 - bbox[2], "y2": sy2 - bbox[3],
+        },
+    }
+
+
 def list_boards() -> list:
     """Enumerate boards/<id>/board.json — small subset for the picker."""
     out = []
@@ -180,6 +234,18 @@ class Handler(http.server.BaseHTTPRequestHandler):
                 bid = self._board_id(url)
                 save_graph(bid, data)
                 return self._json(200, {"saved": True, "path": str(graph_path(bid))})
+            self.send_error(404)
+        except Exception as e:
+            self._json(500, {"error": str(e)})
+
+    def do_POST(self):
+        url = urllib.parse.urlparse(self.path)
+        try:
+            length = int(self.headers.get("Content-Length", "0"))
+            body = self.rfile.read(length)
+            data = json.loads(body) if body else {}
+            if url.path == "/api/snap-bbox":
+                return self._json(200, snap_bbox(self._board_id(url), data))
             self.send_error(404)
         except Exception as e:
             self._json(500, {"error": str(e)})
