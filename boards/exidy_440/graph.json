@@ -5597,6 +5597,15 @@
           "evidence": {
             "source": "ai"
           }
+        },
+        {
+          "refdes": "14F",
+          "pin": 4,
+          "sheet": 1,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai"
+          }
         }
       ]
     },
@@ -6390,6 +6399,15 @@
         {
           "refdes": "21E",
           "pin": 20,
+          "sheet": 1,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "14F",
+          "pin": 5,
           "sheet": 1,
           "edge_type": "implicit_power",
           "evidence": {
@@ -13546,6 +13564,124 @@
           "edge_type": "label",
           "evidence": {
             "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "/RLD",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "14A",
+          "pin": 9,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "SH/LD pin shared across 4 \u00d774LS166; driven by 6H inverter output"
+          }
+        },
+        {
+          "refdes": "15A",
+          "pin": 9,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "SH/LD pin shared across 4 \u00d774LS166; driven by 6H inverter output"
+          }
+        },
+        {
+          "refdes": "16A",
+          "pin": 9,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "SH/LD pin shared across 4 \u00d774LS166; driven by 6H inverter output"
+          }
+        },
+        {
+          "refdes": "17A",
+          "pin": 9,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "SH/LD pin shared across 4 \u00d774LS166; driven by 6H inverter output"
+          }
+        },
+        {
+          "refdes": "6H",
+          "pin": 6,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "SH/LD pin shared across 4 \u00d774LS166; driven by 6H inverter output"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CLK13A",
+      "kind": "clock",
+      "endpoints": [
+        {
+          "refdes": "14A",
+          "pin": 7,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "shift register clock; source elsewhere"
+          }
+        },
+        {
+          "refdes": "15A",
+          "pin": 7,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "shift register clock; source elsewhere"
+          }
+        },
+        {
+          "refdes": "16A",
+          "pin": 7,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "shift register clock; source elsewhere"
+          }
+        },
+        {
+          "refdes": "17A",
+          "pin": 7,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "shift register clock; source elsewhere"
+          }
+        }
+      ]
+    },
+    {
+      "name": "/REA",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "6H",
+          "pin": 5,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "off-page label \"$REA\" or \"/REA\" \u2014 uncertain spelling"
           }
         }
       ]
