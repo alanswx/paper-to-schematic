@@ -6701,6 +6701,24 @@
           "evidence": {
             "source": "ai"
           }
+        },
+        {
+          "refdes": "13Fa",
+          "pin": 3,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "13Fb",
+          "pin": 13,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
         }
       ]
     },
@@ -10181,6 +10199,15 @@
           "evidence": {
             "source": "ai"
           }
+        },
+        {
+          "refdes": "13Fa",
+          "pin": 4,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
         }
       ]
     },
@@ -10236,6 +10263,15 @@
         {
           "refdes": "21C",
           "pin": 21,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "13Fa",
+          "pin": 5,
           "sheet": 1,
           "edge_type": "label",
           "evidence": {
@@ -10301,6 +10337,15 @@
           "evidence": {
             "source": "ai"
           }
+        },
+        {
+          "refdes": "13Fa",
+          "pin": 6,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
         }
       ]
     },
@@ -10356,6 +10401,15 @@
         {
           "refdes": "21E",
           "pin": 21,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "13Fa",
+          "pin": 7,
           "sheet": 1,
           "edge_type": "label",
           "evidence": {
@@ -13336,6 +13390,158 @@
         {
           "refdes": "13E",
           "pin": 2,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CS0",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "13Fb",
+          "pin": 12,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "13E",
+          "pin": 19,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CS1",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "13Fb",
+          "pin": 11,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "13D",
+          "pin": 19,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CS2",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "13Fb",
+          "pin": 10,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "13C",
+          "pin": 19,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CS3",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "13Fb",
+          "pin": 9,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "13B",
+          "pin": 19,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "INTIO",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "13Fa",
+          "pin": 1,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "reads \"$INT1/O\" \u2014 write strobe enable"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SCAN_IS",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "13Fb",
+          "pin": 15,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "reads \"SCAN.IS\" \u2014 read strobe enable"
+          }
+        }
+      ]
+    },
+    {
+      "name": "A1",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "13Fa",
+          "pin": 2,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "13Fb",
+          "pin": 14,
           "sheet": 1,
           "edge_type": "label",
           "evidence": {
