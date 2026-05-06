@@ -319,11 +319,18 @@ function drawComponent(comp, selected) {
       // want clickable dots, no clutter).
       if (selected && pinDef) {
         const isLeft = ix <= xMid;
-        ctx.fillStyle = "#fff";
         ctx.font = "10px ui-monospace, monospace";
         ctx.textAlign = isLeft ? "right" : "left";
         ctx.textBaseline = "middle";
-        ctx.fillText(`${pinDef.n} ${pinDef.name}`, cp.x + (isLeft ? -8 : 8), cp.y);
+        const tx = cp.x + (isLeft ? -8 : 8);
+        const text = `${pinDef.n} ${pinDef.name}`;
+        // Faint white halo so the label stays legible when it crosses the
+        // chip's dark outline, then dark-gray text against white paper.
+        ctx.lineWidth = 3;
+        ctx.strokeStyle = "rgba(255,255,255,0.85)";
+        ctx.strokeText(text, tx, cp.y);
+        ctx.fillStyle = "#333";
+        ctx.fillText(text, tx, cp.y);
         ctx.textAlign = "start";
         ctx.textBaseline = "alphabetic";
       }
