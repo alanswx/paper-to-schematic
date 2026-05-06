@@ -10430,6 +10430,15 @@
           "evidence": {
             "source": "ai"
           }
+        },
+        {
+          "refdes": "17A",
+          "pin": 2,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
         }
       ]
     },
@@ -10494,6 +10503,15 @@
         {
           "refdes": "13B",
           "pin": 12,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "16A",
+          "pin": 2,
           "sheet": 1,
           "edge_type": "label",
           "evidence": {
@@ -10568,6 +10586,15 @@
           "evidence": {
             "source": "ai"
           }
+        },
+        {
+          "refdes": "15A",
+          "pin": 2,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
         }
       ]
     },
@@ -10632,6 +10659,15 @@
         {
           "refdes": "13B",
           "pin": 14,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "14A",
+          "pin": 2,
           "sheet": 1,
           "edge_type": "label",
           "evidence": {
@@ -10706,6 +10742,15 @@
           "evidence": {
             "source": "ai"
           }
+        },
+        {
+          "refdes": "17A",
+          "pin": 3,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
         }
       ]
     },
@@ -10770,6 +10815,15 @@
         {
           "refdes": "13B",
           "pin": 16,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "16A",
+          "pin": 3,
           "sheet": 1,
           "edge_type": "label",
           "evidence": {
@@ -10844,6 +10898,15 @@
           "evidence": {
             "source": "ai"
           }
+        },
+        {
+          "refdes": "15A",
+          "pin": 3,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
         }
       ]
     },
@@ -10908,6 +10971,15 @@
         {
           "refdes": "13B",
           "pin": 18,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "14A",
+          "pin": 3,
           "sheet": 1,
           "edge_type": "label",
           "evidence": {
@@ -10982,6 +11054,15 @@
           "evidence": {
             "source": "ai"
           }
+        },
+        {
+          "refdes": "17A",
+          "pin": 4,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
         }
       ]
     },
@@ -11046,6 +11127,15 @@
         {
           "refdes": "13C",
           "pin": 12,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "16A",
+          "pin": 4,
           "sheet": 1,
           "edge_type": "label",
           "evidence": {
@@ -11120,6 +11210,15 @@
           "evidence": {
             "source": "ai"
           }
+        },
+        {
+          "refdes": "15A",
+          "pin": 4,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
         }
       ]
     },
@@ -11184,6 +11283,15 @@
         {
           "refdes": "13C",
           "pin": 14,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "14A",
+          "pin": 4,
           "sheet": 1,
           "edge_type": "label",
           "evidence": {
@@ -11258,6 +11366,15 @@
           "evidence": {
             "source": "ai"
           }
+        },
+        {
+          "refdes": "17A",
+          "pin": 5,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
         }
       ]
     },
@@ -11322,6 +11439,15 @@
         {
           "refdes": "13C",
           "pin": 16,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "16A",
+          "pin": 5,
           "sheet": 1,
           "edge_type": "label",
           "evidence": {
@@ -11396,6 +11522,15 @@
           "evidence": {
             "source": "ai"
           }
+        },
+        {
+          "refdes": "15A",
+          "pin": 5,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
         }
       ]
     },
@@ -11460,6 +11595,15 @@
         {
           "refdes": "13C",
           "pin": 18,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "14A",
+          "pin": 5,
           "sheet": 1,
           "edge_type": "label",
           "evidence": {
@@ -11534,6 +11678,15 @@
           "evidence": {
             "source": "ai"
           }
+        },
+        {
+          "refdes": "17A",
+          "pin": 10,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
         }
       ]
     },
@@ -11598,6 +11751,15 @@
         {
           "refdes": "13D",
           "pin": 12,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "16A",
+          "pin": 10,
           "sheet": 1,
           "edge_type": "label",
           "evidence": {
@@ -11672,6 +11834,15 @@
           "evidence": {
             "source": "ai"
           }
+        },
+        {
+          "refdes": "15A",
+          "pin": 10,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
         }
       ]
     },
@@ -11736,6 +11907,15 @@
         {
           "refdes": "13D",
           "pin": 14,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "14A",
+          "pin": 10,
           "sheet": 1,
           "edge_type": "label",
           "evidence": {
@@ -11810,6 +11990,15 @@
           "evidence": {
             "source": "ai"
           }
+        },
+        {
+          "refdes": "17A",
+          "pin": 11,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
         }
       ]
     },
@@ -11874,6 +12063,15 @@
         {
           "refdes": "13D",
           "pin": 16,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "16A",
+          "pin": 11,
           "sheet": 1,
           "edge_type": "label",
           "evidence": {
@@ -11948,6 +12146,15 @@
           "evidence": {
             "source": "ai"
           }
+        },
+        {
+          "refdes": "15A",
+          "pin": 11,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
         }
       ]
     },
@@ -12012,6 +12219,15 @@
         {
           "refdes": "13D",
           "pin": 18,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "14A",
+          "pin": 11,
           "sheet": 1,
           "edge_type": "label",
           "evidence": {
@@ -12086,6 +12302,24 @@
           "evidence": {
             "source": "ai"
           }
+        },
+        {
+          "refdes": "17A",
+          "pin": 12,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "23E",
+          "pin": 8,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
         }
       ]
     },
@@ -12150,6 +12384,24 @@
         {
           "refdes": "13E",
           "pin": 12,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "16A",
+          "pin": 12,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "23E",
+          "pin": 7,
           "sheet": 1,
           "edge_type": "label",
           "evidence": {
@@ -12224,6 +12476,24 @@
           "evidence": {
             "source": "ai"
           }
+        },
+        {
+          "refdes": "15A",
+          "pin": 12,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "23E",
+          "pin": 4,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
         }
       ]
     },
@@ -12288,6 +12558,24 @@
         {
           "refdes": "13E",
           "pin": 14,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "14A",
+          "pin": 12,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "23E",
+          "pin": 3,
           "sheet": 1,
           "edge_type": "label",
           "evidence": {
@@ -12362,6 +12650,24 @@
           "evidence": {
             "source": "ai"
           }
+        },
+        {
+          "refdes": "17A",
+          "pin": 14,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "23E",
+          "pin": 13,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
         }
       ]
     },
@@ -12426,6 +12732,24 @@
         {
           "refdes": "13E",
           "pin": 16,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "16A",
+          "pin": 14,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "23E",
+          "pin": 14,
           "sheet": 1,
           "edge_type": "label",
           "evidence": {
@@ -12500,6 +12824,24 @@
           "evidence": {
             "source": "ai"
           }
+        },
+        {
+          "refdes": "15A",
+          "pin": 14,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "23E",
+          "pin": 17,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
         }
       ]
     },
@@ -12564,6 +12906,436 @@
         {
           "refdes": "13E",
           "pin": 18,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "14A",
+          "pin": 14,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "23E",
+          "pin": 18,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SD0",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "17A",
+          "pin": 13,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SD1",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "16A",
+          "pin": 13,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SD2",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "15A",
+          "pin": 13,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SD3",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "14A",
+          "pin": 13,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SCANBUS_C",
+      "kind": "clock",
+      "endpoints": [
+        {
+          "refdes": "23E",
+          "pin": 11,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "clock label reads \"SCANBUSC\" \u2014 uncertain spelling"
+          }
+        }
+      ]
+    },
+    {
+      "name": "D0",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "13B",
+          "pin": 9,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "13C",
+          "pin": 9,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "13D",
+          "pin": 9,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "13E",
+          "pin": 9,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "D1",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "13B",
+          "pin": 8,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "13C",
+          "pin": 8,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "13D",
+          "pin": 8,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "13E",
+          "pin": 8,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "D2",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "13B",
+          "pin": 7,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "13C",
+          "pin": 7,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "13D",
+          "pin": 7,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "13E",
+          "pin": 7,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "D3",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "13B",
+          "pin": 6,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "13C",
+          "pin": 6,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "13D",
+          "pin": 6,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "13E",
+          "pin": 6,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "D4",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "13B",
+          "pin": 5,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "13C",
+          "pin": 5,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "13D",
+          "pin": 5,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "13E",
+          "pin": 5,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "D5",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "13B",
+          "pin": 4,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "13C",
+          "pin": 4,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "13D",
+          "pin": 4,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "13E",
+          "pin": 4,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "D6",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "13B",
+          "pin": 3,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "13C",
+          "pin": 3,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "13D",
+          "pin": 3,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "13E",
+          "pin": 3,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "D7",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "13B",
+          "pin": 2,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "13C",
+          "pin": 2,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "13D",
+          "pin": 2,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "13E",
+          "pin": 2,
           "sheet": 1,
           "edge_type": "label",
           "evidence": {
