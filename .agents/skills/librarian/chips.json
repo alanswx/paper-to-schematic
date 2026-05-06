@@ -2318,6 +2318,575 @@
           "type": "passive"
         }
       ]
+    },
+    "74LS174": {
+      "description": "Hex D-type flip-flop with common clock and common asynchronous clear",
+      "package": "DIP-16",
+      "vcc_pin": 16,
+      "gnd_pin": 8,
+      "datasheet": "TI SDLS134, 1988 (SN74LS174)",
+      "aliases": [
+        "SN74LS174",
+        "SN74LS174N",
+        "SN54LS174"
+      ],
+      "pins": [
+        {
+          "n": 1,
+          "name": "~MR",
+          "type": "input"
+        },
+        {
+          "n": 2,
+          "name": "1Q",
+          "type": "output",
+          "group": "ff1"
+        },
+        {
+          "n": 3,
+          "name": "1D",
+          "type": "input",
+          "group": "ff1"
+        },
+        {
+          "n": 4,
+          "name": "2D",
+          "type": "input",
+          "group": "ff2"
+        },
+        {
+          "n": 5,
+          "name": "2Q",
+          "type": "output",
+          "group": "ff2"
+        },
+        {
+          "n": 6,
+          "name": "3D",
+          "type": "input",
+          "group": "ff3"
+        },
+        {
+          "n": 7,
+          "name": "3Q",
+          "type": "output",
+          "group": "ff3"
+        },
+        {
+          "n": 8,
+          "name": "GND",
+          "type": "ground"
+        },
+        {
+          "n": 9,
+          "name": "CK",
+          "type": "clock"
+        },
+        {
+          "n": 10,
+          "name": "4Q",
+          "type": "output",
+          "group": "ff4"
+        },
+        {
+          "n": 11,
+          "name": "4D",
+          "type": "input",
+          "group": "ff4"
+        },
+        {
+          "n": 12,
+          "name": "5D",
+          "type": "input",
+          "group": "ff5"
+        },
+        {
+          "n": 13,
+          "name": "5Q",
+          "type": "output",
+          "group": "ff5"
+        },
+        {
+          "n": 14,
+          "name": "6D",
+          "type": "input",
+          "group": "ff6"
+        },
+        {
+          "n": 15,
+          "name": "6Q",
+          "type": "output",
+          "group": "ff6"
+        },
+        {
+          "n": 16,
+          "name": "VCC",
+          "type": "power"
+        }
+      ]
+    },
+    "74LS251": {
+      "description": "8-line to 1-line data selector/multiplexer with 3-state complementary outputs (Y, W) and active-low strobe enable",
+      "package": "DIP-16",
+      "vcc_pin": 16,
+      "gnd_pin": 8,
+      "datasheet": "TI SDLS147, 1988 (SN74LS251)",
+      "aliases": [
+        "SN74LS251",
+        "SN74LS251N",
+        "SN54LS251"
+      ],
+      "pins": [
+        {
+          "n": 1,
+          "name": "D3",
+          "type": "input",
+          "group": "data"
+        },
+        {
+          "n": 2,
+          "name": "D2",
+          "type": "input",
+          "group": "data"
+        },
+        {
+          "n": 3,
+          "name": "D1",
+          "type": "input",
+          "group": "data"
+        },
+        {
+          "n": 4,
+          "name": "D0",
+          "type": "input",
+          "group": "data"
+        },
+        {
+          "n": 5,
+          "name": "Y",
+          "type": "tri_state"
+        },
+        {
+          "n": 6,
+          "name": "W",
+          "type": "tri_state"
+        },
+        {
+          "n": 7,
+          "name": "~G",
+          "type": "input"
+        },
+        {
+          "n": 8,
+          "name": "GND",
+          "type": "ground"
+        },
+        {
+          "n": 9,
+          "name": "C",
+          "type": "input",
+          "group": "select"
+        },
+        {
+          "n": 10,
+          "name": "B",
+          "type": "input",
+          "group": "select"
+        },
+        {
+          "n": 11,
+          "name": "A",
+          "type": "input",
+          "group": "select"
+        },
+        {
+          "n": 12,
+          "name": "D7",
+          "type": "input",
+          "group": "data"
+        },
+        {
+          "n": 13,
+          "name": "D6",
+          "type": "input",
+          "group": "data"
+        },
+        {
+          "n": 14,
+          "name": "D5",
+          "type": "input",
+          "group": "data"
+        },
+        {
+          "n": 15,
+          "name": "D4",
+          "type": "input",
+          "group": "data"
+        },
+        {
+          "n": 16,
+          "name": "VCC",
+          "type": "power"
+        }
+      ]
+    },
+    "74LS85": {
+      "description": "4-bit magnitude comparator with cascading inputs",
+      "package": "DIP-16",
+      "vcc_pin": 16,
+      "gnd_pin": 8,
+      "datasheet": "TI SDLS123, 1988 (SN74LS85)",
+      "aliases": [
+        "SN74LS85",
+        "SN74LS85N",
+        "SN54LS85"
+      ],
+      "pins": [
+        {
+          "n": 1,
+          "name": "B3",
+          "type": "input",
+          "group": "B"
+        },
+        {
+          "n": 2,
+          "name": "A<Bin",
+          "type": "input",
+          "group": "cascade_in"
+        },
+        {
+          "n": 3,
+          "name": "A=Bin",
+          "type": "input",
+          "group": "cascade_in"
+        },
+        {
+          "n": 4,
+          "name": "A>Bin",
+          "type": "input",
+          "group": "cascade_in"
+        },
+        {
+          "n": 5,
+          "name": "A>Bout",
+          "type": "output",
+          "group": "cascade_out"
+        },
+        {
+          "n": 6,
+          "name": "A=Bout",
+          "type": "output",
+          "group": "cascade_out"
+        },
+        {
+          "n": 7,
+          "name": "A<Bout",
+          "type": "output",
+          "group": "cascade_out"
+        },
+        {
+          "n": 8,
+          "name": "GND",
+          "type": "ground"
+        },
+        {
+          "n": 9,
+          "name": "B0",
+          "type": "input",
+          "group": "B"
+        },
+        {
+          "n": 10,
+          "name": "A0",
+          "type": "input",
+          "group": "A"
+        },
+        {
+          "n": 11,
+          "name": "B1",
+          "type": "input",
+          "group": "B"
+        },
+        {
+          "n": 12,
+          "name": "A1",
+          "type": "input",
+          "group": "A"
+        },
+        {
+          "n": 13,
+          "name": "A2",
+          "type": "input",
+          "group": "A"
+        },
+        {
+          "n": 14,
+          "name": "B2",
+          "type": "input",
+          "group": "B"
+        },
+        {
+          "n": 15,
+          "name": "A3",
+          "type": "input",
+          "group": "A"
+        },
+        {
+          "n": 16,
+          "name": "VCC",
+          "type": "power"
+        }
+      ]
+    },
+    "SIP_RPACK_8": {
+      "description": "Generic 8-pin SIP resistor pack used as bus terminator (pull-up to VCC or pull-down to GND); each Pn is one passive lead",
+      "package": "DIP-8",
+      "datasheet": "no chip \u2014 physical resistor SIP; pins are passive resistor terminations",
+      "pins": [
+        {
+          "n": 1,
+          "name": "P1",
+          "type": "passive"
+        },
+        {
+          "n": 2,
+          "name": "P2",
+          "type": "passive"
+        },
+        {
+          "n": 3,
+          "name": "P3",
+          "type": "passive"
+        },
+        {
+          "n": 4,
+          "name": "P4",
+          "type": "passive"
+        },
+        {
+          "n": 5,
+          "name": "P5",
+          "type": "passive"
+        },
+        {
+          "n": 6,
+          "name": "P6",
+          "type": "passive"
+        },
+        {
+          "n": 7,
+          "name": "P7",
+          "type": "passive"
+        },
+        {
+          "n": 8,
+          "name": "P8",
+          "type": "passive"
+        }
+      ]
+    },
+    "MC10124": {
+      "description": "Quad TTL to MECL Translator (true + complementary outputs, common strobe)",
+      "package": "DIP-16",
+      "vcc_pin": 9,
+      "gnd_pin": 16,
+      "datasheet": "ON Semiconductor MC10124/D, Rev 7, January 2002",
+      "pins": [
+        {
+          "n": 1,
+          "name": "BOUT",
+          "type": "output",
+          "group": "B"
+        },
+        {
+          "n": 2,
+          "name": "AOUT",
+          "type": "output",
+          "group": "A"
+        },
+        {
+          "n": 3,
+          "name": "~BOUT",
+          "type": "output",
+          "group": "B"
+        },
+        {
+          "n": 4,
+          "name": "~AOUT",
+          "type": "output",
+          "group": "A"
+        },
+        {
+          "n": 5,
+          "name": "AIN",
+          "type": "input",
+          "group": "A"
+        },
+        {
+          "n": 6,
+          "name": "STROBE",
+          "type": "input",
+          "group": "common"
+        },
+        {
+          "n": 7,
+          "name": "BIN",
+          "type": "input",
+          "group": "B"
+        },
+        {
+          "n": 8,
+          "name": "VEE",
+          "type": "power"
+        },
+        {
+          "n": 9,
+          "name": "VCC",
+          "type": "power"
+        },
+        {
+          "n": 10,
+          "name": "CIN",
+          "type": "input",
+          "group": "C"
+        },
+        {
+          "n": 11,
+          "name": "DIN",
+          "type": "input",
+          "group": "D"
+        },
+        {
+          "n": 12,
+          "name": "~COUT",
+          "type": "output",
+          "group": "C"
+        },
+        {
+          "n": 13,
+          "name": "~DOUT",
+          "type": "output",
+          "group": "D"
+        },
+        {
+          "n": 14,
+          "name": "DOUT",
+          "type": "output",
+          "group": "D"
+        },
+        {
+          "n": 15,
+          "name": "COUT",
+          "type": "output",
+          "group": "C"
+        },
+        {
+          "n": 16,
+          "name": "GND",
+          "type": "ground"
+        }
+      ]
+    },
+    "74LS175": {
+      "description": "Quad D-type flip-flop with complementary outputs and common asynchronous clear",
+      "package": "DIP-16",
+      "vcc_pin": 16,
+      "gnd_pin": 8,
+      "datasheet": "TI SDLS148, 1988",
+      "pins": [
+        {
+          "n": 1,
+          "name": "~CLR",
+          "type": "input"
+        },
+        {
+          "n": 2,
+          "name": "1Q",
+          "type": "output",
+          "group": "g1"
+        },
+        {
+          "n": 3,
+          "name": "~1Q",
+          "type": "output",
+          "group": "g1"
+        },
+        {
+          "n": 4,
+          "name": "1D",
+          "type": "input",
+          "group": "g1"
+        },
+        {
+          "n": 5,
+          "name": "2D",
+          "type": "input",
+          "group": "g2"
+        },
+        {
+          "n": 6,
+          "name": "~2Q",
+          "type": "output",
+          "group": "g2"
+        },
+        {
+          "n": 7,
+          "name": "2Q",
+          "type": "output",
+          "group": "g2"
+        },
+        {
+          "n": 8,
+          "name": "GND",
+          "type": "ground"
+        },
+        {
+          "n": 9,
+          "name": "CLK",
+          "type": "input"
+        },
+        {
+          "n": 10,
+          "name": "3Q",
+          "type": "output",
+          "group": "g3"
+        },
+        {
+          "n": 11,
+          "name": "~3Q",
+          "type": "output",
+          "group": "g3"
+        },
+        {
+          "n": 12,
+          "name": "3D",
+          "type": "input",
+          "group": "g3"
+        },
+        {
+          "n": 13,
+          "name": "4D",
+          "type": "input",
+          "group": "g4"
+        },
+        {
+          "n": 14,
+          "name": "~4Q",
+          "type": "output",
+          "group": "g4"
+        },
+        {
+          "n": 15,
+          "name": "4Q",
+          "type": "output",
+          "group": "g4"
+        },
+        {
+          "n": 16,
+          "name": "VCC",
+          "type": "power"
+        }
+      ]
     }
   }
 }
