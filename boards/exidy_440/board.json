@@ -38,6 +38,18 @@
       "kind": "mame_driver",
       "name": "exidy440",
       "use": "cross-check inferred memory map against the C++ driver in MAME"
+    },
+    {
+      "kind": "pcb_silkscreen",
+      "name": "Fig. 12 LOGIC PCB",
+      "source": "../../exidy/manuals/Crossbow_v2.pdf",
+      "page": 51,
+      "use": "position-indexed component map. Refdes scheme is <col-number><row-letter> (e.g. 21H = col 21, row H). Rows used: A,B,C,D,E,F,H,J,K (G skipped). Cols 1-23. Definitive truth source for refdes->part when schematic part text is unclear.",
+      "confirmed_lookups": {
+        "23E": "74LS374",
+        "14F": "74LS138",
+        "13F": "74LS138"
+      }
     }
   ]
 }
