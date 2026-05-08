@@ -744,6 +744,76 @@ def cmd_crop_chip(args):
         print(f"to convert crop-local (cx, cy) → source: (cx + {rx1}, cy + {ry1})")
 
 
+def cmd_crop_region(args):
+    """Crop an arbitrary rectangle from a sheet's source image. Same source-
+    aware routing as crop-chip: vector_pdf boards re-render the PDF on the
+    fly at high DPI; raster_scan boards crop the canonical scan. Used by the
+    path-tracer skill to read a region of wires and emit polylines."""
+    try:
+        import cv2
+    except ImportError:
+        print("opencv-python required.", file=sys.stderr); sys.exit(2)
+
+    project_root = Path(__file__).resolve().parent.parent.parent.parent
+    bdir = project_root / "boards" / args.board
+    graph_path = bdir / "graph.json"
+    if not graph_path.exists():
+        print(f"no graph: {graph_path}", file=sys.stderr); sys.exit(1)
+    graph = json.loads(graph_path.read_text())
+    sheet = next((s for s in graph["sheets"] if s["index"] == args.sheet), None)
+    if not sheet:
+        print(f"sheet {args.sheet} not in graph", file=sys.stderr); sys.exit(1)
+
+    try:
+        x1, y1, x2, y2 = (int(v.strip()) for v in args.bbox.split(","))
+    except Exception:
+        print("--bbox must be x1,y1,x2,y2 in source pixels", file=sys.stderr); sys.exit(1)
+
+    source = _load_board_source(bdir)
+    if not args.no_pdf and not args.pdf and source.get("kind") == "vector_pdf":
+        pdf_rel = source.get("pdf_path")
+        if pdf_rel:
+            args.pdf = str((bdir / pdf_rel).resolve())
+            if args.dpi is None:
+                args.dpi = source.get("default_render_dpi") or 600
+            print(f"[source] vector_pdf board → rendering from {pdf_rel} @ {args.dpi}dpi "
+                  f"(pass --no-pdf to use the canonical scan instead)")
+    if args.dpi is None:
+        args.dpi = 600
+
+    if args.pdf:
+        page = args.page if args.page is not None else args.sheet
+        render_path = _render_pdf_to_temp(Path(args.pdf).resolve(), page, args.dpi)
+        img = cv2.imread(str(render_path), cv2.IMREAD_GRAYSCALE)
+        H, W = img.shape
+        scan_w, scan_h = sheet.get("scan_pixel_size") or (W, H)
+        scale = W / scan_w if scan_w else 1.0
+        source_label = f"PDF {args.pdf} p{page}@{args.dpi}dpi"
+    else:
+        img_path = (bdir / sheet["scan_path"]).resolve()
+        img = cv2.imread(str(img_path), cv2.IMREAD_GRAYSCALE)
+        H, W = img.shape
+        scale = 1.0
+        source_label = str(img_path)
+
+    rx1, ry1 = max(0, int(x1 * scale)), max(0, int(y1 * scale))
+    rx2, ry2 = min(W, int(x2 * scale)), min(H, int(y2 * scale))
+    crop = img[ry1:ry2, rx1:rx2]
+    out = Path(args.out).resolve()
+    out.parent.mkdir(parents=True, exist_ok=True)
+    cv2.imwrite(str(out), crop)
+    print(f"wrote {out} ({crop.shape[1]}x{crop.shape[0]} px) from {source_label}")
+    if scale != 1.0:
+        print(f"render scale vs scan: {scale:.3f}× (graph bbox in scan px multiplied to fit render)")
+    print(f"crop origin in render: ({rx1}, {ry1})")
+    print(f"region in render: ({int(x1*scale)}, {int(y1*scale)}) → ({int(x2*scale)}, {int(y2*scale)})")
+    if scale != 1.0:
+        print(f"to translate render (cx, cy) → graph/scan coords: "
+              f"((cx + {rx1}) / {scale:.6f}, (cy + {ry1}) / {scale:.6f})")
+    else:
+        print(f"to convert crop-local (cx, cy) → source: (cx + {rx1}, cy + {ry1})")
+
+
 def cmd_clean(args):
     """Cleanup pass: contrast stretch, optional median denoise, optional
     deskew, optional Otsu binarize. Operations apply in this order:
@@ -869,6 +939,20 @@ def main():
     sp.add_argument("--no-pdf", action="store_true",
                     help="force the canonical scan path even when board.source.kind is vector_pdf")
     sp.set_defaults(fn=cmd_crop_chip)
+
+    sp = sub.add_parser("crop-region",
+                        help="crop an arbitrary rectangle of a sheet at the "
+                             "source's native or PDF-rendered DPI")
+    sp.add_argument("--board", required=True)
+    sp.add_argument("--sheet", type=int, required=True)
+    sp.add_argument("--bbox", required=True, help="x1,y1,x2,y2 in source pixels")
+    sp.add_argument("--out", required=True)
+    sp.add_argument("--pdf", help="render from this PDF page instead of the canonical scan")
+    sp.add_argument("--page", type=int, help="PDF page (defaults to --sheet)")
+    sp.add_argument("--dpi", type=int, help="DPI for --pdf rendering")
+    sp.add_argument("--no-pdf", action="store_true",
+                    help="force scan path even on vector_pdf boards")
+    sp.set_defaults(fn=cmd_crop_region)
 
     sp = sub.add_parser("decode-jp2",
                         help="decode one JP2 page from an archive.org-style zip → PNG (needs opj_decompress)")

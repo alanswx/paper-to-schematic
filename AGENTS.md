@@ -28,6 +28,10 @@ invoking that skill — the SKILL.md is the contract.
   needs to visually verify a step.
 - `.agents/skills/cartographer/SKILL.md` — image preprocessing (JP2 decode,
   contrast, deskew). Run once per source scan, before transcription.
+- `.agents/skills/path-tracer/SKILL.md` — LLM-driven wire-path tracing for
+  faithful KiCad routing. Annotates each wire-typed net with a polyline so
+  the export emits routes matching the original drawing instead of one-
+  corner Manhattan fallbacks. Run after Stage 3 nets are committed.
 
 ## Boards
 
