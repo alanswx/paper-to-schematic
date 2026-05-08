@@ -29,6 +29,10 @@ const state = {
   netDrawPins: [],     // accumulated endpoints in click order: [{refdes, pin, sheet}]
   netDrawCursor: null, // {x, y} in image coords for preview line
   pendingNet: null,    // { endpoints: [{refdes, pin, sheet}, ...] } awaiting dialog confirm
+  // Wires-overlay visibility. Defaults off because the source artwork
+  // already shows wires; the overlay competes with it. Toggle with W or
+  // the toolbar button. Endpoint rings + selected-net path always render.
+  showWires: false,
   pan: null,
 };
 
@@ -369,11 +373,12 @@ function drawNets() {
     if (points.length === 0) continue;
     const color = edgeTypeColor((points[0] || {ep:{edge_type:'wire'}}).ep.edge_type);
     const isSelected = state.selectedNet === net.name;
-    const baseLine = isSelected ? 3.5 : 2.5;
-    const baseHalo = isSelected ? 8 : 5;
+    const baseLine = isSelected ? 2.0 : 1.0;
+    const baseHalo = isSelected ? 5 : 2;
 
-    // Connecting line — only if there are 2+ on-sheet endpoints to connect.
-    if (points.length >= 2) {
+    // Connecting line — only if there are 2+ on-sheet endpoints to connect,
+    // and either the global wires overlay is on OR this net is selected.
+    if (points.length >= 2 && (state.showWires || isSelected)) {
       // Dark halo for contrast against white paper.
       ctx.strokeStyle = isSelected ? "rgba(255,204,51,0.85)" : "rgba(0,0,0,0.6)";
       ctx.lineWidth = baseHalo * widthScale;
@@ -1316,6 +1321,12 @@ function deleteSelected() {
 }
 
 $("#save").addEventListener("click", save);
+
+$("#toggle-wires").addEventListener("click", () => {
+  state.showWires = !state.showWires;
+  $("#toggle-wires").textContent = `wires: ${state.showWires ? "on" : "off"}`;
+  render();
+});
 
 $("#reload").addEventListener("click", async () => {
   setStatus("reloading…");
