@@ -328,6 +328,99 @@ def cmd_extend_net(args):
     print(msg)
 
 
+def _parse_path(spec: str) -> list:
+    """Parse 'x1,y1;x2,y2;…' → [[x,y], …]. Whitespace tolerant."""
+    out = []
+    for tok in spec.split(";"):
+        tok = tok.strip()
+        if not tok: continue
+        try:
+            x, y = (float(v.strip()) for v in tok.split(","))
+        except Exception:
+            raise SystemExit(f"path point malformed: {tok!r} (want 'x,y')")
+        out.append([x, y])
+    if len(out) < 2:
+        raise SystemExit("path needs at least 2 points")
+    return out
+
+
+def _validate_orthogonal(path: list, tol: float = 0.5) -> None:
+    """Tracer SKILL.md mandates right-angle segments only — KiCad's grid plus
+    schematic-style routing both require it. Allow tiny float drift via tol."""
+    for i in range(1, len(path)):
+        x0, y0 = path[i - 1]
+        x1, y1 = path[i]
+        dx = abs(x1 - x0); dy = abs(y1 - y0)
+        if dx > tol and dy > tol:
+            raise SystemExit(
+                f"path segment {i-1}→{i} is diagonal: ({x0},{y0})→({x1},{y1}). "
+                f"Right-angle (H or V) segments only.")
+
+
+def cmd_set_net_path(args):
+    """Attach a routed polyline to an existing net. The exporter consumes
+    `path` (when present) to emit (wire ...) segments matching the original
+    artwork; without a path it falls back to a one-corner Manhattan route.
+
+    Path coords are source-image pixels. Right-angle segments only — diagonals
+    are rejected at write time so we don't carry bad data into KiCad."""
+    graph = load_graph(args.board)
+    net = next((n for n in graph.get("nets", []) if n["name"] == args.name), None)
+    if not net:
+        print(f"no such net: {args.name}", file=sys.stderr); sys.exit(1)
+    if args.clear:
+        net.pop("path", None)
+        net.pop("path_source", None)
+        save_graph(args.board, graph)
+        print(f"cleared path on {args.name}")
+        return
+    if not args.path:
+        print("provide --path 'x1,y1;x2,y2;…' or --clear", file=sys.stderr); sys.exit(1)
+    pts = _parse_path(args.path)
+    _validate_orthogonal(pts)
+    # Provenance precedence: human > ai > tracer. Refuse to overwrite a human
+    # path with a lower-confidence source unless --force.
+    existing_src = net.get("path_source")
+    rank = {"tracer": 0, "ai": 1, "human": 2}
+    if existing_src and rank.get(args.source, 0) < rank.get(existing_src, 0) and not args.force:
+        print(f"net {args.name} has existing path_source={existing_src}; "
+              f"refusing to overwrite with {args.source} (use --force to override)",
+              file=sys.stderr); sys.exit(1)
+    net["path"] = pts
+    net["path_source"] = args.source
+    save_graph(args.board, graph)
+    print(f"set path on {args.name}: {len(pts)} points, source={args.source}")
+
+
+def cmd_untraced_nets(args):
+    """List wire-typed nets that lack a path. Pickup signal for the tracer
+    skill: it iterates this list and reads source crops to fill in paths.
+    Skips label/sheet_zone/off_page nets — those don't get drawn lines, just
+    label text at endpoints, so a path would be wasted."""
+    graph = load_graph(args.board)
+    refdes_sheets = {c["refdes"]: c.get("sheet") for c in graph["components"]}
+    rows = []
+    for net in graph.get("nets", []):
+        eps = net.get("endpoints", [])
+        if not eps: continue
+        et = eps[0].get("edge_type")
+        if et != "wire": continue
+        if net.get("path"): continue
+        if args.sheet is not None:
+            if not any(refdes_sheets.get(ep.get("refdes")) == args.sheet for ep in eps):
+                continue
+        rows.append(net)
+    label = f" on sheet {args.sheet}" if args.sheet is not None else ""
+    print(f"{len(rows)} wire-typed net(s){label} without a path:")
+    for net in rows[:50]:
+        eps_short = ", ".join(f"{e['refdes']}.{e['pin']}@s{e.get('sheet','?')}"
+                              for e in net["endpoints"][:6])
+        more = f" (+{len(net['endpoints']) - 6} more)" if len(net["endpoints"]) > 6 else ""
+        print(f"  {net['name']:18s}  {eps_short}{more}")
+    if len(rows) > 50:
+        print(f"  … and {len(rows) - 50} more")
+
+
 def cmd_remove_net(args):
     graph = load_graph(args.board)
     nets = graph.get("nets", [])
@@ -1683,6 +1776,29 @@ def main():
     sp.add_argument("--source", choices=["ai", "human", "datasheet", "probe"], default="ai")
     sp.add_argument("--note")
     sp.set_defaults(fn=cmd_extend_net)
+
+    sp = sub.add_parser("set-net-path",
+                        help="attach a routed polyline (right-angle segments) "
+                             "to a net so the KiCad export draws faithful wires "
+                             "instead of pin-to-pin diagonals")
+    sp.add_argument("--board", required=True)
+    sp.add_argument("--name", required=True)
+    sp.add_argument("--path", help="'x1,y1;x2,y2;…' in source-image pixels; "
+                                   "right-angle segments only")
+    sp.add_argument("--clear", action="store_true",
+                    help="remove the path on this net (revert to fallback routing)")
+    sp.add_argument("--source", choices=["ai", "human", "tracer"], default="ai")
+    sp.add_argument("--force", action="store_true",
+                    help="overwrite a higher-provenance existing path "
+                         "(human > ai > tracer)")
+    sp.set_defaults(fn=cmd_set_net_path)
+
+    sp = sub.add_parser("untraced-nets",
+                        help="list wire-typed nets that lack a routed path — "
+                             "the tracer skill's pickup signal")
+    sp.add_argument("--board", required=True)
+    sp.add_argument("--sheet", type=int, help="restrict to nets touching this sheet")
+    sp.set_defaults(fn=cmd_untraced_nets)
 
     sp = sub.add_parser("remove-net")
     sp.add_argument("--board", required=True)

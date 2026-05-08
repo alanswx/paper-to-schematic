@@ -33,6 +33,16 @@
             "minItems": 2,
             "maxItems": 2,
             "description": "[width, height] of the source image"
+          },
+          "junctions": {
+            "type": "array",
+            "description": "Connection-dot points on this sheet, in source-image pixels. KiCad needs an explicit (junction (at x y)) at every spot where two wires cross AND connect — without one, KiCad treats the crossing as independent. Recognised by the tracer (LLM vision) at the same time as the wire paths. Each junction is rendering-only on our side because the graph already knows connectivity via endpoints; on the KiCad side it controls whether the rendered .kicad_sch shows the dot.",
+            "items": {
+              "type": "array",
+              "items": { "type": "number" },
+              "minItems": 2,
+              "maxItems": 2
+            }
           }
         }
       }
@@ -129,6 +139,21 @@
                 "evidence": { "$ref": "#/$defs/evidence" }
               }
             }
+          },
+          "path": {
+            "type": "array",
+            "description": "Routed polyline for this net in source-image pixels. Right-angle segments only (every consecutive pair differs in exactly one of x/y). Provided by the tracer (LLM vision reading the source) so the KiCad export can emit (wire ...) segments matching the original artwork instead of straight pin-to-pin diagonals. When absent the exporter falls back to a one-corner Manhattan route between endpoints. Rendering only — connectivity is canonical via `endpoints`.",
+            "items": {
+              "type": "array",
+              "items": { "type": "number" },
+              "minItems": 2,
+              "maxItems": 2
+            }
+          },
+          "path_source": {
+            "type": "string",
+            "enum": ["ai", "human", "tracer"],
+            "description": "Provenance of the path. `human` overrides `ai` overrides `tracer`."
           }
         }
       }
