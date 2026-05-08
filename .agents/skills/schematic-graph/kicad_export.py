@@ -318,6 +318,96 @@ def synth_symbol(part_key: str, part: dict, lib: str = "user", *,
     return sym
 
 
+def synth_faithful_symbol(refdes: str, part_key: str, part: dict, comp: dict,
+                          scale: float, lib: str = "user") -> str:
+    """Per-component lib_symbol with body sized to the source bbox and pins
+    at their actual placed positions (from comp.pin_positions). Used when the
+    component has pin_positions set, so the KiCad-rendered schematic matches
+    the original drawing's chip layout (instead of a generic DIP).
+
+    Each component owns its own lib_symbol (sym_id = `_chip_<refdes>`)
+    because two different `74LS00` instances on the same page may have been
+    drawn at different sizes/orientations on the original.
+
+    The body rectangle is the bbox shrunk by PIN_LENGTH on each side, so the
+    visible pin line extends from the body to the pin's (at) coord — which
+    sits on the schematic dot where wires attach.
+    """
+    bbox = comp["bbox"]
+    pin_pos = comp.get("pin_positions") or {}
+    cx_px = (bbox[0] + bbox[2]) / 2
+    cy_px = (bbox[1] + bbox[3]) / 2
+    bw_mm = abs(bbox[2] - bbox[0]) * scale
+    bh_mm = abs(bbox[3] - bbox[1]) * scale
+    body_half_w = max(1.0, bw_mm / 2 - PIN_LENGTH_MM)
+    body_half_h = max(1.0, bh_mm / 2 - PIN_LENGTH_MM)
+    body_left = -body_half_w
+    body_right = body_half_w
+    body_top = body_half_h     # symbol-local +Y is up
+    body_bot = -body_half_h
+
+    pin_lines = []
+    for p in part["pins"]:
+        n_str = str(p["n"])
+        if n_str not in pin_pos:
+            continue
+        ix, iy = pin_pos[n_str]
+        # Position in mm relative to body center.  Source +Y = down (image),
+        # symbol-local +Y = up — flip when going symbol-local. Snap to the
+        # 50-mil grid so the effective absolute pin position (instance origin
+        # + this offset, both snapped) lands cleanly on grid for ERC.
+        x = _snap((ix - cx_px) * scale)
+        y = _snap(-(iy - cy_px) * scale)
+        # Pick the body edge this pin is nearest, set the outward angle.
+        dleft = abs(x - body_left)
+        dright = abs(x - body_right)
+        dtop = abs(y - body_top)
+        dbot = abs(y - body_bot)
+        m = min(dleft, dright, dtop, dbot)
+        if m == dleft: angle = 180
+        elif m == dright: angle = 0
+        elif m == dtop: angle = 90
+        else: angle = 270
+        ktype = PIN_TYPE_MAP.get(p.get("type", "passive"), "passive")
+        name = p["name"]
+        if name.startswith("~"):
+            name = "~{" + name[1:] + "}"
+        pin_lines.append(
+            f'      (pin {ktype} line (at {_f(x)} {_f(y)} {angle}) (length {_f(PIN_LENGTH_MM)})\n'
+            f'        (name {_esc(name)} (effects (font (size 1.27 1.27))))\n'
+            f'        (number {_esc(n_str)} (effects (font (size 1.27 1.27))))\n'
+            f'      )'
+        )
+    pins_block = "\n".join(pin_lines) if pin_lines else ""
+
+    sym_id = f"_chip_{refdes}"
+    return f'''  (symbol "{lib}:{sym_id}"
+    (pin_names (offset 0.508))
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (property "Reference" "U" (at 0 {_f(body_top + 2)} 0)
+      (effects (font (size 1.27 1.27))))
+    (property "Value" "{part_key}" (at 0 {_f(body_bot - 2)} 0)
+      (effects (font (size 1.27 1.27))))
+    (property "Footprint" "" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Description" "{part.get('description', '')}" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (symbol "{sym_id}_0_1"
+      (rectangle (start {_f(body_left)} {_f(body_top)}) (end {_f(body_right)} {_f(body_bot)})
+        (stroke (width 0.254) (type default))
+        (fill (type background))
+      )
+    )
+    (symbol "{sym_id}_1_1"
+{pins_block}
+    )
+  )'''
+
+
 def synth_power_symbol(power_name: str, lib: str = "user") -> str:
     """A 1-pin power-source symbol whose single pin is power_out, named after
     the supplied net name (VCC, GND, +5V, …). Used to drive the chips'
@@ -438,20 +528,26 @@ def gen_sch(graph: dict, chips: dict, sheet_index: int, project_name: str = "sch
     nets = [n for n in graph.get("nets", [])
             if any(ep.get("sheet") == sheet_index for ep in n.get("endpoints", []))]
 
-    # Build lib_symbols. For multi-unit parts that the board uses as
-    # split gates (g01a/b/c/d), emit one lib_symbol per sub-unit letter so
-    # each gate-instance is a self-contained component with only its own
-    # pins. Other parts get the standard full-chip symbol.
+    # Build lib_symbols. Faithful path: each component with pin_positions
+    # gets its own lib_symbol sized to its bbox with pins at their actual
+    # placed positions, so the rendered KiCad schematic matches the original
+    # drawing. Fallback path (no pin_positions yet): the existing per-(part,
+    # letter) generic symbol — unchanged for split-gate sub-units.
     multi_unit_parts = _multi_unit_parts(components, chips)
-    needed_lib_ids: dict[tuple[str, str | None], dict] = {}
+    sym_defs = []
+    fallback_lib_ids: dict[tuple[str, str | None], dict] = {}
+    faithful_refdes: set[str] = set()
     for c in components:
         part = chips["parts"].get(c["part"])
         if not part:
             continue
-        letter = _comp_unit_letter(c["refdes"], c["part"], multi_unit_parts)
-        needed_lib_ids[(c["part"], letter)] = part
-    sym_defs = []
-    for (pk, letter), part in sorted(needed_lib_ids.items(), key=lambda x: (x[0][0], x[0][1] or "")):
+        if c.get("pin_positions"):
+            sym_defs.append(synth_faithful_symbol(c["refdes"], c["part"], part, c, scale))
+            faithful_refdes.add(c["refdes"])
+        else:
+            letter = _comp_unit_letter(c["refdes"], c["part"], multi_unit_parts)
+            fallback_lib_ids[(c["part"], letter)] = part
+    for (pk, letter), part in sorted(fallback_lib_ids.items(), key=lambda x: (x[0][0], x[0][1] or "")):
         sym_defs.append(synth_symbol(pk, part, unit_letter=letter))
 
     # Collect power/ground pins on this sheet, grouped by their library pin
@@ -493,56 +589,73 @@ def gen_sch(graph: dict, chips: dict, sheet_index: int, project_name: str = "sch
         y_mm = _snap(PAPER_MARGIN_MM + cy_px * scale)
 
         comp_uuid = stable_uuid(f"{graph['board']['id']}/sheet/{sheet_index}/{comp['refdes']}")
+        is_faithful = comp["refdes"] in faithful_refdes
 
-        unit_letter = _comp_unit_letter(comp["refdes"], comp["part"], multi_unit_parts)
-        lib_id = _comp_lib_id(comp["part"], unit_letter)
-        active_pins = _comp_active_pins(part, unit_letter)
+        if is_faithful:
+            # Faithful path: lib_symbol pin coords are snapped offsets from
+            # the bbox center; the instance origin is also snapped. The
+            # KiCad-effective pin position is instance_origin + local_offset,
+            # both snapped → guaranteed on-grid. We mirror the same arithmetic
+            # here so wires connect at exactly the same points.
+            lib_id = f"_chip_{comp['refdes']}"
+            pin_pos = comp.get("pin_positions") or {}
+            active_pins = [p for p in part["pins"] if str(p["n"]) in pin_pos]
+            for p in active_pins:
+                ix, iy = pin_pos[str(p["n"])]
+                local_x = _snap((ix - cx_px) * scale)
+                local_y = _snap(-(iy - cy_px) * scale)
+                # Schematic +Y is down; symbol-local +Y is up — flip the y back.
+                pin_endpoint_mm[(comp["refdes"], str(p["n"]))] = (x_mm + local_x, y_mm - local_y)
+        else:
+            unit_letter = _comp_unit_letter(comp["refdes"], comp["part"], multi_unit_parts)
+            lib_id = _comp_lib_id(comp["part"], unit_letter)
+            active_pins = _comp_active_pins(part, unit_letter)
 
-        # Compute mm position of each active pin, mirroring synth_symbol's
-        # layout (full-chip DIP for regular components, compact left/right
-        # split for sub-units).
-        pin_count = len(part["pins"])
-        if unit_letter is None:
-            if pin_count and pin_count % 2 == 0:
-                half = pin_count // 2
-                body_height = (half - 1) * PIN_PITCH_MM + 2 * PIN_PITCH_MM
+            # Compute mm position of each active pin, mirroring synth_symbol's
+            # layout (full-chip DIP for regular components, compact left/right
+            # split for sub-units).
+            pin_count = len(part["pins"])
+            if unit_letter is None:
+                if pin_count and pin_count % 2 == 0:
+                    half = pin_count // 2
+                    body_height = (half - 1) * PIN_PITCH_MM + 2 * PIN_PITCH_MM
+                    body_top = body_height / 2
+                    body_w = 12.7
+                    body_left = -body_w / 2
+                    body_right = body_w / 2
+                    for p in active_pins:
+                        n = p["n"]
+                        if n <= half:
+                            slot = n - 1
+                            px = body_left - PIN_LENGTH_MM
+                            py = body_top - (slot + 0.5) * PIN_PITCH_MM
+                        else:
+                            slot = pin_count - n
+                            px = body_right + PIN_LENGTH_MM
+                            py = body_top - (slot + 0.5) * PIN_PITCH_MM
+                        pin_endpoint_mm[(comp["refdes"], str(n))] = (x_mm + px, y_mm - py)
+            else:
+                # Compact sub-unit layout: pins listed in active_pins order, half
+                # on the left, half on the right.
+                total = len(active_pins)
+                rows = max(1, (total + 1) // 2)
+                body_height = (rows - 1) * PIN_PITCH_MM + 2 * PIN_PITCH_MM
                 body_top = body_height / 2
                 body_w = 12.7
                 body_left = -body_w / 2
                 body_right = body_w / 2
-                for p in active_pins:
-                    n = p["n"]
-                    if n <= half:
-                        slot = n - 1
+                half = (total + 1) // 2
+                for i, p in enumerate(active_pins):
+                    n_pos = i + 1
+                    if n_pos <= half:
+                        slot = n_pos - 1
                         px = body_left - PIN_LENGTH_MM
                         py = body_top - (slot + 0.5) * PIN_PITCH_MM
                     else:
-                        slot = pin_count - n
+                        slot = total - n_pos
                         px = body_right + PIN_LENGTH_MM
                         py = body_top - (slot + 0.5) * PIN_PITCH_MM
-                    pin_endpoint_mm[(comp["refdes"], str(n))] = (x_mm + px, y_mm - py)
-        else:
-            # Compact sub-unit layout: pins listed in active_pins order, half
-            # on the left, half on the right.
-            total = len(active_pins)
-            rows = max(1, (total + 1) // 2)
-            body_height = (rows - 1) * PIN_PITCH_MM + 2 * PIN_PITCH_MM
-            body_top = body_height / 2
-            body_w = 12.7
-            body_left = -body_w / 2
-            body_right = body_w / 2
-            half = (total + 1) // 2
-            for i, p in enumerate(active_pins):
-                n_pos = i + 1
-                if n_pos <= half:
-                    slot = n_pos - 1
-                    px = body_left - PIN_LENGTH_MM
-                    py = body_top - (slot + 0.5) * PIN_PITCH_MM
-                else:
-                    slot = total - n_pos
-                    px = body_right + PIN_LENGTH_MM
-                    py = body_top - (slot + 0.5) * PIN_PITCH_MM
-                pin_endpoint_mm[(comp["refdes"], str(p["n"]))] = (x_mm + px, y_mm - py)
+                    pin_endpoint_mm[(comp["refdes"], str(p["n"]))] = (x_mm + px, y_mm - py)
 
         ref_uuid_pins = []
         for p in active_pins:
@@ -627,16 +740,44 @@ def gen_sch(graph: dict, chips: dict, sheet_index: int, project_name: str = "sch
         if edge == "wire":
             if len(eps_on_sheet) < 2:
                 continue
-            anchor = eps_on_sheet[0]
-            anchor_pos = pin_endpoint_mm.get((anchor["refdes"], str(anchor["pin"])))
-            if not anchor_pos:
-                continue
-            for other in eps_on_sheet[1:]:
-                other_pos = pin_endpoint_mm.get((other["refdes"], str(other["pin"])))
-                if not other_pos:
+            # Faithful routing: when the net carries a `path` (source-image
+            # pixel polyline from the tracer), emit one (wire) per consecutive
+            # pair, snapped to the KiCad grid. Without a path, fall back to a
+            # one-corner Manhattan route between each pair of endpoints — a
+            # right-angle approximation that's at least not diagonal and gives
+            # KiCad something loadable until the tracer fills the path in.
+            net_path = net.get("path")
+            if net_path:
+                pts_mm = [(_snap(PAPER_MARGIN_MM + p[0] * scale),
+                           _snap(PAPER_MARGIN_MM + p[1] * scale))
+                          for p in net_path]
+                for i in range(1, len(pts_mm)):
+                    a, b = pts_mm[i - 1], pts_mm[i]
+                    if a == b:
+                        continue
+                    wuuid = stable_uuid(f"{net['name']}/seg/{i}")
+                    wire_blocks.append(f'''  (wire (pts (xy {_f(a[0])} {_f(a[1])}) (xy {_f(b[0])} {_f(b[1])}))
+    (stroke (width 0) (type default))
+    (uuid "{wuuid}")
+  )''')
+            else:
+                anchor = eps_on_sheet[0]
+                anchor_pos = pin_endpoint_mm.get((anchor["refdes"], str(anchor["pin"])))
+                if not anchor_pos:
                     continue
-                wuuid = stable_uuid(f"{net['name']}/{anchor['refdes']}.{anchor['pin']}/{other['refdes']}.{other['pin']}")
-                wire_blocks.append(f'''  (wire (pts (xy {_f(anchor_pos[0])} {_f(anchor_pos[1])}) (xy {_f(other_pos[0])} {_f(other_pos[1])}))
+                for other in eps_on_sheet[1:]:
+                    other_pos = pin_endpoint_mm.get((other["refdes"], str(other["pin"])))
+                    if not other_pos:
+                        continue
+                    # H-then-V Manhattan: corner at (other.x, anchor.y).
+                    cx_mm, cy_mm = _snap(other_pos[0]), _snap(anchor_pos[1])
+                    pts = [anchor_pos, (cx_mm, cy_mm), other_pos]
+                    for i in range(1, len(pts)):
+                        a, b = pts[i - 1], pts[i]
+                        if a == b:
+                            continue
+                        wuuid = stable_uuid(f"{net['name']}/{anchor['refdes']}.{anchor['pin']}/{other['refdes']}.{other['pin']}/{i}")
+                        wire_blocks.append(f'''  (wire (pts (xy {_f(a[0])} {_f(a[1])}) (xy {_f(b[0])} {_f(b[1])}))
     (stroke (width 0) (type default))
     (uuid "{wuuid}")
   )''')
@@ -716,6 +857,14 @@ def gen_sch(graph: dict, chips: dict, sheet_index: int, project_name: str = "sch
         *inst_blocks,
         *wire_blocks,
         *label_blocks,
+        # Connection-dot junctions: KiCad needs an explicit (junction) at every
+        # spot where two wires cross AND connect. Without one, KiCad treats the
+        # crossing as independent (potential phantom open). Tracer emits these
+        # alongside paths.
+        *[
+            f'  (junction (at {_f(_snap(PAPER_MARGIN_MM + jx * scale))} {_f(_snap(PAPER_MARGIN_MM + jy * scale))}) (diameter 0) (color 0 0 0 0)\n    (uuid "{stable_uuid(f"junc/{sheet_index}/{ji}")}")\n  )'
+            for ji, (jx, jy) in enumerate(sheet_meta.get("junctions") or [])
+        ],
         '  (sheet_instances',
         '    (path "/"',
         '      (page "1")',
