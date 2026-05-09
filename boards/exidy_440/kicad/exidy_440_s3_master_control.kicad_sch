@@ -1,0 +1,19 @@
+(kicad_sch
+  (version 20240108)
+  (generator "paper-to-schematic")
+  (generator_version "0.1")
+  (uuid "37f330bc-d028-1ea1-8142-43c3092d6597")
+  (paper "A3")
+  (title_block
+    (title "Exidy 440 logic board sheet 3: Master Control")
+    (rev "77-0019")
+    (company "Exidy, Inc.")
+  )
+  (lib_symbols
+  )
+  (sheet_instances
+    (path "/"
+      (page "1")
+    )
+  )
+)

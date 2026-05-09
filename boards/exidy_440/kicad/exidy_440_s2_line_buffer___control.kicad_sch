@@ -1,0 +1,19 @@
+(kicad_sch
+  (version 20240108)
+  (generator "paper-to-schematic")
+  (generator_version "0.1")
+  (uuid "165c7542-2306-2753-0b71-3f72727ce22e")
+  (paper "A3")
+  (title_block
+    (title "Exidy 440 logic board sheet 2: Line Buffer & Control")
+    (rev "77-0019")
+    (company "Exidy, Inc.")
+  )
+  (lib_symbols
+  )
+  (sheet_instances
+    (path "/"
+      (page "1")
+    )
+  )
+)

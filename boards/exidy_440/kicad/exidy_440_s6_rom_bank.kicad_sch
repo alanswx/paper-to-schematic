@@ -1,0 +1,19 @@
+(kicad_sch
+  (version 20240108)
+  (generator "paper-to-schematic")
+  (generator_version "0.1")
+  (uuid "2c6fad9b-24ea-9e2c-b0d5-40c76cf164be")
+  (paper "A3")
+  (title_block
+    (title "Exidy 440 logic board sheet 6: ROM Bank")
+    (rev "77-0019")
+    (company "Exidy, Inc.")
+  )
+  (lib_symbols
+  )
+  (sheet_instances
+    (path "/"
+      (page "1")
+    )
+  )
+)

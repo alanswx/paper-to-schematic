@@ -1,0 +1,19 @@
+(kicad_sch
+  (version 20240108)
+  (generator "paper-to-schematic")
+  (generator_version "0.1")
+  (uuid "14a48cbf-e6b5-4594-5465-669c4413a9ba")
+  (paper "A3")
+  (title_block
+    (title "Exidy 440 logic board sheet 5: Video Output")
+    (rev "77-0019")
+    (company "Exidy, Inc.")
+  )
+  (lib_symbols
+  )
+  (sheet_instances
+    (path "/"
+      (page "1")
+    )
+  )
+)

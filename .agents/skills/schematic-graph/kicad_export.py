@@ -127,6 +127,36 @@ def _snap(v: float) -> float:
     component center is enough to put every emitted endpoint on-grid."""
     return round(v / KICAD_GRID_MM) * KICAD_GRID_MM
 
+# Map a librarian `package` string to a KiCad stock footprint id. The lib
+# (Package_DIP, Package_TO_SOT_THT, etc.) ships with kicad-footprints and is
+# discoverable via the user-global fp-lib-table that KiCad sets up on first
+# launch — no per-project library config needed for these.
+#
+# Width convention for DIPs: ≤20 pins → 0.3" body (7.62mm); ≥24 pins → 0.6"
+# body (15.24mm). True for every chip currently in chips.json (the ≥24-pin
+# parts are all memory/CPU which were always 0.6" wide). If a future chip
+# breaks this rule it'll need an explicit override on the part.
+PACKAGE_TO_KICAD_FP = {
+    "DIP-8":  "Package_DIP:DIP-8_W7.62mm",
+    "DIP-14": "Package_DIP:DIP-14_W7.62mm",
+    "DIP-16": "Package_DIP:DIP-16_W7.62mm",
+    "DIP-20": "Package_DIP:DIP-20_W7.62mm",
+    "DIP-24": "Package_DIP:DIP-24_W15.24mm",
+    "DIP-28": "Package_DIP:DIP-28_W15.24mm",
+    "DIP-32": "Package_DIP:DIP-32_W15.24mm",
+    "DIP-40": "Package_DIP:DIP-40_W15.24mm",
+}
+
+
+def kicad_footprint_for(part: dict) -> str:
+    """Map a librarian part to a KiCad stock footprint id, or "" if unknown.
+    Honours an explicit `kicad_footprint` override on the part when present."""
+    explicit = part.get("kicad_footprint")
+    if explicit:
+        return explicit
+    return PACKAGE_TO_KICAD_FP.get(part.get("package", ""), "")
+
+
 PIN_TYPE_MAP = {
     "input":           "input",
     "output":          "output",
@@ -299,7 +329,7 @@ def synth_symbol(part_key: str, part: dict, lib: str = "user", *,
       (effects (font (size 1.27 1.27))))
     (property "Value" "{sym_id}" (at 0 {_f(body_bot - 2)} 0)
       (effects (font (size 1.27 1.27))))
-    (property "Footprint" "" (at 0 0 0)
+    (property "Footprint" "{kicad_footprint_for(part)}" (at 0 0 0)
       (effects (font (size 1.27 1.27)) (hide yes)))
     (property "Datasheet" "" (at 0 0 0)
       (effects (font (size 1.27 1.27)) (hide yes)))
@@ -390,7 +420,7 @@ def synth_faithful_symbol(refdes: str, part_key: str, part: dict, comp: dict,
       (effects (font (size 1.27 1.27))))
     (property "Value" "{part_key}" (at 0 {_f(body_bot - 2)} 0)
       (effects (font (size 1.27 1.27))))
-    (property "Footprint" "" (at 0 0 0)
+    (property "Footprint" "{kicad_footprint_for(part)}" (at 0 0 0)
       (effects (font (size 1.27 1.27)) (hide yes)))
     (property "Datasheet" "" (at 0 0 0)
       (effects (font (size 1.27 1.27)) (hide yes)))
@@ -676,7 +706,7 @@ def gen_sch(graph: dict, chips: dict, sheet_index: int, project_name: str = "sch
       (effects (font (size 1.27 1.27))))
     (property "Value" "{comp['part']}" (at {_f(x_mm)} {_f(y_mm + 12)} 0)
       (effects (font (size 1.27 1.27))))
-    (property "Footprint" "" (at {_f(x_mm)} {_f(y_mm)} 0)
+    (property "Footprint" "{kicad_footprint_for(part)}" (at {_f(x_mm)} {_f(y_mm)} 0)
       (effects (font (size 1.27 1.27)) (hide yes)))
     (property "Datasheet" "" (at {_f(x_mm)} {_f(y_mm)} 0)
       (effects (font (size 1.27 1.27)) (hide yes)))

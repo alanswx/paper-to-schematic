@@ -1,0 +1,19 @@
+(kicad_sch
+  (version 20240108)
+  (generator "paper-to-schematic")
+  (generator_version "0.1")
+  (uuid "280f56b7-557c-f946-1cf3-1a11c96abf1b")
+  (paper "A3")
+  (title_block
+    (title "Exidy 440 logic board sheet 4: CPU & Memory")
+    (rev "77-0019")
+    (company "Exidy, Inc.")
+  )
+  (lib_symbols
+  )
+  (sheet_instances
+    (path "/"
+      (page "1")
+    )
+  )
+)
