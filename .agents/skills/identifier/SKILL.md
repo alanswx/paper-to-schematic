@@ -107,6 +107,41 @@ snap-board produces a worse bbox than the vision-placed one, keep the
 vision bbox and skip snap for that chip.** See `AGENTS.md` for the
 anti-pattern note about tuning CV harder when recognition fails.
 
+### Stage 1b — discretes (resistors, caps, switches, connectors, crystals)
+
+Discretes are a separate identification pass from chips. They look
+visually distinct (zigzag/rectangle for R, parallel lines for C,
+cylinder with `+` for CP, oval with internal mass for crystal, push-
+button silhouette, D-sub trapezoid for connectors). Most sheets have a
+handful; the Z80 SBC example has 3 resistors, 5 caps, 1 crystal, 1 DB9,
+1 push button.
+
+The librarian carries generic entries with `kind: "discrete"`:
+`R`, `R_SMD`, `C`, `CP` (polarized), `D`, `LED`, `Crystal`, `SW_Push`,
+`SW_SPDT`, `Conn_01x02`/`06`/`10`/`16`/`20`, `DB9_Female`, `DB9_Male`.
+Add more as boards demand them.
+
+```
+1. Skim the sheet for non-rectangular components. Note refdes (R1, C2,
+   X1, J1, …), placement bbox, and — for parts where it's printed —
+   the value (1k, 22p, 7.3728MHz).
+2. graph_cli add-component --board <id> --refdes R1 --part R --sheet 1 \
+     --bbox <x1,y1,x2,y2> --value 2k2
+3. Pin positions for 2-pin parts auto-fill to the bbox endpoints.
+   Multi-pin connectors (DB9, Conn_01xN) need pin numbers placed in
+   source order — drag them in the explorer or call set-pin-positions.
+4. For polarized parts (CP, D, LED): the librarian's pin "1" is the +
+   / anode and pin "2" is the - / cathode. Place pin 1 on the lead the
+   source marks with + (or the unbanded end for diodes).
+```
+
+Discretes don't need crop-chip / pin-number reading — there's nothing
+printed on the part body to identify them, and the librarian entries
+have no per-pin functional names. The KiCad export references stock
+symbols (`Device:R`, `Switch:SW_Push`, …) and stock footprints from
+the part entry, so once added they appear correctly in the schematic
+and BOM without further setup.
+
 ### Stage 2 — pin positions (one chip-class at a time)
 
 For a chip whose pins are arranged in functional order (printed pin

@@ -104,9 +104,18 @@ def cmd_add_component(args):
         comp["evidence"]["confidence"] = args.confidence
     if args.note:
         comp["evidence"]["note"] = args.note
+    # Discretes (R, C, Crystal, …) carry an instance-level value. Refuse to
+    # add a value_required part without one, since the BOM aggregates by it.
+    part_def = chips["parts"][canon]
+    if args.value:
+        comp["value"] = args.value
+    elif part_def.get("value_required"):
+        print(f"part {canon!r} requires --value (resistance/capacitance/etc.)",
+              file=sys.stderr); sys.exit(1)
     graph["components"].append(comp)
     save_graph(args.board, graph)
-    print(f"added {args.refdes} ({canon}) on sheet {args.sheet} bbox={bbox} "
+    val_str = f" value={args.value!r}" if args.value else ""
+    print(f"added {args.refdes} ({canon}) on sheet {args.sheet} bbox={bbox}{val_str} "
           f"source={args.source}")
 
 
@@ -1694,6 +1703,8 @@ def main():
     sp.add_argument("--part", required=True, help="librarian key or alias")
     sp.add_argument("--sheet", type=int, required=True)
     sp.add_argument("--bbox", required=True, help="x1,y1,x2,y2 in source-image pixels")
+    sp.add_argument("--value", help="instance-level value (1k, 22p, 7.3728MHz) — "
+                                    "required for discretes flagged value_required")
     sp.add_argument("--source", choices=["ai", "human", "datasheet", "probe"], default="ai")
     sp.add_argument("--confidence", type=float)
     sp.add_argument("--note")

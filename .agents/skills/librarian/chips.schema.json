@@ -11,7 +11,7 @@
     "parts": {
       "type": "object",
       "patternProperties": {
-        "^[A-Z0-9_/+-]+$": { "$ref": "#/$defs/part" }
+        "^[A-Za-z0-9_/+-]+$": { "$ref": "#/$defs/part" }
       },
       "additionalProperties": false
     }
@@ -19,13 +19,40 @@
   "$defs": {
     "part": {
       "type": "object",
-      "required": ["description", "package", "pins"],
+      "required": ["description"],
       "additionalProperties": false,
       "properties": {
+        "kind": {
+          "type": "string",
+          "enum": ["ic", "discrete"],
+          "default": "ic",
+          "description": "ic = DIP/QFP chip with synthesized lib_symbol from `pins`. discrete = resistor/cap/switch/connector that maps to a KiCad stock symbol via kicad_symbol."
+        },
         "description": { "type": "string" },
         "package": {
           "type": "string",
-          "description": "e.g. DIP-14, DIP-20, DIP-40"
+          "description": "For ICs: e.g. DIP-14, DIP-20, DIP-40 — drives the auto footprint mapping. Discretes typically declare kicad_footprint directly instead."
+        },
+        "kicad_symbol": {
+          "type": "string",
+          "description": "Stock KiCad symbol id, e.g. 'Device:R', 'Switch:SW_Push'. Required when kind=discrete; ignored for ICs (which get a synthesized symbol)."
+        },
+        "kicad_footprint": {
+          "type": "string",
+          "description": "Override for the auto footprint mapping. Useful for non-standard widths or for discretes whose footprint isn't derivable from `package`."
+        },
+        "value_required": {
+          "type": "boolean",
+          "description": "If true, instances of this part must carry a `value` (resistance, capacitance, frequency). The KiCad export uses this as the symbol's Value property; the BOM aggregates by it."
+        },
+        "polarized": {
+          "type": "boolean",
+          "description": "True for parts where pin order matters (electrolytic caps, diodes, LEDs). The identifier must record which lead is the + / cathode."
+        },
+        "pin_count": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "For discretes, how many pins the stock symbol has. Used by the explorer auto-fill for connectors and switches."
         },
         "vcc_pin": { "type": "integer" },
         "gnd_pin": { "type": "integer" },

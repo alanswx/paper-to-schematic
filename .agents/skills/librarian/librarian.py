@@ -34,6 +34,21 @@ def find_part(data: dict, query: str):
 
 def validate_part(name: str, part: dict) -> list:
     errs = []
+    kind = part.get("kind", "ic")
+    if kind == "discrete":
+        if not part.get("kicad_symbol"):
+            errs.append("discrete is missing kicad_symbol (e.g. 'Device:R')")
+        pc = part.get("pin_count")
+        if pc is None:
+            errs.append("discrete is missing pin_count")
+        elif pc < 1:
+            errs.append(f"pin_count must be >=1: {pc}")
+        if part.get("polarized") and pc not in (None, 2):
+            # Polarized only meaningful for 2-pin parts (CP, D, LED).
+            errs.append(f"polarized=true on a {pc}-pin part is unusual; verify")
+        return errs
+
+    # ic kind (default)
     pkg = part.get("package", "")
     if not pkg.startswith("DIP-"):
         return [f"package not DIP-N: {pkg!r}"]

@@ -82,6 +82,10 @@
             "type": "string",
             "description": "Free-form attribution, e.g. 'alan@workbench'. Optional."
           },
+          "value": {
+            "type": "string",
+            "description": "Instance-level value for discrete parts: resistance (1k, 2k2, 4M7), capacitance (22p, 100n, 1u), frequency (7.3728MHz), etc. The KiCad export uses this as the symbol's Value property (and the BOM aggregates by it). Ignored for ICs, which use the part name as Value."
+          },
           "pin_positions": {
             "type": "object",
             "description": "Per-pin coordinates [x,y] in source-image pixels. Keys are pin numbers as strings. Auto-seeded by the viewer using a default DIP layout; user-refined by dragging.",

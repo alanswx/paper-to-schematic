@@ -558,19 +558,27 @@ def gen_sch(graph: dict, chips: dict, sheet_index: int, project_name: str = "sch
     nets = [n for n in graph.get("nets", [])
             if any(ep.get("sheet") == sheet_index for ep in n.get("endpoints", []))]
 
-    # Build lib_symbols. Faithful path: each component with pin_positions
-    # gets its own lib_symbol sized to its bbox with pins at their actual
-    # placed positions, so the rendered KiCad schematic matches the original
-    # drawing. Fallback path (no pin_positions yet): the existing per-(part,
-    # letter) generic symbol — unchanged for split-gate sub-units.
+    # Build lib_symbols.
+    #   - kind="discrete" parts (R, C, SW_Push, …) reference KiCad stock
+    #     symbols (Device:R, etc.) directly — no synthesis. The instance's
+    #     lib_id is the stock id; KiCad resolves it from the global symbol
+    #     library installed alongside KiCad.
+    #   - kind="ic" with pin_positions: per-component faithful symbol sized
+    #     to the source bbox with pins at placed positions (matches source).
+    #   - kind="ic" without pin_positions: existing per-(part, letter)
+    #     generic synthesized symbol — fallback for partly-transcribed sheets.
     multi_unit_parts = _multi_unit_parts(components, chips)
     sym_defs = []
     fallback_lib_ids: dict[tuple[str, str | None], dict] = {}
     faithful_refdes: set[str] = set()
+    discrete_refdes: set[str] = set()
     for c in components:
         part = chips["parts"].get(c["part"])
         if not part:
             continue
+        if part.get("kind") == "discrete":
+            discrete_refdes.add(c["refdes"])
+            continue  # no lib_symbol synthesis — KiCad has the stock one.
         if c.get("pin_positions"):
             sym_defs.append(synth_faithful_symbol(c["refdes"], c["part"], part, c, scale))
             faithful_refdes.add(c["refdes"])
@@ -594,7 +602,10 @@ def gen_sch(graph: dict, chips: dict, sheet_index: int, project_name: str = "sch
         part = chips["parts"].get(comp["part"])
         if not part:
             continue
-        for p in part["pins"]:
+        # Discretes don't enumerate pins in the librarian — their power
+        # connections are external (a resistor's two passive leads connect
+        # to whatever the schematic says).
+        for p in part.get("pins", []):
             if p.get("type") in ("power", "ground"):
                 pname = p.get("name", "").lstrip("~") or ("VCC" if p["type"] == "power" else "GND")
                 power_pin_groups.setdefault(pname, []).append(
@@ -620,8 +631,34 @@ def gen_sch(graph: dict, chips: dict, sheet_index: int, project_name: str = "sch
 
         comp_uuid = stable_uuid(f"{graph['board']['id']}/sheet/{sheet_index}/{comp['refdes']}")
         is_faithful = comp["refdes"] in faithful_refdes
+        is_discrete = comp["refdes"] in discrete_refdes
 
-        if is_faithful:
+        if is_discrete:
+            # Discretes reference KiCad stock symbols (Device:R, Switch:SW_Push,
+            # etc.) directly. We don't synthesize a lib_symbol; KiCad resolves
+            # the lib_id from its global symbol library (installed alongside
+            # KiCad). Pin endpoints come from comp.pin_positions snapped to
+            # the grid — same as the IC faithful path. The stock symbol's
+            # internal pin spacing may differ slightly from the source, so a
+            # short visible offset between the stock symbol and the wire
+            # endpoint is possible; the connectivity is still right.
+            lib_id_full = part.get("kicad_symbol") or "Device:Unknown"
+            pin_pos = comp.get("pin_positions") or {}
+            pin_count = part.get("pin_count") or len(pin_pos)
+            polarized = bool(part.get("polarized"))
+            if polarized and pin_count == 2:
+                derived_pins = [{"n": 1, "name": "+", "type": "passive"},
+                                {"n": 2, "name": "-", "type": "passive"}]
+            else:
+                derived_pins = [{"n": i + 1, "name": str(i + 1), "type": "passive"}
+                                for i in range(pin_count)]
+            active_pins = [p for p in derived_pins if str(p["n"]) in pin_pos]
+            for p in active_pins:
+                ix, iy = pin_pos[str(p["n"])]
+                ex_mm = _snap(PAPER_MARGIN_MM + ix * scale)
+                ey_mm = _snap(PAPER_MARGIN_MM + iy * scale)
+                pin_endpoint_mm[(comp["refdes"], str(p["n"]))] = (ex_mm, ey_mm)
+        elif is_faithful:
             # Faithful path: lib_symbol pin coords are snapped offsets from
             # the bbox center; the instance origin is also snapped. The
             # KiCad-effective pin position is instance_origin + local_offset,
@@ -693,8 +730,22 @@ def gen_sch(graph: dict, chips: dict, sheet_index: int, project_name: str = "sch
             ref_uuid_pins.append(f'    (pin "{p["n"]}" (uuid "{pu}"))')
         pins_block = "\n".join(ref_uuid_pins)
 
+        # Discretes use the stock symbol's full id ("Device:R"); ICs prepend
+        # the "user:" lib prefix because the synthesized symbols live in
+        # the inline lib_symbols block of this very .kicad_sch.
+        if is_discrete:
+            inst_lib_id = lib_id_full
+            # Discretes show the *value* (1k, 22p, …) as the Value property —
+            # that's what the BOM aggregates by. Fall back to the part name
+            # when no value was set yet, so a placed-but-unsized resistor
+            # still has a meaningful label.
+            value_prop = comp.get("value") or comp["part"]
+        else:
+            inst_lib_id = f"user:{lib_id}"
+            value_prop = comp["part"]
+
         inst = f'''  (symbol
-    (lib_id "user:{lib_id}")
+    (lib_id "{inst_lib_id}")
     (at {_f(x_mm)} {_f(y_mm)} 0)
     (unit 1)
     (exclude_from_sim no)
@@ -704,7 +755,7 @@ def gen_sch(graph: dict, chips: dict, sheet_index: int, project_name: str = "sch
     (uuid "{comp_uuid}")
     (property "Reference" "{comp['refdes']}" (at {_f(x_mm)} {_f(y_mm - 12)} 0)
       (effects (font (size 1.27 1.27))))
-    (property "Value" "{comp['part']}" (at {_f(x_mm)} {_f(y_mm + 12)} 0)
+    (property "Value" "{value_prop}" (at {_f(x_mm)} {_f(y_mm + 12)} 0)
       (effects (font (size 1.27 1.27))))
     (property "Footprint" "{kicad_footprint_for(part)}" (at {_f(x_mm)} {_f(y_mm)} 0)
       (effects (font (size 1.27 1.27)) (hide yes)))

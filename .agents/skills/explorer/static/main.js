@@ -105,6 +105,29 @@ function activePinsForRefdes(refdes, part) {
 }
 
 function defaultPinPositions(part, bbox, refdes) {
+  // Discretes don't enumerate pins in the librarian — place pin_count pins
+  // along the bbox's longer dimension (vertical → one column, horizontal →
+  // one row). The order is 1,2,…,N matching the librarian's pin numbering
+  // convention (1 = + / common for polarized parts).
+  if (part.kind === "discrete") {
+    const pc = part.pin_count || 2;
+    const [x1, y1, x2, y2] = bbox;
+    const w = Math.abs(x2 - x1), h = Math.abs(y2 - y1);
+    const out = {};
+    if (h >= w) {
+      for (let i = 0; i < pc; i++) {
+        const f = pc === 1 ? 0.5 : i / (pc - 1);
+        out[String(i + 1)] = [(x1 + x2) / 2, y1 + f * (y2 - y1)];
+      }
+    } else {
+      for (let i = 0; i < pc; i++) {
+        const f = pc === 1 ? 0.5 : i / (pc - 1);
+        out[String(i + 1)] = [x1 + f * (x2 - x1), (y1 + y2) / 2];
+      }
+    }
+    return out;
+  }
+
   const pins = activePinsForRefdes(refdes, part);
   if (!pins.length) return null;
   const [x1, y1, x2, y2] = bbox;
@@ -309,7 +332,7 @@ function drawComponent(comp, selected) {
     const xMid = (comp.bbox[0] + comp.bbox[2]) / 2;
     for (const [pinNum, [ix, iy]] of Object.entries(comp.pin_positions)) {
       const cp = imgToCanvas(ix, iy);
-      const pinDef = part.pins.find(p => String(p.n) === pinNum);
+      const pinDef = (part.pins || []).find(p => String(p.n) === pinNum);
 
       ctx.beginPath();
       ctx.arc(cp.x, cp.y, r, 0, Math.PI * 2);
@@ -788,7 +811,7 @@ function refreshSelection() {
   if (pp) html += `</div>`;
 
   html += `<table class="pin-table"><tbody>`;
-  for (const p of part.pins) {
+  for (const p of (part.pins || [])) {
     const isCurrent = pp && pp.pins[pp.currentIdx] && pp.pins[pp.currentIdx].n === p.n;
     const placed = comp.pin_positions && comp.pin_positions[String(p.n)];
     const cls = isCurrent ? "pin-current" : (pp && placed ? "pin-placed" : "");
@@ -1276,9 +1299,19 @@ function togglePinPlace() {
   const part = state.chips.parts[comp.part];
   if (!part) { setStatus("can't renumber — unknown part"); return; }
   if (!comp.pin_positions) comp.pin_positions = {};
+  // Discretes don't enumerate pins in the librarian — derive a generic
+  // {n,name,type} list from pin_count so renumber-mode still works.
+  let pins = part.pins;
+  if (!pins) {
+    const pc = part.pin_count || 2;
+    const polar = !!part.polarized && pc === 2;
+    pins = polar
+      ? [{n:1,name:"+",type:"passive"},{n:2,name:"-",type:"passive"}]
+      : Array.from({length: pc}, (_, i) => ({n: i+1, name: String(i+1), type:"passive"}));
+  }
   state.pinPlace = {
     refdes: comp.refdes,
-    pins: [...part.pins].sort((a, b) => a.n - b.n),
+    pins: [...pins].sort((a, b) => a.n - b.n),
     currentIdx: 0,
   };
   canvas.style.cursor = "crosshair";
@@ -1358,10 +1391,22 @@ function openDialog() {
   refdesInput.focus();
 }
 
+function formatPartInfo(part) {
+  if (!part) return "";
+  if (part.kind === "discrete") {
+    const pc = part.pin_count || (part.pins ? part.pins.length : "?");
+    const val = part.value_required ? " • needs value" : "";
+    return `${part.description} • ${part.kicad_symbol || "discrete"} • ${pc}-pin${val}`;
+  }
+  const pins = part.pins ? `${part.pins.length} pins` : "";
+  const vg = (part.vcc_pin && part.gnd_pin) ? ` • VCC=${part.vcc_pin} GND=${part.gnd_pin}` : "";
+  return `${part.description} • ${part.package || "?"}${vg} • ${pins}`;
+}
+
 partInput.addEventListener("input", () => {
   const part = state.chips.parts[partInput.value.trim()];
   partInfo.textContent = part
-    ? `${part.description} • ${part.package} • VCC=${part.vcc_pin} GND=${part.gnd_pin} • ${part.pins.length} pins`
+    ? formatPartInfo(part)
     : (partInput.value ? "(unknown part — check chips.json)" : "");
 });
 
@@ -1421,9 +1466,7 @@ function openEditDialog() {
   editRefdesInput.value = comp.refdes;
   editPartInput.value = comp.part;
   const part = state.chips.parts[comp.part];
-  editPartInfo.textContent = part
-    ? `${part.description} • ${part.package} • ${part.pins.length} pins`
-    : "";
+  editPartInfo.textContent = formatPartInfo(part);
   editDlg.showModal();
   editRefdesInput.focus();
   editRefdesInput.select();
@@ -1432,7 +1475,7 @@ function openEditDialog() {
 editPartInput.addEventListener("input", () => {
   const part = state.chips.parts[editPartInput.value.trim()];
   editPartInfo.textContent = part
-    ? `${part.description} • ${part.package} • VCC=${part.vcc_pin} GND=${part.gnd_pin} • ${part.pins.length} pins`
+    ? formatPartInfo(part)
     : (editPartInput.value ? "(unknown part — check chips.json)" : "");
 });
 
