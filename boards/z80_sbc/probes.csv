@@ -1,0 +1,55 @@
+priority,net,endpoints,reason,suggested_test,status
+HIGH,GND,U1.15;U2.29;U3.1;U4.16;U5A.7;U6.14;U7A.7,ground net — short or open is catastrophic,"Power-off DMM continuity, expect short: U1.15 ↔ U2.29; U1.15 ↔ U3.1; U1.15 ↔ U4.16; U1.15 ↔ U5A.7; U1.15 ↔ U6.14; U1.15 ↔ U7A.7",open
+HIGH,VCC,U1.16;U2.11;U3.12;U4.32;U5A.14;U6.28;U7A.14,power net — short or open is catastrophic,"Power-off DMM continuity, expect short: U1.16 ↔ U2.11; U1.16 ↔ U3.12; U1.16 ↔ U4.32; U1.16 ↔ U5A.14; U1.16 ↔ U6.28; U1.16 ↔ U7A.14",open
+MED,CLK,U5B.4;U2.6;U3.3;U3.4,clock net — timing-critical,Power-off DMM continuity: U5B.4 ↔ U2.6; U5B.4 ↔ U3.3; U5B.4 ↔ U3.4 should all beep.,open
+MED,verify:U1,U1,"AI-added, moderate confidence 0.70; sheet 1 @ (154,81)","Locate chip U1 on the PCB and read the printed part number. Expect 'MAX232'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:U2,U2,"AI-added, moderate confidence 0.70; sheet 1 @ (293,357)","Locate chip U2 on the PCB and read the printed part number. Expect 'Z80'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:U3,U3,"AI-added, moderate confidence 0.70; sheet 1 @ (368,26)","Locate chip U3 on the PCB and read the printed part number. Expect 'MC6850'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:U4,U4,"AI-added, moderate confidence 0.70; sheet 1 @ (820,311)","Locate chip U4 on the PCB and read the printed part number. Expect 'HM628128'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:U5A,U5A,"AI-added, moderate confidence 0.70; sheet 1 @ (22,320)","Locate chip U5A on the PCB and read the printed part number. Expect '74HCT04'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:U5B,U5B,"AI-added, moderate confidence 0.70; sheet 1 @ (112,319)","Locate chip U5B on the PCB and read the printed part number. Expect '74HCT04'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:U5C,U5C,"AI-added, moderate confidence 0.70; sheet 1 @ (541,107)","Locate chip U5C on the PCB and read the printed part number. Expect '74HCT04'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:U6,U6,"AI-added, moderate confidence 0.70; sheet 1 @ (818,68)","Locate chip U6 on the PCB and read the printed part number. Expect '2764'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:U7A,U7A,"AI-added, moderate confidence 0.70; sheet 1 @ (521,229)","Locate chip U7A on the PCB and read the printed part number. Expect '74LS32'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:U7B,U7B,"AI-added, moderate confidence 0.70; sheet 1 @ (525,310)","Locate chip U7B on the PCB and read the printed part number. Expect '74LS32'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:U7C,U7C,"AI-added, moderate confidence 0.70; sheet 1 @ (484,406)","Locate chip U7C on the PCB and read the printed part number. Expect '74LS32'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:U7D,U7D,"AI-added, moderate confidence 0.70; sheet 1 @ (604,422)","Locate chip U7D on the PCB and read the printed part number. Expect '74LS32'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+LOW,A0,U2.30;U6.10;U4.12;U3.11,spot-check,Power-off DMM continuity: U2.30 ↔ U6.10; U2.30 ↔ U4.12; U2.30 ↔ U3.11 should all beep.,open
+LOW,A1,U2.31;U6.9;U4.11,spot-check,Power-off DMM continuity: U2.31 ↔ U6.9; U2.31 ↔ U4.11 should all beep.,open
+LOW,A10,U2.40;U6.21;U4.23,spot-check,Power-off DMM continuity: U2.40 ↔ U6.21; U2.40 ↔ U4.23 should all beep.,open
+LOW,A11,U2.1;U6.23;U4.25,spot-check,Power-off DMM continuity: U2.1 ↔ U6.23; U2.1 ↔ U4.25 should all beep.,open
+LOW,A12,U2.2;U6.2;U4.4,spot-check,Power-off DMM continuity: U2.2 ↔ U6.2; U2.2 ↔ U4.4 should all beep.,open
+LOW,A13,U2.3;U4.28;U7C.9,spot-check,Power-off DMM continuity: U2.3 ↔ U4.28; U2.3 ↔ U7C.9 should all beep.,open
+LOW,A13_OR_A14,U7C.8;U7D.12,spot-check,Power-off DMM continuity: U7C.8 ↔ U7D.12 should all beep.,open
+LOW,A14,U2.4;U4.3;U7C.10,spot-check,Power-off DMM continuity: U2.4 ↔ U4.3; U2.4 ↔ U7C.10 should all beep.,open
+LOW,A15,U2.5;U4.31;U7D.13,spot-check,Power-off DMM continuity: U2.5 ↔ U4.31; U2.5 ↔ U7D.13 should all beep.,open
+LOW,A2,U2.32;U6.8;U4.10,spot-check,Power-off DMM continuity: U2.32 ↔ U6.8; U2.32 ↔ U4.10 should all beep.,open
+LOW,A3,U2.33;U6.7;U4.9,spot-check,Power-off DMM continuity: U2.33 ↔ U6.7; U2.33 ↔ U4.9 should all beep.,open
+LOW,A4,U2.34;U6.6;U4.8,spot-check,Power-off DMM continuity: U2.34 ↔ U6.6; U2.34 ↔ U4.8 should all beep.,open
+LOW,A5,U2.35;U6.5;U4.7,spot-check,Power-off DMM continuity: U2.35 ↔ U6.5; U2.35 ↔ U4.7 should all beep.,open
+LOW,A6,U2.36;U6.4;U4.6;U3.9,spot-check,Power-off DMM continuity: U2.36 ↔ U6.4; U2.36 ↔ U4.6; U2.36 ↔ U3.9 should all beep.,open
+LOW,A7,U2.37;U6.3;U4.5;U3.10,spot-check,Power-off DMM continuity: U2.37 ↔ U6.3; U2.37 ↔ U4.5; U2.37 ↔ U3.10 should all beep.,open
+LOW,A8,U2.38;U6.25;U4.27,spot-check,Power-off DMM continuity: U2.38 ↔ U6.25; U2.38 ↔ U4.27 should all beep.,open
+LOW,A9,U2.39;U6.24;U4.26,spot-check,Power-off DMM continuity: U2.39 ↔ U6.24; U2.39 ↔ U4.26 should all beep.,open
+LOW,BOTTOM_8K,U7D.11;U6.20;U4.30,spot-check,Power-off DMM continuity: U7D.11 ↔ U6.20; U7D.11 ↔ U4.30 should all beep.,open
+LOW,D0,U2.14;U6.11;U4.13;U3.20,spot-check,Power-off DMM continuity: U2.14 ↔ U6.11; U2.14 ↔ U4.13; U2.14 ↔ U3.20 should all beep.,open
+LOW,D1,U2.15;U6.12;U4.14;U3.19,spot-check,Power-off DMM continuity: U2.15 ↔ U6.12; U2.15 ↔ U4.14; U2.15 ↔ U3.19 should all beep.,open
+LOW,D2,U2.12;U6.13;U4.15;U3.18,spot-check,Power-off DMM continuity: U2.12 ↔ U6.13; U2.12 ↔ U4.15; U2.12 ↔ U3.18 should all beep.,open
+LOW,D3,U2.8;U6.15;U4.17;U3.17,spot-check,Power-off DMM continuity: U2.8 ↔ U6.15; U2.8 ↔ U4.17; U2.8 ↔ U3.17 should all beep.,open
+LOW,D4,U2.7;U6.16;U4.18;U3.16,spot-check,Power-off DMM continuity: U2.7 ↔ U6.16; U2.7 ↔ U4.18; U2.7 ↔ U3.16 should all beep.,open
+LOW,D5,U2.9;U6.17;U4.19;U3.15,spot-check,Power-off DMM continuity: U2.9 ↔ U6.17; U2.9 ↔ U4.19; U2.9 ↔ U3.15 should all beep.,open
+LOW,D6,U2.10;U6.18;U4.20;U3.14,spot-check,Power-off DMM continuity: U2.10 ↔ U6.18; U2.10 ↔ U4.20; U2.10 ↔ U3.14 should all beep.,open
+LOW,D7,U2.13;U6.19;U4.21;U3.13,spot-check,Power-off DMM continuity: U2.13 ↔ U6.19; U2.13 ↔ U4.21; U2.13 ↔ U3.13 should all beep.,open
+LOW,IORQ,U5C.6;U3.21,spot-check,Power-off DMM continuity: U5C.6 ↔ U3.21 should all beep.,open
+LOW,MEMRD,U7B.6;U6.22;U4.22,spot-check,Power-off DMM continuity: U7B.6 ↔ U6.22; U7B.6 ↔ U4.22 should all beep.,open
+LOW,MEMWR,U7A.3;U4.29,spot-check,Power-off DMM continuity: U7A.3 ↔ U4.29 should all beep.,open
+LOW,OSC,U5A.2;U5B.3,spot-check,Power-off DMM continuity: U5A.2 ↔ U5B.3 should all beep.,open
+LOW,RXDATA,U3.2;U1.9,spot-check,Power-off DMM continuity: U3.2 ↔ U1.9 should all beep.,open
+LOW,TXDATA,U3.6;U1.11,spot-check,Power-off DMM continuity: U3.6 ↔ U1.11 should all beep.,open
+LOW,~INT,U3.7;U2.16,spot-check,Power-off DMM continuity: U3.7 ↔ U2.16 should all beep.,open
+LOW,~IORQ,U2.20;U5C.5,spot-check,Power-off DMM continuity: U2.20 ↔ U5C.5 should all beep.,open
+LOW,~M1,U2.27;U3.8,spot-check,Power-off DMM continuity: U2.27 ↔ U3.8 should all beep.,open
+LOW,~MREQ,U2.19;U7A.2;U7B.5,spot-check,Power-off DMM continuity: U2.19 ↔ U7A.2; U2.19 ↔ U7B.5 should all beep.,open
+LOW,~RD,U2.21;U7B.4,spot-check,Power-off DMM continuity: U2.21 ↔ U7B.4 should all beep.,open
+LOW,~RTS,U3.5;U1.10,spot-check,Power-off DMM continuity: U3.5 ↔ U1.10 should all beep.,open
+LOW,~WR,U2.22;U7A.1;U3.22,spot-check,Power-off DMM continuity: U2.22 ↔ U7A.1; U2.22 ↔ U3.22 should all beep.,open

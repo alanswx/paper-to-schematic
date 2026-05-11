@@ -1,0 +1,36 @@
+{
+  "id": "z80_sbc",
+  "drawing_number": "Z80SbcSchematic1.3",
+  "title": "Minimal chip count Z80 Computer",
+  "manufacturer": "Grant Searle",
+  "year": 2007,
+  "shared_titles": [],
+  "preferred_scan_source": {
+    "manual": "Grant Searle hobbyist redrawn schematic v1.3",
+    "reason": "Single-page redrawn schematic distributed as a 1000x720 GIF; no higher-resolution source available.",
+    "image_path": "Z80SbcSchematic1.3.gif"
+  },
+  "source": {
+    "kind": "raster_scan",
+    "note": "Hobbyist redrawn schematic, not a manufacturer scan. Resolution is low (1000x720) so component crops will be coarser than typical Exidy/Atari sheets."
+  },
+  "sheets": [
+    {
+      "index": 1,
+      "title": "Z80 SBC main schematic",
+      "scan_path": "scans/sheet1.png",
+      "scan_pixel_size": [1000, 720]
+    }
+  ],
+  "off_page_convention": {
+    "edge_type": "label",
+    "notation": "named text label",
+    "example": "MEMRD, MEMWR, IORQ, BOTTOM 8K, RESET, CLK — all single-sheet so labels are local-only",
+    "rendering": "horizontal text adjacent to wire"
+  },
+  "phase1_target": {
+    "sheet": 1,
+    "scope": "Whole board (single sheet, ~7 ICs + discrete RC components)",
+    "exit_criteria": "round-trips into KiCad with zero ERC errors"
+  }
+}

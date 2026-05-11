@@ -1,0 +1,3129 @@
+{
+  "board": {
+    "id": "z80_sbc",
+    "drawing_number": "Z80SbcSchematic1.3",
+    "title": "Minimal chip count Z80 Computer",
+    "manufacturer": "Grant Searle",
+    "year": 2007
+  },
+  "sheets": [
+    {
+      "index": 1,
+      "title": "Z80 SBC main schematic",
+      "scan_path": "scans/sheet1.png",
+      "scan_pixel_size": [
+        1000,
+        720
+      ]
+    }
+  ],
+  "components": [
+    {
+      "refdes": "U1",
+      "part": "MAX232",
+      "sheet": 1,
+      "bbox": [
+        153.9750970507864,
+        80.80188160535297,
+        266.97149393049176,
+        215.9537437929078
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.7
+      },
+      "pin_positions": {
+        "6": [
+          154.0,
+          108.0
+        ],
+        "2": [
+          154.0,
+          119.0
+        ],
+        "8": [
+          154.0,
+          141.0
+        ],
+        "7": [
+          154.0,
+          154.0
+        ],
+        "13": [
+          154.0,
+          167.0
+        ],
+        "14": [
+          154.0,
+          178.0
+        ],
+        "9": [
+          267.0,
+          141.0
+        ],
+        "10": [
+          267.0,
+          154.0
+        ],
+        "12": [
+          267.0,
+          167.0
+        ],
+        "11": [
+          267.0,
+          178.0
+        ],
+        "5": [
+          176.0,
+          81.0
+        ],
+        "4": [
+          253.0,
+          81.0
+        ],
+        "3": [
+          176.0,
+          216.0
+        ],
+        "1": [
+          253.0,
+          216.0
+        ],
+        "16": [
+          210.0,
+          80.0
+        ],
+        "15": [
+          210.0,
+          217.0
+        ]
+      }
+    },
+    {
+      "refdes": "U2",
+      "part": "Z80",
+      "sheet": 1,
+      "bbox": [
+        293.3276148373369,
+        357.31986737611265,
+        411.63281050084925,
+        650.7738860853117
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.7
+      },
+      "pin_positions": {
+        "27": [
+          293.0,
+          358.0
+        ],
+        "19": [
+          293.0,
+          381.0
+        ],
+        "20": [
+          293.0,
+          394.0
+        ],
+        "21": [
+          293.0,
+          407.0
+        ],
+        "22": [
+          293.0,
+          420.0
+        ],
+        "28": [
+          293.0,
+          444.0
+        ],
+        "18": [
+          293.0,
+          467.0
+        ],
+        "24": [
+          293.0,
+          491.0
+        ],
+        "16": [
+          293.0,
+          515.0
+        ],
+        "17": [
+          293.0,
+          525.0
+        ],
+        "26": [
+          293.0,
+          552.0
+        ],
+        "25": [
+          293.0,
+          575.0
+        ],
+        "23": [
+          293.0,
+          585.0
+        ],
+        "6": [
+          293.0,
+          615.0
+        ],
+        "30": [
+          411.0,
+          361.0
+        ],
+        "31": [
+          411.0,
+          370.0
+        ],
+        "32": [
+          411.0,
+          384.0
+        ],
+        "33": [
+          411.0,
+          397.0
+        ],
+        "34": [
+          411.0,
+          409.0
+        ],
+        "35": [
+          411.0,
+          423.0
+        ],
+        "36": [
+          411.0,
+          434.0
+        ],
+        "37": [
+          411.0,
+          447.0
+        ],
+        "38": [
+          411.0,
+          458.0
+        ],
+        "39": [
+          411.0,
+          470.0
+        ],
+        "40": [
+          411.0,
+          482.0
+        ],
+        "1": [
+          411.0,
+          494.0
+        ],
+        "2": [
+          411.0,
+          505.0
+        ],
+        "3": [
+          411.0,
+          517.0
+        ],
+        "4": [
+          411.0,
+          528.0
+        ],
+        "5": [
+          411.0,
+          539.0
+        ],
+        "14": [
+          411.0,
+          557.0
+        ],
+        "15": [
+          411.0,
+          567.0
+        ],
+        "12": [
+          411.0,
+          578.0
+        ],
+        "8": [
+          411.0,
+          588.0
+        ],
+        "7": [
+          411.0,
+          597.0
+        ],
+        "9": [
+          411.0,
+          607.0
+        ],
+        "10": [
+          411.0,
+          618.0
+        ],
+        "13": [
+          411.0,
+          628.0
+        ],
+        "11": [
+          352.0,
+          357.0
+        ],
+        "29": [
+          352.0,
+          650.0
+        ]
+      }
+    },
+    {
+      "refdes": "U3",
+      "part": "MC6850",
+      "sheet": 1,
+      "bbox": [
+        368.30368217444305,
+        26.053170345868224,
+        461.0292070701631,
+        162.88574444148327
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.7
+      },
+      "pin_positions": {
+        "2": [
+          368.0,
+          30.0
+        ],
+        "6": [
+          368.0,
+          41.0
+        ],
+        "5": [
+          368.0,
+          64.0
+        ],
+        "24": [
+          368.0,
+          73.0
+        ],
+        "23": [
+          368.0,
+          86.0
+        ],
+        "3": [
+          368.0,
+          134.0
+        ],
+        "4": [
+          368.0,
+          145.0
+        ],
+        "8": [
+          461.0,
+          55.0
+        ],
+        "10": [
+          461.0,
+          64.0
+        ],
+        "9": [
+          461.0,
+          75.0
+        ],
+        "11": [
+          461.0,
+          96.0
+        ],
+        "22": [
+          461.0,
+          108.0
+        ],
+        "21": [
+          461.0,
+          132.0
+        ],
+        "7": [
+          461.0,
+          145.0
+        ],
+        "13": [
+          461.0,
+          30.0
+        ],
+        "14": [
+          461.0,
+          32.0
+        ],
+        "15": [
+          461.0,
+          34.0
+        ],
+        "16": [
+          461.0,
+          36.0
+        ],
+        "17": [
+          461.0,
+          38.0
+        ],
+        "18": [
+          461.0,
+          40.0
+        ],
+        "19": [
+          461.0,
+          42.0
+        ],
+        "20": [
+          461.0,
+          44.0
+        ],
+        "12": [
+          414.0,
+          26.0
+        ],
+        "1": [
+          414.0,
+          162.0
+        ]
+      }
+    },
+    {
+      "refdes": "U4",
+      "part": "HM628128",
+      "sheet": 1,
+      "bbox": [
+        820.354805206012,
+        311.2638044150419,
+        912.426946050547,
+        587.9419708023222
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.7
+      },
+      "pin_positions": {
+        "12": [
+          820.0,
+          318.0
+        ],
+        "11": [
+          820.0,
+          329.0
+        ],
+        "10": [
+          820.0,
+          340.0
+        ],
+        "9": [
+          820.0,
+          351.0
+        ],
+        "8": [
+          820.0,
+          362.0
+        ],
+        "7": [
+          820.0,
+          373.0
+        ],
+        "6": [
+          820.0,
+          384.0
+        ],
+        "5": [
+          820.0,
+          394.0
+        ],
+        "27": [
+          820.0,
+          406.0
+        ],
+        "26": [
+          820.0,
+          417.0
+        ],
+        "23": [
+          820.0,
+          428.0
+        ],
+        "25": [
+          820.0,
+          439.0
+        ],
+        "4": [
+          820.0,
+          451.0
+        ],
+        "28": [
+          820.0,
+          461.0
+        ],
+        "3": [
+          820.0,
+          472.0
+        ],
+        "31": [
+          820.0,
+          484.0
+        ],
+        "2": [
+          820.0,
+          496.0
+        ],
+        "22": [
+          820.0,
+          520.0
+        ],
+        "30": [
+          820.0,
+          531.0
+        ],
+        "29": [
+          820.0,
+          542.0
+        ],
+        "24": [
+          820.0,
+          553.0
+        ],
+        "13": [
+          912.0,
+          318.0
+        ],
+        "14": [
+          912.0,
+          329.0
+        ],
+        "15": [
+          912.0,
+          340.0
+        ],
+        "17": [
+          912.0,
+          351.0
+        ],
+        "18": [
+          912.0,
+          362.0
+        ],
+        "19": [
+          912.0,
+          373.0
+        ],
+        "20": [
+          912.0,
+          384.0
+        ],
+        "21": [
+          912.0,
+          394.0
+        ],
+        "32": [
+          867.0,
+          311.0
+        ],
+        "16": [
+          867.0,
+          587.0
+        ],
+        "1": [
+          835.0,
+          580.0
+        ]
+      }
+    },
+    {
+      "refdes": "U6",
+      "part": "2764",
+      "sheet": 1,
+      "bbox": [
+        817.9601222405988,
+        67.96012224059885,
+        916.0189704986668,
+        276.6331852986092
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.7
+      },
+      "pin_positions": {
+        "10": [
+          818.0,
+          71.0
+        ],
+        "9": [
+          818.0,
+          84.0
+        ],
+        "8": [
+          818.0,
+          97.0
+        ],
+        "7": [
+          818.0,
+          111.0
+        ],
+        "6": [
+          818.0,
+          124.0
+        ],
+        "5": [
+          818.0,
+          134.0
+        ],
+        "4": [
+          818.0,
+          146.0
+        ],
+        "3": [
+          818.0,
+          156.0
+        ],
+        "25": [
+          818.0,
+          165.0
+        ],
+        "24": [
+          818.0,
+          174.0
+        ],
+        "21": [
+          818.0,
+          186.0
+        ],
+        "23": [
+          818.0,
+          195.0
+        ],
+        "2": [
+          818.0,
+          205.0
+        ],
+        "20": [
+          818.0,
+          233.0
+        ],
+        "22": [
+          818.0,
+          243.0
+        ],
+        "27": [
+          818.0,
+          254.0
+        ],
+        "1": [
+          818.0,
+          263.0
+        ],
+        "11": [
+          916.0,
+          71.0
+        ],
+        "12": [
+          916.0,
+          84.0
+        ],
+        "13": [
+          916.0,
+          97.0
+        ],
+        "15": [
+          916.0,
+          111.0
+        ],
+        "16": [
+          916.0,
+          124.0
+        ],
+        "17": [
+          916.0,
+          134.0
+        ],
+        "18": [
+          916.0,
+          146.0
+        ],
+        "19": [
+          916.0,
+          156.0
+        ],
+        "28": [
+          867.0,
+          68.0
+        ],
+        "14": [
+          867.0,
+          275.0
+        ],
+        "26": [
+          835.0,
+          210.0
+        ]
+      }
+    },
+    {
+      "refdes": "U5A",
+      "part": "74HCT04",
+      "sheet": 1,
+      "bbox": [
+        22.216934448176943,
+        319.93137804804286,
+        112.21693444817694,
+        384.93137804804286
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.7
+      },
+      "pin_positions": {
+        "1": [
+          35.0,
+          352.0
+        ],
+        "2": [
+          100.0,
+          352.0
+        ]
+      }
+    },
+    {
+      "refdes": "U5B",
+      "part": "74HCT04",
+      "sheet": 1,
+      "bbox": [
+        112.19977896018767,
+        319.0951854667113,
+        192.19977896018767,
+        384.0951854667113
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.7
+      },
+      "pin_positions": {
+        "3": [
+          125.0,
+          352.0
+        ],
+        "4": [
+          180.0,
+          352.0
+        ]
+      }
+    },
+    {
+      "refdes": "U5C",
+      "part": "74HCT04",
+      "sheet": 1,
+      "bbox": [
+        541.4079755518802,
+        107.25051182857482,
+        636.4079755518802,
+        172.25051182857482
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.7
+      },
+      "pin_positions": {
+        "5": [
+          555.0,
+          140.0
+        ],
+        "6": [
+          625.0,
+          140.0
+        ]
+      }
+    },
+    {
+      "refdes": "U7A",
+      "part": "74LS32",
+      "sheet": 1,
+      "bbox": [
+        521.0531703458682,
+        229.43456072481436,
+        636.0531703458682,
+        304.43456072481433
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.7
+      },
+      "pin_positions": {
+        "1": [
+          535.0,
+          250.0
+        ],
+        "2": [
+          535.0,
+          288.0
+        ],
+        "3": [
+          625.0,
+          266.0
+        ]
+      }
+    },
+    {
+      "refdes": "U7B",
+      "part": "74LS32",
+      "sheet": 1,
+      "bbox": [
+        524.645194793988,
+        309.64519479398797,
+        639.645194793988,
+        389.64519479398797
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.7
+      },
+      "pin_positions": {
+        "4": [
+          538.0,
+          328.0
+        ],
+        "5": [
+          538.0,
+          370.0
+        ],
+        "6": [
+          628.0,
+          350.0
+        ]
+      }
+    },
+    {
+      "refdes": "U7C",
+      "part": "74LS32",
+      "sheet": 1,
+      "bbox": [
+        483.9750970507864,
+        406.48367479478105,
+        583.9750970507864,
+        486.48367479478105
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.7
+      },
+      "pin_positions": {
+        "9": [
+          497.0,
+          425.0
+        ],
+        "10": [
+          497.0,
+          468.0
+        ],
+        "8": [
+          574.0,
+          446.0
+        ]
+      }
+    },
+    {
+      "refdes": "U7D",
+      "part": "74LS32",
+      "sheet": 1,
+      "bbox": [
+        604.0265635147542,
+        421.65711880046814,
+        707.6449842922166,
+        495.6303267254603
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.7
+      },
+      "pin_positions": {
+        "12": [
+          618.0,
+          438.0
+        ],
+        "13": [
+          618.0,
+          478.0
+        ],
+        "11": [
+          698.0,
+          459.0
+        ]
+      }
+    },
+    {
+      "refdes": "J1",
+      "part": "DB9_Male",
+      "sheet": 1,
+      "bbox": [
+        12.0,
+        90.0,
+        65.0,
+        215.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.85
+      },
+      "pin_positions": {
+        "1": [
+          65.0,
+          98.0
+        ],
+        "6": [
+          65.0,
+          112.0
+        ],
+        "2": [
+          65.0,
+          127.0
+        ],
+        "7": [
+          65.0,
+          141.0
+        ],
+        "3": [
+          65.0,
+          155.0
+        ],
+        "8": [
+          65.0,
+          168.0
+        ],
+        "4": [
+          65.0,
+          182.0
+        ],
+        "9": [
+          65.0,
+          196.0
+        ],
+        "5": [
+          65.0,
+          210.0
+        ]
+      }
+    },
+    {
+      "refdes": "C3",
+      "part": "C",
+      "sheet": 1,
+      "bbox": [
+        75.0,
+        50.0,
+        115.0,
+        75.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.85
+      },
+      "value": "1u"
+    },
+    {
+      "refdes": "C2",
+      "part": "C",
+      "sheet": 1,
+      "bbox": [
+        165.0,
+        30.0,
+        205.0,
+        60.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.85
+      },
+      "value": "1u"
+    },
+    {
+      "refdes": "C4",
+      "part": "C",
+      "sheet": 1,
+      "bbox": [
+        105.0,
+        195.0,
+        150.0,
+        235.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.85
+      },
+      "value": "1u"
+    },
+    {
+      "refdes": "C1",
+      "part": "C",
+      "sheet": 1,
+      "bbox": [
+        210.0,
+        240.0,
+        270.0,
+        275.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.85
+      },
+      "value": "1u"
+    },
+    {
+      "refdes": "R4",
+      "part": "R",
+      "sheet": 1,
+      "bbox": [
+        365.0,
+        200.0,
+        385.0,
+        270.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.85
+      },
+      "value": "3k3"
+    },
+    {
+      "refdes": "R2",
+      "part": "R",
+      "sheet": 1,
+      "bbox": [
+        30.0,
+        278.0,
+        100.0,
+        295.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.85
+      },
+      "value": "1M"
+    },
+    {
+      "refdes": "R3",
+      "part": "R",
+      "sheet": 1,
+      "bbox": [
+        95.0,
+        360.0,
+        115.0,
+        420.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.85
+      },
+      "value": "1k"
+    },
+    {
+      "refdes": "X1",
+      "part": "Crystal",
+      "sheet": 1,
+      "bbox": [
+        35.0,
+        420.0,
+        95.0,
+        460.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.85
+      },
+      "value": "7.3728MHz"
+    },
+    {
+      "refdes": "C6",
+      "part": "C",
+      "sheet": 1,
+      "bbox": [
+        10.0,
+        480.0,
+        50.0,
+        520.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.85
+      },
+      "value": "22p"
+    },
+    {
+      "refdes": "C5",
+      "part": "C",
+      "sheet": 1,
+      "bbox": [
+        90.0,
+        480.0,
+        130.0,
+        520.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.85
+      },
+      "value": "22p"
+    },
+    {
+      "refdes": "R1",
+      "part": "R",
+      "sheet": 1,
+      "bbox": [
+        140.0,
+        530.0,
+        165.0,
+        590.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.85
+      },
+      "value": "2k2"
+    },
+    {
+      "refdes": "SW1",
+      "part": "SW_Push",
+      "sheet": 1,
+      "bbox": [
+        90.0,
+        620.0,
+        130.0,
+        670.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.85
+      }
+    }
+  ],
+  "nets": [
+    {
+      "name": "MEMRD",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "U7B",
+          "pin": 6,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U6",
+          "pin": 22,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U4",
+          "pin": 22,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MEMWR",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "U7A",
+          "pin": 3,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U4",
+          "pin": 29,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "A13_OR_A14",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "U7C",
+          "pin": 8,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U7D",
+          "pin": 12,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ],
+      "path": [
+        [
+          574.0,
+          446.0
+        ],
+        [
+          618.0,
+          446.0
+        ],
+        [
+          618.0,
+          438.0
+        ]
+      ],
+      "path_source": "ai"
+    },
+    {
+      "name": "BOTTOM_8K",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "U7D",
+          "pin": 11,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U6",
+          "pin": 20,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U4",
+          "pin": 30,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "~INT",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "U3",
+          "pin": 7,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U2",
+          "pin": 16,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "R4",
+          "pin": 2,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CLK",
+      "kind": "clock",
+      "endpoints": [
+        {
+          "refdes": "U5B",
+          "pin": 4,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U2",
+          "pin": 6,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U3",
+          "pin": 3,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U3",
+          "pin": 4,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "TXDATA",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "U3",
+          "pin": 6,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U1",
+          "pin": 11,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "RXDATA",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "U3",
+          "pin": 2,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U1",
+          "pin": 9,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "~RTS",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "U3",
+          "pin": 5,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U1",
+          "pin": 10,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "VCC",
+      "kind": "power",
+      "endpoints": [
+        {
+          "refdes": "U1",
+          "pin": 16,
+          "sheet": 1,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U2",
+          "pin": 11,
+          "sheet": 1,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U3",
+          "pin": 12,
+          "sheet": 1,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U4",
+          "pin": 32,
+          "sheet": 1,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U5A",
+          "pin": 14,
+          "sheet": 1,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U6",
+          "pin": 28,
+          "sheet": 1,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U7A",
+          "pin": 14,
+          "sheet": 1,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "R1",
+          "pin": 1,
+          "sheet": 1,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "R4",
+          "pin": 1,
+          "sheet": 1,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "C3",
+          "pin": 2,
+          "sheet": 1,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U6",
+          "pin": 27,
+          "sheet": 1,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U6",
+          "pin": 1,
+          "sheet": 1,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U2",
+          "pin": 17,
+          "sheet": 1,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U2",
+          "pin": 24,
+          "sheet": 1,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U2",
+          "pin": 25,
+          "sheet": 1,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "GND",
+      "kind": "ground",
+      "endpoints": [
+        {
+          "refdes": "U1",
+          "pin": 15,
+          "sheet": 1,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U2",
+          "pin": 29,
+          "sheet": 1,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U3",
+          "pin": 1,
+          "sheet": 1,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U4",
+          "pin": 16,
+          "sheet": 1,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U5A",
+          "pin": 7,
+          "sheet": 1,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U6",
+          "pin": 14,
+          "sheet": 1,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U7A",
+          "pin": 7,
+          "sheet": 1,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "SW1",
+          "pin": 2,
+          "sheet": 1,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "J1",
+          "pin": 5,
+          "sheet": 1,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "C4",
+          "pin": 2,
+          "sheet": 1,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "C5",
+          "pin": 2,
+          "sheet": 1,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "C6",
+          "pin": 2,
+          "sheet": 1,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U3",
+          "pin": 23,
+          "sheet": 1,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U3",
+          "pin": 24,
+          "sheet": 1,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U4",
+          "pin": 24,
+          "sheet": 1,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "~MREQ",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "U2",
+          "pin": 19,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U7A",
+          "pin": 2,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U7B",
+          "pin": 5,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "~RD",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "U2",
+          "pin": 21,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U7B",
+          "pin": 4,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "~WR",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "U2",
+          "pin": 22,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U7A",
+          "pin": 1,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U3",
+          "pin": 22,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "~M1",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "U2",
+          "pin": 27,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U3",
+          "pin": 8,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "~IORQ",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "U2",
+          "pin": 20,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U5C",
+          "pin": 5,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IORQ",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "U5C",
+          "pin": 6,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U3",
+          "pin": 21,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "A1",
+      "kind": "bus_member",
+      "endpoints": [
+        {
+          "refdes": "U2",
+          "pin": 31,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U6",
+          "pin": 9,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U4",
+          "pin": 11,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "A2",
+      "kind": "bus_member",
+      "endpoints": [
+        {
+          "refdes": "U2",
+          "pin": 32,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U6",
+          "pin": 8,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U4",
+          "pin": 10,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "A3",
+      "kind": "bus_member",
+      "endpoints": [
+        {
+          "refdes": "U2",
+          "pin": 33,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U6",
+          "pin": 7,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U4",
+          "pin": 9,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "A4",
+      "kind": "bus_member",
+      "endpoints": [
+        {
+          "refdes": "U2",
+          "pin": 34,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U6",
+          "pin": 6,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U4",
+          "pin": 8,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "A5",
+      "kind": "bus_member",
+      "endpoints": [
+        {
+          "refdes": "U2",
+          "pin": 35,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U6",
+          "pin": 5,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U4",
+          "pin": 7,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "A6",
+      "kind": "bus_member",
+      "endpoints": [
+        {
+          "refdes": "U2",
+          "pin": 36,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U6",
+          "pin": 4,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U4",
+          "pin": 6,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U3",
+          "pin": 9,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "A7",
+      "kind": "bus_member",
+      "endpoints": [
+        {
+          "refdes": "U2",
+          "pin": 37,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U6",
+          "pin": 3,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U4",
+          "pin": 5,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U3",
+          "pin": 10,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "A8",
+      "kind": "bus_member",
+      "endpoints": [
+        {
+          "refdes": "U2",
+          "pin": 38,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U6",
+          "pin": 25,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U4",
+          "pin": 27,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "A9",
+      "kind": "bus_member",
+      "endpoints": [
+        {
+          "refdes": "U2",
+          "pin": 39,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U6",
+          "pin": 24,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U4",
+          "pin": 26,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "A10",
+      "kind": "bus_member",
+      "endpoints": [
+        {
+          "refdes": "U2",
+          "pin": 40,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U6",
+          "pin": 21,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U4",
+          "pin": 23,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "A11",
+      "kind": "bus_member",
+      "endpoints": [
+        {
+          "refdes": "U2",
+          "pin": 1,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U6",
+          "pin": 23,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U4",
+          "pin": 25,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "A12",
+      "kind": "bus_member",
+      "endpoints": [
+        {
+          "refdes": "U2",
+          "pin": 2,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U6",
+          "pin": 2,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U4",
+          "pin": 4,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "A13",
+      "kind": "bus_member",
+      "endpoints": [
+        {
+          "refdes": "U2",
+          "pin": 3,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U4",
+          "pin": 28,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U7C",
+          "pin": 9,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "A14",
+      "kind": "bus_member",
+      "endpoints": [
+        {
+          "refdes": "U2",
+          "pin": 4,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U4",
+          "pin": 3,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U7C",
+          "pin": 10,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "A15",
+      "kind": "bus_member",
+      "endpoints": [
+        {
+          "refdes": "U2",
+          "pin": 5,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U4",
+          "pin": 31,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U7D",
+          "pin": 13,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "D0",
+      "kind": "bus_member",
+      "endpoints": [
+        {
+          "refdes": "U2",
+          "pin": 14,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U6",
+          "pin": 11,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U4",
+          "pin": 13,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U3",
+          "pin": 20,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "D1",
+      "kind": "bus_member",
+      "endpoints": [
+        {
+          "refdes": "U2",
+          "pin": 15,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U6",
+          "pin": 12,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U4",
+          "pin": 14,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U3",
+          "pin": 19,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "D2",
+      "kind": "bus_member",
+      "endpoints": [
+        {
+          "refdes": "U2",
+          "pin": 12,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U6",
+          "pin": 13,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U4",
+          "pin": 15,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U3",
+          "pin": 18,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "D3",
+      "kind": "bus_member",
+      "endpoints": [
+        {
+          "refdes": "U2",
+          "pin": 8,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U6",
+          "pin": 15,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U4",
+          "pin": 17,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U3",
+          "pin": 17,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "D4",
+      "kind": "bus_member",
+      "endpoints": [
+        {
+          "refdes": "U2",
+          "pin": 7,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U6",
+          "pin": 16,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U4",
+          "pin": 18,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U3",
+          "pin": 16,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "D5",
+      "kind": "bus_member",
+      "endpoints": [
+        {
+          "refdes": "U2",
+          "pin": 9,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U6",
+          "pin": 17,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U4",
+          "pin": 19,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U3",
+          "pin": 15,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "D6",
+      "kind": "bus_member",
+      "endpoints": [
+        {
+          "refdes": "U2",
+          "pin": 10,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U6",
+          "pin": 18,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U4",
+          "pin": 20,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U3",
+          "pin": 14,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "D7",
+      "kind": "bus_member",
+      "endpoints": [
+        {
+          "refdes": "U2",
+          "pin": 13,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U6",
+          "pin": 19,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U4",
+          "pin": 21,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U3",
+          "pin": 13,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "A0",
+      "kind": "bus_member",
+      "endpoints": [
+        {
+          "refdes": "U2",
+          "pin": 30,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U6",
+          "pin": 10,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U4",
+          "pin": 12,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U3",
+          "pin": 11,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "~RESET",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "U2",
+          "pin": 26,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "R1",
+          "pin": 2,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "SW1",
+          "pin": 1,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "OSC_IN",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "U5A",
+          "pin": 1,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "X1",
+          "pin": 1,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "R2",
+          "pin": 1,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "C6",
+          "pin": 1,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "OSC_OUT",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "U5A",
+          "pin": 2,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "X1",
+          "pin": 2,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "R2",
+          "pin": 2,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "C5",
+          "pin": 1,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "R3",
+          "pin": 1,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "OSC_BUF",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "R3",
+          "pin": 2,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U5B",
+          "pin": 3,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "C1MINUS",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "U1",
+          "pin": 3,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "C1",
+          "pin": 1,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "C1PLUS",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "U1",
+          "pin": 1,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "C1",
+          "pin": 2,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "C2MINUS",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "U1",
+          "pin": 5,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "C2",
+          "pin": 1,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "C2PLUS",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "U1",
+          "pin": 4,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "C2",
+          "pin": 2,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "VPLUS",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "U1",
+          "pin": 2,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "C3",
+          "pin": 1,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "VMINUS",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "U1",
+          "pin": 6,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "C4",
+          "pin": 1,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "DTR_DSR",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "J1",
+          "pin": 4,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "J1",
+          "pin": 6,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "RS232_TX",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "J1",
+          "pin": 2,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U1",
+          "pin": 14,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "RS232_RX",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "J1",
+          "pin": 3,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U1",
+          "pin": 13,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "RS232_RTS",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "J1",
+          "pin": 7,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U1",
+          "pin": 8,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "RS232_CTS",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "J1",
+          "pin": 8,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U1",
+          "pin": 7,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    }
+  ]
+}

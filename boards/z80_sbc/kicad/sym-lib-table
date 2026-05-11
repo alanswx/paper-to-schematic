@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name "user")(type "KiCad")(uri "${KIPRJMOD}/user.kicad_sym")(options "")(descr "embedded user symbols (cached in each .kicad_sch lib_symbols block)"))
+)
