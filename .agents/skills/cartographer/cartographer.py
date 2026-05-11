@@ -742,6 +742,10 @@ def cmd_crop_chip(args):
               f"((cx + {rx1}) / {scale:.6f}, (cy + {ry1}) / {scale:.6f})")
     else:
         print(f"to convert crop-local (cx, cy) → source: (cx + {rx1}, cy + {ry1})")
+    print(f"# READ THIS PNG DIRECTLY. Do NOT run `sips -z H W` on it — that "
+          f"stretches H and V independently and breaks the source-coord "
+          f"translation above. If you need a closer view, take a smaller "
+          f"--pad / re-crop; if you must resize, use `sips -Z <max-dim>`.")
 
 
 def cmd_crop_region(args):
@@ -812,6 +816,10 @@ def cmd_crop_region(args):
               f"((cx + {rx1}) / {scale:.6f}, (cy + {ry1}) / {scale:.6f})")
     else:
         print(f"to convert crop-local (cx, cy) → source: (cx + {rx1}, cy + {ry1})")
+    print(f"# READ THIS PNG DIRECTLY. Do NOT run `sips -z H W` on it — that "
+          f"stretches H and V independently and breaks the source-coord "
+          f"translation above. If you need a closer view, take a smaller "
+          f"--bbox; if you must resize, use `sips -Z <max-dim>`.")
 
 
 def cmd_clean(args):

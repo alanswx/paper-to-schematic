@@ -72,7 +72,12 @@ trace a sheet.
 2. **Crop the region** at high DPI via `crop-region`. Pick a bbox big
    enough to contain several whole wires (most of a chip's pin column +
    the wires leaving it, ~1500 source-pixels square is a reasonable
-   default). Read the saved PNG.
+   default). Read the saved PNG **directly — do not pipe through `sips
+   -z H W`**, which stretches H and V independently and produces an
+   off-axis source-coord translation. If the PNG looks too small to
+   read, take a smaller `--bbox`; if you must resize, use `sips -Z
+   <max-dim>` (capital Z, single dimension, preserves aspect). See
+   identifier/SKILL.md "Reading a crop" for the full rationale.
 3. **Identify each wire by endpoint pair.** For every net in the
    `untraced-nets` output that has at least one endpoint inside the
    region, find that endpoint's pin position on the crop and follow the

@@ -53,6 +53,34 @@ Tiles overlap by a fraction (default 10%) so chips at tile borders aren't
 cut in half. Each tile has an `owned_bbox` (its non-overlapping interior);
 a chip is owned by the tile whose `owned_bbox` contains the chip's centre.
 
+## Reading a crop — coordinate translation
+
+`cartographer tile`, `crop-chip`, and `crop-region` all output **at native
+source resolution** (a 250-px-wide region in source coords is a 250-px-wide
+PNG). The crop-coord → source-coord translation is a simple add: `source_x
+= crop_x + offset_x` (each command prints the offset on stdout).
+
+**Do NOT enlarge crops with `sips -z H W`** before reading them. With both
+dimensions specified, sips DISTORTS the image (independent H and V scale
+factors); applying a single scale to features read out of the displayed
+image then introduces a systematic per-axis offset of 10–50 source pixels
+per component — invisible in the displayed PNG but obvious in the overlay
+later. The fix is either:
+
+- **Read the native crop directly.** Claude downsamples large PNGs
+  uniformly, so the displayed proportions match source proportions and the
+  pixel→pixel relationship is a single (unknown) uniform scale that drops
+  out of any feature ratio you care about.
+- **If you need a closer view, take a smaller crop** (e.g. 300 px square)
+  rather than upscaling a wider region.
+- **If you must resize, use `sips -Z N`** (capital `Z`, single max
+  dimension) which preserves aspect.
+
+When in doubt, verify by re-cropping the suspect region natively after
+placing a bbox and reading it back — a correctly-placed component
+overlaps its bbox; an offset of 20+ pixels is the sips-stretch
+fingerprint.
+
 ## Workflow
 
 ### Stage 1 — bbox round-trip (do this first, completely)
