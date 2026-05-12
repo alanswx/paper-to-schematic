@@ -855,6 +855,24 @@ def gen_sch(graph: dict, chips: dict, sheet_index: int, project_name: str = "sch
     # explicit wires (Dorado-style).
     wire_blocks = []
     label_blocks = []
+    # Per-sheet set of already-emitted unordered segments. Catches duplicates
+    # from polylines that backtrack along the same line (trunk → branch →
+    # trunk topology common in multi-endpoint tree paths) and from any two
+    # nets that happen to emit overlapping segments. Each segment is a pair
+    # of (x, y) endpoints; we normalise by sorting so (A→B) and (B→A) match.
+    emitted_segs: set = set()
+    def _emit_wire(a, b, uid_seed: str):
+        if a == b:
+            return
+        key = tuple(sorted([a, b]))
+        if key in emitted_segs:
+            return
+        emitted_segs.add(key)
+        wuuid = stable_uuid(uid_seed)
+        wire_blocks.append(f'''  (wire (pts (xy {_f(a[0])} {_f(a[1])}) (xy {_f(b[0])} {_f(b[1])}))
+    (stroke (width 0) (type default))
+    (uuid "{wuuid}")
+  )''')
     for net in nets:
         eps_on_sheet = [e for e in net["endpoints"] if e.get("sheet") == sheet_index]
         if not eps_on_sheet:
@@ -876,14 +894,7 @@ def gen_sch(graph: dict, chips: dict, sheet_index: int, project_name: str = "sch
                            _snap(PAPER_MARGIN_MM + p[1] * scale))
                           for p in net_path]
                 for i in range(1, len(pts_mm)):
-                    a, b = pts_mm[i - 1], pts_mm[i]
-                    if a == b:
-                        continue
-                    wuuid = stable_uuid(f"{net['name']}/seg/{i}")
-                    wire_blocks.append(f'''  (wire (pts (xy {_f(a[0])} {_f(a[1])}) (xy {_f(b[0])} {_f(b[1])}))
-    (stroke (width 0) (type default))
-    (uuid "{wuuid}")
-  )''')
+                    _emit_wire(pts_mm[i - 1], pts_mm[i], f"{net['name']}/seg/{i}")
             else:
                 # Collect all endpoint positions for this net.
                 eps_with_pos = []
@@ -922,14 +933,7 @@ def gen_sch(graph: dict, chips: dict, sheet_index: int, project_name: str = "sch
                             if i < len(eps_with_pos) - 1:
                                 pts.append((trunk_x, pos[1]))  # back to trunk
                     for i in range(1, len(pts)):
-                        a, b = pts[i - 1], pts[i]
-                        if a == b:
-                            continue
-                        wuuid = stable_uuid(f"{net['name']}/trunk/{i}")
-                        wire_blocks.append(f'''  (wire (pts (xy {_f(a[0])} {_f(a[1])}) (xy {_f(b[0])} {_f(b[1])}))
-    (stroke (width 0) (type default))
-    (uuid "{wuuid}")
-  )''')
+                        _emit_wire(pts[i - 1], pts[i], f"{net['name']}/trunk/{i}")
                 else:
                     # Non-bus net: original H-then-V Manhattan per endpoint pair.
                     anchor, anchor_pos = eps_with_pos[0]
@@ -937,14 +941,7 @@ def gen_sch(graph: dict, chips: dict, sheet_index: int, project_name: str = "sch
                         cx_mm, cy_mm = _snap(other_pos[0]), _snap(anchor_pos[1])
                         pts = [anchor_pos, (cx_mm, cy_mm), other_pos]
                         for i in range(1, len(pts)):
-                            a, b = pts[i - 1], pts[i]
-                            if a == b:
-                                continue
-                            wuuid = stable_uuid(f"{net['name']}/{anchor['refdes']}.{anchor['pin']}/{other['refdes']}.{other['pin']}/{i}")
-                            wire_blocks.append(f'''  (wire (pts (xy {_f(a[0])} {_f(a[1])}) (xy {_f(b[0])} {_f(b[1])}))
-    (stroke (width 0) (type default))
-    (uuid "{wuuid}")
-  )''')
+                            _emit_wire(pts[i - 1], pts[i], f"{net['name']}/{anchor['refdes']}.{anchor['pin']}/{other['refdes']}.{other['pin']}/{i}")
         elif edge in ("label", "sheet_zone", "off_page"):
             # Use (global_label ...) for sheet-spanning links (sheet_zone /
             # off_page) so KiCad's netlist matches by name across sheets;
@@ -959,11 +956,7 @@ def gen_sch(graph: dict, chips: dict, sheet_index: int, project_name: str = "sch
                 lead = 2.54
                 lx, ly = pos[0] + lead, pos[1]
                 luuid = stable_uuid(f"label/{net['name']}/{ep['refdes']}.{ep['pin']}")
-                wuuid = stable_uuid(f"label-lead/{net['name']}/{ep['refdes']}.{ep['pin']}")
-                wire_blocks.append(f'''  (wire (pts (xy {_f(pos[0])} {_f(pos[1])}) (xy {_f(lx)} {_f(ly)}))
-    (stroke (width 0) (type default))
-    (uuid "{wuuid}")
-  )''')
+                _emit_wire(pos, (lx, ly), f"label-lead/{net['name']}/{ep['refdes']}.{ep['pin']}")
                 # (label ...) takes no (shape ...); only (global_label ...)
                 # and (hierarchical_label ...) do — KiCad refuses to load
                 # a plain label with a shape attribute.

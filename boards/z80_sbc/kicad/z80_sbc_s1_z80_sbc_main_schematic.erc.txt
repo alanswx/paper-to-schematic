@@ -1,4 +1,4 @@
-ERC report (2026-05-12T10:23:03, Encoding UTF8)
+ERC report (2026-05-12T15:48:32, Encoding UTF8)
 Report includes: Errors, Warnings, Exclusions
 
 ***** Sheet /
@@ -241,6 +241,12 @@ Report includes: Errors, Warnings, Exclusions
     @(167.64 mm, 46.99 mm): Symbol U3 [_chip_U3]
 [unconnected_wire_endpoint]: Unconnected wire endpoint
     ; warning
+    @(15.24 mm, 172.72 mm): Horizontal Wire, length 10.16 mm
+[unconnected_wire_endpoint]: Unconnected wire endpoint
+    ; warning
+    @(54.61 mm, 172.72 mm): Horizontal Wire, length 6.35 mm
+[unconnected_wire_endpoint]: Unconnected wire endpoint
+    ; warning
     @(59.69 mm, 171.45 mm): Horizontal Wire, length 5.08 mm
 [unconnected_wire_endpoint]: Unconnected wire endpoint
     ; warning
@@ -300,7 +306,7 @@ Report includes: Errors, Warnings, Exclusions
     ; warning
     @(400.05 mm, 38.10 mm): Symbol #PWR_VSS [PWR_VSS]
 
- ** ERC messages: 99  Errors 61  Warnings 38
+ ** ERC messages: 101  Errors 61  Warnings 40
 
  ** Ignored checks:
     - Global label only appears once in the schematic
