@@ -1332,81 +1332,6 @@
       "path_source": "ai"
     },
     {
-      "name": "~INT",
-      "kind": "signal",
-      "endpoints": [
-        {
-          "refdes": "U3",
-          "pin": 7,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U2",
-          "pin": 16,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "R4",
-          "pin": 2,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        }
-      ]
-    },
-    {
-      "name": "CLK",
-      "kind": "clock",
-      "endpoints": [
-        {
-          "refdes": "U5B",
-          "pin": 4,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U2",
-          "pin": 6,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U3",
-          "pin": 3,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U3",
-          "pin": 4,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        }
-      ]
-    },
-    {
       "name": "VCC",
       "kind": "power",
       "endpoints": [
@@ -2814,30 +2739,6 @@
       "path_source": "ai"
     },
     {
-      "name": "IORQ",
-      "kind": "signal",
-      "endpoints": [
-        {
-          "refdes": "U5C",
-          "pin": 6,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U3",
-          "pin": 21,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        }
-      ]
-    },
-    {
       "name": "~RESET",
       "kind": "signal",
       "endpoints": [
@@ -3760,6 +3661,190 @@
           }
         }
       ]
+    },
+    {
+      "name": "~INT",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "U3",
+          "pin": 7,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U2",
+          "pin": 16,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "R4",
+          "pin": 2,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ],
+      "path": [
+        [
+          455.0,
+          145.0
+        ],
+        [
+          456.0,
+          145.0
+        ],
+        [
+          456.0,
+          263.0
+        ],
+        [
+          356.0,
+          263.0
+        ],
+        [
+          356.0,
+          535.0
+        ],
+        [
+          295.0,
+          535.0
+        ]
+      ],
+      "path_source": "ai"
+    },
+    {
+      "name": "IORQ",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "U5C",
+          "pin": 6,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U3",
+          "pin": 21,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ],
+      "path": [
+        [
+          625.0,
+          135.0
+        ],
+        [
+          455.0,
+          135.0
+        ],
+        [
+          455.0,
+          133.0
+        ]
+      ],
+      "path_source": "ai"
+    },
+    {
+      "name": "CLK",
+      "kind": "clock",
+      "endpoints": [
+        {
+          "refdes": "U5B",
+          "pin": 4,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U2",
+          "pin": 6,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U3",
+          "pin": 3,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U3",
+          "pin": 4,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ],
+      "path": [
+        [
+          180.0,
+          352.0
+        ],
+        [
+          200.0,
+          352.0
+        ],
+        [
+          200.0,
+          133.0
+        ],
+        [
+          368.0,
+          133.0
+        ],
+        [
+          200.0,
+          133.0
+        ],
+        [
+          200.0,
+          145.0
+        ],
+        [
+          368.0,
+          145.0
+        ],
+        [
+          200.0,
+          145.0
+        ],
+        [
+          200.0,
+          637.0
+        ],
+        [
+          295.0,
+          637.0
+        ]
+      ],
+      "path_source": "ai"
     }
   ]
 }
