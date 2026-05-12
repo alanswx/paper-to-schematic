@@ -137,14 +137,39 @@ no connect" — DO NOT add a junction.
 
 ## Buses
 
-When the source draws a bus as one thick rail (e.g. `A0..A12`), trace
-the rail polyline ONCE and apply it to every member net. Save effort
-by grouping bus members by name pattern (`X.0..X.N` or `X0..XN`) and
-reusing the rail path for each.
+**Do NOT share the same polyline across multiple bus members.** KiCad's
+netlister does union-find on `(wire …)` segments — any two wires sharing
+a coordinate get merged into one electrical net. Two bus-member nets
+emitting overlapping polylines short their pin endpoints together; ERC
+reports `pin_to_pin` and `multiple_net_names`, and the netlist is wrong.
 
-The KiCad-side bus rendering using `(bus …)` is a future improvement —
-for now, every member net carrying the same path is enough to make the
-overlay look right and avoid pin-to-pin diagonals.
+Until KiCad-native `(bus …)` rendering is implemented in the exporter,
+treat bus members as individual nets and pick the option that fits:
+
+- **Recommended for most buses**: mark the bus members as
+  `edge_type: "label"` and let the named-net mechanism carry
+  connectivity. The visual rail won't render — each pin gets a label
+  text at its endpoint instead — but ERC stays clean and the BOM /
+  netlist are correct. This is what we're trading right now: rail
+  visualisation in exchange for correct nets.
+
+- **For short, isolated buses (≤4 members or under ~30 mm long)**:
+  trace each member with its own individual polyline that doesn't
+  overlap any other member's. Offset each member's trunk by one grid
+  unit (1.27 mm) horizontally or vertically if the source drew a
+  parallel ribbon; otherwise route each member through its own
+  Manhattan stub. The exporter's one-corner Manhattan fallback (when
+  no path is set) is often acceptable here.
+
+- **DO NOT** trace the rail once and copy the path to every member.
+  This is the trap. If you find yourself reaching for "trace once,
+  apply to N members," stop and pick one of the two options above.
+
+Proper `(bus …)` + `(bus_entry …)` emission is the right long-term fix
+but requires non-trivial exporter changes (rail polyline detection,
+per-member entry geometry, label naming convention). Until that ships,
+the SKILL acceptance criteria treat a bus drawn correctly as either
+label-typed or per-member-individual paths.
 
 ## Acceptance
 
