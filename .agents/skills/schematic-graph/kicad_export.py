@@ -885,23 +885,63 @@ def gen_sch(graph: dict, chips: dict, sheet_index: int, project_name: str = "sch
     (uuid "{wuuid}")
   )''')
             else:
-                anchor = eps_on_sheet[0]
-                anchor_pos = pin_endpoint_mm.get((anchor["refdes"], str(anchor["pin"])))
-                if not anchor_pos:
+                # Collect all endpoint positions for this net.
+                eps_with_pos = []
+                for ep in eps_on_sheet:
+                    pos = pin_endpoint_mm.get((ep["refdes"], str(ep["pin"])))
+                    if pos:
+                        eps_with_pos.append((ep, pos))
+                if len(eps_with_pos) < 2:
                     continue
-                for other in eps_on_sheet[1:]:
-                    other_pos = pin_endpoint_mm.get((other["refdes"], str(other["pin"])))
-                    if not other_pos:
-                        continue
-                    # H-then-V Manhattan: corner at (other.x, anchor.y).
-                    cx_mm, cy_mm = _snap(other_pos[0]), _snap(anchor_pos[1])
-                    pts = [anchor_pos, (cx_mm, cy_mm), other_pos]
+
+                # bus_member auto-route: dedicated trunk per member at a unique
+                # x to the right of all endpoints, polyline visits each endpoint
+                # via the trunk. Different members → different trunk x → no
+                # shared (wire) coords → no union-find shorting. See
+                # bugs/bus-rail-shared-polyline-shorts.md.
+                bus_idx = None
+                if net.get("kind") == "bus_member":
+                    m = re.match(r"^([A-Za-z_]+)([0-9]+)$", net["name"])
+                    if m:
+                        bus_idx = int(m.group(2))
+
+                if bus_idx is not None:
+                    # Trunk x: right of every endpoint, member-unique grid line.
+                    max_x = max(p[0] for _, p in eps_with_pos)
+                    trunk_x = _snap(max_x + (bus_idx + 2) * KICAD_GRID_MM)
+                    # Sort endpoints by y so the polyline walks the trunk monotonically.
+                    eps_with_pos.sort(key=lambda x: x[1][1])
+                    pts = []
+                    for i, (ep, pos) in enumerate(eps_with_pos):
+                        if i == 0:
+                            pts.append(pos)
+                            pts.append((trunk_x, pos[1]))
+                        else:
+                            pts.append((trunk_x, pos[1]))
+                            pts.append(pos)
+                            if i < len(eps_with_pos) - 1:
+                                pts.append((trunk_x, pos[1]))  # back to trunk
                     for i in range(1, len(pts)):
                         a, b = pts[i - 1], pts[i]
                         if a == b:
                             continue
-                        wuuid = stable_uuid(f"{net['name']}/{anchor['refdes']}.{anchor['pin']}/{other['refdes']}.{other['pin']}/{i}")
+                        wuuid = stable_uuid(f"{net['name']}/trunk/{i}")
                         wire_blocks.append(f'''  (wire (pts (xy {_f(a[0])} {_f(a[1])}) (xy {_f(b[0])} {_f(b[1])}))
+    (stroke (width 0) (type default))
+    (uuid "{wuuid}")
+  )''')
+                else:
+                    # Non-bus net: original H-then-V Manhattan per endpoint pair.
+                    anchor, anchor_pos = eps_with_pos[0]
+                    for other, other_pos in eps_with_pos[1:]:
+                        cx_mm, cy_mm = _snap(other_pos[0]), _snap(anchor_pos[1])
+                        pts = [anchor_pos, (cx_mm, cy_mm), other_pos]
+                        for i in range(1, len(pts)):
+                            a, b = pts[i - 1], pts[i]
+                            if a == b:
+                                continue
+                            wuuid = stable_uuid(f"{net['name']}/{anchor['refdes']}.{anchor['pin']}/{other['refdes']}.{other['pin']}/{i}")
+                            wire_blocks.append(f'''  (wire (pts (xy {_f(a[0])} {_f(a[1])}) (xy {_f(b[0])} {_f(b[1])}))
     (stroke (width 0) (type default))
     (uuid "{wuuid}")
   )''')

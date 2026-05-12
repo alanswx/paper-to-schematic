@@ -1,4 +1,4 @@
-ERC report (2026-05-12T08:42:32, Encoding UTF8)
+ERC report (2026-05-12T09:08:46, Encoding UTF8)
 Report includes: Errors, Warnings, Exclusions
 
 ***** Sheet /
@@ -284,18 +284,6 @@ Report includes: Errors, Warnings, Exclusions
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(214.63 mm, 181.61 mm): Symbol U7C [_chip_U7C]
-[multiple_net_names]: Both D0 and D1 are attached to the same items; D0 will be used in the netlist
-    ; warning
-    @(162.56 mm, 228.60 mm): Label 'D0'
-    @(162.56 mm, 232.41 mm): Label 'D1'
-[multiple_net_names]: Both D2 and D3 are attached to the same items; D2 will be used in the netlist
-    ; warning
-    @(162.56 mm, 237.49 mm): Label 'D2'
-    @(162.56 mm, 242.57 mm): Label 'D3'
-[multiple_net_names]: Both D4 and D5 are attached to the same items; D4 will be used in the netlist
-    ; warning
-    @(162.56 mm, 247.65 mm): Label 'D4'
-    @(162.56 mm, 252.73 mm): Label 'D5'
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(260.35 mm, 185.42 mm): Symbol U7D [_chip_U7D]
@@ -315,7 +303,7 @@ Report includes: Errors, Warnings, Exclusions
     ; warning
     @(400.05 mm, 38.10 mm): Symbol #PWR_VSS [PWR_VSS]
 
- ** ERC messages: 103  Errors 61  Warnings 42
+ ** ERC messages: 100  Errors 61  Warnings 39
 
  ** Ignored checks:
     - Global label only appears once in the schematic

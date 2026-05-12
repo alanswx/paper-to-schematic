@@ -2467,897 +2467,6 @@
       "path_source": "ai"
     },
     {
-      "name": "A0",
-      "kind": "bus_member",
-      "endpoints": [
-        {
-          "refdes": "U2",
-          "pin": 30,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U6",
-          "pin": 10,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U4",
-          "pin": 12,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U3",
-          "pin": 11,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        }
-      ]
-    },
-    {
-      "name": "A1",
-      "kind": "bus_member",
-      "endpoints": [
-        {
-          "refdes": "U2",
-          "pin": 31,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U6",
-          "pin": 9,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U4",
-          "pin": 11,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        }
-      ]
-    },
-    {
-      "name": "A2",
-      "kind": "bus_member",
-      "endpoints": [
-        {
-          "refdes": "U2",
-          "pin": 32,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U6",
-          "pin": 8,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U4",
-          "pin": 10,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        }
-      ]
-    },
-    {
-      "name": "A3",
-      "kind": "bus_member",
-      "endpoints": [
-        {
-          "refdes": "U2",
-          "pin": 33,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U6",
-          "pin": 7,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U4",
-          "pin": 9,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        }
-      ]
-    },
-    {
-      "name": "A4",
-      "kind": "bus_member",
-      "endpoints": [
-        {
-          "refdes": "U2",
-          "pin": 34,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U6",
-          "pin": 6,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U4",
-          "pin": 8,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        }
-      ]
-    },
-    {
-      "name": "A5",
-      "kind": "bus_member",
-      "endpoints": [
-        {
-          "refdes": "U2",
-          "pin": 35,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U6",
-          "pin": 5,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U4",
-          "pin": 7,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        }
-      ]
-    },
-    {
-      "name": "A6",
-      "kind": "bus_member",
-      "endpoints": [
-        {
-          "refdes": "U2",
-          "pin": 36,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U6",
-          "pin": 4,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U4",
-          "pin": 6,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U3",
-          "pin": 9,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        }
-      ]
-    },
-    {
-      "name": "A7",
-      "kind": "bus_member",
-      "endpoints": [
-        {
-          "refdes": "U2",
-          "pin": 37,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U6",
-          "pin": 3,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U4",
-          "pin": 5,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U3",
-          "pin": 10,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        }
-      ]
-    },
-    {
-      "name": "A8",
-      "kind": "bus_member",
-      "endpoints": [
-        {
-          "refdes": "U2",
-          "pin": 38,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U6",
-          "pin": 25,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U4",
-          "pin": 27,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        }
-      ]
-    },
-    {
-      "name": "A9",
-      "kind": "bus_member",
-      "endpoints": [
-        {
-          "refdes": "U2",
-          "pin": 39,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U6",
-          "pin": 24,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U4",
-          "pin": 26,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        }
-      ]
-    },
-    {
-      "name": "A10",
-      "kind": "bus_member",
-      "endpoints": [
-        {
-          "refdes": "U2",
-          "pin": 40,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U6",
-          "pin": 21,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U4",
-          "pin": 23,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        }
-      ]
-    },
-    {
-      "name": "A11",
-      "kind": "bus_member",
-      "endpoints": [
-        {
-          "refdes": "U2",
-          "pin": 1,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U6",
-          "pin": 23,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U4",
-          "pin": 25,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        }
-      ]
-    },
-    {
-      "name": "A12",
-      "kind": "bus_member",
-      "endpoints": [
-        {
-          "refdes": "U2",
-          "pin": 2,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U6",
-          "pin": 2,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U4",
-          "pin": 4,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        }
-      ]
-    },
-    {
-      "name": "A13",
-      "kind": "bus_member",
-      "endpoints": [
-        {
-          "refdes": "U2",
-          "pin": 3,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U4",
-          "pin": 28,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U7C",
-          "pin": 9,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        }
-      ]
-    },
-    {
-      "name": "A14",
-      "kind": "bus_member",
-      "endpoints": [
-        {
-          "refdes": "U2",
-          "pin": 4,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U4",
-          "pin": 3,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U7C",
-          "pin": 10,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        }
-      ]
-    },
-    {
-      "name": "A15",
-      "kind": "bus_member",
-      "endpoints": [
-        {
-          "refdes": "U2",
-          "pin": 5,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U4",
-          "pin": 31,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U7D",
-          "pin": 13,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        }
-      ]
-    },
-    {
-      "name": "D0",
-      "kind": "bus_member",
-      "endpoints": [
-        {
-          "refdes": "U2",
-          "pin": 14,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U6",
-          "pin": 11,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U4",
-          "pin": 13,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U3",
-          "pin": 20,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        }
-      ]
-    },
-    {
-      "name": "D1",
-      "kind": "bus_member",
-      "endpoints": [
-        {
-          "refdes": "U2",
-          "pin": 15,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U6",
-          "pin": 12,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U4",
-          "pin": 14,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U3",
-          "pin": 19,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        }
-      ]
-    },
-    {
-      "name": "D2",
-      "kind": "bus_member",
-      "endpoints": [
-        {
-          "refdes": "U2",
-          "pin": 12,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U6",
-          "pin": 13,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U4",
-          "pin": 15,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U3",
-          "pin": 18,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        }
-      ]
-    },
-    {
-      "name": "D3",
-      "kind": "bus_member",
-      "endpoints": [
-        {
-          "refdes": "U2",
-          "pin": 8,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U6",
-          "pin": 15,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U4",
-          "pin": 17,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U3",
-          "pin": 17,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        }
-      ]
-    },
-    {
-      "name": "D4",
-      "kind": "bus_member",
-      "endpoints": [
-        {
-          "refdes": "U2",
-          "pin": 7,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U6",
-          "pin": 16,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U4",
-          "pin": 18,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U3",
-          "pin": 16,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        }
-      ]
-    },
-    {
-      "name": "D5",
-      "kind": "bus_member",
-      "endpoints": [
-        {
-          "refdes": "U2",
-          "pin": 9,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U6",
-          "pin": 17,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U4",
-          "pin": 19,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U3",
-          "pin": 15,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        }
-      ]
-    },
-    {
-      "name": "D6",
-      "kind": "bus_member",
-      "endpoints": [
-        {
-          "refdes": "U2",
-          "pin": 10,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U6",
-          "pin": 18,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U4",
-          "pin": 20,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U3",
-          "pin": 14,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        }
-      ]
-    },
-    {
-      "name": "D7",
-      "kind": "bus_member",
-      "endpoints": [
-        {
-          "refdes": "U2",
-          "pin": 13,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U6",
-          "pin": 19,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U4",
-          "pin": 21,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U3",
-          "pin": 13,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        }
-      ]
-    },
-    {
       "name": "MEMRD",
       "kind": "signal",
       "endpoints": [
@@ -3755,6 +2864,897 @@
           "pin": 1,
           "sheet": 1,
           "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "A0",
+      "kind": "bus_member",
+      "endpoints": [
+        {
+          "refdes": "U2",
+          "pin": 30,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U6",
+          "pin": 10,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U4",
+          "pin": 12,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U3",
+          "pin": 11,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "A1",
+      "kind": "bus_member",
+      "endpoints": [
+        {
+          "refdes": "U2",
+          "pin": 31,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U6",
+          "pin": 9,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U4",
+          "pin": 11,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "A2",
+      "kind": "bus_member",
+      "endpoints": [
+        {
+          "refdes": "U2",
+          "pin": 32,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U6",
+          "pin": 8,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U4",
+          "pin": 10,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "A3",
+      "kind": "bus_member",
+      "endpoints": [
+        {
+          "refdes": "U2",
+          "pin": 33,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U6",
+          "pin": 7,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U4",
+          "pin": 9,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "A4",
+      "kind": "bus_member",
+      "endpoints": [
+        {
+          "refdes": "U2",
+          "pin": 34,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U6",
+          "pin": 6,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U4",
+          "pin": 8,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "A5",
+      "kind": "bus_member",
+      "endpoints": [
+        {
+          "refdes": "U2",
+          "pin": 35,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U6",
+          "pin": 5,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U4",
+          "pin": 7,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "A6",
+      "kind": "bus_member",
+      "endpoints": [
+        {
+          "refdes": "U2",
+          "pin": 36,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U6",
+          "pin": 4,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U4",
+          "pin": 6,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U3",
+          "pin": 9,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "A7",
+      "kind": "bus_member",
+      "endpoints": [
+        {
+          "refdes": "U2",
+          "pin": 37,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U6",
+          "pin": 3,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U4",
+          "pin": 5,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U3",
+          "pin": 10,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "A8",
+      "kind": "bus_member",
+      "endpoints": [
+        {
+          "refdes": "U2",
+          "pin": 38,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U6",
+          "pin": 25,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U4",
+          "pin": 27,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "A9",
+      "kind": "bus_member",
+      "endpoints": [
+        {
+          "refdes": "U2",
+          "pin": 39,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U6",
+          "pin": 24,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U4",
+          "pin": 26,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "A10",
+      "kind": "bus_member",
+      "endpoints": [
+        {
+          "refdes": "U2",
+          "pin": 40,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U6",
+          "pin": 21,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U4",
+          "pin": 23,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "A11",
+      "kind": "bus_member",
+      "endpoints": [
+        {
+          "refdes": "U2",
+          "pin": 1,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U6",
+          "pin": 23,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U4",
+          "pin": 25,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "A12",
+      "kind": "bus_member",
+      "endpoints": [
+        {
+          "refdes": "U2",
+          "pin": 2,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U6",
+          "pin": 2,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U4",
+          "pin": 4,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "A13",
+      "kind": "bus_member",
+      "endpoints": [
+        {
+          "refdes": "U2",
+          "pin": 3,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U4",
+          "pin": 28,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U7C",
+          "pin": 9,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "A14",
+      "kind": "bus_member",
+      "endpoints": [
+        {
+          "refdes": "U2",
+          "pin": 4,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U4",
+          "pin": 3,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U7C",
+          "pin": 10,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "A15",
+      "kind": "bus_member",
+      "endpoints": [
+        {
+          "refdes": "U2",
+          "pin": 5,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U4",
+          "pin": 31,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U7D",
+          "pin": 13,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "D0",
+      "kind": "bus_member",
+      "endpoints": [
+        {
+          "refdes": "U2",
+          "pin": 14,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U6",
+          "pin": 11,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U4",
+          "pin": 13,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U3",
+          "pin": 20,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "D1",
+      "kind": "bus_member",
+      "endpoints": [
+        {
+          "refdes": "U2",
+          "pin": 15,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U6",
+          "pin": 12,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U4",
+          "pin": 14,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U3",
+          "pin": 19,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "D2",
+      "kind": "bus_member",
+      "endpoints": [
+        {
+          "refdes": "U2",
+          "pin": 12,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U6",
+          "pin": 13,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U4",
+          "pin": 15,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U3",
+          "pin": 18,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "D3",
+      "kind": "bus_member",
+      "endpoints": [
+        {
+          "refdes": "U2",
+          "pin": 8,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U6",
+          "pin": 15,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U4",
+          "pin": 17,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U3",
+          "pin": 17,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "D4",
+      "kind": "bus_member",
+      "endpoints": [
+        {
+          "refdes": "U2",
+          "pin": 7,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U6",
+          "pin": 16,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U4",
+          "pin": 18,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U3",
+          "pin": 16,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "D5",
+      "kind": "bus_member",
+      "endpoints": [
+        {
+          "refdes": "U2",
+          "pin": 9,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U6",
+          "pin": 17,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U4",
+          "pin": 19,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U3",
+          "pin": 15,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "D6",
+      "kind": "bus_member",
+      "endpoints": [
+        {
+          "refdes": "U2",
+          "pin": 10,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U6",
+          "pin": 18,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U4",
+          "pin": 20,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U3",
+          "pin": 14,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "D7",
+      "kind": "bus_member",
+      "endpoints": [
+        {
+          "refdes": "U2",
+          "pin": 13,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U6",
+          "pin": 19,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U4",
+          "pin": 21,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U3",
+          "pin": 13,
+          "sheet": 1,
+          "edge_type": "wire",
           "evidence": {
             "source": "ai"
           }
