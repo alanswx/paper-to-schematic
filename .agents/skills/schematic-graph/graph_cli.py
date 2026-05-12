@@ -179,6 +179,36 @@ def _set_verified(args, value: bool):
     print(f"{state} {args.refdes}")
 
 
+def cmd_set_body_bbox(args):
+    """Attach a tight body_bbox (chip-outline rectangle) to a component.
+    bbox stays as the click-target / pin-area extent; body_bbox is what the
+    KiCad export uses to size the rendered symbol body. Pass --clear to
+    revert to the click-target bbox as the body."""
+    graph = load_graph(args.board)
+    comp = next((c for c in graph["components"] if c["refdes"] == args.refdes), None)
+    if not comp:
+        print(f"no such refdes: {args.refdes}", file=sys.stderr); sys.exit(1)
+    if args.clear:
+        comp.pop("body_bbox", None)
+        save_graph(args.board, graph)
+        print(f"cleared body_bbox on {args.refdes}")
+        return
+    if not args.bbox:
+        print("provide --bbox x1,y1,x2,y2 or --clear", file=sys.stderr); sys.exit(1)
+    bb = parse_bbox(args.bbox)
+    # Sanity: body_bbox should sit inside the click-target bbox (with some
+    # slack for floating-point). Hard to enforce strictly without false
+    # positives, but warn on egregious cases.
+    cb = comp.get("bbox") or [0, 0, 0, 0]
+    if (bb[0] < cb[0] - 5 or bb[1] < cb[1] - 5 or
+            bb[2] > cb[2] + 5 or bb[3] > cb[3] + 5):
+        print(f"warning: body_bbox {bb} extends outside click-target bbox {cb} — "
+              f"unusual; double-check both rectangles", file=sys.stderr)
+    comp["body_bbox"] = bb
+    save_graph(args.board, graph)
+    print(f"set body_bbox on {args.refdes}: {bb}")
+
+
 def cmd_verify_component(args):
     _set_verified(args, True)
 
@@ -1305,6 +1335,20 @@ def cmd_pipeline_status(args):
             erc_blocking += other_errors
             erc_status = "PASS" if erc_blocking == 0 else f"FAIL({erc_blocking})"
 
+        # Stage 6 — wire-path tracing. Count wire-typed nets on the sheet and
+        # how many of them carry a `path` (faithful routing). Labels and
+        # sheet_zone nets don't need paths.
+        wire_nets = [n for n in nets
+                     if n.get("endpoints") and n["endpoints"][0].get("edge_type") == "wire"]
+        n_wire = len(wire_nets)
+        n_traced = sum(1 for n in wire_nets if n.get("path"))
+        trace_pct = (100.0 * n_traced / n_wire) if n_wire else 100.0
+
+        # Body_bbox coverage — Stage 1.5. Cheap signal for whether the
+        # KiCad-rendered chip outlines match the source.
+        n_body_bbox = sum(1 for c in comps if c.get("body_bbox"))
+        body_pct = (100.0 * n_body_bbox / n_comps) if n_comps else 0.0
+
         # Infer stage. The acceptance-gate progression:
         if n_comps == 0:
             stage = "0 — not started"
@@ -1316,8 +1360,12 @@ def cmd_pipeline_status(args):
             stage = "3 — nets present, no ERC run (Stage 5: export-kicad)"
         elif erc_blocking > 0:
             stage = f"5 — {erc_blocking} blocking ERC error(s) to fix"
+        elif trace_pct < 100.0:
+            stage = f"5 — ERC clean; Stage 6: {n_wire - n_traced} wire(s) need paths ({trace_pct:.0f}% traced)"
+        elif body_pct < 100.0:
+            stage = f"6 — paths done; body_bbox coverage {body_pct:.0f}% (Stage 1.5 for visual polish)"
         else:
-            stage = "5 — ready (ERC clean)"
+            stage = "6 — ready (paths + body_bbox + ERC all clean)"
 
         print(f"{idx:>5}  {n_comps:>5}  {pin_pct:>6.0f}%  {n_nets:>5}  {erc_status:>10}  {stage}")
 
@@ -1724,6 +1772,18 @@ def main():
     sp.add_argument("--merge", action="store_true",
                     help="merge with existing pin_positions instead of replacing")
     sp.set_defaults(fn=cmd_set_pin_positions)
+
+    sp = sub.add_parser("set-body-bbox",
+                        help="attach a tight chip-outline rectangle (body_bbox) "
+                             "to a component; the KiCad export uses it to size "
+                             "the rendered symbol body. bbox stays as the loose "
+                             "click-target / pin-area extent.")
+    sp.add_argument("--board", required=True)
+    sp.add_argument("--refdes", required=True)
+    sp.add_argument("--bbox", help="x1,y1,x2,y2 in source-image pixels")
+    sp.add_argument("--clear", action="store_true",
+                    help="remove the body_bbox (revert to bbox as body)")
+    sp.set_defaults(fn=cmd_set_body_bbox)
 
     sp = sub.add_parser("verify-component", help="mark component as human-verified")
     sp.add_argument("--board", required=True)

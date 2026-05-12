@@ -56,6 +56,13 @@ python3 .agents/skills/schematic-graph/graph_cli.py add-component \
 python3 .agents/skills/schematic-graph/graph_cli.py remove-component \
   --board exidy_440 --refdes U14C
 
+# Attach the tight chip-outline rectangle (Stage 1.5). bbox stays as the
+# loose click-target / pin-area extent; body_bbox is what the KiCad export
+# uses to size the rendered symbol body so it matches the original drawing.
+# See identifier/SKILL.md § Two bboxes per component.
+python3 .agents/skills/schematic-graph/graph_cli.py set-body-bbox \
+  --board exidy_440 --refdes U14C --bbox 1840,2260,2060,2640
+
 # List all components, or just one sheet
 python3 .agents/skills/schematic-graph/graph_cli.py list-components --board exidy_440
 python3 .agents/skills/schematic-graph/graph_cli.py list-components --board exidy_440 --sheet 1

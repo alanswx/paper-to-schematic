@@ -135,6 +135,42 @@ snap-board produces a worse bbox than the vision-placed one, keep the
 vision bbox and skip snap for that chip.** See `AGENTS.md` for the
 anti-pattern note about tuning CV harder when recognition fails.
 
+#### Two bboxes per component: click-target vs. body
+
+The `bbox` field is intentionally **loose** — it's the click-target /
+pin-area extent. It includes the chip body PLUS the surrounding pin
+tick marks and any small label text so the explorer's hit-test catches
+near-edge clicks and the auto-fill DIP layout has somewhere to put pins.
+This is the bbox you place in Stage 1.
+
+The KiCad export needs a tighter rectangle — just the chip's drawn
+outline (the rectangle the original schematic actually drew, no pin
+ticks, no label clutter). That's `body_bbox`:
+
+```
+graph_cli set-body-bbox --board <id> --refdes <r> --bbox x1,y1,x2,y2
+```
+
+**Capture it as part of Stage 1**, right after you place a bbox you're
+satisfied with:
+
+1. Look at the chip on the source. Identify the *drawn rectangle* —
+   the boundary the original artist stroked. Pin ticks and refdes
+   text sit OUTSIDE this rectangle.
+2. Record those four edges in source-pixel coords.
+3. `graph_cli set-body-bbox …`
+
+When `body_bbox` is set, the KiCad-rendered symbol body matches the
+original drawing's chip outline. When it's absent, the export falls
+back to the click-target bbox shrunk by one pin-length on each side
+(workable but visibly chunky).
+
+`cartographer snap-bbox` produces what would be a good `body_bbox`
+when it succeeds. If you're already running `snap-board`, consider
+writing the snapped result into `body_bbox` rather than overwriting
+`bbox` — the looser click-target stays useful for the explorer's
+hit-test even when the body is tight.
+
 ### Stage 1b — discretes (resistors, caps, switches, connectors, crystals)
 
 Discretes are a separate identification pass from chips. They look

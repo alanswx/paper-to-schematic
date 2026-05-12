@@ -17,11 +17,34 @@ travel along adjacent grid lines. Vision handles all three natively.
 
 ## When to invoke
 
-After Stage 3 named nets are committed and you want the explorer overlay
-+ KiCad export to look like the original. Rendering only — connectivity
-is canonical via `endpoints`, so a missing or wrong path doesn't break
-ERC, validation, or the netlist. This means it's safe to ship in
-batches; sheet-by-sheet is the natural unit.
+This is **Stage 6** in the per-sheet workflow — runs after Stage 5's
+KiCad export gate passes (blocking=0). Without paths, every wire-typed
+net falls back to a one-corner Manhattan route between its endpoints;
+the KiCad rendering looks like floating chips with right-angle stubs,
+not like the original drawing. Path-tracing turns the rendering into
+something visually faithful.
+
+Connectivity is canonical via `endpoints`, so a missing or wrong path
+doesn't break ERC, validation, or the netlist — it just makes the
+rendering uglier. That means it's safe to ship in batches; sheet-by-
+sheet is the natural unit, and a sheet is *visually done* (not just
+ERC-clean) when `untraced-nets --sheet N` returns zero plus any
+intentionally-skipped diagonal/occluded nets noted in the graph.
+
+### Acceptance gate
+
+A sheet's path-tracing is **complete** when:
+
+1. `graph_cli untraced-nets --board <id> --sheet <n>` returns zero, OR
+   every remaining entry is one where the source artwork is genuinely
+   diagonal, occluded, or ambiguous — and that has been documented in
+   the net's `evidence.note`.
+2. `graph_cli export-kicad --board <id> --sheet <n> --validate` runs
+   clean (no new `endpoint_off_grid` or `wire_dangling` errors).
+3. `graph_cli render-kicad --board <id> --sheet <n> --out <png>` and
+   reading the result back: the wire layout matches the source's wire
+   layout. Spot-check a few highly visible buses (address, data) and
+   any net with ≥3 endpoints.
 
 ## Skip
 

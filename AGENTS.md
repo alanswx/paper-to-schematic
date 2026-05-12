@@ -150,7 +150,8 @@ commits an obviously-broken sheet. Numbers don't drift.
 
 | Stage                              | Gate                                                                 |
 |------------------------------------|----------------------------------------------------------------------|
-| 1 — bbox round-trip                | `graph_cli lint --board <id> --sheet <n>` (FAIL on bbox out-of-page or covering blank space) |
+| 1 — click-target bboxes            | `graph_cli lint --board <id> --sheet <n>` (FAIL on bbox out-of-page or covering blank space) |
+| 1.5 — body_bbox (chip outline)     | every component should have a `body_bbox` tight to the drawn outline before Stage 5; bbox stays loose for the click-target. See `identifier/SKILL.md § Two bboxes per component`. |
 | 2 — pin positions                  | `graph_cli lint ...` (FAIL on pin floating outside bbox)             |
 | 3 — named nets / wires             | `graph_cli untyped-nets --board <id> --sheet <n>` (must return PASS) |
 |                                    | `graph_cli validate --board <id>` (rejects null edge_types)          |
@@ -158,6 +159,8 @@ commits an obviously-broken sheet. Numbers don't drift.
 | 5 — KiCad export                   | `graph_cli export-kicad --validate` (refuses on validate failure)    |
 |                                    | `graph_cli erc-summary --board <id> --sheet <n>` (blocking=0, other-errors=0) |
 |                                    | `graph_cli render-kicad ... --out <png>` + Read the PNG              |
+| 6 — routed wires (visual fidelity) | `graph_cli untraced-nets --board <id> --sheet <n>` (zero, or every remaining net documented as diagonal/occluded). See `path-tracer/SKILL.md`. |
+|                                    | Re-run Stage-5 gates after path-tracing; `wire_dangling` must remain 0. |
 
 If a gate fails, FIX THE CAUSE — don't pass `--allow-invalid` and don't
 silence the failure. The LLM-only tools that exist for self-checking:

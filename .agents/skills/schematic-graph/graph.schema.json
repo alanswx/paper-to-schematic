@@ -67,7 +67,14 @@
             "items": { "type": "number" },
             "minItems": 4,
             "maxItems": 4,
-            "description": "[x1,y1,x2,y2] in source-image pixels"
+            "description": "[x1,y1,x2,y2] in source-image pixels. CLICK-TARGET extent: includes the chip body PLUS the pin tick marks and small label text, so the explorer's hit-test catches near-edge clicks. The auto-fill DIP layout places pins on this bbox's edges. NOT the drawn chip outline — see body_bbox for that."
+          },
+          "body_bbox": {
+            "type": "array",
+            "items": { "type": "number" },
+            "minItems": 4,
+            "maxItems": 4,
+            "description": "[x1,y1,x2,y2] in source-image pixels. TIGHT rectangle around the chip's drawn outline only (no pin ticks, no label text). Used by the KiCad exporter to size the rendered symbol body so it matches the original drawing instead of the looser click-target bbox. Optional — falls back to `bbox` when absent. Captured by the identifier after placing `bbox`, or by `cartographer snap-bbox` when it produces a chip-sized result."
           },
           "verified": {
             "type": "boolean",

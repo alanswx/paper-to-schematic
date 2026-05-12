@@ -1,4 +1,4 @@
-ERC report (2026-05-12T06:44:14, Encoding UTF8)
+ERC report (2026-05-12T07:02:34, Encoding UTF8)
 Report includes: Errors, Warnings, Exclusions
 
 ***** Sheet /
@@ -23,9 +23,6 @@ Report includes: Errors, Warnings, Exclusions
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(71.12 mm, 71.12 mm): Symbol U1 Pin 13 [R1IN, Input, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(71.12 mm, 76.20 mm): Symbol U1 Pin 14 [T1OUT, Output, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(54.61 mm, 93.98 mm): Pin 1 [???, ?]
@@ -151,7 +148,10 @@ Report includes: Errors, Warnings, Exclusions
     @(36.83 mm, 54.61 mm): Horizontal Wire, length 2.54 mm
 [unconnected_wire_endpoint]: Unconnected wire endpoint
     ; warning
-    @(36.83 mm, 60.96 mm): Horizontal Wire, length 34.29 mm
+    @(36.83 mm, 60.96 mm): Horizontal Wire, length 2.54 mm
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(39.37 mm, 60.96 mm): Label 'RS232_TX'
 [unconnected_wire_endpoint]: Unconnected wire endpoint
     ; warning
     @(36.83 mm, 66.04 mm): Horizontal Wire, length 2.54 mm
@@ -206,6 +206,9 @@ Report includes: Errors, Warnings, Exclusions
 [isolated_pin_label]: Label connected to only one pin
     ; warning
     @(48.26 mm, 93.98 mm): Label 'VMINUS'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(73.66 mm, 76.20 mm): Label 'RS232_TX'
 [isolated_pin_label]: Label connected to only one pin
     ; warning
     @(102.87 mm, 30.48 mm): Label 'C2PLUS'
@@ -363,7 +366,7 @@ Report includes: Errors, Warnings, Exclusions
     ; warning
     @(400.05 mm, 38.10 mm): Symbol #PWR_VSS [PWR_VSS]
 
- ** ERC messages: 119  Errors 46  Warnings 73
+ ** ERC messages: 120  Errors 45  Warnings 75
 
  ** Ignored checks:
     - Global label only appears once in the schematic

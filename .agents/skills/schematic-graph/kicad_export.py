@@ -81,16 +81,25 @@ def _comp_lib_id(part_key: str, unit_letter: str | None) -> str:
 def _comp_active_pins(part: dict, unit_letter: str | None) -> list[dict]:
     """Pins that are visible on this component's symbol. For full-chip
     components: every pin. For sub-units: that gate's group + common +
-    power/ground, in the same order synth_symbol's compact layout uses."""
+    power/ground, in the same order synth_symbol's compact layout uses.
+    For discretes (no `pins` array in librarian): synthesise pin records
+    from `pin_count`/`polarized`."""
+    if part.get("kind") == "discrete":
+        pc = part.get("pin_count") or 2
+        if part.get("polarized") and pc == 2:
+            return [{"n": 1, "name": "+", "type": "passive"},
+                    {"n": 2, "name": "-", "type": "passive"}]
+        return [{"n": i + 1, "name": str(i + 1), "type": "passive"}
+                for i in range(pc)]
     if unit_letter is None:
-        return list(part["pins"])
+        return list(part.get("pins") or [])
     units = _unit_groups(part)
     idx = ord(unit_letter) - ord("a")
     if not units or not (0 <= idx < len(units)):
-        return list(part["pins"])
+        return list(part.get("pins") or [])
     unit_group = units[idx]
     active = []
-    for p in part["pins"]:
+    for p in part.get("pins") or []:
         if p.get("type") in ("power", "ground"):
             active.append(p)
             continue
@@ -98,7 +107,7 @@ def _comp_active_pins(part: dict, unit_letter: str | None) -> list[dict]:
         if g == unit_group or g == "common":
             active.append(p)
     if not active:
-        return list(part["pins"])
+        return list(part.get("pins") or [])
 
     def _order_key(pin):
         t = pin.get("type", "")
@@ -365,16 +374,41 @@ def synth_faithful_symbol(refdes: str, part_key: str, part: dict, comp: dict,
     """
     bbox = comp["bbox"]
     pin_pos = comp.get("pin_positions") or {}
+    # Instance origin is the centre of the click-target bbox (pin coords are
+    # relative to this). Body rectangle prefers the tighter body_bbox so the
+    # rendered chip outline matches the original drawing; falls back to bbox
+    # shrunk by PIN_LENGTH on each side when body_bbox isn't set.
     cx_px = (bbox[0] + bbox[2]) / 2
     cy_px = (bbox[1] + bbox[3]) / 2
-    bw_mm = abs(bbox[2] - bbox[0]) * scale
-    bh_mm = abs(bbox[3] - bbox[1]) * scale
-    body_half_w = max(1.0, bw_mm / 2 - PIN_LENGTH_MM)
-    body_half_h = max(1.0, bh_mm / 2 - PIN_LENGTH_MM)
-    body_left = -body_half_w
-    body_right = body_half_w
-    body_top = body_half_h     # symbol-local +Y is up
-    body_bot = -body_half_h
+    body_bbox = comp.get("body_bbox") or bbox
+    if body_bbox is bbox:
+        bw_mm = abs(bbox[2] - bbox[0]) * scale
+        bh_mm = abs(bbox[3] - bbox[1]) * scale
+        body_half_w = max(1.0, bw_mm / 2 - PIN_LENGTH_MM)
+        body_half_h = max(1.0, bh_mm / 2 - PIN_LENGTH_MM)
+    else:
+        # body_bbox is centred on its own midpoint; convert to offsets relative
+        # to the instance origin (= bbox centre) so the body lands where it
+        # was drawn on the source, not where bbox-centred would put it.
+        body_cx = (body_bbox[0] + body_bbox[2]) / 2
+        body_cy = (body_bbox[1] + body_bbox[3]) / 2
+        body_half_w = max(1.0, abs(body_bbox[2] - body_bbox[0]) / 2 * scale)
+        body_half_h = max(1.0, abs(body_bbox[3] - body_bbox[1]) / 2 * scale)
+        # Shift so the body's centre aligns with where it sits on the source.
+        # In symbol-local coords (Y up): +Y shift = body drawn ABOVE origin.
+        dx = (body_cx - cx_px) * scale
+        dy = -(body_cy - cy_px) * scale
+        # Apply offset to the body rect; pin positions are unaffected because
+        # they come from pin_pos directly.
+        body_left = dx - body_half_w
+        body_right = dx + body_half_w
+        body_top = dy + body_half_h
+        body_bot = dy - body_half_h
+    if body_bbox is bbox:
+        body_left = -body_half_w
+        body_right = body_half_w
+        body_top = body_half_h     # symbol-local +Y is up
+        body_bot = -body_half_h
 
     # Snap the instance origin once. The lib_symbol's pin coords are then
     # derived as (absolute_pin_tip - instance_origin) where the absolute pin
