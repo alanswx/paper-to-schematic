@@ -1,19 +1,19 @@
-ERC report (2026-05-08T22:08:50, Encoding UTF8)
+ERC report (2026-05-12T06:43:35, Encoding UTF8)
 Report includes: Errors, Warnings, Exclusions
 
 ***** Sheet /
 [pin_not_connected]: Pin not connected
     ; error
-    @(85.09 mm, 59.69 mm): Symbol d08 Pin 2 [SINo, Output, Line]
+    @(83.82 mm, 59.69 mm): Symbol d08 Pin 2 [SINo, Output, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(85.09 mm, 66.04 mm): Symbol d08 Pin 3 [SINo', Output, Line]
+    @(83.82 mm, 66.04 mm): Symbol d08 Pin 3 [SINo', Output, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(85.09 mm, 72.39 mm): Symbol d08 Pin 5 [Xtal1, Bidirectional, Line]
+    @(83.82 mm, 72.39 mm): Symbol d08 Pin 5 [Xtal1, Bidirectional, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(85.09 mm, 78.74 mm): Symbol d08 Pin 6 [Xtal2, Bidirectional, Line]
+    @(83.82 mm, 78.74 mm): Symbol d08 Pin 6 [Xtal2, Bidirectional, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(57.15 mm, 101.60 mm): Symbol d08 Pin 4 [AGC, Input, Line]
@@ -46,7 +46,7 @@ Report includes: Errors, Warnings, Exclusions
     @(106.68 mm, 53.34 mm): Symbol e07 Pin 4 [B, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(85.09 mm, 85.09 mm): Symbol d08 Pin 10 [TTtlQ, Output, Line]
+    @(83.82 mm, 85.09 mm): Symbol d08 Pin 10 [TTtlQ, Output, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(106.68 mm, 55.88 mm): Symbol e07 Pin 3 [A, Input, Line]
@@ -67,7 +67,7 @@ Report includes: Errors, Warnings, Exclusions
     @(106.68 mm, 60.96 mm): Symbol e07 Pin 10 [ENT, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(85.09 mm, 91.44 mm): Symbol d08 Pin 12 [EclQ', Output, Line]
+    @(83.82 mm, 91.44 mm): Symbol d08 Pin 12 [EclQ', Output, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(77.47 mm, 101.60 mm): Symbol d08 Pin 14 [SINi', Input, Line]
@@ -82,10 +82,10 @@ Report includes: Errors, Warnings, Exclusions
     @(119.38 mm, 48.26 mm): Symbol e07 Pin 11 [QD, Output, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(85.09 mm, 97.79 mm): Symbol d08 Pin 13 [EclQ, Output, Line]
+    @(119.38 mm, 50.80 mm): Symbol e07 Pin 12 [QC, Output, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(119.38 mm, 50.80 mm): Symbol e07 Pin 12 [QC, Output, Line]
+    @(83.82 mm, 99.06 mm): Symbol d08 Pin 13 [EclQ, Output, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(119.38 mm, 52.07 mm): Symbol e07 Pin 13 [QB, Output, Line]
@@ -142,12 +142,6 @@ Report includes: Errors, Warnings, Exclusions
     @(113.03 mm, 87.63 mm): Symbol c08 Pin 4 [2Y, Output, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(134.62 mm, 49.53 mm): Symbol g08 Pin 1 [~{1CLR}, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(134.62 mm, 49.53 mm): Symbol g08 Pin 1 [~{1CLR}, Input, Line]
-[pin_not_connected]: Pin not connected
-    ; error
     @(113.03 mm, 88.90 mm): Symbol c08 Pin 6 [3Y, Output, Line]
 [pin_not_connected]: Pin not connected
     ; error
@@ -157,13 +151,19 @@ Report includes: Errors, Warnings, Exclusions
     @(107.95 mm, 95.25 mm): Symbol c08 Pin 9 [4A, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(135.89 mm, 49.53 mm): Symbol g08 Pin 2 [1D, Input, Line]
+    @(135.89 mm, 49.53 mm): Symbol g08 Pin 1 [~{1CLR}, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(135.89 mm, 49.53 mm): Symbol g08 Pin 2 [1D, Input, Line]
+    @(135.89 mm, 49.53 mm): Symbol g08 Pin 1 [~{1CLR}, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(113.03 mm, 91.44 mm): Symbol c08 Pin 8 [4Y, Output, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(137.16 mm, 49.53 mm): Symbol g08 Pin 2 [1D, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(137.16 mm, 49.53 mm): Symbol g08 Pin 2 [1D, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(110.49 mm, 95.25 mm): Symbol c08 Pin 11 [5A, Input, Line]
@@ -181,13 +181,13 @@ Report includes: Errors, Warnings, Exclusions
     @(111.76 mm, 95.25 mm): Symbol c08 Pin 13 [6A, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(113.03 mm, 93.98 mm): Symbol c08 Pin 12 [6Y, Output, Line]
-[pin_not_connected]: Pin not connected
-    ; error
     @(138.43 mm, 49.53 mm): Symbol g08 Pin 3 [1CLK, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(138.43 mm, 49.53 mm): Symbol g08 Pin 3 [1CLK, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(113.03 mm, 95.25 mm): Symbol c08 Pin 12 [6Y, Output, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(139.70 mm, 49.53 mm): Symbol g08 Pin 4 [~{1PRE}, Input, Line]
@@ -196,25 +196,22 @@ Report includes: Errors, Warnings, Exclusions
     @(139.70 mm, 49.53 mm): Symbol g08 Pin 4 [~{1PRE}, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(142.24 mm, 49.53 mm): Symbol g08 Pin 10 [~{2PRE}, Input, Line]
+    @(143.51 mm, 49.53 mm): Symbol g08 Pin 10 [~{2PRE}, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(142.24 mm, 49.53 mm): Symbol g08 Pin 10 [~{2PRE}, Input, Line]
+    @(143.51 mm, 49.53 mm): Symbol g08 Pin 10 [~{2PRE}, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(147.32 mm, 34.29 mm): Symbol g08 Pin 5 [1Q, Output, Line]
+    @(148.59 mm, 34.29 mm): Symbol g08 Pin 5 [1Q, Output, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(143.51 mm, 49.53 mm): Symbol g08 Pin 11 [2CLK, Input, Line]
+    @(144.78 mm, 49.53 mm): Symbol g08 Pin 11 [2CLK, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(143.51 mm, 49.53 mm): Symbol g08 Pin 11 [2CLK, Input, Line]
+    @(144.78 mm, 49.53 mm): Symbol g08 Pin 11 [2CLK, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(147.32 mm, 38.10 mm): Symbol g08 Pin 6 [~{1Q}, Output, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(147.32 mm, 43.18 mm): Symbol g08 Pin 8 [~{2Q}, Output, Line]
+    @(148.59 mm, 38.10 mm): Symbol g08 Pin 6 [~{1Q}, Output, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(146.05 mm, 49.53 mm): Symbol g08 Pin 12 [2D, Input, Line]
@@ -223,13 +220,16 @@ Report includes: Errors, Warnings, Exclusions
     @(146.05 mm, 49.53 mm): Symbol g08 Pin 12 [2D, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(147.32 mm, 46.99 mm): Symbol g08 Pin 9 [2Q, Output, Line]
+    @(148.59 mm, 43.18 mm): Symbol g08 Pin 8 [~{2Q}, Output, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(147.32 mm, 49.53 mm): Symbol g08 Pin 13 [~{2CLR}, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(147.32 mm, 49.53 mm): Symbol g08 Pin 13 [~{2CLR}, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(148.59 mm, 46.99 mm): Symbol g08 Pin 9 [2Q, Output, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(99.06 mm, 123.19 mm): Symbol c07 Pin 1 [P1, Passive, Line]
@@ -253,7 +253,7 @@ Report includes: Errors, Warnings, Exclusions
     @(99.06 mm, 137.16 mm): Symbol c07 Pin 11 [P11, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(116.84 mm, 123.19 mm): Symbol c07 Pin 2 [P2, Passive, Line]
+    @(118.11 mm, 123.19 mm): Symbol c07 Pin 2 [P2, Passive, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(57.15 mm, 161.29 mm): Symbol f61 Pin 4 [~{IRQ}, Input, Line]
@@ -265,16 +265,13 @@ Report includes: Errors, Warnings, Exclusions
     @(57.15 mm, 162.56 mm): Symbol f61 Pin 40 [~{RES}, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(116.84 mm, 127.00 mm): Symbol c07 Pin 4 [P4, Passive, Line]
+    @(99.06 mm, 142.24 mm): Symbol c07 Pin 15 [P15, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(99.06 mm, 143.51 mm): Symbol c07 Pin 15 [P15, Passive, Line]
+    @(118.11 mm, 127.00 mm): Symbol c07 Pin 4 [P4, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(116.84 mm, 129.54 mm): Symbol c07 Pin 6 [P6, Passive, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(116.84 mm, 132.08 mm): Symbol c07 Pin 8 [P8, Passive, Line]
+    @(118.11 mm, 129.54 mm): Symbol c07 Pin 6 [P6, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(57.15 mm, 167.64 mm): Symbol f61 Pin 38 [SO, Input, Line]
@@ -283,10 +280,10 @@ Report includes: Errors, Warnings, Exclusions
     @(57.15 mm, 167.64 mm): Symbol f61 Pin 38 [SO, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(116.84 mm, 134.62 mm): Symbol c07 Pin 10 [P10, Passive, Line]
+    @(118.11 mm, 132.08 mm): Symbol c07 Pin 8 [P8, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(116.84 mm, 137.16 mm): Symbol c07 Pin 12 [P12, Passive, Line]
+    @(118.11 mm, 134.62 mm): Symbol c07 Pin 10 [P10, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(57.15 mm, 171.45 mm): Symbol f61 Pin 2 [RDY, Input, Line]
@@ -295,10 +292,13 @@ Report includes: Errors, Warnings, Exclusions
     @(57.15 mm, 171.45 mm): Symbol f61 Pin 2 [RDY, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(116.84 mm, 139.70 mm): Symbol c07 Pin 14 [P14, Passive, Line]
+    @(118.11 mm, 137.16 mm): Symbol c07 Pin 12 [P12, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(116.84 mm, 143.51 mm): Symbol c07 Pin 16 [P16, Passive, Line]
+    @(118.11 mm, 139.70 mm): Symbol c07 Pin 14 [P14, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(118.11 mm, 142.24 mm): Symbol c07 Pin 16 [P16, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(187.96 mm, 92.71 mm): Symbol h61 Pin 20 [~{OE}, Input, Line]
@@ -319,19 +319,19 @@ Report includes: Errors, Warnings, Exclusions
     @(57.15 mm, 228.60 mm): Symbol f61 Pin 3 [PHI1O, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(187.96 mm, 146.05 mm): Symbol i61 Pin 20 [~{OE}, Input, Line]
+    @(187.96 mm, 147.32 mm): Symbol i61 Pin 20 [~{OE}, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(187.96 mm, 146.05 mm): Symbol i61 Pin 20 [~{OE}, Input, Line]
+    @(187.96 mm, 147.32 mm): Symbol i61 Pin 20 [~{OE}, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(57.15 mm, 234.95 mm): Symbol f61 Pin 37 [PHI0I, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(193.04 mm, 146.05 mm): Symbol i61 Pin 18 [~{CE}, Input, Line]
+    @(193.04 mm, 147.32 mm): Symbol i61 Pin 18 [~{CE}, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(193.04 mm, 146.05 mm): Symbol i61 Pin 18 [~{CE}, Input, Line]
+    @(193.04 mm, 147.32 mm): Symbol i61 Pin 18 [~{CE}, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(82.55 mm, 233.68 mm): Symbol f61 Pin 7 [SYNC, Output, Line]
@@ -352,28 +352,22 @@ Report includes: Errors, Warnings, Exclusions
     @(132.08 mm, 231.14 mm): Symbol g11 Pin 5 [~{G2B}, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(133.35 mm, 231.14 mm): Symbol g11 Pin 6 [G1, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(133.35 mm, 231.14 mm): Symbol g11 Pin 6 [G1, Input, Line]
-[pin_not_connected]: Pin not connected
-    ; error
     @(135.89 mm, 231.14 mm): Symbol g11 Pin 4 [~{G2A}, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(135.89 mm, 231.14 mm): Symbol g11 Pin 4 [~{G2A}, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(187.96 mm, 208.28 mm): Symbol c61 Pin 20 [~{OE}, Input, Line]
+    @(187.96 mm, 209.55 mm): Symbol c61 Pin 20 [~{OE}, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(187.96 mm, 208.28 mm): Symbol c61 Pin 20 [~{OE}, Input, Line]
+    @(187.96 mm, 209.55 mm): Symbol c61 Pin 20 [~{OE}, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(193.04 mm, 208.28 mm): Symbol c61 Pin 18 [~{CE}, Input, Line]
+    @(193.04 mm, 209.55 mm): Symbol c61 Pin 18 [~{CE}, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(193.04 mm, 208.28 mm): Symbol c61 Pin 18 [~{CE}, Input, Line]
+    @(193.04 mm, 209.55 mm): Symbol c61 Pin 18 [~{CE}, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(187.96 mm, 257.81 mm): Symbol b61 Pin 20 [~{OE}, Input, Line]
@@ -457,7 +451,7 @@ Report includes: Errors, Warnings, Exclusions
     @(129.54 mm, 218.44 mm): Label 'RSA.1'
 [isolated_pin_label]: Label connected to only one pin
     ; warning
-    @(139.70 mm, 212.09 mm): Label '~{Rom2}'
+    @(139.70 mm, 213.36 mm): Label '~{Rom2}'
 [isolated_pin_label]: Label connected to only one pin
     ; warning
     @(139.70 mm, 214.63 mm): Label '~{Rom3}'
@@ -466,7 +460,7 @@ Report includes: Errors, Warnings, Exclusions
     @(132.08 mm, 219.71 mm): Symbol g11 [_chip_g11]
 [isolated_pin_label]: Label connected to only one pin
     ; warning
-    @(139.70 mm, 215.90 mm): Label '~{Rom4}'
+    @(139.70 mm, 217.17 mm): Label '~{Rom4}'
 [isolated_pin_label]: Label connected to only one pin
     ; warning
     @(129.54 mm, 223.52 mm): Label 'RSA.0'
@@ -475,10 +469,7 @@ Report includes: Errors, Warnings, Exclusions
     @(139.70 mm, 218.44 mm): Label '~{Rom5}'
 [isolated_pin_label]: Label connected to only one pin
     ; warning
-    @(139.70 mm, 219.71 mm): Label '~{Rom6}'
-[isolated_pin_label]: Label connected to only one pin
-    ; warning
-    @(134.62 mm, 231.14 mm): Label '~{MCClk}'
+    @(139.70 mm, 220.98 mm): Label '~{Rom6}'
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(187.96 mm, 190.50 mm): Symbol c61 [_chip_c61]
@@ -519,7 +510,7 @@ Report includes: Errors, Warnings, Exclusions
     ; warning
     @(400.05 mm, 109.22 mm): Symbol #PWR_VSS2 [PWR_VSS2]
 
- ** ERC messages: 172  Errors 128  Warnings 44
+ ** ERC messages: 169  Errors 126  Warnings 43
 
  ** Ignored checks:
     - Global label only appears once in the schematic

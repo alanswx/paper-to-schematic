@@ -376,18 +376,28 @@ def synth_faithful_symbol(refdes: str, part_key: str, part: dict, comp: dict,
     body_top = body_half_h     # symbol-local +Y is up
     body_bot = -body_half_h
 
+    # Snap the instance origin once. The lib_symbol's pin coords are then
+    # derived as (absolute_pin_tip - instance_origin) where the absolute pin
+    # tip uses the SAME single-snap formula every other coord-emitting path
+    # uses (polylines, junctions, discretes). That way pin tips always agree
+    # on absolute mm, even though the lib_symbol's local pin offset may not
+    # be a whole grid unit (body↔pin shift up to half a grid is invisible at
+    # paper scale and connectivity is what matters).
+    inst_x_mm = _snap(PAPER_MARGIN_MM + cx_px * scale)
+    inst_y_mm = _snap(PAPER_MARGIN_MM + cy_px * scale)
+
     pin_lines = []
     for p in part["pins"]:
         n_str = str(p["n"])
         if n_str not in pin_pos:
             continue
         ix, iy = pin_pos[n_str]
-        # Position in mm relative to body center.  Source +Y = down (image),
-        # symbol-local +Y = up — flip when going symbol-local. Snap to the
-        # 50-mil grid so the effective absolute pin position (instance origin
-        # + this offset, both snapped) lands cleanly on grid for ERC.
-        x = _snap((ix - cx_px) * scale)
-        y = _snap(-(iy - cy_px) * scale)
+        pin_tip_x_mm = _snap(PAPER_MARGIN_MM + ix * scale)
+        pin_tip_y_mm = _snap(PAPER_MARGIN_MM + iy * scale)
+        # Symbol-local coords: relative to instance origin, with Y flipped
+        # because schematic Y is down and symbol-local Y is up.
+        x = pin_tip_x_mm - inst_x_mm
+        y = -(pin_tip_y_mm - inst_y_mm)
         # Pick the body edge this pin is nearest, set the outward angle.
         dleft = abs(x - body_left)
         dright = abs(x - body_right)
@@ -659,20 +669,19 @@ def gen_sch(graph: dict, chips: dict, sheet_index: int, project_name: str = "sch
                 ey_mm = _snap(PAPER_MARGIN_MM + iy * scale)
                 pin_endpoint_mm[(comp["refdes"], str(p["n"]))] = (ex_mm, ey_mm)
         elif is_faithful:
-            # Faithful path: lib_symbol pin coords are snapped offsets from
-            # the bbox center; the instance origin is also snapped. The
-            # KiCad-effective pin position is instance_origin + local_offset,
-            # both snapped → guaranteed on-grid. We mirror the same arithmetic
-            # here so wires connect at exactly the same points.
+            # Faithful path: pin tips use the single-snap formula
+            # `_snap(M + ix * scale)` so they match polylines, junctions, and
+            # discrete pins emitted by other code paths. (synth_faithful_symbol
+            # uses the same formula internally and derives its lib-symbol
+            # local coords from absolute pin tip minus instance origin.)
             lib_id = f"_chip_{comp['refdes']}"
             pin_pos = comp.get("pin_positions") or {}
             active_pins = [p for p in part["pins"] if str(p["n"]) in pin_pos]
             for p in active_pins:
                 ix, iy = pin_pos[str(p["n"])]
-                local_x = _snap((ix - cx_px) * scale)
-                local_y = _snap(-(iy - cy_px) * scale)
-                # Schematic +Y is down; symbol-local +Y is up — flip the y back.
-                pin_endpoint_mm[(comp["refdes"], str(p["n"]))] = (x_mm + local_x, y_mm - local_y)
+                ex_mm = _snap(PAPER_MARGIN_MM + ix * scale)
+                ey_mm = _snap(PAPER_MARGIN_MM + iy * scale)
+                pin_endpoint_mm[(comp["refdes"], str(p["n"]))] = (ex_mm, ey_mm)
         else:
             unit_letter = _comp_unit_letter(comp["refdes"], comp["part"], multi_unit_parts)
             lib_id = _comp_lib_id(comp["part"], unit_letter)

@@ -1,4 +1,4 @@
-ERC report (2026-05-08T17:45:59, Encoding UTF8)
+ERC report (2026-05-12T06:43:37, Encoding UTF8)
 Report includes: Errors, Warnings, Exclusions
 
 ***** Sheet /
@@ -8,47 +8,51 @@ Report includes: Errors, Warnings, Exclusions
 [pin_to_pin]: Pins of type Output and Output are connected
     ; error
     @(55.88 mm, 46.99 mm): Symbol i22 Pin 13 [5Q, Output, Line]
-    @(66.04 mm, 49.53 mm): Symbol i22 Pin 15 [6Q, Output, Line]
+    @(67.31 mm, 49.53 mm): Symbol i22 Pin 15 [6Q, Output, Line]
 [pin_to_pin]: Pins of type Output and Output are connected
     ; error
-    @(66.04 mm, 35.56 mm): Symbol i22 Pin 2 [1Q, Output, Line]
+    @(67.31 mm, 35.56 mm): Symbol i22 Pin 2 [1Q, Output, Line]
     @(96.52 mm, 120.65 mm): Symbol k21b Pin 4 [2Y, Output, Line]
 [pin_to_pin]: Pins of type Output and Output are connected
     ; error
     @(55.88 mm, 78.74 mm): Symbol i21 Pin 13 [5Q, Output, Line]
-    @(68.58 mm, 81.28 mm): Symbol i21 Pin 15 [6Q, Output, Line]
+    @(67.31 mm, 81.28 mm): Symbol i21 Pin 15 [6Q, Output, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(55.88 mm, 81.28 mm): Symbol i21 Pin 14 [6D, Input, Line]
+[pin_to_pin]: Pins of type Output and Output are connected
+    ; error
+    @(67.31 mm, 72.39 mm): Symbol i21 Pin 7 [3Q, Output, Line]
+    @(67.31 mm, 76.20 mm): Symbol i21 Pin 10 [4Q, Output, Line]
+[pin_to_pin]: Pins of type Output and Output are connected
+    ; error
+    @(67.31 mm, 76.20 mm): Symbol i21 Pin 10 [4Q, Output, Line]
+    @(67.31 mm, 81.28 mm): Symbol i21 Pin 15 [6Q, Output, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(43.18 mm, 92.71 mm): Symbol k21a Pin 1 [1A, Input, Line]
 [pin_to_pin]: Pins of type Output and Output are connected
     ; error
-    @(68.58 mm, 76.20 mm): Symbol i21 Pin 10 [4Q, Output, Line]
-    @(120.65 mm, 196.85 mm): Symbol k19 Pin 14 [~{Y1}, Output, Line]
-[pin_to_pin]: Pins of type Output and Output are connected
-    ; error
-    @(68.58 mm, 81.28 mm): Symbol i21 Pin 15 [6Q, Output, Line]
-    @(172.72 mm, 162.56 mm): Symbol k07 Pin 13 [5Q, Output, Line]
+    @(67.31 mm, 81.28 mm): Symbol i21 Pin 15 [6Q, Output, Line]
+    @(67.31 mm, 35.56 mm): Symbol i22 Pin 2 [1Q, Output, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(63.50 mm, 87.63 mm): Symbol i21 Pin 1 [~{MR}, Input, Line]
+    @(63.50 mm, 86.36 mm): Symbol i21 Pin 1 [~{MR}, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(73.66 mm, 113.03 mm): Symbol k20 Pin 5 [A>Bout, Output, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(135.89 mm, 45.72 mm): Symbol i09 Pin 6 [W, Tri-state, Line]
+    @(134.62 mm, 46.99 mm): Symbol i09 Pin 6 [W, Tri-state, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(73.66 mm, 124.46 mm): Symbol k20 Pin 7 [A<Bout, Output, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(128.27 mm, 67.31 mm): Symbol i09 Pin 7 [~{G}, Input, Line]
+    @(128.27 mm, 68.58 mm): Symbol i09 Pin 7 [~{G}, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(128.27 mm, 67.31 mm): Symbol i09 Pin 7 [~{G}, Input, Line]
+    @(128.27 mm, 68.58 mm): Symbol i09 Pin 7 [~{G}, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(120.65 mm, 85.09 mm): Symbol j07 Pin 1 [D3, Input, Line]
@@ -57,7 +61,7 @@ Report includes: Errors, Warnings, Exclusions
     @(120.65 mm, 87.63 mm): Symbol j07 Pin 15 [D4, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(120.65 mm, 88.90 mm): Symbol j07 Pin 14 [D5, Input, Line]
+    @(120.65 mm, 90.17 mm): Symbol j07 Pin 14 [D5, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(63.50 mm, 137.16 mm): Symbol k20 Pin 4 [A>Bin, Input, Line]
@@ -66,13 +70,13 @@ Report includes: Errors, Warnings, Exclusions
     @(63.50 mm, 137.16 mm): Symbol k20 Pin 4 [A>Bin, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(120.65 mm, 91.44 mm): Symbol j07 Pin 13 [D6, Input, Line]
+    @(120.65 mm, 92.71 mm): Symbol j07 Pin 13 [D6, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(120.65 mm, 93.98 mm): Symbol j07 Pin 12 [D7, Input, Line]
+    @(120.65 mm, 95.25 mm): Symbol j07 Pin 12 [D7, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(120.65 mm, 93.98 mm): Symbol j07 Pin 12 [D7, Input, Line]
+    @(120.65 mm, 95.25 mm): Symbol j07 Pin 12 [D7, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(69.85 mm, 137.16 mm): Symbol k20 Pin 2 [A<Bin, Input, Line]
@@ -81,10 +85,7 @@ Report includes: Errors, Warnings, Exclusions
     @(69.85 mm, 137.16 mm): Symbol k20 Pin 2 [A<Bin, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(135.89 mm, 88.90 mm): Symbol j07 Pin 6 [W, Tri-state, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(105.41 mm, 132.08 mm): Symbol i17 Pin 4 [D0, Input, Line]
+    @(134.62 mm, 90.17 mm): Symbol j07 Pin 6 [W, Tri-state, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(128.27 mm, 110.49 mm): Symbol j07 Pin 7 [~{G}, Input, Line]
@@ -93,25 +94,22 @@ Report includes: Errors, Warnings, Exclusions
     @(128.27 mm, 110.49 mm): Symbol j07 Pin 7 [~{G}, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(105.41 mm, 134.62 mm): Symbol i17 Pin 3 [D1, Input, Line]
+    @(106.68 mm, 132.08 mm): Symbol i17 Pin 4 [D0, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(105.41 mm, 137.16 mm): Symbol i17 Pin 2 [D2, Input, Line]
+    @(106.68 mm, 134.62 mm): Symbol i17 Pin 3 [D1, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(105.41 mm, 139.70 mm): Symbol i17 Pin 1 [D3, Input, Line]
+    @(106.68 mm, 137.16 mm): Symbol i17 Pin 2 [D2, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(105.41 mm, 140.97 mm): Symbol i17 Pin 15 [D4, Input, Line]
+    @(106.68 mm, 139.70 mm): Symbol i17 Pin 1 [D3, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(105.41 mm, 143.51 mm): Symbol i17 Pin 14 [D5, Input, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(172.72 mm, 44.45 mm): Symbol k22 Pin 15 [D4, Input, Line]
+    @(106.68 mm, 142.24 mm): Symbol i17 Pin 15 [D4, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(172.72 mm, 44.45 mm): Symbol k22 Pin 15 [D4, Input, Line]
+    @(106.68 mm, 143.51 mm): Symbol i17 Pin 14 [D5, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(172.72 mm, 46.99 mm): Symbol k22 Pin 14 [D5, Input, Line]
@@ -124,9 +122,6 @@ Report includes: Errors, Warnings, Exclusions
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(172.72 mm, 49.53 mm): Symbol k22 Pin 13 [D6, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(105.41 mm, 146.05 mm): Symbol i17 Pin 13 [D6, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(172.72 mm, 52.07 mm): Symbol k22 Pin 12 [D7, Input, Line]
@@ -135,35 +130,32 @@ Report includes: Errors, Warnings, Exclusions
     @(172.72 mm, 52.07 mm): Symbol k22 Pin 12 [D7, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(105.41 mm, 148.59 mm): Symbol i17 Pin 12 [D7, Input, Line]
+    @(106.68 mm, 146.05 mm): Symbol i17 Pin 13 [D6, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(106.68 mm, 148.59 mm): Symbol i17 Pin 12 [D7, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(120.65 mm, 143.51 mm): Symbol i17 Pin 6 [W, Tri-state, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(59.69 mm, 184.15 mm): Symbol j09 Pin 1 [D3, Input, Line]
+    @(60.96 mm, 182.88 mm): Symbol j09 Pin 1 [D3, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(59.69 mm, 184.15 mm): Symbol j09 Pin 1 [D3, Input, Line]
+    @(60.96 mm, 182.88 mm): Symbol j09 Pin 1 [D3, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(187.96 mm, 46.99 mm): Symbol k22 Pin 6 [W, Output, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(59.69 mm, 185.42 mm): Symbol j09 Pin 15 [D4, Input, Line]
+    @(60.96 mm, 185.42 mm): Symbol j09 Pin 15 [D4, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(59.69 mm, 185.42 mm): Symbol j09 Pin 15 [D4, Input, Line]
+    @(60.96 mm, 185.42 mm): Symbol j09 Pin 15 [D4, Input, Line]
 [pin_to_pin]: Pins of type Output and Output are connected
     ; error
     @(172.72 mm, 92.71 mm): Symbol i08 Pin 13 [5Q, Output, Line]
-    @(172.72 mm, 162.56 mm): Symbol k07 Pin 13 [5Q, Output, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(59.69 mm, 187.96 mm): Symbol j09 Pin 14 [D5, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(59.69 mm, 187.96 mm): Symbol j09 Pin 14 [D5, Input, Line]
+    @(173.99 mm, 162.56 mm): Symbol k07 Pin 13 [5Q, Output, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(172.72 mm, 95.25 mm): Symbol i08 Pin 14 [6D, Input, Line]
@@ -172,25 +164,31 @@ Report includes: Errors, Warnings, Exclusions
     @(172.72 mm, 95.25 mm): Symbol i08 Pin 14 [6D, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(59.69 mm, 190.50 mm): Symbol j09 Pin 13 [D6, Input, Line]
+    @(60.96 mm, 187.96 mm): Symbol j09 Pin 14 [D5, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(59.69 mm, 190.50 mm): Symbol j09 Pin 13 [D6, Input, Line]
+    @(60.96 mm, 187.96 mm): Symbol j09 Pin 14 [D5, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(60.96 mm, 190.50 mm): Symbol j09 Pin 13 [D6, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(60.96 mm, 190.50 mm): Symbol j09 Pin 13 [D6, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(113.03 mm, 165.10 mm): Symbol i17 Pin 7 [~{G}, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(113.03 mm, 165.10 mm): Symbol i17 Pin 7 [~{G}, Input, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(59.69 mm, 193.04 mm): Symbol j09 Pin 12 [D7, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(59.69 mm, 193.04 mm): Symbol j09 Pin 12 [D7, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(74.93 mm, 187.96 mm): Symbol j09 Pin 6 [W, Tri-state, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(60.96 mm, 193.04 mm): Symbol j09 Pin 12 [D7, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(60.96 mm, 193.04 mm): Symbol j09 Pin 12 [D7, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(185.42 mm, 81.28 mm): Symbol i08 Pin 2 [1Q, Output, Line]
@@ -206,9 +204,6 @@ Report includes: Errors, Warnings, Exclusions
 [pin_not_connected]: Pin not connected
     ; error
     @(185.42 mm, 95.25 mm): Symbol i08 Pin 15 [6Q, Output, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(172.72 mm, 123.19 mm): Symbol i07 Pin 11 [4D, Input, Line]
 [pin_to_pin]: Pins of type Output and Output are connected
     ; error
     @(172.72 mm, 125.73 mm): Symbol i07 Pin 13 [5Q, Output, Line]
@@ -233,26 +228,42 @@ Report includes: Errors, Warnings, Exclusions
     @(185.42 mm, 125.73 mm): Symbol i07 Pin 12 [5D, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(181.61 mm, 133.35 mm): Symbol i07 Pin 1 [~{MR}, Input, Line]
+    @(180.34 mm, 133.35 mm): Symbol i07 Pin 1 [~{MR}, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(181.61 mm, 133.35 mm): Symbol i07 Pin 1 [~{MR}, Input, Line]
+    @(180.34 mm, 133.35 mm): Symbol i07 Pin 1 [~{MR}, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(185.42 mm, 128.27 mm): Symbol i07 Pin 15 [6Q, Output, Line]
 [pin_to_pin]: Pins of type Output and Output are connected
     ; error
-    @(172.72 mm, 162.56 mm): Symbol k07 Pin 13 [5Q, Output, Line]
-    @(172.72 mm, 201.93 mm): Symbol k08 Pin 13 [5Q, Output, Line]
-[pin_not_connected]: Pin not connected
+    @(120.65 mm, 194.31 mm): Symbol k19 Pin 15 [~{Y0}, Output, Line]
+    @(96.52 mm, 120.65 mm): Symbol k21b Pin 4 [2Y, Output, Line]
+[pin_to_pin]: Pins of type Output and Output are connected
     ; error
-    @(172.72 mm, 165.10 mm): Symbol k07 Pin 14 [6D, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
+    @(120.65 mm, 196.85 mm): Symbol k19 Pin 14 [~{Y1}, Output, Line]
+    @(120.65 mm, 194.31 mm): Symbol k19 Pin 15 [~{Y0}, Output, Line]
+[pin_to_pin]: Pins of type Output and Output are connected
     ; error
-    @(172.72 mm, 165.10 mm): Symbol k07 Pin 14 [6D, Input, Line]
+    @(120.65 mm, 199.39 mm): Symbol k19 Pin 13 [~{Y2}, Output, Line]
+    @(120.65 mm, 196.85 mm): Symbol k19 Pin 14 [~{Y1}, Output, Line]
+[pin_to_pin]: Pins of type Output and Output are connected
+    ; error
+    @(120.65 mm, 201.93 mm): Symbol k19 Pin 12 [~{Y3}, Output, Line]
+    @(120.65 mm, 199.39 mm): Symbol k19 Pin 13 [~{Y2}, Output, Line]
+[pin_to_pin]: Pins of type Output and Output are connected
+    ; error
+    @(173.99 mm, 162.56 mm): Symbol k07 Pin 13 [5Q, Output, Line]
+    @(173.99 mm, 201.93 mm): Symbol k08 Pin 13 [5Q, Output, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(185.42 mm, 151.13 mm): Symbol k07 Pin 2 [1Q, Output, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(173.99 mm, 165.10 mm): Symbol k07 Pin 14 [6D, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(173.99 mm, 165.10 mm): Symbol k07 Pin 14 [6D, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(120.65 mm, 208.28 mm): Symbol k19 Pin 10 [~{Y5}, Output, Line]
@@ -261,41 +272,41 @@ Report includes: Errors, Warnings, Exclusions
     @(120.65 mm, 210.82 mm): Symbol k19 Pin 9 [~{Y6}, Output, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(120.65 mm, 214.63 mm): Symbol k19 Pin 7 [~{Y7}, Output, Line]
+    @(120.65 mm, 213.36 mm): Symbol k19 Pin 7 [~{Y7}, Output, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(46.99 mm, 242.57 mm): Symbol i50 Pin 1 [P1, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(180.34 mm, 170.18 mm): Symbol k07 Pin 1 [~{MR}, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(180.34 mm, 170.18 mm): Symbol k07 Pin 1 [~{MR}, Input, Line]
+    @(185.42 mm, 165.10 mm): Symbol k07 Pin 15 [6Q, Output, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(185.42 mm, 165.10 mm): Symbol k07 Pin 15 [6Q, Output, Line]
+    @(181.61 mm, 170.18 mm): Symbol k07 Pin 1 [~{MR}, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(181.61 mm, 170.18 mm): Symbol k07 Pin 1 [~{MR}, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(85.09 mm, 242.57 mm): Symbol i49 Pin 1 [P1, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(46.99 mm, 259.08 mm): Symbol i50 Pin 7 [P7, Passive, Line]
-[pin_to_pin]: Pins of type Output and Output are connected
-    ; error
-    @(172.72 mm, 201.93 mm): Symbol k08 Pin 13 [5Q, Output, Line]
-    @(149.86 mm, 240.03 mm): Symbol k09 Pin 13 [5Q, Output, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(46.99 mm, 261.62 mm): Symbol i50 Pin 8 [P8, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(185.42 mm, 190.50 mm): Symbol k08 Pin 2 [1Q, Output, Line]
+[pin_to_pin]: Pins of type Output and Output are connected
+    ; error
+    @(173.99 mm, 201.93 mm): Symbol k08 Pin 13 [5Q, Output, Line]
+    @(149.86 mm, 240.03 mm): Symbol k09 Pin 13 [5Q, Output, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(172.72 mm, 204.47 mm): Symbol k08 Pin 14 [6D, Input, Line]
+    @(173.99 mm, 204.47 mm): Symbol k08 Pin 14 [6D, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(172.72 mm, 204.47 mm): Symbol k08 Pin 14 [6D, Input, Line]
+    @(173.99 mm, 204.47 mm): Symbol k08 Pin 14 [6D, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(85.09 mm, 259.08 mm): Symbol i49 Pin 7 [P7, Passive, Line]
@@ -317,12 +328,16 @@ Report includes: Errors, Warnings, Exclusions
 [pin_not_connected]: Pin not connected
     ; error
     @(162.56 mm, 228.60 mm): Symbol k09 Pin 2 [1Q, Output, Line]
+[pin_to_pin]: Pins of type Output and Output are connected
+    ; error
+    @(149.86 mm, 240.03 mm): Symbol k09 Pin 13 [5Q, Output, Line]
+    @(120.65 mm, 201.93 mm): Symbol k19 Pin 12 [~{Y3}, Output, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(149.86 mm, 242.57 mm): Symbol k09 Pin 14 [6D, Input, Line]
+    @(149.86 mm, 243.84 mm): Symbol k09 Pin 14 [6D, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(149.86 mm, 242.57 mm): Symbol k09 Pin 14 [6D, Input, Line]
+    @(149.86 mm, 243.84 mm): Symbol k09 Pin 14 [6D, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(162.56 mm, 240.03 mm): Symbol k09 Pin 12 [5D, Input, Line]
@@ -331,13 +346,17 @@ Report includes: Errors, Warnings, Exclusions
     @(162.56 mm, 240.03 mm): Symbol k09 Pin 12 [5D, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(162.56 mm, 242.57 mm): Symbol k09 Pin 15 [6Q, Output, Line]
+    @(162.56 mm, 243.84 mm): Symbol k09 Pin 15 [6Q, Output, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(158.75 mm, 248.92 mm): Symbol k09 Pin 1 [~{MR}, Input, Line]
+    @(157.48 mm, 248.92 mm): Symbol k09 Pin 1 [~{MR}, Input, Line]
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(60.96 mm, 43.18 mm): Symbol i22 [_chip_i22]
+[multiple_net_names]: Both DMD.00 and DMD.08 are attached to the same items; DMD.00 will be used in the netlist
+    ; warning
+    @(69.85 mm, 35.56 mm): Label 'DMD.00'
+    @(58.42 mm, 69.85 mm): Label 'DMD.08'
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(62.23 mm, 74.93 mm): Symbol i21 [_chip_i21]
@@ -356,49 +375,42 @@ Report includes: Errors, Warnings, Exclusions
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(66.04 mm, 123.19 mm): Symbol k20 [_chip_k20]
-[lib_symbol_issues]: The current configuration does not include the symbol library 'user'
-    ; warning
-    @(90.17 mm, 120.65 mm): Symbol k21b [_chip_k21b]
 [isolated_pin_label]: Label connected to only one pin
     ; warning
     @(123.19 mm, 87.63 mm): Label 'MASync'
 [isolated_pin_label]: Label connected to only one pin
     ; warning
-    @(123.19 mm, 88.90 mm): Label 'TBaseTempSense'
+    @(123.19 mm, 90.17 mm): Label 'TBaseTempSense'
 [isolated_pin_label]: Label connected to only one pin
     ; warning
-    @(123.19 mm, 91.44 mm): Label '~{Trap}'
-[multiple_net_names]: Both DMD.00 and ~{BaseMuf} are attached to the same items; DMD.00 will be used in the netlist
-    ; warning
-    @(68.58 mm, 35.56 mm): Label 'DMD.00'
-    @(99.06 mm, 120.65 mm): Label '~{BaseMuf}'
+    @(123.19 mm, 92.71 mm): Label '~{Trap}'
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(128.27 mm, 92.71 mm): Symbol j07 [_chip_j07]
 [isolated_pin_label]: Label connected to only one pin
     ; warning
-    @(107.95 mm, 132.08 mm): Label 'Serial.200'
+    @(109.22 mm, 132.08 mm): Label 'Serial.200'
 [isolated_pin_label]: Label connected to only one pin
     ; warning
-    @(107.95 mm, 134.62 mm): Label 'Serial.100'
+    @(109.22 mm, 134.62 mm): Label 'Serial.100'
 [isolated_pin_label]: Label connected to only one pin
     ; warning
-    @(107.95 mm, 137.16 mm): Label 'Serial.40'
+    @(109.22 mm, 137.16 mm): Label 'Serial.40'
 [isolated_pin_label]: Label connected to only one pin
     ; warning
-    @(107.95 mm, 139.70 mm): Label 'Serial.20'
+    @(109.22 mm, 139.70 mm): Label 'Serial.20'
 [isolated_pin_label]: Label connected to only one pin
     ; warning
-    @(107.95 mm, 140.97 mm): Label 'Serial.10'
+    @(109.22 mm, 142.24 mm): Label 'Serial.10'
 [isolated_pin_label]: Label connected to only one pin
     ; warning
-    @(107.95 mm, 143.51 mm): Label 'Serial.4'
+    @(109.22 mm, 143.51 mm): Label 'Serial.4'
 [isolated_pin_label]: Label connected to only one pin
     ; warning
-    @(107.95 mm, 146.05 mm): Label 'Serial.2'
+    @(109.22 mm, 146.05 mm): Label 'Serial.2'
 [isolated_pin_label]: Label connected to only one pin
     ; warning
-    @(107.95 mm, 148.59 mm): Label 'Serial.1'
+    @(109.22 mm, 148.59 mm): Label 'Serial.1'
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(113.03 mm, 147.32 mm): Symbol i17 [_chip_i17]
@@ -426,6 +438,14 @@ Report includes: Errors, Warnings, Exclusions
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(52.07 mm, 252.73 mm): Symbol i50 [_chip_i50]
+[label_multiple_wires]: Label connects more than one wire at 1765300, 1905000
+    ; warning
+    @(176.53 mm, 190.50 mm): Label 'DMD.00'
+    @(176.53 mm, 196.85 mm): Vertical Wire, length 63.50 mm
+[label_multiple_wires]: Label connects more than one wire at 1765300, 1943100
+    ; warning
+    @(176.53 mm, 194.31 mm): Label 'DMD.08'
+    @(120.65 mm, 194.31 mm): Horizontal Wire, length 57.15 mm
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(179.07 mm, 198.12 mm): Symbol k08 [_chip_k08]
@@ -434,7 +454,7 @@ Report includes: Errors, Warnings, Exclusions
     @(90.17 mm, 252.73 mm): Symbol i49 [_chip_i49]
 [isolated_pin_label]: Label connected to only one pin
     ; warning
-    @(187.96 mm, 193.04 mm): Label 'MCManif.3'
+    @(187.96 mm, 194.31 mm): Label 'MCManif.3'
 [isolated_pin_label]: Label connected to only one pin
     ; warning
     @(187.96 mm, 196.85 mm): Label 'MCManif.2'
@@ -449,7 +469,7 @@ Report includes: Errors, Warnings, Exclusions
     @(156.21 mm, 236.22 mm): Symbol k09 [_chip_k09]
 [isolated_pin_label]: Label connected to only one pin
     ; warning
-    @(161.29 mm, 248.92 mm): Label 'PwrGood'
+    @(160.02 mm, 248.92 mm): Label 'PwrGood'
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(180.34 mm, 262.89 mm): Symbol k23a [_chip_k23a]
@@ -466,7 +486,7 @@ Report includes: Errors, Warnings, Exclusions
     ; warning
     @(400.05 mm, 27.94 mm): Symbol #PWR_VCC [PWR_VCC]
 
- ** ERC messages: 151  Errors 108  Warnings 43
+ ** ERC messages: 155  Errors 111  Warnings 44
 
  ** Ignored checks:
     - Global label only appears once in the schematic

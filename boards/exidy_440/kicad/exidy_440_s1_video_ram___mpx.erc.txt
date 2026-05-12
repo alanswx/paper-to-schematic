@@ -1,50 +1,56 @@
-ERC report (2026-05-08T22:09:02, Encoding UTF8)
+ERC report (2026-05-12T06:43:38, Encoding UTF8)
 Report includes: Errors, Warnings, Exclusions
 
 ***** Sheet /
 [pin_not_connected]: Pin not connected
     ; error
-    @(95.25 mm, 66.04 mm): Symbol 21H Pin 12 [D7, Input, Line]
+    @(96.52 mm, 66.04 mm): Symbol 21H Pin 12 [D7, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(95.25 mm, 66.04 mm): Symbol 21H Pin 12 [D7, Input, Line]
+    @(96.52 mm, 66.04 mm): Symbol 21H Pin 12 [D7, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(95.25 mm, 67.31 mm): Symbol 21H Pin 13 [D6, Input, Line]
+    @(96.52 mm, 67.31 mm): Symbol 21H Pin 13 [D6, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(95.25 mm, 67.31 mm): Symbol 21H Pin 13 [D6, Input, Line]
+    @(96.52 mm, 67.31 mm): Symbol 21H Pin 13 [D6, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(95.25 mm, 68.58 mm): Symbol 21H Pin 14 [D5, Input, Line]
+    @(96.52 mm, 69.85 mm): Symbol 21H Pin 14 [D5, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(95.25 mm, 68.58 mm): Symbol 21H Pin 14 [D5, Input, Line]
+    @(96.52 mm, 69.85 mm): Symbol 21H Pin 14 [D5, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(95.25 mm, 69.85 mm): Symbol 21H Pin 15 [D4, Input, Line]
+    @(96.52 mm, 71.12 mm): Symbol 21H Pin 15 [D4, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(95.25 mm, 72.39 mm): Symbol 21H Pin 1 [D3, Input, Line]
+    @(96.52 mm, 72.39 mm): Symbol 21H Pin 1 [D3, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(95.25 mm, 72.39 mm): Symbol 21H Pin 1 [D3, Input, Line]
+    @(96.52 mm, 72.39 mm): Symbol 21H Pin 1 [D3, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(95.25 mm, 73.66 mm): Symbol 21H Pin 2 [D2, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(95.25 mm, 74.93 mm): Symbol 21H Pin 3 [D1, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(95.25 mm, 76.20 mm): Symbol 21H Pin 4 [D0, Input, Line]
+    @(96.52 mm, 73.66 mm): Symbol 21H Pin 2 [D2, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(102.87 mm, 67.31 mm): Symbol 21H Pin 6 [W, Output, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(96.52 mm, 76.20 mm): Symbol 21H Pin 3 [D1, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(96.52 mm, 77.47 mm): Symbol 21H Pin 4 [D0, Input, Line]
 [pin_to_pin]: Pins of type Output and Output are connected
     ; error
-    @(102.87 mm, 69.85 mm): Symbol 21H Pin 5 [Y, Output, Line]
-    @(104.14 mm, 91.44 mm): Symbol 20H Pin 5 [Y, Output, Line]
+    @(102.87 mm, 71.12 mm): Symbol 21H Pin 5 [Y, Output, Line]
+    @(156.21 mm, 200.66 mm): Symbol 13Fa Pin 4 [~{1Y0}, Output, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(95.25 mm, 87.63 mm): Symbol 20H Pin 12 [D7, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(95.25 mm, 87.63 mm): Symbol 20H Pin 12 [D7, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(102.87 mm, 78.74 mm): Symbol 21H Pin 7 [~{G}, Input, Line]
@@ -53,44 +59,34 @@ Report includes: Errors, Warnings, Exclusions
     @(102.87 mm, 78.74 mm): Symbol 21H Pin 7 [~{G}, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(96.52 mm, 87.63 mm): Symbol 20H Pin 12 [D7, Input, Line]
+    @(95.25 mm, 88.90 mm): Symbol 20H Pin 13 [D6, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(96.52 mm, 87.63 mm): Symbol 20H Pin 12 [D7, Input, Line]
+    @(95.25 mm, 88.90 mm): Symbol 20H Pin 13 [D6, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(96.52 mm, 88.90 mm): Symbol 20H Pin 13 [D6, Input, Line]
+    @(95.25 mm, 90.17 mm): Symbol 20H Pin 14 [D5, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(96.52 mm, 88.90 mm): Symbol 20H Pin 13 [D6, Input, Line]
+    @(95.25 mm, 90.17 mm): Symbol 20H Pin 14 [D5, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(95.25 mm, 91.44 mm): Symbol 20H Pin 15 [D4, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(96.52 mm, 90.17 mm): Symbol 20H Pin 14 [D5, Input, Line]
+    @(95.25 mm, 93.98 mm): Symbol 20H Pin 1 [D3, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(96.52 mm, 90.17 mm): Symbol 20H Pin 14 [D5, Input, Line]
+    @(95.25 mm, 93.98 mm): Symbol 20H Pin 1 [D3, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(96.52 mm, 91.44 mm): Symbol 20H Pin 15 [D4, Input, Line]
+    @(95.25 mm, 96.52 mm): Symbol 20H Pin 3 [D1, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(96.52 mm, 93.98 mm): Symbol 20H Pin 1 [D3, Input, Line]
+    @(104.14 mm, 87.63 mm): Symbol 20H Pin 6 [W, Output, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(96.52 mm, 93.98 mm): Symbol 20H Pin 1 [D3, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(96.52 mm, 96.52 mm): Symbol 20H Pin 3 [D1, Input, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(104.14 mm, 88.90 mm): Symbol 20H Pin 6 [W, Output, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(96.52 mm, 97.79 mm): Symbol 20H Pin 4 [D0, Input, Line]
-[pin_to_pin]: Pins of type Output and Output are connected
-    ; error
-    @(104.14 mm, 91.44 mm): Symbol 20H Pin 5 [Y, Output, Line]
-    @(102.87 mm, 113.03 mm): Symbol 19H Pin 5 [Y, Output, Line]
+    @(95.25 mm, 97.79 mm): Symbol 20H Pin 4 [D0, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(104.14 mm, 99.06 mm): Symbol 20H Pin 7 [~{G}, Input, Line]
@@ -99,61 +95,55 @@ Report includes: Errors, Warnings, Exclusions
     @(104.14 mm, 99.06 mm): Symbol 20H Pin 7 [~{G}, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(95.25 mm, 107.95 mm): Symbol 19H Pin 12 [D7, Input, Line]
+    @(96.52 mm, 107.95 mm): Symbol 19H Pin 12 [D7, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(95.25 mm, 107.95 mm): Symbol 19H Pin 12 [D7, Input, Line]
+    @(96.52 mm, 107.95 mm): Symbol 19H Pin 12 [D7, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(95.25 mm, 109.22 mm): Symbol 19H Pin 13 [D6, Input, Line]
+    @(96.52 mm, 109.22 mm): Symbol 19H Pin 13 [D6, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(95.25 mm, 109.22 mm): Symbol 19H Pin 13 [D6, Input, Line]
+    @(96.52 mm, 109.22 mm): Symbol 19H Pin 13 [D6, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(95.25 mm, 110.49 mm): Symbol 19H Pin 14 [D5, Input, Line]
+    @(96.52 mm, 110.49 mm): Symbol 19H Pin 14 [D5, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(95.25 mm, 110.49 mm): Symbol 19H Pin 14 [D5, Input, Line]
+    @(96.52 mm, 110.49 mm): Symbol 19H Pin 14 [D5, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(132.08 mm, 66.04 mm): Symbol 21F Pin 12 [D7, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(132.08 mm, 66.04 mm): Symbol 21F Pin 12 [D7, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(95.25 mm, 113.03 mm): Symbol 19H Pin 15 [D4, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(132.08 mm, 67.31 mm): Symbol 21F Pin 13 [D6, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(132.08 mm, 67.31 mm): Symbol 21F Pin 13 [D6, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(132.08 mm, 69.85 mm): Symbol 21F Pin 14 [D5, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(95.25 mm, 114.30 mm): Symbol 19H Pin 1 [D3, Input, Line]
+    @(96.52 mm, 114.30 mm): Symbol 19H Pin 1 [D3, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(95.25 mm, 114.30 mm): Symbol 19H Pin 1 [D3, Input, Line]
+    @(96.52 mm, 114.30 mm): Symbol 19H Pin 1 [D3, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(132.08 mm, 68.58 mm): Symbol 21F Pin 14 [D5, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(132.08 mm, 69.85 mm): Symbol 21F Pin 15 [D4, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(95.25 mm, 115.57 mm): Symbol 19H Pin 2 [D2, Input, Line]
+    @(132.08 mm, 71.12 mm): Symbol 21F Pin 15 [D4, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(102.87 mm, 109.22 mm): Symbol 19H Pin 6 [W, Output, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
+    @(96.52 mm, 115.57 mm): Symbol 19H Pin 2 [D2, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
     @(132.08 mm, 72.39 mm): Symbol 21F Pin 1 [D3, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(95.25 mm, 116.84 mm): Symbol 19H Pin 3 [D1, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(132.08 mm, 73.66 mm): Symbol 21F Pin 2 [D2, Input, Line]
@@ -162,30 +152,35 @@ Report includes: Errors, Warnings, Exclusions
     @(132.08 mm, 73.66 mm): Symbol 21F Pin 2 [D2, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(95.25 mm, 118.11 mm): Symbol 19H Pin 4 [D0, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(132.08 mm, 74.93 mm): Symbol 21F Pin 3 [D1, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(132.08 mm, 76.20 mm): Symbol 21F Pin 4 [D0, Input, Line]
+    @(96.52 mm, 116.84 mm): Symbol 19H Pin 3 [D1, Input, Line]
 [pin_to_pin]: Pins of type Output and Output are connected
     ; error
-    @(102.87 mm, 113.03 mm): Symbol 19H Pin 5 [Y, Output, Line]
-    @(104.14 mm, 154.94 mm): Symbol 17H Pin 5 [Y, Output, Line]
+    @(102.87 mm, 111.76 mm): Symbol 19H Pin 5 [Y, Output, Line]
+    @(104.14 mm, 91.44 mm): Symbol 20H Pin 5 [Y, Output, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(132.08 mm, 76.20 mm): Symbol 21F Pin 3 [D1, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(96.52 mm, 118.11 mm): Symbol 19H Pin 4 [D0, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(132.08 mm, 77.47 mm): Symbol 21F Pin 4 [D0, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(139.70 mm, 67.31 mm): Symbol 21F Pin 6 [W, Output, Line]
-[pin_to_pin]: Pins of type Output and Output are connected
-    ; error
-    @(139.70 mm, 69.85 mm): Symbol 21F Pin 5 [Y, Output, Line]
-    @(138.43 mm, 91.44 mm): Symbol 20F Pin 5 [Y, Output, Line]
+    @(138.43 mm, 67.31 mm): Symbol 21F Pin 6 [W, Output, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(102.87 mm, 119.38 mm): Symbol 19H Pin 7 [~{G}, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(102.87 mm, 119.38 mm): Symbol 19H Pin 7 [~{G}, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(138.43 mm, 78.74 mm): Symbol 21F Pin 7 [~{G}, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(138.43 mm, 78.74 mm): Symbol 21F Pin 7 [~{G}, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(133.35 mm, 87.63 mm): Symbol 20F Pin 12 [D7, Input, Line]
@@ -198,12 +193,6 @@ Report includes: Errors, Warnings, Exclusions
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(133.35 mm, 88.90 mm): Symbol 20F Pin 13 [D6, Input, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(139.70 mm, 78.74 mm): Symbol 21F Pin 7 [~{G}, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(139.70 mm, 78.74 mm): Symbol 21F Pin 7 [~{G}, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(96.52 mm, 128.27 mm): Symbol 18H Pin 12 [D7, Input, Line]
@@ -228,6 +217,9 @@ Report includes: Errors, Warnings, Exclusions
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(133.35 mm, 93.98 mm): Symbol 20F Pin 1 [D3, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(96.52 mm, 132.08 mm): Symbol 18H Pin 15 [D4, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(133.35 mm, 95.25 mm): Symbol 20F Pin 2 [D2, Input, Line]
@@ -255,20 +247,20 @@ Report includes: Errors, Warnings, Exclusions
 [pin_to_pin]: Pins of type Output and Output are connected
     ; error
     @(138.43 mm, 91.44 mm): Symbol 20F Pin 5 [Y, Output, Line]
-    @(139.70 mm, 111.76 mm): Symbol 19F Pin 5 [Y, Output, Line]
+    @(138.43 mm, 71.12 mm): Symbol 21F Pin 5 [Y, Output, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(104.14 mm, 129.54 mm): Symbol 18H Pin 6 [W, Output, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(96.52 mm, 137.16 mm): Symbol 18H Pin 3 [D1, Input, Line]
+[pin_to_pin]: Pins of type Output and Output are connected
+    ; error
+    @(104.14 mm, 132.08 mm): Symbol 18H Pin 5 [Y, Output, Line]
+    @(102.87 mm, 111.76 mm): Symbol 19H Pin 5 [Y, Output, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(96.52 mm, 138.43 mm): Symbol 18H Pin 4 [D0, Input, Line]
-[pin_to_pin]: Pins of type Output and Output are connected
-    ; error
-    @(104.14 mm, 133.35 mm): Symbol 18H Pin 5 [Y, Output, Line]
-    @(102.87 mm, 113.03 mm): Symbol 19H Pin 5 [Y, Output, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(138.43 mm, 99.06 mm): Symbol 20F Pin 7 [~{G}, Input, Line]
@@ -277,22 +269,22 @@ Report includes: Errors, Warnings, Exclusions
     @(138.43 mm, 99.06 mm): Symbol 20F Pin 7 [~{G}, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(132.08 mm, 107.95 mm): Symbol 19F Pin 12 [D7, Input, Line]
+    @(133.35 mm, 107.95 mm): Symbol 19F Pin 12 [D7, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(132.08 mm, 107.95 mm): Symbol 19F Pin 12 [D7, Input, Line]
+    @(133.35 mm, 107.95 mm): Symbol 19F Pin 12 [D7, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(132.08 mm, 109.22 mm): Symbol 19F Pin 13 [D6, Input, Line]
+    @(133.35 mm, 109.22 mm): Symbol 19F Pin 13 [D6, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(132.08 mm, 109.22 mm): Symbol 19F Pin 13 [D6, Input, Line]
+    @(133.35 mm, 109.22 mm): Symbol 19F Pin 13 [D6, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(132.08 mm, 110.49 mm): Symbol 19F Pin 14 [D5, Input, Line]
+    @(133.35 mm, 110.49 mm): Symbol 19F Pin 14 [D5, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(132.08 mm, 111.76 mm): Symbol 19F Pin 15 [D4, Input, Line]
+    @(133.35 mm, 111.76 mm): Symbol 19F Pin 15 [D4, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(104.14 mm, 139.70 mm): Symbol 18H Pin 7 [~{G}, Input, Line]
@@ -301,47 +293,47 @@ Report includes: Errors, Warnings, Exclusions
     @(104.14 mm, 139.70 mm): Symbol 18H Pin 7 [~{G}, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(132.08 mm, 114.30 mm): Symbol 19F Pin 1 [D3, Input, Line]
+    @(133.35 mm, 114.30 mm): Symbol 19F Pin 1 [D3, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(132.08 mm, 115.57 mm): Symbol 19F Pin 2 [D2, Input, Line]
+    @(133.35 mm, 115.57 mm): Symbol 19F Pin 2 [D2, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(132.08 mm, 115.57 mm): Symbol 19F Pin 2 [D2, Input, Line]
+    @(133.35 mm, 115.57 mm): Symbol 19F Pin 2 [D2, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(132.08 mm, 116.84 mm): Symbol 19F Pin 3 [D1, Input, Line]
+    @(133.35 mm, 116.84 mm): Symbol 19F Pin 3 [D1, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(132.08 mm, 116.84 mm): Symbol 19F Pin 3 [D1, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(132.08 mm, 118.11 mm): Symbol 19F Pin 4 [D0, Input, Line]
+    @(133.35 mm, 116.84 mm): Symbol 19F Pin 3 [D1, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(139.70 mm, 109.22 mm): Symbol 19F Pin 6 [W, Output, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(96.52 mm, 149.86 mm): Symbol 17H Pin 12 [D7, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(96.52 mm, 149.86 mm): Symbol 17H Pin 12 [D7, Input, Line]
+    @(133.35 mm, 118.11 mm): Symbol 19F Pin 4 [D0, Input, Line]
 [pin_to_pin]: Pins of type Output and Output are connected
     ; error
     @(139.70 mm, 111.76 mm): Symbol 19F Pin 5 [Y, Output, Line]
-    @(102.87 mm, 113.03 mm): Symbol 19H Pin 5 [Y, Output, Line]
+    @(138.43 mm, 91.44 mm): Symbol 20F Pin 5 [Y, Output, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(96.52 mm, 151.13 mm): Symbol 17H Pin 13 [D6, Input, Line]
+    @(96.52 mm, 151.13 mm): Symbol 17H Pin 12 [D7, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(96.52 mm, 151.13 mm): Symbol 17H Pin 13 [D6, Input, Line]
+    @(96.52 mm, 151.13 mm): Symbol 17H Pin 12 [D7, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(96.52 mm, 152.40 mm): Symbol 17H Pin 14 [D5, Input, Line]
+    @(96.52 mm, 152.40 mm): Symbol 17H Pin 13 [D6, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(96.52 mm, 152.40 mm): Symbol 17H Pin 14 [D5, Input, Line]
+    @(96.52 mm, 152.40 mm): Symbol 17H Pin 13 [D6, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(96.52 mm, 153.67 mm): Symbol 17H Pin 14 [D5, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(96.52 mm, 153.67 mm): Symbol 17H Pin 14 [D5, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(96.52 mm, 154.94 mm): Symbol 17H Pin 15 [D4, Input, Line]
@@ -375,25 +367,25 @@ Report includes: Errors, Warnings, Exclusions
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(132.08 mm, 129.54 mm): Symbol 18F Pin 13 [D6, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(96.52 mm, 158.75 mm): Symbol 17H Pin 3 [D1, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(132.08 mm, 130.81 mm): Symbol 18F Pin 14 [D5, Input, Line]
 [pin_to_pin]: Pins of type Output and Output are connected
     ; error
     @(104.14 mm, 154.94 mm): Symbol 17H Pin 5 [Y, Output, Line]
-    @(104.14 mm, 175.26 mm): Symbol 16H Pin 5 [Y, Output, Line]
+    @(104.14 mm, 132.08 mm): Symbol 18H Pin 5 [Y, Output, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(96.52 mm, 160.02 mm): Symbol 17H Pin 4 [D0, Input, Line]
+    @(132.08 mm, 132.08 mm): Symbol 18F Pin 14 [D5, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(96.52 mm, 160.02 mm): Symbol 17H Pin 3 [D1, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(132.08 mm, 133.35 mm): Symbol 18F Pin 15 [D4, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(132.08 mm, 133.35 mm): Symbol 18F Pin 15 [D4, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(96.52 mm, 161.29 mm): Symbol 17H Pin 4 [D0, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(132.08 mm, 134.62 mm): Symbol 18F Pin 1 [D3, Input, Line]
@@ -417,10 +409,10 @@ Report includes: Errors, Warnings, Exclusions
     @(132.08 mm, 138.43 mm): Symbol 18F Pin 4 [D0, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(104.14 mm, 161.29 mm): Symbol 17H Pin 7 [~{G}, Input, Line]
+    @(104.14 mm, 162.56 mm): Symbol 17H Pin 7 [~{G}, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(104.14 mm, 161.29 mm): Symbol 17H Pin 7 [~{G}, Input, Line]
+    @(104.14 mm, 162.56 mm): Symbol 17H Pin 7 [~{G}, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(96.52 mm, 170.18 mm): Symbol 16H Pin 12 [D7, Input, Line]
@@ -433,33 +425,30 @@ Report includes: Errors, Warnings, Exclusions
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(96.52 mm, 171.45 mm): Symbol 16H Pin 13 [D6, Input, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(139.70 mm, 139.70 mm): Symbol 18F Pin 7 [~{G}, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(139.70 mm, 139.70 mm): Symbol 18F Pin 7 [~{G}, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(96.52 mm, 172.72 mm): Symbol 16H Pin 14 [D5, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(177.80 mm, 91.44 mm): Symbol 14B Pin 20 [~{OE}, Input, Line]
+    @(139.70 mm, 140.97 mm): Symbol 18F Pin 7 [~{G}, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(177.80 mm, 91.44 mm): Symbol 14B Pin 20 [~{OE}, Input, Line]
+    @(139.70 mm, 140.97 mm): Symbol 18F Pin 7 [~{G}, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(102.87 mm, 170.18 mm): Symbol 16H Pin 6 [W, Output, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(96.52 mm, 175.26 mm): Symbol 16H Pin 15 [D4, Input, Line]
+    @(96.52 mm, 173.99 mm): Symbol 16H Pin 15 [D4, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(96.52 mm, 175.26 mm): Symbol 16H Pin 1 [D3, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(133.35 mm, 149.86 mm): Symbol 17F Pin 12 [D7, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(133.35 mm, 149.86 mm): Symbol 17F Pin 12 [D7, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(96.52 mm, 176.53 mm): Symbol 16H Pin 1 [D3, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(133.35 mm, 151.13 mm): Symbol 17F Pin 13 [D6, Input, Line]
@@ -487,25 +476,21 @@ Report includes: Errors, Warnings, Exclusions
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(133.35 mm, 153.67 mm): Symbol 17F Pin 15 [D4, Input, Line]
-[pin_to_pin]: Pins of type Output and Output are connected
-    ; error
-    @(104.14 mm, 175.26 mm): Symbol 16H Pin 5 [Y, Output, Line]
-    @(102.87 mm, 194.31 mm): Symbol 15H Pin 5 [Y, Output, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(182.88 mm, 91.44 mm): Symbol 16B Pin 20 [~{OE}, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(182.88 mm, 91.44 mm): Symbol 16B Pin 20 [~{OE}, Input, Line]
+    @(133.35 mm, 154.94 mm): Symbol 17F Pin 1 [D3, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(96.52 mm, 180.34 mm): Symbol 16H Pin 4 [D0, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(138.43 mm, 151.13 mm): Symbol 17F Pin 6 [W, Output, Line]
+    @(139.70 mm, 149.86 mm): Symbol 17F Pin 6 [W, Output, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(133.35 mm, 157.48 mm): Symbol 17F Pin 2 [D2, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(133.35 mm, 156.21 mm): Symbol 17F Pin 1 [D3, Input, Line]
+    @(133.35 mm, 157.48 mm): Symbol 17F Pin 2 [D2, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(186.69 mm, 91.44 mm): Symbol 17B Pin 20 [~{OE}, Input, Line]
@@ -514,107 +499,98 @@ Report includes: Errors, Warnings, Exclusions
     @(186.69 mm, 91.44 mm): Symbol 17B Pin 20 [~{OE}, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(104.14 mm, 181.61 mm): Symbol 16H Pin 7 [~{G}, Input, Line]
+    @(102.87 mm, 181.61 mm): Symbol 16H Pin 7 [~{G}, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(104.14 mm, 181.61 mm): Symbol 16H Pin 7 [~{G}, Input, Line]
+    @(102.87 mm, 181.61 mm): Symbol 16H Pin 7 [~{G}, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(190.50 mm, 90.17 mm): Symbol 18B Pin 20 [~{OE}, Input, Line]
+    @(190.50 mm, 91.44 mm): Symbol 18B Pin 20 [~{OE}, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(190.50 mm, 90.17 mm): Symbol 18B Pin 20 [~{OE}, Input, Line]
+    @(190.50 mm, 91.44 mm): Symbol 18B Pin 20 [~{OE}, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(138.43 mm, 161.29 mm): Symbol 17F Pin 7 [~{G}, Input, Line]
+    @(139.70 mm, 161.29 mm): Symbol 17F Pin 7 [~{G}, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(138.43 mm, 161.29 mm): Symbol 17F Pin 7 [~{G}, Input, Line]
+    @(139.70 mm, 161.29 mm): Symbol 17F Pin 7 [~{G}, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(97.79 mm, 190.50 mm): Symbol 15H Pin 12 [D7, Input, Line]
+    @(96.52 mm, 190.50 mm): Symbol 15H Pin 12 [D7, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(97.79 mm, 190.50 mm): Symbol 15H Pin 12 [D7, Input, Line]
+    @(96.52 mm, 190.50 mm): Symbol 15H Pin 12 [D7, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(97.79 mm, 191.77 mm): Symbol 15H Pin 13 [D6, Input, Line]
+    @(132.08 mm, 168.91 mm): Symbol 16F Pin 12 [D7, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(97.79 mm, 191.77 mm): Symbol 15H Pin 13 [D6, Input, Line]
+    @(132.08 mm, 168.91 mm): Symbol 16F Pin 12 [D7, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(194.31 mm, 92.71 mm): Symbol 20B Pin 20 [~{OE}, Input, Line]
+    @(96.52 mm, 191.77 mm): Symbol 15H Pin 13 [D6, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(194.31 mm, 92.71 mm): Symbol 20B Pin 20 [~{OE}, Input, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(132.08 mm, 170.18 mm): Symbol 16F Pin 12 [D7, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(132.08 mm, 170.18 mm): Symbol 16F Pin 12 [D7, Input, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(177.80 mm, 123.19 mm): Symbol 14C Pin 20 [~{OE}, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(177.80 mm, 123.19 mm): Symbol 14C Pin 20 [~{OE}, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(97.79 mm, 193.04 mm): Symbol 15H Pin 14 [D5, Input, Line]
+    @(96.52 mm, 191.77 mm): Symbol 15H Pin 13 [D6, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(132.08 mm, 171.45 mm): Symbol 16F Pin 13 [D6, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(132.08 mm, 171.45 mm): Symbol 16F Pin 13 [D6, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(96.52 mm, 194.31 mm): Symbol 15H Pin 14 [D5, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(179.07 mm, 123.19 mm): Symbol 14C Pin 18 [~{CS}, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(179.07 mm, 123.19 mm): Symbol 14C Pin 18 [~{CS}, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(132.08 mm, 172.72 mm): Symbol 16F Pin 14 [D5, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(132.08 mm, 172.72 mm): Symbol 16F Pin 14 [D5, Input, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(97.79 mm, 194.31 mm): Symbol 15H Pin 15 [D4, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(97.79 mm, 194.31 mm): Symbol 15H Pin 15 [D4, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(102.87 mm, 191.77 mm): Symbol 15H Pin 6 [W, Output, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(132.08 mm, 173.99 mm): Symbol 16F Pin 15 [D4, Input, Line]
+    @(96.52 mm, 195.58 mm): Symbol 15H Pin 15 [D4, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(132.08 mm, 173.99 mm): Symbol 16F Pin 15 [D4, Input, Line]
-[pin_to_pin]: Pins of type Output and Output are connected
-    ; error
-    @(102.87 mm, 194.31 mm): Symbol 15H Pin 5 [Y, Output, Line]
-    @(156.21 mm, 201.93 mm): Symbol 13Fa Pin 4 [~{1Y0}, Output, Line]
+    @(96.52 mm, 195.58 mm): Symbol 15H Pin 15 [D4, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(199.39 mm, 92.71 mm): Symbol 21B Pin 20 [~{OE}, Input, Line]
+    @(132.08 mm, 173.99 mm): Symbol 16F Pin 15 [D4, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(199.39 mm, 92.71 mm): Symbol 21B Pin 20 [~{OE}, Input, Line]
+    @(132.08 mm, 173.99 mm): Symbol 16F Pin 15 [D4, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(199.39 mm, 91.44 mm): Symbol 21B Pin 18 [~{CS}, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(139.70 mm, 170.18 mm): Symbol 16F Pin 6 [W, Output, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(182.88 mm, 123.19 mm): Symbol 16C Pin 20 [~{OE}, Input, Line]
+    @(96.52 mm, 198.12 mm): Symbol 15H Pin 2 [D2, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(182.88 mm, 123.19 mm): Symbol 16C Pin 20 [~{OE}, Input, Line]
+    @(96.52 mm, 198.12 mm): Symbol 15H Pin 2 [D2, Input, Line]
+[pin_to_pin]: Pins of type Output and Output are connected
+    ; error
+    @(102.87 mm, 195.58 mm): Symbol 15H Pin 5 [Y, Output, Line]
+    @(139.70 mm, 111.76 mm): Symbol 19F Pin 5 [Y, Output, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(97.79 mm, 198.12 mm): Symbol 15H Pin 2 [D2, Input, Line]
+    @(182.88 mm, 124.46 mm): Symbol 16C Pin 20 [~{OE}, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(97.79 mm, 198.12 mm): Symbol 15H Pin 2 [D2, Input, Line]
+    @(182.88 mm, 124.46 mm): Symbol 16C Pin 20 [~{OE}, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(132.08 mm, 177.80 mm): Symbol 16F Pin 2 [D2, Input, Line]
@@ -623,52 +599,49 @@ Report includes: Errors, Warnings, Exclusions
     @(132.08 mm, 177.80 mm): Symbol 16F Pin 2 [D2, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(97.79 mm, 199.39 mm): Symbol 15H Pin 3 [D1, Input, Line]
+    @(96.52 mm, 199.39 mm): Symbol 15H Pin 3 [D1, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(132.08 mm, 179.07 mm): Symbol 16F Pin 3 [D1, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(132.08 mm, 179.07 mm): Symbol 16F Pin 3 [D1, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(96.52 mm, 200.66 mm): Symbol 15H Pin 4 [D0, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(139.70 mm, 173.99 mm): Symbol 16F Pin 5 [Y, Output, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(97.79 mm, 200.66 mm): Symbol 15H Pin 4 [D0, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
     @(132.08 mm, 180.34 mm): Symbol 16F Pin 4 [D0, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(186.69 mm, 123.19 mm): Symbol 17C Pin 20 [~{OE}, Input, Line]
+    @(186.69 mm, 124.46 mm): Symbol 17C Pin 20 [~{OE}, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(186.69 mm, 123.19 mm): Symbol 17C Pin 20 [~{OE}, Input, Line]
+    @(186.69 mm, 124.46 mm): Symbol 17C Pin 20 [~{OE}, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(102.87 mm, 201.93 mm): Symbol 15H Pin 7 [~{G}, Input, Line]
+    @(102.87 mm, 203.20 mm): Symbol 15H Pin 7 [~{G}, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(102.87 mm, 201.93 mm): Symbol 15H Pin 7 [~{G}, Input, Line]
+    @(102.87 mm, 203.20 mm): Symbol 15H Pin 7 [~{G}, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(191.77 mm, 123.19 mm): Symbol 18C Pin 18 [~{CS}, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(191.77 mm, 123.19 mm): Symbol 18C Pin 20 [~{OE}, Input, Line]
+    @(139.70 mm, 181.61 mm): Symbol 16F Pin 7 [~{G}, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(191.77 mm, 123.19 mm): Symbol 18C Pin 20 [~{OE}, Input, Line]
+    @(139.70 mm, 181.61 mm): Symbol 16F Pin 7 [~{G}, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(194.31 mm, 123.19 mm): Symbol 20C Pin 20 [~{OE}, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(194.31 mm, 123.19 mm): Symbol 20C Pin 20 [~{OE}, Input, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(139.70 mm, 182.88 mm): Symbol 16F Pin 7 [~{G}, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(139.70 mm, 182.88 mm): Symbol 16F Pin 7 [~{G}, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(132.08 mm, 190.50 mm): Symbol 15F Pin 12 [D7, Input, Line]
@@ -687,24 +660,33 @@ Report includes: Errors, Warnings, Exclusions
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(148.59 mm, 180.34 mm): Symbol 14F Pin 6 [G1, Input, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(132.08 mm, 193.04 mm): Symbol 15F Pin 14 [D5, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(132.08 mm, 193.04 mm): Symbol 15F Pin 14 [D5, Input, Line]
+    @(199.39 mm, 123.19 mm): Symbol 21C Pin 18 [~{CS}, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(199.39 mm, 123.19 mm): Symbol 21C Pin 20 [~{OE}, Input, Line]
+    @(148.59 mm, 181.61 mm): Symbol 14F Pin 4 [~{G2A}, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(199.39 mm, 123.19 mm): Symbol 21C Pin 20 [~{OE}, Input, Line]
+    @(148.59 mm, 181.61 mm): Symbol 14F Pin 4 [~{G2A}, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(148.59 mm, 182.88 mm): Symbol 14F Pin 4 [~{G2A}, Input, Line]
+    @(132.08 mm, 194.31 mm): Symbol 15F Pin 14 [D5, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(148.59 mm, 182.88 mm): Symbol 14F Pin 4 [~{G2A}, Input, Line]
+    @(132.08 mm, 194.31 mm): Symbol 15F Pin 14 [D5, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(148.59 mm, 182.88 mm): Symbol 14F Pin 5 [~{G2B}, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(148.59 mm, 182.88 mm): Symbol 14F Pin 5 [~{G2B}, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(132.08 mm, 195.58 mm): Symbol 15F Pin 15 [D4, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(132.08 mm, 195.58 mm): Symbol 15F Pin 15 [D4, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(153.67 mm, 180.34 mm): Symbol 14F Pin 15 [~{Y0}, Output, Line]
@@ -735,60 +717,54 @@ Report includes: Errors, Warnings, Exclusions
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(148.59 mm, 186.69 mm): Symbol 14F Pin 1 [A, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
+[pin_not_connected]: Pin not connected
     ; error
-    @(132.08 mm, 199.39 mm): Symbol 15F Pin 3 [D1, Input, Line]
+    @(153.67 mm, 182.88 mm): Symbol 14F Pin 13 [~{Y2}, Output, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(148.59 mm, 187.96 mm): Symbol 14F Pin 2 [B, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(148.59 mm, 187.96 mm): Symbol 14F Pin 2 [B, Input, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(153.67 mm, 184.15 mm): Symbol 14F Pin 13 [~{Y2}, Output, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(132.08 mm, 200.66 mm): Symbol 15F Pin 4 [D0, Input, Line]
+    @(132.08 mm, 200.66 mm): Symbol 15F Pin 3 [D1, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(182.88 mm, 156.21 mm): Symbol 16D Pin 20 [~{OE}, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(182.88 mm, 156.21 mm): Symbol 16D Pin 20 [~{OE}, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(148.59 mm, 189.23 mm): Symbol 14F Pin 3 [C, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(148.59 mm, 189.23 mm): Symbol 14F Pin 3 [C, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(153.67 mm, 185.42 mm): Symbol 14F Pin 12 [~{Y3}, Output, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(148.59 mm, 190.50 mm): Symbol 14F Pin 3 [C, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(148.59 mm, 190.50 mm): Symbol 14F Pin 3 [C, Input, Line]
+    @(132.08 mm, 201.93 mm): Symbol 15F Pin 4 [D0, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(153.67 mm, 186.69 mm): Symbol 14F Pin 11 [~{Y4}, Output, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(226.06 mm, 86.36 mm): Symbol 13B Pin 1 [DIR, Input, Line]
+    @(153.67 mm, 187.96 mm): Symbol 14F Pin 10 [~{Y5}, Output, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(226.06 mm, 86.36 mm): Symbol 13B Pin 1 [DIR, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(132.08 mm, 203.20 mm): Symbol 15F Pin 9 [C, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(132.08 mm, 204.47 mm): Symbol 15F Pin 10 [B, Input, Line]
+    @(132.08 mm, 204.47 mm): Symbol 15F Pin 9 [C, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(186.69 mm, 156.21 mm): Symbol 17D Pin 20 [~{OE}, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(186.69 mm, 156.21 mm): Symbol 17D Pin 20 [~{OE}, Input, Line]
-[pin_not_connected]: Pin not connected
+[pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(153.67 mm, 189.23 mm): Symbol 14F Pin 10 [~{Y5}, Output, Line]
+    @(132.08 mm, 205.74 mm): Symbol 15F Pin 10 [B, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(153.67 mm, 190.50 mm): Symbol 14F Pin 9 [~{Y6}, Output, Line]
@@ -797,13 +773,19 @@ Report includes: Errors, Warnings, Exclusions
     @(132.08 mm, 207.01 mm): Symbol 15F Pin 11 [A, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
+    @(153.67 mm, 191.77 mm): Symbol 14F Pin 7 [~{Y7}, Output, Line]
+[pin_not_connected]: Pin not connected
+    ; error
     @(190.50 mm, 156.21 mm): Symbol 18D Pin 20 [~{OE}, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(190.50 mm, 156.21 mm): Symbol 18D Pin 20 [~{OE}, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(153.67 mm, 193.04 mm): Symbol 14F Pin 7 [~{Y7}, Output, Line]
+    @(139.70 mm, 203.20 mm): Symbol 15F Pin 7 [~{G}, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(139.70 mm, 203.20 mm): Symbol 15F Pin 7 [~{G}, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(194.31 mm, 156.21 mm): Symbol 20D Pin 20 [~{OE}, Input, Line]
@@ -821,26 +803,20 @@ Report includes: Errors, Warnings, Exclusions
     @(199.39 mm, 154.94 mm): Symbol 21D Pin 20 [~{OE}, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(151.13 mm, 204.47 mm): Symbol 13Fa Pin 2 [1A, Input, Line]
+    @(151.13 mm, 203.20 mm): Symbol 13Fa Pin 2 [1A, Input, Line]
+[pin_to_pin]: Pins of type Output and Output are connected
+    ; error
+    @(156.21 mm, 200.66 mm): Symbol 13Fa Pin 4 [~{1Y0}, Output, Line]
+    @(156.21 mm, 203.20 mm): Symbol 13Fa Pin 5 [~{1Y1}, Output, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(151.13 mm, 205.74 mm): Symbol 13Fa Pin 3 [1B, Input, Line]
-[pin_to_pin]: Pins of type Output and Output are connected
-    ; error
-    @(156.21 mm, 201.93 mm): Symbol 13Fa Pin 4 [~{1Y0}, Output, Line]
-    @(156.21 mm, 203.20 mm): Symbol 13Fa Pin 5 [~{1Y1}, Output, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(226.06 mm, 120.65 mm): Symbol 13C Pin 1 [DIR, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(226.06 mm, 120.65 mm): Symbol 13C Pin 1 [DIR, Input, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(241.30 mm, 86.36 mm): Symbol 6H Pin 1 [1A, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(241.30 mm, 86.36 mm): Symbol 6H Pin 1 [1A, Input, Line]
 [pin_to_pin]: Pins of type Output and Output are connected
     ; error
     @(156.21 mm, 203.20 mm): Symbol 13Fa Pin 5 [~{1Y1}, Output, Line]
@@ -848,76 +824,58 @@ Report includes: Errors, Warnings, Exclusions
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(151.13 mm, 207.01 mm): Symbol 13Fa Pin 13 [2B, Input, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(241.30 mm, 88.90 mm): Symbol 6H Pin 4 [2Y, Output, Line]
 [pin_to_pin]: Pins of type Output and Output are connected
     ; error
     @(156.21 mm, 204.47 mm): Symbol 13Fa Pin 6 [~{1Y2}, Output, Line]
-    @(156.21 mm, 207.01 mm): Symbol 13Fa Pin 7 [~{1Y3}, Output, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(151.13 mm, 208.28 mm): Symbol 13Fa Pin 15 [~{2G}, Input, Line]
+    @(156.21 mm, 205.74 mm): Symbol 13Fa Pin 7 [~{1Y3}, Output, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(151.13 mm, 208.28 mm): Symbol 13Fa Pin 15 [~{2G}, Input, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(243.84 mm, 86.36 mm): Symbol 6H Pin 8 [4Y, Output, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(179.07 mm, 186.69 mm): Symbol 14E Pin 20 [~{OE}, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(179.07 mm, 186.69 mm): Symbol 14E Pin 20 [~{OE}, Input, Line]
-[pin_to_pin]: Pins of type Output and Output are connected
-    ; error
-    @(243.84 mm, 87.63 mm): Symbol 6H Pin 10 [5Y, Output, Line]
-    @(243.84 mm, 90.17 mm): Symbol 6H Pin 12 [6Y, Output, Line]
+    @(241.30 mm, 90.17 mm): Symbol 6H Pin 5 [3A, Input, Line]
 [pin_to_pin]: Pins of type Output and Power output are connected
     ; error
-    @(156.21 mm, 207.01 mm): Symbol 13Fa Pin 10 [~{2Y2}, Output, Line]
+    @(156.21 mm, 205.74 mm): Symbol 13Fa Pin 7 [~{1Y3}, Output, Line]
     @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(179.07 mm, 186.69 mm): Symbol 14E Pin 20 [~{OE}, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(179.07 mm, 186.69 mm): Symbol 14E Pin 20 [~{OE}, Input, Line]
 [pin_to_pin]: Pins of type Output and Output are connected
     ; error
-    @(156.21 mm, 207.01 mm): Symbol 13Fa Pin 7 [~{1Y3}, Output, Line]
-    @(156.21 mm, 207.01 mm): Symbol 13Fa Pin 9 [~{2Y3}, Output, Line]
+    @(156.21 mm, 207.01 mm): Symbol 13Fa Pin 10 [~{2Y2}, Output, Line]
+    @(156.21 mm, 207.01 mm): Symbol 13Fa Pin 11 [~{2Y1}, Output, Line]
 [pin_to_pin]: Pins of type Output and Output are connected
     ; error
     @(156.21 mm, 207.01 mm): Symbol 13Fa Pin 9 [~{2Y3}, Output, Line]
     @(156.21 mm, 207.01 mm): Symbol 13Fa Pin 10 [~{2Y2}, Output, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(243.84 mm, 88.90 mm): Symbol 6H Pin 11 [5A, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(243.84 mm, 88.90 mm): Symbol 6H Pin 11 [5A, Input, Line]
 [pin_to_pin]: Pins of type Output and Output are connected
     ; error
-    @(243.84 mm, 90.17 mm): Symbol 6H Pin 6 [3Y, Output, Line]
-    @(243.84 mm, 90.17 mm): Symbol 6H Pin 12 [6Y, Output, Line]
+    @(156.21 mm, 207.01 mm): Symbol 13Fa Pin 11 [~{2Y1}, Output, Line]
+    @(156.21 mm, 207.01 mm): Symbol 13Fa Pin 12 [~{2Y0}, Output, Line]
 [pin_to_pin]: Pins of type Output and Output are connected
     ; error
-    @(156.21 mm, 208.28 mm): Symbol 13Fa Pin 11 [~{2Y1}, Output, Line]
-    @(156.21 mm, 208.28 mm): Symbol 13Fa Pin 12 [~{2Y0}, Output, Line]
+    @(245.11 mm, 87.63 mm): Symbol 6H Pin 8 [4Y, Output, Line]
+    @(245.11 mm, 90.17 mm): Symbol 6H Pin 12 [6Y, Output, Line]
+[pin_to_pin]: Pins of type Output and Output are connected
+    ; error
+    @(245.11 mm, 90.17 mm): Symbol 6H Pin 6 [3Y, Output, Line]
+    @(245.11 mm, 90.17 mm): Symbol 6H Pin 12 [6Y, Output, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(243.84 mm, 91.44 mm): Symbol 6H Pin 13 [6A, Input, Line]
+    @(245.11 mm, 91.44 mm): Symbol 6H Pin 13 [6A, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(243.84 mm, 91.44 mm): Symbol 6H Pin 13 [6A, Input, Line]
+    @(245.11 mm, 91.44 mm): Symbol 6H Pin 13 [6A, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(184.15 mm, 186.69 mm): Symbol 16E Pin 18 [~{CS}, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(184.15 mm, 186.69 mm): Symbol 16E Pin 20 [~{OE}, Input, Line]
+    @(187.96 mm, 186.69 mm): Symbol 17E Pin 18 [~{CS}, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(184.15 mm, 186.69 mm): Symbol 16E Pin 20 [~{OE}, Input, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(186.69 mm, 186.69 mm): Symbol 17E Pin 20 [~{OE}, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(186.69 mm, 186.69 mm): Symbol 17E Pin 20 [~{OE}, Input, Line]
+    @(187.96 mm, 186.69 mm): Symbol 17E Pin 18 [~{CS}, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(191.77 mm, 186.69 mm): Symbol 18E Pin 20 [~{OE}, Input, Line]
@@ -936,57 +894,48 @@ Report includes: Errors, Warnings, Exclusions
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(226.06 mm, 151.13 mm): Symbol 13D Pin 1 [DIR, Input, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(200.66 mm, 186.69 mm): Symbol 21E Pin 20 [~{OE}, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(200.66 mm, 186.69 mm): Symbol 21E Pin 20 [~{OE}, Input, Line]
+    @(200.66 mm, 186.69 mm): Symbol 21E Pin 18 [~{CS}, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(198.12 mm, 196.85 mm): Symbol 13Fb Pin 15 [~{2G}, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(198.12 mm, 201.93 mm): Symbol 13Fb Pin 1 [~{1G}, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(198.12 mm, 201.93 mm): Symbol 13Fb Pin 3 [1B, Input, Line]
+    @(271.78 mm, 85.09 mm): Symbol 14A Pin 1 [SER, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(198.12 mm, 201.93 mm): Symbol 13Fb Pin 3 [1B, Input, Line]
+    @(271.78 mm, 85.09 mm): Symbol 14A Pin 1 [SER, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(270.51 mm, 85.09 mm): Symbol 14A Pin 1 [SER, Input, Line]
+    @(271.78 mm, 86.36 mm): Symbol 14A Pin 15 [SH/~LD, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(270.51 mm, 85.09 mm): Symbol 14A Pin 1 [SER, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(198.12 mm, 203.20 mm): Symbol 13Fb Pin 1 [~{1G}, Input, Line]
+    @(271.78 mm, 86.36 mm): Symbol 14A Pin 15 [SH/~LD, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(270.51 mm, 86.36 mm): Symbol 14A Pin 15 [SH/~LD, Input, Line]
+    @(271.78 mm, 88.90 mm): Symbol 14A Pin 6 [CLK_INH, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(270.51 mm, 86.36 mm): Symbol 14A Pin 15 [SH/~LD, Input, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(270.51 mm, 88.90 mm): Symbol 14A Pin 6 [CLK_INH, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(270.51 mm, 88.90 mm): Symbol 14A Pin 6 [CLK_INH, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(270.51 mm, 90.17 mm): Symbol 14A Pin 7 [CLK, Input, Line]
+    @(271.78 mm, 88.90 mm): Symbol 14A Pin 6 [CLK_INH, Input, Line]
 [pin_to_pin]: Pins of type Output and Output are connected
     ; error
-    @(203.20 mm, 201.93 mm): Symbol 13Fb Pin 7 [~{1Y3}, Output, Line]
-    @(203.20 mm, 201.93 mm): Symbol 13Fb Pin 9 [~{2Y3}, Output, Line]
+    @(203.20 mm, 201.93 mm): Symbol 13Fb Pin 4 [~{1Y0}, Output, Line]
+    @(203.20 mm, 201.93 mm): Symbol 13Fb Pin 5 [~{1Y1}, Output, Line]
 [pin_to_pin]: Pins of type Output and Output are connected
     ; error
     @(203.20 mm, 201.93 mm): Symbol 13Fb Pin 6 [~{1Y2}, Output, Line]
     @(203.20 mm, 201.93 mm): Symbol 13Fb Pin 7 [~{1Y3}, Output, Line]
 [pin_to_pin]: Pins of type Output and Output are connected
     ; error
-    @(203.20 mm, 203.20 mm): Symbol 13Fb Pin 4 [~{1Y0}, Output, Line]
-    @(203.20 mm, 203.20 mm): Symbol 13Fb Pin 5 [~{1Y1}, Output, Line]
+    @(203.20 mm, 201.93 mm): Symbol 13Fb Pin 5 [~{1Y1}, Output, Line]
+    @(203.20 mm, 201.93 mm): Symbol 13Fb Pin 6 [~{1Y2}, Output, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(271.78 mm, 91.44 mm): Symbol 14A Pin 7 [CLK, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(226.06 mm, 184.15 mm): Symbol 13E Pin 1 [DIR, Input, Line]
@@ -995,44 +944,40 @@ Report includes: Errors, Warnings, Exclusions
     @(226.06 mm, 184.15 mm): Symbol 13E Pin 1 [DIR, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(270.51 mm, 116.84 mm): Symbol 15A Pin 1 [SER, Input, Line]
+    @(271.78 mm, 116.84 mm): Symbol 15A Pin 1 [SER, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(270.51 mm, 116.84 mm): Symbol 15A Pin 1 [SER, Input, Line]
+    @(271.78 mm, 116.84 mm): Symbol 15A Pin 1 [SER, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(270.51 mm, 118.11 mm): Symbol 15A Pin 15 [SH/~LD, Input, Line]
+    @(271.78 mm, 118.11 mm): Symbol 15A Pin 15 [SH/~LD, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(270.51 mm, 118.11 mm): Symbol 15A Pin 15 [SH/~LD, Input, Line]
+    @(271.78 mm, 118.11 mm): Symbol 15A Pin 15 [SH/~LD, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(270.51 mm, 120.65 mm): Symbol 15A Pin 6 [CLK_INH, Input, Line]
+    @(271.78 mm, 121.92 mm): Symbol 15A Pin 6 [CLK_INH, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(270.51 mm, 120.65 mm): Symbol 15A Pin 6 [CLK_INH, Input, Line]
+    @(271.78 mm, 121.92 mm): Symbol 15A Pin 6 [CLK_INH, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(270.51 mm, 148.59 mm): Symbol 16A Pin 1 [SER, Input, Line]
+    @(271.78 mm, 148.59 mm): Symbol 16A Pin 1 [SER, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(270.51 mm, 148.59 mm): Symbol 16A Pin 1 [SER, Input, Line]
+    @(271.78 mm, 148.59 mm): Symbol 16A Pin 1 [SER, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(270.51 mm, 149.86 mm): Symbol 16A Pin 15 [SH/~LD, Input, Line]
+    @(271.78 mm, 149.86 mm): Symbol 16A Pin 15 [SH/~LD, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(270.51 mm, 149.86 mm): Symbol 16A Pin 15 [SH/~LD, Input, Line]
+    @(271.78 mm, 149.86 mm): Symbol 16A Pin 15 [SH/~LD, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(270.51 mm, 152.40 mm): Symbol 16A Pin 6 [CLK_INH, Input, Line]
+    @(271.78 mm, 153.67 mm): Symbol 16A Pin 6 [CLK_INH, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(270.51 mm, 152.40 mm): Symbol 16A Pin 6 [CLK_INH, Input, Line]
-[pin_to_pin]: Pins of type Output and Output are connected
-    ; error
-    @(274.32 mm, 166.37 mm): Symbol 17A Pin 13 [QH, Output, Line]
-    @(156.21 mm, 201.93 mm): Symbol 13Fa Pin 4 [~{1Y0}, Output, Line]
+    @(271.78 mm, 153.67 mm): Symbol 16A Pin 6 [CLK_INH, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(271.78 mm, 180.34 mm): Symbol 17A Pin 1 [SER, Input, Line]
@@ -1047,28 +992,28 @@ Report includes: Errors, Warnings, Exclusions
     @(271.78 mm, 181.61 mm): Symbol 17A Pin 15 [SH/~LD, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(271.78 mm, 184.15 mm): Symbol 17A Pin 6 [CLK_INH, Input, Line]
+    @(271.78 mm, 185.42 mm): Symbol 17A Pin 6 [CLK_INH, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(271.78 mm, 184.15 mm): Symbol 17A Pin 6 [CLK_INH, Input, Line]
+    @(271.78 mm, 185.42 mm): Symbol 17A Pin 6 [CLK_INH, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(311.15 mm, 167.64 mm): Symbol 23E Pin 19 [8Q, Tri-state, Line]
+    @(311.15 mm, 168.91 mm): Symbol 23E Pin 19 [8Q, Tri-state, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(311.15 mm, 168.91 mm): Symbol 23E Pin 16 [7Q, Tri-state, Line]
+    @(311.15 mm, 170.18 mm): Symbol 23E Pin 16 [7Q, Tri-state, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(311.15 mm, 170.18 mm): Symbol 23E Pin 15 [6Q, Tri-state, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(306.07 mm, 180.34 mm): Symbol 23E Pin 11 [CLK, Input, Line]
+    @(311.15 mm, 171.45 mm): Symbol 23E Pin 15 [6Q, Tri-state, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(311.15 mm, 171.45 mm): Symbol 23E Pin 12 [5Q, Tri-state, Line]
+    @(311.15 mm, 172.72 mm): Symbol 23E Pin 12 [5Q, Tri-state, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(311.15 mm, 173.99 mm): Symbol 23E Pin 5 [2Q, Tri-state, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(307.34 mm, 181.61 mm): Symbol 23E Pin 11 [CLK, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(311.15 mm, 175.26 mm): Symbol 23E Pin 6 [3Q, Tri-state, Line]
@@ -1080,139 +1025,140 @@ Report includes: Errors, Warnings, Exclusions
     @(311.15 mm, 177.80 mm): Symbol 23E Pin 2 [1Q, Tri-state, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(311.15 mm, 180.34 mm): Symbol 23E Pin 1 [~{OE}, Input, Line]
+    @(311.15 mm, 181.61 mm): Symbol 23E Pin 1 [~{OE}, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(311.15 mm, 180.34 mm): Symbol 23E Pin 1 [~{OE}, Input, Line]
+    @(311.15 mm, 181.61 mm): Symbol 23E Pin 1 [~{OE}, Input, Line]
 [pin_to_pin]: Pins of type Power output and Power output are connected
     ; error
     @(400.05 mm, 17.78 mm): Symbol #PWR_GND Pin 1 [GND, Power output, Line]
     @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
 [isolated_pin_label]: Label connected to only one pin
     ; warning
-    @(97.79 mm, 69.85 mm): Label 'I5'
+    @(99.06 mm, 71.12 mm): Label 'I5'
 [isolated_pin_label]: Label connected to only one pin
     ; warning
-    @(97.79 mm, 73.66 mm): Label 'A12'
-[isolated_pin_label]: Label connected to only one pin
-    ; warning
-    @(97.79 mm, 74.93 mm): Label 'LA7'
-[isolated_pin_label]: Label connected to only one pin
-    ; warning
-    @(97.79 mm, 76.20 mm): Label 'L7'
+    @(99.06 mm, 73.66 mm): Label 'A12'
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(99.06 mm, 74.93 mm): Symbol 21H [_chip_21H]
 [isolated_pin_label]: Label connected to only one pin
     ; warning
-    @(99.06 mm, 91.44 mm): Label 'I4'
+    @(99.06 mm, 76.20 mm): Label 'LA7'
 [isolated_pin_label]: Label connected to only one pin
     ; warning
-    @(99.06 mm, 96.52 mm): Label 'LA6'
+    @(99.06 mm, 77.47 mm): Label 'L7'
+[multiple_net_names]: Both GND and B10 are attached to the same items; GND will be used in the netlist
+    ; warning
+    @(99.06 mm, 85.09 mm): Global Label 'GND'
+    @(105.41 mm, 71.12 mm): Label 'B10'
 [isolated_pin_label]: Label connected to only one pin
     ; warning
-    @(99.06 mm, 97.79 mm): Label 'L6'
+    @(97.79 mm, 91.44 mm): Label 'I4'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(97.79 mm, 96.52 mm): Label 'LA6'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(97.79 mm, 97.79 mm): Label 'L6'
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(100.33 mm, 96.52 mm): Symbol 20H [_chip_20H]
 [isolated_pin_label]: Label connected to only one pin
     ; warning
-    @(97.79 mm, 113.03 mm): Label 'I3'
+    @(99.06 mm, 111.76 mm): Label 'I3'
 [isolated_pin_label]: Label connected to only one pin
     ; warning
-    @(134.62 mm, 68.58 mm): Label 'N3'
+    @(134.62 mm, 69.85 mm): Label 'N3'
 [isolated_pin_label]: Label connected to only one pin
     ; warning
-    @(97.79 mm, 115.57 mm): Label 'A10'
+    @(99.06 mm, 115.57 mm): Label 'A10'
 [isolated_pin_label]: Label connected to only one pin
     ; warning
-    @(134.62 mm, 69.85 mm): Label 'V2'
-[isolated_pin_label]: Label connected to only one pin
-    ; warning
-    @(97.79 mm, 116.84 mm): Label 'LA5'
+    @(134.62 mm, 71.12 mm): Label 'V2'
 [isolated_pin_label]: Label connected to only one pin
     ; warning
     @(134.62 mm, 72.39 mm): Label 'A5'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(99.06 mm, 116.84 mm): Label 'LA5'
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(99.06 mm, 116.84 mm): Symbol 19H [_chip_19H]
 [isolated_pin_label]: Label connected to only one pin
     ; warning
-    @(97.79 mm, 118.11 mm): Label 'L5'
+    @(99.06 mm, 118.11 mm): Label 'L5'
 [isolated_pin_label]: Label connected to only one pin
     ; warning
-    @(134.62 mm, 74.93 mm): Label 'LA0'
-[isolated_pin_label]: Label connected to only one pin
-    ; warning
-    @(134.62 mm, 76.20 mm): Label 'L0'
+    @(134.62 mm, 76.20 mm): Label 'LA0'
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(135.89 mm, 74.93 mm): Symbol 21F [_chip_21F]
 [isolated_pin_label]: Label connected to only one pin
     ; warning
+    @(134.62 mm, 77.47 mm): Label 'L0'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
     @(135.89 mm, 91.44 mm): Label 'V1'
 [isolated_pin_label]: Label connected to only one pin
     ; warning
-    @(135.89 mm, 93.98 mm): Label 'A4'
+    @(99.06 mm, 132.08 mm): Label 'I2'
 [isolated_pin_label]: Label connected to only one pin
     ; warning
-    @(99.06 mm, 133.35 mm): Label 'I2'
+    @(135.89 mm, 93.98 mm): Label 'A4'
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(135.89 mm, 96.52 mm): Symbol 20F [_chip_20F]
 [isolated_pin_label]: Label connected to only one pin
     ; warning
     @(135.89 mm, 97.79 mm): Label 'N12'
+[multiple_net_names]: Both B1 and B2 are attached to the same items; B1 will be used in the netlist
+    ; warning
+    @(142.24 mm, 111.76 mm): Label 'B1'
+    @(140.97 mm, 91.44 mm): Label 'B2'
 [isolated_pin_label]: Label connected to only one pin
     ; warning
     @(99.06 mm, 137.16 mm): Label 'LA4'
+[multiple_net_names]: Both B6 and B7 are attached to the same items; B6 will be used in the netlist
+    ; warning
+    @(106.68 mm, 154.94 mm): Label 'B6'
+    @(106.68 mm, 132.08 mm): Label 'B7'
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(100.33 mm, 137.16 mm): Symbol 18H [_chip_18H]
 [isolated_pin_label]: Label connected to only one pin
     ; warning
-    @(134.62 mm, 110.49 mm): Label 'N1'
+    @(135.89 mm, 110.49 mm): Label 'N1'
 [isolated_pin_label]: Label connected to only one pin
     ; warning
-    @(134.62 mm, 111.76 mm): Label 'V0'
+    @(135.89 mm, 111.76 mm): Label 'V0'
 [isolated_pin_label]: Label connected to only one pin
     ; warning
-    @(134.62 mm, 114.30 mm): Label 'A3'
-[isolated_pin_label]: Label connected to only one pin
-    ; warning
-    @(134.62 mm, 118.11 mm): Label 'N11'
+    @(135.89 mm, 114.30 mm): Label 'A3'
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(135.89 mm, 116.84 mm): Symbol 19F [_chip_19F]
-[multiple_net_names]: Both GND and B1 are attached to the same items; GND will be used in the netlist
+[isolated_pin_label]: Label connected to only one pin
     ; warning
-    @(187.96 mm, 91.44 mm): Global Label 'GND'
-    @(142.24 mm, 111.76 mm): Label 'B1'
+    @(135.89 mm, 118.11 mm): Label 'N11'
 [isolated_pin_label]: Label connected to only one pin
     ; warning
     @(99.06 mm, 154.94 mm): Label 'I1'
 [isolated_pin_label]: Label connected to only one pin
     ; warning
     @(99.06 mm, 156.21 mm): Label 'A8'
-[isolated_pin_label]: Label connected to only one pin
-    ; warning
-    @(99.06 mm, 158.75 mm): Label 'LA3'
-[isolated_pin_label]: Label connected to only one pin
-    ; warning
-    @(134.62 mm, 130.81 mm): Label 'N0'
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(100.33 mm, 158.75 mm): Symbol 17H [_chip_17H]
 [isolated_pin_label]: Label connected to only one pin
     ; warning
-    @(99.06 mm, 160.02 mm): Label 'L3'
+    @(99.06 mm, 160.02 mm): Label 'LA3'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(99.06 mm, 161.29 mm): Label 'L3'
 [isolated_pin_label]: Label connected to only one pin
     ; warning
     @(134.62 mm, 134.62 mm): Label 'A2'
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(179.07 mm, 71.12 mm): Symbol 14B Pin 9 [I/O0, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(135.89 mm, 137.16 mm): Symbol 18F [_chip_18F]
@@ -1221,190 +1167,58 @@ Report includes: Errors, Warnings, Exclusions
     @(134.62 mm, 138.43 mm): Label 'N10'
 [pin_to_pin]: Pins of type Bidirectional and Power output are connected
     ; warning
-    @(179.07 mm, 73.66 mm): Symbol 14B Pin 10 [I/O1, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(179.07 mm, 76.20 mm): Symbol 14B Pin 11 [I/O2, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(179.07 mm, 77.47 mm): Symbol 14B Pin 13 [I/O3, Bidirectional, Line]
+    @(180.34 mm, 72.39 mm): Symbol 14B Pin 9 [I/O0, Bidirectional, Line]
     @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(177.80 mm, 81.28 mm): Symbol 14B [_chip_14B]
 [pin_to_pin]: Pins of type Bidirectional and Power output are connected
     ; warning
-    @(179.07 mm, 80.01 mm): Symbol 14B Pin 14 [I/O4, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(179.07 mm, 82.55 mm): Symbol 14B Pin 15 [I/O5, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
     @(184.15 mm, 72.39 mm): Symbol 16B Pin 9 [I/O0, Bidirectional, Line]
     @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
+[multiple_net_names]: Both B5 and D34 are attached to the same items; B5 will be used in the netlist
     ; warning
-    @(179.07 mm, 85.09 mm): Symbol 14B Pin 16 [I/O6, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(184.15 mm, 73.66 mm): Symbol 16B Pin 10 [I/O1, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(179.07 mm, 86.36 mm): Symbol 14B Pin 17 [I/O7, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(184.15 mm, 76.20 mm): Symbol 16B Pin 11 [I/O2, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
+    @(105.41 mm, 173.99 mm): Label 'B5'
+    @(182.88 mm, 80.01 mm): Label 'D34'
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(182.88 mm, 81.28 mm): Symbol 16B [_chip_16B]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(184.15 mm, 78.74 mm): Symbol 16B Pin 13 [I/O3, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(184.15 mm, 80.01 mm): Symbol 16B Pin 14 [I/O4, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
 [isolated_pin_label]: Label connected to only one pin
     ; warning
-    @(99.06 mm, 175.26 mm): Label 'I0'
+    @(99.06 mm, 173.99 mm): Label 'I0'
 [pin_to_pin]: Pins of type Bidirectional and Power output are connected
     ; warning
-    @(184.15 mm, 82.55 mm): Symbol 16B Pin 15 [I/O5, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(184.15 mm, 83.82 mm): Symbol 16B Pin 16 [I/O6, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(189.23 mm, 72.39 mm): Symbol 17B Pin 9 [I/O0, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(189.23 mm, 73.66 mm): Symbol 17B Pin 10 [I/O1, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(184.15 mm, 86.36 mm): Symbol 16B Pin 17 [I/O7, Bidirectional, Line]
+    @(189.23 mm, 71.12 mm): Symbol 17B Pin 9 [I/O0, Bidirectional, Line]
     @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(186.69 mm, 81.28 mm): Symbol 17B [_chip_17B]
 [pin_to_pin]: Pins of type Bidirectional and Power output are connected
     ; warning
-    @(189.23 mm, 76.20 mm): Symbol 17B Pin 11 [I/O2, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(191.77 mm, 69.85 mm): Symbol 18B Pin 9 [I/O0, Bidirectional, Line]
+    @(191.77 mm, 71.12 mm): Symbol 18B Pin 9 [I/O0, Bidirectional, Line]
     @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
 [isolated_pin_label]: Label connected to only one pin
     ; warning
     @(99.06 mm, 179.07 mm): Label 'LA2'
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(189.23 mm, 78.74 mm): Symbol 17B Pin 13 [I/O3, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(191.77 mm, 72.39 mm): Symbol 18B Pin 10 [I/O1, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(100.33 mm, 179.07 mm): Symbol 16H [_chip_16H]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(189.23 mm, 80.01 mm): Symbol 17B Pin 14 [I/O4, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
 [isolated_pin_label]: Label connected to only one pin
     ; warning
     @(99.06 mm, 180.34 mm): Label 'L2'
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(191.77 mm, 74.93 mm): Symbol 18B Pin 11 [I/O2, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(191.77 mm, 76.20 mm): Symbol 18B Pin 13 [I/O3, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(189.23 mm, 82.55 mm): Symbol 17B Pin 15 [I/O5, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(190.50 mm, 80.01 mm): Symbol 18B [_chip_18B]
 [pin_to_pin]: Pins of type Bidirectional and Power output are connected
     ; warning
-    @(189.23 mm, 83.82 mm): Symbol 17B Pin 16 [I/O6, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(179.07 mm, 104.14 mm): Symbol 14C Pin 9 [I/O0, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(191.77 mm, 78.74 mm): Symbol 18B Pin 14 [I/O4, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(179.07 mm, 105.41 mm): Symbol 14C Pin 10 [I/O1, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(189.23 mm, 86.36 mm): Symbol 17B Pin 17 [I/O7, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
     @(195.58 mm, 71.12 mm): Symbol 20B Pin 9 [I/O0, Bidirectional, Line]
     @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(191.77 mm, 81.28 mm): Symbol 18B Pin 15 [I/O5, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[isolated_pin_label]: Label connected to only one pin
-    ; warning
-    @(140.97 mm, 153.67 mm): Label 'A13'
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(135.89 mm, 158.75 mm): Symbol 17F [_chip_17F]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
+[isolated_pin_label]: Label connected to only one pin
     ; warning
-    @(195.58 mm, 73.66 mm): Symbol 20B Pin 10 [I/O1, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(179.07 mm, 107.95 mm): Symbol 14C Pin 11 [I/O2, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(191.77 mm, 83.82 mm): Symbol 18B Pin 16 [I/O6, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(191.77 mm, 85.09 mm): Symbol 18B Pin 17 [I/O7, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(195.58 mm, 76.20 mm): Symbol 20B Pin 11 [I/O2, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(195.58 mm, 77.47 mm): Symbol 20B Pin 13 [I/O3, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(179.07 mm, 110.49 mm): Symbol 14C Pin 13 [I/O3, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
+    @(142.24 mm, 153.67 mm): Label 'A13'
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(194.31 mm, 81.28 mm): Symbol 20B [_chip_20B]
@@ -1413,394 +1227,70 @@ Report includes: Errors, Warnings, Exclusions
     @(177.80 mm, 113.03 mm): Symbol 14C [_chip_14C]
 [pin_to_pin]: Pins of type Bidirectional and Power output are connected
     ; warning
-    @(179.07 mm, 111.76 mm): Symbol 14C Pin 14 [I/O4, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(195.58 mm, 80.01 mm): Symbol 20B Pin 14 [I/O4, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(185.42 mm, 102.87 mm): Symbol 16C Pin 9 [I/O0, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(195.58 mm, 82.55 mm): Symbol 20B Pin 15 [I/O5, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(179.07 mm, 114.30 mm): Symbol 14C Pin 15 [I/O5, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(179.07 mm, 115.57 mm): Symbol 14C Pin 16 [I/O6, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(195.58 mm, 85.09 mm): Symbol 20B Pin 16 [I/O6, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(195.58 mm, 86.36 mm): Symbol 20B Pin 17 [I/O7, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(201.93 mm, 71.12 mm): Symbol 21B Pin 9 [I/O0, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(179.07 mm, 118.11 mm): Symbol 14C Pin 17 [I/O7, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(185.42 mm, 107.95 mm): Symbol 16C Pin 11 [I/O2, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(201.93 mm, 73.66 mm): Symbol 21B Pin 10 [I/O1, Bidirectional, Line]
+    @(200.66 mm, 71.12 mm): Symbol 21B Pin 9 [I/O0, Bidirectional, Line]
     @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(182.88 mm, 113.03 mm): Symbol 16C [_chip_16C]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(185.42 mm, 109.22 mm): Symbol 16C Pin 13 [I/O3, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(199.39 mm, 81.28 mm): Symbol 21B [_chip_21B]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(189.23 mm, 102.87 mm): Symbol 17C Pin 9 [I/O0, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(201.93 mm, 76.20 mm): Symbol 21B Pin 11 [I/O2, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(201.93 mm, 77.47 mm): Symbol 21B Pin 13 [I/O3, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(185.42 mm, 111.76 mm): Symbol 16C Pin 14 [I/O4, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(189.23 mm, 105.41 mm): Symbol 17C Pin 10 [I/O1, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(201.93 mm, 80.01 mm): Symbol 21B Pin 14 [I/O4, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
 [isolated_pin_label]: Label connected to only one pin
     ; warning
-    @(100.33 mm, 193.04 mm): Label 'N4'
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(185.42 mm, 114.30 mm): Symbol 16C Pin 15 [I/O5, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(189.23 mm, 107.95 mm): Symbol 17C Pin 11 [I/O2, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(201.93 mm, 82.55 mm): Symbol 21B Pin 15 [I/O5, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
+    @(99.06 mm, 194.31 mm): Label 'N4'
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(186.69 mm, 113.03 mm): Symbol 17C [_chip_17C]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(189.23 mm, 109.22 mm): Symbol 17C Pin 13 [I/O3, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(201.93 mm, 85.09 mm): Symbol 21B Pin 16 [I/O6, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(185.42 mm, 116.84 mm): Symbol 16C Pin 16 [I/O6, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(201.93 mm, 86.36 mm): Symbol 21B Pin 17 [I/O7, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(189.23 mm, 111.76 mm): Symbol 17C Pin 14 [I/O4, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(185.42 mm, 118.11 mm): Symbol 16C Pin 17 [I/O7, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(194.31 mm, 105.41 mm): Symbol 18C Pin 10 [I/O1, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(189.23 mm, 114.30 mm): Symbol 17C Pin 15 [I/O5, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(194.31 mm, 107.95 mm): Symbol 18C Pin 11 [I/O2, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(189.23 mm, 116.84 mm): Symbol 17C Pin 16 [I/O6, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(191.77 mm, 113.03 mm): Symbol 18C [_chip_18C]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(196.85 mm, 104.14 mm): Symbol 20C Pin 9 [I/O0, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(194.31 mm, 109.22 mm): Symbol 18C Pin 13 [I/O3, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(189.23 mm, 118.11 mm): Symbol 17C Pin 17 [I/O7, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
 [isolated_pin_label]: Label connected to only one pin
     ; warning
-    @(100.33 mm, 199.39 mm): Label 'LA1'
+    @(99.06 mm, 199.39 mm): Label 'LA1'
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(100.33 mm, 199.39 mm): Symbol 15H [_chip_15H]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(196.85 mm, 105.41 mm): Symbol 20C Pin 10 [I/O1, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(194.31 mm, 111.76 mm): Symbol 18C Pin 14 [I/O4, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
 [isolated_pin_label]: Label connected to only one pin
     ; warning
-    @(100.33 mm, 200.66 mm): Label 'L1'
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(196.85 mm, 107.95 mm): Symbol 20C Pin 11 [I/O2, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
+    @(99.06 mm, 200.66 mm): Label 'L1'
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
-    @(194.31 mm, 113.03 mm): Symbol 20C [_chip_20C]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(194.31 mm, 114.30 mm): Symbol 18C Pin 15 [I/O5, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(200.66 mm, 102.87 mm): Symbol 21C Pin 9 [I/O0, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(196.85 mm, 110.49 mm): Symbol 20C Pin 13 [I/O3, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
+    @(135.89 mm, 179.07 mm): Symbol 16F [_chip_16F]
 [pin_to_pin]: Pins of type Bidirectional and Power output are connected
     ; warning
     @(181.61 mm, 134.62 mm): Symbol 14D Pin 9 [I/O0, Bidirectional, Line]
     @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
 [pin_to_pin]: Pins of type Bidirectional and Power output are connected
     ; warning
-    @(196.85 mm, 111.76 mm): Symbol 20C Pin 14 [I/O4, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(200.66 mm, 105.41 mm): Symbol 21C Pin 10 [I/O1, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(194.31 mm, 116.84 mm): Symbol 18C Pin 16 [I/O6, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(194.31 mm, 118.11 mm): Symbol 18C Pin 17 [I/O7, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(181.61 mm, 137.16 mm): Symbol 14D Pin 10 [I/O1, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(196.85 mm, 114.30 mm): Symbol 20C Pin 15 [I/O5, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(200.66 mm, 107.95 mm): Symbol 21C Pin 11 [I/O2, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
     @(184.15 mm, 134.62 mm): Symbol 16D Pin 9 [I/O0, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(196.85 mm, 115.57 mm): Symbol 20C Pin 16 [I/O6, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(200.66 mm, 109.22 mm): Symbol 21C Pin 13 [I/O3, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(181.61 mm, 139.70 mm): Symbol 14D Pin 11 [I/O2, Bidirectional, Line]
     @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(199.39 mm, 113.03 mm): Symbol 21C [_chip_21C]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(196.85 mm, 118.11 mm): Symbol 20C Pin 17 [I/O7, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(184.15 mm, 137.16 mm): Symbol 16D Pin 10 [I/O1, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(200.66 mm, 111.76 mm): Symbol 21C Pin 14 [I/O4, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(181.61 mm, 140.97 mm): Symbol 14D Pin 13 [I/O3, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(179.07 mm, 144.78 mm): Symbol 14D [_chip_14D]
 [pin_to_pin]: Pins of type Bidirectional and Power output are connected
     ; warning
-    @(200.66 mm, 114.30 mm): Symbol 21C Pin 15 [I/O5, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(184.15 mm, 139.70 mm): Symbol 16D Pin 11 [I/O2, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(181.61 mm, 143.51 mm): Symbol 14D Pin 14 [I/O4, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(184.15 mm, 140.97 mm): Symbol 16D Pin 13 [I/O3, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(200.66 mm, 116.84 mm): Symbol 21C Pin 16 [I/O6, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
     @(189.23 mm, 134.62 mm): Symbol 17D Pin 9 [I/O0, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(200.66 mm, 118.11 mm): Symbol 21C Pin 17 [I/O7, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(181.61 mm, 146.05 mm): Symbol 14D Pin 15 [I/O5, Bidirectional, Line]
     @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(182.88 mm, 144.78 mm): Symbol 16D [_chip_16D]
 [pin_to_pin]: Pins of type Bidirectional and Power output are connected
     ; warning
-    @(184.15 mm, 143.51 mm): Symbol 16D Pin 14 [I/O4, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(189.23 mm, 137.16 mm): Symbol 17D Pin 10 [I/O1, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(181.61 mm, 148.59 mm): Symbol 14D Pin 16 [I/O6, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(223.52 mm, 72.39 mm): Symbol 13B Pin 18 [B1, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(184.15 mm, 146.05 mm): Symbol 16D Pin 15 [I/O5, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(189.23 mm, 139.70 mm): Symbol 17D Pin 11 [I/O2, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(223.52 mm, 73.66 mm): Symbol 13B Pin 17 [B2, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(181.61 mm, 149.86 mm): Symbol 14D Pin 17 [I/O7, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(223.52 mm, 74.93 mm): Symbol 13B Pin 16 [B3, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(189.23 mm, 140.97 mm): Symbol 17D Pin 13 [I/O3, Bidirectional, Line]
+    @(191.77 mm, 134.62 mm): Symbol 18D Pin 9 [I/O0, Bidirectional, Line]
     @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(186.69 mm, 144.78 mm): Symbol 17D [_chip_17D]
 [pin_to_pin]: Pins of type Bidirectional and Power output are connected
     ; warning
-    @(223.52 mm, 77.47 mm): Symbol 13B Pin 15 [B4, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(184.15 mm, 148.59 mm): Symbol 16D Pin 16 [I/O6, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(193.04 mm, 137.16 mm): Symbol 18D Pin 10 [I/O1, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(223.52 mm, 78.74 mm): Symbol 13B Pin 14 [B5, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(223.52 mm, 80.01 mm): Symbol 13B Pin 13 [B6, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(184.15 mm, 149.86 mm): Symbol 16D Pin 17 [I/O7, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(189.23 mm, 143.51 mm): Symbol 17D Pin 14 [I/O4, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(223.52 mm, 82.55 mm): Symbol 13B Pin 12 [B7, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(193.04 mm, 139.70 mm): Symbol 18D Pin 11 [I/O2, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(196.85 mm, 134.62 mm): Symbol 20D Pin 9 [I/O0, Bidirectional, Line]
+    @(195.58 mm, 134.62 mm): Symbol 20D Pin 9 [I/O0, Bidirectional, Line]
     @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
 [pin_to_pin]: Pins of type Bidirectional and Power output are connected
     ; warning
     @(223.52 mm, 83.82 mm): Symbol 13B Pin 11 [B8, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(193.04 mm, 140.97 mm): Symbol 18D Pin 13 [I/O3, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(189.23 mm, 146.05 mm): Symbol 17D Pin 15 [I/O5, Bidirectional, Line]
     @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
@@ -1808,218 +1298,59 @@ Report includes: Errors, Warnings, Exclusions
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(226.06 mm, 78.74 mm): Symbol 13B [_chip_13B]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(196.85 mm, 137.16 mm): Symbol 20D Pin 10 [I/O1, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(151.13 mm, 186.69 mm): Symbol 14F [_chip_14F]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(193.04 mm, 143.51 mm): Symbol 18D Pin 14 [I/O4, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(189.23 mm, 148.59 mm): Symbol 17D Pin 16 [I/O6, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[isolated_pin_label]: Label connected to only one pin
-    ; warning
-    @(142.24 mm, 194.31 mm): Label 'B11'
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(135.89 mm, 199.39 mm): Symbol 15F [_chip_15F]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(189.23 mm, 149.86 mm): Symbol 17D Pin 17 [I/O7, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
 [isolated_pin_label]: Label connected to only one pin
     ; warning
-    @(134.62 mm, 200.66 mm): Label 'N7'
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(193.04 mm, 146.05 mm): Symbol 18D Pin 15 [I/O5, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(196.85 mm, 140.97 mm): Symbol 20D Pin 13 [I/O3, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
+    @(142.24 mm, 195.58 mm): Label 'B11'
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(194.31 mm, 144.78 mm): Symbol 20D [_chip_20D]
 [pin_to_pin]: Pins of type Bidirectional and Power output are connected
     ; warning
-    @(201.93 mm, 135.89 mm): Symbol 21D Pin 9 [I/O0, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(193.04 mm, 148.59 mm): Symbol 18D Pin 16 [I/O6, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(196.85 mm, 143.51 mm): Symbol 20D Pin 14 [I/O4, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(201.93 mm, 137.16 mm): Symbol 21D Pin 10 [I/O1, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(193.04 mm, 149.86 mm): Symbol 18D Pin 17 [I/O7, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(196.85 mm, 146.05 mm): Symbol 20D Pin 15 [I/O5, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(201.93 mm, 139.70 mm): Symbol 21D Pin 11 [I/O2, Bidirectional, Line]
+    @(201.93 mm, 134.62 mm): Symbol 21D Pin 9 [I/O0, Bidirectional, Line]
     @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(199.39 mm, 144.78 mm): Symbol 21D [_chip_21D]
 [pin_to_pin]: Pins of type Bidirectional and Power output are connected
     ; warning
-    @(223.52 mm, 104.14 mm): Symbol 13C Pin 18 [B1, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(196.85 mm, 148.59 mm): Symbol 20D Pin 16 [I/O6, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(201.93 mm, 142.24 mm): Symbol 21D Pin 13 [I/O3, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
     @(181.61 mm, 167.64 mm): Symbol 14E Pin 9 [I/O0, Bidirectional, Line]
     @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
 [pin_to_pin]: Pins of type Bidirectional and Power output are connected
     ; warning
-    @(196.85 mm, 149.86 mm): Symbol 20D Pin 17 [I/O7, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(223.52 mm, 106.68 mm): Symbol 13C Pin 17 [B2, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(201.93 mm, 143.51 mm): Symbol 21D Pin 14 [I/O4, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(181.61 mm, 168.91 mm): Symbol 14E Pin 10 [I/O1, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(223.52 mm, 107.95 mm): Symbol 13C Pin 16 [B3, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(201.93 mm, 146.05 mm): Symbol 21D Pin 15 [I/O5, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(223.52 mm, 110.49 mm): Symbol 13C Pin 15 [B4, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(223.52 mm, 111.76 mm): Symbol 13C Pin 14 [B5, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(201.93 mm, 147.32 mm): Symbol 21D Pin 16 [I/O6, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(223.52 mm, 113.03 mm): Symbol 13C Pin 13 [B6, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(186.69 mm, 167.64 mm): Symbol 16E Pin 9 [I/O0, Bidirectional, Line]
+    @(185.42 mm, 167.64 mm): Symbol 16E Pin 9 [I/O0, Bidirectional, Line]
     @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(179.07 mm, 176.53 mm): Symbol 14E [_chip_14E]
 [pin_to_pin]: Pins of type Bidirectional and Power output are connected
     ; warning
-    @(201.93 mm, 149.86 mm): Symbol 21D Pin 17 [I/O7, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(181.61 mm, 173.99 mm): Symbol 14E Pin 13 [I/O3, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(223.52 mm, 115.57 mm): Symbol 13C Pin 12 [B7, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(186.69 mm, 168.91 mm): Symbol 16E Pin 10 [I/O1, Bidirectional, Line]
+    @(189.23 mm, 166.37 mm): Symbol 17E Pin 9 [I/O0, Bidirectional, Line]
     @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(226.06 mm, 111.76 mm): Symbol 13C [_chip_13C]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(223.52 mm, 116.84 mm): Symbol 13C Pin 11 [B8, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(181.61 mm, 175.26 mm): Symbol 14E Pin 14 [I/O4, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(189.23 mm, 167.64 mm): Symbol 17E Pin 9 [I/O0, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(189.23 mm, 168.91 mm): Symbol 17E Pin 10 [I/O1, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
 [isolated_pin_label]: Label connected to only one pin
     ; warning
     @(153.67 mm, 201.93 mm): Label 'INTIO'
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(181.61 mm, 179.07 mm): Symbol 14E Pin 16 [I/O6, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(184.15 mm, 176.53 mm): Symbol 16E [_chip_16E]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(186.69 mm, 173.99 mm): Symbol 16E Pin 13 [I/O3, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(153.67 mm, 204.47 mm): Symbol 13Fa [_chip_13Fa]
 [pin_to_pin]: Pins of type Bidirectional and Power output are connected
     ; warning
-    @(186.69 mm, 175.26 mm): Symbol 16E Pin 14 [I/O4, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
     @(194.31 mm, 167.64 mm): Symbol 18E Pin 9 [I/O0, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(181.61 mm, 181.61 mm): Symbol 14E Pin 17 [I/O7, Bidirectional, Line]
     @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(186.69 mm, 176.53 mm): Symbol 17E [_chip_17E]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(189.23 mm, 173.99 mm): Symbol 17E Pin 13 [I/O3, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(194.31 mm, 168.91 mm): Symbol 18E Pin 10 [I/O1, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(189.23 mm, 175.26 mm): Symbol 17E Pin 14 [I/O4, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(242.57 mm, 88.90 mm): Symbol 6H [_chip_6H]
@@ -2027,92 +1358,19 @@ Report includes: Errors, Warnings, Exclusions
     ; warning
     @(196.85 mm, 167.64 mm): Symbol 20E Pin 9 [I/O0, Bidirectional, Line]
     @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
+[isolated_pin_label]: Label connected to only one pin
     ; warning
-    @(196.85 mm, 168.91 mm): Symbol 20E Pin 10 [I/O1, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(186.69 mm, 181.61 mm): Symbol 16E Pin 17 [I/O7, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(189.23 mm, 179.07 mm): Symbol 17E Pin 16 [I/O6, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
+    @(243.84 mm, 90.17 mm): Label '_REA'
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(191.77 mm, 176.53 mm): Symbol 18E [_chip_18E]
 [pin_to_pin]: Pins of type Bidirectional and Power output are connected
     ; warning
-    @(194.31 mm, 173.99 mm): Symbol 18E Pin 13 [I/O3, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(223.52 mm, 134.62 mm): Symbol 13D Pin 18 [B1, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(194.31 mm, 175.26 mm): Symbol 18E Pin 14 [I/O4, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(223.52 mm, 137.16 mm): Symbol 13D Pin 17 [B2, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(189.23 mm, 181.61 mm): Symbol 17E Pin 17 [I/O7, Bidirectional, Line]
+    @(201.93 mm, 167.64 mm): Symbol 21E Pin 9 [I/O0, Bidirectional, Line]
     @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(194.31 mm, 176.53 mm): Symbol 20E [_chip_20E]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(196.85 mm, 173.99 mm): Symbol 20E Pin 13 [I/O3, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(223.52 mm, 138.43 mm): Symbol 13D Pin 16 [B3, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(203.20 mm, 167.64 mm): Symbol 21E Pin 9 [I/O0, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(196.85 mm, 175.26 mm): Symbol 20E Pin 14 [I/O4, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(203.20 mm, 168.91 mm): Symbol 21E Pin 10 [I/O1, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(194.31 mm, 179.07 mm): Symbol 18E Pin 16 [I/O6, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(223.52 mm, 140.97 mm): Symbol 13D Pin 15 [B4, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(223.52 mm, 142.24 mm): Symbol 13D Pin 14 [B5, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(223.52 mm, 143.51 mm): Symbol 13D Pin 13 [B6, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(194.31 mm, 181.61 mm): Symbol 18E Pin 17 [I/O7, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(196.85 mm, 179.07 mm): Symbol 20E Pin 16 [I/O6, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(223.52 mm, 146.05 mm): Symbol 13D Pin 12 [B7, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(226.06 mm, 142.24 mm): Symbol 13D [_chip_13D]
@@ -2121,35 +1379,7 @@ Report includes: Errors, Warnings, Exclusions
     @(200.66 mm, 176.53 mm): Symbol 21E [_chip_21E]
 [pin_to_pin]: Pins of type Bidirectional and Power output are connected
     ; warning
-    @(203.20 mm, 173.99 mm): Symbol 21E Pin 13 [I/O3, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
     @(223.52 mm, 147.32 mm): Symbol 13D Pin 11 [B8, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(196.85 mm, 181.61 mm): Symbol 20E Pin 17 [I/O7, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(203.20 mm, 175.26 mm): Symbol 21E Pin 14 [I/O4, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(203.20 mm, 179.07 mm): Symbol 21E Pin 16 [I/O6, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(203.20 mm, 181.61 mm): Symbol 21E Pin 17 [I/O7, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(223.52 mm, 167.64 mm): Symbol 13E Pin 18 [B1, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(223.52 mm, 170.18 mm): Symbol 13E Pin 17 [B2, Bidirectional, Line]
     @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
 [isolated_pin_label]: Label connected to only one pin
     ; warning
@@ -2157,14 +1387,6 @@ Report includes: Errors, Warnings, Exclusions
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(200.66 mm, 199.39 mm): Symbol 13Fb [_chip_13Fb]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(223.52 mm, 173.99 mm): Symbol 13E Pin 15 [B4, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(223.52 mm, 175.26 mm): Symbol 13E Pin 14 [B5, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(273.05 mm, 81.28 mm): Symbol 14A [_chip_14A]
@@ -2173,27 +1395,26 @@ Report includes: Errors, Warnings, Exclusions
     @(226.06 mm, 175.26 mm): Symbol 13E [_chip_13E]
 [pin_to_pin]: Pins of type Bidirectional and Power output are connected
     ; warning
-    @(223.52 mm, 179.07 mm): Symbol 13E Pin 12 [B7, Bidirectional, Line]
+    @(223.52 mm, 180.34 mm): Symbol 13E Pin 11 [B8, Bidirectional, Line]
     @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
 [isolated_pin_label]: Label connected to only one pin
     ; warning
-    @(278.13 mm, 71.12 mm): Label 'SD3'
-[pin_to_pin]: Pins of type Bidirectional and Power output are connected
-    ; warning
-    @(223.52 mm, 180.34 mm): Symbol 13E Pin 11 [B8, Bidirectional, Line]
-    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC Pin 1 [VCC, Power output, Line]
+    @(278.13 mm, 72.39 mm): Label 'SD3'
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(273.05 mm, 113.03 mm): Symbol 15A [_chip_15A]
 [isolated_pin_label]: Label connected to only one pin
     ; warning
     @(278.13 mm, 102.87 mm): Label 'SD2'
-[isolated_pin_label]: Label connected to only one pin
-    ; warning
-    @(278.13 mm, 134.62 mm): Label 'SD1'
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(273.05 mm, 144.78 mm): Symbol 16A [_chip_16A]
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(278.13 mm, 135.89 mm): Label 'SD1'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(278.13 mm, 167.64 mm): Label 'SD0'
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(273.05 mm, 176.53 mm): Symbol 17A [_chip_17A]
@@ -2202,7 +1423,7 @@ Report includes: Errors, Warnings, Exclusions
     @(308.61 mm, 175.26 mm): Symbol 23E [_chip_23E]
 [isolated_pin_label]: Label connected to only one pin
     ; warning
-    @(308.61 mm, 180.34 mm): Label 'SCANBUS_C'
+    @(309.88 mm, 181.61 mm): Label 'SCANBUS_C'
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(400.05 mm, 17.78 mm): Symbol #PWR_GND [PWR_GND]
@@ -2210,7 +1431,7 @@ Report includes: Errors, Warnings, Exclusions
     ; warning
     @(400.05 mm, 27.94 mm): Symbol #PWR_VCC [PWR_VCC]
 
- ** ERC messages: 659  Errors 354  Warnings 305
+ ** ERC messages: 461  Errors 337  Warnings 124
 
  ** Ignored checks:
     - Global label only appears once in the schematic
