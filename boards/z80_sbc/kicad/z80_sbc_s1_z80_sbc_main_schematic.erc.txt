@@ -1,4 +1,4 @@
-ERC report (2026-05-12T08:04:11, Encoding UTF8)
+ERC report (2026-05-12T08:42:32, Encoding UTF8)
 Report includes: Errors, Warnings, Exclusions
 
 ***** Sheet /
@@ -109,6 +109,9 @@ Report includes: Errors, Warnings, Exclusions
     @(54.61 mm, 190.50 mm): Pin 1 [???, ?]
 [pin_not_connected]: Pin not connected
     ; error
+    @(124.46 mm, 163.83 mm): Symbol U2 Pin 20 [~{IORQ}, Tri-state, Line]
+[pin_not_connected]: Pin not connected
+    ; error
     @(71.12 mm, 203.20 mm): Pin 1 [???, ?]
 [pin_not_connected]: Pin not connected
     ; error
@@ -116,6 +119,12 @@ Report includes: Errors, Warnings, Exclusions
 [pin_not_connected]: Pin not connected
     ; error
     @(124.46 mm, 194.31 mm): Symbol U2 Pin 18 [~{HALT}, Output, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(222.25 mm, 63.50 mm): Symbol U5C Pin 5 [3A, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(222.25 mm, 63.50 mm): Symbol U5C Pin 5 [3A, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(124.46 mm, 203.20 mm): Symbol U2 Pin 24 [~{WAIT}, Input, Line]
@@ -250,6 +259,9 @@ Report includes: Errors, Warnings, Exclusions
     @(73.66 mm, 214.63 mm): Label '~RESET'
 [unconnected_wire_endpoint]: Unconnected wire endpoint
     ; warning
+    @(222.25 mm, 87.63 mm): Vertical Wire, length 21.59 mm
+[unconnected_wire_endpoint]: Unconnected wire endpoint
+    ; warning
     @(71.12 mm, 223.52 mm): Horizontal Wire, length 2.54 mm
 [isolated_pin_label]: Label connected to only one pin
     ; warning
@@ -303,7 +315,7 @@ Report includes: Errors, Warnings, Exclusions
     ; warning
     @(400.05 mm, 38.10 mm): Symbol #PWR_VSS [PWR_VSS]
 
- ** ERC messages: 99  Errors 58  Warnings 41
+ ** ERC messages: 103  Errors 61  Warnings 42
 
  ** Ignored checks:
     - Global label only appears once in the schematic

@@ -1293,63 +1293,6 @@
   ],
   "nets": [
     {
-      "name": "MEMRD",
-      "kind": "signal",
-      "endpoints": [
-        {
-          "refdes": "U7B",
-          "pin": 6,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U6",
-          "pin": 22,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U4",
-          "pin": 22,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        }
-      ]
-    },
-    {
-      "name": "MEMWR",
-      "kind": "signal",
-      "endpoints": [
-        {
-          "refdes": "U7A",
-          "pin": 3,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U4",
-          "pin": 29,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        }
-      ]
-    },
-    {
       "name": "A13_OR_A14",
       "kind": "signal",
       "endpoints": [
@@ -1387,39 +1330,6 @@
         ]
       ],
       "path_source": "ai"
-    },
-    {
-      "name": "BOTTOM_8K",
-      "kind": "signal",
-      "endpoints": [
-        {
-          "refdes": "U7D",
-          "pin": 11,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U6",
-          "pin": 20,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U4",
-          "pin": 30,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        }
-      ]
     },
     {
       "name": "~INT",
@@ -1488,78 +1398,6 @@
         {
           "refdes": "U3",
           "pin": 4,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        }
-      ]
-    },
-    {
-      "name": "TXDATA",
-      "kind": "signal",
-      "endpoints": [
-        {
-          "refdes": "U3",
-          "pin": 6,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U1",
-          "pin": 11,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        }
-      ]
-    },
-    {
-      "name": "RXDATA",
-      "kind": "signal",
-      "endpoints": [
-        {
-          "refdes": "U3",
-          "pin": 2,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U1",
-          "pin": 9,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        }
-      ]
-    },
-    {
-      "name": "~RTS",
-      "kind": "signal",
-      "endpoints": [
-        {
-          "refdes": "U3",
-          "pin": 5,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U1",
-          "pin": 10,
           "sheet": 1,
           "edge_type": "label",
           "evidence": {
@@ -1956,87 +1794,6 @@
         {
           "refdes": "U3",
           "pin": 8,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        }
-      ]
-    },
-    {
-      "name": "~IORQ",
-      "kind": "signal",
-      "endpoints": [
-        {
-          "refdes": "U2",
-          "pin": 20,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U5C",
-          "pin": 5,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        }
-      ]
-    },
-    {
-      "name": "IORQ",
-      "kind": "signal",
-      "endpoints": [
-        {
-          "refdes": "U5C",
-          "pin": 6,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U3",
-          "pin": 21,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        }
-      ]
-    },
-    {
-      "name": "~RESET",
-      "kind": "signal",
-      "endpoints": [
-        {
-          "refdes": "U2",
-          "pin": 26,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "R1",
-          "pin": 2,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "SW1",
-          "pin": 1,
           "sheet": 1,
           "edge_type": "label",
           "evidence": {
@@ -3592,6 +3349,410 @@
         {
           "refdes": "U3",
           "pin": 13,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MEMRD",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "U7B",
+          "pin": 6,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U6",
+          "pin": 22,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U4",
+          "pin": 22,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ],
+      "path": [
+        [
+          628.0,
+          350.0
+        ],
+        [
+          780.0,
+          350.0
+        ],
+        [
+          780.0,
+          247.0
+        ],
+        [
+          825.0,
+          247.0
+        ],
+        [
+          780.0,
+          247.0
+        ],
+        [
+          780.0,
+          507.0
+        ],
+        [
+          827.0,
+          507.0
+        ]
+      ],
+      "path_source": "ai"
+    },
+    {
+      "name": "MEMWR",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "U7A",
+          "pin": 3,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U4",
+          "pin": 29,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ],
+      "path": [
+        [
+          625.0,
+          266.0
+        ],
+        [
+          790.0,
+          266.0
+        ],
+        [
+          790.0,
+          527.0
+        ],
+        [
+          827.0,
+          527.0
+        ]
+      ],
+      "path_source": "ai"
+    },
+    {
+      "name": "BOTTOM_8K",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "U7D",
+          "pin": 11,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U6",
+          "pin": 20,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U4",
+          "pin": 30,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ],
+      "path": [
+        [
+          698.0,
+          459.0
+        ],
+        [
+          800.0,
+          459.0
+        ],
+        [
+          800.0,
+          235.0
+        ],
+        [
+          825.0,
+          235.0
+        ],
+        [
+          800.0,
+          235.0
+        ],
+        [
+          800.0,
+          517.0
+        ],
+        [
+          827.0,
+          517.0
+        ]
+      ],
+      "path_source": "ai"
+    },
+    {
+      "name": "~IORQ",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "U2",
+          "pin": 20,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U5C",
+          "pin": 5,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ],
+      "path": [
+        [
+          295.0,
+          402.0
+        ],
+        [
+          270.0,
+          402.0
+        ],
+        [
+          270.0,
+          200.0
+        ],
+        [
+          555.0,
+          200.0
+        ],
+        [
+          555.0,
+          140.0
+        ]
+      ],
+      "path_source": "ai"
+    },
+    {
+      "name": "TXDATA",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "U3",
+          "pin": 6,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U1",
+          "pin": 11,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ],
+      "path": [
+        [
+          368.0,
+          45.0
+        ],
+        [
+          270.0,
+          45.0
+        ],
+        [
+          270.0,
+          167.0
+        ],
+        [
+          255.0,
+          167.0
+        ]
+      ],
+      "path_source": "ai"
+    },
+    {
+      "name": "RXDATA",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "U3",
+          "pin": 2,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U1",
+          "pin": 9,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ],
+      "path": [
+        [
+          368.0,
+          35.0
+        ],
+        [
+          273.0,
+          35.0
+        ],
+        [
+          273.0,
+          133.0
+        ],
+        [
+          255.0,
+          133.0
+        ]
+      ],
+      "path_source": "ai"
+    },
+    {
+      "name": "~RTS",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "U3",
+          "pin": 5,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U1",
+          "pin": 10,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ],
+      "path": [
+        [
+          368.0,
+          70.0
+        ],
+        [
+          276.0,
+          70.0
+        ],
+        [
+          276.0,
+          143.0
+        ],
+        [
+          255.0,
+          143.0
+        ]
+      ],
+      "path_source": "ai"
+    },
+    {
+      "name": "IORQ",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "U5C",
+          "pin": 6,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U3",
+          "pin": 21,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "~RESET",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "U2",
+          "pin": 26,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "R1",
+          "pin": 2,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "SW1",
+          "pin": 1,
           "sheet": 1,
           "edge_type": "label",
           "evidence": {
