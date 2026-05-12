@@ -405,9 +405,30 @@ function drawNets() {
     // falling back to a straight pin-to-pin line. Path coords are in source
     // pixels, same as pin positions.
     if (points.length >= 2 && (state.showWires || isSelected)) {
-      const pathPts = (net.path && net.path.length >= 2)
-        ? net.path.map(p => imgToCanvas(p[0], p[1]))
-        : points.map(p => imgToCanvas(p.pos[0], p.pos[1]));
+      // Build the polyline:
+      //   - if net.path is set, use those corners (right-angle routed by
+      //     the path-tracer);
+      //   - else if wire-typed, fall back to the same one-corner Manhattan
+      //     route the KiCad exporter uses (H-then-V via a corner) so the
+      //     overlay matches what KiCad renders;
+      //   - otherwise straight pin-to-pin (label-style nets).
+      let pathPts;
+      const isWire = points[0].ep.edge_type === "wire";
+      if (net.path && net.path.length >= 2) {
+        pathPts = net.path.map(p => imgToCanvas(p[0], p[1]));
+      } else if (isWire) {
+        pathPts = [];
+        const anchor = points[0].pos;
+        pathPts.push(imgToCanvas(anchor[0], anchor[1]));
+        for (let i = 1; i < points.length; i++) {
+          const other = points[i].pos;
+          // H-then-V: corner at (other.x, anchor.y) in source coords.
+          pathPts.push(imgToCanvas(other[0], anchor[1]));
+          pathPts.push(imgToCanvas(other[0], other[1]));
+        }
+      } else {
+        pathPts = points.map(p => imgToCanvas(p.pos[0], p.pos[1]));
+      }
 
       // Dark halo for contrast against white paper.
       ctx.strokeStyle = isSelected ? "rgba(255,204,51,0.85)" : "rgba(0,0,0,0.6)";

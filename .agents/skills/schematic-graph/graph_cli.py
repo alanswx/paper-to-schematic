@@ -772,27 +772,72 @@ def cmd_render_overlay(args):
                 cv2.putText(out, str(pin), (px + 8, py - 8),
                             cv2.FONT_HERSHEY_SIMPLEX, 0.55, (180, 0, 180), 2)
 
-    # Net labels — for each label/sheet_zone/off_page net, draw the net name
-    # at every endpoint pin position. Skips pure-wire nets so the overlay
-    # doesn't get cluttered (those will get drawn lines if/when wire mode
-    # is wired up).
+    # Nets:
+    #   - wire-typed: draw the polyline (net.path when present, otherwise a
+    #     straight pin-to-pin line as a fallback). Matches what the KiCad
+    #     export emits and what the live explorer's drawNets renders.
+    #   - label / sheet_zone / off_page: draw the net name at every endpoint
+    #     pin position. No connecting line (the label IS the connection).
     if not args.no_nets:
         comp_by_ref = {c["refdes"]: c for c in components}
+
+        def _pin_xy(refdes, pin):
+            comp = comp_by_ref.get(refdes)
+            if not comp: return None
+            pos = (comp.get("pin_positions") or {}).get(str(pin))
+            return (int(pos[0]), int(pos[1])) if pos else None
+
         for net in graph.get("nets", []):
-            for ep in net.get("endpoints", []):
-                if ep.get("sheet") != args.sheet:
-                    continue
-                if ep.get("edge_type") not in ("label", "sheet_zone", "off_page"):
-                    continue
-                comp = comp_by_ref.get(ep.get("refdes"))
-                if not comp:
-                    continue
-                pos = (comp.get("pin_positions") or {}).get(str(ep.get("pin")))
-                if not pos:
-                    continue
-                px, py = int(pos[0]), int(pos[1])
-                cv2.putText(out, net["name"], (px + 12, py + 6),
-                            cv2.FONT_HERSHEY_SIMPLEX, 0.55, (0, 120, 0), 2)
+            eps_on_sheet = [e for e in net.get("endpoints", []) if e.get("sheet") == args.sheet]
+            if not eps_on_sheet: continue
+            edge = eps_on_sheet[0].get("edge_type")
+
+            if edge == "wire":
+                # Routed polyline if present, else one-corner Manhattan
+                # fallback (H-then-V via a corner) per pair of endpoints —
+                # matches what the KiCad exporter emits, so the overlay and
+                # the KiCad render agree on wire routing.
+                color = (255, 140, 0)  # BGR: orange-blue (cyan-ish)
+                segments = []  # list of (a, b) point pairs to draw
+                if net.get("path") and len(net["path"]) >= 2:
+                    pts = [(int(p[0]), int(p[1])) for p in net["path"]]
+                    for i in range(1, len(pts)):
+                        segments.append((pts[i-1], pts[i]))
+                else:
+                    anchor = _pin_xy(eps_on_sheet[0]["refdes"], eps_on_sheet[0]["pin"])
+                    if anchor:
+                        for other_ep in eps_on_sheet[1:]:
+                            other = _pin_xy(other_ep["refdes"], other_ep["pin"])
+                            if not other: continue
+                            corner = (other[0], anchor[1])
+                            segments.append((anchor, corner))
+                            segments.append((corner, other))
+                # Draw with a dark halo for legibility against the source ink.
+                for a, b in segments:
+                    cv2.line(out, a, b, (0, 0, 0), 6, cv2.LINE_AA)
+                    cv2.line(out, a, b, color, 3, cv2.LINE_AA)
+                pts = [seg[0] for seg in segments] + ([segments[-1][1]] if segments else [])
+                # Endpoint markers (ring) at each on-sheet pin endpoint.
+                for ep in eps_on_sheet:
+                    xy = _pin_xy(ep["refdes"], ep["pin"])
+                    if xy:
+                        cv2.circle(out, xy, 9, color, 3, cv2.LINE_AA)
+                # Net name on the longest segment (trunk) when a path exists.
+                if net.get("name") and len(pts) >= 2:
+                    longest_i, longest_len = 1, 0
+                    for i in range(1, len(pts)):
+                        d = (pts[i][0]-pts[i-1][0])**2 + (pts[i][1]-pts[i-1][1])**2
+                        if d > longest_len: longest_len, longest_i = d, i
+                    mx = (pts[longest_i-1][0] + pts[longest_i][0]) // 2 + 6
+                    my = (pts[longest_i-1][1] + pts[longest_i][1]) // 2 - 6
+                    cv2.putText(out, net["name"], (mx, my),
+                                cv2.FONT_HERSHEY_SIMPLEX, 0.55, (180, 120, 0), 2, cv2.LINE_AA)
+            elif edge in ("label", "sheet_zone", "off_page"):
+                for ep in eps_on_sheet:
+                    xy = _pin_xy(ep["refdes"], ep["pin"])
+                    if not xy: continue
+                    cv2.putText(out, net["name"], (xy[0] + 12, xy[1] + 6),
+                                cv2.FONT_HERSHEY_SIMPLEX, 0.55, (0, 120, 0), 2)
 
     # Optional resize so a 9k×6k overlay doesn't gobble RAM when read back.
     if args.max_width and W > args.max_width:
