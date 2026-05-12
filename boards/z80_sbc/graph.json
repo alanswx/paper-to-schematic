@@ -97,7 +97,13 @@
           205.0,
           215.0
         ]
-      }
+      },
+      "body_bbox": [
+        155.0,
+        80.0,
+        255.0,
+        215.0
+      ]
     },
     {
       "refdes": "U2",
@@ -274,7 +280,13 @@
           342.0,
           660.0
         ]
-      }
+      },
+      "body_bbox": [
+        295.0,
+        357.0,
+        390.0,
+        660.0
+      ]
     },
     {
       "refdes": "U3",
@@ -387,7 +399,13 @@
           411.0,
           155.0
         ]
-      }
+      },
+      "body_bbox": [
+        368.0,
+        25.0,
+        455.0,
+        155.0
+      ]
     },
     {
       "refdes": "U4",
@@ -532,7 +550,13 @@
           840.0,
           560.0
         ]
-      }
+      },
+      "body_bbox": [
+        827.0,
+        318.0,
+        895.0,
+        580.0
+      ]
     },
     {
       "refdes": "U6",
@@ -661,7 +685,13 @@
           840.0,
           210.0
         ]
-      }
+      },
+      "body_bbox": [
+        825.0,
+        67.0,
+        895.0,
+        260.0
+      ]
     },
     {
       "refdes": "U5A",
@@ -686,7 +716,13 @@
           100,
           352
         ]
-      }
+      },
+      "body_bbox": [
+        40.0,
+        340.0,
+        95.0,
+        365.0
+      ]
     },
     {
       "refdes": "U5B",
@@ -711,7 +747,13 @@
           180,
           352
         ]
-      }
+      },
+      "body_bbox": [
+        130.0,
+        340.0,
+        175.0,
+        365.0
+      ]
     },
     {
       "refdes": "U5C",
@@ -736,7 +778,13 @@
           625,
           135.43716981157738
         ]
-      }
+      },
+      "body_bbox": [
+        560.0,
+        130.0,
+        620.0,
+        155.0
+      ]
     },
     {
       "refdes": "U7A",
@@ -765,7 +813,13 @@
           625,
           266
         ]
-      }
+      },
+      "body_bbox": [
+        545.0,
+        245.0,
+        615.0,
+        295.0
+      ]
     },
     {
       "refdes": "U7B",
@@ -794,7 +848,13 @@
           628,
           350
         ]
-      }
+      },
+      "body_bbox": [
+        548.0,
+        325.0,
+        620.0,
+        375.0
+      ]
     },
     {
       "refdes": "U7C",
@@ -823,7 +883,13 @@
           497,
           468
         ]
-      }
+      },
+      "body_bbox": [
+        505.0,
+        420.0,
+        565.0,
+        470.0
+      ]
     },
     {
       "refdes": "U7D",
@@ -852,7 +918,13 @@
           618,
           478
         ]
-      }
+      },
+      "body_bbox": [
+        625.0,
+        435.0,
+        685.0,
+        485.0
+      ]
     },
     {
       "refdes": "J1",
@@ -2982,6 +3054,170 @@
       ]
     },
     {
+      "name": "RS232_TX",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "J1",
+          "pin": 2,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U1",
+          "pin": 14,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ],
+      "path": [
+        [
+          155.0,
+          167.0
+        ],
+        [
+          100.0,
+          167.0
+        ],
+        [
+          100.0,
+          127.0
+        ],
+        [
+          63.0,
+          127.0
+        ]
+      ],
+      "path_source": "ai"
+    },
+    {
+      "name": "RS232_RX",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "J1",
+          "pin": 3,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U1",
+          "pin": 13,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ],
+      "path": [
+        [
+          155.0,
+          155.0
+        ],
+        [
+          63.0,
+          155.0
+        ]
+      ],
+      "path_source": "ai"
+    },
+    {
+      "name": "RS232_RTS",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "J1",
+          "pin": 7,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U1",
+          "pin": 8,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ],
+      "path": [
+        [
+          155.0,
+          133.0
+        ],
+        [
+          110.0,
+          133.0
+        ],
+        [
+          110.0,
+          141.0
+        ],
+        [
+          63.0,
+          141.0
+        ]
+      ],
+      "path_source": "ai"
+    },
+    {
+      "name": "RS232_CTS",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "J1",
+          "pin": 8,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U1",
+          "pin": 7,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ],
+      "path": [
+        [
+          155.0,
+          143.0
+        ],
+        [
+          85.0,
+          143.0
+        ],
+        [
+          85.0,
+          168.0
+        ],
+        [
+          63.0,
+          168.0
+        ]
+      ],
+      "path_source": "ai"
+    },
+    {
       "name": "C1MINUS",
       "kind": "signal",
       "endpoints": [
@@ -2989,7 +3225,7 @@
           "refdes": "U1",
           "pin": 3,
           "sheet": 1,
-          "edge_type": "label",
+          "edge_type": "wire",
           "evidence": {
             "source": "ai"
           }
@@ -2998,12 +3234,27 @@
           "refdes": "C1",
           "pin": 1,
           "sheet": 1,
-          "edge_type": "label",
+          "edge_type": "wire",
           "evidence": {
             "source": "ai"
           }
         }
-      ]
+      ],
+      "path": [
+        [
+          168.0,
+          215.0
+        ],
+        [
+          168.0,
+          246.0
+        ],
+        [
+          179.0,
+          246.0
+        ]
+      ],
+      "path_source": "ai"
     },
     {
       "name": "C1PLUS",
@@ -3013,7 +3264,7 @@
           "refdes": "U1",
           "pin": 1,
           "sheet": 1,
-          "edge_type": "label",
+          "edge_type": "wire",
           "evidence": {
             "source": "ai"
           }
@@ -3022,12 +3273,27 @@
           "refdes": "C1",
           "pin": 2,
           "sheet": 1,
-          "edge_type": "label",
+          "edge_type": "wire",
           "evidence": {
             "source": "ai"
           }
         }
-      ]
+      ],
+      "path": [
+        [
+          240.0,
+          215.0
+        ],
+        [
+          240.0,
+          246.0
+        ],
+        [
+          239.0,
+          246.0
+        ]
+      ],
+      "path_source": "ai"
     },
     {
       "name": "C2MINUS",
@@ -3037,7 +3303,7 @@
           "refdes": "U1",
           "pin": 5,
           "sheet": 1,
-          "edge_type": "label",
+          "edge_type": "wire",
           "evidence": {
             "source": "ai"
           }
@@ -3046,12 +3312,27 @@
           "refdes": "C2",
           "pin": 1,
           "sheet": 1,
-          "edge_type": "label",
+          "edge_type": "wire",
           "evidence": {
             "source": "ai"
           }
         }
-      ]
+      ],
+      "path": [
+        [
+          168.0,
+          80.0
+        ],
+        [
+          168.0,
+          46.0
+        ],
+        [
+          191.0,
+          46.0
+        ]
+      ],
+      "path_source": "ai"
     },
     {
       "name": "C2PLUS",
@@ -3061,7 +3342,7 @@
           "refdes": "U1",
           "pin": 4,
           "sheet": 1,
-          "edge_type": "label",
+          "edge_type": "wire",
           "evidence": {
             "source": "ai"
           }
@@ -3070,12 +3351,27 @@
           "refdes": "C2",
           "pin": 2,
           "sheet": 1,
-          "edge_type": "label",
+          "edge_type": "wire",
           "evidence": {
             "source": "ai"
           }
         }
-      ]
+      ],
+      "path": [
+        [
+          240.0,
+          80.0
+        ],
+        [
+          240.0,
+          46.0
+        ],
+        [
+          231.0,
+          46.0
+        ]
+      ],
+      "path_source": "ai"
     },
     {
       "name": "VPLUS",
@@ -3085,7 +3381,7 @@
           "refdes": "U1",
           "pin": 2,
           "sheet": 1,
-          "edge_type": "label",
+          "edge_type": "wire",
           "evidence": {
             "source": "ai"
           }
@@ -3094,12 +3390,31 @@
           "refdes": "C3",
           "pin": 1,
           "sheet": 1,
-          "edge_type": "label",
+          "edge_type": "wire",
           "evidence": {
             "source": "ai"
           }
         }
-      ]
+      ],
+      "path": [
+        [
+          155.0,
+          113.0
+        ],
+        [
+          130.0,
+          113.0
+        ],
+        [
+          130.0,
+          65.0
+        ],
+        [
+          116.0,
+          65.0
+        ]
+      ],
+      "path_source": "ai"
     },
     {
       "name": "VMINUS",
@@ -3109,7 +3424,7 @@
           "refdes": "U1",
           "pin": 6,
           "sheet": 1,
-          "edge_type": "label",
+          "edge_type": "wire",
           "evidence": {
             "source": "ai"
           }
@@ -3118,12 +3433,31 @@
           "refdes": "C4",
           "pin": 1,
           "sheet": 1,
-          "edge_type": "label",
+          "edge_type": "wire",
           "evidence": {
             "source": "ai"
           }
         }
-      ]
+      ],
+      "path": [
+        [
+          155.0,
+          103.0
+        ],
+        [
+          145.0,
+          103.0
+        ],
+        [
+          145.0,
+          215.0
+        ],
+        [
+          134.0,
+          215.0
+        ]
+      ],
+      "path_source": "ai"
     },
     {
       "name": "DTR_DSR",
@@ -3141,102 +3475,6 @@
         {
           "refdes": "J1",
           "pin": 6,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        }
-      ]
-    },
-    {
-      "name": "RS232_TX",
-      "kind": "signal",
-      "endpoints": [
-        {
-          "refdes": "J1",
-          "pin": 2,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U1",
-          "pin": 14,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        }
-      ]
-    },
-    {
-      "name": "RS232_RX",
-      "kind": "signal",
-      "endpoints": [
-        {
-          "refdes": "J1",
-          "pin": 3,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U1",
-          "pin": 13,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        }
-      ]
-    },
-    {
-      "name": "RS232_RTS",
-      "kind": "signal",
-      "endpoints": [
-        {
-          "refdes": "J1",
-          "pin": 7,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U1",
-          "pin": 8,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        }
-      ]
-    },
-    {
-      "name": "RS232_CTS",
-      "kind": "signal",
-      "endpoints": [
-        {
-          "refdes": "J1",
-          "pin": 8,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U1",
-          "pin": 7,
           "sheet": 1,
           "edge_type": "label",
           "evidence": {
