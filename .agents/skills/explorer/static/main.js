@@ -401,26 +401,30 @@ function drawNets() {
 
     // Connecting line — only if there are 2+ on-sheet endpoints to connect,
     // and either the global wires overlay is on OR this net is selected.
+    // Use net.path (right-angle polyline from the path-tracer) when present,
+    // falling back to a straight pin-to-pin line. Path coords are in source
+    // pixels, same as pin positions.
     if (points.length >= 2 && (state.showWires || isSelected)) {
+      const pathPts = (net.path && net.path.length >= 2)
+        ? net.path.map(p => imgToCanvas(p[0], p[1]))
+        : points.map(p => imgToCanvas(p.pos[0], p.pos[1]));
+
       // Dark halo for contrast against white paper.
       ctx.strokeStyle = isSelected ? "rgba(255,204,51,0.85)" : "rgba(0,0,0,0.6)";
       ctx.lineWidth = baseHalo * widthScale;
       ctx.beginPath();
-      const first = imgToCanvas(points[0].pos[0], points[0].pos[1]);
-      ctx.moveTo(first.x, first.y);
-      for (let i = 1; i < points.length; i++) {
-        const p = imgToCanvas(points[i].pos[0], points[i].pos[1]);
-        ctx.lineTo(p.x, p.y);
+      ctx.moveTo(pathPts[0].x, pathPts[0].y);
+      for (let i = 1; i < pathPts.length; i++) {
+        ctx.lineTo(pathPts[i].x, pathPts[i].y);
       }
       ctx.stroke();
       // Bright color line on top.
       ctx.strokeStyle = color;
       ctx.lineWidth = baseLine * widthScale;
       ctx.beginPath();
-      ctx.moveTo(first.x, first.y);
-      for (let i = 1; i < points.length; i++) {
-        const p = imgToCanvas(points[i].pos[0], points[i].pos[1]);
-        ctx.lineTo(p.x, p.y);
+      ctx.moveTo(pathPts[0].x, pathPts[0].y);
+      for (let i = 1; i < pathPts.length; i++) {
+        ctx.lineTo(pathPts[i].x, pathPts[i].y);
       }
       ctx.stroke();
     }
@@ -437,13 +441,30 @@ function drawNets() {
       ctx.stroke();
     }
 
-    // Net name label at midpoint of first segment.
+    // Net name label — when a routed path exists, place at the midpoint of
+    // its longest segment (typically the trunk, far from pins). Otherwise
+    // sit at the midpoint between the first two pin endpoints.
     if (net.name && points.length >= 2) {
-      const a = imgToCanvas(points[0].pos[0], points[0].pos[1]);
-      const b = imgToCanvas(points[1].pos[0], points[1].pos[1]);
+      let ax, ay, bx, by;
+      if (net.path && net.path.length >= 2) {
+        let longest = 0, li = 0;
+        for (let i = 1; i < net.path.length; i++) {
+          const dx = net.path[i][0] - net.path[i-1][0];
+          const dy = net.path[i][1] - net.path[i-1][1];
+          const len = Math.hypot(dx, dy);
+          if (len > longest) { longest = len; li = i; }
+        }
+        const a = imgToCanvas(net.path[li-1][0], net.path[li-1][1]);
+        const b = imgToCanvas(net.path[li][0],   net.path[li][1]);
+        ax = a.x; ay = a.y; bx = b.x; by = b.y;
+      } else {
+        const a = imgToCanvas(points[0].pos[0], points[0].pos[1]);
+        const b = imgToCanvas(points[1].pos[0], points[1].pos[1]);
+        ax = a.x; ay = a.y; bx = b.x; by = b.y;
+      }
       ctx.fillStyle = color;
       ctx.font = isSelected ? "bold 12px ui-monospace, monospace" : "10px ui-monospace, monospace";
-      ctx.fillText(net.name, (a.x + b.x) / 2 + 4, (a.y + b.y) / 2 - 4);
+      ctx.fillText(net.name, (ax + bx) / 2 + 4, (ay + by) / 2 - 4);
     }
 
     // Sheet-zone badges — render an arrow + label at each on-sheet endpoint
@@ -525,11 +546,18 @@ function hitTestNet(cx, cy) {
   let bestDist = 6; // pixel tolerance
   for (const net of nets) {
     if (!net.endpoints || net.endpoints.length < 2) continue;
-    const pts = [];
-    for (const ep of net.endpoints) {
-      if (ep.sheet !== undefined && ep.sheet !== state.sheetIndex) continue;
-      const pos = getPinSourcePos(ep.refdes, ep.pin);
-      if (pos) pts.push(imgToCanvas(pos[0], pos[1]));
+    // Use the routed polyline when present so clicks on the visible wire
+    // select the net; otherwise fall back to pin-to-pin segments.
+    let pts;
+    if (net.path && net.path.length >= 2) {
+      pts = net.path.map(p => imgToCanvas(p[0], p[1]));
+    } else {
+      pts = [];
+      for (const ep of net.endpoints) {
+        if (ep.sheet !== undefined && ep.sheet !== state.sheetIndex) continue;
+        const pos = getPinSourcePos(ep.refdes, ep.pin);
+        if (pos) pts.push(imgToCanvas(pos[0], pos[1]));
+      }
     }
     for (let i = 0; i < pts.length - 1; i++) {
       const d = pointToSegmentDist(cx, cy, pts[i].x, pts[i].y, pts[i+1].x, pts[i+1].y);
