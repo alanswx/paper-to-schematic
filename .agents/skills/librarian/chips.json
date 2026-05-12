@@ -5216,7 +5216,7 @@
     "CP": {
       "kind": "discrete",
       "description": "Polarized electrolytic capacitor. Pin 1 is +, pin 2 is -. Instance carries capacitance and voltage (10u/16V).",
-      "kicad_symbol": "Device:CP",
+      "kicad_symbol": "Device:C_Polarized",
       "kicad_footprint": "Capacitor_THT:CP_Radial_D5.0mm_P2.50mm",
       "value_required": true,
       "polarized": true,
@@ -5258,7 +5258,7 @@
       "kind": "discrete",
       "description": "Single-pole double-throw slide/toggle switch. Pin 1 common, pins 2 and 3 are the throws.",
       "kicad_symbol": "Switch:SW_SPDT",
-      "kicad_footprint": "Button_Switch_THT:SW_SPDT_PCM12",
+      "kicad_footprint": "Button_Switch_THT:SW_Slide_SPDT_Straight_CK_OS102011MS2Q",
       "pin_count": 3
     },
     "Conn_01x02": {
@@ -5299,14 +5299,14 @@
     "DB9_Female": {
       "kind": "discrete",
       "description": "9-pin D-sub female connector (DE-9F). Used for RS-232 etc.",
-      "kicad_symbol": "Connector:DB9_Female",
+      "kicad_symbol": "Connector:DE9_Socket",
       "kicad_footprint": "Connector_Dsub:DSUB-9_Socket_Horizontal_P2.77x2.84mm_EdgePinOffset4.94mm_Housed_MountingHolesOffset4.94mm",
       "pin_count": 9
     },
     "DB9_Male": {
       "kind": "discrete",
       "description": "9-pin D-sub male connector (DE-9M).",
-      "kicad_symbol": "Connector:DB9_Male",
+      "kicad_symbol": "Connector:DE9_Pins",
       "kicad_footprint": "Connector_Dsub:DSUB-9_Pins_Horizontal_P2.77x2.84mm_EdgePinOffset4.94mm_Housed_MountingHolesOffset4.94mm",
       "pin_count": 9
     }

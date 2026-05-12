@@ -1447,7 +1447,7 @@
     )
   )
   (symbol
-    (lib_id "Connector:DB9_Male")
+    (lib_id "Connector:DE9_Pins")
     (at 26.67 69.85 0)
     (unit 1)
     (exclude_from_sim no)
