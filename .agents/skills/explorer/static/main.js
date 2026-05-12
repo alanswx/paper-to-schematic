@@ -414,8 +414,35 @@ function drawNets() {
       //   - otherwise straight pin-to-pin (label-style nets).
       let pathPts;
       const isWire = points[0].ep.edge_type === "wire";
+      // Match the KiCad exporter's bus_member auto-trunk: for wire-typed
+      // bus members with no explicit path, give each member its own trunk
+      // x (max(endpoint.x) + (index+2) grid units) so they render as a
+      // ribbon, not as 24 verticals collapsed onto one line. Grid stride
+      // in source pixels approximates KICAD_GRID_MM at scale ~0.377 mm/px.
+      const SOURCE_GRID_PX = 1.27 / 0.3772; // ~3.37 source px per KiCad grid
+      let busIdx = null;
+      if (isWire && !net.path && net.kind === "bus_member") {
+        const m = /^([A-Za-z_]+)([0-9]+)$/.exec(net.name);
+        if (m) busIdx = parseInt(m[2], 10);
+      }
       if (net.path && net.path.length >= 2) {
         pathPts = net.path.map(p => imgToCanvas(p[0], p[1]));
+      } else if (busIdx !== null) {
+        // Dedicated trunk per member, polyline visits each endpoint by y.
+        const sorted = points.slice().sort((a, b) => a.pos[1] - b.pos[1]);
+        const maxX = Math.max(...sorted.map(p => p.pos[0]));
+        const trunkX = maxX + (busIdx + 2) * SOURCE_GRID_PX;
+        pathPts = [];
+        sorted.forEach((p, i) => {
+          if (i === 0) {
+            pathPts.push(imgToCanvas(p.pos[0], p.pos[1]));
+            pathPts.push(imgToCanvas(trunkX, p.pos[1]));
+          } else {
+            pathPts.push(imgToCanvas(trunkX, p.pos[1]));
+            pathPts.push(imgToCanvas(p.pos[0], p.pos[1]));
+            if (i < sorted.length - 1) pathPts.push(imgToCanvas(trunkX, p.pos[1]));
+          }
+        });
       } else if (isWire) {
         pathPts = [];
         const anchor = points[0].pos;
