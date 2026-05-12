@@ -210,3 +210,156 @@ indicate either a missing chip in the export or a transcription error.
 (Future: `--bg-image` flag to embed the source PNG directly behind the
 KiCad symbols, so a single PDF carries both the original drawing and
 the transcribed graph for visual diff.)
+
+## Known exporter gaps — fix when working on this skill
+
+The visual fidelity of the KiCad export is good but not done. The
+items below are concrete changes to `kicad_export.py` (or sibling
+files) that the next session working on this skill should pick up.
+Each one is a small, well-scoped patch with a clear acceptance test.
+
+### 1. Discrete symbols render as `??` placeholders in KiCad GUI
+
+**Symptom**: open any exported `.kicad_sch` containing discretes
+(R/C/Crystal/SW_Push/DB9_Male/…) in the KiCad GUI. The refdes and
+value text show correctly (R1, 2k2, …) but the symbol body is a red
+`??` placeholder. Chip lib_symbols work fine because we inline them
+in `(lib_symbols …)`; only discretes — which reference stock libs
+like `Device:R` — fail.
+
+**Cause**: KiCad's symbol resolver walks the **project**-level
+`sym-lib-table` (in the project directory) before the user-global
+one. Our `export-kicad` writes the `.kicad_sch` but never writes a
+project `sym-lib-table`, so when stock libs aren't picked up from
+the user-global config, lookup fails and the GUI shows `??`.
+
+**Fix**: in `cmd_export_kicad`, after writing the per-sheet
+`.kicad_sch` files, write `boards/<id>/kicad/sym-lib-table` listing
+exactly the stock libs the board uses. Walk every component, collect
+`part["kicad_symbol"]`, split on `:` to get the lib name, dedupe.
+Then emit:
+
+```
+(sym_lib_table
+  (lib (name "Device")    (type "KiCad") (uri "${KICAD8_SYMBOL_DIR}/Device.kicad_sym"))
+  (lib (name "Switch")    (type "KiCad") (uri "${KICAD8_SYMBOL_DIR}/Switch.kicad_sym"))
+  (lib (name "Connector") (type "KiCad") (uri "${KICAD8_SYMBOL_DIR}/Connector.kicad_sym"))
+)
+```
+
+`${KICAD8_SYMBOL_DIR}` is set by every supported KiCad install.
+
+**Also do** the analogous `fp-lib-table` (the footprint property
+already points at `Package_DIP:…` and `Resistor_THT:…`; same
+resolution gap).
+
+**Acceptance**: open `boards/z80_sbc/kicad/z80_sbc_s1_….kicad_sch`
+in KiCad. R/C/X1/SW1/J1 render with their proper symbol shapes
+(zigzag, parallel lines, quartz oval, push-button, D-sub). No red
+`??` boxes. `kicad-cli sch export bom` includes every discrete with
+populated Value and Footprint columns.
+
+### 2. `render-kicad` console dump is too low-resolution
+
+**Symptom**: `graph_cli render-kicad` produces a ~1200 px-wide PNG.
+At that resolution, KiCad's `??` placeholders blur into chip-body
+rectangles and silently look fine — meaning console review misses
+problems the GUI would catch. Stack traces of pixel coords on small
+chips also become impossible to read.
+
+**Fix**: in `cmd_render_kicad`, either remove the `sips` resize
+step entirely (the intermediate SVG is vector — no quality loss to
+emit at native A3 resolution) or bump the resize target from
+~1200 px to 2400+ px wide.
+
+**Acceptance**: a dumped PNG of z80_sbc sheet 1 makes the discrete
+symbol shapes individually identifiable when read by Claude. The
+file size will increase substantially; that's fine for the
+short-lived dumps in `/tmp/<board>_s<n>_kicad/`.
+
+### 3. Yellow chip-body fill
+
+**Symptom**: every chip in the KiCad export renders as a solid
+yellow rectangle. Original schematics use only a pen-stroke outline.
+
+**Fix**: in `synth_symbol` and `synth_faithful_symbol`, change
+`(fill (type background))` → `(fill (type none))` on the body
+rectangle. Two occurrences. The power symbol's polyline doesn't
+need a change.
+
+**Acceptance**: chips render as outlined rectangles, not filled.
+
+### 4. Pin function names duplicated inside chip body
+
+**Symptom**: every pin's functional name (T1OUT, A0, MREQ, …) is
+drawn inside the chip body. The same text usually also appears as
+a global_label at the pin tip (for cross-net connectivity). Doubled
+labelling clutters the page. Original schematics show only the pin
+number on the tick mark.
+
+**Fix**: in `synth_symbol` and `synth_faithful_symbol`, add
+`(pin_names hide)` to the lib_symbol header (alongside the existing
+`(pin_names (offset 0.508))` line — replace the `(offset …)` form
+with `hide`, or add a separate hide directive).
+
+**Acceptance**: chip bodies show only the body rectangle and pin
+numbers on the tick marks; pin function names disappear from inside
+the body. Global_labels at pin tips remain — connectivity unchanged.
+
+### 5. Power-source labels stacked in a right-margin column
+
+**Symptom**: `gen_sch` emits one `#PWR_VCC`, `#PWR_GND`, etc.
+pseudo-component per unique power-net name, all in a vertical stack
+at the right edge of A3. Three or four labels in a column dominate
+the right side of the page. Each chip's individual power pin ALSO
+gets its own `(global_label "VCC")` flag at the pin position, so
+there's both a column on the right AND duplicate flags scattered
+across the page.
+
+**Fix**: emit KiCad's stock `(power)` symbols (`power:VCC`,
+`power:GND`, etc.) — small upward/downward arrows — directly at
+each chip's power pin position instead of (or in addition to) the
+right-edge column. Drop the column entirely once each chip's pin
+carries its own local power flag.
+
+**Acceptance**: KiCad render shows one small power arrow at each
+chip's power pin (matching old-schematic convention); no centralised
+power-flag column at the page edge. ERC still passes
+(`power_pin_not_driven` count stays at 0).
+
+### 6. Native KiCad `(bus …)` rendering for shared-trunk groups
+
+**Symptom**: address buses (A0–A15) and data buses (D0–D7) emit
+one `(wire …)` per member from chip A's pin to chip B's pin. Result
+is a 16- or 8-wide ribbon of parallel right-angle traces instead of
+one thick rail with member stubs. Functionally correct, visually
+not how the original draws buses. The path-tracer SKILL.md now
+*forbids* polyline sharing across members (see the bus-rail-shorts
+fix); this item is the proper solution.
+
+**Fix**: in `kicad_export.py`, detect bus groups (nets matching
+`X.0..X.N` or `X0..XN` whose endpoints overlap chip-pin clusters).
+Compute a trunk polyline that touches every member pin's row/column.
+Emit:
+
+```
+(bus (pts (xy x1 y1) (xy x2 y2) …))
+(bus_entry (at <pin_x> <pin_y>) (size 2.54 2.54))     ; per member
+(label "A[0..15]" (at …))                              ; on the trunk
+```
+
+Then per-member, replace the `(wire …)` from rail to pin with a
+short stub from the `bus_entry` to the pin. ERC understands `(bus)`
+as a visual aggregation, not a single net — connectivity remains
+per-member via the labels.
+
+**Effort**: ~100–200 lines. Hardest piece is trunk-direction
+detection and per-pin entry-side calculation (left vs. right of the
+trunk).
+
+**Acceptance**: Z80 SBC address/data buses render as a single thick
+rail with stubs to each chip pin, matching the Grant Searle drawing
+style. `erc-summary` stays clean (no `pin_to_pin` from shared
+polylines, no `multiple_net_names`). After this lands, update
+`path-tracer/SKILL.md § Buses` to retire the
+"don't share polylines / use labels" workaround.

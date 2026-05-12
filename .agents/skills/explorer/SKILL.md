@@ -61,3 +61,25 @@ override defaults.
 | PUT    | `/api/graph`          | saves the graph                        |
 
 Path-traversal guard: scan paths must resolve under `PROJECT_ROOT`.
+
+## Known overlay gaps — fix when working on this skill
+
+### 1. Bus members render as N parallel wires, not a single rail
+
+`drawNets()` (and the server-side `render-overlay` PNG) draws each
+bus member's polyline independently. When the exporter eventually
+emits `(bus …)` for shared-trunk groups (see
+`schematic-graph/SKILL.md § Known exporter gaps #6`), the overlay
+should match: detect bus-member groups and draw one thick rail with
+short stubs to each member's pin, instead of overlapping 16 right-
+angle wires.
+
+**Fix**: share the bus-grouping detection logic between the exporter
+and the overlay. Both paths need the same answer for "which nets are
+part of this bus, and where's the trunk?" — implement once, call
+from both. Render the trunk as a thicker line and per-member stubs
+as thin perpendiculars.
+
+**Acceptance**: an address bus on the explorer overlay looks like
+a single thick rail with branching stubs, identical to what KiCad
+renders after the bus-export fix.
