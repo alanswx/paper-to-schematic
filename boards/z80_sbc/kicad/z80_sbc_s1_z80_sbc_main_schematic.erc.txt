@@ -1,43 +1,59 @@
-ERC report (2026-05-11T10:48:46, Encoding UTF8)
+ERC report (2026-05-11T20:58:35, Encoding UTF8)
 Report includes: Errors, Warnings, Exclusions
 
 ***** Sheet /
 [pin_not_connected]: Pin not connected
     ; error
+    @(49.53 mm, 36.83 mm): Pin 1 [???, ?]
+[pin_not_connected]: Pin not connected
+    ; error
     @(26.67 mm, 69.85 mm): Pin 1 [???, ?]
 [pin_not_connected]: Pin not connected
     ; error
-    @(71.12 mm, 53.34 mm): Symbol U1 Pin 6 [VS-, Passive, Line]
+    @(76.20 mm, 43.18 mm): Symbol U1 Pin 5 [C2-, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(72.39 mm, 52.07 mm): Symbol U1 Pin 6 [VS-, Passive, Line]
 [wire_dangling]: Wires not connected to anything
     ; error
     @(36.83 mm, 81.28 mm): Vertical Wire, length 26.67 mm
 [pin_not_connected]: Pin not connected
     ; error
-    @(80.01 mm, 43.18 mm): Symbol U1 Pin 5 [C2-, Passive, Line]
+    @(72.39 mm, 54.61 mm): Symbol U1 Pin 2 [VS+, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(71.12 mm, 57.15 mm): Symbol U1 Pin 2 [VS+, Passive, Line]
+    @(92.71 mm, 30.48 mm): Pin 1 [???, ?]
+[pin_to_pin]: Pins of type Output and Output are connected
+    ; error
+    @(72.39 mm, 66.04 mm): Symbol U1 Pin 7 [T2OUT, Output, Line]
+    @(72.39 mm, 76.20 mm): Symbol U1 Pin 14 [T1OUT, Output, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(71.12 mm, 66.04 mm): Symbol U1 Pin 8 [R2IN, Input, Line]
+    @(72.39 mm, 71.12 mm): Symbol U1 Pin 13 [R1IN, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(71.12 mm, 66.04 mm): Symbol U1 Pin 8 [R2IN, Input, Line]
+    @(72.39 mm, 71.12 mm): Symbol U1 Pin 13 [R1IN, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(71.12 mm, 80.01 mm): Symbol U1 Pin 14 [T1OUT, Output, Line]
+    @(54.61 mm, 93.98 mm): Pin 1 [???, ?]
 [pin_not_connected]: Pin not connected
     ; error
-    @(109.22 mm, 43.18 mm): Symbol U1 Pin 4 [C2+, Passive, Line]
+    @(104.14 mm, 43.18 mm): Symbol U1 Pin 4 [C2+, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(80.01 mm, 93.98 mm): Symbol U1 Pin 3 [C1-, Passive, Line]
+    @(76.20 mm, 93.98 mm): Symbol U1 Pin 3 [C1-, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(114.30 mm, 76.20 mm): Symbol U1 Pin 12 [R1OUT, Output, Line]
+    @(38.10 mm, 121.92 mm): Pin 1 [???, ?]
 [pin_not_connected]: Pin not connected
     ; error
-    @(109.22 mm, 93.98 mm): Symbol U1 Pin 1 [C1+, Passive, Line]
+    @(109.22 mm, 71.12 mm): Symbol U1 Pin 12 [R1OUT, Output, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(91.44 mm, 105.41 mm): Pin 1 [???, ?]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(104.14 mm, 93.98 mm): Symbol U1 Pin 1 [C1+, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(25.40 mm, 146.05 mm): Symbol U5A Pin 1 [1A, Input, Line]
@@ -49,55 +65,76 @@ Report includes: Errors, Warnings, Exclusions
     @(50.80 mm, 146.05 mm): Symbol U5A Pin 2 [1Y, Output, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(151.13 mm, 40.64 mm): Symbol U3 Pin 24 [~{CTS}, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(151.13 mm, 40.64 mm): Symbol U3 Pin 24 [~{CTS}, Input, Line]
-[pin_not_connected]: Pin not connected
-    ; error
     @(59.69 mm, 144.78 mm): Symbol U5B Pin 3 [2A, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(59.69 mm, 144.78 mm): Symbol U5B Pin 3 [2A, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(151.13 mm, 44.45 mm): Symbol U3 Pin 23 [~{DCD}, Input, Line]
+    @(151.13 mm, 41.91 mm): Symbol U3 Pin 24 [~{CTS}, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(151.13 mm, 44.45 mm): Symbol U3 Pin 23 [~{DCD}, Input, Line]
+    @(151.13 mm, 41.91 mm): Symbol U3 Pin 24 [~{CTS}, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(123.19 mm, 180.34 mm): Symbol U2 Pin 28 [~{RFSH}, Output, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(123.19 mm, 189.23 mm): Symbol U2 Pin 18 [~{HALT}, Output, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(123.19 mm, 198.12 mm): Symbol U2 Pin 24 [~{WAIT}, Input, Line]
+    @(151.13 mm, 46.99 mm): Symbol U3 Pin 23 [~{DCD}, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(123.19 mm, 198.12 mm): Symbol U2 Pin 24 [~{WAIT}, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(123.19 mm, 207.01 mm): Symbol U2 Pin 16 [~{INT}, Input, Line]
+    @(151.13 mm, 46.99 mm): Symbol U3 Pin 23 [~{DCD}, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(123.19 mm, 210.82 mm): Symbol U2 Pin 17 [~{NMI}, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(123.19 mm, 210.82 mm): Symbol U2 Pin 17 [~{NMI}, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(123.19 mm, 220.98 mm): Symbol U2 Pin 26 [~{RESET}, Input, Line]
+    @(54.61 mm, 160.02 mm): Pin 1 [???, ?]
 [pin_not_connected]: Pin not connected
     ; error
-    @(123.19 mm, 229.87 mm): Symbol U2 Pin 25 [~{BUSRQ}, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(123.19 mm, 229.87 mm): Symbol U2 Pin 25 [~{BUSRQ}, Input, Line]
+    @(36.83 mm, 172.72 mm): Pin 1 [???, ?]
 [pin_not_connected]: Pin not connected
     ; error
-    @(123.19 mm, 233.68 mm): Symbol U2 Pin 23 [~{BUSAK}, Output, Line]
+    @(147.32 mm, 99.06 mm): Pin 1 [???, ?]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(20.32 mm, 190.50 mm): Pin 1 [???, ?]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(54.61 mm, 190.50 mm): Pin 1 [???, ?]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(71.12 mm, 203.20 mm): Pin 1 [???, ?]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(124.46 mm, 184.15 mm): Symbol U2 Pin 28 [~{RFSH}, Output, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(124.46 mm, 194.31 mm): Symbol U2 Pin 18 [~{HALT}, Output, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(124.46 mm, 203.20 mm): Symbol U2 Pin 24 [~{WAIT}, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(124.46 mm, 203.20 mm): Symbol U2 Pin 24 [~{WAIT}, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(71.12 mm, 232.41 mm): Pin 1 [???, ?]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(124.46 mm, 214.63 mm): Symbol U2 Pin 16 [~{INT}, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(124.46 mm, 219.71 mm): Symbol U2 Pin 17 [~{NMI}, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(124.46 mm, 219.71 mm): Symbol U2 Pin 17 [~{NMI}, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(124.46 mm, 228.60 mm): Symbol U2 Pin 26 [~{RESET}, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(124.46 mm, 238.76 mm): Symbol U2 Pin 25 [~{BUSRQ}, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(124.46 mm, 238.76 mm): Symbol U2 Pin 25 [~{BUSRQ}, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(124.46 mm, 242.57 mm): Symbol U2 Pin 23 [~{BUSAK}, Output, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(229.87 mm, 181.61 mm): Symbol U7C Pin 8 [3Y, Output, Line]
@@ -109,100 +146,157 @@ Report includes: Errors, Warnings, Exclusions
     @(246.38 mm, 177.80 mm): Symbol U7D Pin 12 [4A, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(321.31 mm, 107.95 mm): Symbol U6 Pin 27 [~{PGM}, Input, Line]
+    @(330.20 mm, 91.44 mm): Symbol U6 Pin 26 [NC, Unspecified, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(325.12 mm, 109.22 mm): Symbol U6 Pin 27 [~{PGM}, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(321.31 mm, 107.95 mm): Symbol U6 Pin 27 [~{PGM}, Input, Line]
+    @(325.12 mm, 109.22 mm): Symbol U6 Pin 27 [~{PGM}, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(327.66 mm, 91.44 mm): Symbol U6 Pin 26 [NC, Unspecified, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(321.31 mm, 111.76 mm): Symbol U6 Pin 1 [VPP, Input, Line]
+    @(325.12 mm, 113.03 mm): Symbol U6 Pin 1 [VPP, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(321.31 mm, 111.76 mm): Symbol U6 Pin 1 [VPP, Input, Line]
+    @(325.12 mm, 113.03 mm): Symbol U6 Pin 1 [VPP, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(321.31 mm, 200.66 mm): Symbol U4 Pin 2 [A16, Input, Line]
+    @(323.85 mm, 196.85 mm): Symbol U4 Pin 2 [A16, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(321.31 mm, 200.66 mm): Symbol U4 Pin 2 [A16, Input, Line]
+    @(323.85 mm, 196.85 mm): Symbol U4 Pin 2 [A16, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(321.31 mm, 222.25 mm): Symbol U4 Pin 24 [~{CE}, Input, Line]
+    @(323.85 mm, 215.90 mm): Symbol U4 Pin 24 [~{CE}, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(321.31 mm, 222.25 mm): Symbol U4 Pin 24 [~{CE}, Input, Line]
+    @(323.85 mm, 215.90 mm): Symbol U4 Pin 24 [~{CE}, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(327.66 mm, 232.41 mm): Symbol U4 Pin 1 [NC, Unspecified, Line]
+    @(328.93 mm, 224.79 mm): Symbol U4 Pin 1 [NC, Unspecified, Line]
+[unconnected_wire_endpoint]: Unconnected wire endpoint
+    ; warning
+    @(41.91 mm, 54.61 mm): Vertical Wire, length 17.78 mm
 [unconnected_wire_endpoint]: Unconnected wire endpoint
     ; warning
     @(36.83 mm, 81.28 mm): Vertical Wire, length 26.67 mm
 [unconnected_wire_endpoint]: Unconnected wire endpoint
     ; warning
-    @(36.83 mm, 60.96 mm): Horizontal Wire, length 34.29 mm
+    @(36.83 mm, 60.96 mm): Horizontal Wire, length 35.56 mm
 [footprint_link_issues]: The current configuration does not include the footprint library 'Connector_DSub'
     ; warning
     @(26.67 mm, 69.85 mm): Symbol J1 [DB9_Male]
 [unconnected_wire_endpoint]: Unconnected wire endpoint
     ; warning
-    @(36.83 mm, 66.04 mm): Horizontal Wire, length 34.29 mm
+    @(36.83 mm, 66.04 mm): Horizontal Wire, length 35.56 mm
 [unconnected_wire_endpoint]: Unconnected wire endpoint
     ; warning
-    @(36.83 mm, 71.12 mm): Horizontal Wire, length 34.29 mm
+    @(36.83 mm, 71.12 mm): Horizontal Wire, length 35.56 mm
 [unconnected_wire_endpoint]: Unconnected wire endpoint
     ; warning
-    @(36.83 mm, 76.20 mm): Horizontal Wire, length 34.29 mm
+    @(36.83 mm, 76.20 mm): Horizontal Wire, length 35.56 mm
 [unconnected_wire_endpoint]: Unconnected wire endpoint
     ; warning
     @(36.83 mm, 81.28 mm): Vertical Wire, length 26.67 mm
+[unconnected_wire_endpoint]: Unconnected wire endpoint
+    ; warning
+    @(85.09 mm, 43.18 mm): Vertical Wire, length 12.70 mm
+[unconnected_wire_endpoint]: Unconnected wire endpoint
+    ; warning
+    @(45.72 mm, 52.07 mm): Vertical Wire, length 41.91 mm
+[unconnected_wire_endpoint]: Unconnected wire endpoint
+    ; warning
+    @(100.33 mm, 43.18 mm): Vertical Wire, length 12.70 mm
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(92.71 mm, 68.58 mm): Symbol U1 [_chip_U1]
+[unconnected_wire_endpoint]: Unconnected wire endpoint
+    ; warning
+    @(24.13 mm, 146.05 mm): Vertical Wire, length 24.13 mm
+[unconnected_wire_endpoint]: Unconnected wire endpoint
+    ; warning
+    @(50.80 mm, 146.05 mm): Vertical Wire, length 24.13 mm
+[unconnected_wire_endpoint]: Unconnected wire endpoint
+    ; warning
+    @(80.01 mm, 93.98 mm): Vertical Wire, length 11.43 mm
+[unconnected_wire_endpoint]: Unconnected wire endpoint
+    ; warning
+    @(102.87 mm, 93.98 mm): Vertical Wire, length 11.43 mm
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(38.10 mm, 146.05 mm): Symbol U5A [_chip_U5A]
+[unconnected_wire_endpoint]: Unconnected wire endpoint
+    ; warning
+    @(54.61 mm, 146.05 mm): Vertical Wire, length 2.54 mm
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(69.85 mm, 144.78 mm): Symbol U5B [_chip_U5B]
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
-    @(168.91 mm, 48.26 mm): Symbol U3 [_chip_U3]
+    @(167.64 mm, 46.99 mm): Symbol U3 [_chip_U3]
+[unconnected_wire_endpoint]: Unconnected wire endpoint
+    ; warning
+    @(25.40 mm, 146.05 mm): Vertical Wire, length 26.67 mm
+[unconnected_wire_endpoint]: Unconnected wire endpoint
+    ; warning
+    @(48.26 mm, 146.05 mm): Vertical Wire, length 26.67 mm
+[unconnected_wire_endpoint]: Unconnected wire endpoint
+    ; warning
+    @(54.61 mm, 171.45 mm): Horizontal Wire, length 5.08 mm
+[unconnected_wire_endpoint]: Unconnected wire endpoint
+    ; warning
+    @(20.32 mm, 146.05 mm): Vertical Wire, length 36.83 mm
+[unconnected_wire_endpoint]: Unconnected wire endpoint
+    ; warning
+    @(147.32 mm, 111.76 mm): Horizontal Wire, length 2.54 mm
+[unconnected_wire_endpoint]: Unconnected wire endpoint
+    ; warning
+    @(54.61 mm, 146.05 mm): Vertical Wire, length 36.83 mm
+[unconnected_wire_endpoint]: Unconnected wire endpoint
+    ; warning
+    @(71.12 mm, 214.63 mm): Horizontal Wire, length 2.54 mm
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(73.66 mm, 214.63 mm): Label '~RESET'
+[unconnected_wire_endpoint]: Unconnected wire endpoint
+    ; warning
+    @(71.12 mm, 223.52 mm): Horizontal Wire, length 2.54 mm
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(73.66 mm, 223.52 mm): Label '~RESET'
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
-    @(234.95 mm, 66.04 mm): Symbol U5C [_chip_U5C]
+    @(234.95 mm, 63.50 mm): Symbol U5C [_chip_U5C]
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(146.05 mm, 203.20 mm): Symbol U2 [_chip_U2]
-[isolated_pin_label]: Label connected to only one pin
-    ; warning
-    @(125.73 mm, 220.98 mm): Label '~RESET'
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(231.14 mm, 113.03 mm): Symbol U7A [_chip_U7A]
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(127.00 mm, 228.60 mm): Label '~RESET'
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(232.41 mm, 144.78 mm): Symbol U7B [_chip_U7B]
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(214.63 mm, 181.61 mm): Symbol U7C [_chip_U7C]
-[multiple_net_names]: Both D1 and D2 are attached to the same items; D1 will be used in the netlist
+[multiple_net_names]: Both D0 and D1 are attached to the same items; D0 will be used in the netlist
     ; warning
-    @(170.18 mm, 227.33 mm): Label 'D1'
-    @(170.18 mm, 231.14 mm): Label 'D2'
+    @(162.56 mm, 228.60 mm): Label 'D0'
+    @(162.56 mm, 233.68 mm): Label 'D1'
 [unconnected_wire_endpoint]: Unconnected wire endpoint
     ; warning
     @(228.60 mm, 180.34 mm): Horizontal Wire, length 17.78 mm
 [multiple_net_names]: Both D3 and D4 are attached to the same items; D3 will be used in the netlist
     ; warning
-    @(170.18 mm, 234.95 mm): Label 'D3'
-    @(170.18 mm, 238.76 mm): Label 'D4'
-[multiple_net_names]: Both D6 and D7 are attached to the same items; D6 will be used in the netlist
+    @(162.56 mm, 242.57 mm): Label 'D3'
+    @(162.56 mm, 247.65 mm): Label 'D4'
+[multiple_net_names]: Both D5 and D6 are attached to the same items; D5 will be used in the netlist
     ; warning
-    @(170.18 mm, 246.38 mm): Label 'D6'
-    @(170.18 mm, 250.19 mm): Label 'D7'
+    @(162.56 mm, 252.73 mm): Label 'D5'
+    @(162.56 mm, 256.54 mm): Label 'D6'
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(260.35 mm, 185.42 mm): Symbol U7D [_chip_U7D]
@@ -211,7 +305,7 @@ Report includes: Errors, Warnings, Exclusions
     @(340.36 mm, 77.47 mm): Symbol U6 [_chip_U6]
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
-    @(339.09 mm, 182.88 mm): Symbol U4 [_chip_U4]
+    @(339.09 mm, 181.61 mm): Symbol U4 [_chip_U4]
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(400.05 mm, 17.78 mm): Symbol #PWR_GND [PWR_GND]
@@ -222,7 +316,7 @@ Report includes: Errors, Warnings, Exclusions
     ; warning
     @(400.05 mm, 38.10 mm): Symbol #PWR_VSS [PWR_VSS]
 
- ** ERC messages: 72  Errors 45  Warnings 27
+ ** ERC messages: 103  Errors 57  Warnings 46
 
  ** Ignored checks:
     - Global label only appears once in the schematic
