@@ -5191,7 +5191,7 @@
     },
     "R": {
       "kind": "discrete",
-      "description": "Generic axial through-hole resistor. Instance carries the value (1k, 2k2, 4M7, 0R, …).",
+      "description": "Generic axial through-hole resistor. Instance carries the value (1k, 2k2, 4M7, 0R, \u2026).",
       "kicad_symbol": "Device:R",
       "kicad_footprint": "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal",
       "value_required": true,
@@ -5207,7 +5207,7 @@
     },
     "C": {
       "kind": "discrete",
-      "description": "Generic non-polarized capacitor (ceramic, film, mica). Instance carries the value (22p, 100n, 1u, …).",
+      "description": "Generic non-polarized capacitor (ceramic, film, mica). Instance carries the value (22p, 100n, 1u, \u2026).",
       "kicad_symbol": "Device:C",
       "kicad_footprint": "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm",
       "value_required": true,
@@ -5241,7 +5241,7 @@
     },
     "Crystal": {
       "kind": "discrete",
-      "description": "Two-terminal quartz crystal oscillator. Instance carries the frequency (7.3728MHz, …).",
+      "description": "Two-terminal quartz crystal oscillator. Instance carries the frequency (7.3728MHz, \u2026).",
       "kicad_symbol": "Device:Crystal",
       "kicad_footprint": "Crystal:Crystal_HC49-U_Vertical",
       "value_required": true,
@@ -5300,14 +5300,14 @@
       "kind": "discrete",
       "description": "9-pin D-sub female connector (DE-9F). Used for RS-232 etc.",
       "kicad_symbol": "Connector:DB9_Female",
-      "kicad_footprint": "Connector_DSub:DSUB-9_Female_Horizontal_P2.77x2.84mm_EdgePinOffset4.94mm_Housed_MountingHolesOffset7.48mm",
+      "kicad_footprint": "Connector_Dsub:DSUB-9_Socket_Horizontal_P2.77x2.84mm_EdgePinOffset4.94mm_Housed_MountingHolesOffset4.94mm",
       "pin_count": 9
     },
     "DB9_Male": {
       "kind": "discrete",
       "description": "9-pin D-sub male connector (DE-9M).",
       "kicad_symbol": "Connector:DB9_Male",
-      "kicad_footprint": "Connector_DSub:DSUB-9_Male_Horizontal_P2.77x2.84mm_EdgePinOffset4.94mm_Housed_MountingHolesOffset7.48mm",
+      "kicad_footprint": "Connector_Dsub:DSUB-9_Pins_Horizontal_P2.77x2.84mm_EdgePinOffset4.94mm_Housed_MountingHolesOffset4.94mm",
       "pin_count": 9
     }
   }

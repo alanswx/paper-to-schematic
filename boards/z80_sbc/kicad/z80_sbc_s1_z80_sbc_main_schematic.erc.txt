@@ -1,47 +1,31 @@
-ERC report (2026-05-11T20:58:35, Encoding UTF8)
+ERC report (2026-05-12T06:13:18, Encoding UTF8)
 Report includes: Errors, Warnings, Exclusions
 
 ***** Sheet /
 [pin_not_connected]: Pin not connected
     ; error
     @(49.53 mm, 36.83 mm): Pin 1 [???, ?]
+[label_dangling]: Label not connected
+    ; error
+    @(39.37 mm, 54.61 mm): Label 'DTR_DSR'
 [pin_not_connected]: Pin not connected
     ; error
     @(26.67 mm, 69.85 mm): Pin 1 [???, ?]
-[pin_not_connected]: Pin not connected
+[label_dangling]: Label not connected
     ; error
-    @(76.20 mm, 43.18 mm): Symbol U1 Pin 5 [C2-, Passive, Line]
-[pin_not_connected]: Pin not connected
+    @(39.37 mm, 81.28 mm): Label 'DTR_DSR'
+[pin_not_driven]: Input pin not driven by any Output pins
     ; error
-    @(72.39 mm, 52.07 mm): Symbol U1 Pin 6 [VS-, Passive, Line]
-[wire_dangling]: Wires not connected to anything
-    ; error
-    @(36.83 mm, 81.28 mm): Vertical Wire, length 26.67 mm
-[pin_not_connected]: Pin not connected
-    ; error
-    @(72.39 mm, 54.61 mm): Symbol U1 Pin 2 [VS+, Passive, Line]
+    @(72.39 mm, 62.23 mm): Symbol U1 Pin 8 [R2IN, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(92.71 mm, 30.48 mm): Pin 1 [???, ?]
-[pin_to_pin]: Pins of type Output and Output are connected
-    ; error
-    @(72.39 mm, 66.04 mm): Symbol U1 Pin 7 [T2OUT, Output, Line]
-    @(72.39 mm, 76.20 mm): Symbol U1 Pin 14 [T1OUT, Output, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(72.39 mm, 71.12 mm): Symbol U1 Pin 13 [R1IN, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(72.39 mm, 71.12 mm): Symbol U1 Pin 13 [R1IN, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(54.61 mm, 93.98 mm): Pin 1 [???, ?]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(104.14 mm, 43.18 mm): Symbol U1 Pin 4 [C2+, Passive, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(76.20 mm, 93.98 mm): Symbol U1 Pin 3 [C1-, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(38.10 mm, 121.92 mm): Pin 1 [???, ?]
@@ -51,21 +35,9 @@ Report includes: Errors, Warnings, Exclusions
 [pin_not_connected]: Pin not connected
     ; error
     @(91.44 mm, 105.41 mm): Pin 1 [???, ?]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(104.14 mm, 93.98 mm): Symbol U1 Pin 1 [C1+, Passive, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(25.40 mm, 146.05 mm): Symbol U5A Pin 1 [1A, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(25.40 mm, 146.05 mm): Symbol U5A Pin 1 [1A, Input, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(50.80 mm, 146.05 mm): Symbol U5A Pin 2 [1Y, Output, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(59.69 mm, 144.78 mm): Symbol U5B Pin 3 [2A, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(59.69 mm, 144.78 mm): Symbol U5B Pin 3 [2A, Input, Line]
@@ -176,58 +148,133 @@ Report includes: Errors, Warnings, Exclusions
     @(328.93 mm, 224.79 mm): Symbol U4 Pin 1 [NC, Unspecified, Line]
 [unconnected_wire_endpoint]: Unconnected wire endpoint
     ; warning
-    @(41.91 mm, 54.61 mm): Vertical Wire, length 17.78 mm
+    @(41.91 mm, 36.83 mm): Horizontal Wire, length 2.54 mm
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(44.45 mm, 36.83 mm): Label 'VPLUS'
 [unconnected_wire_endpoint]: Unconnected wire endpoint
     ; warning
-    @(36.83 mm, 81.28 mm): Vertical Wire, length 26.67 mm
+    @(36.83 mm, 54.61 mm): Horizontal Wire, length 2.54 mm
 [unconnected_wire_endpoint]: Unconnected wire endpoint
     ; warning
-    @(36.83 mm, 60.96 mm): Horizontal Wire, length 35.56 mm
-[footprint_link_issues]: The current configuration does not include the footprint library 'Connector_DSub'
+    @(36.83 mm, 60.96 mm): Horizontal Wire, length 2.54 mm
+[isolated_pin_label]: Label connected to only one pin
     ; warning
-    @(26.67 mm, 69.85 mm): Symbol J1 [DB9_Male]
+    @(39.37 mm, 60.96 mm): Label 'RS232_TX'
 [unconnected_wire_endpoint]: Unconnected wire endpoint
     ; warning
-    @(36.83 mm, 66.04 mm): Horizontal Wire, length 35.56 mm
+    @(36.83 mm, 66.04 mm): Horizontal Wire, length 2.54 mm
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(39.37 mm, 66.04 mm): Label 'RS232_RTS'
 [unconnected_wire_endpoint]: Unconnected wire endpoint
     ; warning
-    @(36.83 mm, 71.12 mm): Horizontal Wire, length 35.56 mm
+    @(36.83 mm, 71.12 mm): Horizontal Wire, length 2.54 mm
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(39.37 mm, 71.12 mm): Label 'RS232_RX'
 [unconnected_wire_endpoint]: Unconnected wire endpoint
     ; warning
-    @(36.83 mm, 76.20 mm): Horizontal Wire, length 35.56 mm
+    @(36.83 mm, 76.20 mm): Horizontal Wire, length 2.54 mm
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(39.37 mm, 76.20 mm): Label 'RS232_CTS'
 [unconnected_wire_endpoint]: Unconnected wire endpoint
     ; warning
-    @(36.83 mm, 81.28 mm): Vertical Wire, length 26.67 mm
+    @(36.83 mm, 81.28 mm): Horizontal Wire, length 2.54 mm
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(78.74 mm, 43.18 mm): Label 'C2MINUS'
 [unconnected_wire_endpoint]: Unconnected wire endpoint
     ; warning
-    @(85.09 mm, 43.18 mm): Vertical Wire, length 12.70 mm
+    @(85.09 mm, 30.48 mm): Horizontal Wire, length 2.54 mm
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(74.93 mm, 52.07 mm): Label 'VMINUS'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(74.93 mm, 54.61 mm): Label 'VPLUS'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(87.63 mm, 30.48 mm): Label 'C2MINUS'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(74.93 mm, 62.23 mm): Label 'RS232_RTS'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(74.93 mm, 66.04 mm): Label 'RS232_CTS'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(74.93 mm, 71.12 mm): Label 'RS232_RX'
 [unconnected_wire_endpoint]: Unconnected wire endpoint
     ; warning
-    @(45.72 mm, 52.07 mm): Vertical Wire, length 41.91 mm
+    @(45.72 mm, 93.98 mm): Horizontal Wire, length 2.54 mm
 [unconnected_wire_endpoint]: Unconnected wire endpoint
     ; warning
-    @(100.33 mm, 43.18 mm): Vertical Wire, length 12.70 mm
+    @(100.33 mm, 30.48 mm): Horizontal Wire, length 2.54 mm
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(48.26 mm, 93.98 mm): Label 'VMINUS'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(74.93 mm, 76.20 mm): Label 'RS232_TX'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(102.87 mm, 30.48 mm): Label 'C2PLUS'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(106.68 mm, 43.18 mm): Label 'C2PLUS'
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(92.71 mm, 68.58 mm): Symbol U1 [_chip_U1]
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(78.74 mm, 93.98 mm): Label 'C1MINUS'
 [unconnected_wire_endpoint]: Unconnected wire endpoint
     ; warning
-    @(24.13 mm, 146.05 mm): Vertical Wire, length 24.13 mm
+    @(24.13 mm, 121.92 mm): Horizontal Wire, length 2.54 mm
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(26.67 mm, 121.92 mm): Label 'OSC_IN'
 [unconnected_wire_endpoint]: Unconnected wire endpoint
     ; warning
-    @(50.80 mm, 146.05 mm): Vertical Wire, length 24.13 mm
+    @(50.80 mm, 121.92 mm): Horizontal Wire, length 2.54 mm
 [unconnected_wire_endpoint]: Unconnected wire endpoint
     ; warning
-    @(80.01 mm, 93.98 mm): Vertical Wire, length 11.43 mm
+    @(80.01 mm, 105.41 mm): Horizontal Wire, length 2.54 mm
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(53.34 mm, 121.92 mm): Label 'OSC_OUT'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(82.55 mm, 105.41 mm): Label 'C1MINUS'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(106.68 mm, 93.98 mm): Label 'C1PLUS'
 [unconnected_wire_endpoint]: Unconnected wire endpoint
     ; warning
-    @(102.87 mm, 93.98 mm): Vertical Wire, length 11.43 mm
+    @(102.87 mm, 105.41 mm): Horizontal Wire, length 2.54 mm
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(27.94 mm, 146.05 mm): Label 'OSC_IN'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(105.41 mm, 105.41 mm): Label 'C1PLUS'
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(38.10 mm, 146.05 mm): Symbol U5A [_chip_U5A]
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(53.34 mm, 146.05 mm): Label 'OSC_OUT'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(62.23 mm, 144.78 mm): Label 'OSC_BUF'
 [unconnected_wire_endpoint]: Unconnected wire endpoint
     ; warning
-    @(54.61 mm, 146.05 mm): Vertical Wire, length 2.54 mm
+    @(54.61 mm, 148.59 mm): Horizontal Wire, length 2.54 mm
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(57.15 mm, 148.59 mm): Label 'OSC_OUT'
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(69.85 mm, 144.78 mm): Symbol U5B [_chip_U5B]
@@ -236,22 +283,37 @@ Report includes: Errors, Warnings, Exclusions
     @(167.64 mm, 46.99 mm): Symbol U3 [_chip_U3]
 [unconnected_wire_endpoint]: Unconnected wire endpoint
     ; warning
-    @(25.40 mm, 146.05 mm): Vertical Wire, length 26.67 mm
+    @(25.40 mm, 172.72 mm): Horizontal Wire, length 2.54 mm
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(27.94 mm, 172.72 mm): Label 'OSC_IN'
 [unconnected_wire_endpoint]: Unconnected wire endpoint
     ; warning
-    @(48.26 mm, 146.05 mm): Vertical Wire, length 26.67 mm
+    @(48.26 mm, 172.72 mm): Horizontal Wire, length 2.54 mm
 [unconnected_wire_endpoint]: Unconnected wire endpoint
     ; warning
-    @(54.61 mm, 171.45 mm): Horizontal Wire, length 5.08 mm
+    @(54.61 mm, 171.45 mm): Horizontal Wire, length 2.54 mm
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(50.80 mm, 172.72 mm): Label 'OSC_OUT'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(57.15 mm, 171.45 mm): Label 'OSC_BUF'
 [unconnected_wire_endpoint]: Unconnected wire endpoint
     ; warning
-    @(20.32 mm, 146.05 mm): Vertical Wire, length 36.83 mm
+    @(20.32 mm, 182.88 mm): Horizontal Wire, length 2.54 mm
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(22.86 mm, 182.88 mm): Label 'OSC_IN'
 [unconnected_wire_endpoint]: Unconnected wire endpoint
     ; warning
     @(147.32 mm, 111.76 mm): Horizontal Wire, length 2.54 mm
 [unconnected_wire_endpoint]: Unconnected wire endpoint
     ; warning
-    @(54.61 mm, 146.05 mm): Vertical Wire, length 36.83 mm
+    @(54.61 mm, 182.88 mm): Horizontal Wire, length 2.54 mm
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(57.15 mm, 182.88 mm): Label 'OSC_OUT'
 [unconnected_wire_endpoint]: Unconnected wire endpoint
     ; warning
     @(71.12 mm, 214.63 mm): Horizontal Wire, length 2.54 mm
@@ -316,7 +378,7 @@ Report includes: Errors, Warnings, Exclusions
     ; warning
     @(400.05 mm, 38.10 mm): Symbol #PWR_VSS [PWR_VSS]
 
- ** ERC messages: 103  Errors 57  Warnings 46
+ ** ERC messages: 124  Errors 48  Warnings 76
 
  ** Ignored checks:
     - Global label only appears once in the schematic
