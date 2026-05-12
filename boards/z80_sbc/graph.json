@@ -2013,6 +2013,745 @@
       ]
     },
     {
+      "name": "~RESET",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "U2",
+          "pin": 26,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "R1",
+          "pin": 2,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "SW1",
+          "pin": 1,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "RS232_TX",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "J1",
+          "pin": 2,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U1",
+          "pin": 14,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ],
+      "path": [
+        [
+          155.0,
+          167.0
+        ],
+        [
+          100.0,
+          167.0
+        ],
+        [
+          100.0,
+          127.0
+        ],
+        [
+          63.0,
+          127.0
+        ]
+      ],
+      "path_source": "ai"
+    },
+    {
+      "name": "RS232_RX",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "J1",
+          "pin": 3,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U1",
+          "pin": 13,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ],
+      "path": [
+        [
+          155.0,
+          155.0
+        ],
+        [
+          63.0,
+          155.0
+        ]
+      ],
+      "path_source": "ai"
+    },
+    {
+      "name": "RS232_RTS",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "J1",
+          "pin": 7,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U1",
+          "pin": 8,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ],
+      "path": [
+        [
+          155.0,
+          133.0
+        ],
+        [
+          110.0,
+          133.0
+        ],
+        [
+          110.0,
+          141.0
+        ],
+        [
+          63.0,
+          141.0
+        ]
+      ],
+      "path_source": "ai"
+    },
+    {
+      "name": "RS232_CTS",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "J1",
+          "pin": 8,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U1",
+          "pin": 7,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ],
+      "path": [
+        [
+          155.0,
+          143.0
+        ],
+        [
+          85.0,
+          143.0
+        ],
+        [
+          85.0,
+          168.0
+        ],
+        [
+          63.0,
+          168.0
+        ]
+      ],
+      "path_source": "ai"
+    },
+    {
+      "name": "C1MINUS",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "U1",
+          "pin": 3,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "C1",
+          "pin": 1,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ],
+      "path": [
+        [
+          168.0,
+          215.0
+        ],
+        [
+          168.0,
+          246.0
+        ],
+        [
+          179.0,
+          246.0
+        ]
+      ],
+      "path_source": "ai"
+    },
+    {
+      "name": "C1PLUS",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "U1",
+          "pin": 1,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "C1",
+          "pin": 2,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ],
+      "path": [
+        [
+          240.0,
+          215.0
+        ],
+        [
+          240.0,
+          246.0
+        ],
+        [
+          239.0,
+          246.0
+        ]
+      ],
+      "path_source": "ai"
+    },
+    {
+      "name": "C2MINUS",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "U1",
+          "pin": 5,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "C2",
+          "pin": 1,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ],
+      "path": [
+        [
+          168.0,
+          80.0
+        ],
+        [
+          168.0,
+          46.0
+        ],
+        [
+          191.0,
+          46.0
+        ]
+      ],
+      "path_source": "ai"
+    },
+    {
+      "name": "C2PLUS",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "U1",
+          "pin": 4,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "C2",
+          "pin": 2,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ],
+      "path": [
+        [
+          240.0,
+          80.0
+        ],
+        [
+          240.0,
+          46.0
+        ],
+        [
+          231.0,
+          46.0
+        ]
+      ],
+      "path_source": "ai"
+    },
+    {
+      "name": "VPLUS",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "U1",
+          "pin": 2,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "C3",
+          "pin": 1,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ],
+      "path": [
+        [
+          155.0,
+          113.0
+        ],
+        [
+          130.0,
+          113.0
+        ],
+        [
+          130.0,
+          65.0
+        ],
+        [
+          116.0,
+          65.0
+        ]
+      ],
+      "path_source": "ai"
+    },
+    {
+      "name": "VMINUS",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "U1",
+          "pin": 6,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "C4",
+          "pin": 1,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ],
+      "path": [
+        [
+          155.0,
+          103.0
+        ],
+        [
+          145.0,
+          103.0
+        ],
+        [
+          145.0,
+          215.0
+        ],
+        [
+          134.0,
+          215.0
+        ]
+      ],
+      "path_source": "ai"
+    },
+    {
+      "name": "DTR_DSR",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "J1",
+          "pin": 4,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "J1",
+          "pin": 6,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
+      "name": "OSC_IN",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "U5A",
+          "pin": 1,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "X1",
+          "pin": 1,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "R2",
+          "pin": 1,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "C6",
+          "pin": 1,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ],
+      "path": [
+        [
+          31.0,
+          291.0
+        ],
+        [
+          8.0,
+          291.0
+        ],
+        [
+          8.0,
+          352.0
+        ],
+        [
+          35.0,
+          352.0
+        ],
+        [
+          8.0,
+          352.0
+        ],
+        [
+          8.0,
+          423.0
+        ],
+        [
+          33.0,
+          423.0
+        ],
+        [
+          8.0,
+          423.0
+        ],
+        [
+          8.0,
+          451.0
+        ],
+        [
+          22.0,
+          451.0
+        ]
+      ],
+      "path_source": "ai"
+    },
+    {
+      "name": "OSC_OUT",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "U5A",
+          "pin": 2,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "X1",
+          "pin": 2,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "R2",
+          "pin": 2,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "C5",
+          "pin": 1,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "R3",
+          "pin": 1,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ],
+      "path": [
+        [
+          101.0,
+          291.0
+        ],
+        [
+          110.0,
+          291.0
+        ],
+        [
+          110.0,
+          352.0
+        ],
+        [
+          100.0,
+          352.0
+        ],
+        [
+          110.0,
+          352.0
+        ],
+        [
+          110.0,
+          360.0
+        ],
+        [
+          110.0,
+          360.0
+        ],
+        [
+          110.0,
+          360.0
+        ],
+        [
+          110.0,
+          423.0
+        ],
+        [
+          93.0,
+          423.0
+        ],
+        [
+          110.0,
+          423.0
+        ],
+        [
+          110.0,
+          451.0
+        ],
+        [
+          111.0,
+          451.0
+        ]
+      ],
+      "path_source": "ai"
+    },
+    {
+      "name": "OSC_BUF",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "R3",
+          "pin": 2,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U5B",
+          "pin": 3,
+          "sheet": 1,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ],
+      "path": [
+        [
+          125.0,
+          352.0
+        ],
+        [
+          125.0,
+          352.0
+        ],
+        [
+          125.0,
+          420.0
+        ],
+        [
+          110.0,
+          420.0
+        ]
+      ],
+      "path_source": "ai"
+    },
+    {
+      "name": "A0",
+      "kind": "bus_member",
+      "endpoints": [
+        {
+          "refdes": "U2",
+          "pin": 30,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U6",
+          "pin": 10,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U4",
+          "pin": 12,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        },
+        {
+          "refdes": "U3",
+          "pin": 11,
+          "sheet": 1,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai"
+          }
+        }
+      ]
+    },
+    {
       "name": "A1",
       "kind": "bus_member",
       "endpoints": [
@@ -2853,628 +3592,6 @@
         {
           "refdes": "U3",
           "pin": 13,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        }
-      ]
-    },
-    {
-      "name": "A0",
-      "kind": "bus_member",
-      "endpoints": [
-        {
-          "refdes": "U2",
-          "pin": 30,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U6",
-          "pin": 10,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U4",
-          "pin": 12,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U3",
-          "pin": 11,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        }
-      ]
-    },
-    {
-      "name": "~RESET",
-      "kind": "signal",
-      "endpoints": [
-        {
-          "refdes": "U2",
-          "pin": 26,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "R1",
-          "pin": 2,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "SW1",
-          "pin": 1,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        }
-      ]
-    },
-    {
-      "name": "OSC_IN",
-      "kind": "signal",
-      "endpoints": [
-        {
-          "refdes": "U5A",
-          "pin": 1,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "X1",
-          "pin": 1,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "R2",
-          "pin": 1,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "C6",
-          "pin": 1,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        }
-      ]
-    },
-    {
-      "name": "OSC_OUT",
-      "kind": "signal",
-      "endpoints": [
-        {
-          "refdes": "U5A",
-          "pin": 2,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "X1",
-          "pin": 2,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "R2",
-          "pin": 2,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "C5",
-          "pin": 1,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "R3",
-          "pin": 1,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        }
-      ]
-    },
-    {
-      "name": "OSC_BUF",
-      "kind": "signal",
-      "endpoints": [
-        {
-          "refdes": "R3",
-          "pin": 2,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U5B",
-          "pin": 3,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        }
-      ]
-    },
-    {
-      "name": "RS232_TX",
-      "kind": "signal",
-      "endpoints": [
-        {
-          "refdes": "J1",
-          "pin": 2,
-          "sheet": 1,
-          "edge_type": "wire",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U1",
-          "pin": 14,
-          "sheet": 1,
-          "edge_type": "wire",
-          "evidence": {
-            "source": "ai"
-          }
-        }
-      ],
-      "path": [
-        [
-          155.0,
-          167.0
-        ],
-        [
-          100.0,
-          167.0
-        ],
-        [
-          100.0,
-          127.0
-        ],
-        [
-          63.0,
-          127.0
-        ]
-      ],
-      "path_source": "ai"
-    },
-    {
-      "name": "RS232_RX",
-      "kind": "signal",
-      "endpoints": [
-        {
-          "refdes": "J1",
-          "pin": 3,
-          "sheet": 1,
-          "edge_type": "wire",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U1",
-          "pin": 13,
-          "sheet": 1,
-          "edge_type": "wire",
-          "evidence": {
-            "source": "ai"
-          }
-        }
-      ],
-      "path": [
-        [
-          155.0,
-          155.0
-        ],
-        [
-          63.0,
-          155.0
-        ]
-      ],
-      "path_source": "ai"
-    },
-    {
-      "name": "RS232_RTS",
-      "kind": "signal",
-      "endpoints": [
-        {
-          "refdes": "J1",
-          "pin": 7,
-          "sheet": 1,
-          "edge_type": "wire",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U1",
-          "pin": 8,
-          "sheet": 1,
-          "edge_type": "wire",
-          "evidence": {
-            "source": "ai"
-          }
-        }
-      ],
-      "path": [
-        [
-          155.0,
-          133.0
-        ],
-        [
-          110.0,
-          133.0
-        ],
-        [
-          110.0,
-          141.0
-        ],
-        [
-          63.0,
-          141.0
-        ]
-      ],
-      "path_source": "ai"
-    },
-    {
-      "name": "RS232_CTS",
-      "kind": "signal",
-      "endpoints": [
-        {
-          "refdes": "J1",
-          "pin": 8,
-          "sheet": 1,
-          "edge_type": "wire",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "U1",
-          "pin": 7,
-          "sheet": 1,
-          "edge_type": "wire",
-          "evidence": {
-            "source": "ai"
-          }
-        }
-      ],
-      "path": [
-        [
-          155.0,
-          143.0
-        ],
-        [
-          85.0,
-          143.0
-        ],
-        [
-          85.0,
-          168.0
-        ],
-        [
-          63.0,
-          168.0
-        ]
-      ],
-      "path_source": "ai"
-    },
-    {
-      "name": "C1MINUS",
-      "kind": "signal",
-      "endpoints": [
-        {
-          "refdes": "U1",
-          "pin": 3,
-          "sheet": 1,
-          "edge_type": "wire",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "C1",
-          "pin": 1,
-          "sheet": 1,
-          "edge_type": "wire",
-          "evidence": {
-            "source": "ai"
-          }
-        }
-      ],
-      "path": [
-        [
-          168.0,
-          215.0
-        ],
-        [
-          168.0,
-          246.0
-        ],
-        [
-          179.0,
-          246.0
-        ]
-      ],
-      "path_source": "ai"
-    },
-    {
-      "name": "C1PLUS",
-      "kind": "signal",
-      "endpoints": [
-        {
-          "refdes": "U1",
-          "pin": 1,
-          "sheet": 1,
-          "edge_type": "wire",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "C1",
-          "pin": 2,
-          "sheet": 1,
-          "edge_type": "wire",
-          "evidence": {
-            "source": "ai"
-          }
-        }
-      ],
-      "path": [
-        [
-          240.0,
-          215.0
-        ],
-        [
-          240.0,
-          246.0
-        ],
-        [
-          239.0,
-          246.0
-        ]
-      ],
-      "path_source": "ai"
-    },
-    {
-      "name": "C2MINUS",
-      "kind": "signal",
-      "endpoints": [
-        {
-          "refdes": "U1",
-          "pin": 5,
-          "sheet": 1,
-          "edge_type": "wire",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "C2",
-          "pin": 1,
-          "sheet": 1,
-          "edge_type": "wire",
-          "evidence": {
-            "source": "ai"
-          }
-        }
-      ],
-      "path": [
-        [
-          168.0,
-          80.0
-        ],
-        [
-          168.0,
-          46.0
-        ],
-        [
-          191.0,
-          46.0
-        ]
-      ],
-      "path_source": "ai"
-    },
-    {
-      "name": "C2PLUS",
-      "kind": "signal",
-      "endpoints": [
-        {
-          "refdes": "U1",
-          "pin": 4,
-          "sheet": 1,
-          "edge_type": "wire",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "C2",
-          "pin": 2,
-          "sheet": 1,
-          "edge_type": "wire",
-          "evidence": {
-            "source": "ai"
-          }
-        }
-      ],
-      "path": [
-        [
-          240.0,
-          80.0
-        ],
-        [
-          240.0,
-          46.0
-        ],
-        [
-          231.0,
-          46.0
-        ]
-      ],
-      "path_source": "ai"
-    },
-    {
-      "name": "VPLUS",
-      "kind": "signal",
-      "endpoints": [
-        {
-          "refdes": "U1",
-          "pin": 2,
-          "sheet": 1,
-          "edge_type": "wire",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "C3",
-          "pin": 1,
-          "sheet": 1,
-          "edge_type": "wire",
-          "evidence": {
-            "source": "ai"
-          }
-        }
-      ],
-      "path": [
-        [
-          155.0,
-          113.0
-        ],
-        [
-          130.0,
-          113.0
-        ],
-        [
-          130.0,
-          65.0
-        ],
-        [
-          116.0,
-          65.0
-        ]
-      ],
-      "path_source": "ai"
-    },
-    {
-      "name": "VMINUS",
-      "kind": "signal",
-      "endpoints": [
-        {
-          "refdes": "U1",
-          "pin": 6,
-          "sheet": 1,
-          "edge_type": "wire",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "C4",
-          "pin": 1,
-          "sheet": 1,
-          "edge_type": "wire",
-          "evidence": {
-            "source": "ai"
-          }
-        }
-      ],
-      "path": [
-        [
-          155.0,
-          103.0
-        ],
-        [
-          145.0,
-          103.0
-        ],
-        [
-          145.0,
-          215.0
-        ],
-        [
-          134.0,
-          215.0
-        ]
-      ],
-      "path_source": "ai"
-    },
-    {
-      "name": "DTR_DSR",
-      "kind": "signal",
-      "endpoints": [
-        {
-          "refdes": "J1",
-          "pin": 4,
-          "sheet": 1,
-          "edge_type": "label",
-          "evidence": {
-            "source": "ai"
-          }
-        },
-        {
-          "refdes": "J1",
-          "pin": 6,
           "sheet": 1,
           "edge_type": "label",
           "evidence": {
