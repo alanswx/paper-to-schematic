@@ -1,16 +1,43 @@
-ERC report (2026-05-12T21:10:02, Encoding UTF8)
+ERC report (2026-05-12T21:45:31, Encoding UTF8)
 Report includes: Errors, Warnings, Exclusions
 
 ***** Sheet /
 [pin_not_connected]: Pin not connected
     ; error
-    @(49.53 mm, 36.83 mm): Pin 1 [???, ?]
+    @(49.53 mm, 33.02 mm): Symbol C3 Pin 1 [Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(19.05 mm, 59.69 mm): Symbol J1 Pin 5 [5, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(49.53 mm, 40.64 mm): Symbol C3 Pin 2 [Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(19.05 mm, 62.23 mm): Symbol J1 Pin 9 [9, Passive, Line]
 [label_dangling]: Label not connected
     ; error
     @(39.37 mm, 54.61 mm): Label 'DTR_DSR'
 [pin_not_connected]: Pin not connected
     ; error
-    @(26.67 mm, 69.85 mm): Pin 1 [???, ?]
+    @(19.05 mm, 64.77 mm): Symbol J1 Pin 4 [4, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(19.05 mm, 67.31 mm): Symbol J1 Pin 8 [8, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(19.05 mm, 69.85 mm): Symbol J1 Pin 3 [3, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(19.05 mm, 72.39 mm): Symbol J1 Pin 7 [7, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(19.05 mm, 74.93 mm): Symbol J1 Pin 2 [2, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(19.05 mm, 77.47 mm): Symbol J1 Pin 6 [6, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(19.05 mm, 80.01 mm): Symbol J1 Pin 1 [1, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(76.20 mm, 43.18 mm): Symbol U1 Pin 5 [C2-, Passive, Line]
@@ -31,10 +58,13 @@ Report includes: Errors, Warnings, Exclusions
     @(71.12 mm, 63.50 mm): Symbol U1 Pin 8 [R2IN, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
+    @(92.71 mm, 26.67 mm): Symbol C2 Pin 1 [Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
     @(71.12 mm, 66.04 mm): Symbol U1 Pin 7 [T2OUT, Output, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(92.71 mm, 30.48 mm): Pin 1 [???, ?]
+    @(92.71 mm, 34.29 mm): Symbol C2 Pin 2 [Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(71.12 mm, 71.12 mm): Symbol U1 Pin 13 [R1IN, Input, Line]
@@ -46,25 +76,34 @@ Report includes: Errors, Warnings, Exclusions
     @(71.12 mm, 76.20 mm): Symbol U1 Pin 14 [T1OUT, Output, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(54.61 mm, 93.98 mm): Pin 1 [???, ?]
+    @(54.61 mm, 90.17 mm): Symbol C4 Pin 1 [Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(102.87 mm, 43.18 mm): Symbol U1 Pin 4 [C2+, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
+    @(54.61 mm, 97.79 mm): Symbol C4 Pin 2 [Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
     @(76.20 mm, 93.98 mm): Symbol U1 Pin 3 [C1-, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(38.10 mm, 121.92 mm): Pin 1 [???, ?]
+    @(38.10 mm, 118.11 mm): Symbol R2 Pin 1 [Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(109.22 mm, 71.12 mm): Symbol U1 Pin 12 [R1OUT, Output, Line]
 [pin_not_connected]: Pin not connected
     ; error
+    @(38.10 mm, 125.73 mm): Symbol R2 Pin 2 [Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(91.44 mm, 101.60 mm): Symbol C1 Pin 1 [Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
     @(102.87 mm, 93.98 mm): Symbol U1 Pin 1 [C1+, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(91.44 mm, 105.41 mm): Pin 1 [???, ?]
+    @(91.44 mm, 109.22 mm): Symbol C1 Pin 2 [Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(25.40 mm, 146.05 mm): Symbol U5A Pin 1 [1A, Input, Line]
@@ -94,25 +133,43 @@ Report includes: Errors, Warnings, Exclusions
     @(151.13 mm, 48.26 mm): Symbol U3 Pin 23 [~{DCD}, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(54.61 mm, 160.02 mm): Pin 1 [???, ?]
+    @(54.61 mm, 156.21 mm): Symbol R3 Pin 1 [Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(36.83 mm, 172.72 mm): Pin 1 [???, ?]
+    @(54.61 mm, 163.83 mm): Symbol R3 Pin 2 [Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(147.32 mm, 99.06 mm): Pin 1 [???, ?]
+    @(147.32 mm, 95.25 mm): Symbol R4 Pin 1 [Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(20.32 mm, 190.50 mm): Pin 1 [???, ?]
+    @(33.02 mm, 172.72 mm): Symbol X1 Pin 1 [1, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(54.61 mm, 190.50 mm): Pin 1 [???, ?]
+    @(40.64 mm, 172.72 mm): Symbol X1 Pin 2 [2, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(147.32 mm, 102.87 mm): Symbol R4 Pin 2 [Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(20.32 mm, 186.69 mm): Symbol C6 Pin 1 [Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(54.61 mm, 186.69 mm): Symbol C5 Pin 1 [Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(20.32 mm, 194.31 mm): Symbol C6 Pin 2 [Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(54.61 mm, 194.31 mm): Symbol C5 Pin 2 [Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(124.46 mm, 163.83 mm): Symbol U2 Pin 20 [~{IORQ}, Tri-state, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(71.12 mm, 203.20 mm): Pin 1 [???, ?]
+    @(71.12 mm, 199.39 mm): Symbol R1 Pin 1 [Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(71.12 mm, 207.01 mm): Symbol R1 Pin 2 [Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(124.46 mm, 184.15 mm): Symbol U2 Pin 28 [~{RFSH}, Output, Line]
@@ -133,7 +190,10 @@ Report includes: Errors, Warnings, Exclusions
     @(124.46 mm, 203.20 mm): Symbol U2 Pin 24 [~{WAIT}, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(71.12 mm, 232.41 mm): Pin 1 [???, ?]
+    @(66.04 mm, 232.41 mm): Symbol SW1 Pin 1 [1, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(76.20 mm, 232.41 mm): Symbol SW1 Pin 2 [2, Passive, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(124.46 mm, 214.63 mm): Symbol U2 Pin 16 [~{INT}, Input, Line]
@@ -306,7 +366,7 @@ Report includes: Errors, Warnings, Exclusions
     ; warning
     @(400.05 mm, 38.10 mm): Symbol #PWR_VSS [PWR_VSS]
 
- ** ERC messages: 101  Errors 61  Warnings 40
+ ** ERC messages: 121  Errors 81  Warnings 40
 
  ** Ignored checks:
     - Global label only appears once in the schematic

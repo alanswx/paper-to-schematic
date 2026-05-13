@@ -482,6 +482,80 @@ def synth_faithful_symbol(refdes: str, part_key: str, part: dict, comp: dict,
   )'''
 
 
+# Cache of (lib_path → text) so we don't re-read the same .kicad_sym
+# file once per discrete component.
+_STOCK_SYM_FILE_CACHE: dict[str, str] = {}
+
+
+def _kicad_stock_symbols_dir() -> Path | None:
+    """Find KiCad's stock symbols directory. macOS path is the only one we
+    currently care about; extend as needed."""
+    for p in [
+        Path("/Applications/KiCad/KiCad.app/Contents/SharedSupport/symbols"),
+        Path("/usr/share/kicad/symbols"),
+        Path("/usr/local/share/kicad/symbols"),
+    ]:
+        if p.is_dir():
+            return p
+    return None
+
+
+def _extract_stock_symbol(lib_id: str) -> str | None:
+    """Pull the full s-expression block for a stock symbol out of KiCad's
+    shipped .kicad_sym file and rewrite it for embedding in a .kicad_sch
+    (lib_symbols …) block.
+
+    Stock .kicad_sym files declare symbols by short name: `(symbol "R" …)`.
+    Embedded .kicad_sch lib_symbols entries use the fully-qualified
+    `(symbol "Device:R" …)`. This function does the rename and balances
+    parens to extract one symbol's block.
+    """
+    if ":" not in lib_id:
+        return None
+    lib_name, sym_name = lib_id.split(":", 1)
+    stock_dir = _kicad_stock_symbols_dir()
+    if not stock_dir:
+        return None
+    lib_path = stock_dir / f"{lib_name}.kicad_sym"
+    if not lib_path.exists():
+        return None
+    txt = _STOCK_SYM_FILE_CACHE.get(str(lib_path))
+    if txt is None:
+        txt = lib_path.read_text(encoding="utf-8")
+        _STOCK_SYM_FILE_CACHE[str(lib_path)] = txt
+    # Find `(symbol "<sym_name>"`
+    needle = f'(symbol "{sym_name}"'
+    start = txt.find(needle)
+    if start < 0:
+        return None
+    # Balance parens from `(symbol "...":
+    depth = 0
+    i = start
+    end = -1
+    in_str = False
+    while i < len(txt):
+        ch = txt[i]
+        if ch == '"' and (i == 0 or txt[i - 1] != "\\"):
+            in_str = not in_str
+        elif not in_str:
+            if ch == "(":
+                depth += 1
+            elif ch == ")":
+                depth -= 1
+                if depth == 0:
+                    end = i + 1
+                    break
+        i += 1
+    if end < 0:
+        return None
+    block = txt[start:end]
+    # Rewrite "(symbol \"<sym_name>\"" → "(symbol \"<lib_id>\""
+    block = block.replace(f'(symbol "{sym_name}"', f'(symbol "{lib_id}"', 1)
+    # Indent uniformly so it matches the rest of lib_symbols.
+    block = "\n".join(("  " + ln) if ln.strip() else ln for ln in block.splitlines())
+    return block
+
+
 def synth_power_symbol(power_name: str, lib: str = "user") -> str:
     """A 1-pin power-source symbol whose single pin is power_out, named after
     the supplied net name (VCC, GND, +5V, …). Used to drive the chips'
@@ -616,13 +690,21 @@ def gen_sch(graph: dict, chips: dict, sheet_index: int, project_name: str = "sch
     fallback_lib_ids: dict[tuple[str, str | None], dict] = {}
     faithful_refdes: set[str] = set()
     discrete_refdes: set[str] = set()
+    stock_lib_ids_needed: set[str] = set()
     for c in components:
         part = chips["parts"].get(c["part"])
         if not part:
             continue
         if part.get("kind") == "discrete":
             discrete_refdes.add(c["refdes"])
-            continue  # no lib_symbol synthesis — KiCad has the stock one.
+            # Discretes reference stock symbols (Device:R, Switch:SW_Push,
+            # …) by lib_id. KiCad's .kicad_sch needs each used stock
+            # symbol embedded in lib_symbols too, or the GUI shows '??'
+            # placeholders even when the project sym-lib-table is set.
+            stock = part.get("kicad_symbol")
+            if stock and ":" in stock:
+                stock_lib_ids_needed.add(stock)
+            continue
         if c.get("pin_positions"):
             sym_defs.append(synth_faithful_symbol(c["refdes"], c["part"], part, c, scale))
             faithful_refdes.add(c["refdes"])
@@ -631,6 +713,11 @@ def gen_sch(graph: dict, chips: dict, sheet_index: int, project_name: str = "sch
             fallback_lib_ids[(c["part"], letter)] = part
     for (pk, letter), part in sorted(fallback_lib_ids.items(), key=lambda x: (x[0][0], x[0][1] or "")):
         sym_defs.append(synth_symbol(pk, part, unit_letter=letter))
+    # Embed stock symbols pulled from KiCad's shipped .kicad_sym files.
+    for lib_id in sorted(stock_lib_ids_needed):
+        block = _extract_stock_symbol(lib_id)
+        if block:
+            sym_defs.append(block)
 
     # Collect power/ground pins on this sheet, grouped by their library pin
     # name (typically "VCC" / "GND"). Each unique name gets one synthesized
