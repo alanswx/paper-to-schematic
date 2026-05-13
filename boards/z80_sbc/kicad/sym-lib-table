@@ -1,3 +1,7 @@
 (sym_lib_table
   (lib (name "user")(type "KiCad")(uri "${KIPRJMOD}/user.kicad_sym")(options "")(descr "embedded user symbols (cached in each .kicad_sch lib_symbols block)"))
+  (lib (name "Connector")(type "KiCad")(uri "${KICAD10_SYMBOL_DIR}/Connector.kicad_sym")(options "")(descr "Connector symbols"))
+  (lib (name "Device")(type "KiCad")(uri "${KICAD10_SYMBOL_DIR}/Device.kicad_sym")(options "")(descr "Device symbols"))
+  (lib (name "Switch")(type "KiCad")(uri "${KICAD10_SYMBOL_DIR}/Switch.kicad_sym")(options "")(descr "Switch symbols"))
+  (lib (name "power")(type "KiCad")(uri "${KICAD10_SYMBOL_DIR}/power.kicad_sym")(options "")(descr "power symbols"))
 )

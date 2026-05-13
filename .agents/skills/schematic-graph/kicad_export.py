@@ -330,7 +330,7 @@ def synth_symbol(part_key: str, part: dict, lib: str = "user", *,
 
     pins_block = "\n".join(pin_lines)
     sym = f'''  (symbol "{lib}:{sym_id}"
-    (pin_names (offset 0.508))
+    (pin_names (offset 0.508) hide)
     (exclude_from_sim no)
     (in_bom yes)
     (on_board yes)
@@ -347,7 +347,7 @@ def synth_symbol(part_key: str, part: dict, lib: str = "user", *,
     (symbol "{sym_id}_0_1"
       (rectangle (start {_f(body_left)} {_f(body_top)}) (end {_f(body_right)} {_f(body_bot)})
         (stroke (width 0.254) (type default))
-        (fill (type background))
+        (fill (type none))
       )
     )
     (symbol "{sym_id}_1_1"
@@ -456,7 +456,7 @@ def synth_faithful_symbol(refdes: str, part_key: str, part: dict, comp: dict,
 
     sym_id = f"_chip_{refdes}"
     return f'''  (symbol "{lib}:{sym_id}"
-    (pin_names (offset 0.508))
+    (pin_names (offset 0.508) hide)
     (exclude_from_sim no)
     (in_bom yes)
     (on_board yes)
@@ -473,7 +473,7 @@ def synth_faithful_symbol(refdes: str, part_key: str, part: dict, comp: dict,
     (symbol "{sym_id}_0_1"
       (rectangle (start {_f(body_left)} {_f(body_top)}) (end {_f(body_right)} {_f(body_bot)})
         (stroke (width 0.254) (type default))
-        (fill (type background))
+        (fill (type none))
       )
     )
     (symbol "{sym_id}_1_1"
@@ -655,6 +655,12 @@ def gen_sch(graph: dict, chips: dict, sheet_index: int, project_name: str = "sch
                 power_pin_groups.setdefault(pname, []).append(
                     (comp["refdes"], p["n"], p["type"]))
 
+    # One synthesized power_out source symbol per power net, plus
+    # global_labels at each chip's power pin. The user:PWR_<NAME>
+    # symbol has a power_out pin → ERC sees the net as driven.
+    # Stock power:<NAME> symbols at each chip pin would be a nicer
+    # visual but collide with chip pins (both power_in → pin_to_pin
+    # error). Deferred — see SKILL.md § Known exporter gaps #5.
     for pname in sorted(power_pin_groups):
         sym_defs.append(synth_power_symbol(pname))
 
@@ -817,10 +823,14 @@ def gen_sch(graph: dict, chips: dict, sheet_index: int, project_name: str = "sch
 
     # Power-source pseudo-components: one (symbol ...) instance per unique
     # power-net name, placed in a column at the right margin. A global_label
-    # at the source's pin position pairs with global_labels emitted at each
-    # chip's power pin; KiCad's netlist groups them by name.
+    # One user:PWR_<NAME> instance per power net, parked in the right
+    # margin. Each has a power_out pin (synth_power_symbol). Connectivity
+    # to chip pins is via global_labels: one per chip pin position
+    # (emitted below in the label pass) and one at the source position.
     pwr_x_mm = _snap(PAPER_W_MM - PAPER_MARGIN_MM - 6 * KICAD_GRID_MM)
     pwr_y0_mm = _snap(PAPER_MARGIN_MM + 4 * KICAD_GRID_MM)
+    pwr_src_labels: list[str] = []
+    pwr_src_wires: list[tuple] = []
     for i, pname in enumerate(sorted(power_pin_groups)):
         safe = "".join(c if c.isalnum() else "_" for c in pname) or "PWR"
         srefdes = f"#PWR_{safe}"
@@ -847,6 +857,12 @@ def gen_sch(graph: dict, chips: dict, sheet_index: int, project_name: str = "sch
       )
     )
   )''')
+        luuid = stable_uuid(f"pwrsrc-lbl/{pname}")
+        pwr_src_labels.append(
+            f'  (global_label {_esc(_kicad_label(pname))} (shape output) '
+            f'(at {_f(sx)} {_f(sy)} 0)\n'
+            f'    (effects (font (size 1.27 1.27)) (justify left))\n'
+            f'    (uuid "{luuid}")\n  )')
 
     # Wires (edge_type=wire) connect each pair of endpoints with a straight
     # line. Labels (edge_type=label / sheet_zone / off_page) emit a KiCad
@@ -854,7 +870,7 @@ def gen_sch(graph: dict, chips: dict, sheet_index: int, project_name: str = "sch
     # name even when the schematic was drawn with named nets instead of
     # explicit wires (Dorado-style).
     wire_blocks = []
-    label_blocks = []
+    label_blocks = list(pwr_src_labels)  # pre-load power_out source labels
     # Per-sheet set of already-emitted unordered segments. Catches duplicates
     # from polylines that backtrack along the same line (trunk → branch →
     # trunk topology common in multi-endpoint tree paths) and from any two
@@ -966,11 +982,11 @@ def gen_sch(graph: dict, chips: dict, sheet_index: int, project_name: str = "sch
     (uuid "{luuid}")
   )''')
 
-    # Global labels for every power/ground pin (chip side AND source side)
-    # so KiCad's netlist groups them by name, which clears
-    # power_pin_not_driven and power_pin_not_connected for free.
+    # Power connectivity: global_label at each chip's power pin
+    # position pairs with the PWR_FLAG-driven label of the same name
+    # in the right-margin source group. KiCad netlist groups by name,
+    # power_pin_not_driven clears.
     for pname, members in power_pin_groups.items():
-        # Chip-side label at each power pin position.
         for refdes, pin_n, _ptype in members:
             pos = pin_endpoint_mm.get((refdes, str(pin_n)))
             if not pos:
@@ -981,16 +997,6 @@ def gen_sch(graph: dict, chips: dict, sheet_index: int, project_name: str = "sch
                 f'(at {_f(pos[0])} {_f(pos[1])} 0)\n'
                 f'    (effects (font (size 1.27 1.27)) (justify left))\n'
                 f'    (uuid "{luuid}")\n  )')
-    # Source-side label per power-source instance.
-    for i, pname in enumerate(sorted(power_pin_groups)):
-        sx = pwr_x_mm
-        sy = _snap(pwr_y0_mm + i * 8 * KICAD_GRID_MM)
-        luuid = stable_uuid(f"pwrlbl/{pname}/source")
-        label_blocks.append(
-            f'  (global_label {_esc(_kicad_label(pname))} (shape output) '
-            f'(at {_f(sx)} {_f(sy)} 0)\n'
-            f'    (effects (font (size 1.27 1.27)) (justify left))\n'
-            f'    (uuid "{luuid}")\n  )')
 
     title = f"{graph['board'].get('title', graph['board']['id'])} sheet {sheet_index}: {sheet_meta.get('title', '')}"
     drawing_no = graph['board'].get('drawing_number', '')

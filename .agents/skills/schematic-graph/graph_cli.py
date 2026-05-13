@@ -908,25 +908,56 @@ def cmd_export_kicad(args):
             '  "libraries": {"pinned_symbol_libs": [], "pinned_footprint_libs": []}\n}\n'
         )
 
-    # Emit a sym-lib-table that registers the 'user' library used by the
-    # exporter's lib_id refs. The synthesized symbols are embedded under
-    # lib_symbols inside each .kicad_sch, so the URI can be empty — the
-    # table just acknowledges the lib name to KiCad and silences the
-    # "library 'user' is not in the configuration" warning.
+    # Emit project sym-lib-table + fp-lib-table covering every stock
+    # library the board's discretes reference (Device, Switch, Connector,
+    # …) PLUS the synthesized 'user' lib for embedded chip symbols.
+    # Without these, the KiCad GUI shows '??' placeholders for discrete
+    # parts because the project resolver searches the project lib table
+    # before the user-global one. SKILL.md § Known exporter gaps #1.
+    sym_libs_needed = set()
+    fp_libs_needed = set()
+    # Always include the `power` library — the export emits stock
+    # power:VCC, power:GND, … symbols at every chip's power pin.
+    sym_libs_needed.add("power")
+    for comp in graph.get("components", []):
+        part = chips.get("parts", {}).get(comp["part"])
+        if not part:
+            continue
+        sym = part.get("kicad_symbol", "")
+        if sym and ":" in sym:
+            sym_libs_needed.add(sym.split(":", 1)[0])
+        fp = part.get("kicad_footprint", "")
+        if fp and ":" in fp:
+            fp_libs_needed.add(fp.split(":", 1)[0])
+    # IC packages also pull in a footprint lib via kicad_footprint_for()
+    # (PACKAGE_TO_KICAD_FP table). Walk those too.
+    for comp in graph.get("components", []):
+        part = chips.get("parts", {}).get(comp["part"])
+        if not part:
+            continue
+        fp = kicad_export.kicad_footprint_for(part)
+        if fp and ":" in fp:
+            fp_libs_needed.add(fp.split(":", 1)[0])
+
     sym_lib_table = out_dir / "sym-lib-table"
-    if not sym_lib_table.exists():
-        sym_lib_table.write_text(
-            '(sym_lib_table\n'
-            '  (lib (name "user")(type "KiCad")(uri "${KIPRJMOD}/user.kicad_sym")(options "")(descr "embedded user symbols (cached in each .kicad_sch lib_symbols block)"))\n'
-            ')\n'
+    sym_entries = ['  (lib (name "user")(type "KiCad")(uri "${KIPRJMOD}/user.kicad_sym")(options "")(descr "embedded user symbols (cached in each .kicad_sch lib_symbols block)"))']
+    for libname in sorted(sym_libs_needed):
+        sym_entries.append(f'  (lib (name "{libname}")(type "KiCad")(uri "${{KICAD10_SYMBOL_DIR}}/{libname}.kicad_sym")(options "")(descr "{libname} symbols"))')
+    sym_lib_table.write_text('(sym_lib_table\n' + '\n'.join(sym_entries) + '\n)\n')
+
+    fp_lib_table = out_dir / "fp-lib-table"
+    fp_entries = []
+    for libname in sorted(fp_libs_needed):
+        fp_entries.append(f'  (lib (name "{libname}")(type "KiCad")(uri "${{KICAD10_FOOTPRINT_DIR}}/{libname}.pretty")(options "")(descr "{libname} footprints"))')
+    fp_lib_table.write_text('(fp_lib_table\n' + '\n'.join(fp_entries) + '\n)\n')
+
+    # KiCad refuses to recognise the lib unless the .kicad_sym file
+    # exists, even if empty. Write a minimal placeholder.
+    user_sym = out_dir / "user.kicad_sym"
+    if not user_sym.exists():
+        user_sym.write_text(
+            '(kicad_symbol_lib (version 20231120) (generator "paper-to-schematic") (generator_version "0.1"))\n'
         )
-        # KiCad refuses to recognise the lib unless the .kicad_sym file
-        # exists, even if empty. Write a minimal placeholder.
-        user_sym = out_dir / "user.kicad_sym"
-        if not user_sym.exists():
-            user_sym.write_text(
-                '(kicad_symbol_lib (version 20231120) (generator "paper-to-schematic") (generator_version "0.1"))\n'
-            )
 
     written = []
     for idx in sheets:
@@ -1623,7 +1654,12 @@ def cmd_render_kicad(args):
                    check=True, capture_output=True)
     svg = out_dir / f"{sch.stem}.svg"
     png = Path(args.out) if args.out else out_dir / f"{sch.stem}.png"
-    r = subprocess.run(["sips", "-s", "format", "png", str(svg), "--out", str(png)],
+    # Render at 2400 px wide so KiCad's `??` placeholders for missing
+    # symbol-resolution and small discrete symbols stay individually
+    # identifiable when an LLM reads the dump (was ~1200 default; per
+    # SKILL.md § Known exporter gaps #2).
+    r = subprocess.run(["sips", "-s", "format", "png", "-Z", "2400",
+                        str(svg), "--out", str(png)],
                        capture_output=True, text=True)
     if r.returncode != 0:
         print(f"sips failed: {r.stderr}", file=sys.stderr); sys.exit(2)
