@@ -1,3 +1,8 @@
+---
+name: librarian
+description: Manage and validate the chip pinout library. Use when looking up a part, adding or verifying a pinout from primary sources, validating chips.json, or checking board graph coverage against known library parts.
+---
+
 # Librarian skill
 
 Maintains the deterministic chip pinout database at

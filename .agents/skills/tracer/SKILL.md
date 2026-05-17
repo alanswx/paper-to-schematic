@@ -1,3 +1,8 @@
+---
+name: tracer
+description: CV-assisted direct wire tracing for schematic sheets. Use after component bboxes and pin positions are in place to propose pin-to-pin nets from source artwork, emit trace JSON, and import verified traced nets into the graph.
+---
+
 # Tracer skill
 
 CV-assisted wire detection on a full schematic sheet. Produces *proposed*

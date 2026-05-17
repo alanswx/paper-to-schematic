@@ -1,3 +1,8 @@
+---
+name: schematic-graph
+description: Load, edit, validate, render, and export a board's schematic graph. Use when adding components or nets, setting pin positions, running lint or ERC gates, generating probes.csv, rendering overlays, or exporting KiCad schematics.
+---
+
 # Schematic-graph skill
 
 Owns the in-memory and on-disk representation of a board's transcribed schematic:

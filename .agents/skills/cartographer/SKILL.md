@@ -1,3 +1,8 @@
+---
+name: cartographer
+description: Image preprocessing for schematic scans. Use when decoding JP2 or PDF sources, cleaning or tiling sheet images, translating tile coordinates, cropping chips, or opportunistically refining component bboxes from source artwork.
+---
+
 # Cartographer skill
 
 Image preprocessing for schematic scans. Decodes archive-format inputs (JP2,

@@ -5309,6 +5309,1024 @@
       "kicad_symbol": "Connector:DE9_Pins",
       "kicad_footprint": "Connector_Dsub:DSUB-9_Pins_Horizontal_P2.77x2.84mm_EdgePinOffset4.94mm_Housed_MountingHolesOffset4.94mm",
       "pin_count": 9
+    },
+    "74LS123": {
+      "description": "Dual retriggerable monostable multivibrator with clear",
+      "package": "DIP-16",
+      "datasheet": "TI SDLS122, 1988",
+      "vcc_pin": 16,
+      "gnd_pin": 8,
+      "pins": [
+        {
+          "n": 1,
+          "name": "1A",
+          "type": "input",
+          "group": "ms1"
+        },
+        {
+          "n": 2,
+          "name": "1B",
+          "type": "input",
+          "group": "ms1"
+        },
+        {
+          "n": 3,
+          "name": "~1CLR",
+          "type": "input",
+          "group": "ms1"
+        },
+        {
+          "n": 4,
+          "name": "~1Q",
+          "type": "output",
+          "group": "ms1"
+        },
+        {
+          "n": 5,
+          "name": "2Q",
+          "type": "output",
+          "group": "ms2"
+        },
+        {
+          "n": 6,
+          "name": "2CEXT",
+          "type": "passive",
+          "group": "ms2"
+        },
+        {
+          "n": 7,
+          "name": "2REXT",
+          "type": "passive",
+          "group": "ms2"
+        },
+        {
+          "n": 8,
+          "name": "GND",
+          "type": "ground"
+        },
+        {
+          "n": 9,
+          "name": "2A",
+          "type": "input",
+          "group": "ms2"
+        },
+        {
+          "n": 10,
+          "name": "2B",
+          "type": "input",
+          "group": "ms2"
+        },
+        {
+          "n": 11,
+          "name": "~2CLR",
+          "type": "input",
+          "group": "ms2"
+        },
+        {
+          "n": 12,
+          "name": "~2Q",
+          "type": "output",
+          "group": "ms2"
+        },
+        {
+          "n": 13,
+          "name": "1Q",
+          "type": "output",
+          "group": "ms1"
+        },
+        {
+          "n": 14,
+          "name": "1CEXT",
+          "type": "passive",
+          "group": "ms1"
+        },
+        {
+          "n": 15,
+          "name": "1REXT",
+          "type": "passive",
+          "group": "ms1"
+        },
+        {
+          "n": 16,
+          "name": "VCC",
+          "type": "power"
+        }
+      ]
+    },
+    "74LS20": {
+      "description": "Dual 4-input NAND gate",
+      "package": "DIP-14",
+      "datasheet": "TI SDLS035, 1988",
+      "vcc_pin": 14,
+      "gnd_pin": 7,
+      "pins": [
+        {
+          "n": 1,
+          "name": "1A",
+          "type": "input",
+          "group": "g1"
+        },
+        {
+          "n": 2,
+          "name": "1B",
+          "type": "input",
+          "group": "g1"
+        },
+        {
+          "n": 3,
+          "name": "NC",
+          "type": "nc"
+        },
+        {
+          "n": 4,
+          "name": "1C",
+          "type": "input",
+          "group": "g1"
+        },
+        {
+          "n": 5,
+          "name": "1D",
+          "type": "input",
+          "group": "g1"
+        },
+        {
+          "n": 6,
+          "name": "1Y",
+          "type": "output",
+          "group": "g1"
+        },
+        {
+          "n": 7,
+          "name": "GND",
+          "type": "ground"
+        },
+        {
+          "n": 8,
+          "name": "2Y",
+          "type": "output",
+          "group": "g2"
+        },
+        {
+          "n": 9,
+          "name": "2A",
+          "type": "input",
+          "group": "g2"
+        },
+        {
+          "n": 10,
+          "name": "2B",
+          "type": "input",
+          "group": "g2"
+        },
+        {
+          "n": 11,
+          "name": "NC",
+          "type": "nc"
+        },
+        {
+          "n": 12,
+          "name": "2C",
+          "type": "input",
+          "group": "g2"
+        },
+        {
+          "n": 13,
+          "name": "2D",
+          "type": "input",
+          "group": "g2"
+        },
+        {
+          "n": 14,
+          "name": "VCC",
+          "type": "power"
+        }
+      ]
+    },
+    "74LS109": {
+      "description": "Dual J-not-K positive-edge-triggered flip-flop with preset and clear",
+      "package": "DIP-16",
+      "datasheet": "TI SDLS122, 1988",
+      "vcc_pin": 16,
+      "gnd_pin": 8,
+      "pins": [
+        {
+          "n": 1,
+          "name": "~1CLR",
+          "type": "input",
+          "group": "ff1"
+        },
+        {
+          "n": 2,
+          "name": "1J",
+          "type": "input",
+          "group": "ff1"
+        },
+        {
+          "n": 3,
+          "name": "~1K",
+          "type": "input",
+          "group": "ff1"
+        },
+        {
+          "n": 4,
+          "name": "1CLK",
+          "type": "clock",
+          "group": "ff1"
+        },
+        {
+          "n": 5,
+          "name": "~1PRE",
+          "type": "input",
+          "group": "ff1"
+        },
+        {
+          "n": 6,
+          "name": "1Q",
+          "type": "output",
+          "group": "ff1"
+        },
+        {
+          "n": 7,
+          "name": "~1Q",
+          "type": "output",
+          "group": "ff1"
+        },
+        {
+          "n": 8,
+          "name": "GND",
+          "type": "ground"
+        },
+        {
+          "n": 9,
+          "name": "~2Q",
+          "type": "output",
+          "group": "ff2"
+        },
+        {
+          "n": 10,
+          "name": "2Q",
+          "type": "output",
+          "group": "ff2"
+        },
+        {
+          "n": 11,
+          "name": "~2PRE",
+          "type": "input",
+          "group": "ff2"
+        },
+        {
+          "n": 12,
+          "name": "2CLK",
+          "type": "clock",
+          "group": "ff2"
+        },
+        {
+          "n": 13,
+          "name": "~2K",
+          "type": "input",
+          "group": "ff2"
+        },
+        {
+          "n": 14,
+          "name": "2J",
+          "type": "input",
+          "group": "ff2"
+        },
+        {
+          "n": 15,
+          "name": "~2CLR",
+          "type": "input",
+          "group": "ff2"
+        },
+        {
+          "n": 16,
+          "name": "VCC",
+          "type": "power"
+        }
+      ]
+    },
+    "74LS107": {
+      "description": "Dual J-K flip-flop with clear (master-slave)",
+      "package": "DIP-14",
+      "datasheet": "TI SDLS121, 1988",
+      "vcc_pin": 14,
+      "gnd_pin": 7,
+      "pins": [
+        {
+          "n": 1,
+          "name": "1J",
+          "type": "input",
+          "group": "ff1"
+        },
+        {
+          "n": 2,
+          "name": "~1Q",
+          "type": "output",
+          "group": "ff1"
+        },
+        {
+          "n": 3,
+          "name": "1Q",
+          "type": "output",
+          "group": "ff1"
+        },
+        {
+          "n": 4,
+          "name": "1K",
+          "type": "input",
+          "group": "ff1"
+        },
+        {
+          "n": 5,
+          "name": "2Q",
+          "type": "output",
+          "group": "ff2"
+        },
+        {
+          "n": 6,
+          "name": "~2Q",
+          "type": "output",
+          "group": "ff2"
+        },
+        {
+          "n": 7,
+          "name": "GND",
+          "type": "ground"
+        },
+        {
+          "n": 8,
+          "name": "2J",
+          "type": "input",
+          "group": "ff2"
+        },
+        {
+          "n": 9,
+          "name": "~2CLR",
+          "type": "input",
+          "group": "ff2"
+        },
+        {
+          "n": 10,
+          "name": "2CLK",
+          "type": "clock",
+          "group": "ff2"
+        },
+        {
+          "n": 11,
+          "name": "2K",
+          "type": "input",
+          "group": "ff2"
+        },
+        {
+          "n": 12,
+          "name": "1CLK",
+          "type": "clock",
+          "group": "ff1"
+        },
+        {
+          "n": 13,
+          "name": "~1CLR",
+          "type": "input",
+          "group": "ff1"
+        },
+        {
+          "n": 14,
+          "name": "VCC",
+          "type": "power"
+        }
+      ]
+    },
+    "74S04": {
+      "description": "Hex inverter \u2014 Schottky variant (pin-compatible)",
+      "package": "DIP-14",
+      "vcc_pin": 14,
+      "gnd_pin": 7,
+      "datasheet": "TI SDLS029, 1988",
+      "pins": [
+        {
+          "n": 1,
+          "name": "1A",
+          "type": "input",
+          "group": "g1"
+        },
+        {
+          "n": 2,
+          "name": "1Y",
+          "type": "output",
+          "group": "g1"
+        },
+        {
+          "n": 3,
+          "name": "2A",
+          "type": "input",
+          "group": "g2"
+        },
+        {
+          "n": 4,
+          "name": "2Y",
+          "type": "output",
+          "group": "g2"
+        },
+        {
+          "n": 5,
+          "name": "3A",
+          "type": "input",
+          "group": "g3"
+        },
+        {
+          "n": 6,
+          "name": "3Y",
+          "type": "output",
+          "group": "g3"
+        },
+        {
+          "n": 7,
+          "name": "GND",
+          "type": "ground"
+        },
+        {
+          "n": 8,
+          "name": "4Y",
+          "type": "output",
+          "group": "g4"
+        },
+        {
+          "n": 9,
+          "name": "4A",
+          "type": "input",
+          "group": "g4"
+        },
+        {
+          "n": 10,
+          "name": "5Y",
+          "type": "output",
+          "group": "g5"
+        },
+        {
+          "n": 11,
+          "name": "5A",
+          "type": "input",
+          "group": "g5"
+        },
+        {
+          "n": 12,
+          "name": "6Y",
+          "type": "output",
+          "group": "g6"
+        },
+        {
+          "n": 13,
+          "name": "6A",
+          "type": "input",
+          "group": "g6"
+        },
+        {
+          "n": 14,
+          "name": "VCC",
+          "type": "power"
+        }
+      ]
+    },
+    "74S74": {
+      "description": "Dual D-type positive-edge-triggered flip-flop with preset and clear \u2014 Schottky variant (pin-compatible)",
+      "package": "DIP-14",
+      "vcc_pin": 14,
+      "gnd_pin": 7,
+      "datasheet": "TI SDLS118, 1988",
+      "pins": [
+        {
+          "n": 1,
+          "name": "~1CLR",
+          "type": "input",
+          "group": "ff1"
+        },
+        {
+          "n": 2,
+          "name": "1D",
+          "type": "input",
+          "group": "ff1"
+        },
+        {
+          "n": 3,
+          "name": "1CLK",
+          "type": "clock",
+          "group": "ff1"
+        },
+        {
+          "n": 4,
+          "name": "~1PRE",
+          "type": "input",
+          "group": "ff1"
+        },
+        {
+          "n": 5,
+          "name": "1Q",
+          "type": "output",
+          "group": "ff1"
+        },
+        {
+          "n": 6,
+          "name": "~1Q",
+          "type": "output",
+          "group": "ff1"
+        },
+        {
+          "n": 7,
+          "name": "GND",
+          "type": "ground"
+        },
+        {
+          "n": 8,
+          "name": "~2Q",
+          "type": "output",
+          "group": "ff2"
+        },
+        {
+          "n": 9,
+          "name": "2Q",
+          "type": "output",
+          "group": "ff2"
+        },
+        {
+          "n": 10,
+          "name": "~2PRE",
+          "type": "input",
+          "group": "ff2"
+        },
+        {
+          "n": 11,
+          "name": "2CLK",
+          "type": "clock",
+          "group": "ff2"
+        },
+        {
+          "n": 12,
+          "name": "2D",
+          "type": "input",
+          "group": "ff2"
+        },
+        {
+          "n": 13,
+          "name": "~2CLR",
+          "type": "input",
+          "group": "ff2"
+        },
+        {
+          "n": 14,
+          "name": "VCC",
+          "type": "power"
+        }
+      ]
+    },
+    "74S174": {
+      "description": "Hex D-type flip-flop with common clock and common asynchronous clear \u2014 Schottky variant (pin-compatible)",
+      "package": "DIP-16",
+      "vcc_pin": 16,
+      "gnd_pin": 8,
+      "datasheet": "TI SDLS134, 1988 (SN74LS174)",
+      "aliases": [
+        "SN74LS174",
+        "SN74LS174N",
+        "SN54LS174"
+      ],
+      "pins": [
+        {
+          "n": 1,
+          "name": "~MR",
+          "type": "input"
+        },
+        {
+          "n": 2,
+          "name": "1Q",
+          "type": "output",
+          "group": "ff1"
+        },
+        {
+          "n": 3,
+          "name": "1D",
+          "type": "input",
+          "group": "ff1"
+        },
+        {
+          "n": 4,
+          "name": "2D",
+          "type": "input",
+          "group": "ff2"
+        },
+        {
+          "n": 5,
+          "name": "2Q",
+          "type": "output",
+          "group": "ff2"
+        },
+        {
+          "n": 6,
+          "name": "3D",
+          "type": "input",
+          "group": "ff3"
+        },
+        {
+          "n": 7,
+          "name": "3Q",
+          "type": "output",
+          "group": "ff3"
+        },
+        {
+          "n": 8,
+          "name": "GND",
+          "type": "ground"
+        },
+        {
+          "n": 9,
+          "name": "CK",
+          "type": "clock"
+        },
+        {
+          "n": 10,
+          "name": "4Q",
+          "type": "output",
+          "group": "ff4"
+        },
+        {
+          "n": 11,
+          "name": "4D",
+          "type": "input",
+          "group": "ff4"
+        },
+        {
+          "n": 12,
+          "name": "5D",
+          "type": "input",
+          "group": "ff5"
+        },
+        {
+          "n": 13,
+          "name": "5Q",
+          "type": "output",
+          "group": "ff5"
+        },
+        {
+          "n": 14,
+          "name": "6D",
+          "type": "input",
+          "group": "ff6"
+        },
+        {
+          "n": 15,
+          "name": "6Q",
+          "type": "output",
+          "group": "ff6"
+        },
+        {
+          "n": 16,
+          "name": "VCC",
+          "type": "power"
+        }
+      ]
+    },
+    "74S161": {
+      "description": "Synchronous 4-bit binary counter with asynchronous clear (DM9316 / 9316 equivalent) \u2014 Schottky variant (pin-compatible)",
+      "package": "DIP-16",
+      "datasheet": "TI SDLS131, December 1972 / Revised March 1988 (SN74LS161A)",
+      "aliases": [
+        "74LS161A",
+        "SN74LS161",
+        "SN74LS161A",
+        "SN74LS161AN",
+        "DM9316",
+        "9316",
+        "DM74LS161"
+      ],
+      "vcc_pin": 16,
+      "gnd_pin": 8,
+      "pins": [
+        {
+          "n": 1,
+          "name": "~MR",
+          "type": "input"
+        },
+        {
+          "n": 2,
+          "name": "CP",
+          "type": "clock"
+        },
+        {
+          "n": 3,
+          "name": "P0",
+          "type": "input",
+          "group": "load"
+        },
+        {
+          "n": 4,
+          "name": "P1",
+          "type": "input",
+          "group": "load"
+        },
+        {
+          "n": 5,
+          "name": "P2",
+          "type": "input",
+          "group": "load"
+        },
+        {
+          "n": 6,
+          "name": "P3",
+          "type": "input",
+          "group": "load"
+        },
+        {
+          "n": 7,
+          "name": "CEP",
+          "type": "input"
+        },
+        {
+          "n": 8,
+          "name": "GND",
+          "type": "ground"
+        },
+        {
+          "n": 9,
+          "name": "~PE",
+          "type": "input"
+        },
+        {
+          "n": 10,
+          "name": "CET",
+          "type": "input"
+        },
+        {
+          "n": 11,
+          "name": "Q3",
+          "type": "output",
+          "group": "count"
+        },
+        {
+          "n": 12,
+          "name": "Q2",
+          "type": "output",
+          "group": "count"
+        },
+        {
+          "n": 13,
+          "name": "Q1",
+          "type": "output",
+          "group": "count"
+        },
+        {
+          "n": 14,
+          "name": "Q0",
+          "type": "output",
+          "group": "count"
+        },
+        {
+          "n": 15,
+          "name": "TC",
+          "type": "output"
+        },
+        {
+          "n": 16,
+          "name": "VCC",
+          "type": "power"
+        }
+      ]
+    },
+    "PAL16L8": {
+      "description": "PAL16L8 \u2014 programmable array logic, 10 inputs / 8 outputs (output-only on 12 & 19; bidirectional I/O on 13-18)",
+      "package": "DIP-20",
+      "datasheet": "AMD/MMI PAL16L8",
+      "vcc_pin": 20,
+      "gnd_pin": 10,
+      "pins": [
+        {
+          "n": 1,
+          "name": "I1",
+          "type": "input"
+        },
+        {
+          "n": 2,
+          "name": "I2",
+          "type": "input"
+        },
+        {
+          "n": 3,
+          "name": "I3",
+          "type": "input"
+        },
+        {
+          "n": 4,
+          "name": "I4",
+          "type": "input"
+        },
+        {
+          "n": 5,
+          "name": "I5",
+          "type": "input"
+        },
+        {
+          "n": 6,
+          "name": "I6",
+          "type": "input"
+        },
+        {
+          "n": 7,
+          "name": "I7",
+          "type": "input"
+        },
+        {
+          "n": 8,
+          "name": "I8",
+          "type": "input"
+        },
+        {
+          "n": 9,
+          "name": "I9",
+          "type": "input"
+        },
+        {
+          "n": 10,
+          "name": "GND",
+          "type": "ground"
+        },
+        {
+          "n": 11,
+          "name": "I10",
+          "type": "input"
+        },
+        {
+          "n": 12,
+          "name": "O8",
+          "type": "output"
+        },
+        {
+          "n": 13,
+          "name": "IO7",
+          "type": "bidirectional"
+        },
+        {
+          "n": 14,
+          "name": "IO6",
+          "type": "bidirectional"
+        },
+        {
+          "n": 15,
+          "name": "IO5",
+          "type": "bidirectional"
+        },
+        {
+          "n": 16,
+          "name": "IO4",
+          "type": "bidirectional"
+        },
+        {
+          "n": 17,
+          "name": "IO3",
+          "type": "bidirectional"
+        },
+        {
+          "n": 18,
+          "name": "IO2",
+          "type": "bidirectional"
+        },
+        {
+          "n": 19,
+          "name": "O1",
+          "type": "output"
+        },
+        {
+          "n": 20,
+          "name": "VCC",
+          "type": "power"
+        }
+      ]
+    },
+    "UPB425": {
+      "description": "uPB425D \u2014 Sega-mask PROM (DIP-24); 1K\u00d78 ROM equivalent",
+      "package": "DIP-24",
+      "datasheet": "NEC uPB425 / Sega 834-0110",
+      "vcc_pin": 24,
+      "gnd_pin": 12,
+      "pins": [
+        {
+          "n": 1,
+          "name": "A7",
+          "type": "input"
+        },
+        {
+          "n": 2,
+          "name": "A6",
+          "type": "input"
+        },
+        {
+          "n": 3,
+          "name": "A5",
+          "type": "input"
+        },
+        {
+          "n": 4,
+          "name": "A4",
+          "type": "input"
+        },
+        {
+          "n": 5,
+          "name": "A3",
+          "type": "input"
+        },
+        {
+          "n": 6,
+          "name": "A2",
+          "type": "input"
+        },
+        {
+          "n": 7,
+          "name": "A1",
+          "type": "input"
+        },
+        {
+          "n": 8,
+          "name": "A0",
+          "type": "input"
+        },
+        {
+          "n": 9,
+          "name": "D0",
+          "type": "output"
+        },
+        {
+          "n": 10,
+          "name": "D1",
+          "type": "output"
+        },
+        {
+          "n": 11,
+          "name": "D2",
+          "type": "output"
+        },
+        {
+          "n": 12,
+          "name": "GND",
+          "type": "ground"
+        },
+        {
+          "n": 13,
+          "name": "D3",
+          "type": "output"
+        },
+        {
+          "n": 14,
+          "name": "D4",
+          "type": "output"
+        },
+        {
+          "n": 15,
+          "name": "D5",
+          "type": "output"
+        },
+        {
+          "n": 16,
+          "name": "D6",
+          "type": "output"
+        },
+        {
+          "n": 17,
+          "name": "D7",
+          "type": "output"
+        },
+        {
+          "n": 18,
+          "name": "~CS",
+          "type": "input"
+        },
+        {
+          "n": 19,
+          "name": "A10",
+          "type": "input"
+        },
+        {
+          "n": 20,
+          "name": "~OE",
+          "type": "input"
+        },
+        {
+          "n": 21,
+          "name": "A9",
+          "type": "input"
+        },
+        {
+          "n": 22,
+          "name": "A8",
+          "type": "input"
+        },
+        {
+          "n": 23,
+          "name": "NC",
+          "type": "nc"
+        },
+        {
+          "n": 24,
+          "name": "VCC",
+          "type": "power"
+        }
+      ]
     }
   }
 }

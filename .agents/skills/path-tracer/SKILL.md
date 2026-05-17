@@ -1,3 +1,8 @@
+---
+name: path-tracer
+description: LLM-driven routed wire path annotation for faithful KiCad output. Use after connectivity and ERC gates pass to add actual source-artwork polylines for wire-typed nets and satisfy untraced-nets visual fidelity gates.
+---
+
 # Path-tracer skill
 
 LLM-driven wire-path tracing for faithful KiCad export.

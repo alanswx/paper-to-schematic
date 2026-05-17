@@ -1,3 +1,8 @@
+---
+name: identifier
+description: Visual schematic recognition workflow. Use when identifying components, reading pin numbers or net labels from sheet tiles or chip crops, placing or refining bboxes by vision, and producing first-pass per-sheet component annotations.
+---
+
 # Identifier skill
 
 Visual identification of components AND of fine details (pin numbers, net
@@ -294,6 +299,27 @@ The strict workflow:
    avoid the downsampled-display scale trap — see "Reading a crop").
 2. Read the PNG. Note each pin's number AND its position in CROP-pixel
    coords. Add the printed crop-origin offset to get source coords.
+
+   **CRITICAL: read the WIRE, not the pin-NUMBER label.** In hand-drawn
+   schematics the pin number ("5", "26", …) is typically written
+   ABOVE the horizontal wire it labels, by 10–40 px. If you eyeball
+   the digit's center as the pin y, every dot will land that many
+   pixels above the actual wire — visually obvious as "pin 5 is at
+   the top of the IC, not on the first wire" — and routing in Stage 4
+   will fail because the wire endpoint and pin position don't coincide.
+   The pin position MUST be at the y where the short horizontal wire
+   tick meets the chip body wall.
+
+   For tall/dense DIPs (Z80, MC6809, etc.) where eyeballing each of
+   30–40 pins is unreliable, use programmatic wire detection — scan
+   a thin vertical band just outside the chip body and find rows that
+   are mostly black (a horizontal wire is a row with >40 contiguous
+   black pixels of a 60–100 px band; pin number labels are <20). Each
+   such row's y is a pin wire. Watch for false positives where nearby
+   resistor-pack tails or off-page bus lines cross the scan band — if
+   the detected count exceeds the chip's pin count, the extras are
+   almost always in dense passive-network areas; compare to the chip's
+   expected count and discard outliers.
 3. graph_cli set-pin-positions --board <id> --refdes <r> --json @<file>
    * The CLI now REJECTS pins more than ~2× the bbox-diagonal from the
      bbox centre. That catches forgotten offsets and downsampled-scale

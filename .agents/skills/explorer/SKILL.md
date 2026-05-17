@@ -1,3 +1,8 @@
+---
+name: explorer
+description: Local read-mostly schematic viewer for human verification. Use when starting or consulting the web explorer to view source sheets with graph overlays, draw component bboxes, or refine pin positions interactively.
+---
+
 # Explorer skill
 
 Local web viewer that renders a board's source schematic image with the current
