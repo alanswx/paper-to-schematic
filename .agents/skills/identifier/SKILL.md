@@ -143,8 +143,17 @@ fingerprint.
    batch — the CLI now prints the render-overlay command to run at the
    end of every add-component / set-pin-positions / set-body-bbox so
    you can copy-paste.
-   python3 .agents/skills/schematic-graph/graph_cli.py render-overlay \
-     --board <id> --sheet <n> --no-pins --no-nets
+
+   Two forms:
+   * Sheet-wide (fast scan for "did I miss a chip?", "are bboxes
+     roughly right?") — full-sheet overlay, downsampled when read:
+       graph_cli render-overlay --board <id> --sheet <n> --no-pins --no-nets
+   * Per-chip (precise check that ONE bbox covers the chip body) —
+     cropped around the refdes at native resolution:
+       graph_cli render-overlay --board <id> --sheet <n> --refdes <r>
+   Use the per-chip form whenever you're verifying placement of a
+   specific bbox you just added or moved. The sheet-wide form is
+   only useful for "what's still missing" passes.
 
 6. Flag every bbox that does not visibly cover the chip body on the
    source scan. Common failure modes:
@@ -290,12 +299,28 @@ The strict workflow:
      bbox centre. That catches forgotten offsets and downsampled-scale
      errors at submit time. If you see the rejection, FIX the coords —
      do not pass --allow-out-of-bbox to mute the check.
-4. RENDER OVERLAY (now with pins). Read it back. MANDATORY — not
-   "when something looks off". Every pin should sit at a pin tick on
-   the source drawing; pins floating in empty space or buried inside
-   the chip body are wrong. If even ONE pin is misplaced, the whole
-   placement is suspect (you mis-read pin numbers, mis-translated coords,
-   or hit the downsampled-display scale trap) — re-do it.
+4. RENDER OVERLAY **CROPPED AROUND THE CHIP YOU JUST PLACED**, and
+   read it back. MANDATORY — not "when something looks off". The
+   crop is the only reliable way to spot fine pin-placement errors:
+   a full-sheet overlay (5000+ px wide for typical schematics) gets
+   downsampled when Claude reads it and the placement errors you're
+   trying to catch become invisible at that resolution.
+
+   ```
+   graph_cli render-overlay --board <id> --sheet <n> --refdes <r> \
+     --out /tmp/<id>_s<n>_<r>_overlay.png
+   ```
+
+   The `--refdes` flag crops around that component's bbox (+ pad) and
+   skips the max-width resize, so what Claude reads is at native source
+   resolution. `set-pin-positions`'s success message already prints
+   this exact command — copy-paste it.
+
+   Every pin should sit at a pin tick on the source drawing; pins
+   floating in empty space or buried inside the chip body are wrong.
+   If even ONE pin is misplaced, the whole placement is suspect (you
+   mis-read pin numbers, mis-translated coords, or hit the downsampled-
+   display scale trap) — re-do it.
 5. After visual confirmation, advance to the next chip.
 6. For other instances of the SAME chip drawn identically (e.g. four
    2716 EPROMs stacked vertically), use bbox-delta translation:

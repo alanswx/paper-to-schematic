@@ -117,7 +117,7 @@ def cmd_add_component(args):
     val_str = f" value={args.value!r}" if args.value else ""
     print(f"added {args.refdes} ({canon}) on sheet {args.sheet} bbox={bbox}{val_str} "
           f"source={args.source}")
-    print(_suggest_overlay(args.board, args.sheet))
+    print(_suggest_overlay(args.board, args.sheet, args.refdes))
 
 
 def _check_pins_vs_bbox(comp: dict, pins_to_check: dict, label: str = "pin") -> list[str]:
@@ -154,7 +154,22 @@ def _check_pins_vs_bbox(comp: dict, pins_to_check: dict, label: str = "pin") -> 
     return warnings
 
 
-def _suggest_overlay(board: str, sheet: int) -> str:
+def _suggest_overlay(board: str, sheet: int, refdes: str | None = None) -> str:
+    """Print the render-overlay command the LLM should run next.
+
+    When the edit touched a single component, suggest the --refdes form
+    so the validation crop is at native resolution — a full-sheet PNG of
+    a 5000+ px source gets downsampled when Claude reads it, which makes
+    fine pin-placement errors invisible (the exact failure mode the
+    visual check is supposed to catch). For batch edits or sheet-wide
+    operations, fall back to the full-sheet form."""
+    if refdes:
+        return (f"\n>> NEXT: render-overlay CROPPED around {refdes} and READ the PNG.\n"
+                f"   A full-sheet overlay gets downsampled; the crop is at native res:\n"
+                f"   python3 .agents/skills/schematic-graph/graph_cli.py render-overlay \\\n"
+                f"     --board {board} --sheet {sheet} --refdes {refdes} \\\n"
+                f"     --out /tmp/{board}_s{sheet}_{refdes}_overlay.png\n"
+                f"   Confirm every pin endpoint sits at a pin tick on the source drawing.")
     return (f"\n>> NEXT: render-overlay and READ the PNG to confirm placement:\n"
             f"   python3 .agents/skills/schematic-graph/graph_cli.py render-overlay "
             f"--board {board} --sheet {sheet} --out /tmp/{board}_s{sheet}_overlay.png")
@@ -223,7 +238,7 @@ def cmd_set_pin_positions(args):
     save_graph(args.board, graph)
     mode = "merged" if args.merge else "replaced"
     print(f"{mode} {len(out)} pin position(s) on {args.refdes}")
-    print(_suggest_overlay(args.board, comp.get("sheet", 1)))
+    print(_suggest_overlay(args.board, comp.get("sheet", 1), args.refdes))
 
 
 def _set_verified(args, value: bool):
@@ -290,7 +305,7 @@ def cmd_set_body_bbox(args):
                   file=sys.stderr)
             for w in warnings[:3]:
                 print(f"  {w}", file=sys.stderr)
-    print(_suggest_overlay(args.board, comp.get("sheet", 1)))
+    print(_suggest_overlay(args.board, comp.get("sheet", 1), args.refdes))
 
 
 def cmd_verify_component(args):
@@ -923,12 +938,33 @@ def cmd_render_overlay(args):
                     cv2.putText(out, net["name"], (xy[0] + 12, xy[1] + 6),
                                 cv2.FONT_HERSHEY_SIMPLEX, 0.55, (0, 120, 0), 2)
 
-    # Optional resize so a 9k×6k overlay doesn't gobble RAM when read back.
-    if args.max_width and W > args.max_width:
+    # Optional --refdes crops the overlay around one component (with padding)
+    # so the validation read is at native source resolution. A full-sheet
+    # PNG of a 5000+ px source gets downsampled when Claude reads it, which
+    # makes fine pin-placement errors invisible — exactly the trap the visual
+    # check is supposed to catch. After set-pin-positions, use --refdes to
+    # verify *that* chip's placement at native res.
+    if args.refdes:
+        comp = next((c for c in components if c["refdes"] == args.refdes), None)
+        if not comp:
+            print(f"refdes not on sheet {args.sheet}: {args.refdes}", file=sys.stderr)
+            sys.exit(1)
+        bx1, by1, bx2, by2 = (int(v) for v in comp["bbox"])
+        pad = args.pad if args.pad is not None else 80
+        cx1 = max(0, bx1 - pad); cy1 = max(0, by1 - pad)
+        cx2 = min(W, bx2 + pad); cy2 = min(H, by2 + pad)
+        out = out[cy1:cy2, cx1:cx2]
+        print(f"  cropped around {args.refdes}: {cx2-cx1}×{cy2-cy1} px, "
+              f"origin ({cx1}, {cy1})")
+        # Don't apply max_width when cropping — caller wants native res.
+    elif args.max_width and W > args.max_width:
         scale = args.max_width / W
         out = cv2.resize(out, (args.max_width, int(H * scale)))
 
-    out_path = Path(args.out) if args.out else (board_dir(args.board) / f"sheet{args.sheet}_overlay.png")
+    out_path = Path(args.out) if args.out else (
+        board_dir(args.board) /
+        (f"sheet{args.sheet}_{args.refdes}_overlay.png" if args.refdes
+         else f"sheet{args.sheet}_overlay.png"))
     cv2.imwrite(str(out_path), out)
     print(f"wrote {out_path}  ({len(components)} bbox(es), "
           f"{sum(len(c.get('pin_positions') or {}) for c in components)} pin position(s), "
@@ -2077,7 +2113,15 @@ def main():
     sp.add_argument("--no-nets", action="store_true", help="skip net-label texts")
     sp.add_argument("--max-width", type=int, default=2400,
                     help="resize wider sources down to this width so the overlay reads "
-                         "back at near-native legibility (default: 2400; 0 disables)")
+                         "back at near-native legibility (default: 2400; 0 disables). "
+                         "Ignored when --refdes is set (cropped output is always native).")
+    sp.add_argument("--refdes",
+                    help="crop the overlay around this component's bbox (+ pad) so "
+                         "the validation read is at native source resolution. Use "
+                         "after set-pin-positions to verify that chip's placement "
+                         "without losing detail to full-sheet downsampling.")
+    sp.add_argument("--pad", type=int, default=None,
+                    help="padding around the --refdes crop in source pixels (default 80)")
     sp.set_defaults(fn=cmd_render_overlay)
 
     sp = sub.add_parser("export-kicad", help="emit a .kicad_sch file per sheet")
