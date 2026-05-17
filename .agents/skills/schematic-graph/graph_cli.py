@@ -117,6 +117,47 @@ def cmd_add_component(args):
     val_str = f" value={args.value!r}" if args.value else ""
     print(f"added {args.refdes} ({canon}) on sheet {args.sheet} bbox={bbox}{val_str} "
           f"source={args.source}")
+    print(_suggest_overlay(args.board, args.sheet))
+
+
+def _check_pins_vs_bbox(comp: dict, pins_to_check: dict, label: str = "pin") -> list[str]:
+    """Return a list of warning messages for pins that look far enough from
+    the component's bbox that they're almost certainly miscoordinated.
+
+    Catches the #1 transcription bug — forgetting to apply crop-chip's
+    `(crop_x + offset_x, crop_y + offset_y)` translation, which produces
+    pins at absolute pixel offsets nowhere near the chip. Threshold is
+    generous enough that a slightly-outside-bbox pin (legitimate — pin
+    tips sit on the edge of the chip body, sometimes just outside the
+    drawn outline) doesn't trip the check, but a coord-translation typo
+    (often off by hundreds of pixels) does."""
+    bbox = comp.get("bbox") or comp.get("body_bbox")
+    if not bbox:
+        return []
+    x1, y1, x2, y2 = bbox
+    cx = (x1 + x2) / 2; cy = (y1 + y2) / 2
+    bw = max(1.0, abs(x2 - x1))
+    bh = max(1.0, abs(y2 - y1))
+    # A pin is "wildly off" if its distance from bbox center exceeds 2× the
+    # bbox half-diagonal (i.e. the pin is more than ~2 chip-sizes away).
+    half_diag = (bw**2 + bh**2) ** 0.5 / 2
+    threshold = max(half_diag * 2.0, 200.0)  # never less than 200 source px
+
+    warnings = []
+    for k, (px, py) in pins_to_check.items():
+        d = ((px - cx)**2 + (py - cy)**2) ** 0.5
+        if d > threshold:
+            warnings.append(
+                f"{label} {k} at ({px:.0f}, {py:.0f}) is {d:.0f}px from "
+                f"bbox center — well outside the chip (bbox ~{int(bw)}×{int(bh)} "
+                f"px). Did you forget to add the crop-chip offset?")
+    return warnings
+
+
+def _suggest_overlay(board: str, sheet: int) -> str:
+    return (f"\n>> NEXT: render-overlay and READ the PNG to confirm placement:\n"
+            f"   python3 .agents/skills/schematic-graph/graph_cli.py render-overlay "
+            f"--board {board} --sheet {sheet} --out /tmp/{board}_s{sheet}_overlay.png")
 
 
 def cmd_set_pin_positions(args):
@@ -125,6 +166,13 @@ def cmd_set_pin_positions(args):
     Used by the Claude-driven pin-numbering workflow: cartographer crop-chip
     produces a high-res image of the chip; Claude reads each pin number and
     its position in source coordinates; this command commits them.
+
+    Coordinates are in SOURCE-IMAGE pixels (not crop-local). If you read
+    them off a `cartographer crop-chip` output, you MUST add the printed
+    crop-origin offset before submitting. Pins that land far outside the
+    component's bbox are rejected by default — that's almost always the
+    crop-translation-forgotten bug. Pass --allow-out-of-bbox to override
+    when you genuinely intend it (rare).
 
     --json accepts either inline JSON ('{\"1\":[100,200],...}') or @file.
     """
@@ -147,6 +195,25 @@ def cmd_set_pin_positions(args):
             print(f"pin {k}: expected [x,y], got {v}", file=sys.stderr); sys.exit(1)
         out[str(k)] = [float(v[0]), float(v[1])]
 
+    # Bbox-distance sanity check. Pins more than 2× the bbox-diagonal away
+    # are almost certainly the result of a forgotten crop-chip offset.
+    warnings = _check_pins_vs_bbox(comp, out, label="pin")
+    if warnings and not args.allow_out_of_bbox:
+        print(f"REFUSED: {len(warnings)} pin(s) land far outside {args.refdes}'s "
+              f"bbox — most likely a crop-coord translation error.\n"
+              f"  bbox: {comp.get('bbox')}", file=sys.stderr)
+        for w in warnings[:5]:
+            print(f"  {w}", file=sys.stderr)
+        if len(warnings) > 5:
+            print(f"  … and {len(warnings) - 5} more", file=sys.stderr)
+        print("\nFIX: re-read the crop-chip output. Its stdout prints "
+              "`to convert crop-local (cx, cy) → source: (cx + N, cy + M)`. "
+              "Add N to every X and M to every Y before submitting.\n"
+              "Or pass --allow-out-of-bbox if you genuinely intend pins outside "
+              "the bbox (rare — usually only for resistor/capacitor pad endpoints "
+              "far from the body).", file=sys.stderr)
+        sys.exit(1)
+
     if args.merge:
         existing = comp.get("pin_positions") or {}
         existing.update(out)
@@ -156,6 +223,7 @@ def cmd_set_pin_positions(args):
     save_graph(args.board, graph)
     mode = "merged" if args.merge else "replaced"
     print(f"{mode} {len(out)} pin position(s) on {args.refdes}")
+    print(_suggest_overlay(args.board, comp.get("sheet", 1)))
 
 
 def _set_verified(args, value: bool):
@@ -207,6 +275,22 @@ def cmd_set_body_bbox(args):
     comp["body_bbox"] = bb
     save_graph(args.board, graph)
     print(f"set body_bbox on {args.refdes}: {bb}")
+    # If pin_positions already exist, check they still make sense against
+    # the new body_bbox. This catches the "user corrected bbox after pins
+    # were placed" pattern where the pin coords are now stale.
+    existing_pins = comp.get("pin_positions") or {}
+    if existing_pins:
+        pins_xy = {k: (v[0], v[1]) for k, v in existing_pins.items()}
+        warnings = _check_pins_vs_bbox(comp, pins_xy, label="pin")
+        if warnings:
+            print(f"WARNING: {len(warnings)} existing pin(s) on {args.refdes} now "
+                  f"land well outside the new bbox. Re-run set-pin-positions to "
+                  f"correct them (the CLI doesn't auto-translate pins when bbox "
+                  f"changes — the explorer drag does, but the CLI doesn't).",
+                  file=sys.stderr)
+            for w in warnings[:3]:
+                print(f"  {w}", file=sys.stderr)
+    print(_suggest_overlay(args.board, comp.get("sheet", 1)))
 
 
 def cmd_verify_component(args):
@@ -1852,6 +1936,9 @@ def main():
                     help='JSON object {pin: [x,y], ...} (inline or @file.json)')
     sp.add_argument("--merge", action="store_true",
                     help="merge with existing pin_positions instead of replacing")
+    sp.add_argument("--allow-out-of-bbox", action="store_true",
+                    help="permit pins more than 2× bbox-diagonal from the bbox "
+                         "center. Default rejects them as a likely crop-offset bug.")
     sp.set_defaults(fn=cmd_set_pin_positions)
 
     sp = sub.add_parser("set-body-bbox",

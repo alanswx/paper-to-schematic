@@ -60,19 +60,47 @@ source resolution** (a 250-px-wide region in source coords is a 250-px-wide
 PNG). The crop-coord → source-coord translation is a simple add: `source_x
 = crop_x + offset_x` (each command prints the offset on stdout).
 
+### The downsampled-display scale trap
+
+**Claude doesn't necessarily see the crop at native resolution.** When the
+PNG is larger than the model's vision-patch budget (very tall or very wide
+crops in particular — a 318×1668 px Z80 crop, say), the IMAGE shown to
+the model is downsampled. The features you can identify (pin numbers, chip
+outlines) are still there, but the COORDINATES you'd read off the displayed
+image are display-pixel, not crop-pixel. Adding the source-offset to those
+coords lands you somewhere hundreds of pixels off the actual chip.
+
+Two safe ways to defeat this:
+
+- **Keep crops small.** A crop ≤ 1500 px on its longer dimension is almost
+  certainly shown at native resolution. If a chip is too tall/wide, take
+  multiple smaller crops (top half, bottom half) and translate each
+  separately. Smaller is also faster for the model.
+- **Verify after every set-pin-positions by reading the overlay back.**
+  This is the only way to catch a scale error after the fact — the overlay
+  shows your pins as pink dots on the source. If they don't sit at the
+  pin tick marks, the placement is wrong regardless of what arithmetic
+  you did. *Do this every time, not just when something looks off.*
+
+`graph_cli set-pin-positions` now rejects pins more than ~2× the
+bbox-diagonal away from the bbox centre — the typical fingerprint of a
+forgotten offset or a downsampled-display scale error. The rejection
+message includes the fix instructions. If you see it, do NOT pass
+`--allow-out-of-bbox`; re-read the crop, recompute the coords, resubmit.
+
+### sips wrap-up
+
 **Do NOT enlarge crops with `sips -z H W`** before reading them. With both
 dimensions specified, sips DISTORTS the image (independent H and V scale
 factors); applying a single scale to features read out of the displayed
 image then introduces a systematic per-axis offset of 10–50 source pixels
 per component — invisible in the displayed PNG but obvious in the overlay
-later. The fix is either:
+later. The fixes:
 
-- **Read the native crop directly.** Claude downsamples large PNGs
-  uniformly, so the displayed proportions match source proportions and the
-  pixel→pixel relationship is a single (unknown) uniform scale that drops
-  out of any feature ratio you care about.
-- **If you need a closer view, take a smaller crop** (e.g. 300 px square)
-  rather than upscaling a wider region.
+- **Read the native crop directly.** Same trap as above — but at least no
+  axis distortion.
+- **If you need a closer view, take a smaller crop** (e.g. drop `--pad`
+  or call `crop-region` for a sub-rectangle of the chip).
 - **If you must resize, use `sips -Z N`** (capital `Z`, single max
   dimension) which preserves aspect.
 
@@ -111,7 +139,10 @@ fingerprint.
         confidence (0.9+ clean printed text, 0.6–0.8 partial / hand
         corrected, ≤0.4 outline-only).
 
-5. RENDER OVERLAY. Read the PNG.
+5. RENDER OVERLAY. Read the PNG. MANDATORY after every add-component
+   batch — the CLI now prints the render-overlay command to run at the
+   end of every add-component / set-pin-positions / set-body-bbox so
+   you can copy-paste.
    python3 .agents/skills/schematic-graph/graph_cli.py render-overlay \
      --board <id> --sheet <n> --no-pins --no-nets
 
@@ -121,6 +152,7 @@ fingerprint.
      - bbox too small (only encloses chip label text)
      - bbox too large (includes adjacent text or wires)
      - chip drawn on the page but no bbox at all (missed the chip)
+     - bbox is for the WRONG CHIP — two chips of the same part nearby
 
 7. Fix each flagged bbox via graph_cli remove-component +
    add-component with corrected coords (or a Python edit of graph.json
@@ -129,6 +161,21 @@ fingerprint.
 8. RE-RENDER, re-read. Repeat steps 5–7 until every chip on the page
    has a clean bbox. This is the gate to Stage 2.
 ```
+
+**Bbox → pins is one-way.** If you change a chip's bbox AFTER its
+pin_positions have been placed, the pins do NOT auto-translate.
+- Explorer drag updates pin_positions to follow the moving bbox.
+- CLI `set-body-bbox`, direct graph.json edits, and `add-component`
+  remove+re-add cycles do NOT. Those leave the pin_positions at their
+  old absolute source coords, which are now stale.
+- `set-body-bbox` now WARNS if existing pin_positions look stale after
+  the update. Heed the warning: re-run set-pin-positions to fix.
+
+**Aspect-ratio rule for Stage 2 prep.** When the bbox is settled, look
+at its aspect ratio. Tall (h > 1.5×w) or wide (w > 1.5×h) means the
+chip is drawn rotated. Skip the explorer's function-based auto-fill
+for rotated chips and go straight to set-pin-positions with an explicit
+JSON map of pin numbers read off a high-res crop.
 
 CV-snap is a deterministic refinement, not a recognition step. **If
 snap-board produces a worse bbox than the vision-placed one, keep the
@@ -208,18 +255,48 @@ and BOM without further setup.
 
 ### Stage 2 — pin positions (one chip-class at a time)
 
-For a chip whose pins are arranged in functional order (printed pin
-numbers visible next to each pin), the auto-DIP / function-based
-defaults are wrong. Read the pin numbers from a high-res crop:
+**When the auto-fill default is wrong** (which is most of the time):
+
+- Chips drawn ROTATED 90° (tall narrow bbox: height > 1.5× width, or
+  wide flat bbox: width > 1.5× height). The function-based auto-fill
+  is orientation-blind — it puts power-on-top/ground-on-bottom even
+  for chips drawn vertically with power/GND on the LEFT side. Always
+  read pin numbers explicitly for rotated chips.
+- Chips with functional pin grouping where the source draws pin
+  numbers in functional order, not DIP-numerical (the Z80 source has
+  all address pins on the right side in numerical order 5,4,3,…,1,40,
+  39,…,30, then control + data — the function-defaults won't reproduce
+  that layout).
+- Sub-gates (74LSxx quad gates, MC10124, etc.) — handled by the
+  multi-unit detector when the librarian groups match `g\d+`,
+  `ff\d+`, `ms\d+`, or single A-Z. If a chip's source is split into
+  per-gate symbols (one half of a 74LS123 monostable, half of a 74LS74
+  flip-flop), use a letter-suffix refdes (`IC129a`, `IC129b`) so the
+  exporter emits each as its own compact symbol with only that gate's
+  pins. If the librarian's groups don't match a unit pattern, ADD a
+  group rename in chips.json (or extend the pattern in kicad_export.py)
+  before placing pins — otherwise you'll end up with 16 pins crammed
+  into a 5-pin-wide bbox.
+
+The strict workflow:
 
 ```
-1. crop-chip → high-res PNG
-2. Read the PNG. Build a JSON object {"<pin>": [x, y], ...} in source
-   coords.
+1. crop-chip → high-res PNG (small crops! ≤1500 px longest side, to
+   avoid the downsampled-display scale trap — see "Reading a crop").
+2. Read the PNG. Note each pin's number AND its position in CROP-pixel
+   coords. Add the printed crop-origin offset to get source coords.
 3. graph_cli set-pin-positions --board <id> --refdes <r> --json @<file>
-4. RENDER OVERLAY (now with pins). Read it back.
-5. Flag pins that are floating in empty space or land inside the chip
-   body instead of on the edge. Fix and re-render.
+   * The CLI now REJECTS pins more than ~2× the bbox-diagonal from the
+     bbox centre. That catches forgotten offsets and downsampled-scale
+     errors at submit time. If you see the rejection, FIX the coords —
+     do not pass --allow-out-of-bbox to mute the check.
+4. RENDER OVERLAY (now with pins). Read it back. MANDATORY — not
+   "when something looks off". Every pin should sit at a pin tick on
+   the source drawing; pins floating in empty space or buried inside
+   the chip body are wrong. If even ONE pin is misplaced, the whole
+   placement is suspect (you mis-read pin numbers, mis-translated coords,
+   or hit the downsampled-display scale trap) — re-do it.
+5. After visual confirmation, advance to the next chip.
 6. For other instances of the SAME chip drawn identically (e.g. four
    2716 EPROMs stacked vertically), use bbox-delta translation:
      graph_cli clone-pins --from h61 --to i61,c61,b61
