@@ -1,4 +1,4 @@
-ERC report (2026-05-20T10:39:00, Encoding UTF8)
+ERC report (2026-05-20T12:49:42, Encoding UTF8)
 Report includes: Errors, Warnings, Exclusions
 
 ***** Sheet /
@@ -28,7 +28,7 @@ Report includes: Errors, Warnings, Exclusions
     @(44.45 mm, 53.34 mm): Symbol SW2 Pin 11 [SW6B, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(44.45 mm, 55.88 mm): Symbol SW2 Pin 13 [SW4B, Passive, Line]
+    @(55.88 mm, 44.45 mm): Symbol SW2 Pin 6 [SW6A, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(55.88 mm, 46.99 mm): Symbol SW2 Pin 8 [SW8A, Passive, Line]
@@ -823,7 +823,7 @@ Report includes: Errors, Warnings, Exclusions
     @(290.83 mm, 77.47 mm): Symbol CN8 Pin 4 [Pin_4, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(203.20 mm, 222.25 mm): Symbol CN5 Pin 9 [Pin_9, Passive, Line]
+    @(265.43 mm, 142.24 mm): Symbol IC96 Pin 14 [3C, Open collector, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(290.83 mm, 80.01 mm): Symbol CN8 Pin 5 [Pin_5, Passive, Line]
