@@ -1,4 +1,4 @@
-ERC report (2026-05-20T10:34:24, Encoding UTF8)
+ERC report (2026-05-20T10:39:00, Encoding UTF8)
 Report includes: Errors, Warnings, Exclusions
 
 ***** Sheet /
@@ -823,7 +823,7 @@ Report includes: Errors, Warnings, Exclusions
     @(290.83 mm, 77.47 mm): Symbol CN8 Pin 4 [Pin_4, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(265.43 mm, 142.24 mm): Symbol IC96 Pin 14 [3C, Open collector, Line]
+    @(203.20 mm, 222.25 mm): Symbol CN5 Pin 9 [Pin_9, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(290.83 mm, 80.01 mm): Symbol CN8 Pin 5 [Pin_5, Passive, Line]
@@ -1213,49 +1213,58 @@ Report includes: Errors, Warnings, Exclusions
     @(242.57 mm, 176.53 mm): Symbol IC82 [_chip_IC82]
 [unconnected_wire_endpoint]: Unconnected wire endpoint
     ; warning
-    @(270.51 mm, 142.24 mm): Vertical Wire, length 7.62 mm
+    @(267.97 mm, 143.51 mm): Horizontal Wire, length 2.54 mm
 [unconnected_wire_endpoint]: Unconnected wire endpoint
     ; warning
-    @(270.51 mm, 143.51 mm): Vertical Wire, length 8.89 mm
+    @(267.97 mm, 146.05 mm): Horizontal Wire, length 2.54 mm
 [unconnected_wire_endpoint]: Unconnected wire endpoint
     ; warning
-    @(270.51 mm, 144.78 mm): Vertical Wire, length 10.16 mm
+    @(267.97 mm, 149.86 mm): Horizontal Wire, length 2.54 mm
+[unconnected_wire_endpoint]: Unconnected wire endpoint
+    ; warning
+    @(267.97 mm, 152.40 mm): Horizontal Wire, length 2.54 mm
+[unconnected_wire_endpoint]: Unconnected wire endpoint
+    ; warning
+    @(267.97 mm, 154.94 mm): Horizontal Wire, length 2.54 mm
 [unconnected_wire_endpoint]: Unconnected wire endpoint
     ; warning
     @(208.28 mm, 233.68 mm): Horizontal Wire, length 1.27 mm
 [unconnected_wire_endpoint]: Unconnected wire endpoint
     ; warning
-    @(270.51 mm, 144.78 mm): Vertical Wire, length 13.97 mm
+    @(267.97 mm, 158.75 mm): Horizontal Wire, length 2.54 mm
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(260.35 mm, 176.53 mm): Symbol IC95 [_chip_IC95]
 [unconnected_wire_endpoint]: Unconnected wire endpoint
     ; warning
-    @(270.51 mm, 146.05 mm): Vertical Wire, length 15.24 mm
+    @(267.97 mm, 161.29 mm): Horizontal Wire, length 2.54 mm
 [unconnected_wire_endpoint]: Unconnected wire endpoint
     ; warning
     @(208.28 mm, 237.49 mm): Horizontal Wire, length 1.27 mm
 [unconnected_wire_endpoint]: Unconnected wire endpoint
     ; warning
-    @(270.51 mm, 168.91 mm): Vertical Wire, length 1.27 mm
+    @(267.97 mm, 167.64 mm): Horizontal Wire, length 2.54 mm
 [unconnected_wire_endpoint]: Unconnected wire endpoint
     ; warning
-    @(265.43 mm, 171.45 mm): Horizontal Wire, length 5.08 mm
+    @(267.97 mm, 171.45 mm): Horizontal Wire, length 2.54 mm
 [footprint_link_issues]: Footprint 'PinHeader_1x46_P2.54mm_Vertical' not found in library 'Connector_PinHeader_2.54mm'
     ; warning
     @(295.91 mm, 125.73 mm): Symbol CN8 [Conn_01x46]
 [unconnected_wire_endpoint]: Unconnected wire endpoint
     ; warning
-    @(265.43 mm, 173.99 mm): Horizontal Wire, length 5.08 mm
+    @(267.97 mm, 173.99 mm): Horizontal Wire, length 2.54 mm
 [unconnected_wire_endpoint]: Unconnected wire endpoint
     ; warning
-    @(270.51 mm, 177.80 mm): Vertical Wire, length 3.81 mm
+    @(267.97 mm, 177.80 mm): Horizontal Wire, length 2.54 mm
 [unconnected_wire_endpoint]: Unconnected wire endpoint
     ; warning
-    @(270.51 mm, 180.34 mm): Vertical Wire, length 5.08 mm
+    @(267.97 mm, 181.61 mm): Horizontal Wire, length 2.54 mm
 [unconnected_wire_endpoint]: Unconnected wire endpoint
     ; warning
-    @(270.51 mm, 182.88 mm): Vertical Wire, length 5.08 mm
+    @(267.97 mm, 185.42 mm): Horizontal Wire, length 2.54 mm
+[unconnected_wire_endpoint]: Unconnected wire endpoint
+    ; warning
+    @(267.97 mm, 187.96 mm): Horizontal Wire, length 2.54 mm
 [unconnected_wire_endpoint]: Unconnected wire endpoint
     ; warning
     @(294.64 mm, 190.50 mm): Horizontal Wire, length 1.27 mm
@@ -1275,7 +1284,7 @@ Report includes: Errors, Warnings, Exclusions
     ; warning
     @(400.05 mm, 48.26 mm): Symbol #PWR_VSS [PWR_VSS]
 
- ** ERC messages: 424  Errors 363  Warnings 61
+ ** ERC messages: 427  Errors 363  Warnings 64
 
  ** Ignored checks:
     - Global label only appears once in the schematic
