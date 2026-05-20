@@ -9644,6 +9644,626 @@
           1988.4
         ]
       }
+    },
+    {
+      "refdes": "SW2",
+      "part": "DIP_SW_8",
+      "sheet": 5,
+      "bbox": [
+        405.0,
+        300.0,
+        570.0,
+        625.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.78
+      }
+    },
+    {
+      "refdes": "RA2",
+      "part": "R_NETWORK08_COMMON",
+      "sheet": 5,
+      "bbox": [
+        555.0,
+        645.0,
+        865.0,
+        800.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.74
+      },
+      "value": "4.7K x8"
+    },
+    {
+      "refdes": "IC6",
+      "part": "8255",
+      "sheet": 5,
+      "bbox": [
+        1028.0,
+        305.0,
+        1244.0,
+        1088.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.82
+      }
+    },
+    {
+      "refdes": "RA1",
+      "part": "R_NETWORK08_COMMON",
+      "sheet": 5,
+      "bbox": [
+        1322.0,
+        928.0,
+        1644.0,
+        1092.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.72
+      },
+      "value": "4.7K x8"
+    },
+    {
+      "refdes": "IC84",
+      "part": "8279",
+      "sheet": 5,
+      "bbox": [
+        1028.0,
+        1165.0,
+        1245.0,
+        2000.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.82
+      }
+    },
+    {
+      "refdes": "SW1",
+      "part": "DIP_SW_8",
+      "sheet": 5,
+      "bbox": [
+        1640.0,
+        1168.0,
+        1779.0,
+        1505.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.8
+      }
+    },
+    {
+      "refdes": "IC98",
+      "part": "74LS145",
+      "sheet": 5,
+      "bbox": [
+        2118.0,
+        305.0,
+        2262.0,
+        646.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.78
+      }
+    },
+    {
+      "refdes": "RA9",
+      "part": "R_NETWORK08_COMMON",
+      "sheet": 5,
+      "bbox": [
+        2353.0,
+        300.0,
+        2492.0,
+        618.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.78
+      },
+      "value": "560 x8"
+    },
+    {
+      "refdes": "RA10",
+      "part": "R_NETWORK08_COMMON",
+      "sheet": 5,
+      "bbox": [
+        3330.0,
+        298.0,
+        3474.0,
+        616.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.78
+      },
+      "value": "560 x8"
+    },
+    {
+      "refdes": "CN8",
+      "part": "Conn_01x46",
+      "sheet": 5,
+      "bbox": [
+        3603.0,
+        642.0,
+        3732.0,
+        2265.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.7
+      }
+    },
+    {
+      "refdes": "IC97",
+      "part": "74LS145",
+      "sheet": 5,
+      "bbox": [
+        2117.0,
+        1288.0,
+        2264.0,
+        1613.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.78
+      }
+    },
+    {
+      "refdes": "RA7",
+      "part": "R_NETWORK08_COMMON",
+      "sheet": 5,
+      "bbox": [
+        2353.0,
+        1292.0,
+        2495.0,
+        1610.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.78
+      },
+      "value": "560 x8"
+    },
+    {
+      "refdes": "RA8",
+      "part": "R_NETWORK08_COMMON",
+      "sheet": 5,
+      "bbox": [
+        3332.0,
+        1290.0,
+        3477.0,
+        1610.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.78
+      },
+      "value": "560 x8"
+    },
+    {
+      "refdes": "IC83",
+      "part": "74LS48",
+      "sheet": 5,
+      "bbox": [
+        2868.0,
+        1615.0,
+        3035.0,
+        2188.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.82
+      }
+    },
+    {
+      "refdes": "IC96",
+      "part": "75468",
+      "sheet": 5,
+      "bbox": [
+        3062.0,
+        1615.0,
+        3236.0,
+        2308.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.82
+      }
+    },
+    {
+      "refdes": "IC126",
+      "part": "75468",
+      "sheet": 5,
+      "bbox": [
+        2113.0,
+        1978.0,
+        2262.0,
+        2306.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.78
+      }
+    },
+    {
+      "refdes": "IC125",
+      "part": "74LS259",
+      "sheet": 5,
+      "bbox": [
+        1808.0,
+        2052.0,
+        1933.0,
+        2598.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.78
+      }
+    },
+    {
+      "refdes": "IC127",
+      "part": "74LS244",
+      "sheet": 5,
+      "bbox": [
+        1816.0,
+        2648.0,
+        1963.0,
+        3072.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.82
+      }
+    },
+    {
+      "refdes": "IC35b",
+      "part": "74LS74",
+      "sheet": 5,
+      "bbox": [
+        1090.0,
+        2295.0,
+        1246.0,
+        2572.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.72
+      }
+    },
+    {
+      "refdes": "IC17",
+      "part": "74LS191",
+      "sheet": 5,
+      "bbox": [
+        1348.0,
+        2228.0,
+        1525.0,
+        2665.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.8
+      }
+    },
+    {
+      "refdes": "IC5",
+      "part": "74LS191",
+      "sheet": 5,
+      "bbox": [
+        1340.0,
+        2658.0,
+        1520.0,
+        3102.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.8
+      }
+    },
+    {
+      "refdes": "CN4",
+      "part": "Conn_01x06",
+      "sheet": 5,
+      "bbox": [
+        430.0,
+        2275.0,
+        510.0,
+        2710.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.68
+      }
+    },
+    {
+      "refdes": "CN5",
+      "part": "Conn_01x12",
+      "sheet": 5,
+      "bbox": [
+        2488.0,
+        2325.0,
+        2575.0,
+        2910.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.72
+      }
+    },
+    {
+      "refdes": "CN6",
+      "part": "Conn_01x06",
+      "sheet": 5,
+      "bbox": [
+        3605.0,
+        2558.0,
+        3730.0,
+        2962.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.7
+      }
+    },
+    {
+      "refdes": "IC82",
+      "part": "74LS48",
+      "sheet": 5,
+      "bbox": [
+        2868.0,
+        1978.0,
+        3036.0,
+        2324.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.86
+      }
+    },
+    {
+      "refdes": "IC95",
+      "part": "75468",
+      "sheet": 5,
+      "bbox": [
+        3062.0,
+        1978.0,
+        3238.0,
+        2365.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.86
+      }
+    },
+    {
+      "refdes": "R20",
+      "part": "R",
+      "sheet": 5,
+      "bbox": [
+        3325.0,
+        1668.0,
+        3510.0,
+        1712.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.78
+      },
+      "value": "33R 2W"
+    },
+    {
+      "refdes": "R21",
+      "part": "R",
+      "sheet": 5,
+      "bbox": [
+        3325.0,
+        1706.0,
+        3510.0,
+        1750.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.78
+      },
+      "value": "33R 2W"
+    },
+    {
+      "refdes": "R18",
+      "part": "R",
+      "sheet": 5,
+      "bbox": [
+        3325.0,
+        1744.0,
+        3510.0,
+        1788.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.78
+      },
+      "value": "33R 2W"
+    },
+    {
+      "refdes": "R19",
+      "part": "R",
+      "sheet": 5,
+      "bbox": [
+        3325.0,
+        1782.0,
+        3510.0,
+        1826.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.78
+      },
+      "value": "33R 2W"
+    },
+    {
+      "refdes": "R16",
+      "part": "R",
+      "sheet": 5,
+      "bbox": [
+        3325.0,
+        1820.0,
+        3510.0,
+        1864.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.78
+      },
+      "value": "33R 2W"
+    },
+    {
+      "refdes": "R17",
+      "part": "R",
+      "sheet": 5,
+      "bbox": [
+        3325.0,
+        1858.0,
+        3510.0,
+        1902.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.78
+      },
+      "value": "33R 2W"
+    },
+    {
+      "refdes": "R14",
+      "part": "R",
+      "sheet": 5,
+      "bbox": [
+        3325.0,
+        1896.0,
+        3510.0,
+        1945.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.78
+      },
+      "value": "33R 2W"
+    },
+    {
+      "refdes": "R15",
+      "part": "R",
+      "sheet": 5,
+      "bbox": [
+        3325.0,
+        1975.0,
+        3510.0,
+        2025.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.78
+      },
+      "value": "33R 2W"
+    },
+    {
+      "refdes": "R12",
+      "part": "R",
+      "sheet": 5,
+      "bbox": [
+        3325.0,
+        2020.0,
+        3510.0,
+        2070.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.78
+      },
+      "value": "33R 2W"
+    },
+    {
+      "refdes": "R13",
+      "part": "R",
+      "sheet": 5,
+      "bbox": [
+        3325.0,
+        2065.0,
+        3510.0,
+        2115.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.78
+      },
+      "value": "33R 2W"
+    },
+    {
+      "refdes": "R10",
+      "part": "R",
+      "sheet": 5,
+      "bbox": [
+        3325.0,
+        2110.0,
+        3510.0,
+        2160.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.78
+      },
+      "value": "33R 2W"
+    },
+    {
+      "refdes": "R11",
+      "part": "R",
+      "sheet": 5,
+      "bbox": [
+        3325.0,
+        2155.0,
+        3510.0,
+        2205.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.78
+      },
+      "value": "33R 2W"
+    },
+    {
+      "refdes": "R8",
+      "part": "R",
+      "sheet": 5,
+      "bbox": [
+        3325.0,
+        2200.0,
+        3510.0,
+        2250.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.78
+      },
+      "value": "33R 2W"
+    },
+    {
+      "refdes": "R9",
+      "part": "R",
+      "sheet": 5,
+      "bbox": [
+        3325.0,
+        2245.0,
+        3510.0,
+        2300.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.78
+      },
+      "value": "33R 2W"
     }
   ],
   "nets": [

@@ -7803,6 +7803,1069 @@
           "type": "power"
         }
       ]
+    },
+    "8255": {
+      "description": "8255A-5 programmable peripheral interface, 24 programmable I/O lines, 40-pin DIP",
+      "package": "DIP-40",
+      "datasheet": "Intel 8255A-5 Programmable Peripheral Interface, Order Number 231308-004, September 1993, Figure 2 pin configuration",
+      "aliases": [
+        "8255A",
+        "8255A-5",
+        "i8255",
+        "P8255A",
+        "P8255A-5"
+      ],
+      "vcc_pin": 26,
+      "gnd_pin": 7,
+      "pins": [
+        {
+          "n": 1,
+          "name": "PA3",
+          "type": "bidir",
+          "group": "PA"
+        },
+        {
+          "n": 2,
+          "name": "PA2",
+          "type": "bidir",
+          "group": "PA"
+        },
+        {
+          "n": 3,
+          "name": "PA1",
+          "type": "bidir",
+          "group": "PA"
+        },
+        {
+          "n": 4,
+          "name": "PA0",
+          "type": "bidir",
+          "group": "PA"
+        },
+        {
+          "n": 5,
+          "name": "~RD",
+          "type": "input",
+          "group": "ctrl"
+        },
+        {
+          "n": 6,
+          "name": "~CS",
+          "type": "input",
+          "group": "ctrl"
+        },
+        {
+          "n": 7,
+          "name": "GND",
+          "type": "ground"
+        },
+        {
+          "n": 8,
+          "name": "A1",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 9,
+          "name": "A0",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 10,
+          "name": "PC7",
+          "type": "bidir",
+          "group": "PC"
+        },
+        {
+          "n": 11,
+          "name": "PC6",
+          "type": "bidir",
+          "group": "PC"
+        },
+        {
+          "n": 12,
+          "name": "PC5",
+          "type": "bidir",
+          "group": "PC"
+        },
+        {
+          "n": 13,
+          "name": "PC4",
+          "type": "bidir",
+          "group": "PC"
+        },
+        {
+          "n": 14,
+          "name": "PC0",
+          "type": "bidir",
+          "group": "PC"
+        },
+        {
+          "n": 15,
+          "name": "PC1",
+          "type": "bidir",
+          "group": "PC"
+        },
+        {
+          "n": 16,
+          "name": "PC2",
+          "type": "bidir",
+          "group": "PC"
+        },
+        {
+          "n": 17,
+          "name": "PC3",
+          "type": "bidir",
+          "group": "PC"
+        },
+        {
+          "n": 18,
+          "name": "PB0",
+          "type": "bidir",
+          "group": "PB"
+        },
+        {
+          "n": 19,
+          "name": "PB1",
+          "type": "bidir",
+          "group": "PB"
+        },
+        {
+          "n": 20,
+          "name": "PB2",
+          "type": "bidir",
+          "group": "PB"
+        },
+        {
+          "n": 21,
+          "name": "PB3",
+          "type": "bidir",
+          "group": "PB"
+        },
+        {
+          "n": 22,
+          "name": "PB4",
+          "type": "bidir",
+          "group": "PB"
+        },
+        {
+          "n": 23,
+          "name": "PB5",
+          "type": "bidir",
+          "group": "PB"
+        },
+        {
+          "n": 24,
+          "name": "PB6",
+          "type": "bidir",
+          "group": "PB"
+        },
+        {
+          "n": 25,
+          "name": "PB7",
+          "type": "bidir",
+          "group": "PB"
+        },
+        {
+          "n": 26,
+          "name": "VCC",
+          "type": "power"
+        },
+        {
+          "n": 27,
+          "name": "D7",
+          "type": "bidir",
+          "group": "data"
+        },
+        {
+          "n": 28,
+          "name": "D6",
+          "type": "bidir",
+          "group": "data"
+        },
+        {
+          "n": 29,
+          "name": "D5",
+          "type": "bidir",
+          "group": "data"
+        },
+        {
+          "n": 30,
+          "name": "D4",
+          "type": "bidir",
+          "group": "data"
+        },
+        {
+          "n": 31,
+          "name": "D3",
+          "type": "bidir",
+          "group": "data"
+        },
+        {
+          "n": 32,
+          "name": "D2",
+          "type": "bidir",
+          "group": "data"
+        },
+        {
+          "n": 33,
+          "name": "D1",
+          "type": "bidir",
+          "group": "data"
+        },
+        {
+          "n": 34,
+          "name": "D0",
+          "type": "bidir",
+          "group": "data"
+        },
+        {
+          "n": 35,
+          "name": "RESET",
+          "type": "input",
+          "group": "ctrl"
+        },
+        {
+          "n": 36,
+          "name": "~WR",
+          "type": "input",
+          "group": "ctrl"
+        },
+        {
+          "n": 37,
+          "name": "PA7",
+          "type": "bidir",
+          "group": "PA"
+        },
+        {
+          "n": 38,
+          "name": "PA6",
+          "type": "bidir",
+          "group": "PA"
+        },
+        {
+          "n": 39,
+          "name": "PA5",
+          "type": "bidir",
+          "group": "PA"
+        },
+        {
+          "n": 40,
+          "name": "PA4",
+          "type": "bidir",
+          "group": "PA"
+        }
+      ]
+    },
+    "75468": {
+      "description": "SN75468 seven-channel high-voltage high-current NPN Darlington transistor array",
+      "package": "DIP-16",
+      "datasheet": "TI SLRS023E, SN75468/SN75469 Darlington Transistor Arrays, December 1976 revised January 2015, Section 6 pin configuration",
+      "aliases": [
+        "SN75468",
+        "SN75468N",
+        "SN75468NE4",
+        "ULN2003-compatible"
+      ],
+      "gnd_pin": 8,
+      "pins": [
+        {
+          "n": 1,
+          "name": "1B",
+          "type": "input",
+          "group": "ch1"
+        },
+        {
+          "n": 2,
+          "name": "2B",
+          "type": "input",
+          "group": "ch2"
+        },
+        {
+          "n": 3,
+          "name": "3B",
+          "type": "input",
+          "group": "ch3"
+        },
+        {
+          "n": 4,
+          "name": "4B",
+          "type": "input",
+          "group": "ch4"
+        },
+        {
+          "n": 5,
+          "name": "5B",
+          "type": "input",
+          "group": "ch5"
+        },
+        {
+          "n": 6,
+          "name": "6B",
+          "type": "input",
+          "group": "ch6"
+        },
+        {
+          "n": 7,
+          "name": "7B",
+          "type": "input",
+          "group": "ch7"
+        },
+        {
+          "n": 8,
+          "name": "E",
+          "type": "ground"
+        },
+        {
+          "n": 9,
+          "name": "COM",
+          "type": "passive"
+        },
+        {
+          "n": 10,
+          "name": "7C",
+          "type": "open_collector",
+          "group": "ch7"
+        },
+        {
+          "n": 11,
+          "name": "6C",
+          "type": "open_collector",
+          "group": "ch6"
+        },
+        {
+          "n": 12,
+          "name": "5C",
+          "type": "open_collector",
+          "group": "ch5"
+        },
+        {
+          "n": 13,
+          "name": "4C",
+          "type": "open_collector",
+          "group": "ch4"
+        },
+        {
+          "n": 14,
+          "name": "3C",
+          "type": "open_collector",
+          "group": "ch3"
+        },
+        {
+          "n": 15,
+          "name": "2C",
+          "type": "open_collector",
+          "group": "ch2"
+        },
+        {
+          "n": 16,
+          "name": "1C",
+          "type": "open_collector",
+          "group": "ch1"
+        }
+      ]
+    },
+    "74LS48": {
+      "description": "BCD-to-seven-segment decoder/driver with internal pullups and lamp-test/blanking controls",
+      "package": "DIP-16",
+      "datasheet": "TI SDLS111, BCD-to-Seven-Segment Decoders/Drivers, March 1974 revised March 1988",
+      "aliases": [
+        "SN74LS48",
+        "SN74LS48N",
+        "7448",
+        "SN7448",
+        "SN54LS48"
+      ],
+      "vcc_pin": 16,
+      "gnd_pin": 8,
+      "pins": [
+        {
+          "n": 1,
+          "name": "B",
+          "type": "input",
+          "group": "bcd"
+        },
+        {
+          "n": 2,
+          "name": "C",
+          "type": "input",
+          "group": "bcd"
+        },
+        {
+          "n": 3,
+          "name": "~LT",
+          "type": "input",
+          "group": "ctrl"
+        },
+        {
+          "n": 4,
+          "name": "~BI/RBO",
+          "type": "bidir",
+          "group": "ctrl"
+        },
+        {
+          "n": 5,
+          "name": "~RBI",
+          "type": "input",
+          "group": "ctrl"
+        },
+        {
+          "n": 6,
+          "name": "D",
+          "type": "input",
+          "group": "bcd"
+        },
+        {
+          "n": 7,
+          "name": "A",
+          "type": "input",
+          "group": "bcd"
+        },
+        {
+          "n": 8,
+          "name": "GND",
+          "type": "ground"
+        },
+        {
+          "n": 9,
+          "name": "e",
+          "type": "output",
+          "group": "segment"
+        },
+        {
+          "n": 10,
+          "name": "d",
+          "type": "output",
+          "group": "segment"
+        },
+        {
+          "n": 11,
+          "name": "c",
+          "type": "output",
+          "group": "segment"
+        },
+        {
+          "n": 12,
+          "name": "b",
+          "type": "output",
+          "group": "segment"
+        },
+        {
+          "n": 13,
+          "name": "a",
+          "type": "output",
+          "group": "segment"
+        },
+        {
+          "n": 14,
+          "name": "g",
+          "type": "output",
+          "group": "segment"
+        },
+        {
+          "n": 15,
+          "name": "f",
+          "type": "output",
+          "group": "segment"
+        },
+        {
+          "n": 16,
+          "name": "VCC",
+          "type": "power"
+        }
+      ]
+    },
+    "Conn_01x46": {
+      "kind": "discrete",
+      "description": "46-pin single-row connector/header.",
+      "pin_count": 46,
+      "kicad_symbol": "Connector_Generic:Conn_01x46",
+      "kicad_footprint": "Connector_PinHeader_2.54mm:PinHeader_1x46_P2.54mm_Vertical"
+    },
+    "8279": {
+      "description": "8279/8279-5 programmable keyboard/display interface, 40-pin DIP",
+      "package": "DIP-40",
+      "datasheet": "Intel 8279/8279-5 Programmable Keyboard/Display Interface, Order Number 290123-002, September 1987, Figure 2 pin configuration",
+      "aliases": [
+        "8279-5",
+        "i8279",
+        "P8279",
+        "P8279-5"
+      ],
+      "vcc_pin": 40,
+      "gnd_pin": 20,
+      "pins": [
+        {
+          "n": 1,
+          "name": "RL2",
+          "type": "input",
+          "group": "return"
+        },
+        {
+          "n": 2,
+          "name": "RL3",
+          "type": "input",
+          "group": "return"
+        },
+        {
+          "n": 3,
+          "name": "CLK",
+          "type": "clock",
+          "group": "ctrl"
+        },
+        {
+          "n": 4,
+          "name": "IRQ",
+          "type": "output",
+          "group": "ctrl"
+        },
+        {
+          "n": 5,
+          "name": "RL4",
+          "type": "input",
+          "group": "return"
+        },
+        {
+          "n": 6,
+          "name": "RL5",
+          "type": "input",
+          "group": "return"
+        },
+        {
+          "n": 7,
+          "name": "RL6",
+          "type": "input",
+          "group": "return"
+        },
+        {
+          "n": 8,
+          "name": "RL7",
+          "type": "input",
+          "group": "return"
+        },
+        {
+          "n": 9,
+          "name": "RESET",
+          "type": "input",
+          "group": "ctrl"
+        },
+        {
+          "n": 10,
+          "name": "~RD",
+          "type": "input",
+          "group": "ctrl"
+        },
+        {
+          "n": 11,
+          "name": "~WR",
+          "type": "input",
+          "group": "ctrl"
+        },
+        {
+          "n": 12,
+          "name": "DB0",
+          "type": "bidir",
+          "group": "data"
+        },
+        {
+          "n": 13,
+          "name": "DB1",
+          "type": "bidir",
+          "group": "data"
+        },
+        {
+          "n": 14,
+          "name": "DB2",
+          "type": "bidir",
+          "group": "data"
+        },
+        {
+          "n": 15,
+          "name": "DB3",
+          "type": "bidir",
+          "group": "data"
+        },
+        {
+          "n": 16,
+          "name": "DB4",
+          "type": "bidir",
+          "group": "data"
+        },
+        {
+          "n": 17,
+          "name": "DB5",
+          "type": "bidir",
+          "group": "data"
+        },
+        {
+          "n": 18,
+          "name": "DB6",
+          "type": "bidir",
+          "group": "data"
+        },
+        {
+          "n": 19,
+          "name": "DB7",
+          "type": "bidir",
+          "group": "data"
+        },
+        {
+          "n": 20,
+          "name": "VSS",
+          "type": "ground"
+        },
+        {
+          "n": 21,
+          "name": "A0",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 22,
+          "name": "~CS",
+          "type": "input",
+          "group": "ctrl"
+        },
+        {
+          "n": 23,
+          "name": "~BD",
+          "type": "output",
+          "group": "display"
+        },
+        {
+          "n": 24,
+          "name": "OUT_A3",
+          "type": "output",
+          "group": "display_a"
+        },
+        {
+          "n": 25,
+          "name": "OUT_A2",
+          "type": "output",
+          "group": "display_a"
+        },
+        {
+          "n": 26,
+          "name": "OUT_A1",
+          "type": "output",
+          "group": "display_a"
+        },
+        {
+          "n": 27,
+          "name": "OUT_A0",
+          "type": "output",
+          "group": "display_a"
+        },
+        {
+          "n": 28,
+          "name": "OUT_B3",
+          "type": "output",
+          "group": "display_b"
+        },
+        {
+          "n": 29,
+          "name": "OUT_B2",
+          "type": "output",
+          "group": "display_b"
+        },
+        {
+          "n": 30,
+          "name": "OUT_B1",
+          "type": "output",
+          "group": "display_b"
+        },
+        {
+          "n": 31,
+          "name": "OUT_B0",
+          "type": "output",
+          "group": "display_b"
+        },
+        {
+          "n": 32,
+          "name": "SL0",
+          "type": "output",
+          "group": "scan"
+        },
+        {
+          "n": 33,
+          "name": "SL1",
+          "type": "output",
+          "group": "scan"
+        },
+        {
+          "n": 34,
+          "name": "SL2",
+          "type": "output",
+          "group": "scan"
+        },
+        {
+          "n": 35,
+          "name": "SL3",
+          "type": "output",
+          "group": "scan"
+        },
+        {
+          "n": 36,
+          "name": "SHIFT",
+          "type": "input",
+          "group": "key"
+        },
+        {
+          "n": 37,
+          "name": "CNTL/~STB",
+          "type": "input",
+          "group": "key"
+        },
+        {
+          "n": 38,
+          "name": "RL0",
+          "type": "input",
+          "group": "return"
+        },
+        {
+          "n": 39,
+          "name": "RL1",
+          "type": "input",
+          "group": "return"
+        },
+        {
+          "n": 40,
+          "name": "VCC",
+          "type": "power"
+        }
+      ]
+    },
+    "74LS145": {
+      "description": "BCD-to-decimal decoder/driver with ten open-collector active-low outputs",
+      "package": "DIP-16",
+      "datasheet": "TI SDLS051A, BCD-to-Decimal Decoders/Drivers, March 1974 revised March 1988",
+      "aliases": [
+        "SN74LS145",
+        "SN74LS145N",
+        "SN74145",
+        "74145",
+        "SN54145",
+        "SN54LS145"
+      ],
+      "vcc_pin": 16,
+      "gnd_pin": 8,
+      "pins": [
+        {
+          "n": 1,
+          "name": "~Y0",
+          "type": "open_collector",
+          "group": "y"
+        },
+        {
+          "n": 2,
+          "name": "~Y1",
+          "type": "open_collector",
+          "group": "y"
+        },
+        {
+          "n": 3,
+          "name": "~Y2",
+          "type": "open_collector",
+          "group": "y"
+        },
+        {
+          "n": 4,
+          "name": "~Y3",
+          "type": "open_collector",
+          "group": "y"
+        },
+        {
+          "n": 5,
+          "name": "~Y4",
+          "type": "open_collector",
+          "group": "y"
+        },
+        {
+          "n": 6,
+          "name": "~Y5",
+          "type": "open_collector",
+          "group": "y"
+        },
+        {
+          "n": 7,
+          "name": "~Y6",
+          "type": "open_collector",
+          "group": "y"
+        },
+        {
+          "n": 8,
+          "name": "GND",
+          "type": "ground"
+        },
+        {
+          "n": 9,
+          "name": "~Y7",
+          "type": "open_collector",
+          "group": "y"
+        },
+        {
+          "n": 10,
+          "name": "~Y8",
+          "type": "open_collector",
+          "group": "y"
+        },
+        {
+          "n": 11,
+          "name": "~Y9",
+          "type": "open_collector",
+          "group": "y"
+        },
+        {
+          "n": 12,
+          "name": "D",
+          "type": "input",
+          "group": "bcd"
+        },
+        {
+          "n": 13,
+          "name": "C",
+          "type": "input",
+          "group": "bcd"
+        },
+        {
+          "n": 14,
+          "name": "B",
+          "type": "input",
+          "group": "bcd"
+        },
+        {
+          "n": 15,
+          "name": "A",
+          "type": "input",
+          "group": "bcd"
+        },
+        {
+          "n": 16,
+          "name": "VCC",
+          "type": "power"
+        }
+      ]
+    },
+    "74LS191": {
+      "description": "4-bit synchronous binary up/down counter with asynchronous parallel load",
+      "package": "DIP-16",
+      "datasheet": "TI SDLS072, Synchronous Up/Down Counters With Down/Up Mode Control, December 1972 revised March 1988",
+      "aliases": [
+        "SN74LS191",
+        "SN74LS191N",
+        "74191",
+        "SN74191",
+        "SN54LS191"
+      ],
+      "vcc_pin": 16,
+      "gnd_pin": 8,
+      "pins": [
+        {
+          "n": 1,
+          "name": "B",
+          "type": "input",
+          "group": "data"
+        },
+        {
+          "n": 2,
+          "name": "QB",
+          "type": "output",
+          "group": "q"
+        },
+        {
+          "n": 3,
+          "name": "QA",
+          "type": "output",
+          "group": "q"
+        },
+        {
+          "n": 4,
+          "name": "~CTEN",
+          "type": "input",
+          "group": "ctrl"
+        },
+        {
+          "n": 5,
+          "name": "D/U",
+          "type": "input",
+          "group": "ctrl"
+        },
+        {
+          "n": 6,
+          "name": "QC",
+          "type": "output",
+          "group": "q"
+        },
+        {
+          "n": 7,
+          "name": "QD",
+          "type": "output",
+          "group": "q"
+        },
+        {
+          "n": 8,
+          "name": "GND",
+          "type": "ground"
+        },
+        {
+          "n": 9,
+          "name": "D",
+          "type": "input",
+          "group": "data"
+        },
+        {
+          "n": 10,
+          "name": "C",
+          "type": "input",
+          "group": "data"
+        },
+        {
+          "n": 11,
+          "name": "~LOAD",
+          "type": "input",
+          "group": "ctrl"
+        },
+        {
+          "n": 12,
+          "name": "MAX/MIN",
+          "type": "output",
+          "group": "carry"
+        },
+        {
+          "n": 13,
+          "name": "~RCO",
+          "type": "output",
+          "group": "carry"
+        },
+        {
+          "n": 14,
+          "name": "CLK",
+          "type": "clock",
+          "group": "ctrl"
+        },
+        {
+          "n": 15,
+          "name": "A",
+          "type": "input",
+          "group": "data"
+        },
+        {
+          "n": 16,
+          "name": "VCC",
+          "type": "power"
+        }
+      ]
+    },
+    "74LS259": {
+      "description": "8-bit addressable latch with asynchronous clear and active-high decoder outputs",
+      "package": "DIP-16",
+      "datasheet": "TI SDLS086, 8-Bit Addressable Latches, December 1983 revised March 1988",
+      "aliases": [
+        "SN74LS259B",
+        "SN74LS259",
+        "SN74LS259N",
+        "SN74259",
+        "74259"
+      ],
+      "vcc_pin": 16,
+      "gnd_pin": 8,
+      "pins": [
+        {
+          "n": 1,
+          "name": "S0",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 2,
+          "name": "S1",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 3,
+          "name": "S2",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 4,
+          "name": "Q0",
+          "type": "output",
+          "group": "q"
+        },
+        {
+          "n": 5,
+          "name": "Q1",
+          "type": "output",
+          "group": "q"
+        },
+        {
+          "n": 6,
+          "name": "Q2",
+          "type": "output",
+          "group": "q"
+        },
+        {
+          "n": 7,
+          "name": "Q3",
+          "type": "output",
+          "group": "q"
+        },
+        {
+          "n": 8,
+          "name": "GND",
+          "type": "ground"
+        },
+        {
+          "n": 9,
+          "name": "Q4",
+          "type": "output",
+          "group": "q"
+        },
+        {
+          "n": 10,
+          "name": "Q5",
+          "type": "output",
+          "group": "q"
+        },
+        {
+          "n": 11,
+          "name": "Q6",
+          "type": "output",
+          "group": "q"
+        },
+        {
+          "n": 12,
+          "name": "Q7",
+          "type": "output",
+          "group": "q"
+        },
+        {
+          "n": 13,
+          "name": "D",
+          "type": "input",
+          "group": "data"
+        },
+        {
+          "n": 14,
+          "name": "~G",
+          "type": "input",
+          "group": "ctrl"
+        },
+        {
+          "n": 15,
+          "name": "~CLR",
+          "type": "input",
+          "group": "ctrl"
+        },
+        {
+          "n": 16,
+          "name": "VCC",
+          "type": "power"
+        }
+      ]
     }
   }
 }

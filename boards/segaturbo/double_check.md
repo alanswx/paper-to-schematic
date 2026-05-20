@@ -22,6 +22,14 @@ Last updated: 2026-05-19
 - Review split IC handling if any Stage 5/6 export behavior changes. Split units were trimmed to active pins plus power/ground.
 - Recheck any label-only nets that depend on later sheets once their destination sheets are transcribed.
 
+## Sheet 5
+
+- Resolve the two LS14 triangle labels near `CN4` before adding them. The scan reads like `IC12` and `IC8`, but those designators already exist elsewhere in the graph with different parts, so they were not added in the sheet-5 bbox pass.
+- Decide how to represent the unlabeled `2SA473 x15` transistor group. The schematic does not show individual `Q` refdes labels in the visible scan.
+- Decide how to represent the repeated `CR` filter/debounce blocks/arrays around `CN4`, `IC127`, and `CN5`; they are clear drawn components but do not yet have a library entry.
+- `CN5` intentionally has an elongated bbox because it is a single drawn vertical connector. Lint warns on aspect ratio, but visual overlay shows it covers the connector.
+- Sheet 5 currently has bboxes only; pins and nets are not placed yet, so zero-net lint warnings are expected.
+
 ## Cross-Sheet / Library
 
 - Confirm split-package conventions across the board before final probe generation, especially when a package is represented as multiple schematic units.
