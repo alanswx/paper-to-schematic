@@ -2396,14 +2396,14 @@
         },
         {
           "n": 12,
-          "name": "5D",
-          "type": "input",
+          "name": "5Q",
+          "type": "output",
           "group": "ff5"
         },
         {
           "n": 13,
-          "name": "5Q",
-          "type": "output",
+          "name": "5D",
+          "type": "input",
           "group": "ff5"
         },
         {
@@ -5195,7 +5195,19 @@
       "kicad_symbol": "Device:R",
       "kicad_footprint": "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal",
       "value_required": true,
-      "pin_count": 2
+      "pin_count": 2,
+      "pins": [
+        {
+          "n": 1,
+          "name": "1",
+          "type": "passive"
+        },
+        {
+          "n": 2,
+          "name": "2",
+          "type": "passive"
+        }
+      ]
     },
     "R_SMD": {
       "kind": "discrete",
@@ -5211,7 +5223,19 @@
       "kicad_symbol": "Device:C",
       "kicad_footprint": "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm",
       "value_required": true,
-      "pin_count": 2
+      "pin_count": 2,
+      "pins": [
+        {
+          "n": 1,
+          "name": "1",
+          "type": "passive"
+        },
+        {
+          "n": 2,
+          "name": "2",
+          "type": "passive"
+        }
+      ]
     },
     "CP": {
       "kind": "discrete",
@@ -5220,7 +5244,19 @@
       "kicad_footprint": "Capacitor_THT:CP_Radial_D5.0mm_P2.50mm",
       "value_required": true,
       "polarized": true,
-      "pin_count": 2
+      "pin_count": 2,
+      "pins": [
+        {
+          "n": 1,
+          "name": "+",
+          "type": "passive"
+        },
+        {
+          "n": 2,
+          "name": "-",
+          "type": "passive"
+        }
+      ]
     },
     "D": {
       "kind": "discrete",
@@ -5237,7 +5273,19 @@
       "kicad_symbol": "Device:LED",
       "kicad_footprint": "LED_THT:LED_D5.0mm",
       "polarized": true,
-      "pin_count": 2
+      "pin_count": 2,
+      "pins": [
+        {
+          "n": 1,
+          "name": "A",
+          "type": "passive"
+        },
+        {
+          "n": 2,
+          "name": "K",
+          "type": "passive"
+        }
+      ]
     },
     "Crystal": {
       "kind": "discrete",
@@ -5245,7 +5293,19 @@
       "kicad_symbol": "Device:Crystal",
       "kicad_footprint": "Crystal:Crystal_HC49-U_Vertical",
       "value_required": true,
-      "pin_count": 2
+      "pin_count": 2,
+      "pins": [
+        {
+          "n": 1,
+          "name": "1",
+          "type": "passive"
+        },
+        {
+          "n": 2,
+          "name": "2",
+          "type": "passive"
+        }
+      ]
     },
     "SW_Push": {
       "kind": "discrete",
@@ -5955,14 +6015,14 @@
         },
         {
           "n": 12,
-          "name": "5D",
-          "type": "input",
+          "name": "5Q",
+          "type": "output",
           "group": "ff5"
         },
         {
           "n": 13,
-          "name": "5Q",
-          "type": "output",
+          "name": "5D",
+          "type": "input",
           "group": "ff5"
         },
         {
@@ -6323,6 +6383,1422 @@
         },
         {
           "n": 24,
+          "name": "VCC",
+          "type": "power"
+        }
+      ]
+    },
+    "MB8128": {
+      "description": "16Kbit (2048 x 8) NMOS static RAM with common data input/output pins",
+      "package": "DIP-24",
+      "vcc_pin": 24,
+      "gnd_pin": 12,
+      "datasheet": "Fujitsu 1982 Memory Data Book, MB8128-10/MB8128-15, pp. 2-17..2-24",
+      "aliases": [
+        "8128",
+        "MB8128-10",
+        "MB8128-15"
+      ],
+      "pins": [
+        {
+          "n": 1,
+          "name": "A7",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 2,
+          "name": "A6",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 3,
+          "name": "A5",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 4,
+          "name": "A4",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 5,
+          "name": "A3",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 6,
+          "name": "A2",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 7,
+          "name": "A1",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 8,
+          "name": "A0",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 9,
+          "name": "IO1",
+          "type": "bidir",
+          "group": "data"
+        },
+        {
+          "n": 10,
+          "name": "IO2",
+          "type": "bidir",
+          "group": "data"
+        },
+        {
+          "n": 11,
+          "name": "IO3",
+          "type": "bidir",
+          "group": "data"
+        },
+        {
+          "n": 12,
+          "name": "VSS",
+          "type": "ground"
+        },
+        {
+          "n": 13,
+          "name": "IO4",
+          "type": "bidir",
+          "group": "data"
+        },
+        {
+          "n": 14,
+          "name": "IO5",
+          "type": "bidir",
+          "group": "data"
+        },
+        {
+          "n": 15,
+          "name": "IO6",
+          "type": "bidir",
+          "group": "data"
+        },
+        {
+          "n": 16,
+          "name": "IO7",
+          "type": "bidir",
+          "group": "data"
+        },
+        {
+          "n": 17,
+          "name": "IO8",
+          "type": "bidir",
+          "group": "data"
+        },
+        {
+          "n": 18,
+          "name": "~CE",
+          "type": "input"
+        },
+        {
+          "n": 19,
+          "name": "A10",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 20,
+          "name": "~OE",
+          "type": "input"
+        },
+        {
+          "n": 21,
+          "name": "~WE",
+          "type": "input"
+        },
+        {
+          "n": 22,
+          "name": "A9",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 23,
+          "name": "A8",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 24,
+          "name": "VCC",
+          "type": "power"
+        }
+      ]
+    },
+    "74LS273": {
+      "description": "Octal D-type positive-edge-triggered flip-flop with common direct clear",
+      "package": "DIP-20",
+      "vcc_pin": 20,
+      "gnd_pin": 10,
+      "datasheet": "TI SDLS090, October 1976 / Revised March 1988 (SN74LS273)",
+      "aliases": [
+        "SN74LS273",
+        "SN74LS273N",
+        "SN74273",
+        "SN54273",
+        "SN54LS273"
+      ],
+      "pins": [
+        {
+          "n": 1,
+          "name": "~CLR",
+          "type": "input"
+        },
+        {
+          "n": 2,
+          "name": "1Q",
+          "type": "output",
+          "group": "ff1"
+        },
+        {
+          "n": 3,
+          "name": "1D",
+          "type": "input",
+          "group": "ff1"
+        },
+        {
+          "n": 4,
+          "name": "2D",
+          "type": "input",
+          "group": "ff2"
+        },
+        {
+          "n": 5,
+          "name": "2Q",
+          "type": "output",
+          "group": "ff2"
+        },
+        {
+          "n": 6,
+          "name": "3Q",
+          "type": "output",
+          "group": "ff3"
+        },
+        {
+          "n": 7,
+          "name": "3D",
+          "type": "input",
+          "group": "ff3"
+        },
+        {
+          "n": 8,
+          "name": "4D",
+          "type": "input",
+          "group": "ff4"
+        },
+        {
+          "n": 9,
+          "name": "4Q",
+          "type": "output",
+          "group": "ff4"
+        },
+        {
+          "n": 10,
+          "name": "GND",
+          "type": "ground"
+        },
+        {
+          "n": 11,
+          "name": "CLK",
+          "type": "clock"
+        },
+        {
+          "n": 12,
+          "name": "5Q",
+          "type": "output",
+          "group": "ff5"
+        },
+        {
+          "n": 13,
+          "name": "5D",
+          "type": "input",
+          "group": "ff5"
+        },
+        {
+          "n": 14,
+          "name": "6D",
+          "type": "input",
+          "group": "ff6"
+        },
+        {
+          "n": 15,
+          "name": "6Q",
+          "type": "output",
+          "group": "ff6"
+        },
+        {
+          "n": 16,
+          "name": "7Q",
+          "type": "output",
+          "group": "ff7"
+        },
+        {
+          "n": 17,
+          "name": "7D",
+          "type": "input",
+          "group": "ff7"
+        },
+        {
+          "n": 18,
+          "name": "8D",
+          "type": "input",
+          "group": "ff8"
+        },
+        {
+          "n": 19,
+          "name": "8Q",
+          "type": "output",
+          "group": "ff8"
+        },
+        {
+          "n": 20,
+          "name": "VCC",
+          "type": "power"
+        }
+      ]
+    },
+    "Conn_01x12": {
+      "kind": "discrete",
+      "description": "12-pin single-row connector/header.",
+      "kicad_symbol": "Connector_Generic:Conn_01x12",
+      "kicad_footprint": "Connector_PinHeader_2.54mm:PinHeader_1x12_P2.54mm_Vertical",
+      "pin_count": 12,
+      "pins": [
+        {
+          "n": 1,
+          "name": "1",
+          "type": "passive"
+        },
+        {
+          "n": 2,
+          "name": "2",
+          "type": "passive"
+        },
+        {
+          "n": 3,
+          "name": "3",
+          "type": "passive"
+        },
+        {
+          "n": 4,
+          "name": "4",
+          "type": "passive"
+        },
+        {
+          "n": 5,
+          "name": "5",
+          "type": "passive"
+        },
+        {
+          "n": 6,
+          "name": "6",
+          "type": "passive"
+        },
+        {
+          "n": 7,
+          "name": "7",
+          "type": "passive"
+        },
+        {
+          "n": 8,
+          "name": "8",
+          "type": "passive"
+        },
+        {
+          "n": 9,
+          "name": "9",
+          "type": "passive"
+        },
+        {
+          "n": 10,
+          "name": "10",
+          "type": "passive"
+        },
+        {
+          "n": 11,
+          "name": "11",
+          "type": "passive"
+        },
+        {
+          "n": 12,
+          "name": "12",
+          "type": "passive"
+        }
+      ]
+    },
+    "Conn_02x25": {
+      "kind": "discrete",
+      "description": "50-pin two-row connector/header, odd/even pin numbering.",
+      "kicad_symbol": "Connector_Generic:Conn_02x25_Odd_Even",
+      "kicad_footprint": "Connector_PinHeader_2.54mm:PinHeader_2x25_P2.54mm_Vertical",
+      "pin_count": 50,
+      "pins": [
+        {
+          "n": 1,
+          "name": "1",
+          "type": "passive"
+        },
+        {
+          "n": 2,
+          "name": "2",
+          "type": "passive"
+        },
+        {
+          "n": 3,
+          "name": "3",
+          "type": "passive"
+        },
+        {
+          "n": 4,
+          "name": "4",
+          "type": "passive"
+        },
+        {
+          "n": 5,
+          "name": "5",
+          "type": "passive"
+        },
+        {
+          "n": 6,
+          "name": "6",
+          "type": "passive"
+        },
+        {
+          "n": 7,
+          "name": "7",
+          "type": "passive"
+        },
+        {
+          "n": 8,
+          "name": "8",
+          "type": "passive"
+        },
+        {
+          "n": 9,
+          "name": "9",
+          "type": "passive"
+        },
+        {
+          "n": 10,
+          "name": "10",
+          "type": "passive"
+        },
+        {
+          "n": 11,
+          "name": "11",
+          "type": "passive"
+        },
+        {
+          "n": 12,
+          "name": "12",
+          "type": "passive"
+        },
+        {
+          "n": 13,
+          "name": "13",
+          "type": "passive"
+        },
+        {
+          "n": 14,
+          "name": "14",
+          "type": "passive"
+        },
+        {
+          "n": 15,
+          "name": "15",
+          "type": "passive"
+        },
+        {
+          "n": 16,
+          "name": "16",
+          "type": "passive"
+        },
+        {
+          "n": 17,
+          "name": "17",
+          "type": "passive"
+        },
+        {
+          "n": 18,
+          "name": "18",
+          "type": "passive"
+        },
+        {
+          "n": 19,
+          "name": "19",
+          "type": "passive"
+        },
+        {
+          "n": 20,
+          "name": "20",
+          "type": "passive"
+        },
+        {
+          "n": 21,
+          "name": "21",
+          "type": "passive"
+        },
+        {
+          "n": 22,
+          "name": "22",
+          "type": "passive"
+        },
+        {
+          "n": 23,
+          "name": "23",
+          "type": "passive"
+        },
+        {
+          "n": 24,
+          "name": "24",
+          "type": "passive"
+        },
+        {
+          "n": 25,
+          "name": "25",
+          "type": "passive"
+        },
+        {
+          "n": 26,
+          "name": "26",
+          "type": "passive"
+        },
+        {
+          "n": 27,
+          "name": "27",
+          "type": "passive"
+        },
+        {
+          "n": 28,
+          "name": "28",
+          "type": "passive"
+        },
+        {
+          "n": 29,
+          "name": "29",
+          "type": "passive"
+        },
+        {
+          "n": 30,
+          "name": "30",
+          "type": "passive"
+        },
+        {
+          "n": 31,
+          "name": "31",
+          "type": "passive"
+        },
+        {
+          "n": 32,
+          "name": "32",
+          "type": "passive"
+        },
+        {
+          "n": 33,
+          "name": "33",
+          "type": "passive"
+        },
+        {
+          "n": 34,
+          "name": "34",
+          "type": "passive"
+        },
+        {
+          "n": 35,
+          "name": "35",
+          "type": "passive"
+        },
+        {
+          "n": 36,
+          "name": "36",
+          "type": "passive"
+        },
+        {
+          "n": 37,
+          "name": "37",
+          "type": "passive"
+        },
+        {
+          "n": 38,
+          "name": "38",
+          "type": "passive"
+        },
+        {
+          "n": 39,
+          "name": "39",
+          "type": "passive"
+        },
+        {
+          "n": 40,
+          "name": "40",
+          "type": "passive"
+        },
+        {
+          "n": 41,
+          "name": "41",
+          "type": "passive"
+        },
+        {
+          "n": 42,
+          "name": "42",
+          "type": "passive"
+        },
+        {
+          "n": 43,
+          "name": "43",
+          "type": "passive"
+        },
+        {
+          "n": 44,
+          "name": "44",
+          "type": "passive"
+        },
+        {
+          "n": 45,
+          "name": "45",
+          "type": "passive"
+        },
+        {
+          "n": 46,
+          "name": "46",
+          "type": "passive"
+        },
+        {
+          "n": 47,
+          "name": "47",
+          "type": "passive"
+        },
+        {
+          "n": 48,
+          "name": "48",
+          "type": "passive"
+        },
+        {
+          "n": 49,
+          "name": "49",
+          "type": "passive"
+        },
+        {
+          "n": 50,
+          "name": "50",
+          "type": "passive"
+        }
+      ]
+    },
+    "74LS258": {
+      "description": "Quad 2-line to 1-line data selector/multiplexer with inverted 3-state outputs",
+      "package": "DIP-16",
+      "datasheet": "onsemi SN74LS257B/SN74LS258B, SN74LS257B/D Rev. 8, July 2006, logic diagram and function table",
+      "aliases": [
+        "SN74LS258",
+        "SN74LS258B",
+        "SN74LS258BN",
+        "SN54LS258",
+        "SN54LS258B",
+        "DM74LS258",
+        "HD74LS258",
+        "74S258",
+        "SN74S258"
+      ],
+      "vcc_pin": 16,
+      "gnd_pin": 8,
+      "pins": [
+        {
+          "n": 1,
+          "name": "S",
+          "type": "input",
+          "group": "ctrl"
+        },
+        {
+          "n": 2,
+          "name": "1A",
+          "type": "input",
+          "group": "m1"
+        },
+        {
+          "n": 3,
+          "name": "1B",
+          "type": "input",
+          "group": "m1"
+        },
+        {
+          "n": 4,
+          "name": "~1Y",
+          "type": "tri_state",
+          "group": "m1"
+        },
+        {
+          "n": 5,
+          "name": "2A",
+          "type": "input",
+          "group": "m2"
+        },
+        {
+          "n": 6,
+          "name": "2B",
+          "type": "input",
+          "group": "m2"
+        },
+        {
+          "n": 7,
+          "name": "~2Y",
+          "type": "tri_state",
+          "group": "m2"
+        },
+        {
+          "n": 8,
+          "name": "GND",
+          "type": "ground"
+        },
+        {
+          "n": 9,
+          "name": "~3Y",
+          "type": "tri_state",
+          "group": "m3"
+        },
+        {
+          "n": 10,
+          "name": "3B",
+          "type": "input",
+          "group": "m3"
+        },
+        {
+          "n": 11,
+          "name": "3A",
+          "type": "input",
+          "group": "m3"
+        },
+        {
+          "n": 12,
+          "name": "~4Y",
+          "type": "tri_state",
+          "group": "m4"
+        },
+        {
+          "n": 13,
+          "name": "4B",
+          "type": "input",
+          "group": "m4"
+        },
+        {
+          "n": 14,
+          "name": "4A",
+          "type": "input",
+          "group": "m4"
+        },
+        {
+          "n": 15,
+          "name": "~G",
+          "type": "input",
+          "group": "ctrl"
+        },
+        {
+          "n": 16,
+          "name": "VCC",
+          "type": "power"
+        }
+      ]
+    },
+    "74LS283": {
+      "description": "4-bit binary full adder with fast carry",
+      "package": "DIP-16",
+      "datasheet": "Texas Instruments SN54LS283/SN74LS283, SDLS095A, 4-Bit Binary Full Adders With Fast Carry, revised March 1988",
+      "aliases": [
+        "SN74LS283",
+        "SN74LS283N",
+        "SN54LS283",
+        "SN54LS283J",
+        "DM74LS283",
+        "74S283",
+        "SN74S283"
+      ],
+      "vcc_pin": 16,
+      "gnd_pin": 8,
+      "pins": [
+        {
+          "n": 1,
+          "name": "S1",
+          "type": "output",
+          "group": "sum"
+        },
+        {
+          "n": 2,
+          "name": "B1",
+          "type": "input",
+          "group": "bit1"
+        },
+        {
+          "n": 3,
+          "name": "A1",
+          "type": "input",
+          "group": "bit1"
+        },
+        {
+          "n": 4,
+          "name": "S0",
+          "type": "output",
+          "group": "sum"
+        },
+        {
+          "n": 5,
+          "name": "A0",
+          "type": "input",
+          "group": "bit0"
+        },
+        {
+          "n": 6,
+          "name": "B0",
+          "type": "input",
+          "group": "bit0"
+        },
+        {
+          "n": 7,
+          "name": "C0",
+          "type": "input",
+          "group": "carry"
+        },
+        {
+          "n": 8,
+          "name": "GND",
+          "type": "ground"
+        },
+        {
+          "n": 9,
+          "name": "C4",
+          "type": "output",
+          "group": "carry"
+        },
+        {
+          "n": 10,
+          "name": "S3",
+          "type": "output",
+          "group": "sum"
+        },
+        {
+          "n": 11,
+          "name": "B3",
+          "type": "input",
+          "group": "bit3"
+        },
+        {
+          "n": 12,
+          "name": "A3",
+          "type": "input",
+          "group": "bit3"
+        },
+        {
+          "n": 13,
+          "name": "S2",
+          "type": "output",
+          "group": "sum"
+        },
+        {
+          "n": 14,
+          "name": "A2",
+          "type": "input",
+          "group": "bit2"
+        },
+        {
+          "n": 15,
+          "name": "B2",
+          "type": "input",
+          "group": "bit2"
+        },
+        {
+          "n": 16,
+          "name": "VCC",
+          "type": "power"
+        }
+      ]
+    },
+    "AM2919": {
+      "description": "Quadruple bus transceiver with register and output polarity control",
+      "package": "DIP-20",
+      "datasheet": "Advanced Micro Devices, The Am2900 Family Data Book, Am2919 Quadruple Bus Transceiver, 1978",
+      "aliases": [
+        "Am2919",
+        "AM2919DC",
+        "AM2919PC",
+        "AMD2919"
+      ],
+      "vcc_pin": 20,
+      "gnd_pin": 10,
+      "pins": [
+        {
+          "n": 1,
+          "name": "D0",
+          "type": "input",
+          "group": "d0"
+        },
+        {
+          "n": 2,
+          "name": "W0",
+          "type": "tri_state",
+          "group": "w0"
+        },
+        {
+          "n": 3,
+          "name": "Y0",
+          "type": "tri_state",
+          "group": "y0"
+        },
+        {
+          "n": 4,
+          "name": "D1",
+          "type": "input",
+          "group": "d1"
+        },
+        {
+          "n": 5,
+          "name": "W1",
+          "type": "tri_state",
+          "group": "w1"
+        },
+        {
+          "n": 6,
+          "name": "Y1",
+          "type": "tri_state",
+          "group": "y1"
+        },
+        {
+          "n": 7,
+          "name": "~OE-W",
+          "type": "input",
+          "group": "ctrl"
+        },
+        {
+          "n": 8,
+          "name": "~CLR",
+          "type": "input",
+          "group": "ctrl"
+        },
+        {
+          "n": 9,
+          "name": "CLK",
+          "type": "clock",
+          "group": "ctrl"
+        },
+        {
+          "n": 10,
+          "name": "GND",
+          "type": "ground"
+        },
+        {
+          "n": 11,
+          "name": "Y2",
+          "type": "tri_state",
+          "group": "y2"
+        },
+        {
+          "n": 12,
+          "name": "W2",
+          "type": "tri_state",
+          "group": "w2"
+        },
+        {
+          "n": 13,
+          "name": "D2",
+          "type": "input",
+          "group": "d2"
+        },
+        {
+          "n": 14,
+          "name": "Y3",
+          "type": "tri_state",
+          "group": "y3"
+        },
+        {
+          "n": 15,
+          "name": "W3",
+          "type": "tri_state",
+          "group": "w3"
+        },
+        {
+          "n": 16,
+          "name": "D3",
+          "type": "input",
+          "group": "d3"
+        },
+        {
+          "n": 17,
+          "name": "E",
+          "type": "input",
+          "group": "ctrl"
+        },
+        {
+          "n": 18,
+          "name": "POL",
+          "type": "input",
+          "group": "ctrl"
+        },
+        {
+          "n": 19,
+          "name": "~OE-Y",
+          "type": "input",
+          "group": "ctrl"
+        },
+        {
+          "n": 20,
+          "name": "VCC",
+          "type": "power"
+        }
+      ]
+    },
+    "PAL16R4": {
+      "description": "PAL16R4 registered programmable array logic, 10 inputs, 4 registered outputs, 4 combinatorial I/O outputs",
+      "package": "DIP-20",
+      "datasheet": "Texas Instruments, Standard High-Speed PAL Circuits, SRPS016, PAL16R4A connection/logic diagrams",
+      "aliases": [
+        "PAL16R4A",
+        "PAL16R4ACN",
+        "PAL16R4BCN",
+        "TIBPAL16R4",
+        "TIBPAL16R4-15CN",
+        "MMI PAL16R4"
+      ],
+      "vcc_pin": 20,
+      "gnd_pin": 10,
+      "pins": [
+        {
+          "n": 1,
+          "name": "CLK",
+          "type": "clock",
+          "group": "ctrl"
+        },
+        {
+          "n": 2,
+          "name": "I1",
+          "type": "input"
+        },
+        {
+          "n": 3,
+          "name": "I2",
+          "type": "input"
+        },
+        {
+          "n": 4,
+          "name": "I3",
+          "type": "input"
+        },
+        {
+          "n": 5,
+          "name": "I4",
+          "type": "input"
+        },
+        {
+          "n": 6,
+          "name": "I5",
+          "type": "input"
+        },
+        {
+          "n": 7,
+          "name": "I6",
+          "type": "input"
+        },
+        {
+          "n": 8,
+          "name": "I7",
+          "type": "input"
+        },
+        {
+          "n": 9,
+          "name": "I8",
+          "type": "input"
+        },
+        {
+          "n": 10,
+          "name": "GND",
+          "type": "ground"
+        },
+        {
+          "n": 11,
+          "name": "~OE",
+          "type": "input",
+          "group": "ctrl"
+        },
+        {
+          "n": 12,
+          "name": "IO12",
+          "type": "bidirectional",
+          "group": "io"
+        },
+        {
+          "n": 13,
+          "name": "IO13",
+          "type": "bidirectional",
+          "group": "io"
+        },
+        {
+          "n": 14,
+          "name": "Q14",
+          "type": "tri_state",
+          "group": "reg"
+        },
+        {
+          "n": 15,
+          "name": "Q15",
+          "type": "tri_state",
+          "group": "reg"
+        },
+        {
+          "n": 16,
+          "name": "Q16",
+          "type": "tri_state",
+          "group": "reg"
+        },
+        {
+          "n": 17,
+          "name": "Q17",
+          "type": "tri_state",
+          "group": "reg"
+        },
+        {
+          "n": 18,
+          "name": "IO18",
+          "type": "bidirectional",
+          "group": "io"
+        },
+        {
+          "n": 19,
+          "name": "IO19",
+          "type": "bidirectional",
+          "group": "io"
+        },
+        {
+          "n": 20,
+          "name": "VCC",
+          "type": "power"
+        }
+      ]
+    },
+    "93419": {
+      "description": "93419 64 x 9 TTL bipolar random-access memory with separate data inputs and inverting open-collector outputs",
+      "package": "DIP-28",
+      "datasheet": "Fairchild Semiconductor, TTL Data Book, 93419 64 x 9 RAM connection diagram and logic symbol",
+      "aliases": [
+        "F93419",
+        "DM93419",
+        "N93419",
+        "93419DC",
+        "82S09",
+        "N82S09"
+      ],
+      "vcc_pin": 28,
+      "gnd_pin": 14,
+      "pins": [
+        {
+          "n": 1,
+          "name": "A3",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 2,
+          "name": "A4",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 3,
+          "name": "A5",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 4,
+          "name": "D0",
+          "type": "input",
+          "group": "data_in"
+        },
+        {
+          "n": 5,
+          "name": "D1",
+          "type": "input",
+          "group": "data_in"
+        },
+        {
+          "n": 6,
+          "name": "D2",
+          "type": "input",
+          "group": "data_in"
+        },
+        {
+          "n": 7,
+          "name": "D3",
+          "type": "input",
+          "group": "data_in"
+        },
+        {
+          "n": 8,
+          "name": "D4",
+          "type": "input",
+          "group": "data_in"
+        },
+        {
+          "n": 9,
+          "name": "D5",
+          "type": "input",
+          "group": "data_in"
+        },
+        {
+          "n": 10,
+          "name": "D6",
+          "type": "input",
+          "group": "data_in"
+        },
+        {
+          "n": 11,
+          "name": "D7",
+          "type": "input",
+          "group": "data_in"
+        },
+        {
+          "n": 12,
+          "name": "D8",
+          "type": "input",
+          "group": "data_in"
+        },
+        {
+          "n": 13,
+          "name": "~WE",
+          "type": "input",
+          "group": "ctrl"
+        },
+        {
+          "n": 14,
+          "name": "GND",
+          "type": "ground"
+        },
+        {
+          "n": 15,
+          "name": "~CS",
+          "type": "input",
+          "group": "ctrl"
+        },
+        {
+          "n": 16,
+          "name": "~O8",
+          "type": "open_collector",
+          "group": "data_out"
+        },
+        {
+          "n": 17,
+          "name": "~O7",
+          "type": "open_collector",
+          "group": "data_out"
+        },
+        {
+          "n": 18,
+          "name": "~O6",
+          "type": "open_collector",
+          "group": "data_out"
+        },
+        {
+          "n": 19,
+          "name": "~O5",
+          "type": "open_collector",
+          "group": "data_out"
+        },
+        {
+          "n": 20,
+          "name": "~O4",
+          "type": "open_collector",
+          "group": "data_out"
+        },
+        {
+          "n": 21,
+          "name": "~O3",
+          "type": "open_collector",
+          "group": "data_out"
+        },
+        {
+          "n": 22,
+          "name": "~O2",
+          "type": "open_collector",
+          "group": "data_out"
+        },
+        {
+          "n": 23,
+          "name": "~O1",
+          "type": "open_collector",
+          "group": "data_out"
+        },
+        {
+          "n": 24,
+          "name": "~O0",
+          "type": "open_collector",
+          "group": "data_out"
+        },
+        {
+          "n": 25,
+          "name": "A0",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 26,
+          "name": "A1",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 27,
+          "name": "A2",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 28,
+          "name": "VCC",
+          "type": "power"
+        }
+      ]
+    },
+    "Conn_02x30": {
+      "kind": "discrete",
+      "description": "60-pin two-row connector/header, odd/even pin numbering.",
+      "pin_count": 60,
+      "kicad_symbol": "Connector_Generic:Conn_02x30_Odd_Even",
+      "kicad_footprint": "Connector_PinHeader_2.54mm:PinHeader_2x30_P2.54mm_Vertical"
+    },
+    "R_NETWORK08_COMMON": {
+      "kind": "discrete",
+      "description": "8-resistor common-pin resistor network, used for pull-up/pull-down bus termination",
+      "pin_count": 9,
+      "kicad_symbol": "Device:R_Network08",
+      "kicad_footprint": "Resistor_THT:R_Array_SIP9",
+      "value_required": true
+    },
+    "2148": {
+      "description": "1024 x 4-bit static RAM",
+      "package": "DIP-18",
+      "vcc_pin": 18,
+      "gnd_pin": 9,
+      "aliases": [
+        "2148H",
+        "AM2148",
+        "RAM2148",
+        "RAM 2148-55"
+      ],
+      "datasheet": "Intel Memory Component Handbook, 1983, 2148H datasheet p.3-259",
+      "pins": [
+        {
+          "n": 1,
+          "name": "A6",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 2,
+          "name": "A5",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 3,
+          "name": "A4",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 4,
+          "name": "A3",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 5,
+          "name": "A0",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 6,
+          "name": "A1",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 7,
+          "name": "A2",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 8,
+          "name": "~CS",
+          "type": "input"
+        },
+        {
+          "n": 9,
+          "name": "GND",
+          "type": "ground"
+        },
+        {
+          "n": 10,
+          "name": "~WE",
+          "type": "input"
+        },
+        {
+          "n": 11,
+          "name": "I/O4",
+          "type": "bidir",
+          "group": "data"
+        },
+        {
+          "n": 12,
+          "name": "I/O3",
+          "type": "bidir",
+          "group": "data"
+        },
+        {
+          "n": 13,
+          "name": "I/O2",
+          "type": "bidir",
+          "group": "data"
+        },
+        {
+          "n": 14,
+          "name": "I/O1",
+          "type": "bidir",
+          "group": "data"
+        },
+        {
+          "n": 15,
+          "name": "A9",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 16,
+          "name": "A8",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 17,
+          "name": "A7",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 18,
           "name": "VCC",
           "type": "power"
         }

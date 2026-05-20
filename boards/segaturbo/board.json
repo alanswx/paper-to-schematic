@@ -1,0 +1,41 @@
+{
+  "id": "segaturbo",
+  "drawing_number": "834-0110",
+  "title": "Sega Turbo CPU Board",
+  "manufacturer": "Sega",
+  "year": 1981,
+  "preferred_scan_source": {
+    "manual": "Turbo_Schematics-cpuonly.pdf",
+    "reason": "Raster-only PDF (300 DPI 1-bit per page) extracted from the Turbo CPU schematics. No vector source available — every page is a scanned drawing wrapped in PDF.",
+    "manual_path": "../../segaturbo/Turbo_Schematics-cpuonly.pdf"
+  },
+  "source": {
+    "kind": "raster_scan",
+    "extracted_from_pdf": "../../segaturbo/Turbo_Schematics-cpuonly.pdf",
+    "scan_dpi": 300,
+    "note": "pdftocairo render at 300 DPI; each PDF page is one schematic sheet."
+  },
+  "sheets": [
+    { "index": 1,  "title": "CPU Board sheet (PDF p1)",  "scan_path": "../../segaturbo/scans/pages/cpuonly_p01.png", "scan_pixel_size": [5100, 3300], "source_pdf_pages": [1] },
+    { "index": 2,  "title": "CPU Board sheet (PDF p2)",  "scan_path": "../../segaturbo/scans/pages/cpuonly_p02.png", "scan_pixel_size": [5100, 3300], "source_pdf_pages": [2] },
+    { "index": 3,  "title": "CPU Board sheet (PDF p3)",  "scan_path": "../../segaturbo/scans/pages/cpuonly_p03.png", "scan_pixel_size": [5100, 3300], "source_pdf_pages": [3] },
+    { "index": 4,  "title": "CPU Board sheet (PDF p4)",  "scan_path": "../../segaturbo/scans/pages/cpuonly_p04.png", "scan_pixel_size": [5100, 3300], "source_pdf_pages": [4] },
+    { "index": 5,  "title": "CPU Board sheet (PDF p5)",  "scan_path": "../../segaturbo/scans/pages/cpuonly_p05.png", "scan_pixel_size": [5100, 3300], "source_pdf_pages": [5] },
+    { "index": 6,  "title": "CPU Board sheet (PDF p6)",  "scan_path": "../../segaturbo/scans/pages/cpuonly_p06.png", "scan_pixel_size": [5100, 3300], "source_pdf_pages": [6] },
+    { "index": 7,  "title": "CPU Board sheet (PDF p7)",  "scan_path": "../../segaturbo/scans/pages/cpuonly_p07.png", "scan_pixel_size": [5100, 3300], "source_pdf_pages": [7] },
+    { "index": 8,  "title": "CPU Board sheet (PDF p8)",  "scan_path": "../../segaturbo/scans/pages/cpuonly_p08.png", "scan_pixel_size": [5100, 3300], "source_pdf_pages": [8] },
+    { "index": 9,  "title": "CPU Board sheet (PDF p9)",  "scan_path": "../../segaturbo/scans/pages/cpuonly_p09.png", "scan_pixel_size": [5100, 3300], "source_pdf_pages": [9] },
+    { "index": 10, "title": "P-ROM Board (834-0111) — 8 level variants on PDF p10-p17", "scan_path": "../../segaturbo/scans/pages/cpuonly_p10.png", "scan_pixel_size": [5100, 3300], "source_pdf_pages": [10, 11, 12, 13, 14, 15, 16, 17], "variants_note": "PDF pages 10-17 are the same P-ROM Board schematic repeated for LEVEL 0..LEVEL 7. Only the level-label annotation differs; circuit is identical. Transcribe once."}
+  ],
+  "off_page_convention": {
+    "edge_type": "label",
+    "notation": "named text label adjacent to wire endpoint",
+    "example": "MA0..MA15, MD0..MD7 — signals leave/enter at named labels rather than zone codes",
+    "rendering": "horizontal text adjacent to wire end"
+  },
+  "phase1_target": {
+    "sheet": 1,
+    "scope": "First transcription pass on PDF p1 — exemplar sheet through all stages",
+    "exit_criteria": "round-trips into KiCad with zero ERC blocking errors"
+  }
+}

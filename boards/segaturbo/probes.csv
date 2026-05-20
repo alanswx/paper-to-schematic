@@ -1,0 +1,270 @@
+priority,net,endpoints,reason,suggested_test,status
+HIGH,5M,IC120b.9;IC88.1;IC102.1;IC110.7;IC121.7;CN1.40;IC112.11;IC113.1,crosses 2 sheets — easy to mistrace at boundary,Power-off DMM continuity: IC120b.9 ↔ IC88.1; IC120b.9 ↔ IC102.1; IC120b.9 ↔ IC110.7; IC120b.9 ↔ IC121.7; IC120b.9 ↔ CN1.40; IC120b.9 ↔ IC112.11; IC120b.9 ↔ IC113.1 should all beep.,open
+HIGH,GND,IC130a.7;IC120a.7;IC76.14;IC89.14;IC103.14;IC114.12;IC88.8;IC102.8;IC113.8;IC101.12;IC87.10;IC111.12;IC122.12;IC110.8;IC121.8;IC112.10;IC100.8;IC99.8;CN1.50;CN2.1;CN2.2;CN3.8;CN3.9;CN3.10;CN3.11;CN3.12;C_PWR1.2;C_PWR2.2;LED2.2;IC110.6;IC121.6;IC113.2;IC113.11;IC113.15;IC101.18;IC99.13;IC99.14;IC100.1;IC110.1;IC121.1;IC111.18;IC111.20;IC122.18;IC122.20,ground net — short or open is catastrophic,"Power-off DMM continuity, expect short: IC130a.7 ↔ IC120a.7; IC130a.7 ↔ IC76.14; IC130a.7 ↔ IC89.14; IC130a.7 ↔ IC103.14; IC130a.7 ↔ IC114.12; IC130a.7 ↔ IC88.8; IC130a.7 ↔ IC102.8; IC130a.7 ↔ IC113.8; IC130a.7 ↔ IC101.12; IC130a.7 ↔ IC87.10; IC130a.7 ↔ IC111.12; IC130a.7 ↔ IC122.12; IC130a.7 ↔ IC110.8; IC130a.7 ↔ IC121.8; IC130a.7 ↔ IC112.10; IC130a.7 ↔ IC100.8; IC130a.7 ↔ IC99.8; IC130a.7 ↔ CN1.50; IC130a.7 ↔ CN2.1; IC130a.7 ↔ CN2.2; IC130a.7 ↔ CN3.8; IC130a.7 ↔ CN3.9; IC130a.7 ↔ CN3.10; IC130a.7 ↔ CN3.11; IC130a.7 ↔ CN3.12; IC130a.7 ↔ C_PWR1.2; IC130a.7 ↔ C_PWR2.2; IC130a.7 ↔ LED2.2; IC130a.7 ↔ IC110.6; IC130a.7 ↔ IC121.6; IC130a.7 ↔ IC113.2; IC130a.7 ↔ IC113.11; IC130a.7 ↔ IC113.15; IC130a.7 ↔ IC101.18; IC130a.7 ↔ IC99.13; IC130a.7 ↔ IC99.14; IC130a.7 ↔ IC100.1; IC130a.7 ↔ IC110.1; IC130a.7 ↔ IC121.1; IC130a.7 ↔ IC111.18; IC130a.7 ↔ IC111.20; IC130a.7 ↔ IC122.18; IC130a.7 ↔ IC122.20",open
+HIGH,MINUS12V,CN3.6;CN2.48;CN2.49,power net — short or open is catastrophic,Power-off DMM continuity: CN3.6 ↔ CN2.48; CN3.6 ↔ CN2.49 should all beep.,open
+HIGH,PLUS12V,CN3.5;CN2.46;CN2.47,power net — short or open is catastrophic,Power-off DMM continuity: CN3.5 ↔ CN2.46; CN3.5 ↔ CN2.47 should all beep.,open
+HIGH,VCC,IC130a.14;IC120a.14;IC120a.1;IC120a.4;IC120b.13;IC120b.10;IC76.28;IC76.1;IC89.28;IC89.1;IC103.28;IC103.1;IC114.24;IC88.16;IC102.16;IC113.16;IC101.24;IC87.20;IC111.24;IC122.24;IC110.16;IC121.16;IC112.20;IC100.16;IC99.16;CN1.45;CN1.46;CN3.1;CN3.2;CN3.3;CN3.4;C_PWR1.1;C_PWR2.1;R_LED1.1;CN2.4;IC112.1,power net — short or open is catastrophic,"Power-off DMM continuity, expect short: IC130a.14 ↔ IC120a.14; IC130a.14 ↔ IC120a.1; IC130a.14 ↔ IC120a.4; IC130a.14 ↔ IC120b.13; IC130a.14 ↔ IC120b.10; IC130a.14 ↔ IC76.28; IC130a.14 ↔ IC76.1; IC130a.14 ↔ IC89.28; IC130a.14 ↔ IC89.1; IC130a.14 ↔ IC103.28; IC130a.14 ↔ IC103.1; IC130a.14 ↔ IC114.24; IC130a.14 ↔ IC88.16; IC130a.14 ↔ IC102.16; IC130a.14 ↔ IC113.16; IC130a.14 ↔ IC101.24; IC130a.14 ↔ IC87.20; IC130a.14 ↔ IC111.24; IC130a.14 ↔ IC122.24; IC130a.14 ↔ IC110.16; IC130a.14 ↔ IC121.16; IC130a.14 ↔ IC112.20; IC130a.14 ↔ IC100.16; IC130a.14 ↔ IC99.16; IC130a.14 ↔ CN1.45; IC130a.14 ↔ CN1.46; IC130a.14 ↔ CN3.1; IC130a.14 ↔ CN3.2; IC130a.14 ↔ CN3.3; IC130a.14 ↔ CN3.4; IC130a.14 ↔ C_PWR1.1; IC130a.14 ↔ C_PWR2.1; IC130a.14 ↔ R_LED1.1; IC130a.14 ↔ CN2.4; IC130a.14 ↔ IC112.1",open
+MED,10M,IC120a.5,touches AI low-confidence component(s): IC120a,(net has <2 endpoints; nothing to probe),open
+MED,10M_BAR,IC120a.6;IC120b.11,"touches AI low-confidence component(s): IC120a, IC120b",Power-off DMM continuity: IC120a.6 ↔ IC120b.11 should all beep.,open
+MED,3WENA,CN2.16,touches AI low-confidence component(s): CN2,(net has <2 endpoints; nothing to probe),open
+MED,5M_BAR,IC120b.8,touches AI low-confidence component(s): IC120b,(net has <2 endpoints; nothing to probe),open
+MED,AL0,CN2.27,touches AI low-confidence component(s): CN2,(net has <2 endpoints; nothing to probe),open
+MED,AL1,CN2.28,touches AI low-confidence component(s): CN2,(net has <2 endpoints; nothing to probe),open
+MED,AL10,CN2.37,touches AI low-confidence component(s): CN2,(net has <2 endpoints; nothing to probe),open
+MED,AL11,CN2.38,touches AI low-confidence component(s): CN2,(net has <2 endpoints; nothing to probe),open
+MED,AL12,CN2.39,touches AI low-confidence component(s): CN2,(net has <2 endpoints; nothing to probe),open
+MED,AL13,CN2.40,touches AI low-confidence component(s): CN2,(net has <2 endpoints; nothing to probe),open
+MED,AL14,CN2.41,touches AI low-confidence component(s): CN2,(net has <2 endpoints; nothing to probe),open
+MED,AL15,CN2.42,touches AI low-confidence component(s): CN2,(net has <2 endpoints; nothing to probe),open
+MED,AL2,CN2.29,touches AI low-confidence component(s): CN2,(net has <2 endpoints; nothing to probe),open
+MED,AL3,CN2.30,touches AI low-confidence component(s): CN2,(net has <2 endpoints; nothing to probe),open
+MED,AL4,CN2.31,touches AI low-confidence component(s): CN2,(net has <2 endpoints; nothing to probe),open
+MED,AL5,CN2.32,touches AI low-confidence component(s): CN2,(net has <2 endpoints; nothing to probe),open
+MED,AL6,CN2.33,touches AI low-confidence component(s): CN2,(net has <2 endpoints; nothing to probe),open
+MED,AL7,CN2.34,touches AI low-confidence component(s): CN2,(net has <2 endpoints; nothing to probe),open
+MED,AL8,CN2.35,touches AI low-confidence component(s): CN2,(net has <2 endpoints; nothing to probe),open
+MED,AL9,CN2.36,touches AI low-confidence component(s): CN2,(net has <2 endpoints; nothing to probe),open
+MED,AREA1,CN1.22,touches AI low-confidence component(s): CN1,(net has <2 endpoints; nothing to probe),open
+MED,AREA2,CN1.23,touches AI low-confidence component(s): CN1,(net has <2 endpoints; nothing to probe),open
+MED,AREA3,CN1.24,touches AI low-confidence component(s): CN1,(net has <2 endpoints; nothing to probe),open
+MED,AREA4,CN1.25,touches AI low-confidence component(s): CN1,(net has <2 endpoints; nothing to probe),open
+MED,AREA5,CN1.26,touches AI low-confidence component(s): CN1,(net has <2 endpoints; nothing to probe),open
+MED,CARRY,CN1.36,touches AI low-confidence component(s): CN1,(net has <2 endpoints; nothing to probe),open
+MED,CDBF,IC99.10;CN1.9,touches AI low-confidence component(s): CN1,Power-off DMM continuity: IC99.10 ↔ CN1.9 should all beep.,open
+MED,CDGF,IC99.11;CN1.8,touches AI low-confidence component(s): CN1,Power-off DMM continuity: IC99.11 ↔ CN1.8 should all beep.,open
+MED,CDRF,IC99.12;CN1.7,touches AI low-confidence component(s): CN1,Power-off DMM continuity: IC99.12 ↔ CN1.7 should all beep.,open
+MED,CLK20M_BUF,IC130a.2;IC120a.3,"touches AI low-confidence component(s): IC120a, IC130a",Power-off DMM continuity: IC130a.2 ↔ IC120a.3 should all beep.,open
+MED,CMPSYNC,CN1.38,touches AI low-confidence component(s): CN1,(net has <2 endpoints; nothing to probe),open
+MED,COCH0,CN1.18,touches AI low-confidence component(s): CN1,(net has <2 endpoints; nothing to probe),open
+MED,COCH2,CN1.20,touches AI low-confidence component(s): CN1,(net has <2 endpoints; nothing to probe),open
+MED,COCH3,CN1.21,touches AI low-confidence component(s): CN1,(net has <2 endpoints; nothing to probe),open
+MED,COL0,CN2.9,touches AI low-confidence component(s): CN2,(net has <2 endpoints; nothing to probe),open
+MED,COL1,CN2.10,touches AI low-confidence component(s): CN2,(net has <2 endpoints; nothing to probe),open
+MED,COL2,CN2.11,touches AI low-confidence component(s): CN2,(net has <2 endpoints; nothing to probe),open
+MED,CSFE_BAR,CN1.35,touches AI low-confidence component(s): CN1,(net has <2 endpoints; nothing to probe),open
+MED,D00_BAR,IC76.11;IC89.11;IC103.11;IC114.9;IC87.2;CN1.27,touches AI low-confidence component(s): CN1,Power-off DMM continuity: IC76.11 ↔ IC89.11; IC76.11 ↔ IC103.11; IC76.11 ↔ IC114.9; IC76.11 ↔ IC87.2; IC76.11 ↔ CN1.27 should all beep.,open
+MED,D01_BAR,IC76.12;IC89.12;IC103.12;IC114.10;IC87.3;CN1.28,touches AI low-confidence component(s): CN1,Power-off DMM continuity: IC76.12 ↔ IC89.12; IC76.12 ↔ IC103.12; IC76.12 ↔ IC114.10; IC76.12 ↔ IC87.3; IC76.12 ↔ CN1.28 should all beep.,open
+MED,D02_BAR,IC76.13;IC89.13;IC103.13;IC114.11;IC87.4;CN1.29,touches AI low-confidence component(s): CN1,Power-off DMM continuity: IC76.13 ↔ IC89.13; IC76.13 ↔ IC103.13; IC76.13 ↔ IC114.11; IC76.13 ↔ IC87.4; IC76.13 ↔ CN1.29 should all beep.,open
+MED,D03_BAR,IC76.15;IC89.15;IC103.15;IC114.13;IC87.5;CN1.30,touches AI low-confidence component(s): CN1,Power-off DMM continuity: IC76.15 ↔ IC89.15; IC76.15 ↔ IC103.15; IC76.15 ↔ IC114.13; IC76.15 ↔ IC87.5; IC76.15 ↔ CN1.30 should all beep.,open
+MED,D04_BAR,IC76.16;IC89.16;IC103.16;IC114.14;IC87.6;CN1.31,touches AI low-confidence component(s): CN1,Power-off DMM continuity: IC76.16 ↔ IC89.16; IC76.16 ↔ IC103.16; IC76.16 ↔ IC114.14; IC76.16 ↔ IC87.6; IC76.16 ↔ CN1.31 should all beep.,open
+MED,D05_BAR,IC76.17;IC89.17;IC103.17;IC114.15;IC87.7;CN1.32,touches AI low-confidence component(s): CN1,Power-off DMM continuity: IC76.17 ↔ IC89.17; IC76.17 ↔ IC103.17; IC76.17 ↔ IC114.15; IC76.17 ↔ IC87.7; IC76.17 ↔ CN1.32 should all beep.,open
+MED,D06_BAR,IC76.18;IC89.18;IC103.18;IC114.16;IC87.8;CN1.33,touches AI low-confidence component(s): CN1,Power-off DMM continuity: IC76.18 ↔ IC89.18; IC76.18 ↔ IC103.18; IC76.18 ↔ IC114.16; IC76.18 ↔ IC87.8; IC76.18 ↔ CN1.33 should all beep.,open
+MED,D07_BAR,IC76.19;IC89.19;IC103.19;IC114.17;IC87.9;CN1.34,touches AI low-confidence component(s): CN1,Power-off DMM continuity: IC76.19 ↔ IC89.19; IC76.19 ↔ IC103.19; IC76.19 ↔ IC114.17; IC76.19 ↔ IC87.9; IC76.19 ↔ CN1.34 should all beep.,open
+MED,DEC0,CN2.43,touches AI low-confidence component(s): CN2,(net has <2 endpoints; nothing to probe),open
+MED,FF1_D,IC120a.2,touches AI low-confidence component(s): IC120a,(net has <2 endpoints; nothing to probe),open
+MED,FF2_D,IC120b.12,touches AI low-confidence component(s): IC120b,(net has <2 endpoints; nothing to probe),open
+MED,H2,CN2.13,touches AI low-confidence component(s): CN2,(net has <2 endpoints; nothing to probe),open
+MED,H3,IC88.5;CN2.14,touches AI low-confidence component(s): CN2,Power-off DMM continuity: IC88.5 ↔ CN2.14 should all beep.,open
+MED,H4,IC88.2;CN2.15,touches AI low-confidence component(s): CN2,Power-off DMM continuity: IC88.2 ↔ CN2.15 should all beep.,open
+MED,HCLK,CN2.12,touches AI low-confidence component(s): CN2,(net has <2 endpoints; nothing to probe),open
+MED,IODM_BAR,CN1.39,touches AI low-confidence component(s): CN1,(net has <2 endpoints; nothing to probe),open
+MED,LE0,CN2.18,touches AI low-confidence component(s): CN2,(net has <2 endpoints; nothing to probe),open
+MED,LE1,CN2.19,touches AI low-confidence component(s): CN2,(net has <2 endpoints; nothing to probe),open
+MED,LE2,CN2.20,touches AI low-confidence component(s): CN2,(net has <2 endpoints; nothing to probe),open
+MED,LE3,CN2.21,touches AI low-confidence component(s): CN2,(net has <2 endpoints; nothing to probe),open
+MED,LE4,CN2.22,touches AI low-confidence component(s): CN2,(net has <2 endpoints; nothing to probe),open
+MED,LE5,CN2.23,touches AI low-confidence component(s): CN2,(net has <2 endpoints; nothing to probe),open
+MED,LE6,CN2.24,touches AI low-confidence component(s): CN2,(net has <2 endpoints; nothing to probe),open
+MED,LE7,CN2.25,touches AI low-confidence component(s): CN2,(net has <2 endpoints; nothing to probe),open
+MED,OSC_GATE1_IN,X1.1;R35.1;IC130b.3,touches AI low-confidence component(s): IC130b,Power-off DMM continuity: X1.1 ↔ R35.1; X1.1 ↔ IC130b.3 should all beep.,open
+MED,OSC_GATE1_OUT,IC130b.4;R35.2;C18.1,touches AI low-confidence component(s): IC130b,Power-off DMM continuity: IC130b.4 ↔ R35.2; IC130b.4 ↔ C18.1 should all beep.,open
+MED,OSC_GATE2_IN,C18.2;IC130c.5;R34.1,touches AI low-confidence component(s): IC130c,Power-off DMM continuity: C18.2 ↔ IC130c.5; C18.2 ↔ R34.1 should all beep.,open
+MED,OSC_GATE2_OUT,IC130c.6;R34.2;X1.2;IC130a.1,"touches AI low-confidence component(s): IC130a, IC130c",Power-off DMM continuity: IC130c.6 ↔ R34.2; IC130c.6 ↔ X1.2; IC130c.6 ↔ IC130a.1 should all beep.,open
+MED,PDBF,CN1.6,touches AI low-confidence component(s): CN1,(net has <2 endpoints; nothing to probe),open
+MED,PL0,CN2.5,touches AI low-confidence component(s): CN2,(net has <2 endpoints; nothing to probe),open
+MED,PL2,CN2.7,touches AI low-confidence component(s): CN2,(net has <2 endpoints; nothing to probe),open
+MED,PLA1,CN2.6,touches AI low-confidence component(s): CN2,(net has <2 endpoints; nothing to probe),open
+MED,PLA3,CN2.8,touches AI low-confidence component(s): CN2,(net has <2 endpoints; nothing to probe),open
+MED,PLBE,R_LED1.2;LED2.1;CN1.5,"touches AI low-confidence component(s): CN1, LED2",Power-off DMM continuity: R_LED1.2 ↔ LED2.1; R_LED1.2 ↔ CN1.5 should all beep.,open
+MED,QMH1,CN1.19,touches AI low-confidence component(s): CN1,(net has <2 endpoints; nothing to probe),open
+MED,RD0_BAR,CN1.10,touches AI low-confidence component(s): CN1,(net has <2 endpoints; nothing to probe),open
+MED,RD1_BAR,CN1.11,touches AI low-confidence component(s): CN1,(net has <2 endpoints; nothing to probe),open
+MED,RD2_BAR,CN1.12,touches AI low-confidence component(s): CN1,(net has <2 endpoints; nothing to probe),open
+MED,RD3_BAR,CN1.13,touches AI low-confidence component(s): CN1,(net has <2 endpoints; nothing to probe),open
+MED,RD4_BAR,CN1.14,touches AI low-confidence component(s): CN1,(net has <2 endpoints; nothing to probe),open
+MED,RD5_BAR,CN1.15,touches AI low-confidence component(s): CN1,(net has <2 endpoints; nothing to probe),open
+MED,RD6_BAR,CN1.16,touches AI low-confidence component(s): CN1,(net has <2 endpoints; nothing to probe),open
+MED,RD7_BAR,CN1.17,touches AI low-confidence component(s): CN1,(net has <2 endpoints; nothing to probe),open
+MED,TVCLR,CN1.37,touches AI low-confidence component(s): CN1,(net has <2 endpoints; nothing to probe),open
+MED,TV_BLANK,CN2.26,touches AI low-confidence component(s): CN2,(net has <2 endpoints; nothing to probe),open
+MED,WREB,CN1.41,touches AI low-confidence component(s): CN1,(net has <2 endpoints; nothing to probe),open
+MED,verify:C15,C15,"AI-added, moderate confidence 0.55; sheet 1 @ (700,764)","Locate chip C15 on the PCB and read the printed part number. Expect 'CP'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:C16,C16,"AI-added, moderate confidence 0.55; sheet 1 @ (365,1005)","Locate chip C16 on the PCB and read the printed part number. Expect 'C'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:C17,C17,"AI-added, moderate confidence 0.55; sheet 1 @ (455,940)","Locate chip C17 on the PCB and read the printed part number. Expect 'C'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:C4,C4,"AI-added, moderate confidence 0.55; sheet 1 @ (785,1245)","Locate chip C4 on the PCB and read the printed part number. Expect 'C'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:CN1,CN1,"AI-added, moderate confidence 0.65; sheet 2 @ (3365,572)","Locate chip CN1 on the PCB and read the printed part number. Expect 'Conn_02x25'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:CN2,CN2,"AI-added, moderate confidence 0.65; sheet 2 @ (3370,2030)","Locate chip CN2 on the PCB and read the printed part number. Expect 'Conn_02x25'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:CN3,CN3,"AI-added, moderate confidence 0.65; sheet 2 @ (4072,995)","Locate chip CN3 on the PCB and read the printed part number. Expect 'Conn_01x12'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:C_BYP1,C_BYP1,"AI-added, moderate confidence 0.55; sheet 1 @ (677,368)","Locate chip C_BYP1 on the PCB and read the printed part number. Expect 'C'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:C_BYP2,C_BYP2,"AI-added, moderate confidence 0.55; sheet 1 @ (801,366)","Locate chip C_BYP2 on the PCB and read the printed part number. Expect 'C'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:C_PWR1,C_PWR1,"AI-added, moderate confidence 0.65; sheet 2 @ (3848,1092)","Locate chip C_PWR1 on the PCB and read the printed part number. Expect 'CP'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:C_PWR2,C_PWR2,"AI-added, moderate confidence 0.65; sheet 2 @ (3985,1087)","Locate chip C_PWR2 on the PCB and read the printed part number. Expect 'C'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:IC100,IC100,"AI-added, moderate confidence 0.75; sheet 2 @ (3273,1387)","Locate chip IC100 on the PCB and read the printed part number. Expect '74LS174'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:IC101,IC101,"AI-added, moderate confidence 0.75; sheet 2 @ (1349,1306)","Locate chip IC101 on the PCB and read the printed part number. Expect 'MB8128'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:IC102,IC102,"AI-added, moderate confidence 0.75; sheet 2 @ (685,1797)","Locate chip IC102 on the PCB and read the printed part number. Expect '74LS157'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:IC103,IC103,"AI-added, moderate confidence 0.75; sheet 2 @ (2028,511)","Locate chip IC103 on the PCB and read the printed part number. Expect '2764'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:IC104,IC104,"AI-added, moderate confidence 0.55; sheet 1 @ (2588,800)","Locate chip IC104 on the PCB and read the printed part number. Expect '74LS138'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:IC106,IC106,"AI-added, moderate confidence 0.70; sheet 1 @ (1314,1414)","Locate chip IC106 on the PCB and read the printed part number. Expect '74LS245'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:IC107a,IC107a,"AI-added, moderate confidence 0.60; sheet 1 @ (2164,1662)","Locate chip IC107a on the PCB and read the printed part number. Expect '74LS08'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:IC107b,IC107b,"AI-added, moderate confidence 0.60; sheet 1 @ (3690,1853)","Locate chip IC107b on the PCB and read the printed part number. Expect '74LS08'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:IC107c,IC107c,"AI-added, moderate confidence 0.60; sheet 1 @ (3670,1581)","Locate chip IC107c on the PCB and read the printed part number. Expect '74LS08'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:IC108a,IC108a,"AI-added, moderate confidence 0.60; sheet 1 @ (3395,819)","Locate chip IC108a on the PCB and read the printed part number. Expect '74LS74'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:IC108b,IC108b,"AI-added, moderate confidence 0.60; sheet 1 @ (3001,1915)","Locate chip IC108b on the PCB and read the printed part number. Expect '74LS74'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:IC109,IC109,"AI-added, moderate confidence 0.55; sheet 1 @ (3955,928)","Locate chip IC109 on the PCB and read the printed part number. Expect '74LS08'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:IC110,IC110,"AI-added, moderate confidence 0.75; sheet 2 @ (2707,1385)","Locate chip IC110 on the PCB and read the printed part number. Expect '74LS166'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:IC111,IC111,"AI-added, moderate confidence 0.75; sheet 2 @ (2294,1388)","Locate chip IC111 on the PCB and read the printed part number. Expect '2716'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:IC112,IC112,"AI-added, moderate confidence 0.75; sheet 2 @ (1756,1857)","Locate chip IC112 on the PCB and read the printed part number. Expect '74LS273'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:IC113,IC113,"AI-added, moderate confidence 0.75; sheet 2 @ (682,2259)","Locate chip IC113 on the PCB and read the printed part number. Expect '74LS157'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:IC114,IC114,"AI-added, moderate confidence 0.75; sheet 2 @ (2714,512)","Locate chip IC114 on the PCB and read the printed part number. Expect 'MB8128'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:IC115,IC115,"AI-added, moderate confidence 0.55; sheet 1 @ (2229,1876)","Locate chip IC115 on the PCB and read the printed part number. Expect '74S161'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:IC116,IC116,"AI-added, moderate confidence 0.55; sheet 1 @ (1862,1874)","Locate chip IC116 on the PCB and read the printed part number. Expect '74S161'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:IC118,IC118,"AI-added, moderate confidence 0.55; sheet 1 @ (2192,1464)","Locate chip IC118 on the PCB and read the printed part number. Expect '74LS20'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:IC119,IC119,"AI-added, moderate confidence 0.55; sheet 1 @ (2602,1530)","Locate chip IC119 on the PCB and read the printed part number. Expect '74LS109'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:IC11a,IC11a,"AI-added, moderate confidence 0.55; sheet 1 @ (3701,2146)","Locate chip IC11a on the PCB and read the printed part number. Expect '74LS20'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:IC120a,IC120a,"AI-added, moderate confidence 0.60; sheet 1 @ (1002,2639)","Locate chip IC120a on the PCB and read the printed part number. Expect '74S74'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:IC120b,IC120b,"AI-added, moderate confidence 0.60; sheet 1 @ (1341,2641)","Locate chip IC120b on the PCB and read the printed part number. Expect '74S74'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:IC121,IC121,"AI-added, moderate confidence 0.75; sheet 2 @ (2710,1915)","Locate chip IC121 on the PCB and read the printed part number. Expect '74LS166'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:IC122,IC122,"AI-added, moderate confidence 0.75; sheet 2 @ (2305,1904)","Locate chip IC122 on the PCB and read the printed part number. Expect '2716'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:IC124,IC124,"AI-added, moderate confidence 0.55; sheet 1 @ (2583,354)","Locate chip IC124 on the PCB and read the printed part number. Expect '74LS138'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:IC128c,IC128c,"AI-added, moderate confidence 0.60; sheet 1 @ (3164,911)","Locate chip IC128c on the PCB and read the printed part number. Expect '74LS14'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:IC128d,IC128d,"AI-added, moderate confidence 0.60; sheet 1 @ (3705,908)","Locate chip IC128d on the PCB and read the printed part number. Expect '74LS14'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:IC128e,IC128e,"AI-added, moderate confidence 0.60; sheet 1 @ (2550,1730)","Locate chip IC128e on the PCB and read the printed part number. Expect '74LS14'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:IC128f,IC128f,"AI-added, moderate confidence 0.60; sheet 1 @ (3512,2175)","Locate chip IC128f on the PCB and read the printed part number. Expect '74LS14'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:IC129,IC129,"AI-added, moderate confidence 0.55; sheet 1 @ (668,854)","Locate chip IC129 on the PCB and read the printed part number. Expect '74LS123'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:IC130a,IC130a,"AI-added, moderate confidence 0.60; sheet 1 @ (811,2704)","Locate chip IC130a on the PCB and read the printed part number. Expect '74S04'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:IC130b,IC130b,"AI-added, moderate confidence 0.60; sheet 1 @ (332,2721)","Locate chip IC130b on the PCB and read the printed part number. Expect '74S04'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:IC130c,IC130c,"AI-added, moderate confidence 0.60; sheet 1 @ (598,2703)","Locate chip IC130c on the PCB and read the printed part number. Expect '74S04'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:IC130d,IC130d,"AI-added, moderate confidence 0.60; sheet 1 @ (522,1336)","Locate chip IC130d on the PCB and read the printed part number. Expect '74S04'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:IC62,IC62,"AI-added, moderate confidence 0.55; sheet 1 @ (1862,2465)","Locate chip IC62 on the PCB and read the printed part number. Expect 'UPB425'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:IC63,IC63,"AI-added, moderate confidence 0.55; sheet 1 @ (2229,2466)","Locate chip IC63 on the PCB and read the printed part number. Expect '74LS174'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:IC64a,IC64a,"AI-added, moderate confidence 0.60; sheet 1 @ (2603,1933)","Locate chip IC64a on the PCB and read the printed part number. Expect '74LS109'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:IC64b,IC64b,"AI-added, moderate confidence 0.60; sheet 1 @ (1335,2134)","Locate chip IC64b on the PCB and read the printed part number. Expect '74LS109'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:IC65,IC65,"AI-added, moderate confidence 0.55; sheet 1 @ (969,2080)","Locate chip IC65 on the PCB and read the printed part number. Expect '74S161'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:IC66,IC66,"AI-added, moderate confidence 0.55; sheet 1 @ (576,2082)","Locate chip IC66 on the PCB and read the printed part number. Expect '74S161'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:IC69,IC69,"AI-added, moderate confidence 0.60; sheet 1 @ (3980,2320)","Locate chip IC69 on the PCB and read the printed part number. Expect '74LS04'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:IC7,IC7,"AI-added, moderate confidence 0.55; sheet 1 @ (2589,2871)","Locate chip IC7 on the PCB and read the printed part number. Expect '74LS04'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:IC77,IC77,"AI-added, moderate confidence 0.60; sheet 1 @ (1865,389)","Locate chip IC77 on the PCB and read the printed part number. Expect '74LS139'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:IC78,IC78,"AI-added, moderate confidence 0.70; sheet 1 @ (1309,446)","Locate chip IC78 on the PCB and read the printed part number. Expect '74LS244'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:IC79,IC79,"AI-added, moderate confidence 0.55; sheet 1 @ (1313,894)","Locate chip IC79 on the PCB and read the printed part number. Expect '74LS244'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:IC87,IC87,"AI-added, moderate confidence 0.75; sheet 2 @ (1760,1308)","Locate chip IC87 on the PCB and read the printed part number. Expect '74LS245'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:IC88,IC88,"AI-added, moderate confidence 0.75; sheet 2 @ (679,1308)","Locate chip IC88 on the PCB and read the printed part number. Expect '74LS157'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:IC89,IC89,"AI-added, moderate confidence 0.75; sheet 2 @ (1348,517)","Locate chip IC89 on the PCB and read the printed part number. Expect '2764'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:IC90,IC90,"AI-added, moderate confidence 0.55; sheet 1 @ (1860,678)","Locate chip IC90 on the PCB and read the printed part number. Expect 'PAL16L8'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:IC91,IC91,"AI-added, moderate confidence 0.55; sheet 1 @ (950,279)","Locate chip IC91 on the PCB and read the printed part number. Expect 'Z80'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:IC92a,IC92a,"AI-added, moderate confidence 0.55; sheet 1 @ (2835,2213)","Locate chip IC92a on the PCB and read the printed part number. Expect '74LS32'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:IC92c,IC92c,"AI-added, moderate confidence 0.60; sheet 1 @ (3958,1465)","Locate chip IC92c on the PCB and read the printed part number. Expect '74LS32'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:IC92d,IC92d,"AI-added, moderate confidence 0.60; sheet 1 @ (3143,515)","Locate chip IC92d on the PCB and read the printed part number. Expect '74LS32'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:IC93a,IC93a,"AI-added, moderate confidence 0.60; sheet 1 @ (2995,1529)","Locate chip IC93a on the PCB and read the printed part number. Expect '74LS74'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:IC93b,IC93b,"AI-added, moderate confidence 0.60; sheet 1 @ (3395,1526)","Locate chip IC93b on the PCB and read the printed part number. Expect '74LS74'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:IC94a,IC94a,"AI-added, moderate confidence 0.60; sheet 1 @ (3971,2146)","Locate chip IC94a on the PCB and read the printed part number. Expect '74LS86'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:IC94c,IC94c,"AI-added, moderate confidence 0.60; sheet 1 @ (3957,1710)","Locate chip IC94c on the PCB and read the printed part number. Expect '74LS86'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:IC94d,IC94d,"AI-added, moderate confidence 0.60; sheet 1 @ (3965,1990)","Locate chip IC94d on the PCB and read the printed part number. Expect '74LS86'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:IC99,IC99,"AI-added, moderate confidence 0.75; sheet 2 @ (3708,1386)","Locate chip IC99 on the PCB and read the printed part number. Expect '82S129'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:LED1,LED1,"AI-added, moderate confidence 0.55; sheet 1 @ (780,540)","Locate chip LED1 on the PCB and read the printed part number. Expect 'LED'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:LED2,LED2,"AI-added, moderate confidence 0.65; sheet 2 @ (4119,1220)","Locate chip LED2 on the PCB and read the printed part number. Expect 'LED'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:R2,R2,"AI-added, moderate confidence 0.55; sheet 1 @ (3426,629)","Locate chip R2 on the PCB and read the printed part number. Expect 'R'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:R29,R29,"AI-added, moderate confidence 0.55; sheet 1 @ (744,671)","Locate chip R29 on the PCB and read the printed part number. Expect 'R'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:R3,R3,"AI-added, moderate confidence 0.60; sheet 1 @ (1753,2376)","Locate chip R3 on the PCB and read the printed part number. Expect 'R'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:R30,R30,"AI-added, moderate confidence 0.55; sheet 1 @ (578,1005)","Locate chip R30 on the PCB and read the printed part number. Expect 'R'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:R31,R31,"AI-added, moderate confidence 0.55; sheet 1 @ (536,896)","Locate chip R31 on the PCB and read the printed part number. Expect 'R'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:R32,R32,"AI-added, moderate confidence 0.55; sheet 1 @ (426,898)","Locate chip R32 on the PCB and read the printed part number. Expect 'R'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:R5,R5,"AI-added, moderate confidence 0.55; sheet 1 @ (678,1248)","Locate chip R5 on the PCB and read the printed part number. Expect 'R'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:R7,R7,"AI-added, moderate confidence 0.55; sheet 1 @ (604,547)","Locate chip R7 on the PCB and read the printed part number. Expect 'R'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:RA,RA,"AI-added, moderate confidence 0.55; sheet 1 @ (849,744)","Locate chip RA on the PCB and read the printed part number. Expect 'R'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:RA6b,RA6b,"AI-added, moderate confidence 0.55; sheet 1 @ (795,1512)","Locate chip RA6b on the PCB and read the printed part number. Expect 'R'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:RP42,RP42,"AI-added, moderate confidence 0.55; sheet 1 @ (2371,2886)","Locate chip RP42 on the PCB and read the printed part number. Expect 'R'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+MED,verify:RP46,RP46,"AI-added, moderate confidence 0.55; sheet 1 @ (844,1514)","Locate chip RP46 on the PCB and read the printed part number. Expect 'R'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+LOW,AD0,IC76.10;IC89.10;IC103.10;IC114.8;IC88.6,spot-check,Power-off DMM continuity: IC76.10 ↔ IC89.10; IC76.10 ↔ IC103.10; IC76.10 ↔ IC114.8; IC76.10 ↔ IC88.6 should all beep.,open
+LOW,AD1,IC76.9;IC89.9;IC103.9;IC114.7;IC88.3,spot-check,Power-off DMM continuity: IC76.9 ↔ IC89.9; IC76.9 ↔ IC103.9; IC76.9 ↔ IC114.7; IC76.9 ↔ IC88.3 should all beep.,open
+LOW,AD10,IC76.21;IC89.21;IC103.21;IC114.19;IC113.10,spot-check,Power-off DMM continuity: IC76.21 ↔ IC89.21; IC76.21 ↔ IC103.21; IC76.21 ↔ IC114.19; IC76.21 ↔ IC113.10 should all beep.,open
+LOW,AD11,IC76.23;IC89.23;IC103.23,spot-check,Power-off DMM continuity: IC76.23 ↔ IC89.23; IC76.23 ↔ IC103.23 should all beep.,open
+LOW,AD12,IC76.2;IC89.2;IC103.2,spot-check,Power-off DMM continuity: IC76.2 ↔ IC89.2; IC76.2 ↔ IC103.2 should all beep.,open
+LOW,AD2,IC76.8;IC89.8;IC103.8;IC114.6;IC88.10,spot-check,Power-off DMM continuity: IC76.8 ↔ IC89.8; IC76.8 ↔ IC103.8; IC76.8 ↔ IC114.6; IC76.8 ↔ IC88.10 should all beep.,open
+LOW,AD3,IC76.7;IC89.7;IC103.7;IC114.5;IC88.13,spot-check,Power-off DMM continuity: IC76.7 ↔ IC89.7; IC76.7 ↔ IC103.7; IC76.7 ↔ IC114.5; IC76.7 ↔ IC88.13 should all beep.,open
+LOW,AD4,IC76.6;IC89.6;IC103.6;IC114.4;IC102.6,spot-check,Power-off DMM continuity: IC76.6 ↔ IC89.6; IC76.6 ↔ IC103.6; IC76.6 ↔ IC114.4; IC76.6 ↔ IC102.6 should all beep.,open
+LOW,AD5,IC76.5;IC89.5;IC103.5;IC114.3;IC102.3,spot-check,Power-off DMM continuity: IC76.5 ↔ IC89.5; IC76.5 ↔ IC103.5; IC76.5 ↔ IC114.3; IC76.5 ↔ IC102.3 should all beep.,open
+LOW,AD6,IC76.4;IC89.4;IC103.4;IC114.2;IC102.10,spot-check,Power-off DMM continuity: IC76.4 ↔ IC89.4; IC76.4 ↔ IC103.4; IC76.4 ↔ IC114.2; IC76.4 ↔ IC102.10 should all beep.,open
+LOW,AD7,IC76.3;IC89.3;IC103.3;IC114.1;IC102.13,spot-check,Power-off DMM continuity: IC76.3 ↔ IC89.3; IC76.3 ↔ IC103.3; IC76.3 ↔ IC114.1; IC76.3 ↔ IC102.13 should all beep.,open
+LOW,AD8,IC76.25;IC89.25;IC103.25;IC113.6;IC114.23,spot-check,Power-off DMM continuity: IC76.25 ↔ IC89.25; IC76.25 ↔ IC103.25; IC76.25 ↔ IC113.6; IC76.25 ↔ IC114.23 should all beep.,open
+LOW,AD9,IC76.24;IC89.24;IC103.24;IC114.22;IC113.13,spot-check,Power-off DMM continuity: IC76.24 ↔ IC89.24; IC76.24 ↔ IC103.24; IC76.24 ↔ IC114.22; IC76.24 ↔ IC113.13 should all beep.,open
+LOW,BIT0,IC110.13;IC99.5,spot-check,Power-off DMM continuity: IC110.13 ↔ IC99.5 should all beep.,open
+LOW,BIT0_SR_IN_0,IC111.9;IC110.2,spot-check,Power-off DMM continuity: IC111.9 ↔ IC110.2 should all beep.,open
+LOW,BIT0_SR_IN_1,IC111.10;IC110.3,spot-check,Power-off DMM continuity: IC111.10 ↔ IC110.3 should all beep.,open
+LOW,BIT0_SR_IN_2,IC111.11;IC110.4,spot-check,Power-off DMM continuity: IC111.11 ↔ IC110.4 should all beep.,open
+LOW,BIT0_SR_IN_3,IC111.13;IC110.5,spot-check,Power-off DMM continuity: IC111.13 ↔ IC110.5 should all beep.,open
+LOW,BIT0_SR_IN_4,IC111.14;IC110.10,spot-check,Power-off DMM continuity: IC111.14 ↔ IC110.10 should all beep.,open
+LOW,BIT0_SR_IN_5,IC111.15;IC110.11,spot-check,Power-off DMM continuity: IC111.15 ↔ IC110.11 should all beep.,open
+LOW,BIT0_SR_IN_6,IC111.16;IC110.12,spot-check,Power-off DMM continuity: IC111.16 ↔ IC110.12 should all beep.,open
+LOW,BIT0_SR_IN_7,IC111.17;IC110.14,spot-check,Power-off DMM continuity: IC111.17 ↔ IC110.14 should all beep.,open
+LOW,BIT1,IC121.13;IC99.6,spot-check,Power-off DMM continuity: IC121.13 ↔ IC99.6 should all beep.,open
+LOW,BIT1_SR_IN_0,IC122.9;IC121.2,spot-check,Power-off DMM continuity: IC122.9 ↔ IC121.2 should all beep.,open
+LOW,BIT1_SR_IN_1,IC122.10;IC121.3,spot-check,Power-off DMM continuity: IC122.10 ↔ IC121.3 should all beep.,open
+LOW,BIT1_SR_IN_2,IC122.11;IC121.4,spot-check,Power-off DMM continuity: IC122.11 ↔ IC121.4 should all beep.,open
+LOW,BIT1_SR_IN_3,IC122.13;IC121.5,spot-check,Power-off DMM continuity: IC122.13 ↔ IC121.5 should all beep.,open
+LOW,BIT1_SR_IN_4,IC122.14;IC121.10,spot-check,Power-off DMM continuity: IC122.14 ↔ IC121.10 should all beep.,open
+LOW,BIT1_SR_IN_5,IC122.15;IC121.11,spot-check,Power-off DMM continuity: IC122.15 ↔ IC121.11 should all beep.,open
+LOW,BIT1_SR_IN_6,IC122.16;IC121.12,spot-check,Power-off DMM continuity: IC122.16 ↔ IC121.12 should all beep.,open
+LOW,BIT1_SR_IN_7,IC122.17;IC121.14,spot-check,Power-off DMM continuity: IC122.17 ↔ IC121.14 should all beep.,open
+LOW,CG0,IC112.2;IC111.5;IC122.5,spot-check,Power-off DMM continuity: IC112.2 ↔ IC111.5; IC112.2 ↔ IC122.5 should all beep.,open
+LOW,CG1,IC112.5;IC111.4;IC122.4,spot-check,Power-off DMM continuity: IC112.5 ↔ IC111.4; IC112.5 ↔ IC122.4 should all beep.,open
+LOW,CG2,IC112.6;IC111.3;IC122.3;IC100.11,spot-check,Power-off DMM continuity: IC112.6 ↔ IC111.3; IC112.6 ↔ IC122.3; IC112.6 ↔ IC100.11 should all beep.,open
+LOW,CG3,IC112.9;IC111.2;IC122.2;IC100.13,spot-check,Power-off DMM continuity: IC112.9 ↔ IC111.2; IC112.9 ↔ IC122.2; IC112.9 ↔ IC100.13 should all beep.,open
+LOW,CG4,IC112.12;IC111.1;IC122.1;IC100.14,spot-check,Power-off DMM continuity: IC112.12 ↔ IC111.1; IC112.12 ↔ IC122.1; IC112.12 ↔ IC100.14 should all beep.,open
+LOW,CG5,IC112.15;IC111.23;IC122.23;IC100.3,spot-check,Power-off DMM continuity: IC112.15 ↔ IC111.23; IC112.15 ↔ IC122.23; IC112.15 ↔ IC100.3 should all beep.,open
+LOW,CG6,IC112.16;IC111.22;IC122.22;IC100.4,spot-check,Power-off DMM continuity: IC112.16 ↔ IC111.22; IC112.16 ↔ IC122.22; IC112.16 ↔ IC100.4 should all beep.,open
+LOW,CG7,IC112.19;IC111.19;IC122.19;IC100.6,spot-check,Power-off DMM continuity: IC112.19 ↔ IC111.19; IC112.19 ↔ IC122.19; IC112.19 ↔ IC100.6 should all beep.,open
+LOW,COLOR_PROM_A2,IC100.10;IC99.7,spot-check,Power-off DMM continuity: IC100.10 ↔ IC99.7 should all beep.,open
+LOW,COLOR_PROM_A3,IC100.12;IC99.4,spot-check,Power-off DMM continuity: IC100.12 ↔ IC99.4 should all beep.,open
+LOW,COLOR_PROM_A4,IC100.15;IC99.3,spot-check,Power-off DMM continuity: IC100.15 ↔ IC99.3 should all beep.,open
+LOW,COLOR_PROM_A5,IC100.2;IC99.2,spot-check,Power-off DMM continuity: IC100.2 ↔ IC99.2 should all beep.,open
+LOW,COLOR_PROM_A6,IC100.5;IC99.1,spot-check,Power-off DMM continuity: IC100.5 ↔ IC99.1 should all beep.,open
+LOW,COLOR_PROM_A7,IC100.7;IC99.15,spot-check,Power-off DMM continuity: IC100.7 ↔ IC99.15 should all beep.,open
+LOW,CS0_BAR,IC76.20,spot-check,(net has <2 endpoints; nothing to probe),open
+LOW,CS2_BAR,IC89.20,spot-check,(net has <2 endpoints; nothing to probe),open
+LOW,CS4_BAR,IC103.20,spot-check,(net has <2 endpoints; nothing to probe),open
+LOW,CSF_BAR,IC114.18,spot-check,(net has <2 endpoints; nothing to probe),open
+LOW,FIX_DIR,IC87.1;IC113.3,spot-check,Power-off DMM continuity: IC87.1 ↔ IC113.3 should all beep.,open
+LOW,H5,IC88.11,spot-check,(net has <2 endpoints; nothing to probe),open
+LOW,H6,IC88.14,spot-check,(net has <2 endpoints; nothing to probe),open
+LOW,H7,IC102.5,spot-check,(net has <2 endpoints; nothing to probe),open
+LOW,IC113_4_IC101_20,IC113.4;IC101.20;IC87.19,spot-check,Power-off DMM continuity: IC113.4 ↔ IC101.20; IC113.4 ↔ IC87.19 should all beep.,open
+LOW,IC68_15_IC69_1,IC88.15,spot-check,(net has <2 endpoints; nothing to probe),open
+LOW,IC92_8_IC69_2,IC102.15,spot-check,(net has <2 endpoints; nothing to probe),open
+LOW,PLBF,IC99.9,spot-check,(net has <2 endpoints; nothing to probe),open
+LOW,RD_BAR,IC76.22;IC89.22;IC103.22;IC114.20,spot-check,Power-off DMM continuity: IC76.22 ↔ IC89.22; IC76.22 ↔ IC103.22; IC76.22 ↔ IC114.20 should all beep.,open
+LOW,SER_CLEAR,IC110.9;IC121.9,spot-check,Power-off DMM continuity: IC110.9 ↔ IC121.9 should all beep.,open
+LOW,SER_LOAD,IC110.15;IC121.15;IC100.9,spot-check,Power-off DMM continuity: IC110.15 ↔ IC121.15; IC110.15 ↔ IC100.9 should all beep.,open
+LOW,V0,IC111.8;IC122.8,spot-check,Power-off DMM continuity: IC111.8 ↔ IC122.8 should all beep.,open
+LOW,V1,IC111.7;IC122.7,spot-check,Power-off DMM continuity: IC111.7 ↔ IC122.7 should all beep.,open
+LOW,V2,IC111.6;IC122.6,spot-check,Power-off DMM continuity: IC111.6 ↔ IC122.6 should all beep.,open
+LOW,V3,IC102.2,spot-check,(net has <2 endpoints; nothing to probe),open
+LOW,V4,IC102.11,spot-check,(net has <2 endpoints; nothing to probe),open
+LOW,V5,IC102.14,spot-check,(net has <2 endpoints; nothing to probe),open
+LOW,V6,IC113.5,spot-check,(net has <2 endpoints; nothing to probe),open
+LOW,V7,IC113.14,spot-check,(net has <2 endpoints; nothing to probe),open
+LOW,VR0,IC101.9;IC87.18;IC112.3,spot-check,Power-off DMM continuity: IC101.9 ↔ IC87.18; IC101.9 ↔ IC112.3 should all beep.,open
+LOW,VR1,IC101.10;IC87.17;IC112.4,spot-check,Power-off DMM continuity: IC101.10 ↔ IC87.17; IC101.10 ↔ IC112.4 should all beep.,open
+LOW,VR2,IC101.11;IC87.16;IC112.7,spot-check,Power-off DMM continuity: IC101.11 ↔ IC87.16; IC101.11 ↔ IC112.7 should all beep.,open
+LOW,VR3,IC101.13;IC87.15;IC112.8,spot-check,Power-off DMM continuity: IC101.13 ↔ IC87.15; IC101.13 ↔ IC112.8 should all beep.,open
+LOW,VR4,IC101.14;IC87.14;IC112.13,spot-check,Power-off DMM continuity: IC101.14 ↔ IC87.14; IC101.14 ↔ IC112.13 should all beep.,open
+LOW,VR5,IC101.15;IC87.13;IC112.14,spot-check,Power-off DMM continuity: IC101.15 ↔ IC87.13; IC101.15 ↔ IC112.14 should all beep.,open
+LOW,VR6,IC101.16;IC87.12;IC112.17,spot-check,Power-off DMM continuity: IC101.16 ↔ IC87.12; IC101.16 ↔ IC112.17 should all beep.,open
+LOW,VR7,IC101.17;IC87.11;IC112.18,spot-check,Power-off DMM continuity: IC101.17 ↔ IC87.11; IC101.17 ↔ IC112.18 should all beep.,open
+LOW,VRAM_A0,IC88.7;IC101.8,spot-check,Power-off DMM continuity: IC88.7 ↔ IC101.8 should all beep.,open
+LOW,VRAM_A1,IC88.4;IC101.7,spot-check,Power-off DMM continuity: IC88.4 ↔ IC101.7 should all beep.,open
+LOW,VRAM_A10,IC113.9;IC101.19,spot-check,Power-off DMM continuity: IC113.9 ↔ IC101.19 should all beep.,open
+LOW,VRAM_A2,IC88.9;IC101.6,spot-check,Power-off DMM continuity: IC88.9 ↔ IC101.6 should all beep.,open
+LOW,VRAM_A3,IC88.12;IC101.5,spot-check,Power-off DMM continuity: IC88.12 ↔ IC101.5 should all beep.,open
+LOW,VRAM_A4,IC102.7;IC101.4,spot-check,Power-off DMM continuity: IC102.7 ↔ IC101.4 should all beep.,open
+LOW,VRAM_A5,IC102.4;IC101.3,spot-check,Power-off DMM continuity: IC102.4 ↔ IC101.3 should all beep.,open
+LOW,VRAM_A6,IC102.9;IC101.2,spot-check,Power-off DMM continuity: IC102.9 ↔ IC101.2 should all beep.,open
+LOW,VRAM_A7,IC102.12;IC101.1,spot-check,Power-off DMM continuity: IC102.12 ↔ IC101.1 should all beep.,open
+LOW,VRAM_A8,IC113.7;IC101.23,spot-check,Power-off DMM continuity: IC113.7 ↔ IC101.23 should all beep.,open
+LOW,VRAM_A9,IC113.12;IC101.22,spot-check,Power-off DMM continuity: IC113.12 ↔ IC101.22 should all beep.,open
+LOW,WR_BAR,IC114.21;IC101.21,spot-check,Power-off DMM continuity: IC114.21 ↔ IC101.21 should all beep.,open
+LOW,verify:C18,C18,"AI-added, high confidence 0.85; sheet 1 @ (490,2730)","Locate chip C18 on the PCB and read the printed part number. Expect 'C'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+LOW,verify:IC76,IC76,"AI-added, high confidence 0.85; sheet 2 @ (683,513)","Locate chip IC76 on the PCB and read the printed part number. Expect '2764'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+LOW,verify:R34,R34,"AI-added, high confidence 0.90; sheet 1 @ (622,2617)","Locate chip R34 on the PCB and read the printed part number. Expect 'R'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+LOW,verify:R35,R35,"AI-added, high confidence 0.90; sheet 1 @ (347,2618)","Locate chip R35 on the PCB and read the printed part number. Expect 'R'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+LOW,verify:R_LED1,R_LED1,"AI-added, high confidence 0.85; sheet 2 @ (4130,1058)","Locate chip R_LED1 on the PCB and read the printed part number. Expect 'R'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open
+LOW,verify:X1,X1,"AI-added, high confidence 0.90; sheet 1 @ (470,2525)","Locate chip X1 on the PCB and read the printed part number. Expect 'Crystal'; if different, edit in the explorer (E) or via librarian if the part is not in the library.",open

@@ -161,6 +161,22 @@
               "maxItems": 2
             }
           },
+          "paths_by_sheet": {
+            "type": "object",
+            "description": "Optional sheet-scoped routed polylines for cross-sheet named nets. Keys are sheet indexes as strings; values have the same point format as `path`. Used when a named net needs different visual bus/label artwork on multiple sheets.",
+            "patternProperties": {
+              "^[0-9]+$": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": { "type": "number" },
+                  "minItems": 2,
+                  "maxItems": 2
+                }
+              }
+            },
+            "additionalProperties": false
+          },
           "path_source": {
             "type": "string",
             "enum": ["ai", "human", "tracer"],

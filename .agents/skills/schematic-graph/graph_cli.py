@@ -495,6 +495,14 @@ def _validate_orthogonal(path: list, tol: float = 0.5) -> None:
                 f"Right-angle (H or V) segments only.")
 
 
+def _net_path_for_sheet(net: dict, sheet: int):
+    paths_by_sheet = net.get("paths_by_sheet") or {}
+    sheet_path = paths_by_sheet.get(str(sheet))
+    if sheet_path:
+        return sheet_path
+    return net.get("path")
+
+
 def cmd_set_net_path(args):
     """Attach a routed polyline to an existing net. The exporter consumes
     `path` (when present) to emit (wire ...) segments matching the original
@@ -543,10 +551,13 @@ def cmd_untraced_nets(args):
         if not eps: continue
         et = eps[0].get("edge_type")
         if et != "wire": continue
-        if net.get("path"): continue
         if args.sheet is not None:
             if not any(refdes_sheets.get(ep.get("refdes")) == args.sheet for ep in eps):
                 continue
+            if _net_path_for_sheet(net, args.sheet):
+                continue
+        elif net.get("path"):
+            continue
         rows.append(net)
     label = f" on sheet {args.sheet}" if args.sheet is not None else ""
     print(f"{len(rows)} wire-typed net(s){label} without a path:")
@@ -898,8 +909,9 @@ def cmd_render_overlay(args):
                 # the KiCad render agree on wire routing.
                 color = (255, 140, 0)  # BGR: orange-blue (cyan-ish)
                 segments = []  # list of (a, b) point pairs to draw
-                if net.get("path") and len(net["path"]) >= 2:
-                    pts = [(int(p[0]), int(p[1])) for p in net["path"]]
+                net_path = _net_path_for_sheet(net, args.sheet)
+                if net_path and len(net_path) >= 2:
+                    pts = [(int(p[0]), int(p[1])) for p in net_path]
                     for i in range(1, len(pts)):
                         segments.append((pts[i-1], pts[i]))
                 else:
@@ -932,6 +944,17 @@ def cmd_render_overlay(args):
                     cv2.putText(out, net["name"], (mx, my),
                                 cv2.FONT_HERSHEY_SIMPLEX, 0.55, (180, 120, 0), 2, cv2.LINE_AA)
             elif edge in ("label", "sheet_zone", "off_page"):
+                net_path = _net_path_for_sheet(net, args.sheet)
+                if net_path and len(net_path) >= 2:
+                    color = (60, 180, 60)
+                    pts = [(int(p[0]), int(p[1])) for p in net_path]
+                    for i in range(1, len(pts)):
+                        cv2.line(out, pts[i - 1], pts[i], (0, 0, 0), 6, cv2.LINE_AA)
+                        cv2.line(out, pts[i - 1], pts[i], color, 3, cv2.LINE_AA)
+                    for ep in eps_on_sheet:
+                        xy = _pin_xy(ep["refdes"], ep["pin"])
+                        if xy:
+                            cv2.circle(out, xy, 9, color, 3, cv2.LINE_AA)
                 for ep in eps_on_sheet:
                     xy = _pin_xy(ep["refdes"], ep["pin"])
                     if not xy: continue
@@ -1532,12 +1555,12 @@ def cmd_pipeline_status(args):
             erc_status = "PASS" if erc_blocking == 0 else f"FAIL({erc_blocking})"
 
         # Stage 6 — wire-path tracing. Count wire-typed nets on the sheet and
-        # how many of them carry a `path` (faithful routing). Labels and
+        # how many of them carry a routed path for this sheet. Labels and
         # sheet_zone nets don't need paths.
         wire_nets = [n for n in nets
                      if n.get("endpoints") and n["endpoints"][0].get("edge_type") == "wire"]
         n_wire = len(wire_nets)
-        n_traced = sum(1 for n in wire_nets if n.get("path"))
+        n_traced = sum(1 for n in wire_nets if _net_path_for_sheet(n, idx))
         trace_pct = (100.0 * n_traced / n_wire) if n_wire else 100.0
 
         # Body_bbox coverage — Stage 1.5. Cheap signal for whether the
@@ -1754,7 +1777,7 @@ def cmd_erc_summary(args):
 
 
 def cmd_render_kicad(args):
-    """Wrap kicad-cli sch export svg + sips so the LLM doesn't need to
+    """Wrap kicad-cli sch export svg + rasterization so the LLM doesn't need to
     remember the kicad-cli flags. Outputs a PNG the agent should Read back
     and visually compare to the source overlay."""
     cli = _find_kicad_cli()
@@ -1782,7 +1805,20 @@ def cmd_render_kicad(args):
                         str(svg), "--out", str(png)],
                        capture_output=True, text=True)
     if r.returncode != 0:
-        print(f"sips failed: {r.stderr}", file=sys.stderr); sys.exit(2)
+        # Newer macOS builds often refuse direct SVG conversion via sips even
+        # though Quick Look can thumbnail the same SVG. Use qlmanage as a local
+        # fallback so the visual gate remains available without extra packages.
+        import shutil
+        q = subprocess.run(["qlmanage", "-t", "-s", "2400",
+                            "-o", str(png.parent), str(svg)],
+                           capture_output=True, text=True)
+        ql_png = png.parent / f"{svg.name}.png"
+        if q.returncode != 0 or not ql_png.exists():
+            print(f"sips failed: {r.stderr}", file=sys.stderr)
+            print(f"qlmanage failed: {q.stderr}", file=sys.stderr)
+            sys.exit(2)
+        if ql_png != png:
+            shutil.move(str(ql_png), str(png))
     print(f"wrote {png}")
 
 
@@ -1803,6 +1839,14 @@ def cmd_lint(args):
     nets = [n for n in graph.get("nets", [])
             if any(ep.get("sheet") == args.sheet for ep in n.get("endpoints", []))]
     refdes_index = {c["refdes"]: c for c in components}
+
+    import importlib.util
+    spec = importlib.util.spec_from_file_location(
+        "kicad_export",
+        Path(__file__).resolve().parent / "kicad_export.py")
+    kicad_export = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(kicad_export)
+    multi_unit = kicad_export._multi_unit_parts(components, chips)
 
     fails = []   # blocking
     warns = []   # advisory
@@ -1864,7 +1908,11 @@ def cmd_lint(args):
         if len(bbox) != 4:
             continue
         part = chips["parts"].get(c["part"], {})
-        valid_pins = {str(p["n"]) for p in part.get("pins", [])}
+        letter = kicad_export._comp_unit_letter(c["refdes"], c["part"], multi_unit)
+        active_pins = kicad_export._comp_active_pins(part, letter)
+        valid_pins = {str(p["n"]) for p in active_pins}
+        if not valid_pins and part.get("kind") == "discrete" and part.get("pin_count"):
+            valid_pins = {str(n) for n in range(1, int(part["pin_count"]) + 1)}
         pp = c.get("pin_positions") or {}
         for pin, pos in pp.items():
             if pin not in valid_pins:

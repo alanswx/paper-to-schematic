@@ -91,7 +91,11 @@ def cmd_list(args):
         p = parts[name]
         aliases = ", ".join(p.get("aliases", []))
         suffix = f"  (aka {aliases})" if aliases else ""
-        print(f"  {name:12s}  {p['package']:8s}  {p['description']}{suffix}")
+        if p.get("kind") == "discrete":
+            package = f"{p.get('pin_count', '?')}-pin"
+        else:
+            package = p["package"]
+        print(f"  {name:12s}  {package:8s}  {p['description']}{suffix}")
 
 
 def cmd_show(args):
@@ -103,6 +107,12 @@ def cmd_show(args):
     if name != args.part:
         print(f"# resolved alias {args.part!r} → {name}")
     print(f"# {name} — {part['description']}")
+    if part.get("kind") == "discrete":
+        print(f"# kind: discrete")
+        print(f"# pin count: {part.get('pin_count', '?')}")
+        if "kicad_symbol" in part:
+            print(f"# KiCad symbol: {part['kicad_symbol']}")
+        return
     print(f"# package: {part['package']}")
     if "datasheet" in part:
         print(f"# datasheet: {part['datasheet']}")
@@ -180,7 +190,10 @@ def cmd_add(args):
                 sys.exit(1)
     data["parts"][args.part] = entry
     save_chips(data)
-    print(f"added {args.part} ({entry['package']}, {len(entry['pins'])} pins)")
+    if entry.get("kind") == "discrete":
+        print(f"added {args.part} ({entry.get('pin_count', '?')} pins)")
+    else:
+        print(f"added {args.part} ({entry['package']}, {len(entry['pins'])} pins)")
 
 
 def main():

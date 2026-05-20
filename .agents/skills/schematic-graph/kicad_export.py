@@ -20,7 +20,7 @@ from pathlib import Path
 # all referencing the same librarian part. The librarian carries the full
 # pinout with a per-pin `group` tag; we use the tag to filter pin emission so
 # only the active gate's pins land on each sub-component.
-_REFDES_SUBUNIT = re.compile(r"^([a-z]+\d+)([a-z])$")
+_REFDES_SUBUNIT = re.compile(r"^([a-z]+\d+)([a-z])$", re.IGNORECASE)
 _UNIT_GROUP_PATTERNS = (
     re.compile(r"^g\d+$", re.IGNORECASE),     # 74LS00/04/08/32/175 quad-gate
     re.compile(r"^ff\d+$", re.IGNORECASE),    # 74LS74/174 multi-flip-flop
@@ -358,7 +358,9 @@ def synth_symbol(part_key: str, part: dict, lib: str = "user", *,
 
 
 def synth_faithful_symbol(refdes: str, part_key: str, part: dict, comp: dict,
-                          scale: float, lib: str = "user") -> str:
+                          scale: float, lib: str = "user",
+                          unit_letter: str | None = None,
+                          include_pins: set[str] | None = None) -> str:
     """Per-component lib_symbol with body sized to the source bbox and pins
     at their actual placed positions (from comp.pin_positions). Used when the
     component has pin_positions set, so the KiCad-rendered schematic matches
@@ -421,8 +423,10 @@ def synth_faithful_symbol(refdes: str, part_key: str, part: dict, comp: dict,
     inst_y_mm = _snap(PAPER_MARGIN_MM + cy_px * scale)
 
     pin_lines = []
-    for p in part["pins"]:
+    for p in _comp_active_pins(part, unit_letter):
         n_str = str(p["n"])
+        if include_pins is not None and n_str not in include_pins:
+            continue
         if n_str not in pin_pos:
             continue
         ix, iy = pin_pos[n_str]
@@ -686,6 +690,15 @@ def gen_sch(graph: dict, chips: dict, sheet_index: int, project_name: str = "sch
     #   - kind="ic" without pin_positions: existing per-(part, letter)
     #     generic synthesized symbol — fallback for partly-transcribed sheets.
     multi_unit_parts = _multi_unit_parts(components, chips)
+    explicit_power_eps: set[tuple[str, str]] = set()
+    for net in nets:
+        if net.get("kind") not in ("power", "ground"):
+            continue
+        for ep in net.get("endpoints", []):
+            if ep.get("sheet") != sheet_index:
+                continue
+            explicit_power_eps.add((ep["refdes"], str(ep["pin"])))
+
     sym_defs = []
     fallback_lib_ids: dict[tuple[str, str | None], dict] = {}
     faithful_refdes: set[str] = set()
@@ -706,7 +719,18 @@ def gen_sch(graph: dict, chips: dict, sheet_index: int, project_name: str = "sch
                 stock_lib_ids_needed.add(stock)
             continue
         if c.get("pin_positions"):
-            sym_defs.append(synth_faithful_symbol(c["refdes"], c["part"], part, c, scale))
+            letter = _comp_unit_letter(c["refdes"], c["part"], multi_unit_parts)
+            pin_pos = c.get("pin_positions") or {}
+            include_pins = {
+                str(p["n"])
+                for p in _comp_active_pins(part, letter)
+                if str(p["n"]) in pin_pos
+                and (
+                    p.get("type") not in ("power", "ground")
+                    or (c["refdes"], str(p["n"])) in explicit_power_eps
+                )
+            }
+            sym_defs.append(synth_faithful_symbol(c["refdes"], c["part"], part, c, scale, unit_letter=letter, include_pins=include_pins))
             faithful_refdes.add(c["refdes"])
         else:
             letter = _comp_unit_letter(c["refdes"], c["part"], multi_unit_parts)
@@ -719,9 +743,10 @@ def gen_sch(graph: dict, chips: dict, sheet_index: int, project_name: str = "sch
         if block:
             sym_defs.append(block)
 
-    # Collect power/ground pins on this sheet, grouped by their library pin
-    # name (typically "VCC" / "GND"). Each unique name gets one synthesized
-    # power-source symbol + one instance + one global_label per chip pin.
+    # Collect power/ground pins on this sheet that are explicitly represented
+    # in the graph, grouped by their library pin name (typically "VCC" /
+    # "GND"). Each unique name gets one synthesized power-source symbol + one
+    # instance + one global_label per chip pin.
     # Driving chips' power_in pins from a power_out source clears KiCad's
     # power_pin_not_driven errors automatically — the alternative is asking
     # the LLM to remember to add power flags every time, which it won't.
@@ -738,6 +763,8 @@ def gen_sch(graph: dict, chips: dict, sheet_index: int, project_name: str = "sch
         # to whatever the schematic says).
         for p in part.get("pins", []):
             if p.get("type") in ("power", "ground"):
+                if (comp["refdes"], str(p["n"])) not in explicit_power_eps:
+                    continue
                 pname = p.get("name", "").lstrip("~") or ("VCC" if p["type"] == "power" else "GND")
                 power_pin_groups.setdefault(pname, []).append(
                     (comp["refdes"], p["n"], p["type"]))
@@ -803,7 +830,15 @@ def gen_sch(graph: dict, chips: dict, sheet_index: int, project_name: str = "sch
             # local coords from absolute pin tip minus instance origin.)
             lib_id = f"_chip_{comp['refdes']}"
             pin_pos = comp.get("pin_positions") or {}
-            active_pins = [p for p in part["pins"] if str(p["n"]) in pin_pos]
+            unit_letter = _comp_unit_letter(comp["refdes"], comp["part"], multi_unit_parts)
+            active_pins = [
+                p for p in _comp_active_pins(part, unit_letter)
+                if str(p["n"]) in pin_pos
+                and (
+                    p.get("type") not in ("power", "ground")
+                    or (comp["refdes"], str(p["n"])) in explicit_power_eps
+                )
+            ]
             for p in active_pins:
                 ix, iy = pin_pos[str(p["n"])]
                 ex_mm = _snap(PAPER_MARGIN_MM + ix * scale)
@@ -957,6 +992,7 @@ def gen_sch(graph: dict, chips: dict, sheet_index: int, project_name: str = "sch
     # name even when the schematic was drawn with named nets instead of
     # explicit wires (Dorado-style).
     wire_blocks = []
+    graphic_blocks = []
     label_blocks = list(pwr_src_labels)  # pre-load power_out source labels
     # Per-sheet set of already-emitted unordered segments. Catches duplicates
     # from polylines that backtrack along the same line (trunk → branch →
@@ -976,6 +1012,14 @@ def gen_sch(graph: dict, chips: dict, sheet_index: int, project_name: str = "sch
     (stroke (width 0) (type default))
     (uuid "{wuuid}")
   )''')
+
+    def _net_path_for_sheet(net: dict):
+        paths_by_sheet = net.get("paths_by_sheet") or {}
+        sheet_path = paths_by_sheet.get(str(sheet_index))
+        if sheet_path:
+            return sheet_path
+        return net.get("path")
+
     for net in nets:
         eps_on_sheet = [e for e in net["endpoints"] if e.get("sheet") == sheet_index]
         if not eps_on_sheet:
@@ -991,7 +1035,7 @@ def gen_sch(graph: dict, chips: dict, sheet_index: int, project_name: str = "sch
             # one-corner Manhattan route between each pair of endpoints — a
             # right-angle approximation that's at least not diagonal and gives
             # KiCad something loadable until the tracer fills the path in.
-            net_path = net.get("path")
+            net_path = _net_path_for_sheet(net)
             if net_path:
                 pts_mm = [(_snap(PAPER_MARGIN_MM + p[0] * scale),
                            _snap(PAPER_MARGIN_MM + p[1] * scale))
@@ -1049,14 +1093,29 @@ def gen_sch(graph: dict, chips: dict, sheet_index: int, project_name: str = "sch
             # Use (global_label ...) for sheet-spanning links (sheet_zone /
             # off_page) so KiCad's netlist matches by name across sheets;
             # plain (label ...) for in-sheet labelled nets.
+            #
+            # Some labelled nets also carry a visual-only path. Emit those
+            # wire segments before placing the labels so buses can be cleaned
+            # up without changing the graph's named-net semantics.
+            net_path = _net_path_for_sheet(net)
+            if net_path:
+                pts = [f'(xy {_f(_snap(PAPER_MARGIN_MM + p[0] * scale))} '
+                       f'{_f(_snap(PAPER_MARGIN_MM + p[1] * scale))})'
+                       for p in net_path]
+                guuid = stable_uuid(f"label-path/{sheet_index}/{net['name']}")
+                graphic_blocks.append(f'''  (polyline (pts {' '.join(pts)})
+    (stroke (width 0.1524) (type default))
+    (fill (type none))
+    (uuid "{guuid}")
+  )''')
             kw = "global_label" if edge in ("sheet_zone", "off_page") else "label"
             for ep in eps_on_sheet:
                 pos = pin_endpoint_mm.get((ep["refdes"], str(ep["pin"])))
                 if not pos:
                     continue
                 # Tiny lead from pin into the label so the label is visibly
-                # attached without overlapping the pin name.
-                lead = 2.54
+                # attached without overlapping adjacent pin rows after grid snap.
+                lead = 1.27
                 lx, ly = pos[0] + lead, pos[1]
                 luuid = stable_uuid(f"label/{net['name']}/{ep['refdes']}.{ep['pin']}")
                 _emit_wire(pos, (lx, ly), f"label-lead/{net['name']}/{ep['refdes']}.{ep['pin']}")
@@ -1106,6 +1165,7 @@ def gen_sch(graph: dict, chips: dict, sheet_index: int, project_name: str = "sch
         *([b for b in [_bg_image_block(scan_path, scale) if bg_image and scan_path else None] if b]),
         *inst_blocks,
         *wire_blocks,
+        *graphic_blocks,
         *label_blocks,
         # Connection-dot junctions: KiCad needs an explicit (junction) at every
         # spot where two wires cross AND connect. Without one, KiCad treats the
