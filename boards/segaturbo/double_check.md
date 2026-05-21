@@ -42,16 +42,18 @@ Last updated: 2026-05-21
 - Initial bboxes are placed for known-library P-ROM components: `PROM_CN1`, `PROM_CN2`, `PROM_IC1`, `PROM_IC16`, `PROM_IC28`, `PROM_IC7`, `PROM_IC8`, `PROM_R1`, and `PROM_LED1`.
 - P-ROM board components are prefixed with `PROM_` because the P-ROM board reuses refdes numbers that already exist on the CPU board sheets.
 - Library coverage has been added and bboxes are placed for `uPC624D`, `uPC159`, `SN75365`, `MC14016B`, `TL084`, and `74LS626` devices.
-- Several analog/clock bboxes on `PROM_IC43*`, `PROM_IC44*`, and `PROM_IC45*` are intentionally loose around split drawn units. Hand-tighten before pin placement.
+- `PROM_IC50` was split into `PROM_IC50a` and `PROM_IC50b` after a source-crop check confirmed two separate drawn IC50 oscillator sections.
+- Recheck split-unit pin mapping before pin placement for `PROM_IC43*`, `PROM_IC44*`, `PROM_IC45*`, `PROM_IC50*`, `PROM_IC51*`, and `PROM_IC52*`.
 - Passives around the analog/clock section are only partially represented. Add the remaining resistors, capacitors, diodes, and regulator after deciding how much passive detail should be captured on the P-ROM board.
 
 ## Sheet 9
 
-- Initial bboxes are placed for known-library P-ROM components: `PROM_IC10`, `PROM_IC29`, `PROM_IC30a`, `PROM_IC30b`, `PROM_IC37`, `PROM_SW1`, `PROM_RA1`, and `PROM_CN3`.
+- Initial bboxes are placed for known-library P-ROM components: `PROM_IC10`, `PROM_IC29`, `PROM_IC30a`, `PROM_IC30b`, `PROM_IC37a`, `PROM_IC37b`, `PROM_SW1`, `PROM_RA1`, and `PROM_CN3`.
 - Library coverage has been added and bboxes are placed for `TBP18S030`, `UPB426D` / `PB426D`, `74LS150`, and `74LS377` devices.
-- `IC19` is printed as `376` and is not yet added. Verify whether this is a 74LS376-family part and add its librarian entry before placing the bbox.
+- `PROM_IC21` was corrected from the earlier mistaken `PROM_IC2` refdes after crop verification; the lower TBP18S030 is printed `IC21`.
+- `PROM_IC37` was split into `PROM_IC37a` and `PROM_IC37b` after crop verification showed two separate drawn LS109 sections.
+- `PROM_IC19` has been added as `74LS175`; the body text reads `376`, but the drawn 16-pin symbol and pin numbering match the existing `74LS175` library entry. Reconfirm against the chip inventory before pin placement.
 - `PROM_IC30a` and `PROM_IC30b` are split `74LS74` units for the two visible `IC30` flip-flop sections. Confirm the split-unit naming before pins.
-- `PROM_IC37` is a loose bbox around the split `74LS109` drawing. It will need hand adjustment before pin placement.
 
 ## Sheet 10
 
