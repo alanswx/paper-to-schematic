@@ -13771,6 +13771,778 @@
           2095
         ]
       }
+    },
+    {
+      "refdes": "IC1",
+      "part": "2716",
+      "sheet": 7,
+      "bbox": [
+        850.0,
+        625.0,
+        1110.0,
+        1295.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.78,
+        "note": "printed 2732 or 2716; EPR-1125"
+      }
+    },
+    {
+      "refdes": "IC2",
+      "part": "2716",
+      "sheet": 7,
+      "bbox": [
+        850.0,
+        1605.0,
+        1110.0,
+        2310.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.78,
+        "note": "printed 2732 or 2716; EPR-1126"
+      }
+    },
+    {
+      "refdes": "IC3",
+      "part": "74LS283",
+      "sheet": 7,
+      "bbox": [
+        1375.0,
+        905.0,
+        1560.0,
+        1275.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.82,
+        "note": "LS283 adder near IC1"
+      }
+    },
+    {
+      "refdes": "IC4",
+      "part": "74LS283",
+      "sheet": 7,
+      "bbox": [
+        1375.0,
+        1640.0,
+        1560.0,
+        2020.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.82,
+        "note": "LS283 adder near IC2"
+      }
+    },
+    {
+      "refdes": "IC13",
+      "part": "2716",
+      "sheet": 7,
+      "bbox": [
+        1885.0,
+        620.0,
+        2155.0,
+        1300.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.8,
+        "note": "EPR-1127"
+      }
+    },
+    {
+      "refdes": "IC14",
+      "part": "2716",
+      "sheet": 7,
+      "bbox": [
+        1885.0,
+        1600.0,
+        2155.0,
+        2310.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.8,
+        "note": "EPR-1128"
+      }
+    },
+    {
+      "refdes": "IC15",
+      "part": "74LS283",
+      "sheet": 7,
+      "bbox": [
+        2450.0,
+        905.0,
+        2635.0,
+        1275.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.82,
+        "note": "LS283 adder near IC13"
+      }
+    },
+    {
+      "refdes": "IC16",
+      "part": "74LS283",
+      "sheet": 7,
+      "bbox": [
+        2450.0,
+        1640.0,
+        2635.0,
+        2020.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.82,
+        "note": "LS283 adder near IC14"
+      }
+    },
+    {
+      "refdes": "IC27",
+      "part": "2716",
+      "sheet": 7,
+      "bbox": [
+        2805.0,
+        620.0,
+        3075.0,
+        1300.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.8,
+        "note": "EPR-1239"
+      }
+    },
+    {
+      "refdes": "IC28",
+      "part": "2716",
+      "sheet": 7,
+      "bbox": [
+        2805.0,
+        1600.0,
+        3075.0,
+        2310.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.8,
+        "note": "EPR-1240"
+      }
+    },
+    {
+      "refdes": "IC29",
+      "part": "74LS283",
+      "sheet": 7,
+      "bbox": [
+        3360.0,
+        905.0,
+        3550.0,
+        1275.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.82,
+        "note": "LS283 adder near IC27"
+      }
+    },
+    {
+      "refdes": "IC30",
+      "part": "74LS283",
+      "sheet": 7,
+      "bbox": [
+        3360.0,
+        1640.0,
+        3550.0,
+        2020.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.82,
+        "note": "LS283 adder near IC28"
+      }
+    },
+    {
+      "refdes": "IC41",
+      "part": "2716",
+      "sheet": 7,
+      "bbox": [
+        3760.0,
+        620.0,
+        4035.0,
+        1300.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.8,
+        "note": "EPR-1241"
+      }
+    },
+    {
+      "refdes": "IC42",
+      "part": "2716",
+      "sheet": 7,
+      "bbox": [
+        3760.0,
+        1600.0,
+        4035.0,
+        2310.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.8,
+        "note": "EPR-1242"
+      }
+    },
+    {
+      "refdes": "IC43",
+      "part": "74LS283",
+      "sheet": 7,
+      "bbox": [
+        4325.0,
+        905.0,
+        4515.0,
+        1275.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.82,
+        "note": "LS283 adder near IC41"
+      }
+    },
+    {
+      "refdes": "IC44",
+      "part": "74LS283",
+      "sheet": 7,
+      "bbox": [
+        4325.0,
+        1640.0,
+        4515.0,
+        2020.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.82,
+        "note": "LS283 adder near IC42"
+      }
+    },
+    {
+      "refdes": "RA_S7",
+      "part": "R_NETWORK08_COMMON",
+      "sheet": 7,
+      "bbox": [
+        1080.0,
+        2865.0,
+        1325.0,
+        3150.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.65,
+        "note": "4.7K resistor array, printed without clear refdes"
+      },
+      "value": "4.7K"
+    },
+    {
+      "refdes": "IC69d",
+      "part": "74LS04",
+      "sheet": 7,
+      "bbox": [
+        1425.0,
+        2445.0,
+        1600.0,
+        2575.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.72,
+        "note": "split LS04 inverter slice on SEL3C line"
+      }
+    },
+    {
+      "refdes": "PROM_CN1",
+      "part": "Conn_02x25",
+      "sheet": 8,
+      "bbox": [
+        460.0,
+        1240.0,
+        610.0,
+        2795.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.72,
+        "note": "P-ROM board printed CN1 edge connector"
+      }
+    },
+    {
+      "refdes": "PROM_CN2",
+      "part": "Conn_02x25",
+      "sheet": 8,
+      "bbox": [
+        1010.0,
+        1240.0,
+        1165.0,
+        2795.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.72,
+        "note": "P-ROM board printed CN2 edge connector"
+      }
+    },
+    {
+      "refdes": "PROM_IC1",
+      "part": "74LS373",
+      "sheet": 8,
+      "bbox": [
+        620.0,
+        610.0,
+        900.0,
+        1080.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.76,
+        "note": "P-ROM printed IC1 LS373"
+      }
+    },
+    {
+      "refdes": "PROM_IC16",
+      "part": "74LS138",
+      "sheet": 8,
+      "bbox": [
+        1460.0,
+        1570.0,
+        1640.0,
+        2040.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.74,
+        "note": "P-ROM printed IC16 LS138"
+      }
+    },
+    {
+      "refdes": "PROM_IC28",
+      "part": "74LS138",
+      "sheet": 8,
+      "bbox": [
+        3260.0,
+        920.0,
+        3535.0,
+        1450.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.78,
+        "note": "P-ROM printed IC28 LS138 decoder"
+      }
+    },
+    {
+      "refdes": "PROM_IC7",
+      "part": "74LS109",
+      "sheet": 8,
+      "bbox": [
+        3230.0,
+        1520.0,
+        3550.0,
+        2045.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.68,
+        "note": "P-ROM printed IC7 74LS109 section block"
+      }
+    },
+    {
+      "refdes": "PROM_IC8",
+      "part": "74LS109",
+      "sheet": 8,
+      "bbox": [
+        3230.0,
+        1995.0,
+        3550.0,
+        2560.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.68,
+        "note": "P-ROM printed IC8 74LS109 section block"
+      }
+    },
+    {
+      "refdes": "PROM_R1",
+      "part": "R",
+      "sheet": 8,
+      "bbox": [
+        830.0,
+        2700.0,
+        940.0,
+        2840.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.6,
+        "note": "P-ROM printed R1 220 ohm"
+      },
+      "value": "220"
+    },
+    {
+      "refdes": "PROM_IC10",
+      "part": "74LS244",
+      "sheet": 9,
+      "bbox": [
+        1515.0,
+        470.0,
+        1845.0,
+        1015.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.78,
+        "note": "P-ROM printed IC10 LS244"
+      }
+    },
+    {
+      "refdes": "PROM_IC29",
+      "part": "UPB425",
+      "sheet": 9,
+      "bbox": [
+        2750.0,
+        2100.0,
+        3095.0,
+        2730.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.76,
+        "note": "P-ROM printed IC29 uPB425 PR-1121"
+      }
+    },
+    {
+      "refdes": "PROM_IC30a",
+      "part": "74LS74",
+      "sheet": 9,
+      "bbox": [
+        3000.0,
+        1645.0,
+        3235.0,
+        1885.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.68,
+        "note": "P-ROM printed IC30 LS74 upper flip-flop section"
+      }
+    },
+    {
+      "refdes": "PROM_IC30b",
+      "part": "74LS74",
+      "sheet": 9,
+      "bbox": [
+        3000.0,
+        1900.0,
+        3235.0,
+        2160.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.68,
+        "note": "P-ROM printed IC30 LS74 lower flip-flop section"
+      }
+    },
+    {
+      "refdes": "PROM_IC37",
+      "part": "74LS109",
+      "sheet": 9,
+      "bbox": [
+        3080.0,
+        460.0,
+        3515.0,
+        980.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.7,
+        "note": "P-ROM printed IC37 LS109 split flip-flop area"
+      }
+    },
+    {
+      "refdes": "PROM_SW1",
+      "part": "DIP_SW_8",
+      "sheet": 9,
+      "bbox": [
+        1210.0,
+        675.0,
+        1445.0,
+        965.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.7,
+        "note": "P-ROM printed DIPSWITCH"
+      }
+    },
+    {
+      "refdes": "PROM_RA1",
+      "part": "R_NETWORK08_COMMON",
+      "sheet": 9,
+      "bbox": [
+        1440.0,
+        415.0,
+        1645.0,
+        770.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.66,
+        "note": "P-ROM printed RA1 4.7K x4 pull-up pack"
+      },
+      "value": "4.7K"
+    },
+    {
+      "refdes": "PROM_CN3",
+      "part": "Conn_01x06",
+      "sheet": 9,
+      "bbox": [
+        3610.0,
+        2185.0,
+        3775.0,
+        2595.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.62,
+        "note": "P-ROM printed CN3 video connector"
+      }
+    },
+    {
+      "refdes": "PROM_IC84",
+      "part": "2764",
+      "sheet": 10,
+      "bbox": [
+        2500.0,
+        685.0,
+        3195.0,
+        1750.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.78,
+        "note": "P-ROM printed IC84 2764 or 2364, EPR-1246/MPR-1288"
+      }
+    },
+    {
+      "refdes": "PROM_IC102",
+      "part": "2764",
+      "sheet": 10,
+      "bbox": [
+        3380.0,
+        685.0,
+        3990.0,
+        1750.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.76,
+        "note": "P-ROM printed IC102 2764 or 2364"
+      }
+    },
+    {
+      "refdes": "PROM_R2",
+      "part": "R",
+      "sheet": 10,
+      "bbox": [
+        1040.0,
+        2775.0,
+        1185.0,
+        2985.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.6,
+        "note": "P-ROM printed R2 1K common portion"
+      },
+      "value": "1K"
+    },
+    {
+      "refdes": "PROM_IC71",
+      "part": "74LS191",
+      "sheet": 10,
+      "bbox": [
+        1010.0,
+        555.0,
+        1455.0,
+        1030.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.8,
+        "note": "P-ROM printed IC71 LS191 counter"
+      }
+    },
+    {
+      "refdes": "PROM_IC83",
+      "part": "74LS191",
+      "sheet": 10,
+      "bbox": [
+        1010.0,
+        1115.0,
+        1455.0,
+        1595.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.8,
+        "note": "P-ROM printed IC83 LS191 counter"
+      }
+    },
+    {
+      "refdes": "PROM_IC95",
+      "part": "74LS191",
+      "sheet": 10,
+      "bbox": [
+        1010.0,
+        1685.0,
+        1455.0,
+        2165.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.8,
+        "note": "P-ROM printed IC95 LS191 counter"
+      }
+    },
+    {
+      "refdes": "PROM_IC101",
+      "part": "74LS191",
+      "sheet": 10,
+      "bbox": [
+        1010.0,
+        2250.0,
+        1455.0,
+        2730.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.8,
+        "note": "P-ROM printed IC101 LS191 counter"
+      }
+    },
+    {
+      "refdes": "PROM_IC54",
+      "part": "74LS74",
+      "sheet": 10,
+      "bbox": [
+        2070.0,
+        600.0,
+        2380.0,
+        1050.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.78,
+        "note": "P-ROM printed IC54 LS74"
+      }
+    },
+    {
+      "refdes": "PROM_IC59a",
+      "part": "74LS00",
+      "sheet": 10,
+      "bbox": [
+        1770.0,
+        220.0,
+        2070.0,
+        510.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.7,
+        "note": "P-ROM printed IC59 LS00 NAND gate, top LST0/CLK0 section"
+      }
+    },
+    {
+      "refdes": "PROM_IC59b",
+      "part": "74LS00",
+      "sheet": 10,
+      "bbox": [
+        1770.0,
+        465.0,
+        2075.0,
+        710.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.7,
+        "note": "P-ROM printed IC59 LS00 NAND gate, PLB/CD section"
+      }
+    },
+    {
+      "refdes": "PROM_IC59c",
+      "part": "74LS00",
+      "sheet": 10,
+      "bbox": [
+        2350.0,
+        1590.0,
+        2690.0,
+        1820.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.7,
+        "note": "P-ROM printed IC59 LS00 NAND gate, CW4/LST0 section"
+      }
+    },
+    {
+      "refdes": "PROM_IC59d",
+      "part": "74LS00",
+      "sheet": 10,
+      "bbox": [
+        2470.0,
+        2250.0,
+        2760.0,
+        2445.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.7,
+        "note": "P-ROM printed IC59 LS00 NAND gate, bottom bus section"
+      }
+    },
+    {
+      "refdes": "PROM_LED1",
+      "part": "LED",
+      "sheet": 8,
+      "bbox": [
+        870.0,
+        2655.0,
+        1015.0,
+        2785.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.7,
+        "note": "P-ROM printed LED1"
+      }
+    },
+    {
+      "refdes": "IC69e",
+      "part": "74LS04",
+      "sheet": 7,
+      "bbox": [
+        1425.0,
+        2568.0,
+        1600.0,
+        2670.0
+      ],
+      "evidence": {
+        "source": "ai",
+        "confidence": 0.74,
+        "note": "split LS04 inverter slice on SEL7C line"
+      }
     }
   ],
   "nets": [
