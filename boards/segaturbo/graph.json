@@ -16335,85 +16335,88 @@
       },
       "pin_positions": {
         "1": [
-          1643.6289844167277,
-          890.265520008536
+          1643.0,
+          902.0
         ],
         "2": [
-          1655.4434741769344,
-          890.265520008536
+          1638.0,
+          595.0
         ],
         "3": [
-          1767.6811268988974,
-          580.8633823649345
+          1768.0,
+          633.0
         ],
         "4": [
-          1667.257963937141,
-          890.265520008536
+          1638.0,
+          671.0
         ],
         "5": [
-          1767.6811268988974,
-          622.1170007174147
+          1768.0,
+          710.0
         ],
         "6": [
-          1679.0724536973478,
-          890.265520008536
+          1638.0,
+          769.0
         ],
         "7": [
-          1767.6811268988974,
-          663.3706190698949
+          1768.0,
+          807.0
         ],
         "8": [
-          1690.8869434575543,
-          890.265520008536
+          1638.0,
+          846.0
         ],
         "9": [
-          1767.6811268988974,
-          704.6242374223752
+          1768.0,
+          885.0
         ],
         "10": [
-          1702.701433217761,
-          890.265520008536
+          1703.0,
+          902.0
         ],
         "11": [
-          1714.5159229779676,
-          890.265520008536
+          1638.0,
+          885.0
         ],
         "12": [
-          1767.6811268988974,
-          745.8778557748553
+          1768.0,
+          846.0
         ],
         "13": [
-          1726.3304127381741,
-          890.265520008536
+          1638.0,
+          807.0
         ],
         "14": [
-          1767.6811268988974,
-          787.1314741273355
+          1768.0,
+          769.0
         ],
         "15": [
-          1738.1449024983808,
-          890.265520008536
+          1638.0,
+          710.0
         ],
         "16": [
-          1767.6811268988974,
-          828.3850924798157
+          1768.0,
+          671.0
         ],
         "17": [
-          1749.9593922585875,
-          890.265520008536
+          1638.0,
+          633.0
         ],
         "18": [
-          1767.6811268988974,
-          869.6387108322958
+          1768.0,
+          595.0
         ],
         "19": [
-          1761.7738820187942,
-          890.265520008536
+          1762.0,
+          902.0
         ],
         "20": [
-          1702.701433217761,
-          560.2365731886945
+          1703.0,
+          560.0
         ]
+      },
+      "attributes": {
+        "pin_note": "Pin positions corrected from default bottom-edge collapse using zoomed IC10 crop on sheet 9."
       }
     },
     {
@@ -16566,17 +16569,17 @@
           3233.0,
           1768.0
         ],
-        "6": [
-          3233.0,
-          1815.0
-        ],
         "7": [
-          3180.0,
+          3225.0,
           1917.0
         ],
         "14": [
-          3180.0,
+          3225.0,
           1721.0
+        ],
+        "6": [
+          3233.0,
+          1848.0
         ]
       }
     },
@@ -16616,17 +16619,17 @@
           3599.0,
           1768.0
         ],
-        "8": [
-          3599.0,
-          1815.0
-        ],
         "7": [
-          3550.0,
+          3590.0,
           1919.0
         ],
         "14": [
-          3550.0,
+          3590.0,
           1723.0
+        ],
+        "8": [
+          3599.0,
+          1848.0
         ]
       }
     },
@@ -16646,9 +16649,9 @@
         "note": "P-ROM printed IC37 LS109 left flip-flop section, ff2 pins after zoom check"
       },
       "pin_positions": {
-        "9": [
-          3239.0,
-          625.0
+        "8": [
+          3228.0,
+          773.0
         ],
         "10": [
           3239.0,
@@ -16671,22 +16674,22 @@
           612.0
         ],
         "15": [
-          3136.0,
-          610.0
-        ],
-        "8": [
-          3187.0,
-          773.0
-        ],
-        "16": [
           3187.0,
           578.0
+        ],
+        "16": [
+          3228.0,
+          578.0
+        ],
+        "9": [
+          3239.0,
+          705.0
         ]
       }
     },
     {
       "refdes": "PROM_SW1",
-      "part": "DIP_SW_8",
+      "part": "DIP_SW_4",
       "sheet": 9,
       "bbox": [
         1265.9466753769905,
@@ -16697,7 +16700,7 @@
       "evidence": {
         "source": "ai",
         "confidence": 0.7,
-        "note": "P-ROM printed DIPSWITCH"
+        "note": "P-ROM printed 4-position DIPSWITCH"
       },
       "pin_positions": {
         "1": [
@@ -16705,64 +16708,32 @@
           734.5875430432535
         ],
         "2": [
-          1401.320639752798,
-          734.5875430432535
+          1265.9466753769905,
+          778.0267171286877
         ],
         "3": [
           1265.9466753769905,
-          756.3071300859706
+          821.4658912141218
         ],
         "4": [
-          1401.320639752798,
-          756.3071300859706
+          1265.9466753769905,
+          864.905065299556
         ],
         "5": [
-          1265.9466753769905,
-          778.0267171286877
+          1401.320639752798,
+          864.905065299556
         ],
         "6": [
           1401.320639752798,
-          778.0267171286877
+          821.4658912141218
         ],
         "7": [
-          1265.9466753769905,
-          799.7463041714047
+          1401.320639752798,
+          778.0267171286877
         ],
         "8": [
           1401.320639752798,
-          799.7463041714047
-        ],
-        "9": [
-          1265.9466753769905,
-          821.4658912141218
-        ],
-        "10": [
-          1401.320639752798,
-          821.4658912141218
-        ],
-        "11": [
-          1265.9466753769905,
-          843.1854782568389
-        ],
-        "12": [
-          1401.320639752798,
-          843.1854782568389
-        ],
-        "13": [
-          1265.9466753769905,
-          864.905065299556
-        ],
-        "14": [
-          1401.320639752798,
-          864.905065299556
-        ],
-        "15": [
-          1265.9466753769905,
-          886.6246523422731
-        ],
-        "16": [
-          1401.320639752798,
-          886.6246523422731
+          734.5875430432535
         ]
       }
     },
@@ -20146,7 +20117,7 @@
       "pin_positions": {
         "1": [
           3595.0,
-          610.0
+          578.0
         ],
         "2": [
           3445.0,
@@ -20164,21 +20135,21 @@
           3520.0,
           775.0
         ],
-        "6": [
-          3595.0,
-          625.0
-        ],
         "7": [
           3595.0,
-          740.0
+          705.0
         ],
         "8": [
-          3520.0,
+          3568.0,
           775.0
         ],
         "16": [
           3520.0,
           575.0
+        ],
+        "6": [
+          3595.0,
+          625.0
         ]
       }
     },
@@ -20266,7 +20237,7 @@
     },
     {
       "refdes": "PROM_IC19",
-      "part": "74LS175",
+      "part": "74376",
       "sheet": 9,
       "bbox": [
         970,
@@ -20344,6 +20315,9 @@
           1050,
           550
         ]
+      },
+      "attributes": {
+        "note": "P-ROM printed IC19; body text reads 376. Zoomed pins show SN74376-style quad J-K flip-flop (J/K inputs, Q outputs, common CLK/CL), not 74LS175."
       }
     }
   ],
@@ -20479,6 +20453,46 @@
           "evidence": {
             "source": "ai",
             "note": "sheet 6 LS166 clock label"
+          }
+        },
+        {
+          "refdes": "PROM_IC19",
+          "pin": 9,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC9",
+          "pin": 11,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC30a",
+          "pin": 3,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC30b",
+          "pin": 11,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
           }
         }
       ],
@@ -22556,6 +22570,276 @@
             "source": "ai",
             "note": "sheet 6 visible VCC pins and implicit power pins"
           }
+        },
+        {
+          "refdes": "PROM_RA1",
+          "pin": 1,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC20",
+          "pin": 16,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC19",
+          "pin": 16,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC10",
+          "pin": 20,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC13",
+          "pin": 16,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC21",
+          "pin": 16,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC18",
+          "pin": 16,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC38",
+          "pin": 24,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC39",
+          "pin": 24,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC40",
+          "pin": 24,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC9",
+          "pin": 20,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC29",
+          "pin": 24,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC11",
+          "pin": 18,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC12",
+          "pin": 18,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC37a",
+          "pin": 16,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC37a",
+          "pin": 3,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC37a",
+          "pin": 5,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC37b",
+          "pin": 16,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC37b",
+          "pin": 11,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC30a",
+          "pin": 14,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC30a",
+          "pin": 1,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC30a",
+          "pin": 4,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC30b",
+          "pin": 14,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC30b",
+          "pin": 13,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC30b",
+          "pin": 10,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC29",
+          "pin": 18,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC29",
+          "pin": 19,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
         }
       ]
     },
@@ -24453,6 +24737,376 @@
             "source": "ai",
             "note": "sheet 6 visible ground pins and implicit power pins"
           }
+        },
+        {
+          "refdes": "PROM_SW1",
+          "pin": 1,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_SW1",
+          "pin": 2,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_SW1",
+          "pin": 3,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_SW1",
+          "pin": 4,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC20",
+          "pin": 8,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC20",
+          "pin": 15,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC19",
+          "pin": 8,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC10",
+          "pin": 10,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC13",
+          "pin": 8,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC13",
+          "pin": 15,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC21",
+          "pin": 8,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC21",
+          "pin": 15,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC18",
+          "pin": 8,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC18",
+          "pin": 15,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC38",
+          "pin": 11,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC38",
+          "pin": 16,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC39",
+          "pin": 11,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC39",
+          "pin": 16,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC40",
+          "pin": 11,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC40",
+          "pin": 16,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC9",
+          "pin": 10,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC11",
+          "pin": 8,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC11",
+          "pin": 9,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC11",
+          "pin": 10,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC12",
+          "pin": 8,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC12",
+          "pin": 9,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC12",
+          "pin": 10,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC29",
+          "pin": 12,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC29",
+          "pin": 20,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC29",
+          "pin": 21,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC37a",
+          "pin": 8,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC37b",
+          "pin": 8,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC37b",
+          "pin": 13,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC30a",
+          "pin": 7,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC30b",
+          "pin": 7,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_CN3",
+          "pin": 1,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_CN3",
+          "pin": 2,
+          "sheet": 9,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
         }
       ]
     },
@@ -26258,6 +26912,16 @@
             "source": "ai",
             "note": "sheet 4 visible net/label pass after pin correction"
           }
+        },
+        {
+          "refdes": "PROM_IC10",
+          "pin": 18,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
         }
       ],
       "path": [
@@ -26464,6 +27128,16 @@
           "evidence": {
             "source": "ai",
             "note": "sheet 4 visible net/label pass after pin correction"
+          }
+        },
+        {
+          "refdes": "PROM_IC10",
+          "pin": 3,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
           }
         }
       ],
@@ -26672,6 +27346,16 @@
             "source": "ai",
             "note": "sheet 4 visible net/label pass after pin correction"
           }
+        },
+        {
+          "refdes": "PROM_IC10",
+          "pin": 16,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
         }
       ],
       "path": [
@@ -26878,6 +27562,16 @@
           "evidence": {
             "source": "ai",
             "note": "sheet 4 visible net/label pass after pin correction"
+          }
+        },
+        {
+          "refdes": "PROM_IC10",
+          "pin": 5,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
           }
         }
       ],
@@ -27086,6 +27780,16 @@
             "source": "ai",
             "note": "sheet 4 visible net/label pass after pin correction"
           }
+        },
+        {
+          "refdes": "PROM_IC10",
+          "pin": 14,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
         }
       ],
       "path": [
@@ -27292,6 +27996,16 @@
           "evidence": {
             "source": "ai",
             "note": "sheet 4 visible net/label pass after pin correction"
+          }
+        },
+        {
+          "refdes": "PROM_IC10",
+          "pin": 7,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
           }
         }
       ],
@@ -27500,6 +28214,16 @@
             "source": "ai",
             "note": "sheet 4 visible net/label pass after pin correction"
           }
+        },
+        {
+          "refdes": "PROM_IC10",
+          "pin": 12,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
         }
       ],
       "path": [
@@ -27706,6 +28430,16 @@
           "evidence": {
             "source": "ai",
             "note": "sheet 4 visible net/label pass after pin correction"
+          }
+        },
+        {
+          "refdes": "PROM_IC10",
+          "pin": 9,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
           }
         }
       ],
@@ -31275,6 +32009,16 @@
             "source": "ai",
             "note": "sheet 2 visible color latch/PROM labels and direct wires"
           }
+        },
+        {
+          "refdes": "PROM_IC12",
+          "pin": 2,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
         }
       ]
     },
@@ -31310,6 +32054,16 @@
           "evidence": {
             "source": "ai",
             "note": "visible PLBE LED drive/connector label"
+          }
+        },
+        {
+          "refdes": "PROM_IC12",
+          "pin": 3,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
           }
         }
       ]
@@ -31521,6 +32275,16 @@
             "source": "ai",
             "note": "sheet 6 IC31 COCH output labels"
           }
+        },
+        {
+          "refdes": "PROM_IC9",
+          "pin": 18,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
         }
       ]
     },
@@ -31547,6 +32311,16 @@
             "source": "ai",
             "note": "sheet 6 IC31 COCH output labels"
           }
+        },
+        {
+          "refdes": "PROM_IC9",
+          "pin": 17,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
         }
       ]
     },
@@ -31563,6 +32337,16 @@
             "source": "ai",
             "note": "visible CN1 connector label on sheet 2"
           }
+        },
+        {
+          "refdes": "PROM_IC9",
+          "pin": 14,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
         }
       ]
     },
@@ -31578,6 +32362,16 @@
           "evidence": {
             "source": "ai",
             "note": "visible CN1 connector label on sheet 2"
+          }
+        },
+        {
+          "refdes": "PROM_IC9",
+          "pin": 13,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
           }
         }
       ]
@@ -31604,6 +32398,16 @@
           "evidence": {
             "source": "ai",
             "note": "sheet 6 LS166 QH output to AREA5/sheet 7 label"
+          }
+        },
+        {
+          "refdes": "PROM_IC30a",
+          "pin": 2,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
           }
         }
       ]
@@ -31641,6 +32445,46 @@
             "source": "ai",
             "note": "sheet 6 carry output and filter capacitor"
           }
+        },
+        {
+          "refdes": "PROM_IC37b",
+          "pin": 15,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC37b",
+          "pin": 14,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC37a",
+          "pin": 1,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC9",
+          "pin": 1,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
         }
       ]
     },
@@ -31656,6 +32500,16 @@
           "evidence": {
             "source": "ai",
             "note": "visible CN1 connector label on sheet 2"
+          }
+        },
+        {
+          "refdes": "PROM_CN3",
+          "pin": 6,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
           }
         }
       ]
@@ -31763,6 +32617,16 @@
             "source": "ai",
             "note": "sheet 6 IC31 COCH output labels"
           }
+        },
+        {
+          "refdes": "PROM_IC9",
+          "pin": 4,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
         }
       ]
     },
@@ -31779,6 +32643,16 @@
             "source": "ai",
             "note": "visible CN1 connector label on sheet 2"
           }
+        },
+        {
+          "refdes": "PROM_IC9",
+          "pin": 7,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
         }
       ]
     },
@@ -31794,6 +32668,16 @@
           "evidence": {
             "source": "ai",
             "note": "visible CN1 connector label on sheet 2"
+          }
+        },
+        {
+          "refdes": "PROM_IC9",
+          "pin": 8,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
           }
         }
       ]
@@ -31843,6 +32727,16 @@
             "source": "ai",
             "note": "visible CN1 connector label on sheet 2"
           }
+        },
+        {
+          "refdes": "PROM_IC19",
+          "pin": 1,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
         }
       ]
     },
@@ -31859,6 +32753,16 @@
             "source": "ai",
             "note": "visible CN2 connector label on sheet 2"
           }
+        },
+        {
+          "refdes": "PROM_IC11",
+          "pin": 16,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
         }
       ]
     },
@@ -31874,6 +32778,16 @@
           "evidence": {
             "source": "ai",
             "note": "visible CN2 connector label on sheet 2"
+          }
+        },
+        {
+          "refdes": "PROM_IC12",
+          "pin": 15,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
           }
         }
       ]
@@ -31899,6 +32813,16 @@
           "edge_type": "label",
           "evidence": {
             "source": "ai"
+          }
+        },
+        {
+          "refdes": "PROM_IC29",
+          "pin": 1,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
           }
         }
       ]
@@ -32547,6 +33471,26 @@
           "evidence": {
             "source": "ai"
           }
+        },
+        {
+          "refdes": "PROM_IC13",
+          "pin": 14,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC21",
+          "pin": 14,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
         }
       ]
     },
@@ -32571,6 +33515,16 @@
           "edge_type": "label",
           "evidence": {
             "source": "ai"
+          }
+        },
+        {
+          "refdes": "PROM_IC29",
+          "pin": 23,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
           }
         }
       ]
@@ -34213,6 +35167,26 @@
           "evidence": {
             "source": "ai",
             "note": "sheet 3 named-label pass after pin placement"
+          }
+        },
+        {
+          "refdes": "PROM_IC37b",
+          "pin": 12,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC37a",
+          "pin": 4,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
           }
         }
       ]
@@ -44844,6 +45818,16 @@
             "source": "ai",
             "note": "sheet 6 IC31 COCH output labels"
           }
+        },
+        {
+          "refdes": "PROM_IC9",
+          "pin": 3,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
         }
       ]
     },
@@ -46647,6 +47631,2673 @@
         ]
       ],
       "path_source": "ai"
+    },
+    {
+      "name": "PLB0",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC20",
+          "pin": 10,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC12",
+          "pin": 4,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PLB1",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC20",
+          "pin": 11,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC11",
+          "pin": 5,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PLB2",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC20",
+          "pin": 12,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC11",
+          "pin": 6,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SUPAB",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC20",
+          "pin": 13,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ACCIAR",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC20",
+          "pin": 14,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC18",
+          "pin": 6,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CSTE",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC10",
+          "pin": 1,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC10",
+          "pin": 19,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "P2",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC19",
+          "pin": 3,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC19",
+          "pin": 6,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC19",
+          "pin": 11,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC19",
+          "pin": 14,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "S9_IC20_O0_TO_IC19_4J",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC20",
+          "pin": 1,
+          "sheet": 9,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC19",
+          "pin": 15,
+          "sheet": 9,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ],
+      "path": [
+        [
+          854.5,
+          611.1
+        ],
+        [
+          920.0,
+          611.1
+        ],
+        [
+          920.0,
+          590.0
+        ],
+        [
+          970.0,
+          590.0
+        ]
+      ],
+      "path_source": "ai"
+    },
+    {
+      "name": "S9_IC20_O1_TO_IC19_1J",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC20",
+          "pin": 2,
+          "sheet": 9,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC19",
+          "pin": 2,
+          "sheet": 9,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ],
+      "path": [
+        [
+          854.5,
+          641.0
+        ],
+        [
+          920.0,
+          641.0
+        ],
+        [
+          920.0,
+          625.0
+        ],
+        [
+          970.0,
+          625.0
+        ]
+      ],
+      "path_source": "ai"
+    },
+    {
+      "name": "S9_IC20_O2_TO_IC19_3J",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC20",
+          "pin": 3,
+          "sheet": 9,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC19",
+          "pin": 10,
+          "sheet": 9,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ],
+      "path": [
+        [
+          854.5,
+          670.9
+        ],
+        [
+          920.0,
+          670.9
+        ],
+        [
+          920.0,
+          660.0
+        ],
+        [
+          970.0,
+          660.0
+        ]
+      ],
+      "path_source": "ai"
+    },
+    {
+      "name": "S9_IC20_O3_TO_IC19_2J",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC20",
+          "pin": 4,
+          "sheet": 9,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC19",
+          "pin": 7,
+          "sheet": 9,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ],
+      "path": [
+        [
+          854.5,
+          700.8
+        ],
+        [
+          920.0,
+          700.8
+        ],
+        [
+          920.0,
+          695.0
+        ],
+        [
+          970.0,
+          695.0
+        ]
+      ],
+      "path_source": "ai"
+    },
+    {
+      "name": "S9_IC19_4Q_TO_IC10_1A1",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC19",
+          "pin": 13,
+          "sheet": 9,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC10",
+          "pin": 2,
+          "sheet": 9,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ],
+      "path": [
+        [
+          1130.0,
+          590.0
+        ],
+        [
+          1638.0,
+          590.0
+        ],
+        [
+          1638.0,
+          595.0
+        ]
+      ],
+      "path_source": "ai"
+    },
+    {
+      "name": "S9_IC19_1Q_TO_IC10_2A4",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC19",
+          "pin": 4,
+          "sheet": 9,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC10",
+          "pin": 17,
+          "sheet": 9,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ],
+      "path": [
+        [
+          1130.0,
+          625.0
+        ],
+        [
+          1600.0,
+          625.0
+        ],
+        [
+          1600.0,
+          633.0
+        ],
+        [
+          1638.0,
+          633.0
+        ]
+      ],
+      "path_source": "ai"
+    },
+    {
+      "name": "S9_IC19_3Q_TO_IC10_1A2",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC19",
+          "pin": 12,
+          "sheet": 9,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC10",
+          "pin": 4,
+          "sheet": 9,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ],
+      "path": [
+        [
+          1130.0,
+          660.0
+        ],
+        [
+          1600.0,
+          660.0
+        ],
+        [
+          1600.0,
+          671.0
+        ],
+        [
+          1638.0,
+          671.0
+        ]
+      ],
+      "path_source": "ai"
+    },
+    {
+      "name": "S9_IC19_2Q_TO_IC10_2A3",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC19",
+          "pin": 5,
+          "sheet": 9,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC10",
+          "pin": 15,
+          "sheet": 9,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ],
+      "path": [
+        [
+          1130.0,
+          695.0
+        ],
+        [
+          1600.0,
+          695.0
+        ],
+        [
+          1600.0,
+          710.0
+        ],
+        [
+          1638.0,
+          710.0
+        ]
+      ],
+      "path_source": "ai"
+    },
+    {
+      "name": "S9_DIPSW1_PULLUP",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_RA1",
+          "pin": 2,
+          "sheet": 9,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_SW1",
+          "pin": 8,
+          "sheet": 9,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC10",
+          "pin": 6,
+          "sheet": 9,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ],
+      "path": [
+        [
+          1466.0,
+          558.0
+        ],
+        [
+          1466.0,
+          735.0
+        ],
+        [
+          1401.3,
+          735.0
+        ],
+        [
+          1466.0,
+          735.0
+        ],
+        [
+          1466.0,
+          769.0
+        ],
+        [
+          1638.0,
+          769.0
+        ]
+      ],
+      "path_source": "ai"
+    },
+    {
+      "name": "S9_DIPSW2_PULLUP",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_RA1",
+          "pin": 3,
+          "sheet": 9,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_SW1",
+          "pin": 7,
+          "sheet": 9,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC10",
+          "pin": 13,
+          "sheet": 9,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ],
+      "path": [
+        [
+          1502.0,
+          558.0
+        ],
+        [
+          1502.0,
+          778.0
+        ],
+        [
+          1401.3,
+          778.0
+        ],
+        [
+          1502.0,
+          778.0
+        ],
+        [
+          1502.0,
+          807.0
+        ],
+        [
+          1638.0,
+          807.0
+        ]
+      ],
+      "path_source": "ai"
+    },
+    {
+      "name": "S9_DIPSW3_PULLUP",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_RA1",
+          "pin": 4,
+          "sheet": 9,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_SW1",
+          "pin": 6,
+          "sheet": 9,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC10",
+          "pin": 8,
+          "sheet": 9,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ],
+      "path": [
+        [
+          1538.0,
+          558.0
+        ],
+        [
+          1538.0,
+          821.0
+        ],
+        [
+          1401.3,
+          821.0
+        ],
+        [
+          1538.0,
+          821.0
+        ],
+        [
+          1538.0,
+          846.0
+        ],
+        [
+          1638.0,
+          846.0
+        ]
+      ],
+      "path_source": "ai"
+    },
+    {
+      "name": "S9_DIPSW4_PULLUP",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_RA1",
+          "pin": 5,
+          "sheet": 9,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_SW1",
+          "pin": 5,
+          "sheet": 9,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC10",
+          "pin": 11,
+          "sheet": 9,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ],
+      "path": [
+        [
+          1575.0,
+          558.2
+        ],
+        [
+          1575.0,
+          865.0
+        ],
+        [
+          1401.3,
+          865.0
+        ],
+        [
+          1575.0,
+          865.0
+        ],
+        [
+          1575.0,
+          885.0
+        ],
+        [
+          1638.0,
+          885.0
+        ]
+      ],
+      "path_source": "ai"
+    },
+    {
+      "name": "CONT0",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC13",
+          "pin": 10,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CONT1",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC13",
+          "pin": 11,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC9",
+          "pin": 2,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CONT2",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC13",
+          "pin": 12,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC9",
+          "pin": 16,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CONT3",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC13",
+          "pin": 13,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC21",
+          "pin": 13,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC9",
+          "pin": 5,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "BAR0",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC13",
+          "pin": 1,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC38",
+          "pin": 23,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "BAR1",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC13",
+          "pin": 2,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC38",
+          "pin": 22,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "BAR2",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC13",
+          "pin": 3,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC38",
+          "pin": 21,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "BAR3",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC13",
+          "pin": 4,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC38",
+          "pin": 20,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "BAR4",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC13",
+          "pin": 5,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC38",
+          "pin": 19,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "BAO0",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC13",
+          "pin": 6,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "BAO1",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC13",
+          "pin": 7,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "BAO2",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC13",
+          "pin": 9,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "COUT0",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC21",
+          "pin": 10,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC9",
+          "pin": 19,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "COUT1",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC21",
+          "pin": 11,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "COUT2",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC21",
+          "pin": 12,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "BAO3",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC21",
+          "pin": 1,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "BAO4",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC21",
+          "pin": 2,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "BAB0",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC21",
+          "pin": 3,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC40",
+          "pin": 23,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "BAB1",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC21",
+          "pin": 4,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC40",
+          "pin": 22,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "BAB2",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC21",
+          "pin": 5,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC40",
+          "pin": 21,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "BAB3",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC21",
+          "pin": 6,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC40",
+          "pin": 20,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "BAB4",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC21",
+          "pin": 7,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC40",
+          "pin": 19,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PLB3",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC11",
+          "pin": 7,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PLB4",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC11",
+          "pin": 4,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PLB5",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC11",
+          "pin": 3,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PLB6",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC11",
+          "pin": 2,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PLB7",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC11",
+          "pin": 1,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PLA0",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC11",
+          "pin": 17,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "PLA2",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC11",
+          "pin": 15,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "S9_IC11_O1_TO_IC12_A0",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC11",
+          "pin": 14,
+          "sheet": 9,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC12",
+          "pin": 5,
+          "sheet": 9,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ],
+      "path": [
+        [
+          847.3,
+          2133.3
+        ],
+        [
+          1050.0,
+          2133.3
+        ],
+        [
+          1050.0,
+          2140.1
+        ],
+        [
+          1249.5,
+          2140.1
+        ]
+      ],
+      "path_source": "ai"
+    },
+    {
+      "name": "S9_IC11_O2_TO_IC12_A1",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC11",
+          "pin": 13,
+          "sheet": 9,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC12",
+          "pin": 6,
+          "sheet": 9,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ],
+      "path": [
+        [
+          847.3,
+          2157.8
+        ],
+        [
+          1050.0,
+          2157.8
+        ],
+        [
+          1050.0,
+          2168.2
+        ],
+        [
+          1249.5,
+          2168.2
+        ]
+      ],
+      "path_source": "ai"
+    },
+    {
+      "name": "S9_IC11_O3_TO_IC12_A2",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC11",
+          "pin": 12,
+          "sheet": 9,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC12",
+          "pin": 7,
+          "sheet": 9,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ],
+      "path": [
+        [
+          847.3,
+          2182.3
+        ],
+        [
+          1050.0,
+          2182.3
+        ],
+        [
+          1050.0,
+          2196.4
+        ],
+        [
+          1249.5,
+          2196.4
+        ]
+      ],
+      "path_source": "ai"
+    },
+    {
+      "name": "BABIT1",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC12",
+          "pin": 1,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC18",
+          "pin": 1,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "BABIT2",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC12",
+          "pin": 17,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC18",
+          "pin": 2,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "BABIT3",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC12",
+          "pin": 16,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC18",
+          "pin": 3,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MX0",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC12",
+          "pin": 14,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC38",
+          "pin": 15,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC39",
+          "pin": 15,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC40",
+          "pin": 15,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC29",
+          "pin": 8,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MX1",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC12",
+          "pin": 13,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC38",
+          "pin": 14,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC39",
+          "pin": 14,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC40",
+          "pin": 14,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC29",
+          "pin": 7,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MX2",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC12",
+          "pin": 12,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC38",
+          "pin": 13,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC39",
+          "pin": 13,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC40",
+          "pin": 13,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC29",
+          "pin": 6,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MX3",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC12",
+          "pin": 11,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC38",
+          "pin": 12,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC39",
+          "pin": 12,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC40",
+          "pin": 12,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC29",
+          "pin": 5,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CDR0",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC38",
+          "pin": 8,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CDR1",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC38",
+          "pin": 7,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CDR2",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC38",
+          "pin": 6,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CDR3",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC38",
+          "pin": 5,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CDR4",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC38",
+          "pin": 4,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CDR5",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC38",
+          "pin": 3,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CDR6",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC38",
+          "pin": 2,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CDR7",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC38",
+          "pin": 1,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CDG0",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC39",
+          "pin": 8,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CDG1",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC39",
+          "pin": 7,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CDG2",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC39",
+          "pin": 6,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CDG3",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC39",
+          "pin": 5,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CDG4",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC39",
+          "pin": 4,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CDG5",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC39",
+          "pin": 3,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CDG6",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC39",
+          "pin": 2,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CDG7",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC39",
+          "pin": 1,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CDB0",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC40",
+          "pin": 8,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CDB1",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC40",
+          "pin": 7,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CDB2",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC40",
+          "pin": 6,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CDB3",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC40",
+          "pin": 5,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CDB4",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC40",
+          "pin": 4,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CDB5",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC40",
+          "pin": 3,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CDB6",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC40",
+          "pin": 2,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CDB7",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC40",
+          "pin": 1,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "BAG0",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC39",
+          "pin": 22,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "BAG1",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC39",
+          "pin": 21,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "BAG2",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC39",
+          "pin": 20,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "BAG3",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC39",
+          "pin": 19,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "BAG4",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC39",
+          "pin": 18,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CDR",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC38",
+          "pin": 10,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC29",
+          "pin": 4,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CDG",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC39",
+          "pin": 10,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC29",
+          "pin": 3,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "CDB",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC40",
+          "pin": 10,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC29",
+          "pin": 2,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "S9_IC37B_Q_TO_IC37A_J",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC37b",
+          "pin": 10,
+          "sheet": 9,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC37a",
+          "pin": 2,
+          "sheet": 9,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ],
+      "path": [
+        [
+          3239.0,
+          625.0
+        ],
+        [
+          3340.0,
+          625.0
+        ],
+        [
+          3340.0,
+          612.0
+        ],
+        [
+          3445.0,
+          612.0
+        ]
+      ],
+      "path_source": "ai"
+    },
+    {
+      "name": "ZON0",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC9",
+          "pin": 15,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC18",
+          "pin": 10,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ZON1",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC9",
+          "pin": 6,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC18",
+          "pin": 11,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ZON2",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC9",
+          "pin": 12,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC18",
+          "pin": 12,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "ZON3",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC9",
+          "pin": 9,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC18",
+          "pin": 13,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SLIPAR",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC18",
+          "pin": 5,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "S9_IC30A_Q_TO_IC30B_D",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC30a",
+          "pin": 5,
+          "sheet": 9,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        },
+        {
+          "refdes": "PROM_IC30b",
+          "pin": 12,
+          "sheet": 9,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ],
+      "path": [
+        [
+          3233.0,
+          1768.0
+        ],
+        [
+          3360.0,
+          1768.0
+        ],
+        [
+          3360.0,
+          1765.0
+        ],
+        [
+          3502.0,
+          1765.0
+        ]
+      ],
+      "path_source": "ai"
+    },
+    {
+      "name": "ROAD",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_IC30b",
+          "pin": 9,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "TV-R",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_CN3",
+          "pin": 5,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "TV-G",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_CN3",
+          "pin": 3,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
+    },
+    {
+      "name": "TV-B",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "PROM_CN3",
+          "pin": 4,
+          "sheet": 9,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "Sheet 9 labeled/wire net pass"
+          }
+        }
+      ]
     }
   ]
 }

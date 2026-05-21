@@ -4128,6 +4128,60 @@
         }
       ]
     },
+    "DIP_SW_4": {
+      "description": "Generic 4-position DIP switch package \u2014 8-pin DIP layout, each switch connects pin n (1..4) to its mirror pin (8..5).",
+      "package": "DIP-8",
+      "pins": [
+        {
+          "n": 1,
+          "name": "SW1A",
+          "type": "passive",
+          "group": "sw1"
+        },
+        {
+          "n": 2,
+          "name": "SW2A",
+          "type": "passive",
+          "group": "sw2"
+        },
+        {
+          "n": 3,
+          "name": "SW3A",
+          "type": "passive",
+          "group": "sw3"
+        },
+        {
+          "n": 4,
+          "name": "SW4A",
+          "type": "passive",
+          "group": "sw4"
+        },
+        {
+          "n": 5,
+          "name": "SW4B",
+          "type": "passive",
+          "group": "sw4"
+        },
+        {
+          "n": 6,
+          "name": "SW3B",
+          "type": "passive",
+          "group": "sw3"
+        },
+        {
+          "n": 7,
+          "name": "SW2B",
+          "type": "passive",
+          "group": "sw2"
+        },
+        {
+          "n": 8,
+          "name": "SW1B",
+          "type": "passive",
+          "group": "sw1"
+        }
+      ]
+    },
     "DM8097": {
       "description": "Hex 3-state buffer (non-inverting), two enable groups (4 + 2 outputs); a.k.a. 8T97",
       "package": "DIP-16",
@@ -10196,6 +10250,104 @@
           "n": 5,
           "name": "R4",
           "type": "passive"
+        }
+      ]
+    },
+    "74376": {
+      "description": "SN74376 quadruple J-K flip-flop with common clock and clear; 16-pin DIP pinout as shown on TI datasheet and Sega Turbo schematic IC19.",
+      "package": "DIP-16",
+      "pins": [
+        {
+          "n": 1,
+          "name": "CLR",
+          "type": "input"
+        },
+        {
+          "n": 2,
+          "name": "1J",
+          "type": "input",
+          "group": "ff1"
+        },
+        {
+          "n": 3,
+          "name": "1K",
+          "type": "input",
+          "group": "ff1"
+        },
+        {
+          "n": 4,
+          "name": "1Q",
+          "type": "output",
+          "group": "ff1"
+        },
+        {
+          "n": 5,
+          "name": "2Q",
+          "type": "output",
+          "group": "ff2"
+        },
+        {
+          "n": 6,
+          "name": "2K",
+          "type": "input",
+          "group": "ff2"
+        },
+        {
+          "n": 7,
+          "name": "2J",
+          "type": "input",
+          "group": "ff2"
+        },
+        {
+          "n": 8,
+          "name": "GND",
+          "type": "ground"
+        },
+        {
+          "n": 9,
+          "name": "CLK",
+          "type": "clock"
+        },
+        {
+          "n": 10,
+          "name": "3J",
+          "type": "input",
+          "group": "ff3"
+        },
+        {
+          "n": 11,
+          "name": "3K",
+          "type": "input",
+          "group": "ff3"
+        },
+        {
+          "n": 12,
+          "name": "3Q",
+          "type": "output",
+          "group": "ff3"
+        },
+        {
+          "n": 13,
+          "name": "4Q",
+          "type": "output",
+          "group": "ff4"
+        },
+        {
+          "n": 14,
+          "name": "4K",
+          "type": "input",
+          "group": "ff4"
+        },
+        {
+          "n": 15,
+          "name": "4J",
+          "type": "input",
+          "group": "ff4"
+        },
+        {
+          "n": 16,
+          "name": "VCC",
+          "type": "power"
         }
       ]
     }

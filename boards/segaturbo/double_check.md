@@ -44,7 +44,7 @@ Last updated: 2026-05-21
 - Library coverage has been added and bboxes are placed for `uPC624D`, `uPC159`, `SN75365`, `MC14016B`, `TL084`, and `74LS626` devices.
 - `PROM_IC50` was split into `PROM_IC50a` and `PROM_IC50b` after a source-crop check confirmed two separate drawn IC50 oscillator sections.
 - Pins are placed and lint passes. `PROM_IC43*` / `PROM_IC44*` TL084 suffixes were corrected to match the visible op-amp pin groups before pin placement.
-- `PROM_IC7` / `PROM_IC8` were corrected from `74LS109` to `74LS175` after zoom review; the drawn common `CLK`/`CL` and Q/D pin numbers match the same 16-pin quad flip-flop pattern as sheet 9 `PROM_IC19`.
+- `PROM_IC7` / `PROM_IC8` were corrected from `74LS109` to `74LS175` after zoom review. Revisit them now that sheet 9 `PROM_IC19` has been confirmed as `74376`; the earlier "same pattern as sheet 9" assumption may be wrong.
 - Passives around the analog/clock section are only partially represented. Add the remaining resistors, capacitors, diodes, and regulator after deciding how much passive detail should be captured on the P-ROM board.
 
 ## Sheet 9
@@ -53,9 +53,11 @@ Last updated: 2026-05-21
 - Library coverage has been added and bboxes are placed for `TBP18S030`, `UPB426D` / `PB426D`, `74LS150`, and `74LS377` devices.
 - `PROM_IC21` was corrected from the earlier mistaken `PROM_IC2` refdes after crop verification; the lower TBP18S030 is printed `IC21`.
 - `PROM_IC37` was split into `PROM_IC37a` and `PROM_IC37b` after crop verification showed two separate drawn LS109 sections. The suffixes were swapped during zoom review so `a` is the right-side ff1 section and `b` is the left-side ff2 section.
-- `PROM_IC19` has been added as `74LS175`; the body text reads `376`, but the drawn 16-pin symbol and pin numbering match the existing `74LS175` library entry. Reconfirm against the chip inventory before pin placement.
+- `PROM_IC19` was corrected from `74LS175` to `74376`. The body text reads `376`, and the zoomed source pins show a quad J-K flip-flop with `J/K`, `Q`, common `CLK`, and `CL`.
 - `PROM_RA1` was corrected from `R_NETWORK08_COMMON` to `R_NETWORK04_COMMON` after zoom review confirmed the source label `RA1 4.7K x4` and four resistors sharing a VCC common node.
-- Pins are placed and lint passes. `PROM_IC30a` and `PROM_IC30b` are split `74LS74` units for the two visible `IC30` flip-flop sections; confirm the split-unit naming again when tracing nets.
+- Pins are placed and lint passes. `PROM_IC10`, split `PROM_IC30a` / `PROM_IC30b`, and split `PROM_IC37a` / `PROM_IC37b` were corrected during net tracing after ERC exposed collapsed or overlapping pin positions.
+- Nets and right-angle paths are added. Sheet 9 passes validate, untyped-nets, lint, ERC summary, and untraced-nets.
+- The resistor ladder / video-output passives between `PROM_IC29` and `PROM_CN3` are still not represented as individual graph components. The visible group includes the `R14/R15/R16/R19/R20/R21/R18/R17/R12/R11/R13/R10` area and should be added if the P-ROM sheet needs passive-level fidelity.
 
 ## Sheet 10
 
