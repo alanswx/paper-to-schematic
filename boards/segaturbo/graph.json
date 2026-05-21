@@ -13896,6 +13896,16 @@
             "source": "ai",
             "note": "sheet 4 visible net/label pass after pin correction"
           }
+        },
+        {
+          "refdes": "IC86",
+          "pin": 7,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 LS166 clock label"
+          }
         }
       ],
       "paths_by_sheet": {
@@ -15812,6 +15822,176 @@
           "evidence": {
             "source": "ai"
           }
+        },
+        {
+          "refdes": "IC75",
+          "pin": 26,
+          "sheet": 6,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible VCC pins and implicit power pins"
+          }
+        },
+        {
+          "refdes": "IC32",
+          "pin": 26,
+          "sheet": 6,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible VCC pins and implicit power pins"
+          }
+        },
+        {
+          "refdes": "IC123",
+          "pin": 26,
+          "sheet": 6,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible VCC pins and implicit power pins"
+          }
+        },
+        {
+          "refdes": "IC18",
+          "pin": 16,
+          "sheet": 6,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible VCC pins and implicit power pins"
+          }
+        },
+        {
+          "refdes": "IC19",
+          "pin": 16,
+          "sheet": 6,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible VCC pins and implicit power pins"
+          }
+        },
+        {
+          "refdes": "IC31",
+          "pin": 16,
+          "sheet": 6,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible VCC pins and implicit power pins"
+          }
+        },
+        {
+          "refdes": "IC71",
+          "pin": 16,
+          "sheet": 6,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible VCC pins and implicit power pins"
+          }
+        },
+        {
+          "refdes": "IC56",
+          "pin": 16,
+          "sheet": 6,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible VCC pins and implicit power pins"
+          }
+        },
+        {
+          "refdes": "IC57",
+          "pin": 16,
+          "sheet": 6,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible VCC pins and implicit power pins"
+          }
+        },
+        {
+          "refdes": "IC58",
+          "pin": 16,
+          "sheet": 6,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible VCC pins and implicit power pins"
+          }
+        },
+        {
+          "refdes": "IC70",
+          "pin": 14,
+          "sheet": 6,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible VCC pins and implicit power pins"
+          }
+        },
+        {
+          "refdes": "IC55",
+          "pin": 14,
+          "sheet": 6,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible VCC pins and implicit power pins"
+          }
+        },
+        {
+          "refdes": "IC69c",
+          "pin": 14,
+          "sheet": 6,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible VCC pins and implicit power pins"
+          }
+        },
+        {
+          "refdes": "IC74",
+          "pin": 21,
+          "sheet": 6,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible VCC pins and implicit power pins"
+          }
+        },
+        {
+          "refdes": "IC74",
+          "pin": 24,
+          "sheet": 6,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible VCC pins and implicit power pins"
+          }
+        },
+        {
+          "refdes": "IC86",
+          "pin": 9,
+          "sheet": 6,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible VCC pins and implicit power pins"
+          }
+        },
+        {
+          "refdes": "IC86",
+          "pin": 16,
+          "sheet": 6,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible VCC pins and implicit power pins"
+          }
         }
       ]
     },
@@ -17439,6 +17619,276 @@
           "evidence": {
             "source": "ai"
           }
+        },
+        {
+          "refdes": "IC75",
+          "pin": 7,
+          "sheet": 6,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible ground pins and implicit power pins"
+          }
+        },
+        {
+          "refdes": "IC32",
+          "pin": 7,
+          "sheet": 6,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible ground pins and implicit power pins"
+          }
+        },
+        {
+          "refdes": "IC123",
+          "pin": 7,
+          "sheet": 6,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible ground pins and implicit power pins"
+          }
+        },
+        {
+          "refdes": "IC18",
+          "pin": 8,
+          "sheet": 6,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible ground pins and implicit power pins"
+          }
+        },
+        {
+          "refdes": "IC18",
+          "pin": 15,
+          "sheet": 6,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible ground pins and implicit power pins"
+          }
+        },
+        {
+          "refdes": "IC19",
+          "pin": 8,
+          "sheet": 6,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible ground pins and implicit power pins"
+          }
+        },
+        {
+          "refdes": "IC19",
+          "pin": 15,
+          "sheet": 6,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible ground pins and implicit power pins"
+          }
+        },
+        {
+          "refdes": "IC31",
+          "pin": 8,
+          "sheet": 6,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible ground pins and implicit power pins"
+          }
+        },
+        {
+          "refdes": "IC31",
+          "pin": 15,
+          "sheet": 6,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible ground pins and implicit power pins"
+          }
+        },
+        {
+          "refdes": "IC71",
+          "pin": 7,
+          "sheet": 6,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible ground pins and implicit power pins"
+          }
+        },
+        {
+          "refdes": "IC71",
+          "pin": 8,
+          "sheet": 6,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible ground pins and implicit power pins"
+          }
+        },
+        {
+          "refdes": "IC56",
+          "pin": 8,
+          "sheet": 6,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible ground pins and implicit power pins"
+          }
+        },
+        {
+          "refdes": "IC57",
+          "pin": 7,
+          "sheet": 6,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible ground pins and implicit power pins"
+          }
+        },
+        {
+          "refdes": "IC57",
+          "pin": 8,
+          "sheet": 6,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible ground pins and implicit power pins"
+          }
+        },
+        {
+          "refdes": "IC58",
+          "pin": 8,
+          "sheet": 6,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible ground pins and implicit power pins"
+          }
+        },
+        {
+          "refdes": "IC70",
+          "pin": 7,
+          "sheet": 6,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible ground pins and implicit power pins"
+          }
+        },
+        {
+          "refdes": "IC55",
+          "pin": 7,
+          "sheet": 6,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible ground pins and implicit power pins"
+          }
+        },
+        {
+          "refdes": "IC69c",
+          "pin": 7,
+          "sheet": 6,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible ground pins and implicit power pins"
+          }
+        },
+        {
+          "refdes": "IC74",
+          "pin": 12,
+          "sheet": 6,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible ground pins and implicit power pins"
+          }
+        },
+        {
+          "refdes": "IC74",
+          "pin": 18,
+          "sheet": 6,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible ground pins and implicit power pins"
+          }
+        },
+        {
+          "refdes": "IC74",
+          "pin": 20,
+          "sheet": 6,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible ground pins and implicit power pins"
+          }
+        },
+        {
+          "refdes": "IC86",
+          "pin": 1,
+          "sheet": 6,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible ground pins and implicit power pins"
+          }
+        },
+        {
+          "refdes": "IC86",
+          "pin": 6,
+          "sheet": 6,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible ground pins and implicit power pins"
+          }
+        },
+        {
+          "refdes": "IC86",
+          "pin": 8,
+          "sheet": 6,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible ground pins and implicit power pins"
+          }
+        },
+        {
+          "refdes": "C1",
+          "pin": 1,
+          "sheet": 6,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible ground pins and implicit power pins"
+          }
+        },
+        {
+          "refdes": "CN7",
+          "pin": 25,
+          "sheet": 6,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible ground pins and implicit power pins"
+          }
+        },
+        {
+          "refdes": "CN7",
+          "pin": 26,
+          "sheet": 6,
+          "edge_type": "implicit_power",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible ground pins and implicit power pins"
+          }
         }
       ]
     },
@@ -17592,6 +18042,36 @@
           "evidence": {
             "source": "ai"
           }
+        },
+        {
+          "refdes": "IC75",
+          "pin": 9,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 8255 address labels"
+          }
+        },
+        {
+          "refdes": "IC32",
+          "pin": 9,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 8255 address labels"
+          }
+        },
+        {
+          "refdes": "IC123",
+          "pin": 9,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 8255 address labels"
+          }
         }
       ],
       "path": [
@@ -17726,6 +18206,36 @@
           "edge_type": "label",
           "evidence": {
             "source": "ai"
+          }
+        },
+        {
+          "refdes": "IC75",
+          "pin": 8,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 8255 address labels"
+          }
+        },
+        {
+          "refdes": "IC32",
+          "pin": 8,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 8255 address labels"
+          }
+        },
+        {
+          "refdes": "IC123",
+          "pin": 8,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 8255 address labels"
           }
         }
       ],
@@ -21401,6 +21911,26 @@
             "source": "ai",
             "note": "sheet 4 visible net/label pass after pin correction"
           }
+        },
+        {
+          "refdes": "IC57",
+          "pin": 12,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 H counter labels into LS283"
+          }
+        },
+        {
+          "refdes": "IC74",
+          "pin": 8,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 H labels into 2716"
+          }
         }
       ],
       "path": [
@@ -21498,6 +22028,26 @@
             "source": "ai",
             "note": "sheet 4 visible net/label pass after pin correction"
           }
+        },
+        {
+          "refdes": "IC58",
+          "pin": 5,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 H counter labels into LS283"
+          }
+        },
+        {
+          "refdes": "IC74",
+          "pin": 7,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 H labels into 2716"
+          }
         }
       ],
       "path": [
@@ -21585,6 +22135,26 @@
             "source": "ai",
             "note": "sheet 4 visible net/label pass after pin correction"
           }
+        },
+        {
+          "refdes": "IC58",
+          "pin": 3,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 H counter labels into LS283"
+          }
+        },
+        {
+          "refdes": "IC74",
+          "pin": 6,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 H labels into 2716"
+          }
         }
       ],
       "path": [
@@ -21662,6 +22232,26 @@
             "source": "ai",
             "note": "sheet 4 visible net/label pass after pin correction"
           }
+        },
+        {
+          "refdes": "IC58",
+          "pin": 14,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 H counter labels into LS283"
+          }
+        },
+        {
+          "refdes": "IC74",
+          "pin": 5,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 H labels into 2716"
+          }
         }
       ],
       "path": [
@@ -21738,6 +22328,26 @@
           "evidence": {
             "source": "ai",
             "note": "sheet 4 visible net/label pass after pin correction"
+          }
+        },
+        {
+          "refdes": "IC58",
+          "pin": 12,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 H counter labels into LS283"
+          }
+        },
+        {
+          "refdes": "IC74",
+          "pin": 4,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 H labels into 2716"
           }
         }
       ],
@@ -21826,6 +22436,16 @@
             "source": "ai",
             "note": "sheet 1 visible labelled net pass"
           }
+        },
+        {
+          "refdes": "IC71",
+          "pin": 12,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 V counter labels into LS283"
+          }
         }
       ],
       "path": [
@@ -21901,6 +22521,16 @@
             "source": "ai",
             "note": "sheet 1 visible labelled net pass"
           }
+        },
+        {
+          "refdes": "IC56",
+          "pin": 5,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 V counter labels into LS283"
+          }
         }
       ],
       "path": [
@@ -21965,6 +22595,16 @@
           "evidence": {
             "source": "ai",
             "note": "sheet 1 visible labelled net pass"
+          }
+        },
+        {
+          "refdes": "IC56",
+          "pin": 3,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 V counter labels into LS283"
           }
         }
       ],
@@ -22041,6 +22681,16 @@
             "source": "ai",
             "note": "sheet 1 visible labelled net pass"
           }
+        },
+        {
+          "refdes": "IC56",
+          "pin": 14,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 V counter labels into LS283"
+          }
         }
       ],
       "path": [
@@ -22115,6 +22765,16 @@
           "evidence": {
             "source": "ai",
             "note": "sheet 1 visible labelled net pass"
+          }
+        },
+        {
+          "refdes": "IC56",
+          "pin": 12,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 V counter labels into LS283"
           }
         }
       ],
@@ -24287,6 +24947,16 @@
             "source": "ai",
             "note": "visible CN1 connector label on sheet 2"
           }
+        },
+        {
+          "refdes": "IC31",
+          "pin": 9,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC31 COCH output labels"
+          }
         }
       ]
     },
@@ -24302,6 +24972,16 @@
           "evidence": {
             "source": "ai",
             "note": "visible CN1 connector label on sheet 2"
+          }
+        },
+        {
+          "refdes": "IC31",
+          "pin": 4,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC31 COCH output labels"
           }
         }
       ]
@@ -24351,6 +25031,16 @@
             "source": "ai",
             "note": "visible CN1 connector label on sheet 2"
           }
+        },
+        {
+          "refdes": "IC86",
+          "pin": 13,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 LS166 QH output to AREA5/sheet 7 label"
+          }
         }
       ]
     },
@@ -24366,6 +25056,26 @@
           "evidence": {
             "source": "ai",
             "note": "visible CN1 connector label on sheet 2"
+          }
+        },
+        {
+          "refdes": "IC58",
+          "pin": 9,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 carry output and filter capacitor"
+          }
+        },
+        {
+          "refdes": "C1",
+          "pin": 2,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 carry output and filter capacitor"
           }
         }
       ]
@@ -24478,6 +25188,16 @@
           "evidence": {
             "source": "ai",
             "note": "visible CN1 connector label on sheet 2"
+          }
+        },
+        {
+          "refdes": "IC31",
+          "pin": 7,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC31 COCH output labels"
           }
         }
       ]
@@ -25344,6 +26064,16 @@
             "source": "ai",
             "note": "sheet 4 visible net/label pass after pin correction"
           }
+        },
+        {
+          "refdes": "IC57",
+          "pin": 14,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 H counter labels into LS283"
+          }
         }
       ],
       "path": [
@@ -26032,6 +26762,16 @@
             "source": "ai",
             "note": "sheet 1 visible labelled net pass"
           }
+        },
+        {
+          "refdes": "IC71",
+          "pin": 5,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 V counter labels into LS283"
+          }
         }
       ],
       "path": [
@@ -26106,6 +26846,16 @@
           "evidence": {
             "source": "ai",
             "note": "sheet 1 visible labelled net pass"
+          }
+        },
+        {
+          "refdes": "IC71",
+          "pin": 3,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 V counter labels into LS283"
           }
         }
       ],
@@ -26182,6 +26932,16 @@
             "source": "ai",
             "note": "sheet 1 visible labelled net pass"
           }
+        },
+        {
+          "refdes": "IC71",
+          "pin": 14,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 V counter labels into LS283"
+          }
         }
       ],
       "path": [
@@ -26246,6 +27006,16 @@
           "evidence": {
             "source": "ai",
             "note": "sheet 4 visible net/label pass after pin correction"
+          }
+        },
+        {
+          "refdes": "IC57",
+          "pin": 3,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 H counter labels into LS283"
           }
         }
       ],
@@ -27235,6 +28005,36 @@
           "evidence": {
             "source": "ai"
           }
+        },
+        {
+          "refdes": "IC75",
+          "pin": 5,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 8255 RD labels"
+          }
+        },
+        {
+          "refdes": "IC32",
+          "pin": 5,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 8255 RD labels"
+          }
+        },
+        {
+          "refdes": "IC123",
+          "pin": 5,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 8255 RD labels"
+          }
         }
       ],
       "path": [
@@ -27293,6 +28093,36 @@
           "edge_type": "label",
           "evidence": {
             "source": "ai"
+          }
+        },
+        {
+          "refdes": "IC75",
+          "pin": 36,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 8255 WR labels"
+          }
+        },
+        {
+          "refdes": "IC32",
+          "pin": 36,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 8255 WR labels"
+          }
+        },
+        {
+          "refdes": "IC123",
+          "pin": 36,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 8255 WR labels"
           }
         }
       ],
@@ -27502,6 +28332,36 @@
           "edge_type": "label",
           "evidence": {
             "source": "ai"
+          }
+        },
+        {
+          "refdes": "IC75",
+          "pin": 35,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 8255 RESET labels"
+          }
+        },
+        {
+          "refdes": "IC32",
+          "pin": 35,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 8255 RESET labels"
+          }
+        },
+        {
+          "refdes": "IC123",
+          "pin": 35,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 8255 RESET labels"
           }
         }
       ],
@@ -27911,6 +28771,16 @@
             "source": "ai",
             "note": "sheet 1 visible labelled net pass"
           }
+        },
+        {
+          "refdes": "IC75",
+          "pin": 6,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 8255 chip-select label"
+          }
         }
       ],
       "path": [
@@ -27958,6 +28828,16 @@
             "source": "ai",
             "note": "sheet 1 visible labelled net pass"
           }
+        },
+        {
+          "refdes": "IC32",
+          "pin": 6,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 8255 chip-select label"
+          }
         }
       ]
     },
@@ -27973,6 +28853,16 @@
           "evidence": {
             "source": "ai",
             "note": "sheet 1 visible labelled net pass"
+          }
+        },
+        {
+          "refdes": "IC123",
+          "pin": 6,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 8255 chip-select label"
           }
         }
       ]
@@ -28372,6 +29262,16 @@
             "source": "ai",
             "note": "sheet 4 visible net/label pass after pin correction"
           }
+        },
+        {
+          "refdes": "IC57",
+          "pin": 5,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 H counter labels into LS283"
+          }
         }
       ],
       "path": [
@@ -28587,6 +29487,16 @@
           "evidence": {
             "source": "ai",
             "note": "sheet 1 visible labelled net pass"
+          }
+        },
+        {
+          "refdes": "IC86",
+          "pin": 15,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 LS166 shift/load label"
           }
         }
       ]
@@ -32092,6 +33002,36 @@
           "evidence": {
             "source": "ai"
           }
+        },
+        {
+          "refdes": "IC75",
+          "pin": 34,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 8255 data bus labels"
+          }
+        },
+        {
+          "refdes": "IC32",
+          "pin": 34,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 8255 data bus labels"
+          }
+        },
+        {
+          "refdes": "IC123",
+          "pin": 34,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 8255 data bus labels"
+          }
         }
       ],
       "path_source": "ai"
@@ -32125,6 +33065,36 @@
           "edge_type": "label",
           "evidence": {
             "source": "ai"
+          }
+        },
+        {
+          "refdes": "IC75",
+          "pin": 33,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 8255 data bus labels"
+          }
+        },
+        {
+          "refdes": "IC32",
+          "pin": 33,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 8255 data bus labels"
+          }
+        },
+        {
+          "refdes": "IC123",
+          "pin": 33,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 8255 data bus labels"
           }
         }
       ],
@@ -32160,6 +33130,36 @@
           "evidence": {
             "source": "ai"
           }
+        },
+        {
+          "refdes": "IC75",
+          "pin": 32,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 8255 data bus labels"
+          }
+        },
+        {
+          "refdes": "IC32",
+          "pin": 32,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 8255 data bus labels"
+          }
+        },
+        {
+          "refdes": "IC123",
+          "pin": 32,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 8255 data bus labels"
+          }
         }
       ],
       "path_source": "ai"
@@ -32193,6 +33193,36 @@
           "edge_type": "label",
           "evidence": {
             "source": "ai"
+          }
+        },
+        {
+          "refdes": "IC75",
+          "pin": 31,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 8255 data bus labels"
+          }
+        },
+        {
+          "refdes": "IC32",
+          "pin": 31,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 8255 data bus labels"
+          }
+        },
+        {
+          "refdes": "IC123",
+          "pin": 31,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 8255 data bus labels"
           }
         }
       ],
@@ -32228,6 +33258,36 @@
           "evidence": {
             "source": "ai"
           }
+        },
+        {
+          "refdes": "IC75",
+          "pin": 30,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 8255 data bus labels"
+          }
+        },
+        {
+          "refdes": "IC32",
+          "pin": 30,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 8255 data bus labels"
+          }
+        },
+        {
+          "refdes": "IC123",
+          "pin": 30,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 8255 data bus labels"
+          }
         }
       ],
       "path_source": "ai"
@@ -32261,6 +33321,36 @@
           "edge_type": "label",
           "evidence": {
             "source": "ai"
+          }
+        },
+        {
+          "refdes": "IC75",
+          "pin": 29,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 8255 data bus labels"
+          }
+        },
+        {
+          "refdes": "IC32",
+          "pin": 29,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 8255 data bus labels"
+          }
+        },
+        {
+          "refdes": "IC123",
+          "pin": 29,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 8255 data bus labels"
           }
         }
       ],
@@ -32296,6 +33386,36 @@
           "evidence": {
             "source": "ai"
           }
+        },
+        {
+          "refdes": "IC75",
+          "pin": 28,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 8255 data bus labels"
+          }
+        },
+        {
+          "refdes": "IC32",
+          "pin": 28,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 8255 data bus labels"
+          }
+        },
+        {
+          "refdes": "IC123",
+          "pin": 28,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 8255 data bus labels"
+          }
         }
       ],
       "path_source": "ai"
@@ -32329,6 +33449,36 @@
           "edge_type": "label",
           "evidence": {
             "source": "ai"
+          }
+        },
+        {
+          "refdes": "IC75",
+          "pin": 27,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 8255 data bus labels"
+          }
+        },
+        {
+          "refdes": "IC32",
+          "pin": 27,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 8255 data bus labels"
+          }
+        },
+        {
+          "refdes": "IC123",
+          "pin": 27,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 8255 data bus labels"
           }
         }
       ],
@@ -34430,6 +35580,2740 @@
         ]
       ],
       "path_source": "ai"
+    },
+    {
+      "name": "OPC0",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC75",
+          "pin": 14,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC75 PC labels/fanout"
+          }
+        },
+        {
+          "refdes": "IC74",
+          "pin": 3,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC75 PC labels/fanout"
+          }
+        }
+      ]
+    },
+    {
+      "name": "OPC1",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC75",
+          "pin": 15,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC75 PC labels/fanout"
+          }
+        },
+        {
+          "refdes": "IC74",
+          "pin": 2,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC75 PC labels/fanout"
+          }
+        }
+      ]
+    },
+    {
+      "name": "OPC2",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC75",
+          "pin": 16,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC75 PC labels/fanout"
+          }
+        },
+        {
+          "refdes": "IC74",
+          "pin": 1,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC75 PC labels/fanout"
+          }
+        }
+      ]
+    },
+    {
+      "name": "OPC3",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC75",
+          "pin": 17,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC75 PC labels/fanout"
+          }
+        },
+        {
+          "refdes": "IC74",
+          "pin": 23,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC75 PC labels/fanout"
+          }
+        }
+      ]
+    },
+    {
+      "name": "OPC4",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC75",
+          "pin": 13,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC75 PC labels/fanout"
+          }
+        },
+        {
+          "refdes": "IC74",
+          "pin": 22,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC75 PC labels/fanout"
+          }
+        }
+      ]
+    },
+    {
+      "name": "OPC5",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC75",
+          "pin": 12,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC75 PC labels/fanout"
+          }
+        },
+        {
+          "refdes": "IC74",
+          "pin": 19,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC75 PC labels/fanout"
+          }
+        }
+      ]
+    },
+    {
+      "name": "OPC6",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC75",
+          "pin": 11,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC75 PC labels/fanout"
+          }
+        }
+      ]
+    },
+    {
+      "name": "OPC7",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC75",
+          "pin": 10,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC75 PC labels/fanout"
+          }
+        },
+        {
+          "refdes": "IC69c",
+          "pin": 5,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC75 PC labels/fanout"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IPA0",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC32",
+          "pin": 4,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC32 PA to LS157"
+          }
+        },
+        {
+          "refdes": "IC18",
+          "pin": 11,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC32 PA to LS157"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IPA1",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC32",
+          "pin": 3,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC32 PA to LS157"
+          }
+        },
+        {
+          "refdes": "IC18",
+          "pin": 5,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC32 PA to LS157"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IPA2",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC32",
+          "pin": 2,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC32 PA to LS157"
+          }
+        },
+        {
+          "refdes": "IC18",
+          "pin": 14,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC32 PA to LS157"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IPA3",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC32",
+          "pin": 1,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC32 PA to LS157"
+          }
+        },
+        {
+          "refdes": "IC18",
+          "pin": 2,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC32 PA to LS157"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IPA4",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC32",
+          "pin": 40,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC32 PA to LS157"
+          }
+        },
+        {
+          "refdes": "IC19",
+          "pin": 11,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC32 PA to LS157"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IPA5",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC32",
+          "pin": 39,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC32 PA to LS157"
+          }
+        },
+        {
+          "refdes": "IC19",
+          "pin": 5,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC32 PA to LS157"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IPA6",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC32",
+          "pin": 38,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC32 PA to LS157"
+          }
+        },
+        {
+          "refdes": "IC19",
+          "pin": 14,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC32 PA to LS157"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IPA7",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC32",
+          "pin": 37,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC32 PA to LS157"
+          }
+        },
+        {
+          "refdes": "IC19",
+          "pin": 2,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC32 PA to LS157"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IPB0",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC32",
+          "pin": 18,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC32 PB to LS157"
+          }
+        },
+        {
+          "refdes": "IC18",
+          "pin": 10,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC32 PB to LS157"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IPB1",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC32",
+          "pin": 19,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC32 PB to LS157"
+          }
+        },
+        {
+          "refdes": "IC18",
+          "pin": 6,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC32 PB to LS157"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IPB2",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC32",
+          "pin": 20,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC32 PB to LS157"
+          }
+        },
+        {
+          "refdes": "IC18",
+          "pin": 13,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC32 PB to LS157"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IPB3",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC32",
+          "pin": 21,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC32 PB to LS157"
+          }
+        },
+        {
+          "refdes": "IC18",
+          "pin": 3,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC32 PB to LS157"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IPB4",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC32",
+          "pin": 22,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC32 PB to LS157"
+          }
+        },
+        {
+          "refdes": "IC19",
+          "pin": 10,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC32 PB to LS157"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IPB5",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC32",
+          "pin": 23,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC32 PB to LS157"
+          }
+        },
+        {
+          "refdes": "IC19",
+          "pin": 6,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC32 PB to LS157"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IPB6",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC32",
+          "pin": 24,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC32 PB to LS157"
+          }
+        },
+        {
+          "refdes": "IC19",
+          "pin": 13,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC32 PB to LS157"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IPB7",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC32",
+          "pin": 25,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC32 PB to LS157"
+          }
+        },
+        {
+          "refdes": "IC19",
+          "pin": 3,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC32 PB to LS157"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IPC0",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC32",
+          "pin": 14,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC32 PC to LS157"
+          }
+        },
+        {
+          "refdes": "IC31",
+          "pin": 11,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC32 PC to LS157"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IPC1",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC32",
+          "pin": 15,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC32 PC to LS157"
+          }
+        },
+        {
+          "refdes": "IC31",
+          "pin": 14,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC32 PC to LS157"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IPC2",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC32",
+          "pin": 16,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC32 PC to LS157"
+          }
+        },
+        {
+          "refdes": "IC31",
+          "pin": 2,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC32 PC to LS157"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IPC3",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC32",
+          "pin": 17,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC32 PC to LS157"
+          }
+        },
+        {
+          "refdes": "IC31",
+          "pin": 5,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC32 PC to LS157"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IPC4",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC32",
+          "pin": 13,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC32 PC to LS157"
+          }
+        },
+        {
+          "refdes": "IC31",
+          "pin": 10,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC32 PC to LS157"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IPC5",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC32",
+          "pin": 12,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC32 PC to LS157"
+          }
+        },
+        {
+          "refdes": "IC31",
+          "pin": 13,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC32 PC to LS157"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IPC6",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC32",
+          "pin": 11,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC32 PC to LS157"
+          }
+        },
+        {
+          "refdes": "IC31",
+          "pin": 3,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC32 PC to LS157"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IPC7",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC32",
+          "pin": 10,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC32 PC to LS157"
+          }
+        },
+        {
+          "refdes": "IC31",
+          "pin": 6,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC32 PC to LS157"
+          }
+        }
+      ]
+    },
+    {
+      "name": "2PA0",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC123",
+          "pin": 4,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC123 PA to CN7"
+          }
+        },
+        {
+          "refdes": "CN7",
+          "pin": 1,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC123 PA to CN7"
+          }
+        }
+      ]
+    },
+    {
+      "name": "2PA1",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC123",
+          "pin": 3,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC123 PA to CN7"
+          }
+        },
+        {
+          "refdes": "CN7",
+          "pin": 2,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC123 PA to CN7"
+          }
+        }
+      ]
+    },
+    {
+      "name": "2PA2",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC123",
+          "pin": 2,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC123 PA to CN7"
+          }
+        },
+        {
+          "refdes": "CN7",
+          "pin": 3,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC123 PA to CN7"
+          }
+        }
+      ]
+    },
+    {
+      "name": "2PA3",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC123",
+          "pin": 1,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC123 PA to CN7"
+          }
+        },
+        {
+          "refdes": "CN7",
+          "pin": 4,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC123 PA to CN7"
+          }
+        }
+      ]
+    },
+    {
+      "name": "2PA4",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC123",
+          "pin": 40,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC123 PA to CN7"
+          }
+        },
+        {
+          "refdes": "CN7",
+          "pin": 5,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC123 PA to CN7"
+          }
+        }
+      ]
+    },
+    {
+      "name": "2PA5",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC123",
+          "pin": 39,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC123 PA to CN7"
+          }
+        },
+        {
+          "refdes": "CN7",
+          "pin": 6,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC123 PA to CN7"
+          }
+        }
+      ]
+    },
+    {
+      "name": "2PA6",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC123",
+          "pin": 38,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC123 PA to CN7"
+          }
+        },
+        {
+          "refdes": "CN7",
+          "pin": 7,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC123 PA to CN7"
+          }
+        }
+      ]
+    },
+    {
+      "name": "2PA7",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC123",
+          "pin": 37,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC123 PA to CN7"
+          }
+        },
+        {
+          "refdes": "CN7",
+          "pin": 8,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC123 PA to CN7"
+          }
+        }
+      ]
+    },
+    {
+      "name": "2PB0",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC123",
+          "pin": 18,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC123 PB to CN7"
+          }
+        },
+        {
+          "refdes": "CN7",
+          "pin": 9,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC123 PB to CN7"
+          }
+        }
+      ]
+    },
+    {
+      "name": "2PB1",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC123",
+          "pin": 19,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC123 PB to CN7"
+          }
+        },
+        {
+          "refdes": "CN7",
+          "pin": 10,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC123 PB to CN7"
+          }
+        }
+      ]
+    },
+    {
+      "name": "2PB2",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC123",
+          "pin": 20,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC123 PB to CN7"
+          }
+        },
+        {
+          "refdes": "CN7",
+          "pin": 11,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC123 PB to CN7"
+          }
+        }
+      ]
+    },
+    {
+      "name": "2PB3",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC123",
+          "pin": 21,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC123 PB to CN7"
+          }
+        },
+        {
+          "refdes": "CN7",
+          "pin": 12,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC123 PB to CN7"
+          }
+        }
+      ]
+    },
+    {
+      "name": "2PB4",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC123",
+          "pin": 22,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC123 PB to CN7"
+          }
+        },
+        {
+          "refdes": "CN7",
+          "pin": 13,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC123 PB to CN7"
+          }
+        }
+      ]
+    },
+    {
+      "name": "2PB5",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC123",
+          "pin": 23,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC123 PB to CN7"
+          }
+        },
+        {
+          "refdes": "CN7",
+          "pin": 14,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC123 PB to CN7"
+          }
+        }
+      ]
+    },
+    {
+      "name": "2PB6",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC123",
+          "pin": 24,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC123 PB to CN7"
+          }
+        },
+        {
+          "refdes": "CN7",
+          "pin": 15,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC123 PB to CN7"
+          }
+        }
+      ]
+    },
+    {
+      "name": "2PB7",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC123",
+          "pin": 25,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC123 PB to CN7"
+          }
+        },
+        {
+          "refdes": "CN7",
+          "pin": 16,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC123 PB to CN7"
+          }
+        }
+      ]
+    },
+    {
+      "name": "2PC0",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC123",
+          "pin": 14,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC123 PC to CN7"
+          }
+        },
+        {
+          "refdes": "CN7",
+          "pin": 17,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC123 PC to CN7"
+          }
+        }
+      ]
+    },
+    {
+      "name": "2PC1",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC123",
+          "pin": 15,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC123 PC to CN7"
+          }
+        },
+        {
+          "refdes": "CN7",
+          "pin": 18,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC123 PC to CN7"
+          }
+        }
+      ]
+    },
+    {
+      "name": "2PC2",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC123",
+          "pin": 16,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC123 PC to CN7"
+          }
+        },
+        {
+          "refdes": "CN7",
+          "pin": 19,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC123 PC to CN7"
+          }
+        }
+      ]
+    },
+    {
+      "name": "2PC3",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC123",
+          "pin": 17,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC123 PC to CN7"
+          }
+        },
+        {
+          "refdes": "CN7",
+          "pin": 20,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC123 PC to CN7"
+          }
+        }
+      ]
+    },
+    {
+      "name": "2PC4",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC123",
+          "pin": 13,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC123 PC to CN7"
+          }
+        },
+        {
+          "refdes": "CN7",
+          "pin": 21,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC123 PC to CN7"
+          }
+        }
+      ]
+    },
+    {
+      "name": "2PC5",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC123",
+          "pin": 12,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC123 PC to CN7"
+          }
+        },
+        {
+          "refdes": "CN7",
+          "pin": 22,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC123 PC to CN7"
+          }
+        }
+      ]
+    },
+    {
+      "name": "2PC6",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC123",
+          "pin": 11,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC123 PC to CN7"
+          }
+        },
+        {
+          "refdes": "CN7",
+          "pin": 23,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC123 PC to CN7"
+          }
+        }
+      ]
+    },
+    {
+      "name": "2PC7",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC123",
+          "pin": 10,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC123 PC to CN7"
+          }
+        },
+        {
+          "refdes": "CN7",
+          "pin": 24,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC123 PC to CN7"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SHEET6_LS157_SEL",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC18",
+          "pin": 1,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 common LS157 select wire"
+          }
+        },
+        {
+          "refdes": "IC19",
+          "pin": 1,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 common LS157 select wire"
+          }
+        },
+        {
+          "refdes": "IC31",
+          "pin": 1,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 common LS157 select wire"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SEL0",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC18",
+          "pin": 9,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 LS157 SEL output labels"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SEL1",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC18",
+          "pin": 7,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 LS157 SEL output labels"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SEL2",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC18",
+          "pin": 12,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 LS157 SEL output labels"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SEL3",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC18",
+          "pin": 4,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 LS157 SEL output labels"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SEL4",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC19",
+          "pin": 9,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 LS157 SEL output labels"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SEL5",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC19",
+          "pin": 7,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 LS157 SEL output labels"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SEL6",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC19",
+          "pin": 12,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 LS157 SEL output labels"
+          }
+        }
+      ]
+    },
+    {
+      "name": "SEL7",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC19",
+          "pin": 4,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 LS157 SEL output labels"
+          }
+        }
+      ]
+    },
+    {
+      "name": "COCH1",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC31",
+          "pin": 12,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC31 COCH output labels"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IC71_SUM1_TO_IC70_1",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC71",
+          "pin": 4,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible direct wire"
+          }
+        },
+        {
+          "refdes": "IC70",
+          "pin": 1,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible direct wire"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IC71_SUM2_TO_IC70_5",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC71",
+          "pin": 1,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible direct wire"
+          }
+        },
+        {
+          "refdes": "IC70",
+          "pin": 5,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible direct wire"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IC71_SUM3_TO_IC70_9",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC71",
+          "pin": 13,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible direct wire"
+          }
+        },
+        {
+          "refdes": "IC70",
+          "pin": 9,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible direct wire"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IC71_SUM4_TO_IC70_13",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC71",
+          "pin": 10,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible direct wire"
+          }
+        },
+        {
+          "refdes": "IC70",
+          "pin": 13,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible direct wire"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IC56_SUM1_TO_IC55_1",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC56",
+          "pin": 4,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible direct wire"
+          }
+        },
+        {
+          "refdes": "IC55",
+          "pin": 1,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible direct wire"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IC56_SUM2_TO_IC55_5",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC56",
+          "pin": 1,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible direct wire"
+          }
+        },
+        {
+          "refdes": "IC55",
+          "pin": 5,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible direct wire"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IC56_SUM3_TO_IC55_9",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC56",
+          "pin": 13,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible direct wire"
+          }
+        },
+        {
+          "refdes": "IC55",
+          "pin": 9,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible direct wire"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IC56_SUM4_TO_IC55_13",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC56",
+          "pin": 10,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible direct wire"
+          }
+        },
+        {
+          "refdes": "IC55",
+          "pin": 13,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible direct wire"
+          }
+        }
+      ]
+    },
+    {
+      "name": "V_ADDER_CARRY_LOW",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC71",
+          "pin": 9,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible direct wire"
+          }
+        },
+        {
+          "refdes": "IC56",
+          "pin": 7,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible direct wire"
+          }
+        }
+      ]
+    },
+    {
+      "name": "H_ADDER_CARRY_LOW",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC57",
+          "pin": 9,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible direct wire"
+          }
+        },
+        {
+          "refdes": "IC58",
+          "pin": 7,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible direct wire"
+          }
+        }
+      ]
+    },
+    {
+      "name": "OPC7_INV",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC69c",
+          "pin": 6,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible direct wire"
+          }
+        },
+        {
+          "refdes": "IC70",
+          "pin": 2,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible direct wire"
+          }
+        },
+        {
+          "refdes": "IC70",
+          "pin": 4,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible direct wire"
+          }
+        },
+        {
+          "refdes": "IC70",
+          "pin": 10,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible direct wire"
+          }
+        },
+        {
+          "refdes": "IC70",
+          "pin": 12,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible direct wire"
+          }
+        },
+        {
+          "refdes": "IC55",
+          "pin": 2,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible direct wire"
+          }
+        },
+        {
+          "refdes": "IC55",
+          "pin": 4,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible direct wire"
+          }
+        },
+        {
+          "refdes": "IC55",
+          "pin": 10,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible direct wire"
+          }
+        },
+        {
+          "refdes": "IC55",
+          "pin": 12,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 visible direct wire"
+          }
+        }
+      ]
+    },
+    {
+      "name": "VA0",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC70",
+          "pin": 3,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 LS86 VA output labels"
+          }
+        }
+      ]
+    },
+    {
+      "name": "VA1",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC70",
+          "pin": 6,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 LS86 VA output labels"
+          }
+        }
+      ]
+    },
+    {
+      "name": "VA2",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC70",
+          "pin": 8,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 LS86 VA output labels"
+          }
+        }
+      ]
+    },
+    {
+      "name": "VA3",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC70",
+          "pin": 11,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 LS86 VA output labels"
+          }
+        }
+      ]
+    },
+    {
+      "name": "VA4",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC55",
+          "pin": 3,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 LS86 VA output labels"
+          }
+        }
+      ]
+    },
+    {
+      "name": "VA5",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC55",
+          "pin": 6,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 LS86 VA output labels"
+          }
+        }
+      ]
+    },
+    {
+      "name": "VA6",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC55",
+          "pin": 8,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 LS86 VA output labels"
+          }
+        }
+      ]
+    },
+    {
+      "name": "VA7",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC55",
+          "pin": 11,
+          "sheet": 6,
+          "edge_type": "label",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 LS86 VA output labels"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IC74_O0_TO_IC86_A",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC74",
+          "pin": 9,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 2716 output to LS166 parallel input"
+          }
+        },
+        {
+          "refdes": "IC86",
+          "pin": 2,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 2716 output to LS166 parallel input"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IC74_O1_TO_IC86_B",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC74",
+          "pin": 10,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 2716 output to LS166 parallel input"
+          }
+        },
+        {
+          "refdes": "IC86",
+          "pin": 3,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 2716 output to LS166 parallel input"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IC74_O2_TO_IC86_C",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC74",
+          "pin": 11,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 2716 output to LS166 parallel input"
+          }
+        },
+        {
+          "refdes": "IC86",
+          "pin": 4,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 2716 output to LS166 parallel input"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IC74_O3_TO_IC86_D",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC74",
+          "pin": 13,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 2716 output to LS166 parallel input"
+          }
+        },
+        {
+          "refdes": "IC86",
+          "pin": 5,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 2716 output to LS166 parallel input"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IC74_O4_TO_IC86_E",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC74",
+          "pin": 14,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 2716 output to LS166 parallel input"
+          }
+        },
+        {
+          "refdes": "IC86",
+          "pin": 10,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 2716 output to LS166 parallel input"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IC74_O5_TO_IC86_F",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC74",
+          "pin": 15,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 2716 output to LS166 parallel input"
+          }
+        },
+        {
+          "refdes": "IC86",
+          "pin": 11,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 2716 output to LS166 parallel input"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IC74_O6_TO_IC86_G",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC74",
+          "pin": 16,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 2716 output to LS166 parallel input"
+          }
+        },
+        {
+          "refdes": "IC86",
+          "pin": 12,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 2716 output to LS166 parallel input"
+          }
+        }
+      ]
+    },
+    {
+      "name": "IC74_O7_TO_IC86_H",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC74",
+          "pin": 17,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 2716 output to LS166 parallel input"
+          }
+        },
+        {
+          "refdes": "IC86",
+          "pin": 14,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 2716 output to LS166 parallel input"
+          }
+        }
+      ]
+    },
+    {
+      "name": "OPA0",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC75",
+          "pin": 4,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC75 port fanout corrected after overlay review"
+          }
+        },
+        {
+          "refdes": "IC71",
+          "pin": 6,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC75 port fanout corrected after overlay review"
+          }
+        }
+      ]
+    },
+    {
+      "name": "OPA1",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC75",
+          "pin": 3,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC75 port fanout corrected after overlay review"
+          }
+        },
+        {
+          "refdes": "IC71",
+          "pin": 2,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC75 port fanout corrected after overlay review"
+          }
+        }
+      ]
+    },
+    {
+      "name": "OPA2",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC75",
+          "pin": 2,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC75 port fanout corrected after overlay review"
+          }
+        },
+        {
+          "refdes": "IC71",
+          "pin": 15,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC75 port fanout corrected after overlay review"
+          }
+        }
+      ]
+    },
+    {
+      "name": "OPA3",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC75",
+          "pin": 1,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC75 port fanout corrected after overlay review"
+          }
+        },
+        {
+          "refdes": "IC71",
+          "pin": 11,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC75 port fanout corrected after overlay review"
+          }
+        }
+      ]
+    },
+    {
+      "name": "OPA4",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC75",
+          "pin": 40,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC75 port fanout corrected after overlay review"
+          }
+        },
+        {
+          "refdes": "IC56",
+          "pin": 6,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC75 port fanout corrected after overlay review"
+          }
+        }
+      ]
+    },
+    {
+      "name": "OPA5",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC75",
+          "pin": 39,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC75 port fanout corrected after overlay review"
+          }
+        },
+        {
+          "refdes": "IC56",
+          "pin": 2,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC75 port fanout corrected after overlay review"
+          }
+        }
+      ]
+    },
+    {
+      "name": "OPA6",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC75",
+          "pin": 38,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC75 port fanout corrected after overlay review"
+          }
+        },
+        {
+          "refdes": "IC56",
+          "pin": 15,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC75 port fanout corrected after overlay review"
+          }
+        }
+      ]
+    },
+    {
+      "name": "OPA7",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC75",
+          "pin": 37,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC75 port fanout corrected after overlay review"
+          }
+        },
+        {
+          "refdes": "IC56",
+          "pin": 11,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC75 port fanout corrected after overlay review"
+          }
+        }
+      ]
+    },
+    {
+      "name": "OPB0",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC75",
+          "pin": 18,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC75 port fanout corrected after overlay review"
+          }
+        },
+        {
+          "refdes": "IC57",
+          "pin": 6,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC75 port fanout corrected after overlay review"
+          }
+        }
+      ]
+    },
+    {
+      "name": "OPB1",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC75",
+          "pin": 19,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC75 port fanout corrected after overlay review"
+          }
+        },
+        {
+          "refdes": "IC57",
+          "pin": 2,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC75 port fanout corrected after overlay review"
+          }
+        }
+      ]
+    },
+    {
+      "name": "OPB2",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC75",
+          "pin": 20,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC75 port fanout corrected after overlay review"
+          }
+        },
+        {
+          "refdes": "IC57",
+          "pin": 15,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC75 port fanout corrected after overlay review"
+          }
+        }
+      ]
+    },
+    {
+      "name": "OPB3",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC75",
+          "pin": 21,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC75 port fanout corrected after overlay review"
+          }
+        },
+        {
+          "refdes": "IC57",
+          "pin": 11,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC75 port fanout corrected after overlay review"
+          }
+        }
+      ]
+    },
+    {
+      "name": "OPB4",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC75",
+          "pin": 22,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC75 port fanout corrected after overlay review"
+          }
+        },
+        {
+          "refdes": "IC58",
+          "pin": 6,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC75 port fanout corrected after overlay review"
+          }
+        }
+      ]
+    },
+    {
+      "name": "OPB5",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC75",
+          "pin": 23,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC75 port fanout corrected after overlay review"
+          }
+        },
+        {
+          "refdes": "IC58",
+          "pin": 2,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC75 port fanout corrected after overlay review"
+          }
+        }
+      ]
+    },
+    {
+      "name": "OPB6",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC75",
+          "pin": 24,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC75 port fanout corrected after overlay review"
+          }
+        },
+        {
+          "refdes": "IC58",
+          "pin": 15,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC75 port fanout corrected after overlay review"
+          }
+        }
+      ]
+    },
+    {
+      "name": "OPB7",
+      "kind": "signal",
+      "endpoints": [
+        {
+          "refdes": "IC75",
+          "pin": 25,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC75 port fanout corrected after overlay review"
+          }
+        },
+        {
+          "refdes": "IC58",
+          "pin": 11,
+          "sheet": 6,
+          "edge_type": "wire",
+          "evidence": {
+            "source": "ai",
+            "note": "sheet 6 IC75 port fanout corrected after overlay review"
+          }
+        }
+      ]
     }
   ]
 }
