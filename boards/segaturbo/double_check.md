@@ -58,10 +58,12 @@ Last updated: 2026-05-21
 
 ## Sheet 10
 
-- Initial bboxes are placed for known-library P-ROM components: `PROM_IC71`, `PROM_IC83`, `PROM_IC95`, `PROM_IC101`, `PROM_IC54`, `PROM_IC84`, `PROM_IC102`, `PROM_IC59a`, `PROM_IC59b`, `PROM_IC59c`, `PROM_IC59d`, and `PROM_R2`.
+- Initial bboxes are placed for known-library P-ROM components: `PROM_IC71`, `PROM_IC83`, `PROM_IC95`, `PROM_IC101`, `PROM_IC54b`, `PROM_IC84`, `PROM_IC102`, `PROM_IC59a`, `PROM_IC59b`, `PROM_IC59c`, `PROM_IC59d`, and `PROM_R2`.
 - `PROM_IC84` and `PROM_IC102` are printed as `2764 or 2364`; the graph currently uses `2764` so the sheet can move through the existing librarian coverage.
-- Library coverage has been added and bboxes are placed for `74LS195` and `74LS11` devices.
-- Pins are placed and lint passes. `PROM_IC59a` through `PROM_IC59d` are split `74LS00` NAND units; suffixes were corrected during zoom review so the suffix letter matches the visible gate pin numbers.
+- `PROM_IC54b` was corrected from `74LS74` to the second half of `74LS109` after zoom review; the source reads `LS109(N)` and shows pins `13/12/14/11/10/9/15`.
+- `PROM_IC53b` was split from the full `74LS11` package after zoom review; the source shows gate 2 with pins `4/3/5 -> 6`.
+- Library coverage has been added and bboxes are placed for `74LS195` and `74LS11` devices. The `74LS195` librarian entry was corrected so pin `10` is `CLK`, pin `15` is `SH/~LD`, pins `14/13/12/11` are `QA/QB/QC/QD`, and pin `9` is `~QD`.
+- Pins are placed and lint passes. `PROM_IC59a` through `PROM_IC59d` are split `74LS00` NAND units; suffixes were corrected during zoom review so the suffix letter matches the visible gate pin numbers. `PROM_IC84`, `PROM_IC102`, and the four `74LS191` counters were remapped from default DIP order to the functional symbol pin rows printed on the source sheet.
 
 ## Cross-Sheet / Library
 

@@ -9193,39 +9193,39 @@
         },
         {
           "n": 9,
-          "name": "QD",
-          "type": "output",
-          "group": "q"
-        },
-        {
-          "n": 10,
           "name": "~QD",
           "type": "output",
           "group": "q"
         },
         {
+          "n": 10,
+          "name": "CLK",
+          "type": "clock",
+          "group": "ctrl"
+        },
+        {
           "n": 11,
-          "name": "QC",
+          "name": "QD",
           "type": "output",
           "group": "q"
         },
         {
           "n": 12,
-          "name": "QB",
+          "name": "QC",
           "type": "output",
           "group": "q"
         },
         {
           "n": 13,
-          "name": "QA",
+          "name": "QB",
           "type": "output",
           "group": "q"
         },
         {
           "n": 14,
-          "name": "CLK",
-          "type": "clock",
-          "group": "ctrl"
+          "name": "QA",
+          "type": "output",
+          "group": "q"
         },
         {
           "n": 15,
