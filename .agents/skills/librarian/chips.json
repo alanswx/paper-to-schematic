@@ -8873,6 +8873,1296 @@
       "pin_count": 26,
       "kicad_symbol": "Connector_Generic:Conn_01x26",
       "kicad_footprint": "Connector_PinHeader_2.54mm:PinHeader_1x26_P2.54mm_Vertical"
+    },
+    "74LS11": {
+      "description": "Triple 3-input positive AND gates",
+      "package": "DIP-14",
+      "datasheet": "TI SN54LS11/SN74LS11, Triple 3-Input Positive-AND Gates, SDLS029",
+      "aliases": [
+        "SN74LS11",
+        "SN74LS11N",
+        "7411",
+        "SN7411",
+        "SN54LS11"
+      ],
+      "vcc_pin": 14,
+      "gnd_pin": 7,
+      "pins": [
+        {
+          "n": 1,
+          "name": "1A",
+          "type": "input",
+          "group": "g1"
+        },
+        {
+          "n": 2,
+          "name": "1B",
+          "type": "input",
+          "group": "g1"
+        },
+        {
+          "n": 3,
+          "name": "2A",
+          "type": "input",
+          "group": "g2"
+        },
+        {
+          "n": 4,
+          "name": "2B",
+          "type": "input",
+          "group": "g2"
+        },
+        {
+          "n": 5,
+          "name": "2C",
+          "type": "input",
+          "group": "g2"
+        },
+        {
+          "n": 6,
+          "name": "2Y",
+          "type": "output",
+          "group": "g2"
+        },
+        {
+          "n": 7,
+          "name": "GND",
+          "type": "ground"
+        },
+        {
+          "n": 8,
+          "name": "3Y",
+          "type": "output",
+          "group": "g3"
+        },
+        {
+          "n": 9,
+          "name": "3A",
+          "type": "input",
+          "group": "g3"
+        },
+        {
+          "n": 10,
+          "name": "3B",
+          "type": "input",
+          "group": "g3"
+        },
+        {
+          "n": 11,
+          "name": "3C",
+          "type": "input",
+          "group": "g3"
+        },
+        {
+          "n": 12,
+          "name": "1Y",
+          "type": "output",
+          "group": "g1"
+        },
+        {
+          "n": 13,
+          "name": "1C",
+          "type": "input",
+          "group": "g1"
+        },
+        {
+          "n": 14,
+          "name": "VCC",
+          "type": "power"
+        }
+      ]
+    },
+    "74LS150": {
+      "description": "16-line to 1-line data selector/multiplexer with inverted output",
+      "package": "DIP-24",
+      "datasheet": "TI SN54LS150/SN74LS150, Data Selectors/Multiplexers, TTL Data Book",
+      "aliases": [
+        "SN74LS150",
+        "SN74LS150N",
+        "74150",
+        "SN74150",
+        "SN54LS150"
+      ],
+      "vcc_pin": 24,
+      "gnd_pin": 11,
+      "pins": [
+        {
+          "n": 1,
+          "name": "D7",
+          "type": "input",
+          "group": "data"
+        },
+        {
+          "n": 2,
+          "name": "D6",
+          "type": "input",
+          "group": "data"
+        },
+        {
+          "n": 3,
+          "name": "D5",
+          "type": "input",
+          "group": "data"
+        },
+        {
+          "n": 4,
+          "name": "D4",
+          "type": "input",
+          "group": "data"
+        },
+        {
+          "n": 5,
+          "name": "D3",
+          "type": "input",
+          "group": "data"
+        },
+        {
+          "n": 6,
+          "name": "D2",
+          "type": "input",
+          "group": "data"
+        },
+        {
+          "n": 7,
+          "name": "D1",
+          "type": "input",
+          "group": "data"
+        },
+        {
+          "n": 8,
+          "name": "D0",
+          "type": "input",
+          "group": "data"
+        },
+        {
+          "n": 9,
+          "name": "~S",
+          "type": "input",
+          "group": "ctrl"
+        },
+        {
+          "n": 10,
+          "name": "~W",
+          "type": "output",
+          "group": "out"
+        },
+        {
+          "n": 11,
+          "name": "GND",
+          "type": "ground"
+        },
+        {
+          "n": 12,
+          "name": "D",
+          "type": "input",
+          "group": "sel"
+        },
+        {
+          "n": 13,
+          "name": "C",
+          "type": "input",
+          "group": "sel"
+        },
+        {
+          "n": 14,
+          "name": "B",
+          "type": "input",
+          "group": "sel"
+        },
+        {
+          "n": 15,
+          "name": "A",
+          "type": "input",
+          "group": "sel"
+        },
+        {
+          "n": 16,
+          "name": "D15",
+          "type": "input",
+          "group": "data"
+        },
+        {
+          "n": 17,
+          "name": "D14",
+          "type": "input",
+          "group": "data"
+        },
+        {
+          "n": 18,
+          "name": "D13",
+          "type": "input",
+          "group": "data"
+        },
+        {
+          "n": 19,
+          "name": "D12",
+          "type": "input",
+          "group": "data"
+        },
+        {
+          "n": 20,
+          "name": "D11",
+          "type": "input",
+          "group": "data"
+        },
+        {
+          "n": 21,
+          "name": "D10",
+          "type": "input",
+          "group": "data"
+        },
+        {
+          "n": 22,
+          "name": "D9",
+          "type": "input",
+          "group": "data"
+        },
+        {
+          "n": 23,
+          "name": "D8",
+          "type": "input",
+          "group": "data"
+        },
+        {
+          "n": 24,
+          "name": "VCC",
+          "type": "power"
+        }
+      ]
+    },
+    "74LS195": {
+      "description": "4-bit parallel-access shift register",
+      "package": "DIP-16",
+      "datasheet": "TI SN54LS195A/SN74LS195A, 4-Bit Parallel-Access Shift Registers",
+      "aliases": [
+        "SN74LS195",
+        "SN74LS195A",
+        "SN74LS195AN",
+        "74195",
+        "SN74195"
+      ],
+      "vcc_pin": 16,
+      "gnd_pin": 8,
+      "pins": [
+        {
+          "n": 1,
+          "name": "~CLR",
+          "type": "input",
+          "group": "ctrl"
+        },
+        {
+          "n": 2,
+          "name": "J",
+          "type": "input",
+          "group": "serial"
+        },
+        {
+          "n": 3,
+          "name": "~K",
+          "type": "input",
+          "group": "serial"
+        },
+        {
+          "n": 4,
+          "name": "A",
+          "type": "input",
+          "group": "parallel"
+        },
+        {
+          "n": 5,
+          "name": "B",
+          "type": "input",
+          "group": "parallel"
+        },
+        {
+          "n": 6,
+          "name": "C",
+          "type": "input",
+          "group": "parallel"
+        },
+        {
+          "n": 7,
+          "name": "D",
+          "type": "input",
+          "group": "parallel"
+        },
+        {
+          "n": 8,
+          "name": "GND",
+          "type": "ground"
+        },
+        {
+          "n": 9,
+          "name": "QD",
+          "type": "output",
+          "group": "q"
+        },
+        {
+          "n": 10,
+          "name": "~QD",
+          "type": "output",
+          "group": "q"
+        },
+        {
+          "n": 11,
+          "name": "QC",
+          "type": "output",
+          "group": "q"
+        },
+        {
+          "n": 12,
+          "name": "QB",
+          "type": "output",
+          "group": "q"
+        },
+        {
+          "n": 13,
+          "name": "QA",
+          "type": "output",
+          "group": "q"
+        },
+        {
+          "n": 14,
+          "name": "CLK",
+          "type": "clock",
+          "group": "ctrl"
+        },
+        {
+          "n": 15,
+          "name": "SH/~LD",
+          "type": "input",
+          "group": "ctrl"
+        },
+        {
+          "n": 16,
+          "name": "VCC",
+          "type": "power"
+        }
+      ]
+    },
+    "74LS377": {
+      "description": "Octal D-type flip-flop with enable",
+      "package": "DIP-20",
+      "datasheet": "TI SDLS167, SN54LS377/SN74LS377 Octal D-Type Flip-Flops With Enable, October 1976 revised March 1988",
+      "aliases": [
+        "SN74LS377",
+        "SN74LS377N",
+        "74377",
+        "SN74377",
+        "SN54LS377"
+      ],
+      "vcc_pin": 20,
+      "gnd_pin": 10,
+      "pins": [
+        {
+          "n": 1,
+          "name": "~G",
+          "type": "input",
+          "group": "ctrl"
+        },
+        {
+          "n": 2,
+          "name": "Q0",
+          "type": "output",
+          "group": "q"
+        },
+        {
+          "n": 3,
+          "name": "D0",
+          "type": "input",
+          "group": "d"
+        },
+        {
+          "n": 4,
+          "name": "D1",
+          "type": "input",
+          "group": "d"
+        },
+        {
+          "n": 5,
+          "name": "Q1",
+          "type": "output",
+          "group": "q"
+        },
+        {
+          "n": 6,
+          "name": "Q2",
+          "type": "output",
+          "group": "q"
+        },
+        {
+          "n": 7,
+          "name": "D2",
+          "type": "input",
+          "group": "d"
+        },
+        {
+          "n": 8,
+          "name": "D3",
+          "type": "input",
+          "group": "d"
+        },
+        {
+          "n": 9,
+          "name": "Q3",
+          "type": "output",
+          "group": "q"
+        },
+        {
+          "n": 10,
+          "name": "GND",
+          "type": "ground"
+        },
+        {
+          "n": 11,
+          "name": "CLK",
+          "type": "clock",
+          "group": "ctrl"
+        },
+        {
+          "n": 12,
+          "name": "Q4",
+          "type": "output",
+          "group": "q"
+        },
+        {
+          "n": 13,
+          "name": "D4",
+          "type": "input",
+          "group": "d"
+        },
+        {
+          "n": 14,
+          "name": "D5",
+          "type": "input",
+          "group": "d"
+        },
+        {
+          "n": 15,
+          "name": "Q5",
+          "type": "output",
+          "group": "q"
+        },
+        {
+          "n": 16,
+          "name": "Q6",
+          "type": "output",
+          "group": "q"
+        },
+        {
+          "n": 17,
+          "name": "D6",
+          "type": "input",
+          "group": "d"
+        },
+        {
+          "n": 18,
+          "name": "D7",
+          "type": "input",
+          "group": "d"
+        },
+        {
+          "n": 19,
+          "name": "Q7",
+          "type": "output",
+          "group": "q"
+        },
+        {
+          "n": 20,
+          "name": "VCC",
+          "type": "power"
+        }
+      ]
+    },
+    "74LS626": {
+      "description": "Dual voltage-controlled oscillator with enable and complementary Z outputs",
+      "package": "DIP-16",
+      "datasheet": "TI SDLS186, SN54LS624 thru SN54LS629/SN74LS624 thru SN74LS629 Voltage-Controlled Oscillators, January 1980 revised March 1988",
+      "aliases": [
+        "SN74LS626",
+        "SN74LS626N",
+        "SN54LS626"
+      ],
+      "vcc_pin": 16,
+      "gnd_pin": 1,
+      "pins": [
+        {
+          "n": 1,
+          "name": "GND",
+          "type": "ground"
+        },
+        {
+          "n": 2,
+          "name": "1Z",
+          "type": "output",
+          "group": "vco1"
+        },
+        {
+          "n": 3,
+          "name": "1Y",
+          "type": "output",
+          "group": "vco1"
+        },
+        {
+          "n": 4,
+          "name": "~1EN",
+          "type": "input",
+          "group": "vco1"
+        },
+        {
+          "n": 5,
+          "name": "1CX1",
+          "type": "passive",
+          "group": "vco1"
+        },
+        {
+          "n": 6,
+          "name": "1CX2",
+          "type": "passive",
+          "group": "vco1"
+        },
+        {
+          "n": 7,
+          "name": "OSC_VCC",
+          "type": "power"
+        },
+        {
+          "n": 8,
+          "name": "OSC_GND",
+          "type": "ground"
+        },
+        {
+          "n": 9,
+          "name": "1FC",
+          "type": "input",
+          "group": "vco1"
+        },
+        {
+          "n": 10,
+          "name": "2FC",
+          "type": "input",
+          "group": "vco2"
+        },
+        {
+          "n": 11,
+          "name": "2CX2",
+          "type": "passive",
+          "group": "vco2"
+        },
+        {
+          "n": 12,
+          "name": "2CX1",
+          "type": "passive",
+          "group": "vco2"
+        },
+        {
+          "n": 13,
+          "name": "~2EN",
+          "type": "input",
+          "group": "vco2"
+        },
+        {
+          "n": 14,
+          "name": "2Y",
+          "type": "output",
+          "group": "vco2"
+        },
+        {
+          "n": 15,
+          "name": "2Z",
+          "type": "output",
+          "group": "vco2"
+        },
+        {
+          "n": 16,
+          "name": "VCC",
+          "type": "power"
+        }
+      ]
+    },
+    "MC14016B": {
+      "description": "Quad bilateral switch",
+      "package": "DIP-14",
+      "datasheet": "Motorola/ON Semiconductor MC14016B Quad Analog Switch/Quad Multiplexer datasheet",
+      "aliases": [
+        "CD4016",
+        "CD4016B",
+        "MC14016",
+        "MC14016BCP"
+      ],
+      "vcc_pin": 14,
+      "gnd_pin": 7,
+      "pins": [
+        {
+          "n": 1,
+          "name": "1IO",
+          "type": "passive",
+          "group": "sw1"
+        },
+        {
+          "n": 2,
+          "name": "1OI",
+          "type": "passive",
+          "group": "sw1"
+        },
+        {
+          "n": 3,
+          "name": "1CTL",
+          "type": "input",
+          "group": "sw1"
+        },
+        {
+          "n": 4,
+          "name": "4CTL",
+          "type": "input",
+          "group": "sw4"
+        },
+        {
+          "n": 5,
+          "name": "4OI",
+          "type": "passive",
+          "group": "sw4"
+        },
+        {
+          "n": 6,
+          "name": "4IO",
+          "type": "passive",
+          "group": "sw4"
+        },
+        {
+          "n": 7,
+          "name": "VSS",
+          "type": "ground"
+        },
+        {
+          "n": 8,
+          "name": "3IO",
+          "type": "passive",
+          "group": "sw3"
+        },
+        {
+          "n": 9,
+          "name": "3OI",
+          "type": "passive",
+          "group": "sw3"
+        },
+        {
+          "n": 10,
+          "name": "3CTL",
+          "type": "input",
+          "group": "sw3"
+        },
+        {
+          "n": 11,
+          "name": "2CTL",
+          "type": "input",
+          "group": "sw2"
+        },
+        {
+          "n": 12,
+          "name": "2OI",
+          "type": "passive",
+          "group": "sw2"
+        },
+        {
+          "n": 13,
+          "name": "2IO",
+          "type": "passive",
+          "group": "sw2"
+        },
+        {
+          "n": 14,
+          "name": "VDD",
+          "type": "power"
+        }
+      ]
+    },
+    "SN75365": {
+      "description": "Quad TTL-to-MOS positive-logic NAND driver",
+      "package": "DIP-16",
+      "datasheet": "National Semiconductor/TI DS75365/SN75365 Quad TTL-to-MOS Driver; supply/enable labels cross-checked against Sega 834-0111 P-ROM sheet",
+      "aliases": [
+        "DS75365",
+        "SN75365N",
+        "DS75365N"
+      ],
+      "vcc_pin": 16,
+      "gnd_pin": 8,
+      "pins": [
+        {
+          "n": 1,
+          "name": "VCC2",
+          "type": "power"
+        },
+        {
+          "n": 2,
+          "name": "2Y",
+          "type": "output",
+          "group": "ch2"
+        },
+        {
+          "n": 3,
+          "name": "1Y",
+          "type": "output",
+          "group": "ch1"
+        },
+        {
+          "n": 4,
+          "name": "1E1",
+          "type": "input",
+          "group": "ch1"
+        },
+        {
+          "n": 5,
+          "name": "1E2",
+          "type": "input",
+          "group": "ch1"
+        },
+        {
+          "n": 6,
+          "name": "1A",
+          "type": "input",
+          "group": "ch1"
+        },
+        {
+          "n": 7,
+          "name": "2A",
+          "type": "input",
+          "group": "ch2"
+        },
+        {
+          "n": 8,
+          "name": "GND",
+          "type": "ground"
+        },
+        {
+          "n": 9,
+          "name": "VCC3",
+          "type": "power"
+        },
+        {
+          "n": 10,
+          "name": "4A",
+          "type": "input",
+          "group": "ch4"
+        },
+        {
+          "n": 11,
+          "name": "3A",
+          "type": "input",
+          "group": "ch3"
+        },
+        {
+          "n": 12,
+          "name": "2E1",
+          "type": "input",
+          "group": "ch2"
+        },
+        {
+          "n": 13,
+          "name": "2E2",
+          "type": "input",
+          "group": "ch2"
+        },
+        {
+          "n": 14,
+          "name": "3Y",
+          "type": "output",
+          "group": "ch3"
+        },
+        {
+          "n": 15,
+          "name": "4Y",
+          "type": "output",
+          "group": "ch4"
+        },
+        {
+          "n": 16,
+          "name": "VCC1",
+          "type": "power"
+        }
+      ]
+    },
+    "TBP18S030": {
+      "description": "256-bit (32 x 8) bipolar PROM with 3-state outputs",
+      "package": "DIP-16",
+      "datasheet": "TI SDMS024, TBP18S030/TBP18SA030 256 Bits (32 Words by 8 Bits) Programmable Read-Only Memories, September 1979 revised August 1984",
+      "aliases": [
+        "JBP18S030",
+        "TBP18S030N",
+        "TBP18SA030"
+      ],
+      "vcc_pin": 16,
+      "gnd_pin": 8,
+      "pins": [
+        {
+          "n": 1,
+          "name": "O2",
+          "type": "tri_state",
+          "group": "data"
+        },
+        {
+          "n": 2,
+          "name": "O3",
+          "type": "tri_state",
+          "group": "data"
+        },
+        {
+          "n": 3,
+          "name": "O4",
+          "type": "tri_state",
+          "group": "data"
+        },
+        {
+          "n": 4,
+          "name": "O5",
+          "type": "tri_state",
+          "group": "data"
+        },
+        {
+          "n": 5,
+          "name": "O6",
+          "type": "tri_state",
+          "group": "data"
+        },
+        {
+          "n": 6,
+          "name": "O7",
+          "type": "tri_state",
+          "group": "data"
+        },
+        {
+          "n": 7,
+          "name": "O8",
+          "type": "tri_state",
+          "group": "data"
+        },
+        {
+          "n": 8,
+          "name": "GND",
+          "type": "ground"
+        },
+        {
+          "n": 9,
+          "name": "O1",
+          "type": "tri_state",
+          "group": "data"
+        },
+        {
+          "n": 10,
+          "name": "A0",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 11,
+          "name": "A1",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 12,
+          "name": "A2",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 13,
+          "name": "A3",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 14,
+          "name": "A4",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 15,
+          "name": "~G",
+          "type": "input",
+          "group": "ctrl"
+        },
+        {
+          "n": 16,
+          "name": "VCC",
+          "type": "power"
+        }
+      ]
+    },
+    "TL084": {
+      "description": "Quad JFET-input operational amplifier",
+      "package": "DIP-14",
+      "datasheet": "TI TL08xx/TL07xx JFET-Input Operational Amplifiers datasheet, pinout for TL084",
+      "aliases": [
+        "TL084CN",
+        "TL084N",
+        "TL084ACN"
+      ],
+      "vcc_pin": 4,
+      "gnd_pin": 11,
+      "pins": [
+        {
+          "n": 1,
+          "name": "1OUT",
+          "type": "output",
+          "group": "amp1"
+        },
+        {
+          "n": 2,
+          "name": "1IN-",
+          "type": "input",
+          "group": "amp1"
+        },
+        {
+          "n": 3,
+          "name": "1IN+",
+          "type": "input",
+          "group": "amp1"
+        },
+        {
+          "n": 4,
+          "name": "VCC+",
+          "type": "power"
+        },
+        {
+          "n": 5,
+          "name": "2IN+",
+          "type": "input",
+          "group": "amp2"
+        },
+        {
+          "n": 6,
+          "name": "2IN-",
+          "type": "input",
+          "group": "amp2"
+        },
+        {
+          "n": 7,
+          "name": "2OUT",
+          "type": "output",
+          "group": "amp2"
+        },
+        {
+          "n": 8,
+          "name": "3OUT",
+          "type": "output",
+          "group": "amp3"
+        },
+        {
+          "n": 9,
+          "name": "3IN-",
+          "type": "input",
+          "group": "amp3"
+        },
+        {
+          "n": 10,
+          "name": "3IN+",
+          "type": "input",
+          "group": "amp3"
+        },
+        {
+          "n": 11,
+          "name": "VCC-",
+          "type": "ground"
+        },
+        {
+          "n": 12,
+          "name": "4IN+",
+          "type": "input",
+          "group": "amp4"
+        },
+        {
+          "n": 13,
+          "name": "4IN-",
+          "type": "input",
+          "group": "amp4"
+        },
+        {
+          "n": 14,
+          "name": "4OUT",
+          "type": "output",
+          "group": "amp4"
+        }
+      ]
+    },
+    "UPB426D": {
+      "description": "NEC uPB426D 4096-bit (1024 x 4) bipolar TTL PROM",
+      "package": "DIP-18",
+      "datasheet": "NEC uPB426/uPB426D 1024 Word by 4-Bit 4096-Bit Bipolar TTL PROM, NEC Microcomputer Catalog; pin labels cross-checked against Sega 834-0111 P-ROM sheet",
+      "aliases": [
+        "PB426D",
+        "uPB426D",
+        "MPB426",
+        "PB426"
+      ],
+      "vcc_pin": 18,
+      "gnd_pin": 8,
+      "pins": [
+        {
+          "n": 1,
+          "name": "A6",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 2,
+          "name": "A5",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 3,
+          "name": "A4",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 4,
+          "name": "A3",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 5,
+          "name": "A0",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 6,
+          "name": "A1",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 7,
+          "name": "A2",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 8,
+          "name": "GND",
+          "type": "ground"
+        },
+        {
+          "n": 9,
+          "name": "~CE1",
+          "type": "input",
+          "group": "ctrl"
+        },
+        {
+          "n": 10,
+          "name": "~CE2",
+          "type": "input",
+          "group": "ctrl"
+        },
+        {
+          "n": 11,
+          "name": "O4",
+          "type": "tri_state",
+          "group": "data"
+        },
+        {
+          "n": 12,
+          "name": "O3",
+          "type": "tri_state",
+          "group": "data"
+        },
+        {
+          "n": 13,
+          "name": "O2",
+          "type": "tri_state",
+          "group": "data"
+        },
+        {
+          "n": 14,
+          "name": "O1",
+          "type": "tri_state",
+          "group": "data"
+        },
+        {
+          "n": 15,
+          "name": "A9",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 16,
+          "name": "A8",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 17,
+          "name": "A7",
+          "type": "input",
+          "group": "addr"
+        },
+        {
+          "n": 18,
+          "name": "VCC",
+          "type": "power"
+        }
+      ]
+    },
+    "uPC159": {
+      "description": "NEC uPC159 high-speed operational amplifier",
+      "package": "DIP-8",
+      "datasheet": "NEC uPC159 High Speed Operational Amplifier; pin usage cross-checked against Sega 834-0111 P-ROM sheet",
+      "aliases": [
+        "UPC159",
+        "UPC159C",
+        "uPC159C"
+      ],
+      "vcc_pin": 7,
+      "gnd_pin": 4,
+      "pins": [
+        {
+          "n": 1,
+          "name": "BAL1",
+          "type": "passive"
+        },
+        {
+          "n": 2,
+          "name": "IN-",
+          "type": "input"
+        },
+        {
+          "n": 3,
+          "name": "IN+",
+          "type": "input"
+        },
+        {
+          "n": 4,
+          "name": "V-",
+          "type": "ground"
+        },
+        {
+          "n": 5,
+          "name": "BAL2",
+          "type": "passive"
+        },
+        {
+          "n": 6,
+          "name": "OUT",
+          "type": "output"
+        },
+        {
+          "n": 7,
+          "name": "V+",
+          "type": "power"
+        },
+        {
+          "n": 8,
+          "name": "COMP",
+          "type": "passive"
+        }
+      ]
+    },
+    "uPC624D": {
+      "description": "NEC uPC624D 8-bit D/A converter as drawn on Sega P-ROM board",
+      "package": "DIP-16",
+      "datasheet": "NEC uPC624D; pin labels transcribed from Sega 834-0111 P-ROM sheet 1",
+      "aliases": [
+        "UPC624D",
+        "uPC624",
+        "UPC624"
+      ],
+      "vcc_pin": 13,
+      "gnd_pin": 16,
+      "pins": [
+        {
+          "n": 1,
+          "name": "IOUT2",
+          "type": "output"
+        },
+        {
+          "n": 2,
+          "name": "IOUT1",
+          "type": "output"
+        },
+        {
+          "n": 3,
+          "name": "V-",
+          "type": "ground"
+        },
+        {
+          "n": 4,
+          "name": "COM",
+          "type": "ground"
+        },
+        {
+          "n": 5,
+          "name": "MSB",
+          "type": "input",
+          "group": "data"
+        },
+        {
+          "n": 6,
+          "name": "2ND",
+          "type": "input",
+          "group": "data"
+        },
+        {
+          "n": 7,
+          "name": "3RD",
+          "type": "input",
+          "group": "data"
+        },
+        {
+          "n": 8,
+          "name": "4TH",
+          "type": "input",
+          "group": "data"
+        },
+        {
+          "n": 9,
+          "name": "5TH",
+          "type": "input",
+          "group": "data"
+        },
+        {
+          "n": 10,
+          "name": "6TH",
+          "type": "input",
+          "group": "data"
+        },
+        {
+          "n": 11,
+          "name": "7TH",
+          "type": "input",
+          "group": "data"
+        },
+        {
+          "n": 12,
+          "name": "LSB",
+          "type": "input",
+          "group": "data"
+        },
+        {
+          "n": 13,
+          "name": "V+",
+          "type": "power"
+        },
+        {
+          "n": 14,
+          "name": "REF+",
+          "type": "input"
+        },
+        {
+          "n": 15,
+          "name": "REF-",
+          "type": "input"
+        },
+        {
+          "n": 16,
+          "name": "COM",
+          "type": "ground"
+        }
+      ]
     }
   }
 }

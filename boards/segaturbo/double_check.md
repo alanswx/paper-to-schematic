@@ -41,13 +41,15 @@ Last updated: 2026-05-21
 
 - Initial bboxes are placed for known-library P-ROM components: `PROM_CN1`, `PROM_CN2`, `PROM_IC1`, `PROM_IC16`, `PROM_IC28`, `PROM_IC7`, `PROM_IC8`, `PROM_R1`, and `PROM_LED1`.
 - P-ROM board components are prefixed with `PROM_` because the P-ROM board reuses refdes numbers that already exist on the CPU board sheets.
-- Missing library coverage before remaining bboxes can be added: `uPC624D`, `uPC159`, `SN75365`, `MC14016B`, `TL084`, and `74LS626`.
+- Library coverage has been added and bboxes are placed for `uPC624D`, `uPC159`, `SN75365`, `MC14016B`, `TL084`, and `74LS626` devices.
+- Several analog/clock bboxes on `PROM_IC43*`, `PROM_IC44*`, and `PROM_IC45*` are intentionally loose around split drawn units. Hand-tighten before pin placement.
 - Passives around the analog/clock section are only partially represented. Add the remaining resistors, capacitors, diodes, and regulator after deciding how much passive detail should be captured on the P-ROM board.
 
 ## Sheet 9
 
 - Initial bboxes are placed for known-library P-ROM components: `PROM_IC10`, `PROM_IC29`, `PROM_IC30a`, `PROM_IC30b`, `PROM_IC37`, `PROM_SW1`, `PROM_RA1`, and `PROM_CN3`.
-- Missing library coverage before remaining bboxes can be added: `TBP18S030`, `PB426D`, `74LS150`, and `74LS377`.
+- Library coverage has been added and bboxes are placed for `TBP18S030`, `UPB426D` / `PB426D`, `74LS150`, and `74LS377` devices.
+- `IC19` is printed as `376` and is not yet added. Verify whether this is a 74LS376-family part and add its librarian entry before placing the bbox.
 - `PROM_IC30a` and `PROM_IC30b` are split `74LS74` units for the two visible `IC30` flip-flop sections. Confirm the split-unit naming before pins.
 - `PROM_IC37` is a loose bbox around the split `74LS109` drawing. It will need hand adjustment before pin placement.
 
@@ -55,7 +57,7 @@ Last updated: 2026-05-21
 
 - Initial bboxes are placed for known-library P-ROM components: `PROM_IC71`, `PROM_IC83`, `PROM_IC95`, `PROM_IC101`, `PROM_IC54`, `PROM_IC84`, `PROM_IC102`, `PROM_IC59a`, `PROM_IC59b`, `PROM_IC59c`, `PROM_IC59d`, and `PROM_R2`.
 - `PROM_IC84` and `PROM_IC102` are printed as `2764 or 2364`; the graph currently uses `2764` so the sheet can move through the existing librarian coverage.
-- Missing library coverage before remaining bboxes can be added: `74LS195` and `74LS11`.
+- Library coverage has been added and bboxes are placed for `74LS195` and `74LS11` devices.
 - `PROM_IC59a` through `PROM_IC59d` are split `74LS00` NAND units. Confirm split-package naming before pins.
 
 ## Cross-Sheet / Library
