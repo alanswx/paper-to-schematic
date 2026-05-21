@@ -20,10 +20,11 @@ from pathlib import Path
 # all referencing the same librarian part. The librarian carries the full
 # pinout with a per-pin `group` tag; we use the tag to filter pin emission so
 # only the active gate's pins land on each sub-component.
-_REFDES_SUBUNIT = re.compile(r"^([a-z]+\d+)([a-z])$", re.IGNORECASE)
+_REFDES_SUBUNIT = re.compile(r"^(.+\d+)([a-z])$", re.IGNORECASE)
 _UNIT_GROUP_PATTERNS = (
     re.compile(r"^g\d+$", re.IGNORECASE),     # 74LS00/04/08/32/175 quad-gate
     re.compile(r"^ff\d+$", re.IGNORECASE),    # 74LS74/174 multi-flip-flop
+    re.compile(r"^amp\d+$", re.IGNORECASE),   # TL084/TL074 quad op-amp units
     re.compile(r"^[A-Z]$"),                   # MC10124 A/B/C/D
 )
 

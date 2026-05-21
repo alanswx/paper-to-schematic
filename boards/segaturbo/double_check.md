@@ -44,7 +44,7 @@ Last updated: 2026-05-21
 - Library coverage has been added and bboxes are placed for `uPC624D`, `uPC159`, `SN75365`, `MC14016B`, `TL084`, and `74LS626` devices.
 - `PROM_IC50` was split into `PROM_IC50a` and `PROM_IC50b` after a source-crop check confirmed two separate drawn IC50 oscillator sections.
 - Pins are placed and lint passes. `PROM_IC43*` / `PROM_IC44*` TL084 suffixes were corrected to match the visible op-amp pin groups before pin placement.
-- Recheck `PROM_IC7` / `PROM_IC8` during net tracing; the right-side LS109/376 area is dense and should be verified against the source crop when adding nets.
+- `PROM_IC7` / `PROM_IC8` were corrected from `74LS109` to `74LS175` after zoom review; the drawn common `CLK`/`CL` and Q/D pin numbers match the same 16-pin quad flip-flop pattern as sheet 9 `PROM_IC19`.
 - Passives around the analog/clock section are only partially represented. Add the remaining resistors, capacitors, diodes, and regulator after deciding how much passive detail should be captured on the P-ROM board.
 
 ## Sheet 9
@@ -52,7 +52,7 @@ Last updated: 2026-05-21
 - Initial bboxes are placed for known-library P-ROM components: `PROM_IC10`, `PROM_IC29`, `PROM_IC30a`, `PROM_IC30b`, `PROM_IC37a`, `PROM_IC37b`, `PROM_SW1`, `PROM_RA1`, and `PROM_CN3`.
 - Library coverage has been added and bboxes are placed for `TBP18S030`, `UPB426D` / `PB426D`, `74LS150`, and `74LS377` devices.
 - `PROM_IC21` was corrected from the earlier mistaken `PROM_IC2` refdes after crop verification; the lower TBP18S030 is printed `IC21`.
-- `PROM_IC37` was split into `PROM_IC37a` and `PROM_IC37b` after crop verification showed two separate drawn LS109 sections.
+- `PROM_IC37` was split into `PROM_IC37a` and `PROM_IC37b` after crop verification showed two separate drawn LS109 sections. The suffixes were swapped during zoom review so `a` is the right-side ff1 section and `b` is the left-side ff2 section.
 - `PROM_IC19` has been added as `74LS175`; the body text reads `376`, but the drawn 16-pin symbol and pin numbering match the existing `74LS175` library entry. Reconfirm against the chip inventory before pin placement.
 - Pins are placed and lint passes. `PROM_IC30a` and `PROM_IC30b` are split `74LS74` units for the two visible `IC30` flip-flop sections; confirm the split-unit naming again when tracing nets.
 
@@ -61,7 +61,7 @@ Last updated: 2026-05-21
 - Initial bboxes are placed for known-library P-ROM components: `PROM_IC71`, `PROM_IC83`, `PROM_IC95`, `PROM_IC101`, `PROM_IC54`, `PROM_IC84`, `PROM_IC102`, `PROM_IC59a`, `PROM_IC59b`, `PROM_IC59c`, `PROM_IC59d`, and `PROM_R2`.
 - `PROM_IC84` and `PROM_IC102` are printed as `2764 or 2364`; the graph currently uses `2764` so the sheet can move through the existing librarian coverage.
 - Library coverage has been added and bboxes are placed for `74LS195` and `74LS11` devices.
-- Pins are placed and lint passes. `PROM_IC59a` through `PROM_IC59d` are split `74LS00` NAND units; confirm split-package naming again when tracing nets.
+- Pins are placed and lint passes. `PROM_IC59a` through `PROM_IC59d` are split `74LS00` NAND units; suffixes were corrected during zoom review so the suffix letter matches the visible gate pin numbers.
 
 ## Cross-Sheet / Library
 
