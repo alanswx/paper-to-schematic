@@ -54,6 +54,7 @@ Last updated: 2026-05-21
 - `PROM_IC21` was corrected from the earlier mistaken `PROM_IC2` refdes after crop verification; the lower TBP18S030 is printed `IC21`.
 - `PROM_IC37` was split into `PROM_IC37a` and `PROM_IC37b` after crop verification showed two separate drawn LS109 sections. The suffixes were swapped during zoom review so `a` is the right-side ff1 section and `b` is the left-side ff2 section.
 - `PROM_IC19` has been added as `74LS175`; the body text reads `376`, but the drawn 16-pin symbol and pin numbering match the existing `74LS175` library entry. Reconfirm against the chip inventory before pin placement.
+- `PROM_RA1` was corrected from `R_NETWORK08_COMMON` to `R_NETWORK04_COMMON` after zoom review confirmed the source label `RA1 4.7K x4` and four resistors sharing a VCC common node.
 - Pins are placed and lint passes. `PROM_IC30a` and `PROM_IC30b` are split `74LS74` units for the two visible `IC30` flip-flop sections; confirm the split-unit naming again when tracing nets.
 
 ## Sheet 10

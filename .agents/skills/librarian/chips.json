@@ -10163,6 +10163,14 @@
           "type": "ground"
         }
       ]
+    },
+    "R_NETWORK04_COMMON": {
+      "kind": "discrete",
+      "description": "4-resistor common-pin resistor network, used for pull-up/pull-down bus termination",
+      "pin_count": 5,
+      "kicad_symbol": "Device:R_Network04",
+      "kicad_footprint": "Resistor_THT:R_Array_SIP5",
+      "value_required": true
     }
   }
 }
