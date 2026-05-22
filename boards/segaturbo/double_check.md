@@ -36,6 +36,7 @@ Last updated: 2026-05-21
 - `IC1` and `IC2` are printed as `2732 or 2716`; the graph currently uses `2716` so the sheet can move through the existing librarian coverage.
 - `IC69d` and `IC69e` are split `74LS04` inverter units. Confirm package/unit naming before pin placement, because other `IC69` units already exist on earlier sheets.
 - `RA_S7` is printed as a `4.7K` resistor array without a clear refdes. Rename it if a board inventory or silkscreen refdes turns up.
+- Nets and paths are added. During net tracing, `RA_S7` was corrected to `R_NETWORK04_COMMON`, `IC69d/e` were swapped to match visible pin numbers, and all `74LS283` adders were remapped from default DIP pin placement to the functional source symbol.
 
 ## Sheet 8
 
@@ -46,6 +47,9 @@ Last updated: 2026-05-21
 - Pins are placed and lint passes. `PROM_IC43*` / `PROM_IC44*` TL084 suffixes were corrected to match the visible op-amp pin groups before pin placement.
 - `PROM_IC7` / `PROM_IC8` were corrected from `74LS109` to `74LS175` after zoom review. Revisit them now that sheet 9 `PROM_IC19` has been confirmed as `74376`; the earlier "same pattern as sheet 9" assumption may be wrong.
 - Passives around the analog/clock section are only partially represented. Add the remaining resistors, capacitors, diodes, and regulator after deciding how much passive detail should be captured on the P-ROM board.
+- Nets and paths are added with a conservative first pass for the analog/oscillator area. The connector labels, decoder/latch labels, LED series path, and obvious power rails are captured; individual RC/passive timing networks still need a later fidelity pass.
+- `PROM_IC7` / `PROM_IC8` were corrected again to `74376` after zoom review confirmed the source label `376 x 2` and J/K pins.
+- The `SN75365` librarian pinout was corrected to match the source symbol: pins `3/6/11/14` are A inputs and pins `2/7/10/15` are Y outputs.
 
 ## Sheet 9
 
@@ -67,6 +71,7 @@ Last updated: 2026-05-21
 - `PROM_IC53b` was split from the full `74LS11` package after zoom review; the source shows gate 2 with pins `4/3/5 -> 6`.
 - Library coverage has been added and bboxes are placed for `74LS195` and `74LS11` devices. The `74LS195` librarian entry was corrected so pin `10` is `CLK`, pin `15` is `SH/~LD`, pins `14/13/12/11` are `QA/QB/QC/QD`, and pin `9` is `~QD`.
 - Pins are placed and lint passes. `PROM_IC59a` through `PROM_IC59d` are split `74LS00` NAND units; suffixes were corrected during zoom review so the suffix letter matches the visible gate pin numbers. `PROM_IC84`, `PROM_IC102`, and the four `74LS191` counters were remapped from default DIP order to the functional symbol pin rows printed on the source sheet.
+- Nets and paths are added. ERC exposed one speculative tied-output NAND label; it was split so sheet 10 now passes ERC with only expected cross-sheet noise.
 
 ## Cross-Sheet / Library
 

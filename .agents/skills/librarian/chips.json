@@ -9650,14 +9650,14 @@
         },
         {
           "n": 2,
-          "name": "2Y",
+          "name": "1Y",
           "type": "output",
-          "group": "ch2"
+          "group": "ch1"
         },
         {
           "n": 3,
-          "name": "1Y",
-          "type": "output",
+          "name": "1A",
+          "type": "input",
           "group": "ch1"
         },
         {
@@ -9674,14 +9674,14 @@
         },
         {
           "n": 6,
-          "name": "1A",
+          "name": "2A",
           "type": "input",
-          "group": "ch1"
+          "group": "ch2"
         },
         {
           "n": 7,
-          "name": "2A",
-          "type": "input",
+          "name": "2Y",
+          "type": "output",
           "group": "ch2"
         },
         {
@@ -9696,9 +9696,9 @@
         },
         {
           "n": 10,
-          "name": "4A",
-          "type": "input",
-          "group": "ch4"
+          "name": "3Y",
+          "type": "output",
+          "group": "ch3"
         },
         {
           "n": 11,
@@ -9720,9 +9720,9 @@
         },
         {
           "n": 14,
-          "name": "3Y",
-          "type": "output",
-          "group": "ch3"
+          "name": "4A",
+          "type": "input",
+          "group": "ch4"
         },
         {
           "n": 15,
