@@ -1,4 +1,4 @@
-ERC report (2026-05-21T22:53:43, Encoding UTF8)
+ERC report (2026-05-23T10:02:14, Encoding UTF8)
 Report includes: Errors, Warnings, Exclusions
 
 ***** Sheet /
@@ -44,9 +44,6 @@ Report includes: Errors, Warnings, Exclusions
 [pin_not_connected]: Pin not connected
     ; error
     @(97.79 mm, 99.06 mm): Symbol IC1 Pin 16 [O6, Tri-state, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(88.90 mm, 107.95 mm): Symbol IC1 Pin 18 [~{CE}, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(97.79 mm, 104.14 mm): Symbol IC1 Pin 17 [O7, Tri-state, Line]
@@ -178,43 +175,25 @@ Report includes: Errors, Warnings, Exclusions
     @(210.82 mm, 104.14 mm): Symbol IC15 Pin 10 [S3, Output, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(101.60 mm, 222.25 mm): Symbol RA_S7 Pin 1 [common, Passive, Line]
-[label_dangling]: Label not connected
-    ; error
-    @(106.68 mm, 222.25 mm): Label '~{SEL3}'
-[pin_not_connected]: Pin not connected
-    ; error
     @(171.45 mm, 180.34 mm): Symbol IC14 Pin 20 [~{OE}, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(171.45 mm, 180.34 mm): Symbol IC14 Pin 20 [~{OE}, Input, Line]
-[label_dangling]: Label not connected
-    ; error
-    @(113.03 mm, 222.25 mm): Label '~{SEL7}'
-[pin_not_connected]: Pin not connected
-    ; error
-    @(101.60 mm, 232.41 mm): Symbol RA_S7 Pin 2 [R1, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(210.82 mm, 142.24 mm): Symbol IC16 Pin 1 [S1, Output, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(234.95 mm, 97.79 mm): Symbol IC27 Pin 19 [A10, Input, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(104.14 mm, 232.41 mm): Symbol RA_S7 Pin 3 [R2, Passive, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(106.68 mm, 232.41 mm): Symbol RA_S7 Pin 4 [R3, Passive, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(234.95 mm, 101.60 mm): Symbol IC27 Pin 22 [A9, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(210.82 mm, 146.05 mm): Symbol IC16 Pin 4 [S0, Output, Line]
+    @(107.95 mm, 232.41 mm): Symbol RA_S7 Pin 1 [1, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(109.22 mm, 232.41 mm): Symbol RA_S7 Pin 5 [R4, Passive, Line]
+    @(210.82 mm, 146.05 mm): Symbol IC16 Pin 4 [S0, Output, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(234.95 mm, 105.41 mm): Symbol IC27 Pin 23 [A8, Input, Line]
@@ -227,9 +206,6 @@ Report includes: Errors, Warnings, Exclusions
 [pin_not_connected]: Pin not connected
     ; error
     @(251.46 mm, 87.63 mm): Symbol IC27 Pin 14 [O4, Tri-state, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(243.84 mm, 107.95 mm): Symbol IC27 Pin 18 [~{CE}, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(251.46 mm, 93.98 mm): Symbol IC27 Pin 15 [O5, Tri-state, Line]
@@ -383,21 +359,21 @@ Report includes: Errors, Warnings, Exclusions
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(166.37 mm, 157.48 mm): Symbol IC14 [_chip_IC14]
-[unconnected_wire_endpoint]: Unconnected wire endpoint
-    ; warning
-    @(99.06 mm, 222.25 mm): Horizontal Wire, length 1.27 mm
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(135.89 mm, 203.20 mm): Symbol IC69e [_chip_IC69e]
-[unconnected_wire_endpoint]: Unconnected wire endpoint
+[isolated_pin_label]: Label connected to only one pin
     ; warning
-    @(105.41 mm, 222.25 mm): Horizontal Wire, length 1.27 mm
+    @(106.68 mm, 222.25 mm): Label '~{SEL3}'
 [isolated_pin_label]: Label connected to only one pin
     ; warning
     @(143.51 mm, 203.20 mm): Label 'SEL3C_BAR'
-[unconnected_wire_endpoint]: Unconnected wire endpoint
+[isolated_pin_label]: Label connected to only one pin
     ; warning
-    @(116.84 mm, 222.25 mm): Horizontal Wire, length 1.27 mm
+    @(113.03 mm, 222.25 mm): Label '~{SEL7}'
+[lib_symbol_issues]: The current configuration does not include the symbol library 'user'
+    ; warning
+    @(106.68 mm, 227.33 mm): Symbol RA_S7 [_chip_RA_S7]
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(205.74 mm, 148.59 mm): Symbol IC16 [_chip_IC16]
@@ -447,7 +423,7 @@ Report includes: Errors, Warnings, Exclusions
     ; warning
     @(400.05 mm, 27.94 mm): Symbol #PWR_VCC [PWR_VCC]
 
- ** ERC messages: 148  Errors 119  Warnings 29
+ ** ERC messages: 140  Errors 111  Warnings 29
 
  ** Ignored checks:
     - Global label only appears once in the schematic

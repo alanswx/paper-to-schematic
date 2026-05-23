@@ -1,4 +1,4 @@
-ERC report (2026-05-21T22:53:43, Encoding UTF8)
+ERC report (2026-05-23T10:02:17, Encoding UTF8)
 Report includes: Errors, Warnings, Exclusions
 
 ***** Sheet /
@@ -92,15 +92,9 @@ Report includes: Errors, Warnings, Exclusions
 [pin_not_connected]: Pin not connected
     ; error
     @(121.92 mm, 190.50 mm): Symbol PROM_IC101 Pin 12 [MAX/MIN, Output, Line]
-[label_dangling]: Label not connected
-    ; error
-    @(113.03 mm, 209.55 mm): Label 'COMMON_PORTION'
 [pin_not_connected]: Pin not connected
     ; error
-    @(111.76 mm, 210.82 mm): Symbol PROM_R2 Pin 1 [Passive, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(111.76 mm, 218.44 mm): Symbol PROM_R2 Pin 2 [Passive, Line]
+    @(111.76 mm, 218.44 mm): Symbol PROM_R2 Pin 2 [2, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(231.14 mm, 120.65 mm): Symbol PROM_IC84 Pin 1 [VPP, Input, Line]
@@ -239,9 +233,12 @@ Report includes: Errors, Warnings, Exclusions
 [isolated_pin_label]: Label connected to only one pin
     ; warning
     @(113.03 mm, 186.69 mm): Label 'AL15'
-[unconnected_wire_endpoint]: Unconnected wire endpoint
+[isolated_pin_label]: Label connected to only one pin
     ; warning
-    @(111.76 mm, 209.55 mm): Horizontal Wire, length 1.27 mm
+    @(113.03 mm, 209.55 mm): Label 'COMMON_PORTION'
+[lib_symbol_issues]: The current configuration does not include the symbol library 'user'
+    ; warning
+    @(111.76 mm, 214.63 mm): Symbol PROM_R2 [_chip_PROM_R2]
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(222.25 mm, 143.51 mm): Symbol PROM_IC59a [_chip_PROM_IC59a]
@@ -303,7 +300,7 @@ Report includes: Errors, Warnings, Exclusions
     ; warning
     @(400.05 mm, 27.94 mm): Symbol #PWR_VCC [PWR_VCC]
 
- ** ERC messages: 100  Errors 52  Warnings 48
+ ** ERC messages: 99  Errors 50  Warnings 49
 
  ** Ignored checks:
     - Global label only appears once in the schematic

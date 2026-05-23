@@ -10,6 +10,134 @@
     (company "Sega")
   )
   (lib_symbols
+  (symbol "user:_chip_X1"
+    (pin_names (offset 0.508) hide)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (property "Reference" "U" (at 0 3.32863 0)
+      (effects (font (size 1.27 1.27))))
+    (property "Value" "Crystal" (at 0 -3.32863 0)
+      (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Crystal:Crystal_HC49-U_Vertical" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Description" "Two-terminal quartz crystal oscillator. Instance carries the frequency (7.3728MHz, …)." (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (symbol "_chip_X1_0_1"
+      (rectangle (start -2.48922 1.32863) (end 2.48922 -1.32863)
+        (stroke (width 0.254) (type default))
+        (fill (type none))
+      )
+    )
+    (symbol "_chip_X1_1_1"
+      (pin passive line (at -5.08 0 90) (length 2.54)
+        (name "1" (effects (font (size 1.27 1.27))))
+        (number "1" (effects (font (size 1.27 1.27))))
+      )
+      (pin passive line (at 5.08 0 90) (length 2.54)
+        (name "2" (effects (font (size 1.27 1.27))))
+        (number "2" (effects (font (size 1.27 1.27))))
+      )
+    )
+  )
+  (symbol "user:_chip_R34"
+    (pin_names (offset 0.508) hide)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (property "Reference" "U" (at 0 3 0)
+      (effects (font (size 1.27 1.27))))
+    (property "Value" "R" (at 0 -3 0)
+      (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Description" "Generic axial through-hole resistor. Instance carries the value (1k, 2k2, 4M7, 0R, …)." (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (symbol "_chip_R34_0_1"
+      (rectangle (start -1.32471 1) (end 1.32471 -1)
+        (stroke (width 0.254) (type default))
+        (fill (type none))
+      )
+    )
+    (symbol "_chip_R34_1_1"
+      (pin passive line (at -3.81 0 90) (length 2.54)
+        (name "1" (effects (font (size 1.27 1.27))))
+        (number "1" (effects (font (size 1.27 1.27))))
+      )
+      (pin passive line (at 3.81 0 90) (length 2.54)
+        (name "2" (effects (font (size 1.27 1.27))))
+        (number "2" (effects (font (size 1.27 1.27))))
+      )
+    )
+  )
+  (symbol "user:_chip_R35"
+    (pin_names (offset 0.508) hide)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (property "Reference" "U" (at 0 3 0)
+      (effects (font (size 1.27 1.27))))
+    (property "Value" "R" (at 0 -3 0)
+      (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Description" "Generic axial through-hole resistor. Instance carries the value (1k, 2k2, 4M7, 0R, …)." (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (symbol "_chip_R35_0_1"
+      (rectangle (start -1.18342 1) (end 1.18342 -1)
+        (stroke (width 0.254) (type default))
+        (fill (type none))
+      )
+    )
+    (symbol "_chip_R35_1_1"
+      (pin passive line (at -3.81 0 90) (length 2.54)
+        (name "1" (effects (font (size 1.27 1.27))))
+        (number "1" (effects (font (size 1.27 1.27))))
+      )
+      (pin passive line (at 3.81 0 90) (length 2.54)
+        (name "2" (effects (font (size 1.27 1.27))))
+        (number "2" (effects (font (size 1.27 1.27))))
+      )
+    )
+  )
+  (symbol "user:_chip_C18"
+    (pin_names (offset 0.508) hide)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (property "Reference" "U" (at 0 3.32863 0)
+      (effects (font (size 1.27 1.27))))
+    (property "Value" "C" (at 0 -3.32863 0)
+      (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Description" "Generic non-polarized capacitor (ceramic, film, mica). Instance carries the value (22p, 100n, 1u, …)." (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (symbol "_chip_C18_0_1"
+      (rectangle (start -1 1.32863) (end 1 -1.32863)
+        (stroke (width 0.254) (type default))
+        (fill (type none))
+      )
+    )
+    (symbol "_chip_C18_1_1"
+      (pin passive line (at -3.81 0 90) (length 2.54)
+        (name "1" (effects (font (size 1.27 1.27))))
+        (number "1" (effects (font (size 1.27 1.27))))
+      )
+      (pin passive line (at 2.54 0 90) (length 2.54)
+        (name "2" (effects (font (size 1.27 1.27))))
+        (number "2" (effects (font (size 1.27 1.27))))
+      )
+    )
+  )
   (symbol "user:_chip_IC91"
     (pin_names (offset 0.508) hide)
     (exclude_from_sim no)
@@ -148,7 +276,7 @@
         (name "GND" (effects (font (size 1.27 1.27))))
         (number "29" (effects (font (size 1.27 1.27))))
       )
-      (pin output line (at 6.35 -0 0) (length 2.54)
+      (pin output line (at 6.35 0 0) (length 2.54)
         (name "A0" (effects (font (size 1.27 1.27))))
         (number "30" (effects (font (size 1.27 1.27))))
       )
@@ -256,7 +384,7 @@
         (name "2B" (effects (font (size 1.27 1.27))))
         (number "10" (effects (font (size 1.27 1.27))))
       )
-      (pin input line (at 5.08 -0 0) (length 2.54)
+      (pin input line (at 5.08 0 0) (length 2.54)
         (name "~{2CLR}" (effects (font (size 1.27 1.27))))
         (number "11" (effects (font (size 1.27 1.27))))
       )
@@ -268,7 +396,7 @@
         (name "1Q" (effects (font (size 1.27 1.27))))
         (number "13" (effects (font (size 1.27 1.27))))
       )
-      (pin passive line (at -5.08 -0 180) (length 2.54)
+      (pin passive line (at -5.08 0 180) (length 2.54)
         (name "1CEXT" (effects (font (size 1.27 1.27))))
         (number "14" (effects (font (size 1.27 1.27))))
       )
@@ -708,7 +836,7 @@
         (name "2B" (effects (font (size 1.27 1.27))))
         (number "5" (effects (font (size 1.27 1.27))))
       )
-      (pin output line (at 7.62 -0 0) (length 2.54)
+      (pin output line (at 7.62 0 0) (length 2.54)
         (name "2Y" (effects (font (size 1.27 1.27))))
         (number "6" (effects (font (size 1.27 1.27))))
       )
@@ -720,7 +848,7 @@
         (name "3Y" (effects (font (size 1.27 1.27))))
         (number "8" (effects (font (size 1.27 1.27))))
       )
-      (pin input line (at -8.89 -0 90) (length 2.54)
+      (pin input line (at -8.89 0 90) (length 2.54)
         (name "3A" (effects (font (size 1.27 1.27))))
         (number "9" (effects (font (size 1.27 1.27))))
       )
@@ -796,7 +924,7 @@
         (name "GND" (effects (font (size 1.27 1.27))))
         (number "7" (effects (font (size 1.27 1.27))))
       )
-      (pin output line (at 7.62 -0 0) (length 2.54)
+      (pin output line (at 7.62 0 0) (length 2.54)
         (name "2Y" (effects (font (size 1.27 1.27))))
         (number "8" (effects (font (size 1.27 1.27))))
       )
@@ -864,7 +992,7 @@
         (name "1D" (effects (font (size 1.27 1.27))))
         (number "5" (effects (font (size 1.27 1.27))))
       )
-      (pin output line (at 6.35 -0 0) (length 2.54)
+      (pin output line (at 6.35 0 0) (length 2.54)
         (name "1Y" (effects (font (size 1.27 1.27))))
         (number "6" (effects (font (size 1.27 1.27))))
       )
@@ -912,7 +1040,7 @@
         (name "~{1K}" (effects (font (size 1.27 1.27))))
         (number "3" (effects (font (size 1.27 1.27))))
       )
-      (pin input line (at -5.08 -0 180) (length 2.54)
+      (pin input line (at -5.08 0 180) (length 2.54)
         (name "1CLK" (effects (font (size 1.27 1.27))))
         (number "4" (effects (font (size 1.27 1.27))))
       )
@@ -980,11 +1108,11 @@
       )
     )
     (symbol "_chip_IC7a_1_1"
-      (pin input line (at -5.08 -0 90) (length 2.54)
+      (pin input line (at -5.08 0 90) (length 2.54)
         (name "1A" (effects (font (size 1.27 1.27))))
         (number "1" (effects (font (size 1.27 1.27))))
       )
-      (pin output line (at 6.35 -0 90) (length 2.54)
+      (pin output line (at 6.35 0 90) (length 2.54)
         (name "1Y" (effects (font (size 1.27 1.27))))
         (number "2" (effects (font (size 1.27 1.27))))
       )
@@ -1424,7 +1552,7 @@
         (name "D3" (effects (font (size 1.27 1.27))))
         (number "13" (effects (font (size 1.27 1.27))))
       )
-      (pin output line (at 5.08 -0 0) (length 2.54)
+      (pin output line (at 5.08 0 0) (length 2.54)
         (name "D4" (effects (font (size 1.27 1.27))))
         (number "14" (effects (font (size 1.27 1.27))))
       )
@@ -1558,6 +1686,134 @@
       )
     )
   )
+  (symbol "user:_chip_R2"
+    (pin_names (offset 0.508) hide)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (property "Reference" "U" (at 0 3.65873 0)
+      (effects (font (size 1.27 1.27))))
+    (property "Value" "R" (at 0 -3.65873 0)
+      (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Description" "Generic axial through-hole resistor. Instance carries the value (1k, 2k2, 4M7, 0R, …)." (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (symbol "_chip_R2_0_1"
+      (rectangle (start -1 1.65873) (end 1 -1.65873)
+        (stroke (width 0.254) (type default))
+        (fill (type none))
+      )
+    )
+    (symbol "_chip_R2_1_1"
+      (pin passive line (at 0 5.08 180) (length 2.54)
+        (name "1" (effects (font (size 1.27 1.27))))
+        (number "1" (effects (font (size 1.27 1.27))))
+      )
+      (pin passive line (at 0 -3.81 180) (length 2.54)
+        (name "2" (effects (font (size 1.27 1.27))))
+        (number "2" (effects (font (size 1.27 1.27))))
+      )
+    )
+  )
+  (symbol "user:_chip_R7"
+    (pin_names (offset 0.508) hide)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (property "Reference" "U" (at 0 3 0)
+      (effects (font (size 1.27 1.27))))
+    (property "Value" "R" (at 0 -3 0)
+      (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Description" "Generic axial through-hole resistor. Instance carries the value (1k, 2k2, 4M7, 0R, …)." (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (symbol "_chip_R7_0_1"
+      (rectangle (start -3.61118 1) (end 3.61118 -1)
+        (stroke (width 0.254) (type default))
+        (fill (type none))
+      )
+    )
+    (symbol "_chip_R7_1_1"
+      (pin passive line (at -6.35 0 90) (length 2.54)
+        (name "1" (effects (font (size 1.27 1.27))))
+        (number "1" (effects (font (size 1.27 1.27))))
+      )
+      (pin passive line (at 6.35 0 90) (length 2.54)
+        (name "2" (effects (font (size 1.27 1.27))))
+        (number "2" (effects (font (size 1.27 1.27))))
+      )
+    )
+  )
+  (symbol "user:_chip_RP46"
+    (pin_names (offset 0.508) hide)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (property "Reference" "U" (at 0 4.19417 0)
+      (effects (font (size 1.27 1.27))))
+    (property "Value" "R" (at 0 -4.19417 0)
+      (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Description" "Generic axial through-hole resistor. Instance carries the value (1k, 2k2, 4M7, 0R, …)." (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (symbol "_chip_RP46_0_1"
+      (rectangle (start -1 2.19417) (end 1 -2.19417)
+        (stroke (width 0.254) (type default))
+        (fill (type none))
+      )
+    )
+    (symbol "_chip_RP46_1_1"
+      (pin passive line (at 0 5.08 180) (length 2.54)
+        (name "1" (effects (font (size 1.27 1.27))))
+        (number "1" (effects (font (size 1.27 1.27))))
+      )
+      (pin passive line (at 0 -5.08 180) (length 2.54)
+        (name "2" (effects (font (size 1.27 1.27))))
+        (number "2" (effects (font (size 1.27 1.27))))
+      )
+    )
+  )
+  (symbol "user:_chip_RP42"
+    (pin_names (offset 0.508) hide)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (property "Reference" "U" (at 0 3 0)
+      (effects (font (size 1.27 1.27))))
+    (property "Value" "R" (at 0 -3 0)
+      (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Description" "Generic axial through-hole resistor. Instance carries the value (1k, 2k2, 4M7, 0R, …)." (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (symbol "_chip_RP42_0_1"
+      (rectangle (start -2.62698 1) (end 2.62698 -1)
+        (stroke (width 0.254) (type default))
+        (fill (type none))
+      )
+    )
+    (symbol "_chip_RP42_1_1"
+      (pin passive line (at -6.35 0 90) (length 2.54)
+        (name "1" (effects (font (size 1.27 1.27))))
+        (number "1" (effects (font (size 1.27 1.27))))
+      )
+      (pin passive line (at 5.08 0 90) (length 2.54)
+        (name "2" (effects (font (size 1.27 1.27))))
+        (number "2" (effects (font (size 1.27 1.27))))
+      )
+    )
+  )
   (symbol "user:_chip_IC130b"
     (pin_names (offset 0.508) hide)
     (exclude_from_sim no)
@@ -1580,11 +1836,11 @@
       )
     )
     (symbol "_chip_IC130b_1_1"
-      (pin input line (at -5.08 -0 90) (length 2.54)
+      (pin input line (at -5.08 0 90) (length 2.54)
         (name "2A" (effects (font (size 1.27 1.27))))
         (number "3" (effects (font (size 1.27 1.27))))
       )
-      (pin output line (at 5.08 -0 90) (length 2.54)
+      (pin output line (at 5.08 0 90) (length 2.54)
         (name "2Y" (effects (font (size 1.27 1.27))))
         (number "4" (effects (font (size 1.27 1.27))))
       )
@@ -1620,11 +1876,11 @@
       )
     )
     (symbol "_chip_IC130c_1_1"
-      (pin input line (at -5.08 -0 90) (length 2.54)
+      (pin input line (at -5.08 0 90) (length 2.54)
         (name "3A" (effects (font (size 1.27 1.27))))
         (number "5" (effects (font (size 1.27 1.27))))
       )
-      (pin output line (at 5.08 -0 90) (length 2.54)
+      (pin output line (at 5.08 0 90) (length 2.54)
         (name "3Y" (effects (font (size 1.27 1.27))))
         (number "6" (effects (font (size 1.27 1.27))))
       )
@@ -1660,11 +1916,11 @@
       )
     )
     (symbol "_chip_IC130a_1_1"
-      (pin input line (at -5.08 -0 90) (length 2.54)
+      (pin input line (at -5.08 0 90) (length 2.54)
         (name "1A" (effects (font (size 1.27 1.27))))
         (number "1" (effects (font (size 1.27 1.27))))
       )
-      (pin output line (at 3.81 -0 0) (length 2.54)
+      (pin output line (at 3.81 0 0) (length 2.54)
         (name "1Y" (effects (font (size 1.27 1.27))))
         (number "2" (effects (font (size 1.27 1.27))))
       )
@@ -1864,7 +2120,7 @@
         (name "3B" (effects (font (size 1.27 1.27))))
         (number "10" (effects (font (size 1.27 1.27))))
       )
-      (pin output line (at 8.89 -0 90) (length 2.54)
+      (pin output line (at 8.89 0 90) (length 2.54)
         (name "3Y" (effects (font (size 1.27 1.27))))
         (number "8" (effects (font (size 1.27 1.27))))
       )
@@ -1908,7 +2164,7 @@
         (name "3B" (effects (font (size 1.27 1.27))))
         (number "10" (effects (font (size 1.27 1.27))))
       )
-      (pin output line (at 8.89 -0 0) (length 2.54)
+      (pin output line (at 8.89 0 0) (length 2.54)
         (name "3Y" (effects (font (size 1.27 1.27))))
         (number "8" (effects (font (size 1.27 1.27))))
       )
@@ -1952,7 +2208,7 @@
         (name "2B" (effects (font (size 1.27 1.27))))
         (number "5" (effects (font (size 1.27 1.27))))
       )
-      (pin output line (at 8.89 -0 90) (length 2.54)
+      (pin output line (at 8.89 0 90) (length 2.54)
         (name "2Y" (effects (font (size 1.27 1.27))))
         (number "6" (effects (font (size 1.27 1.27))))
       )
@@ -2084,7 +2340,7 @@
         (name "1B" (effects (font (size 1.27 1.27))))
         (number "2" (effects (font (size 1.27 1.27))))
       )
-      (pin output line (at 8.89 -0 90) (length 2.54)
+      (pin output line (at 8.89 0 90) (length 2.54)
         (name "1Y" (effects (font (size 1.27 1.27))))
         (number "3" (effects (font (size 1.27 1.27))))
       )
@@ -2280,11 +2536,11 @@
       )
     )
     (symbol "_chip_IC128d_1_1"
-      (pin input line (at -5.08 -0 180) (length 2.54)
+      (pin input line (at -5.08 0 180) (length 2.54)
         (name "4A" (effects (font (size 1.27 1.27))))
         (number "9" (effects (font (size 1.27 1.27))))
       )
-      (pin output line (at 5.08 -0 0) (length 2.54)
+      (pin output line (at 5.08 0 0) (length 2.54)
         (name "4Y" (effects (font (size 1.27 1.27))))
         (number "8" (effects (font (size 1.27 1.27))))
       )
@@ -2320,11 +2576,11 @@
       )
     )
     (symbol "_chip_IC128f_1_1"
-      (pin input line (at -5.08 -0 90) (length 2.54)
+      (pin input line (at -5.08 0 90) (length 2.54)
         (name "6A" (effects (font (size 1.27 1.27))))
         (number "13" (effects (font (size 1.27 1.27))))
       )
-      (pin output line (at 5.08 -0 90) (length 2.54)
+      (pin output line (at 5.08 0 90) (length 2.54)
         (name "6Y" (effects (font (size 1.27 1.27))))
         (number "12" (effects (font (size 1.27 1.27))))
       )
@@ -2360,11 +2616,11 @@
       )
     )
     (symbol "_chip_IC128c_1_1"
-      (pin input line (at -5.08 -0 90) (length 2.54)
+      (pin input line (at -5.08 0 90) (length 2.54)
         (name "3A" (effects (font (size 1.27 1.27))))
         (number "5" (effects (font (size 1.27 1.27))))
       )
-      (pin output line (at 6.35 -0 90) (length 2.54)
+      (pin output line (at 6.35 0 90) (length 2.54)
         (name "3Y" (effects (font (size 1.27 1.27))))
         (number "6" (effects (font (size 1.27 1.27))))
       )
@@ -2420,7 +2676,7 @@
         (name "~{1Y1}" (effects (font (size 1.27 1.27))))
         (number "5" (effects (font (size 1.27 1.27))))
       )
-      (pin output line (at 3.81 -0 0) (length 2.54)
+      (pin output line (at 3.81 0 0) (length 2.54)
         (name "~{1Y2}" (effects (font (size 1.27 1.27))))
         (number "6" (effects (font (size 1.27 1.27))))
       )
@@ -2460,11 +2716,11 @@
       )
     )
     (symbol "_chip_IC130d_1_1"
-      (pin input line (at -5.08 -0 90) (length 2.54)
+      (pin input line (at -5.08 0 90) (length 2.54)
         (name "4A" (effects (font (size 1.27 1.27))))
         (number "9" (effects (font (size 1.27 1.27))))
       )
-      (pin output line (at 5.08 -0 90) (length 2.54)
+      (pin output line (at 5.08 0 90) (length 2.54)
         (name "4Y" (effects (font (size 1.27 1.27))))
         (number "8" (effects (font (size 1.27 1.27))))
       )
@@ -2508,7 +2764,7 @@
         (name "1B" (effects (font (size 1.27 1.27))))
         (number "2" (effects (font (size 1.27 1.27))))
       )
-      (pin output line (at 6.35 -0 0) (length 2.54)
+      (pin output line (at 6.35 0 0) (length 2.54)
         (name "1Y" (effects (font (size 1.27 1.27))))
         (number "3" (effects (font (size 1.27 1.27))))
       )
@@ -2616,7 +2872,7 @@
         (name "~{1K}" (effects (font (size 1.27 1.27))))
         (number "3" (effects (font (size 1.27 1.27))))
       )
-      (pin input line (at -3.81 -0 180) (length 2.54)
+      (pin input line (at -3.81 0 180) (length 2.54)
         (name "1CLK" (effects (font (size 1.27 1.27))))
         (number "4" (effects (font (size 1.27 1.27))))
       )
@@ -2728,7 +2984,7 @@
         (name "1B" (effects (font (size 1.27 1.27))))
         (number "2" (effects (font (size 1.27 1.27))))
       )
-      (pin output line (at 10.16 -0 90) (length 2.54)
+      (pin output line (at 10.16 0 90) (length 2.54)
         (name "1Y" (effects (font (size 1.27 1.27))))
         (number "3" (effects (font (size 1.27 1.27))))
       )
@@ -2950,6 +3206,454 @@
       )
     )
   )
+  (symbol "user:_chip_C_BYP1"
+    (pin_names (offset 0.508) hide)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (property "Reference" "U" (at 0 3 0)
+      (effects (font (size 1.27 1.27))))
+    (property "Value" "C" (at 0 -3 0)
+      (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Description" "Generic non-polarized capacitor (ceramic, film, mica). Instance carries the value (22p, 100n, 1u, …)." (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (symbol "_chip_C_BYP1_0_1"
+      (rectangle (start -1 1) (end 1 -1)
+        (stroke (width 0.254) (type default))
+        (fill (type none))
+      )
+    )
+    (symbol "_chip_C_BYP1_1_1"
+      (pin passive line (at 0 3.81 180) (length 2.54)
+        (name "1" (effects (font (size 1.27 1.27))))
+        (number "1" (effects (font (size 1.27 1.27))))
+      )
+      (pin passive line (at 0 -3.81 180) (length 2.54)
+        (name "2" (effects (font (size 1.27 1.27))))
+        (number "2" (effects (font (size 1.27 1.27))))
+      )
+    )
+  )
+  (symbol "user:_chip_C_BYP2"
+    (pin_names (offset 0.508) hide)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (property "Reference" "U" (at 0 3.0447 0)
+      (effects (font (size 1.27 1.27))))
+    (property "Value" "C" (at 0 -3.0447 0)
+      (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Description" "Generic non-polarized capacitor (ceramic, film, mica). Instance carries the value (22p, 100n, 1u, …)." (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (symbol "_chip_C_BYP2_0_1"
+      (rectangle (start -1 1.0447) (end 1 -1.0447)
+        (stroke (width 0.254) (type default))
+        (fill (type none))
+      )
+    )
+    (symbol "_chip_C_BYP2_1_1"
+      (pin passive line (at 0 3.81 180) (length 2.54)
+        (name "1" (effects (font (size 1.27 1.27))))
+        (number "1" (effects (font (size 1.27 1.27))))
+      )
+      (pin passive line (at 0 -3.81 180) (length 2.54)
+        (name "2" (effects (font (size 1.27 1.27))))
+        (number "2" (effects (font (size 1.27 1.27))))
+      )
+    )
+  )
+  (symbol "user:_chip_LED1"
+    (pin_names (offset 0.508) hide)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (property "Reference" "U" (at 0 3.17356 0)
+      (effects (font (size 1.27 1.27))))
+    (property "Value" "LED" (at 0 -3.17356 0)
+      (effects (font (size 1.27 1.27))))
+    (property "Footprint" "LED_THT:LED_D5.0mm" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Description" "Light-emitting diode. Pin 1 is anode (+), pin 2 is cathode (-)." (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (symbol "_chip_LED1_0_1"
+      (rectangle (start -1.52094 1.17356) (end 1.52094 -1.17356)
+        (stroke (width 0.254) (type default))
+        (fill (type none))
+      )
+    )
+    (symbol "_chip_LED1_1_1"
+      (pin passive line (at -3.81 0 90) (length 2.54)
+        (name "+" (effects (font (size 1.27 1.27))))
+        (number "1" (effects (font (size 1.27 1.27))))
+      )
+      (pin passive line (at 3.81 0 90) (length 2.54)
+        (name "-" (effects (font (size 1.27 1.27))))
+        (number "2" (effects (font (size 1.27 1.27))))
+      )
+    )
+  )
+  (symbol "user:_chip_R29"
+    (pin_names (offset 0.508) hide)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (property "Reference" "U" (at 0 3 0)
+      (effects (font (size 1.27 1.27))))
+    (property "Value" "R" (at 0 -3 0)
+      (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Description" "Generic axial through-hole resistor. Instance carries the value (1k, 2k2, 4M7, 0R, …)." (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (symbol "_chip_R29_0_1"
+      (rectangle (start -1 1) (end 1 -1)
+        (stroke (width 0.254) (type default))
+        (fill (type none))
+      )
+    )
+    (symbol "_chip_R29_1_1"
+      (pin passive line (at 0 2.54 180) (length 2.54)
+        (name "1" (effects (font (size 1.27 1.27))))
+        (number "1" (effects (font (size 1.27 1.27))))
+      )
+      (pin passive line (at 0 -3.81 180) (length 2.54)
+        (name "2" (effects (font (size 1.27 1.27))))
+        (number "2" (effects (font (size 1.27 1.27))))
+      )
+    )
+  )
+  (symbol "user:_chip_RA"
+    (pin_names (offset 0.508) hide)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (property "Reference" "U" (at 0 4.38593 0)
+      (effects (font (size 1.27 1.27))))
+    (property "Value" "R" (at 0 -4.38593 0)
+      (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Description" "Generic axial through-hole resistor. Instance carries the value (1k, 2k2, 4M7, 0R, …)." (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (symbol "_chip_RA_0_1"
+      (rectangle (start -1 2.38593) (end 1 -2.38593)
+        (stroke (width 0.254) (type default))
+        (fill (type none))
+      )
+    )
+    (symbol "_chip_RA_1_1"
+      (pin passive line (at 0 5.08 180) (length 2.54)
+        (name "1" (effects (font (size 1.27 1.27))))
+        (number "1" (effects (font (size 1.27 1.27))))
+      )
+      (pin passive line (at 0 -5.08 180) (length 2.54)
+        (name "2" (effects (font (size 1.27 1.27))))
+        (number "2" (effects (font (size 1.27 1.27))))
+      )
+    )
+  )
+  (symbol "user:_chip_C15"
+    (pin_names (offset 0.508) hide)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (property "Reference" "U" (at 0 3 0)
+      (effects (font (size 1.27 1.27))))
+    (property "Value" "CP" (at 0 -3 0)
+      (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Capacitor_THT:CP_Radial_D5.0mm_P2.50mm" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Description" "Polarized electrolytic capacitor. Pin 1 is +, pin 2 is -. Instance carries capacitance and voltage (10u/16V)." (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (symbol "_chip_C15_0_1"
+      (rectangle (start -1 1) (end 1 -1)
+        (stroke (width 0.254) (type default))
+        (fill (type none))
+      )
+    )
+    (symbol "_chip_C15_1_1"
+      (pin passive line (at -2.54 0 90) (length 2.54)
+        (name "+" (effects (font (size 1.27 1.27))))
+        (number "1" (effects (font (size 1.27 1.27))))
+      )
+      (pin passive line (at 3.81 0 90) (length 2.54)
+        (name "-" (effects (font (size 1.27 1.27))))
+        (number "2" (effects (font (size 1.27 1.27))))
+      )
+    )
+  )
+  (symbol "user:_chip_R32"
+    (pin_names (offset 0.508) hide)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (property "Reference" "U" (at 0 3.49121 0)
+      (effects (font (size 1.27 1.27))))
+    (property "Value" "R" (at 0 -3.49121 0)
+      (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Description" "Generic axial through-hole resistor. Instance carries the value (1k, 2k2, 4M7, 0R, …)." (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (symbol "_chip_R32_0_1"
+      (rectangle (start -1 1.49121) (end 1 -1.49121)
+        (stroke (width 0.254) (type default))
+        (fill (type none))
+      )
+    )
+    (symbol "_chip_R32_1_1"
+      (pin passive line (at 0 3.81 180) (length 2.54)
+        (name "1" (effects (font (size 1.27 1.27))))
+        (number "1" (effects (font (size 1.27 1.27))))
+      )
+      (pin passive line (at 0 -3.81 180) (length 2.54)
+        (name "2" (effects (font (size 1.27 1.27))))
+        (number "2" (effects (font (size 1.27 1.27))))
+      )
+    )
+  )
+  (symbol "user:_chip_R31"
+    (pin_names (offset 0.508) hide)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (property "Reference" "U" (at 0 3.57091 0)
+      (effects (font (size 1.27 1.27))))
+    (property "Value" "R" (at 0 -3.57091 0)
+      (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Description" "Generic axial through-hole resistor. Instance carries the value (1k, 2k2, 4M7, 0R, …)." (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (symbol "_chip_R31_0_1"
+      (rectangle (start -1 1.57091) (end 1 -1.57091)
+        (stroke (width 0.254) (type default))
+        (fill (type none))
+      )
+    )
+    (symbol "_chip_R31_1_1"
+      (pin passive line (at 0 3.81 180) (length 2.54)
+        (name "1" (effects (font (size 1.27 1.27))))
+        (number "1" (effects (font (size 1.27 1.27))))
+      )
+      (pin passive line (at 0 -3.81 180) (length 2.54)
+        (name "2" (effects (font (size 1.27 1.27))))
+        (number "2" (effects (font (size 1.27 1.27))))
+      )
+    )
+  )
+  (symbol "user:_chip_R30"
+    (pin_names (offset 0.508) hide)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (property "Reference" "U" (at 0 3.19743 0)
+      (effects (font (size 1.27 1.27))))
+    (property "Value" "R" (at 0 -3.19743 0)
+      (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Description" "Generic axial through-hole resistor. Instance carries the value (1k, 2k2, 4M7, 0R, …)." (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (symbol "_chip_R30_0_1"
+      (rectangle (start -1 1.19743) (end 1 -1.19743)
+        (stroke (width 0.254) (type default))
+        (fill (type none))
+      )
+    )
+    (symbol "_chip_R30_1_1"
+      (pin passive line (at 0 3.81 180) (length 2.54)
+        (name "1" (effects (font (size 1.27 1.27))))
+        (number "1" (effects (font (size 1.27 1.27))))
+      )
+      (pin passive line (at 0 -3.81 180) (length 2.54)
+        (name "2" (effects (font (size 1.27 1.27))))
+        (number "2" (effects (font (size 1.27 1.27))))
+      )
+    )
+  )
+  (symbol "user:_chip_C17"
+    (pin_names (offset 0.508) hide)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (property "Reference" "U" (at 0 3.52206 0)
+      (effects (font (size 1.27 1.27))))
+    (property "Value" "C" (at 0 -3.52206 0)
+      (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Description" "Generic non-polarized capacitor (ceramic, film, mica). Instance carries the value (22p, 100n, 1u, …)." (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (symbol "_chip_C17_0_1"
+      (rectangle (start -1.71549 1.52206) (end 1.71549 -1.52206)
+        (stroke (width 0.254) (type default))
+        (fill (type none))
+      )
+    )
+    (symbol "_chip_C17_1_1"
+      (pin passive line (at 0 1.27 90) (length 2.54)
+        (name "1" (effects (font (size 1.27 1.27))))
+        (number "1" (effects (font (size 1.27 1.27))))
+      )
+      (pin passive line (at 0 -3.81 180) (length 2.54)
+        (name "2" (effects (font (size 1.27 1.27))))
+        (number "2" (effects (font (size 1.27 1.27))))
+      )
+    )
+  )
+  (symbol "user:_chip_R5"
+    (pin_names (offset 0.508) hide)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (property "Reference" "U" (at 0 4.45664 0)
+      (effects (font (size 1.27 1.27))))
+    (property "Value" "R" (at 0 -4.45664 0)
+      (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Description" "Generic axial through-hole resistor. Instance carries the value (1k, 2k2, 4M7, 0R, …)." (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (symbol "_chip_R5_0_1"
+      (rectangle (start -1 2.45664) (end 1 -2.45664)
+        (stroke (width 0.254) (type default))
+        (fill (type none))
+      )
+    )
+    (symbol "_chip_R5_1_1"
+      (pin passive line (at 0 5.08 180) (length 2.54)
+        (name "1" (effects (font (size 1.27 1.27))))
+        (number "1" (effects (font (size 1.27 1.27))))
+      )
+      (pin passive line (at 0 -5.08 180) (length 2.54)
+        (name "2" (effects (font (size 1.27 1.27))))
+        (number "2" (effects (font (size 1.27 1.27))))
+      )
+    )
+  )
+  (symbol "user:_chip_C4"
+    (pin_names (offset 0.508) hide)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (property "Reference" "U" (at 0 3.90892 0)
+      (effects (font (size 1.27 1.27))))
+    (property "Value" "C" (at 0 -3.90892 0)
+      (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Description" "Generic non-polarized capacitor (ceramic, film, mica). Instance carries the value (22p, 100n, 1u, …)." (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (symbol "_chip_C4_0_1"
+      (rectangle (start -1 1.90892) (end 1 -1.90892)
+        (stroke (width 0.254) (type default))
+        (fill (type none))
+      )
+    )
+    (symbol "_chip_C4_1_1"
+      (pin passive line (at -1.27 2.54 180) (length 2.54)
+        (name "1" (effects (font (size 1.27 1.27))))
+        (number "1" (effects (font (size 1.27 1.27))))
+      )
+      (pin passive line (at -1.27 -3.81 180) (length 2.54)
+        (name "2" (effects (font (size 1.27 1.27))))
+        (number "2" (effects (font (size 1.27 1.27))))
+      )
+    )
+  )
+  (symbol "user:_chip_RA6b"
+    (pin_names (offset 0.508) hide)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (property "Reference" "U" (at 0 4.40717 0)
+      (effects (font (size 1.27 1.27))))
+    (property "Value" "R" (at 0 -4.40717 0)
+      (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Description" "Generic axial through-hole resistor. Instance carries the value (1k, 2k2, 4M7, 0R, …)." (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (symbol "_chip_RA6b_0_1"
+      (rectangle (start -1 2.40717) (end 1 -2.40717)
+        (stroke (width 0.254) (type default))
+        (fill (type none))
+      )
+    )
+    (symbol "_chip_RA6b_1_1"
+      (pin passive line (at 0 5.08 180) (length 2.54)
+        (name "1" (effects (font (size 1.27 1.27))))
+        (number "1" (effects (font (size 1.27 1.27))))
+      )
+      (pin passive line (at 0 -5.08 180) (length 2.54)
+        (name "2" (effects (font (size 1.27 1.27))))
+        (number "2" (effects (font (size 1.27 1.27))))
+      )
+    )
+  )
+  (symbol "user:_chip_C16"
+    (pin_names (offset 0.508) hide)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (property "Reference" "U" (at 0 3.90892 0)
+      (effects (font (size 1.27 1.27))))
+    (property "Value" "C" (at 0 -3.90892 0)
+      (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Description" "Generic non-polarized capacitor (ceramic, film, mica). Instance carries the value (22p, 100n, 1u, …)." (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (symbol "_chip_C16_0_1"
+      (rectangle (start -1 1.90892) (end 1 -1.90892)
+        (stroke (width 0.254) (type default))
+        (fill (type none))
+      )
+    )
+    (symbol "_chip_C16_1_1"
+      (pin passive line (at 0 2.54 90) (length 2.54)
+        (name "1" (effects (font (size 1.27 1.27))))
+        (number "1" (effects (font (size 1.27 1.27))))
+      )
+      (pin passive line (at 0 -2.54 270) (length 2.54)
+        (name "2" (effects (font (size 1.27 1.27))))
+        (number "2" (effects (font (size 1.27 1.27))))
+      )
+    )
+  )
   (symbol "user:_chip_IC69"
     (pin_names (offset 0.508) hide)
     (exclude_from_sim no)
@@ -2972,11 +3676,11 @@
       )
     )
     (symbol "_chip_IC69_1_1"
-      (pin input line (at -7.62 -0 90) (length 2.54)
+      (pin input line (at -7.62 0 90) (length 2.54)
         (name "1A" (effects (font (size 1.27 1.27))))
         (number "1" (effects (font (size 1.27 1.27))))
       )
-      (pin output line (at 7.62 -0 90) (length 2.54)
+      (pin output line (at 7.62 0 90) (length 2.54)
         (name "1Y" (effects (font (size 1.27 1.27))))
         (number "2" (effects (font (size 1.27 1.27))))
       )
@@ -3000,7 +3704,7 @@
         (name "4Y" (effects (font (size 1.27 1.27))))
         (number "8" (effects (font (size 1.27 1.27))))
       )
-      (pin input line (at 7.62 -0 90) (length 2.54)
+      (pin input line (at 7.62 0 90) (length 2.54)
         (name "4A" (effects (font (size 1.27 1.27))))
         (number "9" (effects (font (size 1.27 1.27))))
       )
@@ -3008,7 +3712,7 @@
         (name "5Y" (effects (font (size 1.27 1.27))))
         (number "10" (effects (font (size 1.27 1.27))))
       )
-      (pin input line (at -7.62 -0 90) (length 2.54)
+      (pin input line (at -7.62 0 90) (length 2.54)
         (name "5A" (effects (font (size 1.27 1.27))))
         (number "11" (effects (font (size 1.27 1.27))))
       )
@@ -3019,6 +3723,38 @@
       (pin input line (at 7.62 -2.54 270) (length 2.54)
         (name "6A" (effects (font (size 1.27 1.27))))
         (number "13" (effects (font (size 1.27 1.27))))
+      )
+    )
+  )
+  (symbol "user:_chip_R3"
+    (pin_names (offset 0.508) hide)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (property "Reference" "U" (at 0 3 0)
+      (effects (font (size 1.27 1.27))))
+    (property "Value" "R" (at 0 -3 0)
+      (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Description" "Generic axial through-hole resistor. Instance carries the value (1k, 2k2, 4M7, 0R, …)." (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (symbol "_chip_R3_0_1"
+      (rectangle (start -2.54293 1) (end 2.54293 -1)
+        (stroke (width 0.254) (type default))
+        (fill (type none))
+      )
+    )
+    (symbol "_chip_R3_1_1"
+      (pin passive line (at -5.08 0 90) (length 2.54)
+        (name "1" (effects (font (size 1.27 1.27))))
+        (number "1" (effects (font (size 1.27 1.27))))
+      )
+      (pin passive line (at 5.08 0 90) (length 2.54)
+        (name "2" (effects (font (size 1.27 1.27))))
+        (number "2" (effects (font (size 1.27 1.27))))
       )
     )
   )
@@ -3044,878 +3780,16 @@
       )
     )
     (symbol "_chip_IC128e_1_1"
-      (pin input line (at -5.08 -0 90) (length 2.54)
+      (pin input line (at -5.08 0 90) (length 2.54)
         (name "5A" (effects (font (size 1.27 1.27))))
         (number "11" (effects (font (size 1.27 1.27))))
       )
-      (pin output line (at 5.08 -0 90) (length 2.54)
+      (pin output line (at 5.08 0 90) (length 2.54)
         (name "5Y" (effects (font (size 1.27 1.27))))
         (number "10" (effects (font (size 1.27 1.27))))
       )
     )
   )
-  (symbol "Device:C"
-  		(pin_numbers
-  			(hide yes)
-  		)
-  		(pin_names
-  			(offset 0.254)
-  		)
-  		(exclude_from_sim no)
-  		(in_bom yes)
-  		(on_board yes)
-  		(in_pos_files yes)
-  		(duplicate_pin_numbers_are_jumpers no)
-  		(property "Reference" "C"
-  			(at 0.635 2.54 0)
-  			(show_name no)
-  			(do_not_autoplace no)
-  			(effects
-  				(font
-  					(size 1.27 1.27)
-  				)
-  				(justify left)
-  			)
-  		)
-  		(property "Value" "C"
-  			(at 0.635 -2.54 0)
-  			(show_name no)
-  			(do_not_autoplace no)
-  			(effects
-  				(font
-  					(size 1.27 1.27)
-  				)
-  				(justify left)
-  			)
-  		)
-  		(property "Footprint" ""
-  			(at 0.9652 -3.81 0)
-  			(show_name no)
-  			(do_not_autoplace no)
-  			(hide yes)
-  			(effects
-  				(font
-  					(size 1.27 1.27)
-  				)
-  			)
-  		)
-  		(property "Datasheet" ""
-  			(at 0 0 0)
-  			(show_name no)
-  			(do_not_autoplace no)
-  			(hide yes)
-  			(effects
-  				(font
-  					(size 1.27 1.27)
-  				)
-  			)
-  		)
-  		(property "Description" "Unpolarized capacitor"
-  			(at 0 0 0)
-  			(show_name no)
-  			(do_not_autoplace no)
-  			(hide yes)
-  			(effects
-  				(font
-  					(size 1.27 1.27)
-  				)
-  			)
-  		)
-  		(property "ki_keywords" "cap capacitor"
-  			(at 0 0 0)
-  			(show_name no)
-  			(do_not_autoplace no)
-  			(hide yes)
-  			(effects
-  				(font
-  					(size 1.27 1.27)
-  				)
-  			)
-  		)
-  		(property "ki_fp_filters" "C_*"
-  			(at 0 0 0)
-  			(show_name no)
-  			(do_not_autoplace no)
-  			(hide yes)
-  			(effects
-  				(font
-  					(size 1.27 1.27)
-  				)
-  			)
-  		)
-  		(symbol "C_0_1"
-  			(polyline
-  				(pts
-  					(xy -2.032 0.762) (xy 2.032 0.762)
-  				)
-  				(stroke
-  					(width 0.508)
-  					(type default)
-  				)
-  				(fill
-  					(type none)
-  				)
-  			)
-  			(polyline
-  				(pts
-  					(xy -2.032 -0.762) (xy 2.032 -0.762)
-  				)
-  				(stroke
-  					(width 0.508)
-  					(type default)
-  				)
-  				(fill
-  					(type none)
-  				)
-  			)
-  		)
-  		(symbol "C_1_1"
-  			(pin passive line
-  				(at 0 3.81 270)
-  				(length 2.794)
-  				(name ""
-  					(effects
-  						(font
-  							(size 1.27 1.27)
-  						)
-  					)
-  				)
-  				(number "1"
-  					(effects
-  						(font
-  							(size 1.27 1.27)
-  						)
-  					)
-  				)
-  			)
-  			(pin passive line
-  				(at 0 -3.81 90)
-  				(length 2.794)
-  				(name ""
-  					(effects
-  						(font
-  							(size 1.27 1.27)
-  						)
-  					)
-  				)
-  				(number "2"
-  					(effects
-  						(font
-  							(size 1.27 1.27)
-  						)
-  					)
-  				)
-  			)
-  		)
-  		(embedded_fonts no)
-  	)
-  (symbol "Device:C_Polarized"
-  		(pin_numbers
-  			(hide yes)
-  		)
-  		(pin_names
-  			(offset 0.254)
-  		)
-  		(exclude_from_sim no)
-  		(in_bom yes)
-  		(on_board yes)
-  		(in_pos_files yes)
-  		(duplicate_pin_numbers_are_jumpers no)
-  		(property "Reference" "C"
-  			(at 0.635 2.54 0)
-  			(show_name no)
-  			(do_not_autoplace no)
-  			(effects
-  				(font
-  					(size 1.27 1.27)
-  				)
-  				(justify left)
-  			)
-  		)
-  		(property "Value" "C_Polarized"
-  			(at 0.635 -2.54 0)
-  			(show_name no)
-  			(do_not_autoplace no)
-  			(effects
-  				(font
-  					(size 1.27 1.27)
-  				)
-  				(justify left)
-  			)
-  		)
-  		(property "Footprint" ""
-  			(at 0.9652 -3.81 0)
-  			(show_name no)
-  			(do_not_autoplace no)
-  			(hide yes)
-  			(effects
-  				(font
-  					(size 1.27 1.27)
-  				)
-  			)
-  		)
-  		(property "Datasheet" ""
-  			(at 0 0 0)
-  			(show_name no)
-  			(do_not_autoplace no)
-  			(hide yes)
-  			(effects
-  				(font
-  					(size 1.27 1.27)
-  				)
-  			)
-  		)
-  		(property "Description" "Polarized capacitor"
-  			(at 0 0 0)
-  			(show_name no)
-  			(do_not_autoplace no)
-  			(hide yes)
-  			(effects
-  				(font
-  					(size 1.27 1.27)
-  				)
-  			)
-  		)
-  		(property "ki_keywords" "cap capacitor"
-  			(at 0 0 0)
-  			(show_name no)
-  			(do_not_autoplace no)
-  			(hide yes)
-  			(effects
-  				(font
-  					(size 1.27 1.27)
-  				)
-  			)
-  		)
-  		(property "ki_fp_filters" "CP_*"
-  			(at 0 0 0)
-  			(show_name no)
-  			(do_not_autoplace no)
-  			(hide yes)
-  			(effects
-  				(font
-  					(size 1.27 1.27)
-  				)
-  			)
-  		)
-  		(symbol "C_Polarized_0_1"
-  			(rectangle
-  				(start -2.286 0.508)
-  				(end 2.286 1.016)
-  				(stroke
-  					(width 0)
-  					(type default)
-  				)
-  				(fill
-  					(type none)
-  				)
-  			)
-  			(polyline
-  				(pts
-  					(xy -1.778 2.286) (xy -0.762 2.286)
-  				)
-  				(stroke
-  					(width 0)
-  					(type default)
-  				)
-  				(fill
-  					(type none)
-  				)
-  			)
-  			(polyline
-  				(pts
-  					(xy -1.27 2.794) (xy -1.27 1.778)
-  				)
-  				(stroke
-  					(width 0)
-  					(type default)
-  				)
-  				(fill
-  					(type none)
-  				)
-  			)
-  			(rectangle
-  				(start 2.286 -0.508)
-  				(end -2.286 -1.016)
-  				(stroke
-  					(width 0)
-  					(type default)
-  				)
-  				(fill
-  					(type outline)
-  				)
-  			)
-  		)
-  		(symbol "C_Polarized_1_1"
-  			(pin passive line
-  				(at 0 3.81 270)
-  				(length 2.794)
-  				(name ""
-  					(effects
-  						(font
-  							(size 1.27 1.27)
-  						)
-  					)
-  				)
-  				(number "1"
-  					(effects
-  						(font
-  							(size 1.27 1.27)
-  						)
-  					)
-  				)
-  			)
-  			(pin passive line
-  				(at 0 -3.81 90)
-  				(length 2.794)
-  				(name ""
-  					(effects
-  						(font
-  							(size 1.27 1.27)
-  						)
-  					)
-  				)
-  				(number "2"
-  					(effects
-  						(font
-  							(size 1.27 1.27)
-  						)
-  					)
-  				)
-  			)
-  		)
-  		(embedded_fonts no)
-  	)
-  (symbol "Device:Crystal"
-  		(pin_numbers
-  			(hide yes)
-  		)
-  		(pin_names
-  			(offset 1.016)
-  			(hide yes)
-  		)
-  		(exclude_from_sim no)
-  		(in_bom yes)
-  		(on_board yes)
-  		(in_pos_files yes)
-  		(duplicate_pin_numbers_are_jumpers no)
-  		(property "Reference" "Y"
-  			(at 0 3.81 0)
-  			(show_name no)
-  			(do_not_autoplace no)
-  			(effects
-  				(font
-  					(size 1.27 1.27)
-  				)
-  			)
-  		)
-  		(property "Value" "Crystal"
-  			(at 0 -3.81 0)
-  			(show_name no)
-  			(do_not_autoplace no)
-  			(effects
-  				(font
-  					(size 1.27 1.27)
-  				)
-  			)
-  		)
-  		(property "Footprint" ""
-  			(at 0 0 0)
-  			(show_name no)
-  			(do_not_autoplace no)
-  			(hide yes)
-  			(effects
-  				(font
-  					(size 1.27 1.27)
-  				)
-  			)
-  		)
-  		(property "Datasheet" ""
-  			(at 0 0 0)
-  			(show_name no)
-  			(do_not_autoplace no)
-  			(hide yes)
-  			(effects
-  				(font
-  					(size 1.27 1.27)
-  				)
-  			)
-  		)
-  		(property "Description" "Two pin crystal"
-  			(at 0 0 0)
-  			(show_name no)
-  			(do_not_autoplace no)
-  			(hide yes)
-  			(effects
-  				(font
-  					(size 1.27 1.27)
-  				)
-  			)
-  		)
-  		(property "ki_keywords" "quartz ceramic resonator oscillator"
-  			(at 0 0 0)
-  			(show_name no)
-  			(do_not_autoplace no)
-  			(hide yes)
-  			(effects
-  				(font
-  					(size 1.27 1.27)
-  				)
-  			)
-  		)
-  		(property "ki_fp_filters" "Crystal*"
-  			(at 0 0 0)
-  			(show_name no)
-  			(do_not_autoplace no)
-  			(hide yes)
-  			(effects
-  				(font
-  					(size 1.27 1.27)
-  				)
-  			)
-  		)
-  		(symbol "Crystal_0_1"
-  			(polyline
-  				(pts
-  					(xy -2.54 0) (xy -1.905 0)
-  				)
-  				(stroke
-  					(width 0)
-  					(type default)
-  				)
-  				(fill
-  					(type none)
-  				)
-  			)
-  			(polyline
-  				(pts
-  					(xy -1.905 -1.27) (xy -1.905 1.27)
-  				)
-  				(stroke
-  					(width 0.508)
-  					(type default)
-  				)
-  				(fill
-  					(type none)
-  				)
-  			)
-  			(rectangle
-  				(start -1.143 2.54)
-  				(end 1.143 -2.54)
-  				(stroke
-  					(width 0.3048)
-  					(type default)
-  				)
-  				(fill
-  					(type none)
-  				)
-  			)
-  			(polyline
-  				(pts
-  					(xy 1.905 -1.27) (xy 1.905 1.27)
-  				)
-  				(stroke
-  					(width 0.508)
-  					(type default)
-  				)
-  				(fill
-  					(type none)
-  				)
-  			)
-  			(polyline
-  				(pts
-  					(xy 2.54 0) (xy 1.905 0)
-  				)
-  				(stroke
-  					(width 0)
-  					(type default)
-  				)
-  				(fill
-  					(type none)
-  				)
-  			)
-  		)
-  		(symbol "Crystal_1_1"
-  			(pin passive line
-  				(at -3.81 0 0)
-  				(length 1.27)
-  				(name "1"
-  					(effects
-  						(font
-  							(size 1.27 1.27)
-  						)
-  					)
-  				)
-  				(number "1"
-  					(effects
-  						(font
-  							(size 1.27 1.27)
-  						)
-  					)
-  				)
-  			)
-  			(pin passive line
-  				(at 3.81 0 180)
-  				(length 1.27)
-  				(name "2"
-  					(effects
-  						(font
-  							(size 1.27 1.27)
-  						)
-  					)
-  				)
-  				(number "2"
-  					(effects
-  						(font
-  							(size 1.27 1.27)
-  						)
-  					)
-  				)
-  			)
-  		)
-  		(embedded_fonts no)
-  	)
-  (symbol "Device:LED"
-  		(pin_numbers
-  			(hide yes)
-  		)
-  		(pin_names
-  			(offset 1.016)
-  			(hide yes)
-  		)
-  		(exclude_from_sim no)
-  		(in_bom yes)
-  		(on_board yes)
-  		(in_pos_files yes)
-  		(duplicate_pin_numbers_are_jumpers no)
-  		(property "Reference" "D"
-  			(at 0 2.54 0)
-  			(show_name no)
-  			(do_not_autoplace no)
-  			(effects
-  				(font
-  					(size 1.27 1.27)
-  				)
-  			)
-  		)
-  		(property "Value" "LED"
-  			(at 0 -2.54 0)
-  			(show_name no)
-  			(do_not_autoplace no)
-  			(effects
-  				(font
-  					(size 1.27 1.27)
-  				)
-  			)
-  		)
-  		(property "Footprint" ""
-  			(at 0 0 0)
-  			(show_name no)
-  			(do_not_autoplace no)
-  			(hide yes)
-  			(effects
-  				(font
-  					(size 1.27 1.27)
-  				)
-  			)
-  		)
-  		(property "Datasheet" ""
-  			(at 0 0 0)
-  			(show_name no)
-  			(do_not_autoplace no)
-  			(hide yes)
-  			(effects
-  				(font
-  					(size 1.27 1.27)
-  				)
-  			)
-  		)
-  		(property "Description" "Light emitting diode"
-  			(at 0 0 0)
-  			(show_name no)
-  			(do_not_autoplace no)
-  			(hide yes)
-  			(effects
-  				(font
-  					(size 1.27 1.27)
-  				)
-  			)
-  		)
-  		(property "Sim.Pins" "1=K 2=A"
-  			(at 0 0 0)
-  			(show_name no)
-  			(do_not_autoplace no)
-  			(hide yes)
-  			(effects
-  				(font
-  					(size 1.27 1.27)
-  				)
-  			)
-  		)
-  		(property "ki_keywords" "LED diode"
-  			(at 0 0 0)
-  			(show_name no)
-  			(do_not_autoplace no)
-  			(hide yes)
-  			(effects
-  				(font
-  					(size 1.27 1.27)
-  				)
-  			)
-  		)
-  		(property "ki_fp_filters" "LED* LED_SMD:* LED_THT:*"
-  			(at 0 0 0)
-  			(show_name no)
-  			(do_not_autoplace no)
-  			(hide yes)
-  			(effects
-  				(font
-  					(size 1.27 1.27)
-  				)
-  			)
-  		)
-  		(symbol "LED_0_1"
-  			(polyline
-  				(pts
-  					(xy -3.048 -0.762) (xy -4.572 -2.286) (xy -3.81 -2.286) (xy -4.572 -2.286) (xy -4.572 -1.524)
-  				)
-  				(stroke
-  					(width 0)
-  					(type default)
-  				)
-  				(fill
-  					(type none)
-  				)
-  			)
-  			(polyline
-  				(pts
-  					(xy -1.778 -0.762) (xy -3.302 -2.286) (xy -2.54 -2.286) (xy -3.302 -2.286) (xy -3.302 -1.524)
-  				)
-  				(stroke
-  					(width 0)
-  					(type default)
-  				)
-  				(fill
-  					(type none)
-  				)
-  			)
-  			(polyline
-  				(pts
-  					(xy -1.27 0) (xy 1.27 0)
-  				)
-  				(stroke
-  					(width 0)
-  					(type default)
-  				)
-  				(fill
-  					(type none)
-  				)
-  			)
-  			(polyline
-  				(pts
-  					(xy -1.27 -1.27) (xy -1.27 1.27)
-  				)
-  				(stroke
-  					(width 0.254)
-  					(type default)
-  				)
-  				(fill
-  					(type none)
-  				)
-  			)
-  			(polyline
-  				(pts
-  					(xy 1.27 -1.27) (xy 1.27 1.27) (xy -1.27 0) (xy 1.27 -1.27)
-  				)
-  				(stroke
-  					(width 0.254)
-  					(type default)
-  				)
-  				(fill
-  					(type none)
-  				)
-  			)
-  		)
-  		(symbol "LED_1_1"
-  			(pin passive line
-  				(at -3.81 0 0)
-  				(length 2.54)
-  				(name "K"
-  					(effects
-  						(font
-  							(size 1.27 1.27)
-  						)
-  					)
-  				)
-  				(number "1"
-  					(effects
-  						(font
-  							(size 1.27 1.27)
-  						)
-  					)
-  				)
-  			)
-  			(pin passive line
-  				(at 3.81 0 180)
-  				(length 2.54)
-  				(name "A"
-  					(effects
-  						(font
-  							(size 1.27 1.27)
-  						)
-  					)
-  				)
-  				(number "2"
-  					(effects
-  						(font
-  							(size 1.27 1.27)
-  						)
-  					)
-  				)
-  			)
-  		)
-  		(embedded_fonts no)
-  	)
-  (symbol "Device:R"
-  		(pin_numbers
-  			(hide yes)
-  		)
-  		(pin_names
-  			(offset 0)
-  		)
-  		(exclude_from_sim no)
-  		(in_bom yes)
-  		(on_board yes)
-  		(in_pos_files yes)
-  		(duplicate_pin_numbers_are_jumpers no)
-  		(property "Reference" "R"
-  			(at 2.032 0 90)
-  			(show_name no)
-  			(do_not_autoplace no)
-  			(effects
-  				(font
-  					(size 1.27 1.27)
-  				)
-  			)
-  		)
-  		(property "Value" "R"
-  			(at 0 0 90)
-  			(show_name no)
-  			(do_not_autoplace no)
-  			(effects
-  				(font
-  					(size 1.27 1.27)
-  				)
-  			)
-  		)
-  		(property "Footprint" ""
-  			(at -1.778 0 90)
-  			(show_name no)
-  			(do_not_autoplace no)
-  			(hide yes)
-  			(effects
-  				(font
-  					(size 1.27 1.27)
-  				)
-  			)
-  		)
-  		(property "Datasheet" ""
-  			(at 0 0 0)
-  			(show_name no)
-  			(do_not_autoplace no)
-  			(hide yes)
-  			(effects
-  				(font
-  					(size 1.27 1.27)
-  				)
-  			)
-  		)
-  		(property "Description" "Resistor"
-  			(at 0 0 0)
-  			(show_name no)
-  			(do_not_autoplace no)
-  			(hide yes)
-  			(effects
-  				(font
-  					(size 1.27 1.27)
-  				)
-  			)
-  		)
-  		(property "ki_keywords" "R res resistor"
-  			(at 0 0 0)
-  			(show_name no)
-  			(do_not_autoplace no)
-  			(hide yes)
-  			(effects
-  				(font
-  					(size 1.27 1.27)
-  				)
-  			)
-  		)
-  		(property "ki_fp_filters" "R_*"
-  			(at 0 0 0)
-  			(show_name no)
-  			(do_not_autoplace no)
-  			(hide yes)
-  			(effects
-  				(font
-  					(size 1.27 1.27)
-  				)
-  			)
-  		)
-  		(symbol "R_0_1"
-  			(rectangle
-  				(start -1.016 -2.54)
-  				(end 1.016 2.54)
-  				(stroke
-  					(width 0.254)
-  					(type default)
-  				)
-  				(fill
-  					(type none)
-  				)
-  			)
-  		)
-  		(symbol "R_1_1"
-  			(pin passive line
-  				(at 0 3.81 270)
-  				(length 1.27)
-  				(name ""
-  					(effects
-  						(font
-  							(size 1.27 1.27)
-  						)
-  					)
-  				)
-  				(number "1"
-  					(effects
-  						(font
-  							(size 1.27 1.27)
-  						)
-  					)
-  				)
-  			)
-  			(pin passive line
-  				(at 0 -3.81 90)
-  				(length 1.27)
-  				(name ""
-  					(effects
-  						(font
-  							(size 1.27 1.27)
-  						)
-  					)
-  				)
-  				(number "2"
-  					(effects
-  						(font
-  							(size 1.27 1.27)
-  						)
-  					)
-  				)
-  			)
-  		)
-  		(embedded_fonts no)
-  	)
   (symbol "user:PWR_GND"
     (power) (pin_names (offset 0)) (exclude_from_sim no) (in_bom no) (on_board no)
     (property "Reference" "#PWR" (at 0 -3.81 0)
@@ -3956,7 +3830,7 @@
   )
   )
   (symbol
-    (lib_id "Device:Crystal")
+    (lib_id "user:_chip_X1")
     (at 54.61 212.09 0)
     (unit 1)
     (exclude_from_sim no)
@@ -3983,7 +3857,7 @@
     )
   )
   (symbol
-    (lib_id "Device:R")
+    (lib_id "user:_chip_R34")
     (at 64.77 218.44 0)
     (unit 1)
     (exclude_from_sim no)
@@ -4010,7 +3884,7 @@
     )
   )
   (symbol
-    (lib_id "Device:R")
+    (lib_id "user:_chip_R35")
     (at 43.18 218.44 0)
     (unit 1)
     (exclude_from_sim no)
@@ -4037,7 +3911,7 @@
     )
   )
   (symbol
-    (lib_id "Device:C")
+    (lib_id "user:_chip_C18")
     (at 54.61 227.33 0)
     (unit 1)
     (exclude_from_sim no)
@@ -4774,7 +4648,7 @@
     )
   )
   (symbol
-    (lib_id "Device:R")
+    (lib_id "user:_chip_R2")
     (at 279.4 66.04 0)
     (unit 1)
     (exclude_from_sim no)
@@ -4801,7 +4675,7 @@
     )
   )
   (symbol
-    (lib_id "Device:R")
+    (lib_id "user:_chip_R7")
     (at 66.04 57.15 0)
     (unit 1)
     (exclude_from_sim no)
@@ -4828,7 +4702,7 @@
     )
   )
   (symbol
-    (lib_id "Device:R")
+    (lib_id "user:_chip_RP46")
     (at 80.01 134.62 0)
     (unit 1)
     (exclude_from_sim no)
@@ -4855,7 +4729,7 @@
     )
   )
   (symbol
-    (lib_id "Device:R")
+    (lib_id "user:_chip_RP42")
     (at 201.93 238.76 0)
     (unit 1)
     (exclude_from_sim no)
@@ -5743,7 +5617,7 @@
     )
   )
   (symbol
-    (lib_id "Device:C")
+    (lib_id "user:_chip_C_BYP1")
     (at 67.31 44.45 0)
     (unit 1)
     (exclude_from_sim no)
@@ -5770,7 +5644,7 @@
     )
   )
   (symbol
-    (lib_id "Device:C")
+    (lib_id "user:_chip_C_BYP2")
     (at 77.47 44.45 0)
     (unit 1)
     (exclude_from_sim no)
@@ -5797,7 +5671,7 @@
     )
   )
   (symbol
-    (lib_id "Device:LED")
+    (lib_id "user:_chip_LED1")
     (at 77.47 58.42 0)
     (unit 1)
     (exclude_from_sim no)
@@ -5824,7 +5698,7 @@
     )
   )
   (symbol
-    (lib_id "Device:R")
+    (lib_id "user:_chip_R29")
     (at 72.39 67.31 0)
     (unit 1)
     (exclude_from_sim no)
@@ -5851,7 +5725,7 @@
     )
   )
   (symbol
-    (lib_id "Device:R")
+    (lib_id "user:_chip_RA")
     (at 80.01 74.93 0)
     (unit 1)
     (exclude_from_sim no)
@@ -5878,7 +5752,7 @@
     )
   )
   (symbol
-    (lib_id "Device:C_Polarized")
+    (lib_id "user:_chip_C15")
     (at 69.85 73.66 0)
     (unit 1)
     (exclude_from_sim no)
@@ -5905,7 +5779,7 @@
     )
   )
   (symbol
-    (lib_id "Device:R")
+    (lib_id "user:_chip_R32")
     (at 46.99 86.36 0)
     (unit 1)
     (exclude_from_sim no)
@@ -5932,7 +5806,7 @@
     )
   )
   (symbol
-    (lib_id "Device:R")
+    (lib_id "user:_chip_R31")
     (at 57.15 86.36 0)
     (unit 1)
     (exclude_from_sim no)
@@ -5959,7 +5833,7 @@
     )
   )
   (symbol
-    (lib_id "Device:R")
+    (lib_id "user:_chip_R30")
     (at 59.69 93.98 0)
     (unit 1)
     (exclude_from_sim no)
@@ -5986,7 +5860,7 @@
     )
   )
   (symbol
-    (lib_id "Device:C")
+    (lib_id "user:_chip_C17")
     (at 52.07 88.9 0)
     (unit 1)
     (exclude_from_sim no)
@@ -6013,7 +5887,7 @@
     )
   )
   (symbol
-    (lib_id "Device:R")
+    (lib_id "user:_chip_R5")
     (at 67.31 114.3 0)
     (unit 1)
     (exclude_from_sim no)
@@ -6040,7 +5914,7 @@
     )
   )
   (symbol
-    (lib_id "Device:C")
+    (lib_id "user:_chip_C4")
     (at 77.47 113.03 0)
     (unit 1)
     (exclude_from_sim no)
@@ -6067,7 +5941,7 @@
     )
   )
   (symbol
-    (lib_id "Device:R")
+    (lib_id "user:_chip_RA6b")
     (at 76.2 134.62 0)
     (unit 1)
     (exclude_from_sim no)
@@ -6094,7 +5968,7 @@
     )
   )
   (symbol
-    (lib_id "Device:C")
+    (lib_id "user:_chip_C16")
     (at 44.45 95.25 0)
     (unit 1)
     (exclude_from_sim no)
@@ -6158,7 +6032,7 @@
     )
   )
   (symbol
-    (lib_id "Device:R")
+    (lib_id "user:_chip_R3")
     (at 153.67 199.39 0)
     (unit 1)
     (exclude_from_sim no)

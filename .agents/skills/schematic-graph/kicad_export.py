@@ -204,7 +204,10 @@ def _kicad_label(name: str) -> str:
 
 def _f(v) -> str:
     """Format a float without trailing zeros, KiCad-friendly."""
-    return f"{float(v):g}"
+    v = float(v)
+    if abs(v) < 1e-9:
+        v = 0.0
+    return f"{v:g}"
 
 
 def _pin_lib_line(n_pos: int, total_visible: int, p: dict,
@@ -682,13 +685,14 @@ def gen_sch(graph: dict, chips: dict, sheet_index: int, project_name: str = "sch
             if any(ep.get("sheet") == sheet_index for ep in n.get("endpoints", []))]
 
     # Build lib_symbols.
-    #   - kind="discrete" parts (R, C, SW_Push, …) reference KiCad stock
-    #     symbols (Device:R, etc.) directly — no synthesis. The instance's
-    #     lib_id is the stock id; KiCad resolves it from the global symbol
-    #     library installed alongside KiCad.
-    #   - kind="ic" with pin_positions: per-component faithful symbol sized
+    #   - components with pin_positions: per-component faithful symbol sized
     #     to the source bbox with pins at placed positions (matches source).
-    #   - kind="ic" without pin_positions: existing per-(part, letter)
+    #     This includes passives/connectors; using stock symbols there leaves
+    #     KiCad pins at the stock-symbol geometry while wires are drawn at
+    #     source pin coords, which creates visible and ERC-detected gaps.
+    #   - kind="discrete" parts without pin_positions (R, C, SW_Push, …)
+    #     reference KiCad stock symbols directly.
+    #   - other parts without pin_positions: existing per-(part, letter)
     #     generic synthesized symbol — fallback for partly-transcribed sheets.
     multi_unit_parts = _multi_unit_parts(components, chips)
     explicit_power_eps: set[tuple[str, str]] = set()
@@ -709,17 +713,7 @@ def gen_sch(graph: dict, chips: dict, sheet_index: int, project_name: str = "sch
         part = chips["parts"].get(c["part"])
         if not part:
             continue
-        if part.get("kind") == "discrete":
-            discrete_refdes.add(c["refdes"])
-            # Discretes reference stock symbols (Device:R, Switch:SW_Push,
-            # …) by lib_id. KiCad's .kicad_sch needs each used stock
-            # symbol embedded in lib_symbols too, or the GUI shows '??'
-            # placeholders even when the project sym-lib-table is set.
-            stock = part.get("kicad_symbol")
-            if stock and ":" in stock:
-                stock_lib_ids_needed.add(stock)
-            continue
-        if c.get("pin_positions"):
+        if c.get("pin_positions") and not c["part"].startswith("Conn_01x"):
             letter = _comp_unit_letter(c["refdes"], c["part"], multi_unit_parts)
             pin_pos = c.get("pin_positions") or {}
             include_pins = {
@@ -733,6 +727,17 @@ def gen_sch(graph: dict, chips: dict, sheet_index: int, project_name: str = "sch
             }
             sym_defs.append(synth_faithful_symbol(c["refdes"], c["part"], part, c, scale, unit_letter=letter, include_pins=include_pins))
             faithful_refdes.add(c["refdes"])
+            continue
+        if part.get("kind") == "discrete":
+            discrete_refdes.add(c["refdes"])
+            # Discretes without placed pin coords reference stock symbols
+            # (Device:R, Switch:SW_Push, …) by lib_id. KiCad's .kicad_sch
+            # needs each used stock symbol embedded in lib_symbols too, or
+            # the GUI shows '??' placeholders even when the project
+            # sym-lib-table is set.
+            stock = part.get("kicad_symbol")
+            if stock and ":" in stock:
+                stock_lib_ids_needed.add(stock)
         else:
             letter = _comp_unit_letter(c["refdes"], c["part"], multi_unit_parts)
             fallback_lib_ids[(c["part"], letter)] = part
@@ -803,10 +808,10 @@ def gen_sch(graph: dict, chips: dict, sheet_index: int, project_name: str = "sch
             # etc.) directly. We don't synthesize a lib_symbol; KiCad resolves
             # the lib_id from its global symbol library (installed alongside
             # KiCad). Pin endpoints come from comp.pin_positions snapped to
-            # the grid — same as the IC faithful path. The stock symbol's
-            # internal pin spacing may differ slightly from the source, so a
-            # short visible offset between the stock symbol and the wire
-            # endpoint is possible; the connectivity is still right.
+            # the grid when possible — same as the IC faithful path.
+            # Stock single-row connectors are the exception: KiCad's stock
+            # symbol pin geometry is fixed and the source pin coords rarely
+            # match it, so use the stock symbol's real pin tips there.
             lib_id_full = part.get("kicad_symbol") or "Device:Unknown"
             pin_pos = comp.get("pin_positions") or {}
             pin_count = part.get("pin_count") or len(pin_pos)
@@ -818,11 +823,18 @@ def gen_sch(graph: dict, chips: dict, sheet_index: int, project_name: str = "sch
                 derived_pins = [{"n": i + 1, "name": str(i + 1), "type": "passive"}
                                 for i in range(pin_count)]
             active_pins = [p for p in derived_pins if str(p["n"]) in pin_pos]
-            for p in active_pins:
-                ix, iy = pin_pos[str(p["n"])]
-                ex_mm = _snap(PAPER_MARGIN_MM + ix * scale)
-                ey_mm = _snap(PAPER_MARGIN_MM + iy * scale)
-                pin_endpoint_mm[(comp["refdes"], str(p["n"]))] = (ex_mm, ey_mm)
+            if comp["part"].startswith("Conn_01x"):
+                top_y = (pin_count - 2) * KICAD_GRID_MM / 2
+                for p in active_pins:
+                    px = -2 * KICAD_GRID_MM
+                    py = top_y - (p["n"] - 1) * KICAD_GRID_MM
+                    pin_endpoint_mm[(comp["refdes"], str(p["n"]))] = (x_mm + px, y_mm - py)
+            else:
+                for p in active_pins:
+                    ix, iy = pin_pos[str(p["n"])]
+                    ex_mm = _snap(PAPER_MARGIN_MM + ix * scale)
+                    ey_mm = _snap(PAPER_MARGIN_MM + iy * scale)
+                    pin_endpoint_mm[(comp["refdes"], str(p["n"]))] = (ex_mm, ey_mm)
         elif is_faithful:
             # Faithful path: pin tips use the single-snap formula
             # `_snap(M + ix * scale)` so they match polylines, junctions, and
@@ -914,7 +926,7 @@ def gen_sch(graph: dict, chips: dict, sheet_index: int, project_name: str = "sch
             value_prop = comp.get("value") or comp["part"]
         else:
             inst_lib_id = f"user:{lib_id}"
-            value_prop = comp["part"]
+            value_prop = comp.get("value") or comp["part"] if part.get("kind") == "discrete" else comp["part"]
 
         inst = f'''  (symbol
     (lib_id "{inst_lib_id}")

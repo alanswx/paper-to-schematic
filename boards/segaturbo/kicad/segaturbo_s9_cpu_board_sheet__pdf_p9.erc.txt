@@ -1,4 +1,4 @@
-ERC report (2026-05-21T18:50:32, Encoding UTF8)
+ERC report (2026-05-23T10:02:16, Encoding UTF8)
 Report includes: Errors, Warnings, Exclusions
 
 ***** Sheet /
@@ -37,22 +37,13 @@ Report includes: Errors, Warnings, Exclusions
     @(110.49 mm, 72.39 mm): Symbol PROM_SW1 Pin 2 [SW2A, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(125.73 mm, 45.72 mm): Symbol PROM_RA1 Pin 1 [common, Passive, Line]
+    @(125.73 mm, 45.72 mm): Symbol PROM_RA1 Pin 1 [1, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(110.49 mm, 76.20 mm): Symbol PROM_SW1 Pin 3 [SW3A, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(110.49 mm, 80.01 mm): Symbol PROM_SW1 Pin 4 [SW4A, Passive, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(128.27 mm, 55.88 mm): Symbol PROM_RA1 Pin 3 [R2, Passive, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(130.81 mm, 55.88 mm): Symbol PROM_RA1 Pin 4 [R3, Passive, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(133.35 mm, 55.88 mm): Symbol PROM_RA1 Pin 5 [R4, Passive, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(139.70 mm, 82.55 mm): Symbol PROM_IC10 Pin 1 [~{OE1}, Input, Line]
@@ -496,19 +487,19 @@ Report includes: Errors, Warnings, Exclusions
     @(289.56 mm, 199.39 mm): Symbol PROM_CN3 Pin 5 [Pin_5, Passive, Line]
 [label_dangling]: Label not connected
     ; error
-    @(295.91 mm, 190.50 mm): Label 'TV-G'
+    @(293.37 mm, 194.31 mm): Label 'TV-G'
+[label_dangling]: Label not connected
+    ; error
+    @(293.37 mm, 195.58 mm): Label 'TV-B'
 [pin_not_connected]: Pin not connected
     ; error
     @(289.56 mm, 201.93 mm): Symbol PROM_CN3 Pin 6 [Pin_6, Passive, Line]
 [label_dangling]: Label not connected
     ; error
-    @(295.91 mm, 198.12 mm): Label 'TV-B'
+    @(293.37 mm, 196.85 mm): Label 'TV-R'
 [label_dangling]: Label not connected
     ; error
-    @(295.91 mm, 204.47 mm): Label 'TV-R'
-[label_dangling]: Label not connected
-    ; error
-    @(295.91 mm, 210.82 mm): Label 'CMPSYNC'
+    @(293.37 mm, 198.12 mm): Label 'CMPSYNC'
 [isolated_pin_label]: Label connected to only one pin
     ; warning
     @(69.85 mm, 68.58 mm): Label 'SUPAB'
@@ -524,15 +515,9 @@ Report includes: Errors, Warnings, Exclusions
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(115.57 mm, 74.93 mm): Symbol PROM_SW1 [_chip_PROM_SW1]
-[unconnected_wire_endpoint]: Unconnected wire endpoint
+[lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
-    @(129.54 mm, 55.88 mm): Vertical Wire, length 16.51 mm
-[unconnected_wire_endpoint]: Unconnected wire endpoint
-    ; warning
-    @(132.08 mm, 55.88 mm): Vertical Wire, length 20.32 mm
-[unconnected_wire_endpoint]: Unconnected wire endpoint
-    ; warning
-    @(134.62 mm, 55.88 mm): Vertical Wire, length 24.13 mm
+    @(130.81 mm, 50.80 mm): Symbol PROM_RA1 [_chip_PROM_RA1]
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(144.78 mm, 68.58 mm): Symbol PROM_IC10 [_chip_PROM_IC10]
@@ -787,16 +772,16 @@ Report includes: Errors, Warnings, Exclusions
     @(292.10 mm, 149.86 mm): Label 'ROAD'
 [unconnected_wire_endpoint]: Unconnected wire endpoint
     ; warning
-    @(294.64 mm, 190.50 mm): Horizontal Wire, length 1.27 mm
+    @(292.10 mm, 194.31 mm): Horizontal Wire, length 1.27 mm
 [unconnected_wire_endpoint]: Unconnected wire endpoint
     ; warning
-    @(294.64 mm, 198.12 mm): Horizontal Wire, length 1.27 mm
+    @(292.10 mm, 195.58 mm): Horizontal Wire, length 1.27 mm
 [unconnected_wire_endpoint]: Unconnected wire endpoint
     ; warning
-    @(294.64 mm, 204.47 mm): Horizontal Wire, length 1.27 mm
+    @(292.10 mm, 196.85 mm): Horizontal Wire, length 1.27 mm
 [unconnected_wire_endpoint]: Unconnected wire endpoint
     ; warning
-    @(294.64 mm, 210.82 mm): Horizontal Wire, length 1.27 mm
+    @(292.10 mm, 198.12 mm): Horizontal Wire, length 1.27 mm
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(400.05 mm, 17.78 mm): Symbol #PWR_GND [PWR_GND]
@@ -804,7 +789,7 @@ Report includes: Errors, Warnings, Exclusions
     ; warning
     @(400.05 mm, 27.94 mm): Symbol #PWR_VCC [PWR_VCC]
 
- ** ERC messages: 267  Errors 169  Warnings 98
+ ** ERC messages: 262  Errors 166  Warnings 96
 
  ** Ignored checks:
     - Global label only appears once in the schematic

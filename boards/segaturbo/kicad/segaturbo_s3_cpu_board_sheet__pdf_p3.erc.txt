@@ -1,4 +1,4 @@
-ERC report (2026-05-19T10:03:24, Encoding UTF8)
+ERC report (2026-05-23T10:02:11, Encoding UTF8)
 Report includes: Errors, Warnings, Exclusions
 
 ***** Sheet /
@@ -44,24 +44,15 @@ Report includes: Errors, Warnings, Exclusions
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(80.01 mm, 87.63 mm): Symbol IC25 Pin 10 [3B, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
+[pin_not_connected]: Pin not connected
     ; error
-    @(80.01 mm, 90.17 mm): Symbol IC25 Pin 2 [1A, Input, Line]
+    @(90.17 mm, 80.01 mm): Symbol IC25 Pin 4 [~{1Y}, Tri-state, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(90.17 mm, 82.55 mm): Symbol IC25 Pin 12 [~{4Y}, Tri-state, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(80.01 mm, 92.71 mm): Symbol IC25 Pin 14 [4A, Input, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(80.01 mm, 95.25 mm): Symbol IC25 Pin 5 [2A, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(90.17 mm, 86.36 mm): Symbol IC25 Pin 7 [~{2Y}, Tri-state, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(80.01 mm, 97.79 mm): Symbol IC25 Pin 11 [3A, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(90.17 mm, 88.90 mm): Symbol IC25 Pin 9 [~{3Y}, Tri-state, Line]
@@ -73,85 +64,97 @@ Report includes: Errors, Warnings, Exclusions
     @(85.09 mm, 99.06 mm): Symbol IC25 Pin 15 [~{G}, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
+    @(124.46 mm, 50.80 mm): Symbol CN9 Pin 1 [1, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(124.46 mm, 53.34 mm): Symbol CN9 Pin 14 [14, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(124.46 mm, 57.15 mm): Symbol CN9 Pin 16 [16, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(124.46 mm, 59.69 mm): Symbol CN9 Pin 15 [15, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
     @(85.09 mm, 109.22 mm): Symbol IC40 Pin 1 [S, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(85.09 mm, 109.22 mm): Symbol IC40 Pin 1 [S, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(124.46 mm, 60.96 mm): Symbol CN9 Pin 1 [Pin_1, Passive, Line]
+    @(124.46 mm, 62.23 mm): Symbol CN9 Pin 13 [13, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(124.46 mm, 63.50 mm): Symbol CN9 Pin 3 [Pin_3, Passive, Line]
+    @(124.46 mm, 66.04 mm): Symbol CN9 Pin 24 [24, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(124.46 mm, 66.04 mm): Symbol CN9 Pin 5 [Pin_5, Passive, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(124.46 mm, 68.58 mm): Symbol CN9 Pin 7 [Pin_7, Passive, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(124.46 mm, 71.12 mm): Symbol CN9 Pin 9 [Pin_9, Passive, Line]
+    @(124.46 mm, 68.58 mm): Symbol CN9 Pin 23 [23, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(90.17 mm, 111.76 mm): Symbol IC40 Pin 4 [~{1Y}, Tri-state, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(124.46 mm, 73.66 mm): Symbol CN9 Pin 11 [Pin_11, Passive, Line]
+    @(133.35 mm, 53.34 mm): Symbol CN9 Pin 12 [12, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(124.46 mm, 72.39 mm): Symbol CN9 Pin 22 [22, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(133.35 mm, 57.15 mm): Symbol CN9 Pin 9 [9, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(124.46 mm, 74.93 mm): Symbol CN9 Pin 21 [21, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(90.17 mm, 114.30 mm): Symbol IC40 Pin 12 [~{4Y}, Tri-state, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(124.46 mm, 76.20 mm): Symbol CN9 Pin 13 [Pin_13, Passive, Line]
+    @(133.35 mm, 59.69 mm): Symbol CN9 Pin 10 [10, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(124.46 mm, 78.74 mm): Symbol CN9 Pin 15 [Pin_15, Passive, Line]
+    @(124.46 mm, 77.47 mm): Symbol CN9 Pin 37 [37, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(133.35 mm, 62.23 mm): Symbol CN9 Pin 11 [11, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(90.17 mm, 118.11 mm): Symbol IC40 Pin 7 [~{2Y}, Tri-state, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(124.46 mm, 81.28 mm): Symbol CN9 Pin 17 [Pin_17, Passive, Line]
+    @(124.46 mm, 81.28 mm): Symbol CN9 Pin 39 [39, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(124.46 mm, 83.82 mm): Symbol CN9 Pin 19 [Pin_19, Passive, Line]
+    @(133.35 mm, 66.04 mm): Symbol CN9 Pin 20 [20, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(137.16 mm, 60.96 mm): Symbol CN9 Pin 2 [Pin_2, Passive, Line]
+    @(133.35 mm, 68.58 mm): Symbol CN9 Pin 19 [19, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(124.46 mm, 83.82 mm): Symbol CN9 Pin 41 [41, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(90.17 mm, 120.65 mm): Symbol IC40 Pin 9 [~{3Y}, Tri-state, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(137.16 mm, 63.50 mm): Symbol CN9 Pin 4 [Pin_4, Passive, Line]
+    @(133.35 mm, 72.39 mm): Symbol CN9 Pin 18 [18, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(124.46 mm, 86.36 mm): Symbol CN9 Pin 21 [Pin_21, Passive, Line]
+    @(124.46 mm, 87.63 mm): Symbol CN9 Pin 43 [43, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(137.16 mm, 66.04 mm): Symbol CN9 Pin 6 [Pin_6, Passive, Line]
+    @(133.35 mm, 74.93 mm): Symbol CN9 Pin 17 [17, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(124.46 mm, 88.90 mm): Symbol CN9 Pin 23 [Pin_23, Passive, Line]
+    @(124.46 mm, 90.17 mm): Symbol CN9 Pin 45 [45, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(137.16 mm, 68.58 mm): Symbol CN9 Pin 8 [Pin_8, Passive, Line]
+    @(133.35 mm, 77.47 mm): Symbol CN9 Pin 38 [38, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(124.46 mm, 91.44 mm): Symbol CN9 Pin 25 [Pin_25, Passive, Line]
+    @(124.46 mm, 93.98 mm): Symbol CN9 Pin 47 [47, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(137.16 mm, 71.12 mm): Symbol CN9 Pin 10 [Pin_10, Passive, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(137.16 mm, 73.66 mm): Symbol CN9 Pin 12 [Pin_12, Passive, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(124.46 mm, 93.98 mm): Symbol CN9 Pin 27 [Pin_27, Passive, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(137.16 mm, 76.20 mm): Symbol CN9 Pin 14 [Pin_14, Passive, Line]
+    @(133.35 mm, 81.28 mm): Symbol CN9 Pin 40 [40, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(85.09 mm, 132.08 mm): Symbol IC40 Pin 15 [~{G}, Input, Line]
@@ -160,94 +163,73 @@ Report includes: Errors, Warnings, Exclusions
     @(85.09 mm, 132.08 mm): Symbol IC40 Pin 15 [~{G}, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(124.46 mm, 96.52 mm): Symbol CN9 Pin 29 [Pin_29, Passive, Line]
+    @(124.46 mm, 96.52 mm): Symbol CN9 Pin 49 [49, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(147.32 mm, 55.88 mm): Symbol RP1A Pin 1 [common, Passive, Line]
+    @(133.35 mm, 83.82 mm): Symbol CN9 Pin 42 [42, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(137.16 mm, 78.74 mm): Symbol CN9 Pin 16 [Pin_16, Passive, Line]
+    @(124.46 mm, 99.06 mm): Symbol CN9 Pin 51 [51, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(124.46 mm, 99.06 mm): Symbol CN9 Pin 31 [Pin_31, Passive, Line]
+    @(133.35 mm, 87.63 mm): Symbol CN9 Pin 44 [44, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(137.16 mm, 81.28 mm): Symbol CN9 Pin 18 [Pin_18, Passive, Line]
+    @(152.40 mm, 50.80 mm): Symbol RP1A Pin 1 [1, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(124.46 mm, 101.60 mm): Symbol CN9 Pin 33 [Pin_33, Passive, Line]
+    @(133.35 mm, 90.17 mm): Symbol CN9 Pin 46 [46, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(137.16 mm, 83.82 mm): Symbol CN9 Pin 20 [Pin_20, Passive, Line]
+    @(152.40 mm, 53.34 mm): Symbol RP1A Pin 2 [2, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(147.32 mm, 66.04 mm): Symbol RP1A Pin 2 [R1, Passive, Line]
+    @(152.40 mm, 57.15 mm): Symbol RP1A Pin 3 [3, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(137.16 mm, 86.36 mm): Symbol CN9 Pin 22 [Pin_22, Passive, Line]
+    @(133.35 mm, 93.98 mm): Symbol CN9 Pin 48 [48, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(124.46 mm, 104.14 mm): Symbol CN9 Pin 35 [Pin_35, Passive, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(137.16 mm, 88.90 mm): Symbol CN9 Pin 24 [Pin_24, Passive, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(149.86 mm, 66.04 mm): Symbol RP1A Pin 3 [R2, Passive, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(124.46 mm, 106.68 mm): Symbol CN9 Pin 37 [Pin_37, Passive, Line]
+    @(152.40 mm, 59.69 mm): Symbol RP1A Pin 4 [4, Passive, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(80.01 mm, 143.51 mm): Symbol IC26 Pin 3 [1B, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
+    @(133.35 mm, 96.52 mm): Symbol CN9 Pin 50 [50, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
     @(85.09 mm, 140.97 mm): Symbol IC26 Pin 1 [S, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(85.09 mm, 140.97 mm): Symbol IC26 Pin 1 [S, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(137.16 mm, 91.44 mm): Symbol CN9 Pin 26 [Pin_26, Passive, Line]
+    @(152.40 mm, 63.50 mm): Symbol RP1A Pin 5 [5, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(152.40 mm, 66.04 mm): Symbol RP1A Pin 4 [R3, Passive, Line]
+    @(152.40 mm, 66.04 mm): Symbol RP1A Pin 6 [6, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(137.16 mm, 93.98 mm): Symbol CN9 Pin 28 [Pin_28, Passive, Line]
+    @(133.35 mm, 99.06 mm): Symbol CN9 Pin 52 [52, Passive, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(80.01 mm, 146.05 mm): Symbol IC26 Pin 13 [4B, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(137.16 mm, 96.52 mm): Symbol CN9 Pin 30 [Pin_30, Passive, Line]
+    @(152.40 mm, 69.85 mm): Symbol RP1A Pin 7 [7, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(154.94 mm, 66.04 mm): Symbol RP1A Pin 5 [R4, Passive, Line]
+    @(152.40 mm, 72.39 mm): Symbol RP1A Pin 8 [8, Passive, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(80.01 mm, 148.59 mm): Symbol IC26 Pin 6 [2B, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(147.32 mm, 82.55 mm): Symbol RP1B Pin 1 [common, Passive, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(124.46 mm, 114.30 mm): Symbol CN9 Pin 43 [Pin_43, Passive, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(137.16 mm, 99.06 mm): Symbol CN9 Pin 32 [Pin_32, Passive, Line]
-[pin_not_connected]: Pin not connected
-    ; error
     @(90.17 mm, 143.51 mm): Symbol IC26 Pin 4 [~{1Y}, Tri-state, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(137.16 mm, 101.60 mm): Symbol CN9 Pin 34 [Pin_34, Passive, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(124.46 mm, 116.84 mm): Symbol CN9 Pin 45 [Pin_45, Passive, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(157.48 mm, 66.04 mm): Symbol RP1A Pin 6 [R5, Passive, Line]
+    @(152.40 mm, 76.20 mm): Symbol RP1B Pin 1 [1, Passive, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(80.01 mm, 151.13 mm): Symbol IC26 Pin 10 [3B, Input, Line]
@@ -256,88 +238,46 @@ Report includes: Errors, Warnings, Exclusions
     @(90.17 mm, 146.05 mm): Symbol IC26 Pin 12 [~{4Y}, Tri-state, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(137.16 mm, 104.14 mm): Symbol CN9 Pin 36 [Pin_36, Passive, Line]
+    @(152.40 mm, 80.01 mm): Symbol RP1B Pin 2 [2, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(124.46 mm, 119.38 mm): Symbol CN9 Pin 47 [Pin_47, Passive, Line]
+    @(152.40 mm, 82.55 mm): Symbol RP1B Pin 3 [3, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(160.02 mm, 66.04 mm): Symbol RP1A Pin 7 [R6, Passive, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(80.01 mm, 153.67 mm): Symbol IC26 Pin 2 [1A, Input, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(137.16 mm, 106.68 mm): Symbol CN9 Pin 38 [Pin_38, Passive, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(147.32 mm, 92.71 mm): Symbol RP1B Pin 2 [R1, Passive, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(124.46 mm, 121.92 mm): Symbol CN9 Pin 49 [Pin_49, Passive, Line]
-[label_dangling]: Label not connected
-    ; error
-    @(125.73 mm, 120.65 mm): Label 'RA6'
+    @(163.83 mm, 60.96 mm): Symbol RP1A Pin 9 [9, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(90.17 mm, 149.86 mm): Symbol IC26 Pin 7 [~{2Y}, Tri-state, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(137.16 mm, 109.22 mm): Symbol CN9 Pin 40 [Pin_40, Passive, Line]
+    @(152.40 mm, 86.36 mm): Symbol RP1B Pin 4 [4, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(162.56 mm, 66.04 mm): Symbol RP1A Pin 8 [R7, Passive, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(80.01 mm, 156.21 mm): Symbol IC26 Pin 14 [4A, Input, Line]
+    @(124.46 mm, 124.46 mm): Symbol CN9 Pin 8 [8, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(124.46 mm, 124.46 mm): Symbol CN9 Pin 51 [Pin_51, Passive, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(149.86 mm, 92.71 mm): Symbol RP1B Pin 3 [R2, Passive, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(137.16 mm, 111.76 mm): Symbol CN9 Pin 42 [Pin_42, Passive, Line]
+    @(152.40 mm, 88.90 mm): Symbol RP1B Pin 5 [5, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(90.17 mm, 152.40 mm): Symbol IC26 Pin 9 [~{3Y}, Tri-state, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(80.01 mm, 158.75 mm): Symbol IC26 Pin 5 [2A, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(124.46 mm, 127.00 mm): Symbol CN9 Pin 53 [Pin_53, Passive, Line]
+    @(124.46 mm, 127.00 mm): Symbol CN9 Pin 7 [7, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(152.40 mm, 92.71 mm): Symbol RP1B Pin 4 [R3, Passive, Line]
+    @(152.40 mm, 92.71 mm): Symbol RP1B Pin 6 [6, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(137.16 mm, 114.30 mm): Symbol CN9 Pin 44 [Pin_44, Passive, Line]
+    @(152.40 mm, 95.25 mm): Symbol RP1B Pin 7 [7, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(124.46 mm, 129.54 mm): Symbol CN9 Pin 55 [Pin_55, Passive, Line]
-[pin_not_driven]: Input pin not driven by any Output pins
-    ; error
-    @(80.01 mm, 161.29 mm): Symbol IC26 Pin 11 [3A, Input, Line]
+    @(124.46 mm, 130.81 mm): Symbol CN9 Pin 2 [2, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(137.16 mm, 116.84 mm): Symbol CN9 Pin 46 [Pin_46, Passive, Line]
+    @(152.40 mm, 99.06 mm): Symbol RP1B Pin 8 [8, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(154.94 mm, 92.71 mm): Symbol RP1B Pin 5 [R4, Passive, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(124.46 mm, 132.08 mm): Symbol CN9 Pin 57 [Pin_57, Passive, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(137.16 mm, 119.38 mm): Symbol CN9 Pin 48 [Pin_48, Passive, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(157.48 mm, 92.71 mm): Symbol RP1B Pin 6 [R5, Passive, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(124.46 mm, 134.62 mm): Symbol CN9 Pin 59 [Pin_59, Passive, Line]
+    @(124.46 mm, 133.35 mm): Symbol CN9 Pin 3 [3, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(85.09 mm, 162.56 mm): Symbol IC26 Pin 15 [~{G}, Input, Line]
@@ -346,31 +286,28 @@ Report includes: Errors, Warnings, Exclusions
     @(85.09 mm, 162.56 mm): Symbol IC26 Pin 15 [~{G}, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(137.16 mm, 121.92 mm): Symbol CN9 Pin 50 [Pin_50, Passive, Line]
+    @(133.35 mm, 127.00 mm): Symbol CN9 Pin 6 [6, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(160.02 mm, 92.71 mm): Symbol RP1B Pin 7 [R6, Passive, Line]
+    @(124.46 mm, 135.89 mm): Symbol CN9 Pin 30 [30, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(137.16 mm, 124.46 mm): Symbol CN9 Pin 52 [Pin_52, Passive, Line]
+    @(163.83 mm, 87.63 mm): Symbol RP1B Pin 9 [9, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(137.16 mm, 127.00 mm): Symbol CN9 Pin 54 [Pin_54, Passive, Line]
+    @(133.35 mm, 130.81 mm): Symbol CN9 Pin 5 [5, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(162.56 mm, 92.71 mm): Symbol RP1B Pin 8 [R7, Passive, Line]
+    @(124.46 mm, 139.70 mm): Symbol CN9 Pin 28 [28, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(137.16 mm, 129.54 mm): Symbol CN9 Pin 56 [Pin_56, Passive, Line]
+    @(124.46 mm, 142.24 mm): Symbol CN9 Pin 27 [27, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(165.10 mm, 92.71 mm): Symbol RP1B Pin 9 [R8, Passive, Line]
+    @(133.35 mm, 135.89 mm): Symbol CN9 Pin 29 [29, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(137.16 mm, 132.08 mm): Symbol CN9 Pin 58 [Pin_58, Passive, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(137.16 mm, 134.62 mm): Symbol CN9 Pin 60 [Pin_60, Passive, Line]
+    @(133.35 mm, 139.70 mm): Symbol CN9 Pin 4 [4, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(85.09 mm, 175.26 mm): Symbol IC80 Pin 1 [S, Input, Line]
@@ -874,7 +811,7 @@ Report includes: Errors, Warnings, Exclusions
     @(193.04 mm, 151.13 mm): Symbol IC11 Pin 12 [A3, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(107.95 mm, 220.98 mm): Symbol C2 Pin 1 [Passive, Line]
+    @(107.95 mm, 220.98 mm): Symbol C2 Pin 1 [1, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(193.04 mm, 153.67 mm): Symbol IC11 Pin 6 [B0, Input, Line]
@@ -901,7 +838,7 @@ Report includes: Errors, Warnings, Exclusions
     @(193.04 mm, 156.21 mm): Symbol IC11 Pin 2 [B1, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(114.30 mm, 220.98 mm): Symbol C3 Pin 1 [Passive, Line]
+    @(114.30 mm, 220.98 mm): Symbol C3 Pin 1 [1, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(223.52 mm, 110.49 mm): Symbol IC23 Pin 2 [W0, Tri-state, Line]
@@ -970,9 +907,6 @@ Report includes: Errors, Warnings, Exclusions
     @(233.68 mm, 95.25 mm): Symbol IC37 Pin 9 [CLK, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(107.95 mm, 228.60 mm): Symbol C2 Pin 2 [Passive, Line]
-[pin_not_connected]: Pin not connected
-    ; error
     @(76.20 mm, 241.30 mm): Symbol IC8b Pin 6 [2Y, Output, Line]
 [pin_not_connected]: Pin not connected
     ; error
@@ -989,6 +923,9 @@ Report includes: Errors, Warnings, Exclusions
 [pin_not_connected]: Pin not connected
     ; error
     @(223.52 mm, 119.38 mm): Symbol IC23 Pin 15 [W3, Tri-state, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(107.95 mm, 229.87 mm): Symbol C2 Pin 2 [2, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(176.53 mm, 182.88 mm): Symbol IC12 Pin 5 [D1, Input, Line]
@@ -1009,10 +946,10 @@ Report includes: Errors, Warnings, Exclusions
     @(153.67 mm, 203.20 mm): Symbol IC53 Pin 16 [~{O8}, Open collector, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(195.58 mm, 163.83 mm): Symbol IC11 Pin 9 [C4, Output, Line]
+    @(113.03 mm, 228.60 mm): Symbol C3 Pin 2 [2, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(114.30 mm, 228.60 mm): Symbol C3 Pin 2 [Passive, Line]
+    @(195.58 mm, 163.83 mm): Symbol IC11 Pin 9 [C4, Output, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(223.52 mm, 124.46 mm): Symbol IC23 Pin 4 [D1, Input, Line]
@@ -1078,9 +1015,6 @@ Report includes: Errors, Warnings, Exclusions
     @(233.68 mm, 121.92 mm): Symbol IC23 Pin 7 [~{OE-W}, Input, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(119.38 mm, 236.22 mm): Symbol R1 Pin 1 [Passive, Line]
-[pin_not_connected]: Pin not connected
-    ; error
     @(233.68 mm, 124.46 mm): Symbol IC23 Pin 18 [POL, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
@@ -1100,6 +1034,9 @@ Report includes: Errors, Warnings, Exclusions
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(231.14 mm, 130.81 mm): Symbol IC23 Pin 8 [~{CLR}, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(114.30 mm, 240.03 mm): Symbol R1 Pin 1 [1, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(233.68 mm, 127.00 mm): Symbol IC23 Pin 9 [CLK, Input, Line]
@@ -1135,13 +1072,13 @@ Report includes: Errors, Warnings, Exclusions
     @(223.52 mm, 151.13 mm): Symbol IC10 Pin 15 [W3, Tri-state, Line]
 [pin_not_connected]: Pin not connected
     ; error
+    @(124.46 mm, 240.03 mm): Symbol R1 Pin 2 [2, Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
     @(223.52 mm, 153.67 mm): Symbol IC10 Pin 1 [D0, Input, Line]
 [pin_not_driven]: Input pin not driven by any Output pins
     ; error
     @(223.52 mm, 153.67 mm): Symbol IC10 Pin 1 [D0, Input, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(119.38 mm, 243.84 mm): Symbol R1 Pin 2 [Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(223.52 mm, 156.21 mm): Symbol IC10 Pin 4 [D1, Input, Line]
@@ -1523,48 +1460,21 @@ Report includes: Errors, Warnings, Exclusions
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(85.09 mm, 120.65 mm): Symbol IC40 [_chip_IC40]
-[unconnected_wire_endpoint]: Unconnected wire endpoint
+[lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
-    @(124.46 mm, 102.87 mm): Horizontal Wire, length 1.27 mm
-[unconnected_wire_endpoint]: Unconnected wire endpoint
+    @(129.54 mm, 96.52 mm): Symbol CN9 [_chip_CN9]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
-    @(124.46 mm, 105.41 mm): Horizontal Wire, length 1.27 mm
-[unconnected_wire_endpoint]: Unconnected wire endpoint
+    @(157.48 mm, 60.96 mm): Symbol RP1A [_chip_RP1A]
+[isolated_pin_label]: Label connected to only one pin
     ; warning
-    @(133.35 mm, 102.87 mm): Horizontal Wire, length 1.27 mm
-[unconnected_wire_endpoint]: Unconnected wire endpoint
-    ; warning
-    @(124.46 mm, 115.57 mm): Horizontal Wire, length 1.27 mm
-[unconnected_wire_endpoint]: Unconnected wire endpoint
-    ; warning
-    @(133.35 mm, 105.41 mm): Horizontal Wire, length 1.27 mm
-[unconnected_wire_endpoint]: Unconnected wire endpoint
-    ; warning
-    @(124.46 mm, 118.11 mm): Horizontal Wire, length 1.27 mm
-[unconnected_wire_endpoint]: Unconnected wire endpoint
-    ; warning
-    @(133.35 mm, 109.22 mm): Horizontal Wire, length 1.27 mm
-[unconnected_wire_endpoint]: Unconnected wire endpoint
-    ; warning
-    @(124.46 mm, 120.65 mm): Horizontal Wire, length 1.27 mm
-[unconnected_wire_endpoint]: Unconnected wire endpoint
-    ; warning
-    @(133.35 mm, 111.76 mm): Horizontal Wire, length 1.27 mm
+    @(125.73 mm, 120.65 mm): Label 'RA6'
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(85.09 mm, 152.40 mm): Symbol IC26 [_chip_IC26]
-[unconnected_wire_endpoint]: Unconnected wire endpoint
+[lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
-    @(133.35 mm, 115.57 mm): Horizontal Wire, length 1.27 mm
-[unconnected_wire_endpoint]: Unconnected wire endpoint
-    ; warning
-    @(133.35 mm, 118.11 mm): Horizontal Wire, length 1.27 mm
-[unconnected_wire_endpoint]: Unconnected wire endpoint
-    ; warning
-    @(133.35 mm, 120.65 mm): Horizontal Wire, length 1.27 mm
-[unconnected_wire_endpoint]: Unconnected wire endpoint
-    ; warning
-    @(133.35 mm, 124.46 mm): Horizontal Wire, length 1.27 mm
+    @(157.48 mm, 87.63 mm): Symbol RP1B [_chip_RP1B]
 [isolated_pin_label]: Label connected to only one pin
     ; warning
     @(81.28 mm, 177.80 mm): Label 'AD3'
@@ -1633,10 +1543,16 @@ Report includes: Errors, Warnings, Exclusions
     @(228.60 mm, 87.63 mm): Symbol IC37 [_chip_IC37]
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
+    @(107.95 mm, 224.79 mm): Symbol C2 [_chip_C2]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'user'
+    ; warning
     @(198.12 mm, 152.40 mm): Symbol IC11 [_chip_IC11]
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(69.85 mm, 241.30 mm): Symbol IC8b [_chip_IC8b]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'user'
+    ; warning
+    @(114.30 mm, 224.79 mm): Symbol C3 [_chip_C3]
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(87.63 mm, 240.03 mm): Symbol IC7b [_chip_IC7b]
@@ -1655,6 +1571,9 @@ Report includes: Errors, Warnings, Exclusions
 [isolated_pin_label]: Label connected to only one pin
     ; warning
     @(234.95 mm, 119.38 mm): Label 'AL11'
+[lib_symbol_issues]: The current configuration does not include the symbol library 'user'
+    ; warning
+    @(119.38 mm, 240.03 mm): Symbol R1 [_chip_R1]
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(189.23 mm, 190.50 mm): Symbol IC12 [_chip_IC12]
@@ -1725,7 +1644,7 @@ Report includes: Errors, Warnings, Exclusions
     ; warning
     @(400.05 mm, 27.94 mm): Symbol #PWR_VCC [PWR_VCC]
 
- ** ERC messages: 574  Errors 504  Warnings 70
+ ** ERC messages: 547  Errors 483  Warnings 64
 
  ** Ignored checks:
     - Global label only appears once in the schematic

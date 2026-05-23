@@ -1,4 +1,4 @@
-ERC report (2026-05-20T21:13:51, Encoding UTF8)
+ERC report (2026-05-23T10:02:13, Encoding UTF8)
 Report includes: Errors, Warnings, Exclusions
 
 ***** Sheet /
@@ -160,16 +160,13 @@ Report includes: Errors, Warnings, Exclusions
     @(92.71 mm, 233.68 mm): Symbol IC58 Pin 13 [S2, Output, Line]
 [pin_not_connected]: Pin not connected
     ; error
-    @(80.01 mm, 238.76 mm): Symbol C1 Pin 1 [Passive, Line]
+    @(76.20 mm, 242.57 mm): Symbol C1 Pin 1 [1, Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(237.49 mm, 92.71 mm): Symbol IC123 Pin 21 [PB3, Bidirectional, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(237.49 mm, 97.79 mm): Symbol IC123 Pin 22 [PB4, Bidirectional, Line]
-[pin_not_connected]: Pin not connected
-    ; error
-    @(80.01 mm, 246.38 mm): Symbol C1 Pin 2 [Passive, Line]
 [pin_not_connected]: Pin not connected
     ; error
     @(237.49 mm, 109.22 mm): Symbol IC123 Pin 25 [PB7, Bidirectional, Line]
@@ -449,18 +446,12 @@ Report includes: Errors, Warnings, Exclusions
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(229.87 mm, 96.52 mm): Symbol IC123 [_chip_IC123]
-[isolated_pin_label]: Label connected to only one pin
-    ; warning
-    @(87.63 mm, 238.76 mm): Label 'CARRY'
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(132.08 mm, 218.44 mm): Symbol IC74 [_chip_IC74]
-[unconnected_wire_endpoint]: Unconnected wire endpoint
+[lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
-    @(83.82 mm, 242.57 mm): Horizontal Wire, length 1.27 mm
-[isolated_pin_label]: Label connected to only one pin
-    ; warning
-    @(85.09 mm, 242.57 mm): Label 'CARRY'
+    @(80.01 mm, 242.57 mm): Symbol C1 [_chip_C1]
 [lib_symbol_issues]: The current configuration does not include the symbol library 'user'
     ; warning
     @(172.72 mm, 210.82 mm): Symbol IC86 [_chip_IC86]
@@ -552,7 +543,7 @@ Report includes: Errors, Warnings, Exclusions
     ; warning
     @(400.05 mm, 27.94 mm): Symbol #PWR_VCC [PWR_VCC]
 
- ** ERC messages: 183  Errors 101  Warnings 82
+ ** ERC messages: 180  Errors 100  Warnings 80
 
  ** Ignored checks:
     - Global label only appears once in the schematic

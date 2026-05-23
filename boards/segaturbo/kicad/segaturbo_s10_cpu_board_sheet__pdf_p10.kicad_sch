@@ -282,6 +282,38 @@
       )
     )
   )
+  (symbol "user:_chip_PROM_R2"
+    (pin_names (offset 0.508) hide)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (property "Reference" "U" (at 0 3.72113 0)
+      (effects (font (size 1.27 1.27))))
+    (property "Value" "R" (at 0 -3.72113 0)
+      (effects (font (size 1.27 1.27))))
+    (property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Datasheet" "" (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (property "Description" "Generic axial through-hole resistor. Instance carries the value (1k, 2k2, 4M7, 0R, …)." (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (hide yes)))
+    (symbol "_chip_PROM_R2_0_1"
+      (rectangle (start -1 1.72113) (end 1 -1.72113)
+        (stroke (width 0.254) (type default))
+        (fill (type none))
+      )
+    )
+    (symbol "_chip_PROM_R2_1_1"
+      (pin passive line (at 0 5.08 180) (length 2.54)
+        (name "1" (effects (font (size 1.27 1.27))))
+        (number "1" (effects (font (size 1.27 1.27))))
+      )
+      (pin passive line (at 0 -3.81 180) (length 2.54)
+        (name "2" (effects (font (size 1.27 1.27))))
+        (number "2" (effects (font (size 1.27 1.27))))
+      )
+    )
+  )
   (symbol "user:_chip_PROM_IC71"
     (pin_names (offset 0.508) hide)
     (exclude_from_sim no)
@@ -304,7 +336,7 @@
       )
     )
     (symbol "_chip_PROM_IC71_1_1"
-      (pin input line (at -7.62 -0 180) (length 2.54)
+      (pin input line (at -7.62 0 180) (length 2.54)
         (name "B" (effects (font (size 1.27 1.27))))
         (number "1" (effects (font (size 1.27 1.27))))
       )
@@ -324,7 +356,7 @@
         (name "D/U" (effects (font (size 1.27 1.27))))
         (number "5" (effects (font (size 1.27 1.27))))
       )
-      (pin output line (at 6.35 -0 0) (length 2.54)
+      (pin output line (at 6.35 0 0) (length 2.54)
         (name "QC" (effects (font (size 1.27 1.27))))
         (number "6" (effects (font (size 1.27 1.27))))
       )
@@ -412,7 +444,7 @@
         (name "D/U" (effects (font (size 1.27 1.27))))
         (number "5" (effects (font (size 1.27 1.27))))
       )
-      (pin output line (at 6.35 -0 0) (length 2.54)
+      (pin output line (at 6.35 0 0) (length 2.54)
         (name "QC" (effects (font (size 1.27 1.27))))
         (number "6" (effects (font (size 1.27 1.27))))
       )
@@ -480,7 +512,7 @@
       )
     )
     (symbol "_chip_PROM_IC95_1_1"
-      (pin input line (at -7.62 -0 180) (length 2.54)
+      (pin input line (at -7.62 0 180) (length 2.54)
         (name "B" (effects (font (size 1.27 1.27))))
         (number "1" (effects (font (size 1.27 1.27))))
       )
@@ -588,7 +620,7 @@
         (name "D/U" (effects (font (size 1.27 1.27))))
         (number "5" (effects (font (size 1.27 1.27))))
       )
-      (pin output line (at 6.35 -0 0) (length 2.54)
+      (pin output line (at 6.35 0 0) (length 2.54)
         (name "QC" (effects (font (size 1.27 1.27))))
         (number "6" (effects (font (size 1.27 1.27))))
       )
@@ -660,7 +692,7 @@
         (name "~{2PRE}" (effects (font (size 1.27 1.27))))
         (number "11" (effects (font (size 1.27 1.27))))
       )
-      (pin input line (at -7.62 -0 180) (length 2.54)
+      (pin input line (at -7.62 0 180) (length 2.54)
         (name "2CLK" (effects (font (size 1.27 1.27))))
         (number "12" (effects (font (size 1.27 1.27))))
       )
@@ -724,7 +756,7 @@
         (name "2B" (effects (font (size 1.27 1.27))))
         (number "5" (effects (font (size 1.27 1.27))))
       )
-      (pin output line (at 12.7 -0 0) (length 2.54)
+      (pin output line (at 12.7 0 0) (length 2.54)
         (name "2Y" (effects (font (size 1.27 1.27))))
         (number "6" (effects (font (size 1.27 1.27))))
       )
@@ -760,7 +792,7 @@
       )
     )
     (symbol "_chip_PROM_IC59c_1_1"
-      (pin input line (at -10.16 -0 180) (length 2.54)
+      (pin input line (at -10.16 0 180) (length 2.54)
         (name "3A" (effects (font (size 1.27 1.27))))
         (number "9" (effects (font (size 1.27 1.27))))
       )
@@ -812,7 +844,7 @@
         (name "1B" (effects (font (size 1.27 1.27))))
         (number "2" (effects (font (size 1.27 1.27))))
       )
-      (pin output line (at 8.89 -0 0) (length 2.54)
+      (pin output line (at 8.89 0 0) (length 2.54)
         (name "1Y" (effects (font (size 1.27 1.27))))
         (number "3" (effects (font (size 1.27 1.27))))
       )
@@ -856,7 +888,7 @@
         (name "4B" (effects (font (size 1.27 1.27))))
         (number "13" (effects (font (size 1.27 1.27))))
       )
-      (pin output line (at 8.89 -0 0) (length 2.54)
+      (pin output line (at 8.89 0 0) (length 2.54)
         (name "4Y" (effects (font (size 1.27 1.27))))
         (number "11" (effects (font (size 1.27 1.27))))
       )
@@ -924,7 +956,7 @@
         (name "GND" (effects (font (size 1.27 1.27))))
         (number "8" (effects (font (size 1.27 1.27))))
       )
-      (pin output line (at 12.7 -0 0) (length 2.54)
+      (pin output line (at 12.7 0 0) (length 2.54)
         (name "~{QD}" (effects (font (size 1.27 1.27))))
         (number "9" (effects (font (size 1.27 1.27))))
       )
@@ -1008,7 +1040,7 @@
         (name "D" (effects (font (size 1.27 1.27))))
         (number "7" (effects (font (size 1.27 1.27))))
       )
-      (pin output line (at 12.7 -0 0) (length 2.54)
+      (pin output line (at 12.7 0 0) (length 2.54)
         (name "~{QD}" (effects (font (size 1.27 1.27))))
         (number "9" (effects (font (size 1.27 1.27))))
       )
@@ -1090,146 +1122,6 @@
       )
     )
   )
-  (symbol "Device:R"
-  		(pin_numbers
-  			(hide yes)
-  		)
-  		(pin_names
-  			(offset 0)
-  		)
-  		(exclude_from_sim no)
-  		(in_bom yes)
-  		(on_board yes)
-  		(in_pos_files yes)
-  		(duplicate_pin_numbers_are_jumpers no)
-  		(property "Reference" "R"
-  			(at 2.032 0 90)
-  			(show_name no)
-  			(do_not_autoplace no)
-  			(effects
-  				(font
-  					(size 1.27 1.27)
-  				)
-  			)
-  		)
-  		(property "Value" "R"
-  			(at 0 0 90)
-  			(show_name no)
-  			(do_not_autoplace no)
-  			(effects
-  				(font
-  					(size 1.27 1.27)
-  				)
-  			)
-  		)
-  		(property "Footprint" ""
-  			(at -1.778 0 90)
-  			(show_name no)
-  			(do_not_autoplace no)
-  			(hide yes)
-  			(effects
-  				(font
-  					(size 1.27 1.27)
-  				)
-  			)
-  		)
-  		(property "Datasheet" ""
-  			(at 0 0 0)
-  			(show_name no)
-  			(do_not_autoplace no)
-  			(hide yes)
-  			(effects
-  				(font
-  					(size 1.27 1.27)
-  				)
-  			)
-  		)
-  		(property "Description" "Resistor"
-  			(at 0 0 0)
-  			(show_name no)
-  			(do_not_autoplace no)
-  			(hide yes)
-  			(effects
-  				(font
-  					(size 1.27 1.27)
-  				)
-  			)
-  		)
-  		(property "ki_keywords" "R res resistor"
-  			(at 0 0 0)
-  			(show_name no)
-  			(do_not_autoplace no)
-  			(hide yes)
-  			(effects
-  				(font
-  					(size 1.27 1.27)
-  				)
-  			)
-  		)
-  		(property "ki_fp_filters" "R_*"
-  			(at 0 0 0)
-  			(show_name no)
-  			(do_not_autoplace no)
-  			(hide yes)
-  			(effects
-  				(font
-  					(size 1.27 1.27)
-  				)
-  			)
-  		)
-  		(symbol "R_0_1"
-  			(rectangle
-  				(start -1.016 -2.54)
-  				(end 1.016 2.54)
-  				(stroke
-  					(width 0.254)
-  					(type default)
-  				)
-  				(fill
-  					(type none)
-  				)
-  			)
-  		)
-  		(symbol "R_1_1"
-  			(pin passive line
-  				(at 0 3.81 270)
-  				(length 1.27)
-  				(name ""
-  					(effects
-  						(font
-  							(size 1.27 1.27)
-  						)
-  					)
-  				)
-  				(number "1"
-  					(effects
-  						(font
-  							(size 1.27 1.27)
-  						)
-  					)
-  				)
-  			)
-  			(pin passive line
-  				(at 0 -3.81 90)
-  				(length 1.27)
-  				(name ""
-  					(effects
-  						(font
-  							(size 1.27 1.27)
-  						)
-  					)
-  				)
-  				(number "2"
-  					(effects
-  						(font
-  							(size 1.27 1.27)
-  						)
-  					)
-  				)
-  			)
-  		)
-  		(embedded_fonts no)
-  	)
   (symbol "user:PWR_GND"
     (power) (pin_names (offset 0)) (exclude_from_sim no) (in_bom no) (on_board no)
     (property "Reference" "#PWR" (at 0 -3.81 0)
@@ -1376,7 +1268,7 @@
     )
   )
   (symbol
-    (lib_id "Device:R")
+    (lib_id "user:_chip_PROM_R2")
     (at 111.76 214.63 0)
     (unit 1)
     (exclude_from_sim no)
