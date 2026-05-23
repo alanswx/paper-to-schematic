@@ -1034,9 +1034,22 @@ def cmd_export_kicad(args):
     out_dir = Path(args.out_dir) if args.out_dir else (board_dir(args.board) / "kicad")
     out_dir.mkdir(parents=True, exist_ok=True)
 
-    sheets = ([s["index"] for s in graph["sheets"] if s["index"] == args.sheet]
-              if args.sheet is not None
-              else [s["index"] for s in graph["sheets"]])
+    if args.sheet is not None:
+        sheets = [s["index"] for s in graph["sheets"] if s["index"] == args.sheet]
+    else:
+        sheets = []
+        for s in graph["sheets"]:
+            idx = s["index"]
+            if args.started_only:
+                has_components = any(c.get("sheet") == idx for c in graph.get("components", []))
+                has_nets = any(
+                    e.get("sheet") == idx
+                    for n in graph.get("nets", [])
+                    for e in n.get("endpoints", [])
+                )
+                if not has_components and not has_nets:
+                    continue
+            sheets.append(idx)
     if not sheets:
         print(f"no matching sheet(s)", file=sys.stderr)
         sys.exit(1)
@@ -1103,6 +1116,7 @@ def cmd_export_kicad(args):
         )
 
     written = []
+    written_sheets = []
     for idx in sheets:
         sheet_meta = next(s for s in graph["sheets"] if s["index"] == idx)
         # Filename: <board>_sheet<N>_<title>.kicad_sch (slugified title)
@@ -1113,6 +1127,17 @@ def cmd_export_kicad(args):
         scan_path = (board_dir(args.board) / sheet_meta["scan_path"]).resolve() if sheet_meta.get("scan_path") else None
         text = kicad_export.gen_sch(graph, chips, idx, project_name=args.board,
                                      bg_image=args.bg_image, scan_path=scan_path)
+        fpath.write_text(text)
+        written.append(fpath)
+        written_sheets.append((idx, fpath.name))
+        print(f"  wrote {fpath} ({len(text):,} bytes)")
+
+    if args.combined_root:
+        fname = f"{args.board}.kicad_sch"
+        fpath = out_dir / fname
+        text = kicad_export.gen_combined_root_sch(
+            graph, written_sheets, project_name=args.board
+        )
         fpath.write_text(text)
         written.append(fpath)
         print(f"  wrote {fpath} ({len(text):,} bytes)")
@@ -2176,6 +2201,11 @@ def main():
     sp.add_argument("--board", required=True)
     sp.add_argument("--sheet", type=int, help="single sheet (default: all sheets)")
     sp.add_argument("--out-dir", help="output directory (default: boards/<id>/kicad/)")
+    sp.add_argument("--started-only", action="store_true",
+                    help="when exporting all sheets, skip sheets with no components or nets")
+    sp.add_argument("--combined-root", action="store_true",
+                    help="also emit <board>.kicad_sch as a top-level "
+                         "hierarchical sheet linking the exported sheets")
     sp.add_argument("--validate", action="store_true",
                     help="parse output as s-expression after writing; if KiCad CLI is on PATH or at the standard macOS location, also run sch erc")
     sp.add_argument("--allow-invalid", action="store_true",

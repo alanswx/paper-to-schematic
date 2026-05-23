@@ -1199,6 +1199,90 @@ def gen_sch(graph: dict, chips: dict, sheet_index: int, project_name: str = "sch
     return "\n".join(parts)
 
 
+def gen_combined_root_sch(graph: dict, sheet_files: list[tuple[int, str]],
+                          project_name: str = "schematic") -> str:
+    """Produce a top-level KiCad sheet that links every exported sheet.
+
+    This is intentionally hierarchical, not flat. Flattening all pages onto
+    one A3 sheet makes the output unreadable and also risks accidental
+    same-coordinate wire unions. The root sheet gives KiCad one entry point
+    for navigating and ERCing the per-source-page schematics.
+    """
+    root_uuid = stable_uuid(f"{graph['board']['id']}/combined-root")
+    title = f"{graph['board'].get('title', graph['board']['id'])} combined"
+    drawing_no = graph["board"].get("drawing_number", "")
+    manufacturer = graph["board"].get("manufacturer", "")
+
+    sheet_by_index = {s["index"]: s for s in graph.get("sheets", [])}
+    blocks = []
+    instance_paths = []
+    cols = 2
+    x0 = 30.48
+    y0 = 38.10
+    w = 152.40
+    h = 22.86
+    x_gap = 190.50
+    y_gap = 38.10
+    for i, (idx, filename) in enumerate(sheet_files):
+        row = i // cols
+        col = i % cols
+        x = x0 + col * x_gap
+        y = y0 + row * y_gap
+        meta = sheet_by_index.get(idx, {})
+        sheet_title = meta.get("title", f"sheet {idx}")
+        name = f"S{idx}: {sheet_title}"
+        suuid = stable_uuid(f"{graph['board']['id']}/combined-root/sheet/{idx}")
+        instance_paths.append((suuid, str(idx + 1)))
+        blocks.append(f'''  (sheet (at {_f(x)} {_f(y)}) (size {_f(w)} {_f(h)})
+    (stroke (width 0.1524) (type solid))
+    (fill (color 0 0 0 0.0000))
+    (uuid "{suuid}")
+    (property "Sheetname" {_esc(name)} (at {_f(x)} {_f(y - 2.54)} 0)
+      (effects (font (size 1.27 1.27)) (justify left bottom)))
+    (property "Sheetfile" {_esc(filename)} (at {_f(x)} {_f(y + h + 2.54)} 0)
+      (effects (font (size 1.27 1.27)) (justify left top)))
+    (instances
+      (project {_esc(project_name)}
+        (path "/{suuid}" (page "{idx + 1}"))
+      )
+    )
+  )''')
+
+    sheet_instance_lines = [
+        '  (sheet_instances',
+        '    (path "/"',
+        '      (page "1")',
+        '    )',
+    ]
+    for suuid, page in instance_paths:
+        sheet_instance_lines.extend([
+            f'    (path "/{suuid}"',
+            f'      (page "{page}")',
+            '    )',
+        ])
+    sheet_instance_lines.append('  )')
+
+    parts = [
+        '(kicad_sch',
+        '  (version 20240108)',
+        '  (generator "paper-to-schematic")',
+        '  (generator_version "0.1")',
+        f'  (uuid "{root_uuid}")',
+        '  (paper "A3")',
+        '  (title_block',
+        f'    (title {_esc(title)})',
+        f'    (rev {_esc(drawing_no)})',
+        f'    (company {_esc(manufacturer)})',
+        '  )',
+        '  (lib_symbols)',
+        *blocks,
+        *sheet_instance_lines,
+        ')',
+        '',
+    ]
+    return "\n".join(parts)
+
+
 def parse_sexp(text: str):
     """Tiny S-expression parser — returns nested lists of strings."""
     pos = 0
