@@ -1,0 +1,312 @@
+ERC report (2026-05-21T22:53:43, Encoding UTF8)
+Report includes: Errors, Warnings, Exclusions
+
+***** Sheet /
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(111.76 mm, 64.77 mm): Symbol PROM_IC71 Pin 15 [A, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(111.76 mm, 69.85 mm): Symbol PROM_IC71 Pin 1 [B, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(111.76 mm, 73.66 mm): Symbol PROM_IC71 Pin 10 [C, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(111.76 mm, 77.47 mm): Symbol PROM_IC71 Pin 9 [D, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(111.76 mm, 81.28 mm): Symbol PROM_IC71 Pin 11 [~{LOAD}, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(121.92 mm, 82.55 mm): Symbol PROM_IC71 Pin 12 [MAX/MIN, Output, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(113.03 mm, 101.60 mm): Symbol PROM_IC83 Pin 15 [A, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(113.03 mm, 105.41 mm): Symbol PROM_IC83 Pin 1 [B, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(113.03 mm, 110.49 mm): Symbol PROM_IC83 Pin 10 [C, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(152.40 mm, 49.53 mm): Symbol PROM_IC59b Pin 5 [2B, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(113.03 mm, 114.30 mm): Symbol PROM_IC83 Pin 9 [D, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(121.92 mm, 119.38 mm): Symbol PROM_IC83 Pin 12 [MAX/MIN, Output, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(111.76 mm, 137.16 mm): Symbol PROM_IC95 Pin 15 [A, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(111.76 mm, 142.24 mm): Symbol PROM_IC95 Pin 1 [B, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(111.76 mm, 146.05 mm): Symbol PROM_IC95 Pin 10 [C, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(111.76 mm, 149.86 mm): Symbol PROM_IC95 Pin 9 [D, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(179.07 mm, 69.85 mm): Symbol PROM_IC54b Pin 12 [2CLK, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(179.07 mm, 76.20 mm): Symbol PROM_IC54b Pin 14 [2J, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(179.07 mm, 76.20 mm): Symbol PROM_IC54b Pin 14 [2J, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(186.69 mm, 57.15 mm): Symbol PROM_IC54b Pin 11 [~{2PRE}, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(186.69 mm, 57.15 mm): Symbol PROM_IC54b Pin 11 [~{2PRE}, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(121.92 mm, 154.94 mm): Symbol PROM_IC95 Pin 12 [MAX/MIN, Output, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(194.31 mm, 60.96 mm): Symbol PROM_IC54b Pin 10 [2Q, Output, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(186.69 mm, 82.55 mm): Symbol PROM_IC54b Pin 15 [~{2CLR}, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(111.76 mm, 173.99 mm): Symbol PROM_IC101 Pin 15 [A, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(111.76 mm, 177.80 mm): Symbol PROM_IC101 Pin 1 [B, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(111.76 mm, 182.88 mm): Symbol PROM_IC101 Pin 10 [C, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(111.76 mm, 186.69 mm): Symbol PROM_IC101 Pin 9 [D, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(119.38 mm, 190.50 mm): Symbol PROM_IC101 Pin 13 [~{RCO}, Output, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(121.92 mm, 190.50 mm): Symbol PROM_IC101 Pin 12 [MAX/MIN, Output, Line]
+[label_dangling]: Label not connected
+    ; error
+    @(113.03 mm, 209.55 mm): Label 'COMMON_PORTION'
+[pin_not_connected]: Pin not connected
+    ; error
+    @(111.76 mm, 210.82 mm): Symbol PROM_R2 Pin 1 [Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(111.76 mm, 218.44 mm): Symbol PROM_R2 Pin 2 [Passive, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(231.14 mm, 120.65 mm): Symbol PROM_IC84 Pin 1 [VPP, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(231.14 mm, 120.65 mm): Symbol PROM_IC84 Pin 1 [VPP, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(231.14 mm, 123.19 mm): Symbol PROM_IC84 Pin 27 [~{PGM}, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(231.14 mm, 123.19 mm): Symbol PROM_IC84 Pin 27 [~{PGM}, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(231.14 mm, 127.00 mm): Symbol PROM_IC84 Pin 26 [NC, Unspecified, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(233.68 mm, 158.75 mm): Symbol PROM_IC72 Pin 3 [~{K}, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(233.68 mm, 158.75 mm): Symbol PROM_IC72 Pin 3 [~{K}, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(260.35 mm, 127.00 mm): Symbol PROM_IC84 Pin 20 [~{CE}, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(276.86 mm, 116.84 mm): Symbol PROM_IC102 Pin 1 [VPP, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(276.86 mm, 116.84 mm): Symbol PROM_IC102 Pin 1 [VPP, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(276.86 mm, 120.65 mm): Symbol PROM_IC102 Pin 27 [~{PGM}, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(276.86 mm, 120.65 mm): Symbol PROM_IC102 Pin 27 [~{PGM}, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(276.86 mm, 123.19 mm): Symbol PROM_IC102 Pin 26 [NC, Unspecified, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(247.65 mm, 190.50 mm): Symbol PROM_IC53b Pin 3 [2A, Input, Line]
+[pin_not_connected]: Pin not connected
+    ; error
+    @(279.40 mm, 158.75 mm): Symbol PROM_IC60 Pin 3 [~{K}, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(279.40 mm, 158.75 mm): Symbol PROM_IC60 Pin 3 [~{K}, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(284.48 mm, 162.56 mm): Symbol PROM_IC60 Pin 10 [CLK, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(304.80 mm, 153.67 mm): Symbol PROM_IC60 Pin 15 [SH/~LD, Input, Line]
+[pin_not_driven]: Input pin not driven by any Output pins
+    ; error
+    @(300.99 mm, 162.56 mm): Symbol PROM_IC60 Pin 1 [~{CLR}, Input, Line]
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(113.03 mm, 64.77 mm): Label 'AL0'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(113.03 mm, 69.85 mm): Label 'AL1'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(113.03 mm, 73.66 mm): Label 'AL2'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(113.03 mm, 77.47 mm): Label 'AL3'
+[lib_symbol_issues]: The current configuration does not include the symbol library 'user'
+    ; warning
+    @(119.38 mm, 69.85 mm): Symbol PROM_IC71 [_chip_PROM_IC71]
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(127.00 mm, 60.96 mm): Label 'CW0'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(114.30 mm, 101.60 mm): Label 'AL4'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(114.30 mm, 105.41 mm): Label 'AL5'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(114.30 mm, 110.49 mm): Label 'AL6'
+[lib_symbol_issues]: The current configuration does not include the symbol library 'user'
+    ; warning
+    @(119.38 mm, 106.68 mm): Symbol PROM_IC83 [_chip_PROM_IC83]
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(114.30 mm, 114.30 mm): Label 'AL7'
+[lib_symbol_issues]: The current configuration does not include the symbol library 'user'
+    ; warning
+    @(163.83 mm, 46.99 mm): Symbol PROM_IC59b [_chip_PROM_IC59b]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'user'
+    ; warning
+    @(162.56 mm, 60.96 mm): Symbol PROM_IC59c [_chip_PROM_IC59c]
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(113.03 mm, 137.16 mm): Label 'AL8'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(113.03 mm, 142.24 mm): Label 'AL9'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(113.03 mm, 146.05 mm): Label 'AL10'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(173.99 mm, 62.23 mm): Label 'S10_IC59C_OUT'
+[lib_symbol_issues]: The current configuration does not include the symbol library 'user'
+    ; warning
+    @(119.38 mm, 142.24 mm): Symbol PROM_IC95 [_chip_PROM_IC95]
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(113.03 mm, 149.86 mm): Label 'AL11'
+[lib_symbol_issues]: The current configuration does not include the symbol library 'user'
+    ; warning
+    @(186.69 mm, 69.85 mm): Symbol PROM_IC54b [_chip_PROM_IC54b]
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(187.96 mm, 82.55 mm): Label 'TVBLANK'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(113.03 mm, 173.99 mm): Label 'AL12'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(195.58 mm, 76.20 mm): Label 'TVBLANK_Q'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(113.03 mm, 177.80 mm): Label 'AL13'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(113.03 mm, 182.88 mm): Label 'AL14'
+[lib_symbol_issues]: The current configuration does not include the symbol library 'user'
+    ; warning
+    @(119.38 mm, 179.07 mm): Symbol PROM_IC101 [_chip_PROM_IC101]
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(113.03 mm, 186.69 mm): Label 'AL15'
+[unconnected_wire_endpoint]: Unconnected wire endpoint
+    ; warning
+    @(111.76 mm, 209.55 mm): Horizontal Wire, length 1.27 mm
+[lib_symbol_issues]: The current configuration does not include the symbol library 'user'
+    ; warning
+    @(222.25 mm, 143.51 mm): Symbol PROM_IC59a [_chip_PROM_IC59a]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'user'
+    ; warning
+    @(246.38 mm, 101.60 mm): Symbol PROM_IC84 [_chip_PROM_IC84]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'user'
+    ; warning
+    @(222.25 mm, 182.88 mm): Symbol PROM_IC59d [_chip_PROM_IC59d]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'user'
+    ; warning
+    @(247.65 mm, 156.21 mm): Symbol PROM_IC72 [_chip_PROM_IC72]
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(246.38 mm, 163.83 mm): Label 'CDR0'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(250.19 mm, 163.83 mm): Label 'CDG0'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(261.62 mm, 156.21 mm): Label 'PLB0_BAR'
+[lib_symbol_issues]: The current configuration does not include the symbol library 'user'
+    ; warning
+    @(290.83 mm, 101.60 mm): Symbol PROM_IC102 [_chip_PROM_IC102]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'user'
+    ; warning
+    @(256.54 mm, 191.77 mm): Symbol PROM_IC53b [_chip_PROM_IC53b]
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(266.70 mm, 190.50 mm): Label 'LS11_OUT'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(300.99 mm, 133.35 mm): Label 'PD6B'
+[lib_symbol_issues]: The current configuration does not include the symbol library 'user'
+    ; warning
+    @(292.10 mm, 156.21 mm): Symbol PROM_IC60 [_chip_PROM_IC60]
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(303.53 mm, 133.35 mm): Label 'PD7B'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(292.10 mm, 162.56 mm): Label 'CDR0B'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(294.64 mm, 162.56 mm): Label 'CDG0B'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(297.18 mm, 162.56 mm): Label 'CDB0B'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(299.72 mm, 162.56 mm): Label 'PLB0B'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(306.07 mm, 156.21 mm): Label 'PLB0B_BAR'
+[lib_symbol_issues]: The current configuration does not include the symbol library 'user'
+    ; warning
+    @(400.05 mm, 17.78 mm): Symbol #PWR_GND [PWR_GND]
+[lib_symbol_issues]: The current configuration does not include the symbol library 'user'
+    ; warning
+    @(400.05 mm, 27.94 mm): Symbol #PWR_VCC [PWR_VCC]
+
+ ** ERC messages: 100  Errors 52  Warnings 48
+
+ ** Ignored checks:
+    - Global label only appears once in the schematic
+    - Four connection points are joined together
+    - SPICE model issue
+    - Assigned footprint doesn't match footprint filters
